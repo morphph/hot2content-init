@@ -96,5 +96,8 @@
     "keywords_zh": ["Claude Agent Teams", "多智能体编程", "Opus 4.6", "AI编程助手", "Claude Code"]
   },
 
-  "china_angle": "Agent Teams 对中国开发者的意义：1) 复杂项目的成本效益——$20K 完成编译器开发，远低于等效人力成本；2) 与国产大模型的对比——Kimi、通义千问等尚未提供类似多智能体协作能力；3) 企业级应用潜力——大型代码库重构、并行代码审查等场景；4) 开发者生态——中国团队可以探索将 Agent Teams 与本地化工具链结合。"
+  "localization": {
+    "zh_strategy": "adapted",
+    "zh_hints": "可对比国产模型（Kimi、通义千问）尚无类似多智能体能力；强调成本效益（$20K vs 人力成本）；企业级代码库重构场景"
+  }
 }

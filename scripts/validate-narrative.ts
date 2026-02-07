@@ -73,7 +73,10 @@ const CoreNarrativeSchema = z.object({
   references: z.array(ReferenceSchema).min(1, 'references must have at least 1 item'),
   diagrams: z.array(DiagramSchema).min(1, 'diagrams must have at least 1 item'),
   seo: SEOSchema,
-  china_angle: z.string().nullable(),
+  localization: z.object({
+    zh_strategy: z.enum(['native', 'adapted', 'global']),
+    zh_hints: z.string().nullable(),
+  }),
 });
 
 type CoreNarrative = z.infer<typeof CoreNarrativeSchema>;
@@ -104,7 +107,7 @@ function main() {
       console.log(`  - References: ${result.data.references.length}`);
       console.log(`  - Diagrams: ${result.data.diagrams.length}`);
       console.log(`  - Is Update: ${result.data.is_update}`);
-      console.log(`  - China Angle: ${result.data.china_angle ? 'Yes' : 'No'}`);
+      console.log(`  - Localization: ${result.data.localization.zh_strategy} ${result.data.localization.zh_hints ? '(with hints)' : ''}`);
       console.log();
       process.exit(0);
     } else {
