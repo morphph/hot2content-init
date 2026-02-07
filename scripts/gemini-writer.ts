@@ -2,9 +2,10 @@
 import 'dotenv/config';
 
 /**
- * Kimi K2.5 Chinese Blog Writer
+ * Gemini 2.5 Pro Chinese Blog Writer
  *
  * Reads Core Narrative and Research Report, generates native Chinese blog.
+ * Alternative to kimi-writer.ts when Kimi API is unavailable.
  */
 
 import * as fs from 'fs';
@@ -35,13 +36,13 @@ interface CoreNarrative {
 }
 
 async function main() {
-  console.log('✍️  Kimi K2.5 中文博客生成器\n');
+  console.log('✍️  Gemini 2.5 Pro 中文博客生成器\n');
   console.log('='.repeat(60) + '\n');
 
   // Check API key
-  const apiKey = process.env.KIMI_API_KEY || process.env.MOONSHOT_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error('❌ Error: KIMI_API_KEY or MOONSHOT_API_KEY not found in environment');
+    console.error('❌ Error: GEMINI_API_KEY not found in environment');
     process.exit(1);
   }
 
@@ -123,24 +124,27 @@ ${researchReport.substring(0, 5000)}
 
 请创作中文博客，直接输出Markdown格式。`;
 
-  console.log('\n📡 Calling Kimi K2.5 API...');
+  console.log('\n📡 Calling Gemini 2.5 Pro API...');
 
   try {
-    const response = await fetch('https://api.moonshot.cn/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        model: 'moonshot-v1-128k',
-        messages: [
-          { role: 'user', content: prompt }
-        ],
-        temperature: 0.7,
-        max_tokens: 8000
-      })
-    });
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.7,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 8192,
+          }
+        })
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -148,7 +152,7 @@ ${researchReport.substring(0, 5000)}
     }
 
     const data = await response.json();
-    const content = data.choices?.[0]?.message?.content;
+    const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!content) {
       throw new Error('No content in API response');

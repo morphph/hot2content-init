@@ -2,7 +2,7 @@
 import 'dotenv/config';
 
 /**
- * Kimi K2.5 Chinese Blog Writer
+ * Claude Chinese Blog Writer
  *
  * Reads Core Narrative and Research Report, generates native Chinese blog.
  */
@@ -35,13 +35,13 @@ interface CoreNarrative {
 }
 
 async function main() {
-  console.log('✍️  Kimi K2.5 中文博客生成器\n');
+  console.log('✍️  Claude 中文博客生成器\n');
   console.log('='.repeat(60) + '\n');
 
   // Check API key
-  const apiKey = process.env.KIMI_API_KEY || process.env.MOONSHOT_API_KEY;
+  const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    console.error('❌ Error: KIMI_API_KEY or MOONSHOT_API_KEY not found in environment');
+    console.error('❌ Error: ANTHROPIC_API_KEY not found in environment');
     process.exit(1);
   }
 
@@ -115,30 +115,30 @@ ${narrative.key_points.map((p, i) => `${i + 1}. ${p}`).join('\n')}
 **China Angle:** ${narrative.china_angle || '无特定中国视角'}
 
 ---
-## Research Report（调研报告摘要，前5000字）
+## Research Report（调研报告摘要，前8000字）
 
-${researchReport.substring(0, 5000)}
+${researchReport.substring(0, 8000)}
 
 ---
 
-请创作中文博客，直接输出Markdown格式。`;
+请创作中文博客，直接输出Markdown格式，不要有任何前言。`;
 
-  console.log('\n📡 Calling Kimi K2.5 API...');
+  console.log('\n📡 Calling Claude API...');
 
   try {
-    const response = await fetch('https://api.moonshot.cn/v1/chat/completions', {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'moonshot-v1-128k',
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 8192,
         messages: [
           { role: 'user', content: prompt }
-        ],
-        temperature: 0.7,
-        max_tokens: 8000
+        ]
       })
     });
 
@@ -148,7 +148,7 @@ ${researchReport.substring(0, 5000)}
     }
 
     const data = await response.json();
-    const content = data.choices?.[0]?.message?.content;
+    const content = data.content?.[0]?.text;
 
     if (!content) {
       throw new Error('No content in API response');

@@ -9,6 +9,7 @@
 import { z } from 'zod';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
+import { fileURLToPath } from 'url';
 
 // Core Narrative Schema (PRD Section 7)
 const ReferenceSchema = z.object({
@@ -83,7 +84,7 @@ function main() {
   const filePath = args[0] || 'output/core-narrative.json';
   const resolvedPath = resolve(process.cwd(), filePath);
 
-  console.log(`\n🔍 Validating: ${resolvedPath}\n`);
+  console.log(`\n Validating: ${resolvedPath}\n`);
 
   try {
     // Read and parse JSON
@@ -94,7 +95,7 @@ function main() {
     const result = CoreNarrativeSchema.safeParse(data);
 
     if (result.success) {
-      console.log('✅ Core Narrative validation PASSED\n');
+      console.log('Core Narrative validation PASSED\n');
       console.log('Summary:');
       console.log(`  - Topic ID: ${result.data.topic_id}`);
       console.log(`  - Title: ${result.data.title}`);
@@ -107,24 +108,24 @@ function main() {
       console.log();
       process.exit(0);
     } else {
-      console.log('❌ Core Narrative validation FAILED\n');
+      console.log('Core Narrative validation FAILED\n');
       console.log('Errors:');
       result.error.errors.forEach((err) => {
         const path = err.path.length > 0 ? err.path.join('.') : 'root';
-        console.log(`  • ${path}: ${err.message}`);
+        console.log(`  - ${path}: ${err.message}`);
       });
       console.log();
       process.exit(1);
     }
   } catch (error) {
     if (error instanceof SyntaxError) {
-      console.log('❌ Invalid JSON format\n');
+      console.log('Invalid JSON format\n');
       console.log(`Error: ${error.message}\n`);
     } else if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-      console.log('❌ File not found\n');
+      console.log('File not found\n');
       console.log(`Path: ${resolvedPath}\n`);
     } else {
-      console.log('❌ Unexpected error\n');
+      console.log('Unexpected error\n');
       console.log(error);
       console.log();
     }
@@ -132,9 +133,7 @@ function main() {
   }
 }
 
-// Run if executed directly
-if (require.main === module) {
-  main();
-}
+// Run main directly (ESM compatible)
+main();
 
 export { CoreNarrativeSchema, CoreNarrative };
