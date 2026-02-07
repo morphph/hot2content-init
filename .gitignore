@@ -1,0 +1,18 @@
+node_modules/
+.env
+*.log
+
+# Pipeline outputs (regenerated each run)
+output/research-report.md
+output/core-narrative.json
+output/blog-en.md
+output/blog-zh.md
+output/seo-review.md
+
+# Pipeline inputs (regenerated each run)
+input/topic.json
+input/raw-sources.json
+input/dedup-report.json
+
+# Keep topic-index.json (persistent)
+!output/topic-index.json

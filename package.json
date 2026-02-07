@@ -1,0 +1,17 @@
+{
+  "name": "hot2content",
+  "version": "0.1.0",
+  "description": "AI Content Engine — Topic → Research → Core Narrative → Multi-platform Content",
+  "type": "module",
+  "scripts": {
+    "research": "tsx scripts/gemini-research.ts",
+    "write-zh": "tsx scripts/kimi-writer.ts",
+    "collect-twitter": "tsx scripts/twitter-collector.ts",
+    "validate": "tsx scripts/validate-narrative.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
