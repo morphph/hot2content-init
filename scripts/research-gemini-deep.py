@@ -71,7 +71,9 @@ try:
     print(f"🆔 Interaction ID: {interaction.id}")
     print("⏳ Polling for results", end="", flush=True)
     
-    # Poll for results
+    # Poll for results (up to 15 minutes)
+    max_wait = 900  # 15 minutes
+    poll_start = time.time()
     while True:
         interaction = client.interactions.get(interaction.id)
         if interaction.status == "completed":
@@ -79,6 +81,13 @@ try:
             break
         elif interaction.status == "failed":
             print(f"\n❌ Research failed: {interaction.error}")
+            exit(1)
+        
+        elapsed_poll = time.time() - poll_start
+        if elapsed_poll > max_wait:
+            print(f"\n⚠️ Timeout after {elapsed_poll:.0f}s - saving interaction ID for later")
+            print(f"   Interaction ID: {interaction.id}")
+            print(f"   Status: {interaction.status}")
             exit(1)
         
         print(".", end="", flush=True)
