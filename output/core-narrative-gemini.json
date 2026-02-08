@@ -1,0 +1,98 @@
+{
+  "topic_id": "claude-code-agent-teams-opus-4-6",
+  "title": "Claude Code Agent Teams: The Opus 4.6 Multi-Agent Workflow",
+  "created_at": "2026-02-07T23:59:16Z",
+  "is_update": false,
+  "previous_topic_id": null,
+  "one_liner": "Anthropic's experimental feature allows a 'Team Lead' agent to orchestrate independent peer agents with their own context windows to solve complex tasks like building compilers.",
+  "key_points": [
+    "Released in February 2026 with Claude Opus 4.6, 'Agent Teams' enables parallel, autonomous multi-agent coordination within the Claude Code CLI.",
+    "Unlike standard sub-agents, teammates possess independent context windows and communicate peer-to-peer via a shared task list and messaging system.",
+    "Anthropic researcher Nicholas Carlini demonstrated the capability by having 16 agents autonomously write a 100,000-line C compiler in Rust for $20,000.",
+    "The feature utilizes `tmux` for split-pane visualization and is enabled via the `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` environment flag.",
+    "Key use cases include read-heavy parallel exploration, multi-perspective security audits, and cross-stack feature implementation (frontend/backend/db)."
+  ],
+  "story_spine": {
+    "background": "Prior to February 2026, AI coding assistants operated primarily as 'individual contributors' or used sub-agents that were limited by a single shared context window and strict boss-to-worker reporting lines, making complex, multi-file projects difficult to execute autonomously.",
+    "breakthrough": "With the release of the Opus 4.6 model, Anthropic introduced 'Agent Teams' in Claude Code, a research preview that allows a Lead Agent to spawn distinct teammates. Each teammate operates with its own isolated context window and has the ability to coordinate laterally with peers.",
+    "mechanism": "Activated via an experimental flag, the system assigns a 'Team Lead' to manage a shared task list and dependency tracking. Teammates run in parallel `tmux` panes, self-claiming tasks, using git-based file locking to prevent overwrites, and sending direct messages to one another to resolve dependencies.",
+    "significance": "This shifts the paradigm from 'pair programming' to managing an 'autonomous squad.' The capability was proven when a team of agents autonomously built a Linux-compatible C compiler, suggesting a future where one developer directs a fleet of AI engineers for massive parallel throughput.",
+    "risks": "The approach is cost-prohibitive for small tasks (the compiler example cost $20k), carries risks of file edit conflicts in shared repos, and currently lacks session resumption capabilities, making it fragile for long-running operations."
+  },
+  "faq": [
+    {
+      "question": "How are Agent Teams different from sub-agents?",
+      "answer": "Sub-agents share the main session's context and can only report back to the lead. Agent Teams spawn instances with fully independent context windows (saving 'context rot') and can message each other directly without going through the lead."
+    },
+    {
+      "question": "How do I enable Agent Teams in Claude Code?",
+      "answer": "You must set the environment variable `export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` in your shell or settings.json and ensure `tmux` is installed to visualize the parallel agent panes."
+    },
+    {
+      "question": "What was the 'C Compiler' experiment mentioned in the launch?",
+      "answer": "Anthropic researcher Nicholas Carlini tasked 16 Claude agents to write a C compiler in Rust from scratch. Over 2,000 sessions and $20,000 in API costs, they produced a 100,000-line compiler capable of building the Linux Kernel and running Doom."
+    }
+  ],
+  "references": [
+    {
+      "title": "Introducing Claude Opus 4.6",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6",
+      "source": "Anthropic",
+      "date": "2026-02-05"
+    },
+    {
+      "title": "Agent Teams Documentation",
+      "url": "https://code.claude.com/docs/en/agent-teams",
+      "source": "Claude Code Docs",
+      "date": "2026-02-06"
+    },
+    {
+      "title": "Building a C Compiler with Agent Teams",
+      "url": "https://www.anthropic.com/engineering/building-c-compiler",
+      "source": "Anthropic Engineering Blog",
+      "date": "2026-02-05"
+    },
+    {
+      "title": "Claude Code Agent Teams: Next Era Agent Collaboration",
+      "url": "https://cameronxyz.substack.com/p/claude-code-next-era-agent-collaboration",
+      "source": "CameronXYZ Substack",
+      "date": "2026-02-06"
+    },
+    {
+      "title": "How to set up and use Claude Code Agent Teams",
+      "url": "https://medium.com/@darasoba/how-to-set-up-and-use-claude-code-agent-teams-and-actually-get-great-results-9a34f8648f6d",
+      "source": "Medium",
+      "date": "2026-02-06"
+    }
+  ],
+  "diagrams": [
+    {
+      "type": "mermaid",
+      "title": "Agent Teams Architecture Flow",
+      "code": "graph TD\n  User[Developer] -->|Prompt Task| Lead[Team Lead Agent]\n  Lead -->|Spawns| TM1[Teammate 1<br/>Context A]\n  Lead -->|Spawns| TM2[Teammate 2<br/>Context B]\n  Lead -->|Spawns| TM3[Teammate 3<br/>Context C]\n  \n  subgraph Shared State\n    TaskList[Shared Task List<br/>& Dependencies]\n    GitLock[Git File Locking]\n  end\n  \n  Lead <--> TaskList\n  TM1 <--> TaskList\n  TM2 <--> TaskList\n  TM3 <--> TaskList\n  \n  TM1 -.->|Direct Message| TM2\n  TM2 -.->|Direct Message| TM3\n  TM1 -->|File Edit| GitLock"
+    }
+  ],
+  "seo": {
+    "slug": "claude-code-agent-teams-opus-4-6",
+    "meta_title_en": "Claude Code Agent Teams: Automate Dev with Opus 4.6 | Anthropic",
+    "meta_description_en": "Anthropic's Claude Code now supports Agent Teams with Opus 4.6. Run autonomous multi-agent squads with independent context windows for complex engineering.",
+    "keywords_en": [
+      "Claude Code Agent Teams",
+      "Claude Opus 4.6",
+      "Multi-agent coding",
+      "AI autonomous software development",
+      "Nicholas Carlini C Compiler"
+    ],
+    "keywords_zh": [
+      "Claude Code 智能体团队",
+      "Claude Opus 4.6",
+      "多智能体编程",
+      "AI自主软件开发",
+      "Nicholas Carlini C语言编译器"
+    ]
+  },
+  "localization": {
+    "zh_strategy": "native",
+    "zh_hints": "Emphasize the 'individual contributor vs. manager' organizational shift mentioned in the research. Highlight the specific cost ($20k) of the C Compiler experiment as a tangible metric of scale."
+  }
+}
