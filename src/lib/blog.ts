@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
+import gfm from 'remark-gfm'
 
 const OUTPUT_DIR = path.join(process.cwd(), 'output')
 
@@ -26,7 +27,8 @@ async function parseMarkdown(content: string): Promise<{
   const { data, content: markdownContent } = matter(content)
   
   const processedContent = await remark()
-    .use(html)
+    .use(gfm)
+    .use(html, { sanitize: false })
     .process(markdownContent)
   
   return {
@@ -59,7 +61,7 @@ export async function getBlogPosts(lang: 'en' | 'zh'): Promise<BlogPost[]> {
           title: data.title || 'Untitled',
           description: data.description || '',
           keywords: data.keywords || [],
-          date: data.date || new Date().toISOString().split('T')[0],
+          date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
           content,
           contentHtml
         })

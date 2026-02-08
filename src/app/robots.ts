@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://hot2content.com'
+export const dynamic = 'force-static'
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://loreai.dev'
 
 export default function robots(): MetadataRoute.Robots {
   return {

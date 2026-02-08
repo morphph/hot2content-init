@@ -1,30 +1,58 @@
 import Link from 'next/link'
+import { getBlogPosts } from '@/lib/blog'
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getBlogPosts('en')
+  
   return (
-    <main className="min-h-screen p-8 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-4">Hot2Content</h1>
-      <p className="text-xl text-gray-600 mb-8">
-        AI Content Engine — From Research to Multi-platform Publishing
-      </p>
-      
-      <div className="grid grid-cols-2 gap-4">
-        <Link 
-          href="/en/blog" 
-          className="p-6 border rounded-lg hover:bg-gray-50 transition"
-        >
-          <h2 className="text-2xl font-semibold mb-2">🇺🇸 English Blog</h2>
-          <p className="text-gray-600">SEO-optimized tech articles</p>
-        </Link>
+    <main className="min-h-screen px-8 py-12 max-w-2xl mx-auto">
+      {/* Header */}
+      <header className="flex items-center justify-between mb-16 fade-in">
+        <div>
+          <h1 className="text-2xl tracking-tight">Lore</h1>
+        </div>
         
-        <Link 
-          href="/zh/blog" 
-          className="p-6 border rounded-lg hover:bg-gray-50 transition"
-        >
-          <h2 className="text-2xl font-semibold mb-2">🇨🇳 中文博客</h2>
-          <p className="text-gray-600">科技深度解读</p>
-        </Link>
-      </div>
+        {/* Language Switcher */}
+        <nav className="flex gap-4 text-sm">
+          <Link href="/" className="text-foreground">EN</Link>
+          <span className="text-muted">/</span>
+          <Link href="/zh" className="text-muted hover:text-foreground transition-colors">中文</Link>
+        </nav>
+      </header>
+
+      {/* Divider */}
+      <div className="divider fade-in-delay-1 mb-12"></div>
+      
+      {/* Posts */}
+      {posts.length === 0 ? (
+        <p className="text-muted fade-in-delay-2">
+          No posts yet.
+        </p>
+      ) : (
+        <ul className="space-y-10 fade-in-delay-2">
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <Link 
+                href={`/en/blog/${post.slug}`}
+                className="card-minimal block"
+              >
+                <time className="badge block mb-3">{post.date}</time>
+                <h2 className="text-xl mb-2">{post.title}</h2>
+                <p className="text-muted text-sm leading-relaxed">
+                  {post.description}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Footer */}
+      <footer className="mt-24 pt-8 border-t border-subtle">
+        <p className="text-muted text-xs">
+          AI-powered research & content
+        </p>
+      </footer>
     </main>
   )
 }

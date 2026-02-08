@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getBlogPost, getBlogPosts } from '@/lib/blog'
+import MermaidRenderer from '@/components/MermaidRenderer'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Not Found' }
   
   return {
-    title: post.title,
+    title: `${post.title} | Lore`,
     description: post.description,
     keywords: post.keywords,
     alternates: {
@@ -43,29 +44,34 @@ export default async function BlogPost({ params }: Props) {
   if (!post) notFound()
   
   return (
-    <main className="min-h-screen p-8 max-w-4xl mx-auto">
-      <nav className="mb-8 flex gap-4">
-        <Link href="/" className="text-blue-600 hover:underline">Home</Link>
-        <span>/</span>
-        <Link href="/en/blog" className="text-blue-600 hover:underline">Blog</Link>
-      </nav>
-      
-      <article className="prose prose-lg max-w-none">
+    <main className="min-h-screen px-8 py-12 max-w-2xl mx-auto">
+      {/* Header */}
+      <header className="flex items-center justify-between mb-12 fade-in">
+        <Link href="/" className="text-2xl tracking-tight hover:opacity-60 transition-opacity">
+          Lore
+        </Link>
+        <nav className="flex gap-4 text-sm">
+          <Link href="/" className="text-foreground">EN</Link>
+          <span className="text-muted">/</span>
+          <Link href={`/zh/blog/${slug}`} className="text-muted hover:text-foreground transition-colors">中文</Link>
+        </nav>
+      </header>
+
+      {/* Article */}
+      <article className="fade-in-delay-1">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <div className="flex gap-4 text-gray-600">
-            <time>{post.date}</time>
-            <Link href={`/zh/blog/${slug}`} className="text-blue-600 hover:underline">
-              中文版 →
-            </Link>
-          </div>
+          <time className="badge block mb-4">{post.date}</time>
         </header>
         
-        <div 
-          className="blog-content"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
-        />
+        <MermaidRenderer content={post.contentHtml} />
       </article>
+
+      {/* Footer */}
+      <footer className="mt-16 pt-8 border-t border-subtle">
+        <Link href="/" className="text-muted text-sm hover:text-foreground transition-colors">
+          ← Back to all posts
+        </Link>
+      </footer>
     </main>
   )
 }

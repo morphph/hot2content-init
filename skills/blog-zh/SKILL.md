@@ -44,6 +44,33 @@ hreflang_en: /en/blog/{slug}
 ## {技术解读：怎么做到的}
 {Mermaid 图表（如适用）}
 
+## 图表规范（Mermaid）
+
+所有图表必须使用 Mermaid 语法。**禁止使用 ASCII 字符画**。
+
+支持的图表类型：
+- `graph TD` / `flowchart TB` — 流程图、架构图
+- `sequenceDiagram` — API 流程、交互图
+- `timeline` — 时间线、发展历程
+- `classDiagram` — 数据结构
+- `stateDiagram-v2` — 状态机
+
+示例：
+```mermaid
+graph TD
+    A["👤 开发者"] --> B["🎯 Team Lead"]
+    B --> C["🤖 队友 1"]
+    B --> D["🤖 队友 2"]
+    C --> E["📋 共享任务"]
+    D --> E
+```
+
+规则：
+- 节点标签中使用 emoji 增强可读性
+- 图表保持简洁 — 最多 10-12 个节点
+- 多行标签使用 `<br/>`
+- **绝对禁止** ASCII 字符画（┌─┐│└─┘ 这类）
+
 ## {影响分析：对我们意味着什么}
 {重点：对中国开发者/企业的具体影响}
 

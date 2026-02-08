@@ -17,15 +17,20 @@
   "dependencies": {
     "dotenv": "^17.2.4",
     "gray-matter": "^4.0.3",
+    "mermaid": "^11.12.2",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/node": "^20.0.0",
+    "@types/react": "19.2.13",
+    "playwright": "^1.58.2",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0"
   }

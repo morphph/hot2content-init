@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Hot2Content - AI Content Engine',
-  description: 'AI-powered content generation from research to multi-platform publishing',
+  title: 'Lore | AI Content Engine',
+  description: 'AI-powered research and content creation',
 }
 
 export default function RootLayout({

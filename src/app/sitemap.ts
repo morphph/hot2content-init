@@ -1,7 +1,9 @@
 import { getBlogPosts } from '@/lib/blog'
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://hot2content.com'
+export const dynamic = 'force-static'
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://loreai.dev'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const enPosts = await getBlogPosts('en')

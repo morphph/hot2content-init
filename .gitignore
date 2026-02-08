@@ -9,3 +9,4 @@ node_modules/
 input/topic.json
 input/raw-sources.json
 input/dedup-report.json
+.vercel

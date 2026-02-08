@@ -46,6 +46,33 @@ The meat. What happened? What's new?
 ## {How It Works — H2}
 Technical explanation. Include a Mermaid diagram if applicable.
 
+## Diagrams (Mermaid)
+
+Use Mermaid syntax for ALL diagrams. Never use ASCII art.
+
+Supported types:
+- `graph TD` / `flowchart TB` — flowcharts, architecture diagrams
+- `sequenceDiagram` — API flows, interactions
+- `timeline` — evolution, history
+- `classDiagram` — data structures
+- `stateDiagram-v2` — state machines
+
+Example:
+```mermaid
+graph TD
+    A["👤 User"] --> B["🎯 Lead Agent"]
+    B --> C["🤖 Worker 1"]
+    B --> D["🤖 Worker 2"]
+    C --> E["📋 Shared Tasks"]
+    D --> E
+```
+
+Rules:
+- Use emoji in node labels for visual clarity
+- Keep diagrams simple — max 10-12 nodes
+- Use `<br/>` for multi-line labels
+- NEVER use ASCII box-drawing characters (┌─┐│└─┘)
+
 ## {Why It Matters — H2}
 Impact analysis. Who benefits? What changes?
 

@@ -10,26 +10,37 @@ export default async function BlogIndex() {
   const posts = await getBlogPosts('en')
   
   return (
-    <main className="min-h-screen p-8 max-w-4xl mx-auto">
-      <nav className="mb-8">
-        <Link href="/" className="text-blue-600 hover:underline">← Home</Link>
-      </nav>
+    <main className="min-h-screen px-8 py-16 max-w-2xl mx-auto">
+      {/* Header */}
+      <header className="mb-16 fade-in">
+        <Link 
+          href="/" 
+          className="text-muted text-sm inline-block mb-8 hover:opacity-60"
+        >
+          ← Back
+        </Link>
+        <h1 className="text-3xl mb-3">Blog</h1>
+        <div className="divider mt-6"></div>
+      </header>
       
-      <h1 className="text-4xl font-bold mb-8">Blog</h1>
-      
+      {/* Posts */}
       {posts.length === 0 ? (
-        <p className="text-gray-600">No posts yet. Run the pipeline to generate content!</p>
+        <p className="text-muted fade-in-delay-1">
+          No posts yet.
+        </p>
       ) : (
-        <ul className="space-y-6">
-          {posts.map((post) => (
+        <ul className="space-y-12 fade-in-delay-1">
+          {posts.map((post, i) => (
             <li key={post.slug}>
               <Link 
                 href={`/en/blog/${post.slug}`}
-                className="block p-6 border rounded-lg hover:bg-gray-50 transition"
+                className="card-minimal block"
               >
-                <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-                <p className="text-gray-600 mb-2">{post.description}</p>
-                <time className="text-sm text-gray-500">{post.date}</time>
+                <time className="badge block mb-3">{post.date}</time>
+                <h2 className="text-xl mb-2">{post.title}</h2>
+                <p className="text-muted text-sm leading-relaxed">
+                  {post.description}
+                </p>
               </Link>
             </li>
           ))}
