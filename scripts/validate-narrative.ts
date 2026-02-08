@@ -73,10 +73,6 @@ const CoreNarrativeSchema = z.object({
   references: z.array(ReferenceSchema).min(1, 'references must have at least 1 item'),
   diagrams: z.array(DiagramSchema).min(1, 'diagrams must have at least 1 item'),
   seo: SEOSchema,
-  localization: z.object({
-    zh_strategy: z.enum(['native', 'adapted', 'global']),
-    zh_hints: z.string().nullable(),
-  }),
 });
 
 type CoreNarrative = z.infer<typeof CoreNarrativeSchema>;
@@ -107,7 +103,7 @@ function main() {
       console.log(`  - References: ${result.data.references.length}`);
       console.log(`  - Diagrams: ${result.data.diagrams.length}`);
       console.log(`  - Is Update: ${result.data.is_update}`);
-      console.log(`  - Localization: ${result.data.localization.zh_strategy} ${result.data.localization.zh_hints ? '(with hints)' : ''}`);
+      // localization field removed - no special China angle needed
       console.log();
       process.exit(0);
     } else {

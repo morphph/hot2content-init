@@ -113,7 +113,7 @@ async function runNarrativeArchitect(): Promise<boolean> {
 5. FAQ 至少 3 个
 6. 至少 1 个 Mermaid 图
 7. SEO 字段完整
-8. localization 字段指定 zh_strategy 和 zh_hints
+8. 不需要特殊本地化字段
 
 完成后执行: npx tsx scripts/validate-narrative.ts
 如果验证失败，修复后重新输出。
@@ -208,13 +208,13 @@ async function runWriterZH(): Promise<boolean> {
 
 输入：
 - output/research-gemini-deep.md (深度素材)
-- output/core-narrative.json (结构框架，注意 localization 字段)
+- output/core-narrative.json (结构框架)
 - skills/blog-zh/SKILL.md (写作规范)
 
 重要原则：
 - 你不是在翻译！基于同一话题独立创作中文内容
 - 用中文读者熟悉的比喻和类比
-- 参考 localization.zh_hints 融入本地化视角
+- 正常写中文博客，不需要特殊本地化
 - 专业术语首次出现标注英文：大语言模型（LLM）
 - 语气像懂技术的朋友在科普
 

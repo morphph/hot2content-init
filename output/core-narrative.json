@@ -4,9 +4,7 @@
   "created_at": "2026-02-07T23:35:00Z",
   "is_update": false,
   "previous_topic_id": null,
-
   "one_liner": "Anthropic releases Claude Opus 4.6 with Agent Teams, enabling 16 parallel AI agents to autonomously build a 100,000-line C compiler for $20,000.",
-
   "key_points": [
     "Agent Teams enables multiple Claude Code instances to work in parallel with independent context windows and peer-to-peer communication, fundamentally different from sequential subagents.",
     "The Carlini Experiment demonstrated 16 agents building a full C compiler in Rust that compiles Linux 6.9 kernel, passes 99% of GCC torture tests, and runs Doom—all for $20,000 in API costs.",
@@ -14,7 +12,6 @@
     "The release coincided within 27 minutes of OpenAI's GPT-5.3-Codex launch, marking an intensification of the multi-agent AI coding race.",
     "Agent Teams is currently a research preview requiring manual enablement via CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 environment variable."
   ],
-
   "story_spine": {
     "background": "As AI coding assistants evolved from autocomplete to autonomous agents, a fundamental limitation emerged: single-session context degradation. Long conversations caused 'context rot' where models lost track of earlier decisions. Meanwhile, complex engineering tasks require parallel exploration—something a linear assistant couldn't provide. The industry needed a paradigm shift from AI as copilot to AI as coordinated team.",
     "breakthrough": "On February 5, 2026, Anthropic released Claude Opus 4.6 with Agent Teams—a swarm-based architecture where multiple Claude instances operate as independent teammates. Unlike subagents that report linearly to a parent, Agent Teams features peer-to-peer communication, shared task lists with file locking, and a mailbox system for async messaging. Each teammate maintains its own context window, eliminating context rot. The lead agent orchestrates but doesn't bottleneck.",
@@ -22,7 +19,6 @@
     "significance": "The Carlini Experiment proved the concept at scale: 16 agents autonomously produced 100,000 lines of Rust code over two weeks, creating a C compiler that successfully builds Linux 6.9 for x86, ARM, and RISC-V. At $20,000, this represents a fraction of what a human team would cost for equivalent work. The implications extend beyond compilers—parallel code review with specialized 'lenses' (security, performance, architecture), competing hypothesis debugging, and cross-layer refactoring become practical. This marks the transition from 'AI assistant' to 'AI engineering team.'",
     "risks": "The $20,000 price tag makes Agent Teams prohibitive for routine development—it's currently suited for high-value, complex projects only. File conflicts remain problematic when multiple agents edit the same files; task decomposition quality directly impacts success. The 'research preview' designation signals instability. Community concerns around 'Vibe Coding' suggest over-reliance on AI orchestration without human oversight. Cost optimization and conflict resolution tooling are needed before mainstream adoption."
   },
-
   "faq": [
     {
       "question": "How is Agent Teams different from Claude Code subagents?",
@@ -41,7 +37,6 @@
       "answer": "Claude Agent Teams focuses on deep reasoning and multi-day complex tasks with swarm-based architecture. OpenAI GPT-5.3-Codex emphasizes execution speed and OS integration as a 'workhorse.' Benchmarks show Claude leads in reasoning and verified code-fix tasks; Codex leads in execution speed and environment interaction."
     }
   ],
-
   "references": [
     {
       "title": "Anthropic releases Opus 4.6 with new 'agent teams'",
@@ -74,7 +69,6 @@
       "date": "2026-02-05"
     }
   ],
-
   "diagrams": [
     {
       "type": "mermaid",
@@ -87,17 +81,23 @@
       "code": "graph LR\n    subgraph Subagents\n        Main1[\"Main Session\"] --> Sub1[\"Subagent\"]\n        Sub1 --> Main1\n        Main1 --> Sub2[\"Subagent\"]\n        Sub2 --> Main1\n    end\n    subgraph AgentTeams[\"Agent Teams\"]\n        Lead2[\"Lead\"] --> Team1[\"Teammate\"]\n        Lead2 --> Team2[\"Teammate\"]\n        Team1 <-.-> Team2\n        Team1 --> Shared[\"Shared State\"]\n        Team2 --> Shared\n    end"
     }
   ],
-
   "seo": {
     "slug": "claude-code-agent-teams-opus-46-multi-agent-development",
     "meta_title_en": "Claude Agent Teams: Multi-Agent AI Coding | Opus 4.6",
     "meta_description_en": "Anthropic's Agent Teams enables parallel Claude instances for complex coding. 16 agents built a C compiler for $20K. Learn architecture, setup, and use cases.",
-    "keywords_en": ["Claude Code Agent Teams", "Opus 4.6", "multi-agent AI", "Claude Code CLI", "AI coding assistant"],
-    "keywords_zh": ["Claude Agent Teams", "多智能体编程", "Opus 4.6", "AI编程助手", "Claude Code"]
-  },
-
-  "localization": {
-    "zh_strategy": "adapted",
-    "zh_hints": "可对比国产模型（Kimi、通义千问）尚无类似多智能体能力；强调成本效益（$20K vs 人力成本）；企业级代码库重构场景"
+    "keywords_en": [
+      "Claude Code Agent Teams",
+      "Opus 4.6",
+      "multi-agent AI",
+      "Claude Code CLI",
+      "AI coding assistant"
+    ],
+    "keywords_zh": [
+      "Claude Agent Teams",
+      "多智能体编程",
+      "Opus 4.6",
+      "AI编程助手",
+      "Claude Code"
+    ]
   }
 }

@@ -31,10 +31,7 @@ interface CoreNarrative {
     keywords_en: string[];
     keywords_zh: string[];
   };
-  localization: {
-    zh_strategy: 'native' | 'adapted' | 'global';
-    zh_hints: string | null;
-  };
+  // localization field removed
 }
 
 async function main() {
@@ -121,8 +118,7 @@ ${narrative.key_points.map((p, i) => `${i + 1}. ${p}`).join('\n')}
 - Significance: ${narrative.story_spine.significance}
 - Risks: ${narrative.story_spine.risks}
 
-**Localization Strategy:** ${narrative.localization?.zh_strategy || 'global'}
-**Localization Hints:** ${narrative.localization?.zh_hints || '无特定提示'}
+**Note:** 正常写中文博客，不需要特殊本地化处理
 
 ---
 ## Research Report（调研报告摘要，前8000字）
