@@ -23,7 +23,8 @@ dotenv.config();
 // Types
 // ============================================
 
-type Category = 'model' | 'app' | 'dev' | 'technique' | 'product' | 'research' | 'tool';
+// PRD 定义的四大分类
+type Category = 'model_release' | 'developer_platform' | 'official_blog' | 'product_ecosystem';
 
 interface NewsItem {
   id: string;
@@ -63,55 +64,62 @@ const TWITTER_API_KEY = process.env.TWITTER_API_KEY || '';
 const TWITTER_API_BASE = 'https://api.twitterapi.io';
 
 const OFFICIAL_BLOGS = [
-  { name: 'Anthropic', url: 'https://www.anthropic.com/news', twitter: '@AnthropicAI', category: 'model' as Category },
-  { name: 'OpenAI', url: 'https://openai.com/blog', twitter: '@OpenAI', category: 'model' as Category },
-  { name: 'Google AI', url: 'https://blog.google/technology/ai/', twitter: '@GoogleAI', category: 'model' as Category },
-  { name: 'DeepMind', url: 'https://deepmind.google/blog/', twitter: '@DeepMind', category: 'research' as Category },
-  { name: 'Meta AI', url: 'https://ai.meta.com/blog/', twitter: '@AIatMeta', category: 'model' as Category },
-  { name: 'Mistral', url: 'https://mistral.ai/news/', twitter: '@MistralAI', category: 'model' as Category },
-  { name: 'xAI', url: 'https://x.ai/blog', twitter: '@xaborevsky', category: 'model' as Category },
-  { name: 'Cohere', url: 'https://cohere.com/blog', twitter: '@coaborevsky', category: 'model' as Category },
-  { name: 'HuggingFace', url: 'https://huggingface.co/blog', twitter: '@huggingface', category: 'dev' as Category },
+  { name: 'Anthropic', url: 'https://www.anthropic.com/news', twitter: '@AnthropicAI', category: 'model_release' as Category },
+  { name: 'OpenAI', url: 'https://openai.com/blog', twitter: '@OpenAI', category: 'model_release' as Category },
+  { name: 'Google AI', url: 'https://blog.google/technology/ai/', twitter: '@GoogleAI', category: 'model_release' as Category },
+  { name: 'DeepMind', url: 'https://deepmind.google/blog/', twitter: '@DeepMind', category: 'official_blog' as Category },
+  { name: 'Meta AI', url: 'https://ai.meta.com/blog/', twitter: '@AIatMeta', category: 'model_release' as Category },
+  { name: 'Mistral', url: 'https://mistral.ai/news/', twitter: '@MistralAI', category: 'model_release' as Category },
+  { name: 'xAI', url: 'https://x.ai/blog', twitter: '@xaborevsky', category: 'model_release' as Category },
+  { name: 'Cohere', url: 'https://cohere.com/blog', twitter: '@coaborevsky', category: 'model_release' as Category },
+  { name: 'HuggingFace', url: 'https://huggingface.co/blog', twitter: '@huggingface', category: 'developer_platform' as Category },
 ];
 
 const TWITTER_ACCOUNTS = [
-  // Tier 1 - Official
-  { handle: 'AnthropicAI', tier: 1, category: 'model' as Category },
-  { handle: 'OpenAI', tier: 1, category: 'model' as Category },
-  { handle: 'GoogleAI', tier: 1, category: 'model' as Category },
-  { handle: 'DeepMind', tier: 1, category: 'research' as Category },
-  { handle: 'MistralAI', tier: 1, category: 'model' as Category },
-  { handle: 'AIatMeta', tier: 1, category: 'model' as Category },
-  { handle: 'huggingface', tier: 1, category: 'dev' as Category },
-  { handle: 'claudeai', tier: 1, category: 'app' as Category },
-  { handle: 'OpenAIDevs', tier: 1, category: 'dev' as Category },
+  // Tier 1 - Official (模型发布)
+  { handle: 'AnthropicAI', tier: 1, category: 'model_release' as Category },
+  { handle: 'OpenAI', tier: 1, category: 'model_release' as Category },
+  { handle: 'GoogleAI', tier: 1, category: 'model_release' as Category },
+  { handle: 'DeepMind', tier: 1, category: 'official_blog' as Category },
+  { handle: 'MistralAI', tier: 1, category: 'model_release' as Category },
+  { handle: 'AIatMeta', tier: 1, category: 'model_release' as Category },
+  // Tier 1 - Developer Platform (开发者平台/SDK)
+  { handle: 'huggingface', tier: 1, category: 'developer_platform' as Category },
+  { handle: 'OpenAIDevs', tier: 1, category: 'developer_platform' as Category },
+  { handle: 'LangChainAI', tier: 1, category: 'developer_platform' as Category },
+  // Tier 1 - Product (产品生态)
+  { handle: 'claudeai', tier: 1, category: 'product_ecosystem' as Category },
+  { handle: 'ChatGPTapp', tier: 1, category: 'product_ecosystem' as Category },
   // Tier 2 - KOLs
-  { handle: 'sama', tier: 2, category: 'product' as Category },
-  { handle: 'karpathy', tier: 2, category: 'technique' as Category },
-  { handle: 'ylecun', tier: 2, category: 'research' as Category },
-  { handle: 'EMostaque', tier: 2, category: 'model' as Category },
-  { handle: 'DrJimFan', tier: 2, category: 'research' as Category },
+  { handle: 'sama', tier: 2, category: 'product_ecosystem' as Category },
+  { handle: 'karpathy', tier: 2, category: 'official_blog' as Category },
+  { handle: 'ylecun', tier: 2, category: 'official_blog' as Category },
+  { handle: 'EMostaque', tier: 2, category: 'model_release' as Category },
+  { handle: 'DrJimFan', tier: 2, category: 'official_blog' as Category },
 ];
 
+// PRD 分类 - 按重要性排序：模型发布 > 开发者平台 > 技术博客 > 产品生态
 const CATEGORY_EMOJI: Record<Category, string> = {
-  model: '🧠',
-  app: '📱',
-  dev: '🔧',
-  technique: '📝',
-  product: '🚀',
-  research: '🔬',
-  tool: '🛠️',
+  model_release: '🧠',
+  developer_platform: '🔧',
+  official_blog: '📝',
+  product_ecosystem: '📱',
 };
 
 const CATEGORY_LABEL: Record<Category, string> = {
-  model: 'MODEL',
-  app: 'APP',
-  dev: 'DEV',
-  technique: 'TECHNIQUE',
-  product: 'PRODUCT',
-  research: 'RESEARCH',
-  tool: 'TOOL',
+  model_release: 'MODEL RELEASE',
+  developer_platform: 'DEVELOPER PLATFORM',
+  official_blog: 'OFFICIAL BLOG',
+  product_ecosystem: 'PRODUCT ECOSYSTEM',
 };
+
+// 分类显示顺序
+const CATEGORY_ORDER: Category[] = [
+  'model_release',
+  'developer_platform', 
+  'official_blog',
+  'product_ecosystem',
+];
 
 // ============================================
 // Twitter API
@@ -245,7 +253,7 @@ async function scanHuggingFace(): Promise<NewsItem[]> {
         url: `https://huggingface.co/${modelId}`,
         source: 'HuggingFace Trending',
         source_tier: 3,
-        category: 'model',
+        category: 'developer_platform',  // HF 属于开发者平台
         score: Math.min(75, 50 + Math.floor(likes / 100)),
         engagement: likes,
         detected_at: new Date().toISOString(),
@@ -283,11 +291,11 @@ async function scanHackerNews(): Promise<NewsItem[]> {
         
         if (!isAI || story.score < 50) continue;
         
-        // Determine category
-        let category: Category = 'research';
-        if (/tool|library|framework|sdk/i.test(titleLower)) category = 'tool';
-        else if (/technique|paper|study/i.test(titleLower)) category = 'technique';
-        else if (/launch|product|app/i.test(titleLower)) category = 'product';
+        // Determine category (PRD分类)
+        let category: Category = 'official_blog';  // 默认归类为技术博客
+        if (/sdk|api|framework|library|developer|code/i.test(titleLower)) category = 'developer_platform';
+        else if (/model|gpt|claude|llama|release|benchmark/i.test(titleLower)) category = 'model_release';
+        else if (/app|product|launch|chatgpt|consumer/i.test(titleLower)) category = 'product_ecosystem';
         
         items.push({
           id: `hn-${id}`,
@@ -363,7 +371,7 @@ async function scanGitHub(): Promise<NewsItem[]> {
         url: `https://github.com/${repoPath}`,
         source: 'GitHub Trending',
         source_tier: 5,
-        category: 'tool',
+        category: 'developer_platform',  // GitHub 项目属于开发者平台
         score: 60,
         detected_at: new Date().toISOString(),
       });
@@ -409,7 +417,8 @@ function generateMarkdown(digest: DailyDigest): string {
   lines.push(`# AI Daily Digest — ${date}`);
   lines.push('');
   
-  for (const category of ['model', 'app', 'dev', 'technique', 'product', 'research', 'tool'] as Category[]) {
+  // 按 PRD 定义的顺序显示：模型发布 > 开发者平台 > 技术博客 > 产品生态
+  for (const category of CATEGORY_ORDER) {
     const items = digest.by_category[category];
     if (!items || items.length === 0) continue;
     
@@ -458,15 +467,12 @@ async function main() {
   const deduped = deduplicate(allItems);
   console.log(`   ✅ ${deduped.length} unique items`);
 
-  // Group by category
+  // Group by category (PRD 分类)
   const byCategory: Record<Category, NewsItem[]> = {
-    model: [],
-    app: [],
-    dev: [],
-    technique: [],
-    product: [],
-    research: [],
-    tool: [],
+    model_release: [],
+    developer_platform: [],
+    official_blog: [],
+    product_ecosystem: [],
   };
   
   for (const item of deduped) {
