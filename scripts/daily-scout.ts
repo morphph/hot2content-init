@@ -192,6 +192,55 @@ async function parseRSS(url: string): Promise<RSSItem[]> {
   }
 }
 
+async function fetchAnthropicResearch(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  try {
+    // Anthropic Research page - deep technical content
+    const response = await fetch('https://www.anthropic.com/research', {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
+    });
+    if (!response.ok) return items;
+    
+    const html = await response.text();
+    
+    // Extract research article links - format: /research/[slug]
+    // Skip team pages like /research/team/*
+    const linkPattern = /href="(\/research\/[^"]+)"/g;
+    const seen = new Set<string>();
+    let match;
+    
+    while ((match = linkPattern.exec(html)) !== null && items.length < 5) {
+      const path = match[1];
+      
+      // Skip team pages and duplicates
+      if (path.includes('/team/') || seen.has(path)) continue;
+      seen.add(path);
+      
+      // Convert slug to title
+      const slug = path.replace('/research/', '');
+      const title = slug
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      
+      items.push({
+        id: `anthropic-research-${slug}`,
+        title: title,
+        summary: 'Anthropic deep-dive technical research',
+        url: `https://www.anthropic.com${path}`,
+        source: 'Anthropic Research',
+        source_tier: 1,
+        category: 'official_blog',
+        score: 92, // Higher score for deep research content
+        detected_at: new Date().toISOString(),
+      });
+    }
+  } catch (e) {
+    console.log(`   ⚠️ Anthropic Research fetch error: ${e}`);
+  }
+  return items;
+}
+
 async function fetchAnthropicNews(): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
   try {
@@ -293,13 +342,19 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
   }
   console.log(`   ✅ Google AI: ${items.length} items`);
   
-  // 2. Anthropic News (Web scraping)
-  console.log('   - Anthropic News...');
-  const anthropicItems = await fetchAnthropicNews();
-  items.push(...anthropicItems);
-  console.log(`   ✅ Anthropic: ${anthropicItems.length} items`);
+  // 2. Anthropic Research (Deep technical content)
+  console.log('   - Anthropic Research...');
+  const anthropicResearch = await fetchAnthropicResearch();
+  items.push(...anthropicResearch);
+  console.log(`   ✅ Anthropic Research: ${anthropicResearch.length} items`);
   
-  // 3. HuggingFace Blog (RSS)
+  // 3. Anthropic News (Announcements)
+  console.log('   - Anthropic News...');
+  const anthropicNews = await fetchAnthropicNews();
+  items.push(...anthropicNews);
+  console.log(`   ✅ Anthropic News: ${anthropicNews.length} items`);
+  
+  // 4. HuggingFace Blog (RSS)
   console.log('   - HuggingFace Blog (RSS)...');
   const hfBlogItems = await parseRSS('https://huggingface.co/blog/feed.xml');
   for (const item of hfBlogItems.slice(0, 5)) {

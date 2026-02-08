@@ -1,7 +1,62 @@
 {
   "date": "2026-02-08",
-  "generated_at": "2026-02-08T07:27:31.488Z",
+  "generated_at": "2026-02-08T07:29:34.146Z",
   "items": [
+    {
+      "id": "anthropic-research-project-vend-2",
+      "title": "Project Vend 2",
+      "summary": "Anthropic deep-dive technical research",
+      "url": "https://www.anthropic.com/research/project-vend-2",
+      "source": "Anthropic Research",
+      "source_tier": 1,
+      "category": "official_blog",
+      "score": 92,
+      "detected_at": "2026-02-08T07:29:12.786Z"
+    },
+    {
+      "id": "anthropic-research-introspection",
+      "title": "Introspection",
+      "summary": "Anthropic deep-dive technical research",
+      "url": "https://www.anthropic.com/research/introspection",
+      "source": "Anthropic Research",
+      "source_tier": 1,
+      "category": "official_blog",
+      "score": 92,
+      "detected_at": "2026-02-08T07:29:12.786Z"
+    },
+    {
+      "id": "anthropic-research-tracing-thoughts-language-model",
+      "title": "Tracing Thoughts Language Model",
+      "summary": "Anthropic deep-dive technical research",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "source": "Anthropic Research",
+      "source_tier": 1,
+      "category": "official_blog",
+      "score": 92,
+      "detected_at": "2026-02-08T07:29:12.786Z"
+    },
+    {
+      "id": "anthropic-research-constitutional-classifiers",
+      "title": "Constitutional Classifiers",
+      "summary": "Anthropic deep-dive technical research",
+      "url": "https://www.anthropic.com/research/constitutional-classifiers",
+      "source": "Anthropic Research",
+      "source_tier": 1,
+      "category": "official_blog",
+      "score": 92,
+      "detected_at": "2026-02-08T07:29:12.786Z"
+    },
+    {
+      "id": "anthropic-research-alignment-faking",
+      "title": "Alignment Faking",
+      "summary": "Anthropic deep-dive technical research",
+      "url": "https://www.anthropic.com/research/alignment-faking",
+      "source": "Anthropic Research",
+      "source_tier": 1,
+      "category": "official_blog",
+      "score": 92,
+      "detected_at": "2026-02-08T07:29:12.786Z"
+    },
     {
       "id": "anthropic-claude-opus-4-6",
       "title": "Claude Opus 4 6",
@@ -11,7 +66,7 @@
       "source_tier": 1,
       "category": "official_blog",
       "score": 90,
-      "detected_at": "2026-02-08T07:27:07.963Z"
+      "detected_at": "2026-02-08T07:29:13.038Z"
     },
     {
       "id": "anthropic-claude-is-a-space-to-think",
@@ -22,7 +77,7 @@
       "source_tier": 1,
       "category": "official_blog",
       "score": 90,
-      "detected_at": "2026-02-08T07:27:07.963Z"
+      "detected_at": "2026-02-08T07:29:13.038Z"
     },
     {
       "id": "anthropic-claude-sonnet-4-5",
@@ -33,7 +88,7 @@
       "source_tier": 1,
       "category": "official_blog",
       "score": 90,
-      "detected_at": "2026-02-08T07:27:07.963Z"
+      "detected_at": "2026-02-08T07:29:13.038Z"
     },
     {
       "id": "anthropic-claude-haiku-4-5",
@@ -44,7 +99,7 @@
       "source_tier": 1,
       "category": "official_blog",
       "score": 90,
-      "detected_at": "2026-02-08T07:27:07.963Z"
+      "detected_at": "2026-02-08T07:29:13.038Z"
     },
     {
       "id": "anthropic-apple-xcode-claude-agent-sdk",
@@ -55,7 +110,7 @@
       "source_tier": 1,
       "category": "official_blog",
       "score": 90,
-      "detected_at": "2026-02-08T07:27:07.963Z"
+      "detected_at": "2026-02-08T07:29:13.038Z"
     },
     {
       "id": "google-aHR0cHM6Ly9ibG9nLmdv",
@@ -166,71 +221,6 @@
       "category": "official_blog",
       "score": 85,
       "detected_at": "2026-02-03T15:03:19.000Z"
-    },
-    {
-      "id": "twitter-2019501512200974686",
-      "title": "New on the Engineering Blog: Quantifying infrastructure noise in agentic coding evals.",
-      "summary": "New on the Engineering Blog: Quantifying infrastructure noise in agentic coding evals.\n\nInfrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.\n\nRead more: https://t.co/DY7jCj8GAP",
-      "url": "https://x.com/AnthropicAI/status/2019501512200974686",
-      "twitter_url": "https://x.com/AnthropicAI/status/2019501512200974686",
-      "source": "@AnthropicAI",
-      "source_tier": 1,
-      "category": "model_release",
-      "score": 80,
-      "engagement": 0,
-      "detected_at": "2026-02-08T07:27:09.369Z"
-    },
-    {
-      "id": "twitter-2019496582698397945",
-      "title": "New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) w",
-      "summary": "New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) walked away. Two weeks later, it worked on the Linux kernel. \n\nHere's what it taught us about the future of autonomous software development. \n\nRead more: https://t.co/htX0wl4wIf htt",
-      "url": "https://x.com/AnthropicAI/status/2019496582698397945",
-      "twitter_url": "https://x.com/AnthropicAI/status/2019496582698397945",
-      "source": "@AnthropicAI",
-      "source_tier": 1,
-      "category": "model_release",
-      "score": 80,
-      "engagement": 0,
-      "detected_at": "2026-02-08T07:27:09.369Z"
-    },
-    {
-      "id": "twitter-2018771170938724682",
-      "title": "Apple's Xcode now has direct integration with the Claude Agent SDK, giving developers the full funct",
-      "summary": "Apple's Xcode now has direct integration with the Claude Agent SDK, giving developers the full functionality of Claude Code for building on Apple platforms, from iPhone to Mac to Apple Vision Pro.\n\nRead more: https://t.co/fyZ10bhkN3",
-      "url": "https://x.com/AnthropicAI/status/2018771170938724682",
-      "twitter_url": "https://x.com/AnthropicAI/status/2018771170938724682",
-      "source": "@AnthropicAI",
-      "source_tier": 1,
-      "category": "model_release",
-      "score": 80,
-      "engagement": 0,
-      "detected_at": "2026-02-08T07:27:09.369Z"
-    },
-    {
-      "id": "twitter-2018481220741689581",
-      "title": "New Anthropic Fellows research: How does misalignment scale with model intelligence and task complex",
-      "summary": "New Anthropic Fellows research: How does misalignment scale with model intelligence and task complexity?\n\nWhen advanced AI fails, will it do so by pursuing the wrong goals? Or will it fail unpredictably and incoherently—like a \"hot mess?\"\n\nRead more: https://t.co/xzRSoJg43j",
-      "url": "https://x.com/AnthropicAI/status/2018481220741689581",
-      "twitter_url": "https://x.com/AnthropicAI/status/2018481220741689581",
-      "source": "@AnthropicAI",
-      "source_tier": 1,
-      "category": "model_release",
-      "score": 80,
-      "engagement": 0,
-      "detected_at": "2026-02-08T07:27:09.369Z"
-    },
-    {
-      "id": "twitter-2017313346375004487",
-      "title": "On December 8, the Perseverance rover safely trundled across the surface of Mars.",
-      "summary": "On December 8, the Perseverance rover safely trundled across the surface of Mars.\n\nThis was the first AI-planned drive on another planet. And it was planned by Claude. https://t.co/kVbdKWibuP",
-      "url": "https://x.com/AnthropicAI/status/2017313346375004487",
-      "twitter_url": "https://x.com/AnthropicAI/status/2017313346375004487",
-      "source": "@AnthropicAI",
-      "source_tier": 1,
-      "category": "model_release",
-      "score": 80,
-      "engagement": 0,
-      "detected_at": "2026-02-08T07:27:09.369Z"
     }
   ],
   "by_category": {
@@ -246,7 +236,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.450Z"
       },
       {
         "id": "twitter-2019496582698397945",
@@ -259,7 +249,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.450Z"
       },
       {
         "id": "twitter-2018771170938724682",
@@ -272,7 +262,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.450Z"
       },
       {
         "id": "twitter-2018481220741689581",
@@ -285,7 +275,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2017313346375004487",
@@ -298,7 +288,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2016960382968136138",
@@ -311,7 +301,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2016636581084541278",
@@ -324,7 +314,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2016102835092427080",
@@ -337,7 +327,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2015870963792142563",
@@ -350,7 +340,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2014490502805311959",
@@ -363,7 +353,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2014143403144200234",
@@ -376,7 +366,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2014005798691877083",
@@ -389,7 +379,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2013629037055271123",
@@ -402,7 +392,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2013625608157212785",
@@ -415,7 +405,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2013356793477361991",
@@ -428,7 +418,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2011925950963839168",
@@ -441,7 +431,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:09.369Z"
+        "detected_at": "2026-02-08T07:29:14.452Z"
       },
       {
         "id": "twitter-2019822532795547807",
@@ -454,7 +444,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2019488071134347605",
@@ -468,7 +458,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2019474152743223477",
@@ -482,7 +472,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2019413712772411528",
@@ -495,7 +485,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2019173348132188330",
@@ -508,7 +498,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2018475750018449615",
@@ -521,7 +511,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2018385565289267236",
@@ -535,7 +525,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2016959338523611621",
@@ -548,7 +538,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2016209462621831448",
@@ -562,7 +552,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2014382658990834064",
@@ -575,7 +565,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2014095512874655867",
@@ -588,7 +578,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2013842364763136418",
@@ -601,7 +591,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2013755708110709135",
@@ -614,7 +604,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2013688237772898532",
@@ -627,7 +617,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2012223373489614951",
@@ -640,7 +630,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2012223323812270219",
@@ -654,7 +644,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2010813780671021106",
@@ -667,7 +657,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:10.750Z"
+        "detected_at": "2026-02-08T07:29:15.999Z"
       },
       {
         "id": "twitter-2019916137253707981",
@@ -680,7 +670,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2019446390007472594",
@@ -693,7 +683,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2019092128945553489",
@@ -706,7 +696,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2017397258472636907",
@@ -720,7 +710,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2016929427784122627",
@@ -733,7 +723,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2016659186348867665",
@@ -747,7 +737,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2016267526330601720",
@@ -760,7 +750,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2015892240561029543",
@@ -773,7 +763,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2014774492170527047",
@@ -787,7 +777,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2014699719696548251",
@@ -801,7 +791,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2012304782069825861",
@@ -815,7 +805,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2012228642487615768",
@@ -829,7 +819,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2011545972724425183",
@@ -842,7 +832,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2011122136140705916",
@@ -856,7 +846,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2009717975105122493",
@@ -869,7 +859,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2009355875450851706",
@@ -882,7 +872,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2006066855090192384",
@@ -895,7 +885,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2003232591248306599",
@@ -909,7 +899,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2002118072509812843",
@@ -923,7 +913,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2001694744037200372",
@@ -936,7 +926,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:12.484Z"
+        "detected_at": "2026-02-08T07:29:17.230Z"
       },
       {
         "id": "twitter-2019068826097213953",
@@ -949,7 +939,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-2003843358054068327",
@@ -963,7 +953,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-2001669581275033741",
@@ -976,7 +966,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1999124574798217324",
@@ -990,7 +980,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1998785548714991788",
@@ -1003,7 +993,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1998407332502405347",
@@ -1016,7 +1006,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1996580307336638951",
@@ -1030,7 +1020,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1995872766177018340",
@@ -1043,7 +1033,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1985619586977292470",
@@ -1057,7 +1047,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1981752578951233989",
@@ -1070,7 +1060,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1969798366331900320",
@@ -1083,7 +1073,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1968670593412190381",
@@ -1097,7 +1087,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1965311339368444003",
@@ -1110,7 +1100,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1962881084183527932",
@@ -1123,7 +1113,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1959015454359585230",
@@ -1137,7 +1127,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1957516008043729243",
@@ -1150,7 +1140,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1955316715417382979",
@@ -1164,7 +1154,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1950578057229824447",
@@ -1177,7 +1167,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1947776240523292935",
@@ -1190,7 +1180,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-1945858558836216026",
@@ -1203,7 +1193,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:14.398Z"
+        "detected_at": "2026-02-08T07:29:18.757Z"
       },
       {
         "id": "twitter-2003135223056290195",
@@ -1216,7 +1206,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-2001698702961053750",
@@ -1229,7 +1219,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-2001429429898407977",
@@ -1242,7 +1232,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-2000980784425931067",
@@ -1255,7 +1245,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1995531733391798452",
@@ -1269,7 +1259,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1993386243170714073",
@@ -1282,7 +1272,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1993020997721899473",
@@ -1295,7 +1285,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1991942484633821553",
@@ -1309,7 +1299,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1991901746579509542",
@@ -1322,7 +1312,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1991640180185317644",
@@ -1335,7 +1325,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1991191525867270158",
@@ -1348,7 +1338,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1991184188402237877",
@@ -1361,7 +1351,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1991178519557046380",
@@ -1374,7 +1364,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1987946571439444361",
@@ -1387,7 +1377,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1970963571753222319",
@@ -1400,7 +1390,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1968435677458022858",
@@ -1413,7 +1403,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1956027795051831584",
@@ -1426,7 +1416,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.689Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1954865388749205984",
@@ -1439,7 +1429,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.690Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1952702670176968801",
@@ -1453,7 +1443,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.690Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "twitter-1952477453857017948",
@@ -1466,7 +1456,7 @@
         "category": "model_release",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:15.690Z"
+        "detected_at": "2026-02-08T07:29:19.975Z"
       },
       {
         "id": "hn-46930391",
@@ -1505,7 +1495,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:17.386Z"
+        "detected_at": "2026-02-08T07:29:21.377Z"
       },
       {
         "id": "twitter-2019433129241403473",
@@ -1518,7 +1508,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:17.386Z"
+        "detected_at": "2026-02-08T07:29:21.377Z"
       },
       {
         "id": "twitter-2018595422978384117",
@@ -1531,7 +1521,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:17.386Z"
+        "detected_at": "2026-02-08T07:29:21.377Z"
       },
       {
         "id": "twitter-2020216949171749218",
@@ -1544,7 +1534,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019953845137469733",
@@ -1557,7 +1547,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019902197199434190",
@@ -1570,7 +1560,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019581296083980412",
@@ -1583,7 +1573,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019513755621843450",
@@ -1597,7 +1587,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019485834152689943",
@@ -1610,7 +1600,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019474328577036648",
@@ -1623,7 +1613,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019450160150085666",
@@ -1636,7 +1626,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019221475849564657",
@@ -1649,7 +1639,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019185727934984384",
@@ -1662,7 +1652,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019173349583466532",
@@ -1675,7 +1665,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019110257549799628",
@@ -1688,7 +1678,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2019094757239365692",
@@ -1701,7 +1691,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2018838297221726482",
@@ -1714,7 +1704,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2018812141508395070",
@@ -1727,7 +1717,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2018796432443244897",
@@ -1741,7 +1731,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:19.221Z"
+        "detected_at": "2026-02-08T07:29:22.782Z"
       },
       {
         "id": "twitter-2006438556869296520",
@@ -1754,7 +1744,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2006423362210291772",
@@ -1768,7 +1758,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2006282746789073398",
@@ -1781,7 +1771,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2006038736694657356",
@@ -1795,7 +1785,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2005872387263430933",
@@ -1808,7 +1798,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2005337962398265358",
@@ -1822,7 +1812,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2005322860131410025",
@@ -1835,7 +1825,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2005307763585404969",
@@ -1848,7 +1838,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2004975702224126411",
@@ -1861,7 +1851,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2004960596782092402",
@@ -1874,7 +1864,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2004945496243081493",
@@ -1887,7 +1877,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2003498646680273313",
@@ -1900,7 +1890,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2003164177293078793",
@@ -1913,7 +1903,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002801246101807443",
@@ -1927,7 +1917,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002786142173970487",
@@ -1940,7 +1930,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002771047234613550",
@@ -1953,7 +1943,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002461689854501100",
@@ -1966,7 +1956,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002438859876151373",
@@ -1979,7 +1969,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002423760859902169",
@@ -1992,7 +1982,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "twitter-2002055677708058833",
@@ -2005,7 +1995,7 @@
         "category": "developer_platform",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:20.308Z"
+        "detected_at": "2026-02-08T07:29:23.934Z"
       },
       {
         "id": "hf-deepseek-ai-DeepSeek-R1",
@@ -2018,7 +2008,7 @@
         "category": "developer_platform",
         "score": 75,
         "engagement": 12996,
-        "detected_at": "2026-02-08T07:27:29.599Z"
+        "detected_at": "2026-02-08T07:29:32.419Z"
       },
       {
         "id": "hf-black-forest-labs-FLUX.1-dev",
@@ -2031,7 +2021,7 @@
         "category": "developer_platform",
         "score": 75,
         "engagement": 12273,
-        "detected_at": "2026-02-08T07:27:29.599Z"
+        "detected_at": "2026-02-08T07:29:32.419Z"
       },
       {
         "id": "hf-stabilityai-stable-diffusion-xl-base-1.0",
@@ -2044,7 +2034,7 @@
         "category": "developer_platform",
         "score": 75,
         "engagement": 7412,
-        "detected_at": "2026-02-08T07:27:29.599Z"
+        "detected_at": "2026-02-08T07:29:32.419Z"
       },
       {
         "id": "hf-CompVis-stable-diffusion-v1-4",
@@ -2057,7 +2047,7 @@
         "category": "developer_platform",
         "score": 75,
         "engagement": 6974,
-        "detected_at": "2026-02-08T07:27:29.599Z"
+        "detected_at": "2026-02-08T07:29:32.419Z"
       },
       {
         "id": "hf-meta-llama-Meta-Llama-3-8B",
@@ -2070,10 +2060,65 @@
         "category": "developer_platform",
         "score": 75,
         "engagement": 6446,
-        "detected_at": "2026-02-08T07:27:29.599Z"
+        "detected_at": "2026-02-08T07:29:32.419Z"
       }
     ],
     "official_blog": [
+      {
+        "id": "anthropic-research-project-vend-2",
+        "title": "Project Vend 2",
+        "summary": "Anthropic deep-dive technical research",
+        "url": "https://www.anthropic.com/research/project-vend-2",
+        "source": "Anthropic Research",
+        "source_tier": 1,
+        "category": "official_blog",
+        "score": 92,
+        "detected_at": "2026-02-08T07:29:12.786Z"
+      },
+      {
+        "id": "anthropic-research-introspection",
+        "title": "Introspection",
+        "summary": "Anthropic deep-dive technical research",
+        "url": "https://www.anthropic.com/research/introspection",
+        "source": "Anthropic Research",
+        "source_tier": 1,
+        "category": "official_blog",
+        "score": 92,
+        "detected_at": "2026-02-08T07:29:12.786Z"
+      },
+      {
+        "id": "anthropic-research-tracing-thoughts-language-model",
+        "title": "Tracing Thoughts Language Model",
+        "summary": "Anthropic deep-dive technical research",
+        "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+        "source": "Anthropic Research",
+        "source_tier": 1,
+        "category": "official_blog",
+        "score": 92,
+        "detected_at": "2026-02-08T07:29:12.786Z"
+      },
+      {
+        "id": "anthropic-research-constitutional-classifiers",
+        "title": "Constitutional Classifiers",
+        "summary": "Anthropic deep-dive technical research",
+        "url": "https://www.anthropic.com/research/constitutional-classifiers",
+        "source": "Anthropic Research",
+        "source_tier": 1,
+        "category": "official_blog",
+        "score": 92,
+        "detected_at": "2026-02-08T07:29:12.786Z"
+      },
+      {
+        "id": "anthropic-research-alignment-faking",
+        "title": "Alignment Faking",
+        "summary": "Anthropic deep-dive technical research",
+        "url": "https://www.anthropic.com/research/alignment-faking",
+        "source": "Anthropic Research",
+        "source_tier": 1,
+        "category": "official_blog",
+        "score": 92,
+        "detected_at": "2026-02-08T07:29:12.786Z"
+      },
       {
         "id": "anthropic-claude-opus-4-6",
         "title": "Claude Opus 4 6",
@@ -2083,7 +2128,7 @@
         "source_tier": 1,
         "category": "official_blog",
         "score": 90,
-        "detected_at": "2026-02-08T07:27:07.963Z"
+        "detected_at": "2026-02-08T07:29:13.038Z"
       },
       {
         "id": "anthropic-claude-is-a-space-to-think",
@@ -2094,7 +2139,7 @@
         "source_tier": 1,
         "category": "official_blog",
         "score": 90,
-        "detected_at": "2026-02-08T07:27:07.963Z"
+        "detected_at": "2026-02-08T07:29:13.038Z"
       },
       {
         "id": "anthropic-claude-sonnet-4-5",
@@ -2105,7 +2150,7 @@
         "source_tier": 1,
         "category": "official_blog",
         "score": 90,
-        "detected_at": "2026-02-08T07:27:07.963Z"
+        "detected_at": "2026-02-08T07:29:13.038Z"
       },
       {
         "id": "anthropic-claude-haiku-4-5",
@@ -2116,7 +2161,7 @@
         "source_tier": 1,
         "category": "official_blog",
         "score": 90,
-        "detected_at": "2026-02-08T07:27:07.963Z"
+        "detected_at": "2026-02-08T07:29:13.038Z"
       },
       {
         "id": "anthropic-apple-xcode-claude-agent-sdk",
@@ -2127,7 +2172,7 @@
         "source_tier": 1,
         "category": "official_blog",
         "score": 90,
-        "detected_at": "2026-02-08T07:27:07.963Z"
+        "detected_at": "2026-02-08T07:29:13.038Z"
       },
       {
         "id": "google-aHR0cHM6Ly9ibG9nLmdv",
@@ -2242,7 +2287,7 @@
       {
         "id": "hn-46922969",
         "title": "The AI boom is causing shortages everywhere else",
-        "summary": "HN discussion: 317 points, 518 comments",
+        "summary": "HN discussion: 317 points, 519 comments",
         "url": "https://www.washingtonpost.com/technology/2026/02/07/ai-spending-economy-shortages/",
         "source": "Hacker News",
         "source_tier": 4,
@@ -2290,13 +2335,13 @@
       {
         "id": "hn-46868928",
         "title": "LLMs as the new high level language",
-        "summary": "HN discussion: 78 points, 143 comments",
+        "summary": "HN discussion: 79 points, 144 comments",
         "url": "https://federicopereiro.com/llm-high/",
         "source": "Hacker News",
         "source_tier": 4,
         "category": "official_blog",
         "score": 51,
-        "engagement": 78,
+        "engagement": 79,
         "detected_at": "2026-02-03T10:00:03.000Z"
       }
     ],
@@ -2313,7 +2358,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2019833113418035237",
@@ -2326,7 +2371,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2019467372609040752",
@@ -2340,7 +2385,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2019071113741906403",
@@ -2353,7 +2398,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2019024565398299074",
@@ -2366,7 +2411,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2018819905630634171",
@@ -2379,7 +2424,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2018471168974684303",
@@ -2392,7 +2437,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2017299749309976915",
@@ -2405,7 +2450,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2015887159656616143",
@@ -2419,7 +2464,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2015851783655194640",
@@ -2432,7 +2477,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2014834616889475508",
@@ -2446,7 +2491,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2014748923278311855",
@@ -2460,7 +2505,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2013754136265621952",
@@ -2474,7 +2519,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2013704053226717347",
@@ -2488,7 +2533,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2012215329070493971",
@@ -2502,7 +2547,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2011925349341483413",
@@ -2515,7 +2560,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2010805682434666759",
@@ -2528,7 +2573,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2009666254815269313",
@@ -2541,7 +2586,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2003918730833608902",
@@ -2554,7 +2599,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:21.502Z"
+        "detected_at": "2026-02-08T07:29:24.969Z"
       },
       {
         "id": "twitter-2019851122492747831",
@@ -2567,7 +2612,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2019834600932192487",
@@ -2580,7 +2625,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2019547669556052131",
@@ -2593,7 +2638,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2017036939007012917",
@@ -2606,7 +2651,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2004307256704377277",
@@ -2619,7 +2664,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2001805269270171764",
@@ -2632,7 +2677,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2001704986443673724",
@@ -2645,7 +2690,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2001104507548398053",
@@ -2658,7 +2703,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-2001085961414041936",
@@ -2671,7 +2716,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1998872853752549867",
@@ -2684,7 +2729,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1994162428699914705",
@@ -2697,7 +2742,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1983324714983706772",
@@ -2710,7 +2755,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1956071098422059089",
@@ -2723,7 +2768,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1955328067783852319",
@@ -2736,7 +2781,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1950675512625705337",
@@ -2749,7 +2794,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1912619419240657088",
@@ -2762,7 +2807,7 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "twitter-1911231192323547494",
@@ -2775,12 +2820,12 @@
         "category": "product_ecosystem",
         "score": 80,
         "engagement": 0,
-        "detected_at": "2026-02-08T07:27:22.548Z"
+        "detected_at": "2026-02-08T07:29:25.990Z"
       },
       {
         "id": "hn-46928810",
         "title": "FDA intends to take action against non-FDA-approved GLP-1 drugs",
-        "summary": "HN discussion: 117 points, 243 comments",
+        "summary": "HN discussion: 117 points, 244 comments",
         "url": "https://www.fda.gov/news-events/press-announcements/fda-intends-take-action-against-non-fda-approved-glp-1-drugs",
         "source": "Hacker News",
         "source_tier": 4,
@@ -2798,5 +2843,5 @@
     "tier_4_hackernews": 30,
     "tier_5_github": 10
   },
-  "markdown": "# AI Daily Digest — Feb 8, 2026\n\n## 🧠 MODEL RELEASE\n\n### New on the Engineering Blog: Quantifying infrastructure noise in agentic coding evals.\nNew on the Engineering Blog: Quantifying infrastructure noise in agentic coding evals.\n\nInfrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.\n\nRead more: https://t.co/DY7jCj8GAP\n🔗 https://x.com/AnthropicAI/status/2019501512200974686\n\n### New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) w\nNew Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) walked away. Two weeks later, it worked on the Linux kernel. \n\nHere's what it taught us about the future of autonomous software development. \n\nRead more: https://t.co/htX0wl4wIf htt\n🔗 https://x.com/AnthropicAI/status/2019496582698397945\n\n### Apple's Xcode now has direct integration with the Claude Agent SDK, giving developers the full funct\nApple's Xcode now has direct integration with the Claude Agent SDK, giving developers the full functionality of Claude Code for building on Apple platforms, from iPhone to Mac to Apple Vision Pro.\n\nRead more: https://t.co/fyZ10bhkN3\n🔗 https://x.com/AnthropicAI/status/2018771170938724682\n\n### New Anthropic Fellows research: How does misalignment scale with model intelligence and task complex\nNew Anthropic Fellows research: How does misalignment scale with model intelligence and task complexity?\n\nWhen advanced AI fails, will it do so by pursuing the wrong goals? Or will it fail unpredictably and incoherently—like a \"hot mess?\"\n\nRead more: https://t.co/xzRSoJg43j\n🔗 https://x.com/AnthropicAI/status/2018481220741689581\n\n### On December 8, the Perseverance rover safely trundled across the surface of Mars.\nOn December 8, the Perseverance rover safely trundled across the surface of Mars.\n\nThis was the first AI-planned drive on another planet. And it was planned by Claude. https://t.co/kVbdKWibuP\n🔗 https://x.com/AnthropicAI/status/2017313346375004487\n\n---\n\n## 🔧 DEVELOPER PLATFORM\n\n### We have been shipping 🛳️❤️\nWe have been shipping 🛳️❤️\n\n📦 Community Evals & Benchmark Datasets: Benchmark datasets host benchmark leaderboards, you can now contribute eval results by opening a PR to model repositories, all PRs are fed to benchmark datasets \n\n📦 Chat with datasets: agents live in Data Stud\n🔗 https://x.com/huggingface/status/2019754567685050384\n\n### We just shipped Community Evals and Benchmark repositories for decentralized evals 🤗\nWe just shipped Community Evals and Benchmark repositories for decentralized evals 🤗\n\n> Scores you and model authors report are on leaderboards 🙌🏻\n> Benchmark datasets host live leaderboards of reported results 🚀\n> You can open PRs to add scores, they live in model repositori\n🔗 https://x.com/huggingface/status/2019433129241403473\n\n### 🤗\n🤗\n🔗 https://x.com/huggingface/status/2018595422978384117\n\n### Here’s what our community built at the Codex hackathon https://t.co/pEKAwBV9QI\nHere’s what our community built at the Codex hackathon https://t.co/pEKAwBV9QI\n🔗 https://x.com/OpenAIDevs/status/2020216949171749218\n\n### https://t.co/NHD2NHG7ru\nhttps://t.co/NHD2NHG7ru\n🔗 https://x.com/OpenAIDevs/status/2019953845137469733\n\n---\n\n## 📝 OFFICIAL BLOG\n\n### Claude Opus 4 6\nAnthropic official announcement\n🔗 https://www.anthropic.com/news/claude-opus-4-6\n\n### Claude Is A Space To Think\nAnthropic official announcement\n🔗 https://www.anthropic.com/news/claude-is-a-space-to-think\n\n### Claude Sonnet 4 5\nAnthropic official announcement\n🔗 https://www.anthropic.com/news/claude-sonnet-4-5\n\n### Claude Haiku 4 5\nAnthropic official announcement\n🔗 https://www.anthropic.com/news/claude-haiku-4-5\n\n### Apple Xcode Claude Agent Sdk\nAnthropic official announcement\n🔗 https://www.anthropic.com/news/apple-xcode-claude-agent-sdk\n\n---\n\n## 📱 PRODUCT ECOSYSTEM\n\n### Our teams have been building with a 2.5x-faster version of Claude Opus 4.6.\nOur teams have been building with a 2.5x-faster version of Claude Opus 4.6.\n\nWe’re now making it available as an early experiment via Claude Code and our API.\n⚡ Action: Check it out\n🔗 https://x.com/claudeai/status/2020207322124132504\n\n### Announcing Built with Opus 4.6: a Claude Code virtual hackathon.\nAnnouncing Built with Opus 4.6: a Claude Code virtual hackathon.\n\nJoin the Claude Code team for a week of building. Winners will be hand-selected to win $100K in Claude API credits.\n\nApply here: https://t.co/SkEg8Py1l2 https://t.co/w4OEIFOK0N\n🔗 https://x.com/claudeai/status/2019833113418035237\n\n### Introducing Claude Opus 4.6. Our smartest model got an upgrade.\nIntroducing Claude Opus 4.6. Our smartest model got an upgrade. \n\nOpus 4.6 plans more carefully, sustains agentic tasks for longer, operates reliably in massive codebases, and catches its own mistakes.\n\nIt’s also our first Opus-class model with 1M token context in beta. https://t\n⚡ Action: Review changes\n🔗 https://x.com/claudeai/status/2019467372609040752\n\n### Ads are coming to AI. But not to Claude. Keep thinking. https://t.co/n2yECeBWyT\nAds are coming to AI. But not to Claude. Keep thinking. https://t.co/n2yECeBWyT\n🔗 https://x.com/claudeai/status/2019071113741906403\n\n### Claude is built to be a genuinely helpful assistant for work and for deep thinking.\nClaude is built to be a genuinely helpful assistant for work and for deep thinking.\n\nAdvertising would be incompatible with that vision.\n\nRead why Claude will remain ad-free: https://t.co/Dr8FOJxINC\n🔗 https://x.com/claudeai/status/2019024565398299074\n\n---\n"
+  "markdown": "# AI Daily Digest — Feb 8, 2026\n\n## 🧠 MODEL RELEASE\n\n### New on the Engineering Blog: Quantifying infrastructure noise in agentic coding evals.\nNew on the Engineering Blog: Quantifying infrastructure noise in agentic coding evals.\n\nInfrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.\n\nRead more: https://t.co/DY7jCj8GAP\n🔗 https://x.com/AnthropicAI/status/2019501512200974686\n\n### New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) w\nNew Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) walked away. Two weeks later, it worked on the Linux kernel. \n\nHere's what it taught us about the future of autonomous software development. \n\nRead more: https://t.co/htX0wl4wIf htt\n🔗 https://x.com/AnthropicAI/status/2019496582698397945\n\n### Apple's Xcode now has direct integration with the Claude Agent SDK, giving developers the full funct\nApple's Xcode now has direct integration with the Claude Agent SDK, giving developers the full functionality of Claude Code for building on Apple platforms, from iPhone to Mac to Apple Vision Pro.\n\nRead more: https://t.co/fyZ10bhkN3\n🔗 https://x.com/AnthropicAI/status/2018771170938724682\n\n### New Anthropic Fellows research: How does misalignment scale with model intelligence and task complex\nNew Anthropic Fellows research: How does misalignment scale with model intelligence and task complexity?\n\nWhen advanced AI fails, will it do so by pursuing the wrong goals? Or will it fail unpredictably and incoherently—like a \"hot mess?\"\n\nRead more: https://t.co/xzRSoJg43j\n🔗 https://x.com/AnthropicAI/status/2018481220741689581\n\n### On December 8, the Perseverance rover safely trundled across the surface of Mars.\nOn December 8, the Perseverance rover safely trundled across the surface of Mars.\n\nThis was the first AI-planned drive on another planet. And it was planned by Claude. https://t.co/kVbdKWibuP\n🔗 https://x.com/AnthropicAI/status/2017313346375004487\n\n---\n\n## 🔧 DEVELOPER PLATFORM\n\n### We have been shipping 🛳️❤️\nWe have been shipping 🛳️❤️\n\n📦 Community Evals & Benchmark Datasets: Benchmark datasets host benchmark leaderboards, you can now contribute eval results by opening a PR to model repositories, all PRs are fed to benchmark datasets \n\n📦 Chat with datasets: agents live in Data Stud\n🔗 https://x.com/huggingface/status/2019754567685050384\n\n### We just shipped Community Evals and Benchmark repositories for decentralized evals 🤗\nWe just shipped Community Evals and Benchmark repositories for decentralized evals 🤗\n\n> Scores you and model authors report are on leaderboards 🙌🏻\n> Benchmark datasets host live leaderboards of reported results 🚀\n> You can open PRs to add scores, they live in model repositori\n🔗 https://x.com/huggingface/status/2019433129241403473\n\n### 🤗\n🤗\n🔗 https://x.com/huggingface/status/2018595422978384117\n\n### Here’s what our community built at the Codex hackathon https://t.co/pEKAwBV9QI\nHere’s what our community built at the Codex hackathon https://t.co/pEKAwBV9QI\n🔗 https://x.com/OpenAIDevs/status/2020216949171749218\n\n### https://t.co/NHD2NHG7ru\nhttps://t.co/NHD2NHG7ru\n🔗 https://x.com/OpenAIDevs/status/2019953845137469733\n\n---\n\n## 📝 OFFICIAL BLOG\n\n### Project Vend 2\nAnthropic deep-dive technical research\n🔗 https://www.anthropic.com/research/project-vend-2\n\n### Introspection\nAnthropic deep-dive technical research\n🔗 https://www.anthropic.com/research/introspection\n\n### Tracing Thoughts Language Model\nAnthropic deep-dive technical research\n🔗 https://www.anthropic.com/research/tracing-thoughts-language-model\n\n### Constitutional Classifiers\nAnthropic deep-dive technical research\n🔗 https://www.anthropic.com/research/constitutional-classifiers\n\n### Alignment Faking\nAnthropic deep-dive technical research\n🔗 https://www.anthropic.com/research/alignment-faking\n\n---\n\n## 📱 PRODUCT ECOSYSTEM\n\n### Our teams have been building with a 2.5x-faster version of Claude Opus 4.6.\nOur teams have been building with a 2.5x-faster version of Claude Opus 4.6.\n\nWe’re now making it available as an early experiment via Claude Code and our API.\n⚡ Action: Check it out\n🔗 https://x.com/claudeai/status/2020207322124132504\n\n### Announcing Built with Opus 4.6: a Claude Code virtual hackathon.\nAnnouncing Built with Opus 4.6: a Claude Code virtual hackathon.\n\nJoin the Claude Code team for a week of building. Winners will be hand-selected to win $100K in Claude API credits.\n\nApply here: https://t.co/SkEg8Py1l2 https://t.co/w4OEIFOK0N\n🔗 https://x.com/claudeai/status/2019833113418035237\n\n### Introducing Claude Opus 4.6. Our smartest model got an upgrade.\nIntroducing Claude Opus 4.6. Our smartest model got an upgrade. \n\nOpus 4.6 plans more carefully, sustains agentic tasks for longer, operates reliably in massive codebases, and catches its own mistakes.\n\nIt’s also our first Opus-class model with 1M token context in beta. https://t\n⚡ Action: Review changes\n🔗 https://x.com/claudeai/status/2019467372609040752\n\n### Ads are coming to AI. But not to Claude. Keep thinking. https://t.co/n2yECeBWyT\nAds are coming to AI. But not to Claude. Keep thinking. https://t.co/n2yECeBWyT\n🔗 https://x.com/claudeai/status/2019071113741906403\n\n### Claude is built to be a genuinely helpful assistant for work and for deep thinking.\nClaude is built to be a genuinely helpful assistant for work and for deep thinking.\n\nAdvertising would be incompatible with that vision.\n\nRead why Claude will remain ad-free: https://t.co/Dr8FOJxINC\n🔗 https://x.com/claudeai/status/2019024565398299074\n\n---\n"
 }
