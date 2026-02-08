@@ -122,6 +122,149 @@ const CATEGORY_ORDER: Category[] = [
 ];
 
 // ============================================
+// Gemini AI Enhancement
+// ============================================
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+
+interface NewsletterSection {
+  category: Category;
+  items: Array<{
+    title: string;
+    summary: string;
+    url: string;
+    source?: string;
+  }>;
+}
+
+interface NewsletterContent {
+  intro: string;
+  sections: NewsletterSection[];
+  closing: string;
+}
+
+async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterContent | null> {
+  if (!GEMINI_API_KEY) {
+    console.log('   ⚠️ No Gemini API key, skipping newsletter generation');
+    return null;
+  }
+
+  console.log('🤖 Writing newsletter with Gemini...');
+  
+  // Group items by category for the writer
+  const byCategory: Record<Category, NewsItem[]> = {
+    model_release: [],
+    developer_platform: [],
+    official_blog: [],
+    product_ecosystem: [],
+  };
+  
+  for (const item of items.slice(0, 30)) {
+    byCategory[item.category].push(item);
+  }
+  
+  const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+  
+  const prompt = `You are the editor of "Hot2Content Daily", an AI newsletter like Superhuman AI.
+
+Today is ${date}. Write a professional newsletter based on these news items.
+
+## Style Guide:
+- Write like Superhuman AI: concise, professional, insightful
+- Each item needs 1-2 sentences explaining WHAT happened and WHY it matters
+- Use engaging but not hype language
+- Be specific with facts, not vague
+
+## Categories (use exactly these):
+1. 🧠 MODEL RELEASE - New AI model announcements (Claude, GPT, Gemini, etc.)
+2. 🔧 DEVELOPER PLATFORM - SDKs, APIs, tools, developer integrations
+3. 📝 OFFICIAL BLOG - Research papers, engineering deep-dives
+4. 📱 PRODUCT ECOSYSTEM - Product features, partnerships, business news
+
+## Raw News Data:
+
+### Model Release candidates:
+${byCategory.model_release.slice(0, 5).map(i => `- ${i.title}\n  Source: ${i.source}\n  Raw: ${i.summary.slice(0, 150)}\n  URL: ${i.url}`).join('\n\n')}
+
+### Developer Platform candidates:
+${byCategory.developer_platform.slice(0, 5).map(i => `- ${i.title}\n  Source: ${i.source}\n  Raw: ${i.summary.slice(0, 150)}\n  URL: ${i.url}`).join('\n\n')}
+
+### Official Blog candidates:
+${byCategory.official_blog.slice(0, 5).map(i => `- ${i.title}\n  Source: ${i.source}\n  Raw: ${i.summary.slice(0, 150)}\n  URL: ${i.url}`).join('\n\n')}
+
+### Product Ecosystem candidates:
+${byCategory.product_ecosystem.slice(0, 5).map(i => `- ${i.title}\n  Source: ${i.source}\n  Raw: ${i.summary.slice(0, 150)}\n  URL: ${i.url}`).join('\n\n')}
+
+## Output Format (JSON):
+{
+  "intro": "One engaging sentence about today's AI news",
+  "sections": [
+    {
+      "category": "model_release",
+      "items": [
+        {
+          "title": "Clean title (no truncation)",
+          "summary": "1-2 sentences: What happened + Why it matters",
+          "url": "original URL",
+          "source": "@handle or Source Name (optional)"
+        }
+      ]
+    }
+  ],
+  "closing": "Brief sign-off"
+}
+
+Pick the 2-3 most important items per category. Skip categories with nothing newsworthy.
+Return ONLY valid JSON, no markdown code blocks.`;
+
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 3000,
+          }
+        })
+      }
+    );
+
+    if (!response.ok) {
+      console.log(`   ⚠️ Gemini API error: ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    
+    // Parse JSON from response
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      console.log('   ⚠️ Could not parse Gemini response');
+      console.log('   Raw response:', text.slice(0, 500));
+      return null;
+    }
+
+    const newsletter: NewsletterContent = JSON.parse(jsonMatch[0]);
+    console.log(`   ✅ Newsletter written with ${newsletter.sections.length} sections`);
+    return newsletter;
+    
+  } catch (e) {
+    console.log(`   ⚠️ Gemini newsletter error: ${e}`);
+    return null;
+  }
+}
+
+// Keep old function for fallback
+async function enhanceWithGemini(items: NewsItem[]): Promise<NewsItem[]> {
+  return items; // Now handled by writeNewsletterWithGemini
+}
+
+// ============================================
 // Twitter API
 // ============================================
 
@@ -192,51 +335,100 @@ async function parseRSS(url: string): Promise<RSSItem[]> {
   }
 }
 
-async function fetchAnthropicResearch(): Promise<NewsItem[]> {
+async function fetchArticleSummary(url: string): Promise<string> {
+  try {
+    const response = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
+    });
+    if (!response.ok) return '';
+    
+    const html = await response.text();
+    
+    // 1. Try to find article summary in Hero section (most specific)
+    const heroMatch = html.match(/<p[^>]*class="[^"]*summary[^"]*"[^>]*>([^<]+)/);
+    if (heroMatch && heroMatch[1].length > 30) {
+      return heroMatch[1].slice(0, 280).trim().replace(/&#x27;/g, "'");
+    }
+    
+    // 2. Try meta description (skip if it's the generic Anthropic description)
+    const metaMatch = html.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"/);
+    if (metaMatch && metaMatch[1].length > 50 && !metaMatch[1].includes('AI safety and research company')) {
+      return metaMatch[1].slice(0, 280).replace(/&#x27;/g, "'");
+    }
+    
+    // 3. Fallback: find first paragraph with substantial article content
+    const pMatch = html.match(/<p[^>]*post-text[^>]*>([^<]{50,})/);
+    if (pMatch) {
+      return pMatch[1].slice(0, 280).trim().replace(/&#x27;/g, "'");
+    }
+    
+    return '';
+  } catch {
+    return '';
+  }
+}
+
+async function fetchAnthropicEngineering(): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
   try {
-    // Anthropic Research page - deep technical content
-    const response = await fetch('https://www.anthropic.com/research', {
+    // Anthropic Engineering blog - developer-focused technical content
+    const response = await fetch('https://www.anthropic.com/engineering', {
       headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
     });
     if (!response.ok) return items;
     
     const html = await response.text();
-    
-    // Extract research article links - format: /research/[slug]
-    // Skip team pages like /research/team/*
-    const linkPattern = /href="(\/research\/[^"]+)"/g;
     const seen = new Set<string>();
-    let match;
+    const articlesToFetch: { slug: string; title: string }[] = [];
     
-    while ((match = linkPattern.exec(html)) !== null && items.length < 5) {
-      const path = match[1];
+    // 1. Featured article: title in img alt attribute
+    const featuredPattern = /href="\/engineering\/([^"]+)"[\s\S]*?<img[^>]*alt="([^"]+)"/g;
+    let match = featuredPattern.exec(html);
+    if (match) {
+      const slug = match[1];
+      const title = match[2].trim();
+      if (title.length > 10 && !seen.has(slug)) {
+        seen.add(slug);
+        articlesToFetch.push({ slug, title });
+      }
+    }
+    
+    // 2. List articles: title in h3 tag
+    const listPattern = /href="\/engineering\/([^"]+)"[\s\S]*?<h3[^>]*headline[^>]*>([^<]+)<\/h3>/g;
+    while ((match = listPattern.exec(html)) !== null && articlesToFetch.length < 5) {
+      const slug = match[1];
+      const title = match[2].trim();
       
-      // Skip team pages and duplicates
-      if (path.includes('/team/') || seen.has(path)) continue;
-      seen.add(path);
-      
-      // Convert slug to title
-      const slug = path.replace('/research/', '');
-      const title = slug
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+      if (seen.has(slug) || !title || title.length < 10) continue;
+      seen.add(slug);
+      articlesToFetch.push({ slug, title });
+    }
+    
+    // 3. Fetch real summaries for each article (parallel)
+    console.log(`      Fetching summaries for ${articlesToFetch.length} articles...`);
+    const summaries = await Promise.all(
+      articlesToFetch.map(a => fetchArticleSummary(`https://www.anthropic.com/engineering/${a.slug}`))
+    );
+    
+    // 4. Build items with real summaries
+    for (let i = 0; i < articlesToFetch.length; i++) {
+      const { slug, title } = articlesToFetch[i];
+      const summary = summaries[i] || 'Anthropic Engineering - developer-focused technical guide';
       
       items.push({
-        id: `anthropic-research-${slug}`,
+        id: `anthropic-eng-${slug}`,
         title: title,
-        summary: 'Anthropic deep-dive technical research',
-        url: `https://www.anthropic.com${path}`,
-        source: 'Anthropic Research',
+        summary: summary,
+        url: `https://www.anthropic.com/engineering/${slug}`,
+        source: 'Anthropic Engineering',
         source_tier: 1,
         category: 'official_blog',
-        score: 92, // Higher score for deep research content
+        score: 92,
         detected_at: new Date().toISOString(),
       });
     }
   } catch (e) {
-    console.log(`   ⚠️ Anthropic Research fetch error: ${e}`);
+    console.log(`   ⚠️ Anthropic Engineering fetch error: ${e}`);
   }
   return items;
 }
@@ -244,7 +436,6 @@ async function fetchAnthropicResearch(): Promise<NewsItem[]> {
 async function fetchAnthropicNews(): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
   try {
-    // Anthropic's news page is JS-rendered, so we fetch the raw HTML and look for JSON data
     const response = await fetch('https://www.anthropic.com/news', {
       headers: { 
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
@@ -254,66 +445,44 @@ async function fetchAnthropicNews(): Promise<NewsItem[]> {
     if (!response.ok) return items;
     
     const html = await response.text();
+    const seen = new Set<string>();
     
-    // Try to find Next.js data or any embedded JSON
-    const jsonMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-    if (jsonMatch) {
-      try {
-        const nextData = JSON.parse(jsonMatch[1]);
-        const posts = nextData?.props?.pageProps?.posts || 
-                     nextData?.props?.pageProps?.news ||
-                     [];
-        
-        for (const post of posts.slice(0, 5)) {
-          const title = post.title || post.name || '';
-          const slug = post.slug || post.id || '';
-          if (!title || !slug) continue;
-          
-          items.push({
-            id: `anthropic-${slug}`,
-            title: title.slice(0, 150),
-            summary: post.description || post.excerpt || 'Anthropic official announcement',
-            url: `https://www.anthropic.com/news/${slug}`,
-            source: 'Anthropic Blog',
-            source_tier: 1,
-            category: 'official_blog',
-            score: 90,
-            detected_at: post.publishedAt || post.date || new Date().toISOString(),
-          });
-        }
-      } catch (e) {
-        // JSON parsing failed, continue with regex fallback
-      }
-    }
+    // Use PublicationList (chronological order) instead of FeaturedGrid
+    // Pattern: href="/news/SLUG"...<time>DATE</time>...<span class="...title...">TITLE</span>
+    const listPattern = /<a[^>]*href="\/news\/([^"]+)"[^>]*PublicationList[^>]*>[\s\S]*?<time[^>]*>([^<]+)<\/time>[\s\S]*?<span[^>]*title[^>]*>([^<]+)<\/span>[\s\S]*?<\/a>/g;
+    let match;
     
-    // Fallback: Look for news article links in HTML
-    if (items.length === 0) {
-      const linkPattern = /href="\/news\/([^"]+)"[^>]*>/g;
-      const seen = new Set<string>();
-      let match;
+    while ((match = listPattern.exec(html)) !== null && items.length < 5) {
+      const slug = match[1];
+      const date = match[2].trim();
+      const title = match[3].trim();
       
-      while ((match = linkPattern.exec(html)) !== null && items.length < 5) {
-        const slug = match[1];
-        if (seen.has(slug) || slug.includes('#') || slug.includes('?')) continue;
-        seen.add(slug);
-        
-        items.push({
-          id: `anthropic-${slug}`,
-          title: slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-          summary: 'Anthropic official announcement',
-          url: `https://www.anthropic.com/news/${slug}`,
-          source: 'Anthropic Blog',
-          source_tier: 1,
-          category: 'official_blog',
-          score: 90,
-          detected_at: new Date().toISOString(),
-        });
+      if (seen.has(slug) || !title || title.length < 5) continue;
+      seen.add(slug);
+      
+      // Smart category detection: model releases vs general announcements
+      let category: Category = 'official_blog';
+      if (/introducing|claude|opus|sonnet|haiku|model/i.test(title) && 
+          !/research|paper|study|blog/i.test(title)) {
+        category = 'model_release';
       }
+      
+      items.push({
+        id: `anthropic-news-${slug}`,
+        title: title,
+        summary: `Anthropic announcement (${date})`,
+        url: `https://www.anthropic.com/news/${slug}`,
+        source: 'Anthropic Blog',
+        source_tier: 1,
+        category,
+        score: category === 'model_release' ? 95 : 90, // Boost model releases
+        detected_at: new Date().toISOString(),
+      });
     }
   } catch (e) {
-    console.log(`   ⚠️ Anthropic fetch error: ${e}`);
+    console.log(`   ⚠️ Anthropic News fetch error: ${e}`);
   }
-  return items.slice(0, 5);
+  return items;
 }
 
 async function scanOfficialBlogs(): Promise<NewsItem[]> {
@@ -342,11 +511,11 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
   }
   console.log(`   ✅ Google AI: ${items.length} items`);
   
-  // 2. Anthropic Research (Deep technical content)
-  console.log('   - Anthropic Research...');
-  const anthropicResearch = await fetchAnthropicResearch();
-  items.push(...anthropicResearch);
-  console.log(`   ✅ Anthropic Research: ${anthropicResearch.length} items`);
+  // 2. Anthropic Engineering (Developer-focused technical content)
+  console.log('   - Anthropic Engineering...');
+  const anthropicEngineering = await fetchAnthropicEngineering();
+  items.push(...anthropicEngineering);
+  console.log(`   ✅ Anthropic Engineering: ${anthropicEngineering.length} items`);
   
   // 3. Anthropic News (Announcements)
   console.log('   - Anthropic News...');
@@ -358,10 +527,15 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
   console.log('   - HuggingFace Blog (RSS)...');
   const hfBlogItems = await parseRSS('https://huggingface.co/blog/feed.xml');
   for (const item of hfBlogItems.slice(0, 5)) {
+    // Try description, fallback to "New post: [title]"
+    let summary = item.description?.replace(/<[^>]+>/g, '').trim().slice(0, 280);
+    if (!summary || summary.length < 20) {
+      summary = `New from Hugging Face: ${item.title}`;
+    }
     items.push({
       id: `hf-blog-${Buffer.from(item.link).toString('base64').slice(0, 20)}`,
       title: item.title,
-      summary: item.description?.replace(/<[^>]+>/g, '').slice(0, 280) || 'HuggingFace official blog',
+      summary,
       url: item.link,
       source: 'HuggingFace Blog',
       source_tier: 1,
@@ -401,6 +575,12 @@ async function scanTwitter(): Promise<NewsItem[]> {
         // Skip retweets and replies
         if (text.startsWith('RT @') || text.startsWith('@')) continue;
         
+        // Filter low-quality tweets (only emoji/links)
+        if (isLowQualityTweet(text)) {
+          console.log(`      ⏭️ Filtered low-quality: "${text.slice(0, 50)}..."`);
+          continue;
+        }
+        
         // Check if it's about AI/tech
         const isRelevant = /ai|llm|gpt|claude|model|agent|training|inference|benchmark/i.test(text);
         if (!isRelevant && account.tier > 1) continue;
@@ -426,6 +606,24 @@ async function scanTwitter(): Promise<NewsItem[]> {
         
         const score = account.tier === 1 ? 80 : Math.min(70, 50 + Math.floor(engagement / 100));
         
+        // Smart category detection based on content
+        let category = account.category;
+        const textLower = text.toLowerCase();
+        
+        // Model Release: new model announcements
+        if (/introducing|announcing|released?|launching|new model|opus|sonnet|gpt-?\d|gemini|mistral|llama/i.test(text) &&
+            !/blog|research|paper|study/i.test(text)) {
+          category = 'model_release';
+        }
+        // Official Blog: engineering/research content
+        else if (/engineering blog|research|paper|study|findings|analysis/i.test(text)) {
+          category = 'official_blog';
+        }
+        // Developer Platform: SDK, API, tools
+        else if (/sdk|api|developer|integration|platform|tools|library/i.test(text)) {
+          category = 'developer_platform';
+        }
+        
         items.push({
           id: `twitter-${tweetId}`,
           title,
@@ -435,7 +633,7 @@ async function scanTwitter(): Promise<NewsItem[]> {
           twitter_url: `https://x.com/${account.handle}/status/${tweetId}`,
           source: `@${account.handle}`,
           source_tier: account.tier,
-          category: account.category,
+          category,
           score,
           engagement,
           detected_at: tweet.created_at || new Date().toISOString(),
@@ -613,59 +811,193 @@ async function scanGitHub(): Promise<NewsItem[]> {
 }
 
 // ============================================
-// Deduplication
+// Low-Quality Tweet Filter
 // ============================================
 
-function deduplicate(items: NewsItem[]): NewsItem[] {
-  const seen = new Map<string, NewsItem>();
+function isLowQualityTweet(text: string): boolean {
+  // Remove URLs
+  const noUrls = text.replace(/https?:\/\/\S+/g, '').trim();
   
-  for (const item of items) {
-    // Create key from normalized title
-    const key = item.title.toLowerCase()
-      .replace(/[^a-z0-9\u4e00-\u9fa5]/g, '')
-      .slice(0, 50);
-    
-    if (!seen.has(key) || seen.get(key)!.score < item.score) {
-      seen.set(key, item);
-    }
-  }
+  // Remove emojis
+  const noEmoji = noUrls.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]/gu, '').trim();
   
-  return Array.from(seen.values())
-    .sort((a, b) => b.score - a.score);
+  // Check if remaining content is too short (relaxed threshold)
+  if (noEmoji.length < 20) return true;
+  
+  // Check if it's mostly hashtags
+  const hashtagCount = (text.match(/#\w+/g) || []).length;
+  const words = noEmoji.split(/\s+/).filter(w => w.length > 0);
+  if (hashtagCount > words.length * 0.6) return true;
+  
+  // Holiday/greeting patterns
+  if (/^(merry|happy|good\s*(morning|night|bot)|thank|congratulations?)/i.test(noEmoji)) return true;
+  
+  return false;
 }
 
 // ============================================
-// Generate Markdown
+// Fuzzy Title Similarity (Jaccard)
 // ============================================
 
-function generateMarkdown(digest: DailyDigest): string {
-  const lines: string[] = [];
-  const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+function tokenize(text: string): Set<string> {
+  return new Set(
+    text.toLowerCase()
+      .replace(/[^a-z0-9\u4e00-\u9fa5\s]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 2)
+  );
+}
+
+function jaccardSimilarity(a: Set<string>, b: Set<string>): number {
+  const intersection = new Set([...a].filter(x => b.has(x)));
+  const union = new Set([...a, ...b]);
+  return union.size > 0 ? intersection.size / union.size : 0;
+}
+
+// ============================================
+// Enhanced Deduplication
+// ============================================
+
+function deduplicate(items: NewsItem[]): NewsItem[] {
+  // Sort by tier (lower tier = higher priority) then by score
+  const sorted = [...items].sort((a, b) => {
+    if (a.source_tier !== b.source_tier) return a.source_tier - b.source_tier;
+    return b.score - a.score;
+  });
   
-  lines.push(`# AI Daily Digest — ${date}`);
+  const kept: NewsItem[] = [];
+  const keptTokens: Set<string>[] = [];
+  
+  for (const item of sorted) {
+    const tokens = tokenize(item.title);
+    
+    // Check similarity with all kept items
+    let isDuplicate = false;
+    for (let i = 0; i < kept.length; i++) {
+      const similarity = jaccardSimilarity(tokens, keptTokens[i]);
+      if (similarity > 0.5) {
+        // Duplicate found - keep the one with lower tier (higher priority)
+        // Since we sorted by tier first, current item would be same or worse
+        isDuplicate = true;
+        console.log(`   🔄 Dedup: "${item.title.slice(0, 40)}..." ≈ "${kept[i].title.slice(0, 40)}..."`);
+        break;
+      }
+    }
+    
+    if (!isDuplicate) {
+      kept.push(item);
+      keptTokens.push(tokens);
+    }
+  }
+  
+  // Re-sort by score for final output
+  return kept.sort((a, b) => b.score - a.score);
+}
+
+// ============================================
+// Generate Markdown from Newsletter Content (Gemini output)
+// ============================================
+
+function generateMarkdownFromNewsletter(newsletter: NewsletterContent): string {
+  const lines: string[] = [];
+  const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+  
+  // Header
+  lines.push(`# 🔥 Hot2Content Daily — ${date}`);
+  lines.push('');
+  lines.push(`> ${newsletter.intro}`);
   lines.push('');
   
-  // 按 PRD 定义的顺序显示：模型发布 > 开发者平台 > 技术博客 > 产品生态
-  for (const category of CATEGORY_ORDER) {
-    const items = digest.by_category[category];
-    if (!items || items.length === 0) continue;
+  // Sections
+  for (const section of newsletter.sections) {
+    const cat = section.category as Category;
+    const emoji = CATEGORY_EMOJI[cat] || '';
+    const label = CATEGORY_LABEL[cat] || section.category.replace(/_/g, ' ').toUpperCase();
     
-    lines.push(`## ${CATEGORY_EMOJI[category]} ${CATEGORY_LABEL[category]}`);
+    lines.push(`## ${emoji} ${label}`);
     lines.push('');
     
-    for (const item of items.slice(0, 5)) {
-      lines.push(`### ${item.title}`);
+    for (const item of section.items) {
+      const sourceTag = item.source ? ` — ${item.source}` : '';
+      lines.push(`**${item.title}**${sourceTag}`);
       lines.push(item.summary);
-      if (item.action) {
-        lines.push(`⚡ Action: ${item.action}`);
-      }
-      lines.push(`🔗 ${item.twitter_url || item.url}`);
+      lines.push(`[Read more →](${item.url})`);
       lines.push('');
     }
     
     lines.push('---');
     lines.push('');
   }
+  
+  // Footer
+  lines.push(`*${newsletter.closing}*`);
+  lines.push('');
+  
+  return lines.join('\n');
+}
+
+// ============================================
+// Generate Markdown (Fallback - PRD Categories)
+// ============================================
+
+function generateMarkdown(digest: DailyDigest, allItems: NewsItem[]): string {
+  const lines: string[] = [];
+  const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+  
+  // ===== HEADER =====
+  lines.push(`# 🔥 Hot2Content Daily — ${date}`);
+  lines.push('');
+  lines.push('> Get smarter about AI in 3 minutes.');
+  lines.push('');
+  
+  // ===== PRD CATEGORIES (each as a "box") =====
+  for (const category of CATEGORY_ORDER) {
+    const items = digest.by_category[category];
+    if (!items || items.length === 0) continue;
+    
+    const emoji = CATEGORY_EMOJI[category];
+    const label = CATEGORY_LABEL[category];
+    
+    lines.push(`## ${emoji} ${label}`);
+    lines.push('');
+    
+    // Show top 2 items per category with quality content
+    const maxItems = category === 'official_blog' ? 2 : 3;
+    for (const item of items.slice(0, maxItems)) {
+      // Clean up title
+      const title = item.title.replace(/https?:\/\/\S+/g, '').trim().slice(0, 80);
+      
+      // Format summary - make it readable
+      let summary = item.summary
+        .replace(/https?:\/\/\S+/g, '')  // remove URLs
+        .replace(/&apos;/g, "'")          // fix HTML entities
+        .replace(/&quot;/g, '"')
+        .replace(/&amp;/g, '&')
+        .trim()
+        .slice(0, 200);
+      
+      // Add source attribution for Twitter
+      const sourceTag = item.source.startsWith('@') ? ` — ${item.source}` : '';
+      
+      lines.push(`**${title}**${sourceTag}`);
+      lines.push(`${summary}`);
+      
+      // Action + Link
+      if (item.action) {
+        lines.push(`⚡ ${item.action} → [Link](${item.url})`);
+      } else {
+        lines.push(`[Read more →](${item.url})`);
+      }
+      lines.push('');
+    }
+    
+    lines.push('---');
+    lines.push('');
+  }
+  
+  // ===== FOOTER =====
+  lines.push('*Stay ahead. Build smarter. — Hot2Content*');
+  lines.push('');
   
   return lines.join('\n');
 }
@@ -696,7 +1028,7 @@ async function main() {
   const deduped = deduplicate(allItems);
   console.log(`   ✅ ${deduped.length} unique items`);
 
-  // Group by category (PRD 分类)
+  // Group by category first (for Gemini input)
   const byCategory: Record<Category, NewsItem[]> = {
     model_release: [],
     developer_platform: [],
@@ -707,6 +1039,10 @@ async function main() {
   for (const item of deduped) {
     byCategory[item.category].push(item);
   }
+
+  // Write newsletter with Gemini AI
+  console.log('');
+  const newsletterContent = await writeNewsletterWithGemini(deduped);
 
   // Create digest
   const digest: DailyDigest = {
@@ -724,7 +1060,10 @@ async function main() {
     markdown: '',
   };
   
-  digest.markdown = generateMarkdown(digest);
+  // Generate markdown from newsletter content (or fallback)
+  digest.markdown = newsletterContent 
+    ? generateMarkdownFromNewsletter(newsletterContent)
+    : generateMarkdown(digest, deduped);
 
   // Save outputs
   const outputDir = path.join(process.cwd(), 'output');

@@ -26,10 +26,13 @@ async function parseMarkdown(content: string): Promise<{
 }> {
   const { data, content: markdownContent } = matter(content)
   
+  // Remove the first h1 heading from markdown content (it's duplicated from frontmatter)
+  const contentWithoutFirstH1 = markdownContent.replace(/^#\s+.+\n+/, '')
+  
   const processedContent = await remark()
     .use(gfm)
     .use(html, { sanitize: false })
-    .process(markdownContent)
+    .process(contentWithoutFirstH1)
   
   return {
     data,

@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = await getBlogPost('zh', slug)
   
-  if (!post) return { title: 'Not Found' }
+  if (!post) return { title: '未找到' }
   
   return {
-    title: `${post.title} | Lore`,
+    title: `${post.title} | LoreAI`,
     description: post.description,
     keywords: post.keywords,
     alternates: {
@@ -37,41 +37,95 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPostZh({ params }: Props) {
   const { slug } = await params
   const post = await getBlogPost('zh', slug)
   
   if (!post) notFound()
   
   return (
-    <main className="min-h-screen px-8 py-12 max-w-2xl mx-auto">
-      {/* Header */}
-      <header className="flex items-center justify-between mb-12 fade-in">
-        <Link href="/zh" className="text-2xl tracking-tight hover:opacity-60 transition-opacity">
-          Lore
-        </Link>
-        <nav className="flex gap-4 text-sm">
-          <Link href={`/en/blog/${slug}`} className="text-muted hover:text-foreground transition-colors">EN</Link>
-          <span className="text-muted">/</span>
-          <Link href="/zh" className="text-foreground">中文</Link>
-        </nav>
-      </header>
-
-      {/* Article */}
-      <article className="fade-in-delay-1">
-        <header className="mb-8">
-          <time className="badge block mb-4">{post.date}</time>
+    <main className="min-h-screen bg-white">
+      <div className="max-w-2xl mx-auto px-6 py-8">
+        {/* Header */}
+        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
+              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>
+                LoreAI
+              </span>
+            </Link>
+            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
+              <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none' }}>Newsletter</Link>
+              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #3b82f6', paddingBottom: '4px' }}>博客</span>
+            </nav>
+          </div>
+          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
+            <Link href={`/en/blog/${slug}`} style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
+            <span style={{ color: '#d1d5db' }}>|</span>
+            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
+          </div>
         </header>
-        
-        <MermaidRenderer content={post.contentHtml} />
-      </article>
 
-      {/* Footer */}
-      <footer className="mt-16 pt-8 border-t border-subtle">
-        <Link href="/zh" className="text-muted text-sm hover:text-foreground transition-colors">
-          ← 返回文章列表
-        </Link>
-      </footer>
+        {/* Back link */}
+        <div className="mb-8 fade-in">
+          <Link href="/zh/blog" className="text-blue-600 text-sm hover:underline">
+            ← 返回博客
+          </Link>
+        </div>
+
+        {/* Article */}
+        <article className="fade-in-delay-1">
+          {/* Article Header */}
+          <header className="mb-8 pb-8 border-b border-gray-100">
+            <time className="badge block mb-4">{post.date}</time>
+            <h1 className="text-3xl font-bold headline-blue mb-4">
+              {post.title}
+            </h1>
+            {post.description && (
+              <p className="text-gray-600 text-lg">
+                {post.description}
+              </p>
+            )}
+          </header>
+          
+          {/* Article Content */}
+          <div className="article-content">
+            <MermaidRenderer content={post.contentHtml} />
+          </div>
+        </article>
+
+        {/* Article Footer */}
+        <div className="mt-12 pt-8 border-t border-gray-100">
+          {/* Share / Actions */}
+          <div className="callout-box mb-8">
+            <p className="text-sm">
+              <span className="callout-label">觉得有用？</span>
+              <span className="text-gray-600">分享给你的朋友，或订阅 Newsletter 获取更多 AI 洞察。</span>
+            </p>
+          </div>
+          
+          <div className="flex justify-between items-center">
+            <Link href="/zh/blog" className="text-blue-600 text-sm hover:underline">
+              ← 更多文章
+            </Link>
+            <Link href="/newsletter" className="text-blue-600 text-sm hover:underline">
+              Newsletter →
+            </Link>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-16 pt-8 border-t border-gray-100 text-center">
+          <p className="text-muted text-sm mb-2">
+            AI 策展，为人而建
+          </p>
+          <div className="flex justify-center gap-4 text-sm">
+            <Link href="/zh" className="link-blue">首页</Link>
+            <Link href="/newsletter" className="link-blue">Newsletter</Link>
+            <Link href="/zh/blog" className="link-blue">博客</Link>
+          </div>
+        </footer>
+      </div>
     </main>
   )
 }

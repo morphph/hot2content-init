@@ -1,25 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&family=Noto+Sans+SC:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground: #0f0f0f;
-  --background: #fafafa;
-  --muted: #6b6b6b;
-  --subtle: #e8e8e8;
-  --accent: #0f0f0f;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #f5f5f5;
-    --background: #0a0a0a;
-    --muted: #8a8a8a;
-    --subtle: #1f1f1f;
-    --accent: #f5f5f5;
-  }
+  /* Future Tools inspired colors */
+  --foreground: #1a1a1a;
+  --background: #ffffff;
+  --muted: #6b7280;
+  --subtle: #f3f4f6;
+  --border: #e5e7eb;
+  
+  /* Brand colors */
+  --pink: #EC4899;
+  --blue: #2563EB;
+  --purple: #8B5CF6;
+  --cyan: #06B6D4;
 }
 
 * {
@@ -33,38 +30,174 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Sora', 'Noto Sans SC', -apple-system, sans-serif;
-  font-weight: 300;
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  font-weight: 400;
   line-height: 1.7;
-  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--blue);
+  color: white;
 }
 
-/* Typography */
+/* ============================================
+   Typography - Future Tools Style
+   ============================================ */
+
 h1, h2, h3, h4 {
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--foreground);
 }
 
-/* Minimal link style */
+/* Pixel font for special headers */
+.pixel-font {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Pink section header - like "This Week's AI News" */
+.section-header-pink {
+  font-family: 'Press Start 2P', monospace;
+  color: var(--pink);
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Cyan section header - like "AMAZING FUTURE TOOLS" */
+.section-header-cyan {
+  font-family: 'Press Start 2P', monospace;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* Blue link/headline style */
+.headline-blue {
+  color: var(--blue);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.headline-blue:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ============================================
+   Links
+   ============================================ */
+
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-a:hover {
-  opacity: 0.6;
+a.link-blue {
+  color: var(--blue);
 }
 
-/* Subtle animations */
+a.link-blue:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Pixel Divider - Future Tools Style
+   ============================================ */
+
+.pixel-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  padding: 32px 0;
+}
+
+.pixel-divider-bar {
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* Main gradient bar */
+.pixel-divider-main {
+  width: 200px;
+  background: linear-gradient(90deg, #EC4899 0%, #8B5CF6 50%, #3B82F6 100%);
+}
+
+/* Individual pixel squares at the end */
+.pixel-divider-square {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Category Badge - Pink background pixel font
+   ============================================ */
+
+.category-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--pink);
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Callout Box - "Why it matters" style
+   ============================================ */
+
+.callout-box {
+  background: var(--subtle);
+  border-left: 4px solid var(--blue);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+
+.callout-box .callout-label {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.card-minimal {
+  transition: transform 0.2s ease;
+}
+
+.card-minimal:hover {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -77,59 +210,57 @@ a:hover {
 }
 
 .fade-in {
-  animation: fadeIn 0.6s ease forwards;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .fade-in-delay-1 {
-  animation: fadeIn 0.6s ease 0.1s forwards;
+  animation: fadeIn 0.5s ease 0.1s forwards;
   opacity: 0;
 }
 
 .fade-in-delay-2 {
-  animation: fadeIn 0.6s ease 0.2s forwards;
+  animation: fadeIn 0.5s ease 0.2s forwards;
   opacity: 0;
 }
 
-/* Card hover effect - minimal */
-.card-minimal {
-  transition: transform 0.3s ease;
-}
+/* ============================================
+   Utility Classes
+   ============================================ */
 
-.card-minimal:hover {
-  transform: translateX(4px);
-}
-
-/* Divider */
-.divider {
-  width: 24px;
-  height: 1px;
-  background: var(--subtle);
-}
-
-/* Muted text */
 .text-muted {
   color: var(--muted);
 }
 
-/* Badge minimal */
-.badge {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
-
-/* Border subtle */
-.border-subtle {
-  border-color: var(--subtle);
-}
-
-/* Text colors */
 .text-foreground {
   color: var(--foreground);
 }
 
-/* Article Content Styling */
+.border-subtle {
+  border-color: var(--border);
+}
+
+.bg-subtle {
+  background: var(--subtle);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+.badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ============================================
+   Article Content
+   ============================================ */
+
 .article-content {
   font-size: 1rem;
   line-height: 1.8;
@@ -140,29 +271,33 @@ a:hover {
 .article-content h2,
 .article-content h3,
 .article-content h4 {
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  margin-top: 2.5rem;
+  color: var(--foreground);
+  font-weight: 600;
+  margin-top: 2rem;
   margin-bottom: 1rem;
-  line-height: 1.3;
 }
 
 .article-content h1 { font-size: 1.75rem; }
-.article-content h2 { font-size: 1.4rem; }
-.article-content h3 { font-size: 1.15rem; }
-.article-content h4 { font-size: 1rem; font-weight: 500; }
+.article-content h2 { font-size: 1.5rem; }
+.article-content h3 { font-size: 1.25rem; }
+.article-content h4 { font-size: 1.1rem; }
 
 .article-content p {
   margin-bottom: 1.5rem;
 }
 
 .article-content strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .article-content a {
+  color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.article-content a:hover {
+  color: #1d4ed8;
 }
 
 .article-content ul,
@@ -179,23 +314,25 @@ a:hover {
 .article-content ol { list-style-type: decimal; }
 
 .article-content blockquote {
-  border-left: 2px solid var(--subtle);
+  border-left: 4px solid var(--blue);
   padding-left: 1.25rem;
   margin: 1.5rem 0;
-  color: var(--muted);
-  font-style: italic;
+  background: var(--subtle);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
 }
 
 .article-content code {
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 0.875em;
   background: var(--subtle);
-  padding: 0.15em 0.4em;
+  padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
 .article-content pre {
-  background: var(--subtle);
+  background: #1a1a1a;
+  color: #e5e7eb;
   padding: 1.25rem;
   border-radius: 8px;
   overflow-x: auto;
@@ -206,10 +343,9 @@ a:hover {
   background: none;
   padding: 0;
   font-size: 0.85rem;
-  line-height: 1.6;
+  color: inherit;
 }
 
-/* Tables */
 .article-content table {
   width: 100%;
   border-collapse: collapse;
@@ -221,66 +357,78 @@ a:hover {
 .article-content td {
   text-align: left;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--subtle);
+  border-bottom: 1px solid var(--border);
 }
 
 .article-content th {
-  font-weight: 500;
-  color: var(--muted);
-  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.article-content tr:hover td {
-  background: rgba(0,0,0,0.02);
-}
-
-@media (prefers-color-scheme: dark) {
-  .article-content tr:hover td {
-    background: rgba(255,255,255,0.02);
-  }
 }
 
 .article-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 12px;
   margin: 1.5rem 0;
 }
 
 .article-content hr {
   border: none;
-  border-top: 1px solid var(--subtle);
+  height: 1px;
+  background: var(--border);
   margin: 2.5rem 0;
 }
 
-/* Mermaid Diagrams */
-.mermaid-diagram {
-  background: var(--subtle);
-  border-radius: 8px;
-  padding: 1.25rem;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* ============================================
+   Header Component
+   ============================================ */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  margin-bottom: 32px;
 }
 
-.mermaid-diagram svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+
+.site-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.site-logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
 
 @media (max-width: 640px) {
-  .mermaid-diagram {
-    margin-left: -20px;
-    margin-right: -20px;
-    border-radius: 0;
-    padding: 1rem;
+  .section-header-pink,
+  .section-header-cyan {
+    font-size: 12px;
   }
   
-  .mermaid-diagram svg {
-    min-width: 500px;
+  .category-badge {
+    font-size: 8px;
+    padding: 4px 8px;
   }
 }
