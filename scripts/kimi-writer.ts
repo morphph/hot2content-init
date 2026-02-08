@@ -136,7 +136,7 @@ ${researchReport.substring(0, 5000)}
   console.log('\n📡 Calling Kimi K2.5 API...');
 
   try {
-    const response = await fetch('https://api.moonshot.cn/v1/chat/completions', {
+    const response = await fetch('https://api.moonshot.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
