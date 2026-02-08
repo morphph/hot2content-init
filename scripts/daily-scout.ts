@@ -149,6 +149,179 @@ async function fetchTwitter(handle: string): Promise<any[]> {
 }
 
 // ============================================
+// Tier 1: Official Blogs (RSS + Web Scraping)
+// ============================================
+
+interface RSSItem {
+  title: string;
+  link: string;
+  pubDate: string;
+  description?: string;
+}
+
+async function parseRSS(url: string): Promise<RSSItem[]> {
+  try {
+    const response = await fetch(url, {
+      headers: { 'User-Agent': 'Hot2Content/2.0' }
+    });
+    if (!response.ok) return [];
+    
+    const xml = await response.text();
+    const items: RSSItem[] = [];
+    
+    // Simple XML parsing with regex (works for RSS)
+    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+    let match;
+    
+    while ((match = itemRegex.exec(xml)) !== null) {
+      const itemXml = match[1];
+      const title = itemXml.match(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/)?.[1] || '';
+      const link = itemXml.match(/<link>(.*?)<\/link>/)?.[1] || '';
+      const pubDate = itemXml.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || '';
+      const description = itemXml.match(/<description>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/description>/)?.[1] || '';
+      
+      if (title && link) {
+        items.push({ title: title.trim(), link: link.trim(), pubDate, description: description.slice(0, 300) });
+      }
+    }
+    
+    return items.slice(0, 10); // Last 10 items
+  } catch (e) {
+    console.log(`   ⚠️ RSS parse error: ${e}`);
+    return [];
+  }
+}
+
+async function fetchAnthropicNews(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  try {
+    // Anthropic's news page is JS-rendered, so we fetch the raw HTML and look for JSON data
+    const response = await fetch('https://www.anthropic.com/news', {
+      headers: { 
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Accept': 'text/html,application/xhtml+xml'
+      }
+    });
+    if (!response.ok) return items;
+    
+    const html = await response.text();
+    
+    // Try to find Next.js data or any embedded JSON
+    const jsonMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (jsonMatch) {
+      try {
+        const nextData = JSON.parse(jsonMatch[1]);
+        const posts = nextData?.props?.pageProps?.posts || 
+                     nextData?.props?.pageProps?.news ||
+                     [];
+        
+        for (const post of posts.slice(0, 5)) {
+          const title = post.title || post.name || '';
+          const slug = post.slug || post.id || '';
+          if (!title || !slug) continue;
+          
+          items.push({
+            id: `anthropic-${slug}`,
+            title: title.slice(0, 150),
+            summary: post.description || post.excerpt || 'Anthropic official announcement',
+            url: `https://www.anthropic.com/news/${slug}`,
+            source: 'Anthropic Blog',
+            source_tier: 1,
+            category: 'official_blog',
+            score: 90,
+            detected_at: post.publishedAt || post.date || new Date().toISOString(),
+          });
+        }
+      } catch (e) {
+        // JSON parsing failed, continue with regex fallback
+      }
+    }
+    
+    // Fallback: Look for news article links in HTML
+    if (items.length === 0) {
+      const linkPattern = /href="\/news\/([^"]+)"[^>]*>/g;
+      const seen = new Set<string>();
+      let match;
+      
+      while ((match = linkPattern.exec(html)) !== null && items.length < 5) {
+        const slug = match[1];
+        if (seen.has(slug) || slug.includes('#') || slug.includes('?')) continue;
+        seen.add(slug);
+        
+        items.push({
+          id: `anthropic-${slug}`,
+          title: slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+          summary: 'Anthropic official announcement',
+          url: `https://www.anthropic.com/news/${slug}`,
+          source: 'Anthropic Blog',
+          source_tier: 1,
+          category: 'official_blog',
+          score: 90,
+          detected_at: new Date().toISOString(),
+        });
+      }
+    }
+  } catch (e) {
+    console.log(`   ⚠️ Anthropic fetch error: ${e}`);
+  }
+  return items.slice(0, 5);
+}
+
+async function scanOfficialBlogs(): Promise<NewsItem[]> {
+  console.log('📡 Tier 1: Scanning Official Blogs...');
+  const items: NewsItem[] = [];
+  
+  // 1. Google AI Blog (RSS)
+  console.log('   - Google AI Blog (RSS)...');
+  const googleItems = await parseRSS('https://blog.google/technology/ai/rss/');
+  for (const item of googleItems.slice(0, 5)) {
+    // Check if it's AI-related (filter out general Google news)
+    const isAI = /ai|gemini|model|deepmind|machine learning|neural/i.test(item.title + item.description);
+    if (!isAI) continue;
+    
+    items.push({
+      id: `google-${Buffer.from(item.link).toString('base64').slice(0, 20)}`,
+      title: item.title,
+      summary: item.description?.replace(/<[^>]+>/g, '').slice(0, 280) || 'Google AI official blog post',
+      url: item.link,
+      source: 'Google AI Blog',
+      source_tier: 1,
+      category: 'official_blog',
+      score: 88,
+      detected_at: item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString(),
+    });
+  }
+  console.log(`   ✅ Google AI: ${items.length} items`);
+  
+  // 2. Anthropic News (Web scraping)
+  console.log('   - Anthropic News...');
+  const anthropicItems = await fetchAnthropicNews();
+  items.push(...anthropicItems);
+  console.log(`   ✅ Anthropic: ${anthropicItems.length} items`);
+  
+  // 3. HuggingFace Blog (RSS)
+  console.log('   - HuggingFace Blog (RSS)...');
+  const hfBlogItems = await parseRSS('https://huggingface.co/blog/feed.xml');
+  for (const item of hfBlogItems.slice(0, 5)) {
+    items.push({
+      id: `hf-blog-${Buffer.from(item.link).toString('base64').slice(0, 20)}`,
+      title: item.title,
+      summary: item.description?.replace(/<[^>]+>/g, '').slice(0, 280) || 'HuggingFace official blog',
+      url: item.link,
+      source: 'HuggingFace Blog',
+      source_tier: 1,
+      category: 'official_blog',
+      score: 85,
+      detected_at: item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString(),
+    });
+  }
+  console.log(`   ✅ HuggingFace Blog: ${hfBlogItems.length} items`);
+  
+  console.log(`   ✅ Total official blog items: ${items.length}`);
+  return items;
+}
+
+// ============================================
 // Tier 2: Twitter/X Scanner
 // ============================================
 
@@ -455,13 +628,14 @@ async function main() {
   console.log('\n');
 
   // Scan all tiers
-  const twitterItems = await scanTwitter();
-  const hfItems = await scanHuggingFace();
-  const hnItems = await scanHackerNews();
-  const ghItems = await scanGitHub();
+  const officialItems = await scanOfficialBlogs();  // Tier 1: Official blogs
+  const twitterItems = await scanTwitter();         // Tier 2: Twitter
+  const hfItems = await scanHuggingFace();          // Tier 3: HuggingFace trending
+  const hnItems = await scanHackerNews();           // Tier 4: Hacker News
+  const ghItems = await scanGitHub();               // Tier 5: GitHub
 
   // Combine and deduplicate
-  const allItems = [...twitterItems, ...hfItems, ...hnItems, ...ghItems];
+  const allItems = [...officialItems, ...twitterItems, ...hfItems, ...hnItems, ...ghItems];
   console.log(`\n🔄 Deduplicating ${allItems.length} items...`);
   
   const deduped = deduplicate(allItems);
