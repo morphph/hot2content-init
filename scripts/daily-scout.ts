@@ -1,370 +1,436 @@
 #!/usr/bin/env npx tsx
 /**
- * Hot2Content Daily Scout
+ * Hot2Content Daily Scout v2
  * 
- * 每日热点扫描 - T1 官方博客, T2 Twitter, T3 GitHub Trending, T4 Hacker News
- * 输出 10 个话题 + 评分，用于 Telegram 推送和 Newsletter 页面
+ * 参考 AI Daily Digest 格式，生成带分类、Twitter链接、Action建议的热点报告
+ * 
+ * 数据源:
+ * - T1: 官方博客 (Anthropic, OpenAI, Google AI, etc.)
+ * - T2: Twitter/X (官方账号 + KOL)
+ * - T3: HuggingFace Trending
+ * - T4: Hacker News
+ * - T5: GitHub Trending
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
+import * as dotenv from 'dotenv';
+
+// Load .env
+dotenv.config();
 
 // ============================================
 // Types
 // ============================================
 
-interface Topic {
+type Category = 'model' | 'app' | 'dev' | 'technique' | 'product' | 'research' | 'tool';
+
+interface NewsItem {
   id: string;
-  rank: number;
   title: string;
-  title_zh?: string;
   summary: string;
+  action?: string;
+  url: string;
+  twitter_url?: string;
+  source: string;
+  source_tier: number;
+  category: Category;
   score: number;
-  score_breakdown: {
-    impact: number;
-    novelty: number;
-    depth: number;
-    urgency: number;
-  };
-  sources: Array<{
-    tier: number;
-    name: string;
-    url: string;
-    type: string;
-  }>;
-  category: 'model' | 'product' | 'research' | 'dev' | 'tool' | 'funding';
-  urgency: 'high' | 'medium' | 'low';
+  engagement?: number;
   detected_at: string;
 }
 
 interface DailyDigest {
   date: string;
   generated_at: string;
-  topics: Topic[];
+  items: NewsItem[];
+  by_category: Record<Category, NewsItem[]>;
   sources_scanned: {
     tier_1_official: number;
     tier_2_twitter: number;
-    tier_3_github: number;
+    tier_3_huggingface: number;
     tier_4_hackernews: number;
+    tier_5_github: number;
   };
+  markdown: string;
 }
 
 // ============================================
-// Official Blogs (Tier 1)
+// Config
 // ============================================
+
+const TWITTER_API_KEY = process.env.TWITTER_API_KEY || '';
+const TWITTER_API_BASE = 'https://api.twitterapi.io';
 
 const OFFICIAL_BLOGS = [
-  { name: 'Anthropic', url: 'https://www.anthropic.com/news', region: 'US' },
-  { name: 'OpenAI', url: 'https://openai.com/blog', region: 'US' },
-  { name: 'Google AI', url: 'https://blog.google/technology/ai/', region: 'US' },
-  { name: 'DeepMind', url: 'https://deepmind.google/blog/', region: 'US' },
-  { name: 'Meta AI', url: 'https://ai.meta.com/blog/', region: 'US' },
-  { name: 'Mistral', url: 'https://mistral.ai/news/', region: 'EU' },
-  { name: 'xAI', url: 'https://x.ai/blog', region: 'US' },
-  { name: 'Cohere', url: 'https://cohere.com/blog', region: 'US' },
-  { name: 'HuggingFace', url: 'https://huggingface.co/blog', region: 'US' },
+  { name: 'Anthropic', url: 'https://www.anthropic.com/news', twitter: '@AnthropicAI', category: 'model' as Category },
+  { name: 'OpenAI', url: 'https://openai.com/blog', twitter: '@OpenAI', category: 'model' as Category },
+  { name: 'Google AI', url: 'https://blog.google/technology/ai/', twitter: '@GoogleAI', category: 'model' as Category },
+  { name: 'DeepMind', url: 'https://deepmind.google/blog/', twitter: '@DeepMind', category: 'research' as Category },
+  { name: 'Meta AI', url: 'https://ai.meta.com/blog/', twitter: '@AIatMeta', category: 'model' as Category },
+  { name: 'Mistral', url: 'https://mistral.ai/news/', twitter: '@MistralAI', category: 'model' as Category },
+  { name: 'xAI', url: 'https://x.ai/blog', twitter: '@xaborevsky', category: 'model' as Category },
+  { name: 'Cohere', url: 'https://cohere.com/blog', twitter: '@coaborevsky', category: 'model' as Category },
+  { name: 'HuggingFace', url: 'https://huggingface.co/blog', twitter: '@huggingface', category: 'dev' as Category },
 ];
 
+const TWITTER_ACCOUNTS = [
+  // Tier 1 - Official
+  { handle: 'AnthropicAI', tier: 1, category: 'model' as Category },
+  { handle: 'OpenAI', tier: 1, category: 'model' as Category },
+  { handle: 'GoogleAI', tier: 1, category: 'model' as Category },
+  { handle: 'DeepMind', tier: 1, category: 'research' as Category },
+  { handle: 'MistralAI', tier: 1, category: 'model' as Category },
+  { handle: 'AIatMeta', tier: 1, category: 'model' as Category },
+  { handle: 'huggingface', tier: 1, category: 'dev' as Category },
+  { handle: 'claudeai', tier: 1, category: 'app' as Category },
+  { handle: 'OpenAIDevs', tier: 1, category: 'dev' as Category },
+  // Tier 2 - KOLs
+  { handle: 'sama', tier: 2, category: 'product' as Category },
+  { handle: 'karpathy', tier: 2, category: 'technique' as Category },
+  { handle: 'ylecun', tier: 2, category: 'research' as Category },
+  { handle: 'EMostaque', tier: 2, category: 'model' as Category },
+  { handle: 'DrJimFan', tier: 2, category: 'research' as Category },
+];
+
+const CATEGORY_EMOJI: Record<Category, string> = {
+  model: '🧠',
+  app: '📱',
+  dev: '🔧',
+  technique: '📝',
+  product: '🚀',
+  research: '🔬',
+  tool: '🛠️',
+};
+
+const CATEGORY_LABEL: Record<Category, string> = {
+  model: 'MODEL',
+  app: 'APP',
+  dev: 'DEV',
+  technique: 'TECHNIQUE',
+  product: 'PRODUCT',
+  research: 'RESEARCH',
+  tool: 'TOOL',
+};
+
 // ============================================
-// Scoring
+// Twitter API
 // ============================================
 
-function calculateScore(signals: {
-  isOfficial: boolean;
-  hoursAgo: number;
-  crossSourceCount: number;
-  engagement?: number;
-  hasCode?: boolean;
-}): { total: number; breakdown: Topic['score_breakdown'] } {
-  const breakdown = {
-    impact: 0,
-    novelty: 0,
-    depth: 0,
-    urgency: 0,
-  };
-
-  // Impact (30%) - based on source tier and engagement
-  if (signals.isOfficial) breakdown.impact = 25;
-  else if (signals.engagement && signals.engagement > 500) breakdown.impact = 20;
-  else if (signals.engagement && signals.engagement > 100) breakdown.impact = 15;
-  else breakdown.impact = 10;
-
-  // Novelty (25%) - based on recency
-  if (signals.hoursAgo < 12) breakdown.novelty = 25;
-  else if (signals.hoursAgo < 24) breakdown.novelty = 20;
-  else if (signals.hoursAgo < 48) breakdown.novelty = 15;
-  else if (signals.hoursAgo < 72) breakdown.novelty = 10;
-  else breakdown.novelty = 5;
-
-  // Depth (25%) - based on content potential
-  if (signals.hasCode) breakdown.depth = 20;
-  if (signals.crossSourceCount >= 3) breakdown.depth = 25;
-  else if (signals.crossSourceCount >= 2) breakdown.depth = 20;
-  else breakdown.depth = Math.max(breakdown.depth, 15);
-
-  // Urgency (20%) - based on cross-source validation
-  if (signals.crossSourceCount >= 3) breakdown.urgency = 20;
-  else if (signals.crossSourceCount >= 2) breakdown.urgency = 15;
-  else if (signals.hoursAgo < 24) breakdown.urgency = 15;
-  else breakdown.urgency = 10;
-
-  // Bonus for official source
-  const bonus = signals.isOfficial ? 5 : 0;
-
-  const total = breakdown.impact + breakdown.novelty + breakdown.depth + breakdown.urgency + bonus;
-
-  return { total: Math.min(total, 100), breakdown };
+async function fetchTwitter(handle: string): Promise<any[]> {
+  if (!TWITTER_API_KEY) return [];
+  
+  try {
+    const response = await fetch(
+      `${TWITTER_API_BASE}/twitter/user/last_tweets?userName=${handle}&count=5`,
+      {
+        headers: {
+          'X-API-Key': TWITTER_API_KEY,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    
+    if (!response.ok) return [];
+    
+    const data = await response.json();
+    return data.data?.tweets || data.tweets || [];
+  } catch (e) {
+    return [];
+  }
 }
 
 // ============================================
-// Tier 1: Official Blogs Scraper
+// Tier 2: Twitter/X Scanner
 // ============================================
 
-async function scrapeTier1(): Promise<Partial<Topic>[]> {
-  console.log('📡 Tier 1: Scanning official blogs...');
-  const topics: Partial<Topic>[] = [];
-
-  for (const blog of OFFICIAL_BLOGS) {
-    try {
-      console.log(`   - ${blog.name}...`);
-      const response = await fetch(blog.url, {
-        headers: { 'User-Agent': 'Hot2Content/1.0' }
-      });
-      
-      if (!response.ok) {
-        console.log(`     ⚠️ ${response.status}`);
-        continue;
-      }
-
-      const html = await response.text();
-      
-      // Simple extraction - look for article titles in common patterns
-      const titleMatches = html.match(/<h[1-3][^>]*>([^<]+)<\/h[1-3]>/gi) || [];
-      const linkMatches = html.match(/<a[^>]+href="([^"]+)"[^>]*>([^<]+)<\/a>/gi) || [];
-
-      // Extract recent articles (simplified)
-      for (const match of titleMatches.slice(0, 3)) {
-        const title = match.replace(/<[^>]+>/g, '').trim();
-        if (title.length > 20 && title.length < 200) {
-          const { total, breakdown } = calculateScore({
-            isOfficial: true,
-            hoursAgo: 24, // Assume recent
-            crossSourceCount: 1,
-          });
-
-          topics.push({
-            title,
-            summary: `Official announcement from ${blog.name}`,
-            score: total,
-            score_breakdown: breakdown,
-            sources: [{
-              tier: 1,
-              name: blog.name,
-              url: blog.url,
-              type: 'official_blog'
-            }],
-            category: 'model',
-            urgency: 'high',
-            detected_at: new Date().toISOString(),
-          });
-        }
-      }
-    } catch (error) {
-      console.log(`     ❌ Error: ${error}`);
-    }
+async function scanTwitter(): Promise<NewsItem[]> {
+  console.log('📡 Tier 2: Scanning Twitter/X...');
+  const items: NewsItem[] = [];
+  
+  if (!TWITTER_API_KEY) {
+    console.log('   ⚠️ No API key, skipping');
+    return items;
   }
 
-  console.log(`   ✅ Found ${topics.length} items from official blogs`);
-  return topics;
+  for (const account of TWITTER_ACCOUNTS) {
+    try {
+      console.log(`   - @${account.handle}...`);
+      const tweets = await fetchTwitter(account.handle);
+      
+      for (const tweet of tweets) {
+        const text = tweet.text || tweet.full_text || '';
+        const tweetId = tweet.id || tweet.id_str;
+        
+        // Skip retweets and replies
+        if (text.startsWith('RT @') || text.startsWith('@')) continue;
+        
+        // Check if it's about AI/tech
+        const isRelevant = /ai|llm|gpt|claude|model|agent|training|inference|benchmark/i.test(text);
+        if (!isRelevant && account.tier > 1) continue;
+        
+        // Extract engagement
+        const likes = tweet.favorite_count || tweet.public_metrics?.like_count || 0;
+        const retweets = tweet.retweet_count || tweet.public_metrics?.retweet_count || 0;
+        const engagement = likes + retweets * 2;
+        
+        // Skip low engagement for tier 2
+        if (account.tier === 2 && engagement < 100) continue;
+        
+        // Generate title from first line or first 100 chars
+        const title = text.split('\n')[0].slice(0, 100).trim() || text.slice(0, 100).trim();
+        
+        // Generate action if applicable
+        let action: string | undefined;
+        if (/available|released|launched|try|check out/i.test(text)) {
+          action = 'Check it out';
+        } else if (/update|upgrade|new version/i.test(text)) {
+          action = 'Review changes';
+        }
+        
+        const score = account.tier === 1 ? 80 : Math.min(70, 50 + Math.floor(engagement / 100));
+        
+        items.push({
+          id: `twitter-${tweetId}`,
+          title,
+          summary: text.slice(0, 280),
+          action,
+          url: `https://x.com/${account.handle}/status/${tweetId}`,
+          twitter_url: `https://x.com/${account.handle}/status/${tweetId}`,
+          source: `@${account.handle}`,
+          source_tier: account.tier,
+          category: account.category,
+          score,
+          engagement,
+          detected_at: tweet.created_at || new Date().toISOString(),
+        });
+      }
+    } catch (e) {
+      console.log(`   ❌ @${account.handle}: ${e}`);
+    }
+  }
+  
+  console.log(`   ✅ Found ${items.length} tweets`);
+  return items;
 }
 
 // ============================================
-// Tier 3: GitHub Trending Scraper
+// Tier 3: HuggingFace Trending
 // ============================================
 
-async function scrapeTier3(): Promise<Partial<Topic>[]> {
-  console.log('📡 Tier 3: Scanning GitHub Trending...');
-  const topics: Partial<Topic>[] = [];
+async function scanHuggingFace(): Promise<NewsItem[]> {
+  console.log('📡 Tier 3: Scanning HuggingFace Trending...');
+  const items: NewsItem[] = [];
+
+  try {
+    // Use the models API sorted by likes
+    const response = await fetch('https://huggingface.co/api/models?sort=likes&direction=-1&limit=10');
+    if (!response.ok) {
+      console.log(`   ⚠️ HF returned ${response.status}`);
+      return items;
+    }
+
+    const models: any[] = await response.json();
+    
+    for (const model of models.slice(0, 5)) {
+      const modelId = model.id || model.modelId;
+      const likes = model.likes || 0;
+      const downloads = model.downloads || 0;
+      
+      items.push({
+        id: `hf-${modelId.replace('/', '-')}`,
+        title: `Trending: ${modelId}`,
+        summary: `${likes.toLocaleString()}❤️, ${downloads.toLocaleString()} downloads. ${model.pipeline_tag || 'General model'}`,
+        action: 'Try it on HuggingFace',
+        url: `https://huggingface.co/${modelId}`,
+        source: 'HuggingFace Trending',
+        source_tier: 3,
+        category: 'model',
+        score: Math.min(75, 50 + Math.floor(likes / 100)),
+        engagement: likes,
+        detected_at: new Date().toISOString(),
+      });
+    }
+  } catch (e) {
+    console.log(`   ❌ Error: ${e}`);
+  }
+
+  console.log(`   ✅ Found ${items.length} trending models`);
+  return items;
+}
+
+// ============================================
+// Tier 4: Hacker News
+// ============================================
+
+async function scanHackerNews(): Promise<NewsItem[]> {
+  console.log('📡 Tier 4: Scanning Hacker News...');
+  const items: NewsItem[] = [];
+
+  try {
+    const topStoriesRes = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+    const topStoryIds: number[] = await topStoriesRes.json();
+
+    for (const id of topStoryIds.slice(0, 30)) {
+      try {
+        const storyRes = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+        const story = await storyRes.json();
+        
+        if (!story?.title) continue;
+        
+        const titleLower = story.title.toLowerCase();
+        const isAI = /ai|llm|gpt|claude|anthropic|openai|machine learning|neural|transformer|model|agent/i.test(titleLower);
+        
+        if (!isAI || story.score < 50) continue;
+        
+        // Determine category
+        let category: Category = 'research';
+        if (/tool|library|framework|sdk/i.test(titleLower)) category = 'tool';
+        else if (/technique|paper|study/i.test(titleLower)) category = 'technique';
+        else if (/launch|product|app/i.test(titleLower)) category = 'product';
+        
+        items.push({
+          id: `hn-${id}`,
+          title: story.title,
+          summary: `HN discussion: ${story.score} points, ${story.descendants || 0} comments`,
+          url: story.url || `https://news.ycombinator.com/item?id=${id}`,
+          source: 'Hacker News',
+          source_tier: 4,
+          category,
+          score: Math.min(75, 50 + Math.floor(story.score / 50)),
+          engagement: story.score,
+          detected_at: new Date(story.time * 1000).toISOString(),
+        });
+      } catch (e) {
+        // Skip individual errors
+      }
+    }
+  } catch (e) {
+    console.log(`   ❌ Error: ${e}`);
+  }
+
+  console.log(`   ✅ Found ${items.length} AI stories`);
+  return items;
+}
+
+// ============================================
+// Tier 5: GitHub Trending
+// ============================================
+
+async function scanGitHub(): Promise<NewsItem[]> {
+  console.log('📡 Tier 5: Scanning GitHub Trending...');
+  const items: NewsItem[] = [];
 
   try {
     const response = await fetch('https://github.com/trending?since=daily', {
-      headers: { 'User-Agent': 'Hot2Content/1.0' }
+      headers: { 'User-Agent': 'Hot2Content/2.0' }
     });
 
     if (!response.ok) {
       console.log(`   ⚠️ GitHub returned ${response.status}`);
-      return topics;
+      return items;
     }
 
     const html = await response.text();
     
-    // Extract repo names and descriptions
-    const repoMatches = html.match(/href="\/([^"]+)"[^>]*class="[^"]*text-bold[^"]*"/gi) || [];
-    const descMatches = html.match(/<p class="col-[^"]*text-gray[^"]*">([^<]+)<\/p>/gi) || [];
-
-    for (let i = 0; i < Math.min(repoMatches.length, 10); i++) {
-      const repoPath = repoMatches[i]?.match(/href="\/([^"]+)"/)?.[1];
-      const desc = descMatches[i]?.replace(/<[^>]+>/g, '').trim() || '';
-
-      if (repoPath && (
-        desc.toLowerCase().includes('ai') ||
-        desc.toLowerCase().includes('llm') ||
-        desc.toLowerCase().includes('machine learning') ||
-        desc.toLowerCase().includes('gpt') ||
-        desc.toLowerCase().includes('claude') ||
-        desc.toLowerCase().includes('model')
-      )) {
-        const { total, breakdown } = calculateScore({
-          isOfficial: false,
-          hoursAgo: 12,
-          crossSourceCount: 1,
-          hasCode: true,
-        });
-
-        topics.push({
-          title: `${repoPath}: ${desc.slice(0, 100)}`,
-          summary: desc,
-          score: total,
-          score_breakdown: breakdown,
-          sources: [{
-            tier: 3,
-            name: 'GitHub Trending',
-            url: `https://github.com/${repoPath}`,
-            type: 'github_trending'
-          }],
-          category: 'tool',
-          urgency: 'medium',
-          detected_at: new Date().toISOString(),
-        });
-      }
+    // Extract repo info using regex
+    const repoPattern = /<h2 class="h3[^"]*">\s*<a href="\/([^"]+)"[^>]*>/g;
+    const descPattern = /<p class="col-[^"]*">([^<]+)<\/p>/g;
+    
+    const repos: string[] = [];
+    const descs: string[] = [];
+    
+    let match;
+    while ((match = repoPattern.exec(html)) !== null) {
+      repos.push(match[1]);
     }
-  } catch (error) {
-    console.log(`   ❌ Error: ${error}`);
+    while ((match = descPattern.exec(html)) !== null) {
+      descs.push(match[1].trim());
+    }
+
+    for (let i = 0; i < Math.min(repos.length, 10); i++) {
+      const repoPath = repos[i];
+      const desc = descs[i] || '';
+      
+      const isAI = /ai|llm|gpt|claude|model|machine.?learning|neural|transformer|agent/i.test(desc);
+      if (!isAI) continue;
+      
+      items.push({
+        id: `gh-${repoPath.replace('/', '-')}`,
+        title: repoPath,
+        summary: desc.slice(0, 200),
+        action: 'Star the repo',
+        url: `https://github.com/${repoPath}`,
+        source: 'GitHub Trending',
+        source_tier: 5,
+        category: 'tool',
+        score: 60,
+        detected_at: new Date().toISOString(),
+      });
+    }
+  } catch (e) {
+    console.log(`   ❌ Error: ${e}`);
   }
 
-  console.log(`   ✅ Found ${topics.length} AI/ML repos trending`);
-  return topics;
+  console.log(`   ✅ Found ${items.length} AI repos`);
+  return items;
 }
 
 // ============================================
-// Tier 4: Hacker News Scraper
+// Deduplication
 // ============================================
 
-async function scrapeTier4(): Promise<Partial<Topic>[]> {
-  console.log('📡 Tier 4: Scanning Hacker News...');
-  const topics: Partial<Topic>[] = [];
-
-  try {
-    // Use HN API for top stories
-    const topStoriesResponse = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
-    const topStoryIds: number[] = await topStoriesResponse.json();
-
-    // Get top 30 stories
-    for (const id of topStoryIds.slice(0, 30)) {
-      try {
-        const storyResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
-        const story = await storyResponse.json();
-
-        if (!story || !story.title) continue;
-
-        const title = story.title.toLowerCase();
-        const isAI = title.includes('ai') || title.includes('llm') || 
-                     title.includes('gpt') || title.includes('claude') ||
-                     title.includes('anthropic') || title.includes('openai') ||
-                     title.includes('machine learning') || title.includes('neural') ||
-                     title.includes('transformer') || title.includes('model');
-
-        if (isAI && story.score > 50) {
-          const { total, breakdown } = calculateScore({
-            isOfficial: false,
-            hoursAgo: (Date.now() / 1000 - story.time) / 3600,
-            crossSourceCount: 1,
-            engagement: story.score,
-          });
-
-          topics.push({
-            title: story.title,
-            summary: `HN discussion with ${story.descendants || 0} comments`,
-            score: total,
-            score_breakdown: breakdown,
-            sources: [{
-              tier: 4,
-              name: 'Hacker News',
-              url: story.url || `https://news.ycombinator.com/item?id=${id}`,
-              type: 'hackernews'
-            }],
-            category: 'research',
-            urgency: story.score > 200 ? 'high' : 'medium',
-            detected_at: new Date().toISOString(),
-          });
-        }
-      } catch (e) {
-        // Skip individual story errors
-      }
-    }
-  } catch (error) {
-    console.log(`   ❌ Error: ${error}`);
-  }
-
-  console.log(`   ✅ Found ${topics.length} AI-related HN stories`);
-  return topics;
-}
-
-// ============================================
-// Deduplication & Merging
-// ============================================
-
-function deduplicateAndMerge(allTopics: Partial<Topic>[]): Topic[] {
-  const merged = new Map<string, Topic>();
-
-  for (const topic of allTopics) {
-    if (!topic.title) continue;
-
-    // Create a simple key for matching
-    const key = topic.title.toLowerCase()
+function deduplicate(items: NewsItem[]): NewsItem[] {
+  const seen = new Map<string, NewsItem>();
+  
+  for (const item of items) {
+    // Create key from normalized title
+    const key = item.title.toLowerCase()
       .replace(/[^a-z0-9\u4e00-\u9fa5]/g, '')
       .slice(0, 50);
-
-    if (merged.has(key)) {
-      // Merge: combine sources, boost score
-      const existing = merged.get(key)!;
-      existing.sources.push(...(topic.sources || []));
-      
-      // Recalculate with cross-source bonus
-      const { total, breakdown } = calculateScore({
-        isOfficial: existing.sources.some(s => s.tier === 1),
-        hoursAgo: 24,
-        crossSourceCount: existing.sources.length,
-        engagement: 100,
-      });
-      existing.score = total;
-      existing.score_breakdown = breakdown;
-    } else {
-      merged.set(key, {
-        id: `topic-${Date.now()}-${merged.size}`,
-        rank: 0,
-        title: topic.title,
-        summary: topic.summary || '',
-        score: topic.score || 50,
-        score_breakdown: topic.score_breakdown || { impact: 0, novelty: 0, depth: 0, urgency: 0 },
-        sources: topic.sources || [],
-        category: topic.category || 'model',
-        urgency: topic.urgency || 'medium',
-        detected_at: topic.detected_at || new Date().toISOString(),
-      });
+    
+    if (!seen.has(key) || seen.get(key)!.score < item.score) {
+      seen.set(key, item);
     }
   }
+  
+  return Array.from(seen.values())
+    .sort((a, b) => b.score - a.score);
+}
 
-  // Sort by score and assign ranks
-  const sorted = Array.from(merged.values())
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10);
+// ============================================
+// Generate Markdown
+// ============================================
 
-  sorted.forEach((topic, i) => {
-    topic.rank = i + 1;
-  });
-
-  return sorted;
+function generateMarkdown(digest: DailyDigest): string {
+  const lines: string[] = [];
+  const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  
+  lines.push(`# AI Daily Digest — ${date}`);
+  lines.push('');
+  
+  for (const category of ['model', 'app', 'dev', 'technique', 'product', 'research', 'tool'] as Category[]) {
+    const items = digest.by_category[category];
+    if (!items || items.length === 0) continue;
+    
+    lines.push(`## ${CATEGORY_EMOJI[category]} ${CATEGORY_LABEL[category]}`);
+    lines.push('');
+    
+    for (const item of items.slice(0, 5)) {
+      lines.push(`### ${item.title}`);
+      lines.push(item.summary);
+      if (item.action) {
+        lines.push(`⚡ Action: ${item.action}`);
+      }
+      lines.push(`🔗 ${item.twitter_url || item.url}`);
+      lines.push('');
+    }
+    
+    lines.push('---');
+    lines.push('');
+  }
+  
+  return lines.join('\n');
 }
 
 // ============================================
@@ -374,51 +440,70 @@ function deduplicateAndMerge(allTopics: Partial<Topic>[]): Topic[] {
 async function main() {
   console.log('\n');
   console.log('═'.repeat(60));
-  console.log('  🔥 Hot2Content Daily Scout');
-  console.log('  AI/Tech热点每日扫描');
+  console.log('  🔥 Hot2Content Daily Scout v2');
+  console.log('  AI Daily Digest 格式');
   console.log('═'.repeat(60));
   console.log('\n');
 
-  const allTopics: Partial<Topic>[] = [];
-
   // Scan all tiers
-  const tier1Topics = await scrapeTier1();
-  allTopics.push(...tier1Topics);
+  const twitterItems = await scanTwitter();
+  const hfItems = await scanHuggingFace();
+  const hnItems = await scanHackerNews();
+  const ghItems = await scanGitHub();
 
-  // Note: Tier 2 (Twitter) requires API key - skip for now if not available
-  console.log('📡 Tier 2: Twitter (skipped - requires API key)');
+  // Combine and deduplicate
+  const allItems = [...twitterItems, ...hfItems, ...hnItems, ...ghItems];
+  console.log(`\n🔄 Deduplicating ${allItems.length} items...`);
+  
+  const deduped = deduplicate(allItems);
+  console.log(`   ✅ ${deduped.length} unique items`);
 
-  const tier3Topics = await scrapeTier3();
-  allTopics.push(...tier3Topics);
-
-  const tier4Topics = await scrapeTier4();
-  allTopics.push(...tier4Topics);
-
-  // Deduplicate and merge
-  console.log('\n🔄 Deduplicating and ranking...');
-  const finalTopics = deduplicateAndMerge(allTopics);
+  // Group by category
+  const byCategory: Record<Category, NewsItem[]> = {
+    model: [],
+    app: [],
+    dev: [],
+    technique: [],
+    product: [],
+    research: [],
+    tool: [],
+  };
+  
+  for (const item of deduped) {
+    byCategory[item.category].push(item);
+  }
 
   // Create digest
   const digest: DailyDigest = {
     date: new Date().toISOString().split('T')[0],
     generated_at: new Date().toISOString(),
-    topics: finalTopics,
+    items: deduped.slice(0, 20),
+    by_category: byCategory,
     sources_scanned: {
       tier_1_official: OFFICIAL_BLOGS.length,
-      tier_2_twitter: 0,
-      tier_3_github: 1,
+      tier_2_twitter: TWITTER_ACCOUNTS.length,
+      tier_3_huggingface: 10,
       tier_4_hackernews: 30,
+      tier_5_github: 10,
     },
+    markdown: '',
   };
+  
+  digest.markdown = generateMarkdown(digest);
 
-  // Save to output
+  // Save outputs
   const outputDir = path.join(process.cwd(), 'output');
   fs.mkdirSync(outputDir, { recursive: true });
   
-  const outputPath = path.join(outputDir, 'daily-digest.json');
-  fs.writeFileSync(outputPath, JSON.stringify(digest, null, 2));
-
-  // Also save to newsletter data
+  // JSON
+  const jsonPath = path.join(outputDir, 'daily-digest.json');
+  fs.writeFileSync(jsonPath, JSON.stringify(digest, null, 2));
+  
+  // Markdown
+  const mdPath = path.join(outputDir, `digest-${digest.date}.md`);
+  fs.writeFileSync(mdPath, digest.markdown);
+  
+  // Newsletter data
   const newsletterDir = path.join(process.cwd(), 'src', 'data');
   fs.mkdirSync(newsletterDir, { recursive: true });
   fs.writeFileSync(
@@ -426,22 +511,28 @@ async function main() {
     JSON.stringify(digest, null, 2)
   );
 
-  // Print results
-  console.log('\n📊 Top 10 AI/Tech Topics:\n');
-  for (const topic of finalTopics) {
-    const tierEmoji = topic.sources[0]?.tier === 1 ? '🏢' : 
-                      topic.sources[0]?.tier === 3 ? '💻' : '📰';
-    console.log(`${topic.rank}. [${topic.score}] ${tierEmoji} ${topic.title.slice(0, 60)}...`);
-    console.log(`   ${topic.summary.slice(0, 80)}`);
+  // Print summary
+  console.log('\n📊 Digest Summary:\n');
+  for (const [cat, items] of Object.entries(byCategory)) {
+    if (items.length > 0) {
+      console.log(`${CATEGORY_EMOJI[cat as Category]} ${CATEGORY_LABEL[cat as Category]}: ${items.length} items`);
+    }
+  }
+  
+  console.log('\n📝 Top 5 Items:\n');
+  for (const item of deduped.slice(0, 5)) {
+    console.log(`[${item.score}] ${CATEGORY_EMOJI[item.category]} ${item.title.slice(0, 60)}`);
+    console.log(`    ${item.source} → ${item.url.slice(0, 50)}...`);
     console.log('');
   }
 
-  console.log(`\n✅ Saved to ${outputPath}`);
-  console.log(`✅ Newsletter data updated`);
+  console.log(`\n✅ Saved JSON: ${jsonPath}`);
+  console.log(`✅ Saved Markdown: ${mdPath}`);
+  console.log(`✅ Newsletter updated`);
 
   return digest;
 }
 
 main().catch(console.error);
 
-export { Topic, DailyDigest, main as runDailyScout };
+export { NewsItem, DailyDigest, main as runDailyScout };
