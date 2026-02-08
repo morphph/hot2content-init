@@ -1,0 +1,258 @@
+{
+  "date": "2026-02-08",
+  "generated_at": "2026-02-08T05:57:44.089Z",
+  "topics": [
+    {
+      "id": "topic-1770530264088-7",
+      "rank": 1,
+      "title": "Ready to put AI to work?",
+      "summary": "Official announcement from Cohere",
+      "score": 80,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 20,
+        "urgency": 15
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "Cohere",
+          "url": "https://cohere.com/blog",
+          "type": "official_blog"
+        },
+        {
+          "tier": 1,
+          "name": "Cohere",
+          "url": "https://cohere.com/blog",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:42.222Z"
+    },
+    {
+      "id": "topic-1770530264088-0",
+      "rank": 2,
+      "title": "Introducing Claude Opus 4.6",
+      "summary": "Official announcement from Anthropic",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com/news",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:38.486Z"
+    },
+    {
+      "id": "topic-1770530264088-1",
+      "rank": 3,
+      "title": "How Nano Banana got its name",
+      "summary": "Official announcement from Google AI",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "Google AI",
+          "url": "https://blog.google/technology/ai/",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:38.707Z"
+    },
+    {
+      "id": "topic-1770530264088-2",
+      "rank": 4,
+      "title": "Explore our next generation AI systems",
+      "summary": "Official announcement from DeepMind",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "DeepMind",
+          "url": "https://deepmind.google/blog/",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:39.161Z"
+    },
+    {
+      "id": "topic-1770530264088-3",
+      "rank": 5,
+      "title": "Our latest AI breakthroughs and updates from the lab",
+      "summary": "Official announcement from DeepMind",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "DeepMind",
+          "url": "https://deepmind.google/blog/",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:39.161Z"
+    },
+    {
+      "id": "topic-1770530264088-4",
+      "rank": 6,
+      "title": "Unlocking a new era of discovery with AI",
+      "summary": "Official announcement from DeepMind",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "DeepMind",
+          "url": "https://deepmind.google/blog/",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:39.161Z"
+    },
+    {
+      "id": "topic-1770530264088-5",
+      "rank": 7,
+      "title": "Latest updates from Mistral AI.",
+      "summary": "Official announcement from Mistral",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "Mistral",
+          "url": "https://mistral.ai/news/",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:41.731Z"
+    },
+    {
+      "id": "topic-1770530264088-6",
+      "rank": 8,
+      "title": "Voxtral transcribes at the speed of sound.",
+      "summary": "Official announcement from Mistral",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "Mistral",
+          "url": "https://mistral.ai/news/",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:41.731Z"
+    },
+    {
+      "id": "topic-1770530264088-8",
+      "rank": 9,
+      "title": "Community Blog &amp; Articles",
+      "summary": "Official announcement from HuggingFace",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "HuggingFace",
+          "url": "https://huggingface.co/blog",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:42.321Z"
+    },
+    {
+      "id": "topic-1770530264088-9",
+      "rank": 10,
+      "title": "Introducing SyGra Studio",
+      "summary": "Official announcement from HuggingFace",
+      "score": 70,
+      "score_breakdown": {
+        "impact": 25,
+        "novelty": 15,
+        "depth": 15,
+        "urgency": 10
+      },
+      "sources": [
+        {
+          "tier": 1,
+          "name": "HuggingFace",
+          "url": "https://huggingface.co/blog",
+          "type": "official_blog"
+        }
+      ],
+      "category": "model",
+      "urgency": "high",
+      "detected_at": "2026-02-08T05:57:42.321Z"
+    }
+  ],
+  "sources_scanned": {
+    "tier_1_official": 9,
+    "tier_2_twitter": 0,
+    "tier_3_github": 1,
+    "tier_4_hackernews": 30
+  }
+}
