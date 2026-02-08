@@ -4,6 +4,8 @@ AI-powered content engine that transforms trending AI/tech topics into high-qual
 
 **Topic → Deep Research → Core Narrative → EN Blog (Claude) + ZH Blog (Kimi) → SEO Review**
 
+🌐 **Live:** [loreai.dev](https://www.loreai.dev)
+
 ## Quick Start
 
 ```bash

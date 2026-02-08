@@ -3,6 +3,20 @@
 ## 概述
 输入话题 → AI 深度调研 → Core Narrative → 多平台内容 → SEO/GEO 长期流量
 
+## 部署架构
+
+**网站为主 + Telegram 推送通知**
+
+- **网站 (loreai.dev)**: 每日自动生成内容，作为 source of truth
+- **Telegram**: 通知渠道，提醒"今日内容已生成"，包含链接跳转网站
+- **GitHub**: 代码仓库 + 可选的内容存储（output/ 目录）
+
+**设计原则：**
+1. 内容有固定的家 — 不在聊天记录里丢失
+2. 可积累/回溯 — 网站上能看历史记录
+3. 分享便捷 — 一个链接即可
+4. Telegram 保持轻量 — 只负责提醒，不堆积长内容
+
 ## 技术栈
 - 热点采集: WebFetch + twitterapi.io (scripts/twitter-collector.ts)
 - 调研: Gemini 2.5 Pro Deep Research API (scripts/gemini-research.ts)
