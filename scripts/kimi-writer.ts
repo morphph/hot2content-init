@@ -31,7 +31,10 @@ interface CoreNarrative {
     keywords_en: string[];
     keywords_zh: string[];
   };
-  china_angle: string | null;
+  localization: {
+    zh_strategy: 'native' | 'adapted' | 'global';
+    zh_hints: string | null;
+  };
 }
 
 async function main() {
@@ -53,11 +56,17 @@ async function main() {
   }
   const narrative: CoreNarrative = JSON.parse(fs.readFileSync(narrativePath, 'utf-8'));
 
-  // Read research report
+  // Read research report (prefer gemini deep, fallback to original)
+  const geminiPath = path.join(process.cwd(), 'output', 'research-gemini-deep.md');
   const reportPath = path.join(process.cwd(), 'output', 'research-report.md');
-  const researchReport = fs.existsSync(reportPath) 
-    ? fs.readFileSync(reportPath, 'utf-8') 
-    : '';
+  let researchReport = '';
+  if (fs.existsSync(geminiPath)) {
+    researchReport = fs.readFileSync(geminiPath, 'utf-8');
+    console.log('📚 Using: research-gemini-deep.md');
+  } else if (fs.existsSync(reportPath)) {
+    researchReport = fs.readFileSync(reportPath, 'utf-8');
+    console.log('📚 Using: research-report.md');
+  }
 
   console.log(`📝 Topic: ${narrative.title}`);
   console.log(`📄 Research Report: ${(researchReport.length / 1024).toFixed(2)} KB`);
@@ -112,7 +121,8 @@ ${narrative.key_points.map((p, i) => `${i + 1}. ${p}`).join('\n')}
 - Significance: ${narrative.story_spine.significance}
 - Risks: ${narrative.story_spine.risks}
 
-**China Angle:** ${narrative.china_angle || '无特定中国视角'}
+**Localization Strategy:** ${narrative.localization?.zh_strategy || 'global'}
+**Localization Hints:** ${narrative.localization?.zh_hints || '无特定提示'}
 
 ---
 ## Research Report（调研报告摘要，前5000字）
