@@ -42,9 +42,35 @@ export default async function BlogPostZh({ params }: Props) {
   const post = await getBlogPost('zh', slug)
   
   if (!post) notFound()
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { '@type': 'Organization', name: 'LoreAI', url: 'https://loreai.dev' },
+    publisher: { '@type': 'Organization', name: 'LoreAI', url: 'https://loreai.dev' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://loreai.dev/zh/blog/${slug}` },
+    keywords: post.keywords?.join(', '),
+    inLanguage: 'zh',
+  }
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: 'https://loreai.dev' },
+      { '@type': 'ListItem', position: 2, name: '博客', item: 'https://loreai.dev/zh/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://loreai.dev/zh/blog/${slug}` },
+    ],
+  }
   
   return (
     <main className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* Header */}
         <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>

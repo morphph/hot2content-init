@@ -130,6 +130,32 @@ The article must be structured so AI search engines can extract accurate answers
 - No wall-of-text sections longer than 150 words without a break (subheading, diagram, or quote)
 - Use code blocks for API examples, config snippets, or terminal commands when relevant
 
+## AI Search Engine Optimization (引用优化)
+
+AI search engines (Perplexity, ChatGPT, Google AI Overview) extract and cite content. Make your article citation-friendly:
+
+### Data Summary Blocks
+Every article MUST include at least one clearly formatted data block that AI can easily extract:
+
+```markdown
+**Claude Opus 4.6 Key Stats:**
+- SWE-bench Verified: 72.5% (+3.2% vs previous)
+- Context window: 1M tokens
+- API pricing: $15/M input, $75/M output
+- Release: February 2026
+```
+
+### Citation-Friendly Formatting Rules
+- Use bold + bullet lists for key facts (not buried in paragraphs)
+- Include at least one comparison table per article
+- Start sections with a clear statement that can stand alone as an answer
+- Avoid vague references — always include specific numbers, dates, model names
+- Define terms explicitly (AI engines extract definitions)
+
+### What NOT to do
+- ❌ "The model showed impressive improvements" (vague, uncitable)
+- ✅ "Claude Opus 4.6 scored 72.5% on SWE-bench, a 3.2% improvement over Opus 4" (citable)
+
 ## Frontmatter Checklist
 
 Before finalizing, verify:

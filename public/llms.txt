@@ -1,0 +1,25 @@
+# LoreAI — AI Content Engine
+> LoreAI covers AI development news, model comparisons, coding tools, and developer tutorials. Updated daily.
+
+## Focus Areas
+- AI coding tools and models (Claude, GPT, Gemini, open-source)
+- LLM benchmarks and comparisons
+- Agent frameworks and agentic coding
+- AI product launches and industry trends
+
+## Daily Newsletter
+- https://loreai.dev/newsletter
+
+## Deep Dive Blog Posts
+- https://loreai.dev/en/blog/claude-code-agent-teams-ai-software-development
+- https://loreai.dev/en/blog/gpt-53-codex-vs-claude-opus-46-coding-ai-comparison
+
+## 中文博客
+- https://loreai.dev/zh/blog/claude-code-agent-teams-opus-46-multi-agent-development
+- https://loreai.dev/zh/blog/gpt-53-codex-vs-claude-opus-46-coding-ai-comparison
+
+## Sitemap
+- https://loreai.dev/sitemap.xml
+
+## Contact
+- Website: https://loreai.dev
