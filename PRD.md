@@ -1717,61 +1717,60 @@ loreai.dev
 - [ ] 邮件订阅功能
 - [ ] Telegram 推送通知
 
-### Phase 4a — 关键词自动生成 + 调研资产复用
-- [ ] 从 daily newsletter 提取 trending 关键词入库
-- [ ] LLM 扩展长尾关键词 (Gemini Flash)
-- [ ] 入库 keywords 表 + 搜索意图标注
-- [ ] Tier 1 博客完成后，自动从 research report 提取衍生话题
-- [ ] 衍生关键词关联 parent_research_id，供 Tier 2/3 复用调研素材
+### 执行计划与优先级
 
-### Phase 4b — Tier 2 标准文章 Pipeline
-- [ ] Brave Search + WebFetch 轻量调研脚本
-- [ ] Claude Sonnet 文章生成
-- [ ] 自动发布到 content/blogs/
-
-### Phase 4c — Tier 3 Programmatic SEO
-- [ ] Gemini Flash 批量生成
-- [ ] 质量门控（最低标准检查）
-- [ ] 自动发布 + sitemap 更新
-
-### Phase 4d — FAQ 页面生成
-- [ ] 改造 Brave Search 脚本，采集 "People Also Ask" 数据
-- [ ] 创建 `scripts/extract-faq.ts`
-- [ ] FAQ 页面模板 + FAQPage JSON-LD Schema
-- [ ] 创建 `/faq` 列表页 + `/faq/{topic}` 详情页
-- [ ] 集成到 Tier 1 完成后的自动流程
-
-### Phase 4e — Glossary Wiki
-- [ ] 创建 `scripts/extract-glossary.ts`
-- [ ] Glossary 词条模板（定义→重要性→原理→相关术语→相关文章）
-- [ ] 创建 `/glossary` 列表页 + `/glossary/{term}` 详情页
-- [ ] 自动内链：正文术语 → glossary 页面
-
-### Phase 4f — Compare 对比表
-- [ ] 创建 `scripts/extract-compare.ts`
-- [ ] 对比表数据提取（benchmark、定价、功能）
-- [ ] 创建 `/compare` 列表页 + `/compare/{x-vs-y}` 详情页
-- [ ] 支持更新机制（新数据更新已有页面）
-
-### Phase 4g — 月度 Roundup
-- [ ] 创建 `scripts/generate-roundup.ts`
-- [ ] 月度总结模板（主题分区+数据亮点+预测）
-- [ ] 设置每月 1 号 cron job
-
-### Phase 4h — /resources 页面 + 博客 Tier 分流
-- [ ] 创建 `/resources` 列表页（Tier 2/3 文章）
-- [ ] `/blog` 列表页过滤只显示 tier: 1
-- [ ] Tier 2/3 文章 URL 改为 /resources/{slug}
-- [ ] A/B 测试模型质量（Flash vs Sonnet）
-
-### Phase 4i — AI 搜索引擎优化 (AEO)
+#### 本周 — 零成本 SEO 基建
 - [ ] 添加 `llms.txt` 到网站根目录
-- [ ] 所有博客加 `Article` Schema + `dateModified`
-- [ ] 所有页面加 `BreadcrumbList` Schema
-- [ ] Writer skill 加"引用优化格式"规则
-- [ ] Topic Cluster 内链系统（Related reads 自动生成）
-- [ ] Compare/FAQ 页面加 `Dataset` / `HowTo` Schema
-- [ ] 原创数据："LoreAI AI Index" 月度统计
+- [ ] 所有博客加 `Article` JSON-LD Schema + `dateModified`
+- [ ] Writer skill 加"引用优化格式"规则（数据摘要块）
+- [ ] 创建 `/resources` 页面（Tier 2/3 文章列表）→ Bella 看一眼布局
+- [ ] `/blog` 列表页过滤只显示 tier: 1
+
+#### 下周 — FAQ（第一个内容类型测试）
+- [ ] 改造 Brave Search 脚本，采集 "People Also Ask"
+- [ ] 开发 `scripts/extract-faq.ts`
+- [ ] 生成 3 个 FAQ 样本 → **Bella Review**
+- [ ] A/B 测试: Gemini Flash vs Claude Sonnet → **Bella 选模型**
+- [ ] 根据反馈调整 prompt → 再生成 3 个确认
+- [ ] 确认后小批量生成 10 个 → Bella 抽查 2-3 个
+- [ ] FAQ 页面模板 + FAQPage JSON-LD Schema
+- [ ] 通过后开启自动生产
+
+#### 第3周 — Glossary Wiki
+- [ ] 开发 `scripts/extract-glossary.ts`
+- [ ] 生成 3 个样本 → **Bella Review + A/B 测试**
+- [ ] 调整 → 小批量 15 个 → 抽查
+- [ ] Glossary 页面模板 + 自动内链
+- [ ] 通过后开启自动生产
+
+#### 第4周 — Compare + Tier 3
+- [ ] 开发 `scripts/extract-compare.ts`
+- [ ] 生成 2 个样本 → **Bella Review**
+- [ ] Tier 3 批量脚本 + 5 个样本 → **Bella Review + A/B**
+- [ ] 调整后批量生产
+
+#### 月末 — Roundup + 回顾
+- [ ] 月度 Roundup 第一期 → **Bella Review**
+- [ ] 回顾所有内容类型质量，调整策略
+
+#### 持续
+- [ ] 每周 1 篇 Tier 1 深度博客 → 自动衍生所有内容类型
+- [ ] 每篇 Tier 1 完成后 Bella review 深度文章
+- [ ] 每周抽查 1-2 篇自动生成的内容（抽样质检）
+
+### 人工 Review 流程
+
+每种新内容类型上线前必须经过以下流程：
+
+1. **开发脚本** + 生成 3 个样本
+2. **Bella Review**: 质量OK? 哪里要改?
+3. **A/B 模型测试**: Flash vs Sonnet，Bella 选模型
+4. **调整 Prompt** → 再生成 3 个确认
+5. **小批量** (10-15 个) → Bella 抽查 2-3 个
+6. **通过** → 开启自动批量生产
+7. **持续质检** → 每周抽查 1-2 个
+
+适用于: FAQ, Glossary, Compare, Tier 2/3 文章, Roundup
 
 ### Phase 5 — 多渠道分发
 - [ ] distributions 表
