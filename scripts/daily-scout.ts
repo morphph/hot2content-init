@@ -15,6 +15,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import { getDb, initSchema, insertNewsItems, getRecentUrls, insertContent, linkContentSources, closeDb } from '../src/lib/db.js';
 
 // Load .env
 dotenv.config();
@@ -1100,8 +1101,17 @@ async function main() {
   const deduped = deduplicate(allItems);
   console.log(`   ✅ ${deduped.length} unique items`);
 
-  // Filter out items already covered in recent newsletters
-  const recentUrls = getRecentNewsletterUrls(3);
+  // Cross-day dedup: check DB first, fallback to file-based
+  let recentUrls: Set<string>;
+  try {
+    const db = getDb();
+    initSchema(db);
+    recentUrls = getRecentUrls(db, 3);
+    console.log(`   📂 Found ${recentUrls.size} URLs from DB (last 3 days)`);
+  } catch {
+    console.log('   ⚠️ DB not available, falling back to file-based dedup');
+    recentUrls = getRecentNewsletterUrls(3);
+  }
   const fresh = recentUrls.size > 0 
     ? deduped.filter(item => !recentUrls.has(item.url))
     : deduped;
@@ -1182,6 +1192,46 @@ async function main() {
   console.log(`\n✅ Saved JSON: ${jsonPath}`);
   console.log(`✅ Saved Markdown: ${mdPath}`);
   console.log(`✅ Newsletter updated`);
+
+  // ===== DB: persist news items + newsletter =====
+  try {
+    const db = getDb();
+    initSchema(db);
+
+    // Insert all fresh news items
+    insertNewsItems(db, fresh.map(item => ({
+      id: item.id,
+      title: item.title,
+      url: item.url,
+      source: item.source,
+      source_tier: item.source_tier,
+      category: item.category,
+      score: item.score,
+      raw_summary: item.summary,
+      detected_at: item.detected_at,
+    })));
+    console.log(`🗄️  Inserted ${fresh.length} news items into DB`);
+
+    // Insert newsletter as content
+    const headline = digest.markdown.split('\n')[0]?.replace(/^#\s*/, '') || `LoreAI Daily — ${digest.date}`;
+    const contentId = insertContent(db, {
+      type: 'newsletter',
+      title: headline,
+      slug: `newsletter-${digest.date}`,
+      body_markdown: digest.markdown,
+      language: 'en',
+      status: 'published',
+      source_type: 'auto',
+    });
+
+    // Link newsletter to its source news items
+    linkContentSources(db, contentId, fresh.slice(0, 20).map(i => i.id));
+    console.log(`🗄️  Inserted newsletter (content_id=${contentId}) with ${Math.min(fresh.length, 20)} source links`);
+
+    closeDb();
+  } catch (e) {
+    console.log(`⚠️ DB write error (non-fatal): ${e}`);
+  }
 
   return digest;
 }

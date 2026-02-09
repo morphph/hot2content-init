@@ -15,6 +15,9 @@ input/dedup-report.json
 # content/newsletters/*.md
 # content/blogs/{en,zh}/*.md
 
+data/*.db
+data/*.db-journal
+
 .vercel
 .next/
 logs/

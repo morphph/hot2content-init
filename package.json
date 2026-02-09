@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/better-sqlite3": "^7.6.13",
     "autoprefixer": "^10.4.24",
+    "better-sqlite3": "^12.6.2",
     "dotenv": "^17.2.4",
     "gray-matter": "^4.0.3",
     "mermaid": "^11.12.2",

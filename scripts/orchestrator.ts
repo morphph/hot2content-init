@@ -21,6 +21,7 @@
 import { execSync, spawn } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
+import { getDb, initSchema, insertContent, insertResearch, upsertTopicIndex, closeDb } from '../src/lib/db.js';
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
@@ -347,6 +348,79 @@ async function main() {
   log('STEP', '4/4 - Validate outputs');
   const validation = validateOutputs();
   
+  // ===== DB: persist blog content + research =====
+  try {
+    const db = getDb();
+    initSchema(db);
+
+    const slugBase = topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+    const date = new Date().toISOString().split('T')[0];
+    let enContentId: number | undefined;
+    let zhContentId: number | undefined;
+
+    // Insert English blog
+    const enPath = path.join(OUTPUT_DIR, 'blog-en.md');
+    if (fs.existsSync(enPath)) {
+      const enMd = fs.readFileSync(enPath, 'utf-8');
+      const enTitle = enMd.split('\n').find(l => l.startsWith('# '))?.replace(/^#\s*/, '') || topic;
+      enContentId = insertContent(db, {
+        type: 'blog_en', title: enTitle, slug: `${slugBase}-en`,
+        body_markdown: enMd, language: 'en', status: 'published', source_type: 'auto',
+      });
+
+      // Copy to content/blogs/en/
+      const blogEnDir = path.join(PROJECT_ROOT, 'content', 'blogs', 'en');
+      fs.mkdirSync(blogEnDir, { recursive: true });
+      fs.copyFileSync(enPath, path.join(blogEnDir, `${slugBase}.md`));
+    }
+
+    // Insert Chinese blog
+    const zhPath = path.join(OUTPUT_DIR, 'blog-zh.md');
+    if (fs.existsSync(zhPath)) {
+      const zhMd = fs.readFileSync(zhPath, 'utf-8');
+      const zhTitle = zhMd.split('\n').find(l => l.startsWith('# '))?.replace(/^#\s*/, '') || topic;
+      zhContentId = insertContent(db, {
+        type: 'blog_zh', title: zhTitle, slug: `${slugBase}-zh`,
+        body_markdown: zhMd, language: 'zh', status: 'published', source_type: 'auto',
+      });
+
+      const blogZhDir = path.join(PROJECT_ROOT, 'content', 'blogs', 'zh');
+      fs.mkdirSync(blogZhDir, { recursive: true });
+      fs.copyFileSync(zhPath, path.join(blogZhDir, `${slugBase}.md`));
+    }
+
+    // Link hreflang pairs
+    if (enContentId && zhContentId) {
+      db.prepare('UPDATE content SET hreflang_pair_id = ? WHERE id = ?').run(zhContentId, enContentId);
+      db.prepare('UPDATE content SET hreflang_pair_id = ? WHERE id = ?').run(enContentId, zhContentId);
+    }
+
+    // Insert research data
+    const researchPath = path.join(OUTPUT_DIR, 'research-gemini-deep.md');
+    const narrativePath = path.join(OUTPUT_DIR, 'core-narrative.json');
+    if (fs.existsSync(researchPath)) {
+      insertResearch(db, {
+        content_id: enContentId,
+        research_report: fs.readFileSync(researchPath, 'utf-8'),
+        core_narrative: fs.existsSync(narrativePath) ? fs.readFileSync(narrativePath, 'utf-8') : undefined,
+      });
+    }
+
+    // Upsert topic index
+    upsertTopicIndex(db, {
+      topic_id: slugBase,
+      title: topic,
+      date,
+      slug: slugBase,
+      status: validation.valid ? 'published' : 'partial',
+    });
+
+    closeDb();
+    log('DB', '✅ Persisted blogs, research, and topic index to SQLite');
+  } catch (e) {
+    log('DB', `⚠️ DB write error (non-fatal): ${e}`);
+  }
+
   // Summary
   const elapsed = ((Date.now() - startTime) / 1000 / 60).toFixed(1);
   console.log('\n');
