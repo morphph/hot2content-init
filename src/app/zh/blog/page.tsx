@@ -50,14 +50,30 @@ export default async function BlogPageZh() {
           </div>
         </header>
 
-        {/* Title */}
+        {/* Hero */}
         <div style={{ marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: '#111827', marginBottom: '6px' }}>
+          <h1 
+            style={{ 
+              fontSize: '28px', 
+              fontWeight: 'bold',
+              background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '8px'
+            }}
+          >
             博客
           </h1>
-          <p style={{ color: '#6b7280', fontSize: '14px' }}>
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>
             深度解读、教程和洞察
           </p>
+        </div>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>
+          <div style={{ height: '8px', width: '120px', background: 'linear-gradient(90deg, #EC4899, #8B5CF6, #3B82F6)', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#60A5FA', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
         {/* Timeline */}

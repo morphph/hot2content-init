@@ -56,14 +56,13 @@ async function getNewsletterList(): Promise<NewsletterEntry[]> {
   }
 }
 
-function formatDateLong(dateStr: string): string {
+function formatDateShort(dateStr: string): { day: string; month: string; weekday: string } {
   const date = new Date(dateStr + 'T00:00:00')
-  return date.toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  })
+  return {
+    day: date.getDate().toString().padStart(2, '0'),
+    month: date.toLocaleDateString('en-US', { month: 'short' }),
+    weekday: date.toLocaleDateString('en-US', { weekday: 'short' })
+  }
 }
 
 export const metadata = {
@@ -135,52 +134,71 @@ export default async function NewsletterPage() {
           <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
-        {/* Newsletter List */}
+        {/* Timeline */}
         {newsletters.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '48px 0' }}>
-            <p style={{ color: '#6b7280' }}>No newsletters yet. Check back soon!</p>
+          <div style={{ textAlign: 'center', padding: '64px 0' }}>
+            <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '8px' }}>No newsletters yet</p>
+            <p style={{ color: '#9ca3af', fontSize: '14px' }}>Check back soon!</p>
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {newsletters.map((entry) => (
-              <Link 
-                key={entry.date} 
-                href={`/newsletter/${entry.date}`}
-                className="newsletter-card"
-                style={{ 
-                  textDecoration: 'none',
-                  display: 'block',
-                  padding: '24px',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e7eb',
-                  backgroundColor: '#ffffff',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                <article>
-                  <p style={{ color: '#6b7280', fontSize: '13px', marginBottom: '8px' }}>
-                    📅 {formatDateLong(entry.date)}
-                  </p>
-                  <h2 style={{ 
-                    fontSize: '18px', 
-                    fontWeight: '600', 
-                    color: '#111827',
-                    marginBottom: '8px',
-                    lineHeight: '1.4'
-                  }}>
-                    {entry.title}
-                  </h2>
-                  {entry.preview && (
-                    <p style={{ color: '#4b5563', fontSize: '14px', lineHeight: '1.6', marginBottom: '12px' }}>
-                      {entry.preview}
-                    </p>
-                  )}
-                  <span style={{ color: '#2563eb', fontSize: '14px', fontWeight: '500' }}>
-                    Read →
-                  </span>
-                </article>
-              </Link>
-            ))}
+          <div style={{ borderLeft: '2px solid #e5e7eb', marginLeft: '8px' }}>
+            {newsletters.map((entry) => {
+              const { day, month, weekday } = formatDateShort(entry.date)
+              return (
+                <Link 
+                  key={entry.date}
+                  href={`/newsletter/${entry.date}`}
+                  style={{ 
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '20px',
+                    padding: '20px 0',
+                    marginLeft: '-9px',
+                    textDecoration: 'none',
+                    borderBottom: '1px solid #f3f4f6'
+                  }}
+                >
+                  <div 
+                    style={{ 
+                      width: '16px',
+                      height: '16px',
+                      borderRadius: '50%',
+                      backgroundColor: '#3b82f6',
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  />
+                  
+                  <div style={{ width: '56px', flexShrink: 0, textAlign: 'right' }}>
+                    <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827' }}>
+                      {month} {day}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#9ca3af' }}>
+                      {weekday}
+                    </div>
+                  </div>
+                  
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <h2 style={{ 
+                      fontSize: '15px', 
+                      fontWeight: '500', 
+                      color: '#111827',
+                      marginBottom: '4px',
+                      lineHeight: '1.5'
+                    }}>
+                      {entry.title}
+                    </h2>
+                    {entry.preview && (
+                      <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5' }}>
+                        {entry.preview.length > 100 ? entry.preview.slice(0, 100) + '...' : entry.preview}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div style={{ color: '#d1d5db', fontSize: '18px', flexShrink: 0 }}>›</div>
+                </Link>
+              )
+            })}
           </div>
         )}
 
