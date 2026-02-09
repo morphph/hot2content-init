@@ -1,0 +1,62 @@
+[
+  {
+    "question_en": "What is GPT-5.3 Codex used for?",
+    "question_zh": "GPT-5.3 Codex 是用来做什么的？",
+    "intent": "informational",
+    "source": "research"
+  },
+  {
+    "question_en": "Claude Opus 4.6 pricing per token?",
+    "question_zh": "Claude Opus 4.6 每个 token 的价格是多少？",
+    "intent": "pricing",
+    "source": "research"
+  },
+  {
+    "question_en": "GPT-5.3 Codex vs Claude Opus 4.6: Which is better for coding?",
+    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6：哪个更适合编码？",
+    "intent": "comparison",
+    "source": "research"
+  },
+  {
+    "question_en": "How to use Claude Opus 4.6 Agent Teams?",
+    "question_zh": "如何使用 Claude Opus 4.6 的 Agent Teams？",
+    "intent": "tutorial",
+    "source": "research"
+  },
+  {
+    "question_en": "What are the new features in Claude Opus 4.6?",
+    "question_zh": "Claude Opus 4.6 的新功能有哪些？",
+    "intent": "informational",
+    "source": "research"
+  },
+  {
+    "question_en": "What are the cybersecurity capabilities of GPT-5.3 Codex?",
+    "question_zh": "GPT-5.3 Codex 的网络安全能力是什么？",
+    "intent": "informational",
+    "source": "research"
+  },
+  {
+    "question_en": "GPT-5.3 Codex vs Claude Opus 4.6: Which is better for autonomous execution?",
+    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6：哪个更适合自主执行？",
+    "intent": "comparison",
+    "source": "research"
+  },
+  {
+    "question_en": "How does Claude Opus 4.6 Compaction API work?",
+    "question_zh": "Claude Opus 4.6 的 Compaction API 是如何工作的？",
+    "intent": "tutorial",
+    "source": "research"
+  },
+  {
+    "question_en": "What is the context window size of Claude Opus 4.6?",
+    "question_zh": "Claude Opus 4.6 的上下文窗口大小是多少？",
+    "intent": "informational",
+    "source": "research"
+  },
+  {
+    "question_en": "How much does the Codex Mac app cost?",
+    "question_zh": "Codex Mac 应用程序的费用是多少？",
+    "intent": "pricing",
+    "source": "research"
+  }
+]
