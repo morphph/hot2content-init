@@ -1,10 +1,11 @@
-# 🐱 Hot2Content — Subagent 实现 PRD（最终版）
+# 🧠 LoreAI — AI Content Engine PRD
 
-> **版本：** v3.1 Final
-> **日期：** 2026-02-07
-> **基于：** Hot2Content PRD v1.0 by Bella & Meowjik
-> **实现方案：** Claude Code Subagents + Kimi API + Gemini API + twitterapi.io
-> **状态：** ✅ 可直接在 Claude Code 中运行
+> **版本：** v4.0
+> **日期：** 2026-02-09
+> **基于：** Hot2Content PRD v3.1 by Bella & Meowjik + Claudiny 优化
+> **实现方案：** Claude Code Subagents + Gemini API + twitterapi.io
+> **品牌：** LoreAI (loreai.dev)
+> **状态：** Phase 1 完成，Phase 2 进行中
 
 ---
 
@@ -50,7 +51,7 @@
 ┌─────────────┐  ┌─────────────┐
 │ Step 5a:    │  │ Step 5b:    │
 │ 🇺🇸 writer-en│  │ 🇨🇳 writer-zh│
-│ Claude(opus)│  │ Kimi K2.5   │  ← 脚本调用，非 Claude Subagent
+│ Claude(opus)│  │ Claude(opus)│  ← 两者都用 Opus，A/B 测试证明 Opus 中文 > Kimi
 │ 英文SEO Blog │  │ 中文 Blog   │
 └──────┬──────┘  └──────┬──────┘
        └───────┬────────┘           ← 两者都完成后
@@ -70,10 +71,13 @@
 ### 关键设计决策
 
 **为什么 Core Narrative 是纯英文？**
-因为中文 writer 使用 Kimi K2.5（中文原生模型）。让 Kimi 基于英文叙事框架 + 原始调研报告自行决定中文怎么讲故事，比让 Opus 用英文思维预设中文表达更原生、更自然。
+Core Narrative 是结构化的叙事框架，语言无关。中文 writer 基于英文框架 + 调研报告独立创作中文内容，不是翻译。
 
-**为什么 writer-zh 用脚本而不是 Claude Subagent？**
-Claude Code 的 subagent model 字段只支持 Claude 系列。调用 Kimi 需要通过 scripts/kimi-writer.ts 封装 API。内容质量取决于 Kimi 能力 + prompt 质量，跟有没有 Claude 中间层无关。脚本方案更简单、更省钱。
+**为什么 writer-zh 也用 Claude Opus？**
+经过 A/B 测试对比 Claude Opus vs Kimi K2.5，结论是 Opus 的中文博客质量更高（更有深度、结构更好）。Kimi 保留给未来的视频脚本等轻量内容。
+
+**为什么 Writer 同时参考 Research Report + Core Narrative？**
+A/B 测试证明双输入方案（V2）产出质量明显高于只读 Narrative 的方案（V1）：内容更丰富(+600词)、更实用（具体操作细节）、更有深度（行业趋势分析）。见 output/blog-comparison.md。
 
 ---
 
@@ -86,16 +90,17 @@ Claude Code 的 subagent model 字段只支持 Claude 系列。调用 Kimi 需�
 | 3 | researcher | Claude Subagent | sonnet | 调 Gemini API + 整理报告 | ~15K |
 | 4 | narrative-architect | Claude Subagent | **opus** | Core Narrative 提炼（纯英文） | ~20K |
 | 5 | writer-en | Claude Subagent | **opus** | 英文 SEO 博客 | ~25K |
-| 6 | writer-zh | **脚本** | **Kimi K2.5** | 中文博客（非翻译） | ~25K |
+| 6 | writer-zh | Claude Subagent | **opus** | 中文博客（非翻译，独立创作） | ~25K |
 | 7 | seo-reviewer | Claude Subagent | sonnet | SEO/GEO 质量审核 | ~10K |
 
 **外部 API 脚本：**
 | 脚本 | 调用 API | 用途 |
 |------|---------|------|
 | scripts/gemini-research.ts | Gemini 2.5 Pro | 深度调研 |
-| scripts/kimi-writer.ts | Kimi K2.5 | 中文博客生成 |
+| scripts/daily-scout.ts | Gemini 2.0 Flash + twitterapi.io | Newsletter 自动生成 |
 | scripts/twitter-collector.ts | twitterapi.io | X/Twitter 采集 |
 | scripts/validate-narrative.ts | 无（本地） | JSON schema 校验 |
+| scripts/kimi-writer.ts | Kimi K2.5 | 保留：未来视频脚本等轻量内容 |
 
 ---
 
@@ -131,7 +136,7 @@ hot2content/
 │
 ├── scripts/
 │   ├── gemini-research.ts               # Gemini API 封装
-│   ├── kimi-writer.ts                   # Kimi API 封装（中文博客）
+│   ├── kimi-writer.ts                   # Kimi API 封装（保留：未来视频脚本）
 │   ├── twitter-collector.ts             # twitterapi.io 封装（X 采集）
 │   └── validate-narrative.ts            # JSON schema 校验
 │
@@ -386,11 +391,10 @@ engagement 异常高于该账号平均值 → 热点信号
     "keywords_zh": ["关键词1", "关键词2", "关键词3"]
   },
 
-  "china_angle": "Chinese market perspective if relevant, null otherwise"
 }
 ```
 
-**注意：** seo.keywords_zh 保留，供 kimi-writer.ts 生成中文 frontmatter 时使用。china_angle 保留，供 Kimi 写作时参考中国视角。
+**注意：** seo.keywords_zh 保留，供中文 writer 生成中文 frontmatter 时使用。
 
 ---
 
@@ -535,7 +539,7 @@ AI 相关首页 Top 30。评论 > 100 重点标记。Show HN AI 项目单独标�
       ],
       "suggested_angle": "建议切入角度",
       "urgency": "high | medium | low",
-      "china_angle": "中文博客可切入的中国视角"
+      "suggested_angle": "建议切入角度"
     }
   ],
   "selected_topic": 0,
@@ -655,7 +659,7 @@ model: sonnet
 
 ### Step 1: 构造调研 prompt
 要求覆盖：背景现状、技术突破、多方观点、数据引用、行业影响。
-如果话题有 china_angle，额外要求覆盖中国市场视角。
+确保调研报告覆盖多角度观点。
 
 ### Step 2: 调用 Gemini
 执行: npx tsx scripts/gemini-research.ts
@@ -710,7 +714,6 @@ Core Narrative 输出纯英文。中文内容由下游的 Kimi 模型基于此�
 
 唯一需要包含中文的字段：
 - seo.keywords_zh — 中文 SEO 关键词（3-5 个），供 Kimi 使用
-- china_angle — 如果话题与中国市场相关，写一段中文说明建议的中国视角。如无相关性，设为 null
 
 ## 质量要求
 
@@ -877,80 +880,36 @@ model: sonnet
 
 ---
 
-## 10. scripts/kimi-writer.ts 规格
+## 10. writer-zh (Claude Subagent) 规格
 
-> 这不是 Claude Subagent，而是直接调用 Kimi K2.5 API 的 TypeScript 脚本。
+> 中文博客由 Claude Opus 生成（A/B 测试证明优于 Kimi K2.5）。
+> Kimi K2.5 脚本 (scripts/kimi-writer.ts) 保留给未来视频脚本等轻量内容。
 
 ### 输入
 
-脚本读取以下文件：
+writer-zh 同时读取：
 1. `output/core-narrative.json` — 英文叙事框架
-2. `output/research-report.md` — 完整调研报告（让 Kimi 自行决定中文叙事）
-3. `skills/blog-zh/SKILL.md` — 中文博客规范（如存在）
-4. `input/topic.json` — 话题信息（获取 china_angle 等）
+2. `output/research-report.md` — 完整调研报告
+3. `skills/blog-zh/SKILL.md` — 中文博客规范
 
-### Prompt 构造
-
-脚本将以上内容组装为 Kimi API 的 prompt，核心指令：
-
-```
-你是一位资深的中文科技博客作者。
-
-## 你的任务
-基于以下英文叙事框架和调研报告，创作一篇高质量的中文博客。
-
-## 重要原则
-- 你不是在翻译！你基于同一个话题独立创作中文内容
+### 写作原则
+- **不是翻译**：基于同一话题独立创作中文内容
+- **双输入**：Core Narrative 提供结构框架，Research Report 提供深度素材
 - 用中文读者熟悉的比喻和类比
-- 如果有中国市场角度（china_angle），务必融入文章
 - 专业术语首次出现标注英文：大语言模型（LLM）
 - 语气像懂技术的朋友在科普，不是论文也不是新闻稿
 
-## 文章结构
-（包含 frontmatter 模板，使用 seo.keywords_zh）
-
-## 写作规范
+### 写作规范
 - 2000-3000 字
 - 段落短，适合手机阅读
 - 中文标点（，。！？""）
 - 避免翻译腔（"值得注意的是"、"让我们来看看"）
 
-## 输入材料
-[附上 core-narrative.json 和 research-report.md 的内容]
-```
-
 ### 输出
+`output/blog-zh.md`
 
-脚本将 Kimi 返回的内容写入 `output/blog-zh.md`。
-
-### 异常处理
-
-```typescript
-// 伪代码
-const result = await callKimiAPI(prompt);
-
-// 字数检查
-if (wordCount(result) < 2000) {
-  console.log("⚠️ 内容过短，重试...");
-  result = await callKimiAPI(prompt + "\n\n请写得更详细，至少 2000 字。");
-}
-
-// frontmatter 检查
-if (!result.startsWith("---")) {
-  // 自动补充 frontmatter
-}
-
-// 写入文件
-writeFile("output/blog-zh.md", result);
-```
-
-### 运行方式
-
-```bash
-npx tsx scripts/kimi-writer.ts
-```
-
-需要环境变量：`KIMI_API_KEY`（或 `MOONSHOT_API_KEY`）
+### 参考
+当前网站上的 Claude Agent Teams 中文博客是此方案的成功案例。
 
 ---
 
@@ -1118,14 +1077,11 @@ description: 运行 Hot2Content 完整内容生产 pipeline。
 **Task A — writer-en (Claude Subagent)：**
 "读取 output/core-narrative.json，生成英文 SEO 博客 → output/blog-en.md"
 
-**Task B — writer-zh (Kimi 脚本)：**
-执行 bash 命令: `npx tsx scripts/kimi-writer.ts`
-脚本会读取 core-narrative.json + research-report.md，调用 Kimi K2.5 API 生成中文博客 → output/blog-zh.md
+**Task B — writer-zh (Claude Subagent)：**
+"读取 output/core-narrative.json + output/research-report.md，生成中文博客 → output/blog-zh.md"
 
 等待两者都完成。
 确认两个 .md 文件都存在且非空。
-如果 kimi-writer.ts 报错或输出为空，告知用户 Kimi API 调用失败，
-建议用户检查 KIMI_API_KEY 或手动重试。
 
 ---
 
@@ -1138,7 +1094,7 @@ description: 运行 Hot2Content 完整内容生产 pipeline。
 - PASS (≥80): 继续
 - 有 ❌ 项:
   - 英文问题 → 发给 writer-en 修复
-  - 中文问题 → 重新运行 npx tsx scripts/kimi-writer.ts（附加修改指令）
+  - 中文问题 → 发给 writer-zh 修复
   - 重新审核（最多 1 次）
 - 仅 ⚠️: 展示建议，继续
 
@@ -1218,12 +1174,17 @@ description: 只运行热点发现 + 去重检查，不生成内容。
 - 热点采集: WebFetch + twitterapi.io (scripts/twitter-collector.ts)
 - 调研: Gemini 2.5 Pro Deep Research API (scripts/gemini-research.ts)
 - 英文内容: Claude Opus (writer-en subagent)
-- 中文内容: Kimi K2.5 (scripts/kimi-writer.ts)
+- 中文内容: Claude Opus (writer-zh subagent)
+- Newsletter: Gemini 2.0 Flash (scripts/daily-scout.ts)
 - 编排: Claude Code Subagents (Task tool)
 - 质量审核: Claude Sonnet (seo-reviewer subagent)
 
 ## Pipeline
-trend-scout → dedup-checker → researcher → narrative-architect → (writer-en ∥ kimi-writer.ts) → seo-reviewer → 更新索引
+### Newsletter (每日自动)
+daily-scout.ts → content/newsletters/*.md → Vercel 自动部署
+
+### Blog (手动触发)
+trend-scout → dedup-checker → researcher → narrative-architect → (writer-en ∥ writer-zh) → seo-reviewer → 更新索引
 
 ## 核心约定
 - Core Narrative (output/core-narrative.json) 是纯英文叙事中枢
@@ -1264,30 +1225,170 @@ claude -p "运行 /hot2content pipeline" --dangerously-skip-permissions
 
 ---
 
-## 15. 开发优先级
+## 15. Newsletter Pipeline（已实现）
 
-### P0 — Week 1-2（跑通 pipeline）
-- [ ] 项目初始化（目录 + CLAUDE.md + package.json）
-- [ ] scripts/gemini-research.ts — Gemini API 封装
-- [ ] scripts/validate-narrative.ts — Core Narrative JSON 校验
-- [ ] scripts/kimi-writer.ts — Kimi API 封装
-- [ ] scripts/twitter-collector.ts — twitterapi.io 封装
-- [ ] .claude/agents/narrative-architect.md
-- [ ] .claude/agents/writer-en.md
-- [ ] skills/blog-en/SKILL.md + blog-zh/SKILL.md
-- [ ] .claude/commands/hot2content.md
-- [ ] 模式 A 端到端测试
+Newsletter 是独立于 Blog Pipeline 的轻量级日报系统。
 
-### P1 — Week 3（补全自动化）
-- [ ] .claude/agents/trend-scout.md（含 Twitter 自动采集）
-- [ ] .claude/agents/dedup-checker.md
-- [ ] .claude/agents/seo-reviewer.md
-- [ ] topic-index.json 维护
-- [ ] .claude/commands/hot2content-scout.md
-- [ ] Clawdbot 集成
+### 架构
+```
+crontab (每天 UTC 01:00 / 北京 09:00)
+  → scripts/daily-newsletter.sh
+    → scripts/daily-scout.ts (Gemini 2.0 Flash)
+      → 5层信息源采集 + AI 编辑生成
+    → content/newsletters/YYYY-MM-DD.md
+    → git commit + push
+      → Vercel 自动部署
+```
 
-### P2 — Week 4+（扩展）
+### 特性
+- **跨天去重**：读取最近 3 天 newsletter 的 URL，过滤重复新闻
+- **AI 标题**：Gemini 生成新闻风格 headline（非模板化日期标题）
+- **品牌统一**：LoreAI Daily
+
+### 未来计划
+- Weekly Newsletter（每周深度总结，需要数据库支持）
+
+---
+
+## 16. 数据库设计（Phase 2）
+
+### 为什么需要数据库
+- Newsletter 跨天去重需要结构化数据
+- Weekly 总结需要聚合查询
+- Blog Pipeline 的 topic-index.json 扩展性有限
+- 未来 SEO 关键词策略 + 多渠道分发需要关系数据
+
+### 技术选型
+**SQLite** — 单文件，零运维，够用。迁移到 PostgreSQL 成本极低（SQL 语法 95% 兼容）。
+
+### Schema
+
+```sql
+-- 1. 原始新闻采集
+CREATE TABLE news_items (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  url TEXT UNIQUE NOT NULL,
+  source TEXT,
+  source_tier INTEGER,
+  category TEXT,
+  score INTEGER,
+  score_breakdown TEXT,  -- JSON
+  raw_summary TEXT,
+  detected_at DATETIME,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. 内容（newsletter + 博客 + 未来 SEO 文章）
+CREATE TABLE content (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type TEXT NOT NULL,     -- 'newsletter', 'blog_en', 'blog_zh', 'seo_article'
+  title TEXT NOT NULL,
+  slug TEXT UNIQUE,
+  body_markdown TEXT,
+  language TEXT,
+  status TEXT DEFAULT 'draft',
+  source_type TEXT,       -- 'auto', 'manual', 'programmatic'
+  seo_title TEXT,
+  seo_description TEXT,
+  seo_score INTEGER,
+  hreflang_pair_id INTEGER REFERENCES content(id),
+  published_at DATETIME,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 3. 内容 ↔ 新闻关联（多对多）
+CREATE TABLE content_sources (
+  content_id INTEGER REFERENCES content(id),
+  news_item_id TEXT REFERENCES news_items(id),
+  PRIMARY KEY (content_id, news_item_id)
+);
+
+-- 4. 关键词策略
+CREATE TABLE keywords (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  keyword TEXT NOT NULL,
+  keyword_zh TEXT,
+  type TEXT,             -- 'trending', 'longtail'
+  search_volume INTEGER,
+  difficulty INTEGER,
+  score INTEGER,
+  status TEXT DEFAULT 'backlog',
+  content_id INTEGER REFERENCES content(id),
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 5. 分发记录
+CREATE TABLE distributions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content_id INTEGER REFERENCES content(id),
+  channel TEXT,          -- 'website', 'twitter', 'youtube', 'xiaohongshu'
+  format TEXT,           -- 'post', 'thread', 'video_script', 'short_video'
+  channel_url TEXT,
+  distributed_at DATETIME
+);
+
+-- 6. 调研 & Core Narrative
+CREATE TABLE research (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content_id INTEGER REFERENCES content(id),
+  topic_json TEXT,
+  research_report TEXT,
+  core_narrative TEXT,
+  seo_review TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 7. 话题索引（替代 topic-index.json）
+CREATE TABLE topic_index (
+  topic_id TEXT PRIMARY KEY,
+  title TEXT,
+  date DATE,
+  keywords TEXT,         -- JSON array
+  urls_covered TEXT,     -- JSON array
+  slug TEXT,
+  status TEXT,
+  seo_score INTEGER
+);
+```
+
+---
+
+## 17. Roadmap
+
+### Phase 1 ✅ 已完成 — MVP
+- [x] Newsletter 自动采集 + 发布 (daily-scout.ts + crontab)
+- [x] Blog Pipeline 跑通 (orchestrator + Gemini research + Claude writer)
+- [x] Next.js 网站 + Vercel 部署 (loreai.dev)
+- [x] A/B 测试确定最佳写作方案 (双输入 + Claude Opus)
+
+### Phase 2 🔜 — 数据库化
+- [ ] SQLite 数据库初始化
+- [ ] daily-scout.ts 采集数据入库 (news_items)
+- [ ] Newsletter 和博客内容入库 (content)
+- [ ] 基于数据库的去重（替代文件正则匹配）
+- [ ] 网站从数据库读取（替代读 markdown 文件）
+
+### Phase 3 — Newsletter 增强
+- [ ] Weekly Newsletter（每周深度总结）
+- [ ] 邮件订阅功能
+- [ ] Telegram 推送通知
+
+### Phase 4 — SEO 策略
+- [ ] keywords 表 + 关键词挖掘工具集成
+- [ ] 热点关键词从 daily 采集自动提取
+- [ ] 长尾关键词导入
+- [ ] Programmatic SEO：基于长尾词批量生成文章
+
+### Phase 5 — 多渠道分发
+- [ ] distributions 表
+- [ ] 博客 → Twitter thread（自动生成）
+- [ ] 博客 → 口播视频脚本（Kimi K2.5）
+- [ ] 博客 → 小红书图文
+- [ ] 博客 → YouTube 视频
+
+### Phase 6 — 高级功能
 - [ ] SEO 不通过自动返工
-- [ ] Next.js 网站 + SSG + Vercel
-- [ ] Twitter/X 扩展到 Tier 3-5 全账号 + Thread 自动展开
-- [ ] Phase 2 Skills（小红书、Twitter、口播）
+- [ ] Twitter/X 扩展到 Tier 3-5 + Thread 自动展开
+- [ ] Reddit 信息源集成
+- [ ] 用户 dashboard（内容管理后台）
