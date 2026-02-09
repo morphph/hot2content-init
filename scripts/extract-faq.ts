@@ -194,7 +194,7 @@ function getAnswerPrompt(question: string, lang: string, research: string): stri
 
 问题：${question}
 语言：${lang}
-调研资料：${research.slice(0, 1000)}
+调研资料：${research.slice(0, 4000)}
 
 规则：
 - 100-300 字直接回答

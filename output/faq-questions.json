@@ -12,8 +12,8 @@
     "source": "research"
   },
   {
-    "question_en": "GPT-5.3 Codex vs Claude Opus 4.6: Which is better for coding?",
-    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6：哪个更适合编码？",
+    "question_en": "GPT-5.3 Codex vs Claude Opus 4.6 coding performance",
+    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6 哪个编码性能更好？",
     "intent": "comparison",
     "source": "research"
   },
@@ -24,25 +24,19 @@
     "source": "research"
   },
   {
-    "question_en": "What are the new features in Claude Opus 4.6?",
-    "question_zh": "Claude Opus 4.6 的新功能有哪些？",
-    "intent": "informational",
-    "source": "research"
-  },
-  {
     "question_en": "What are the cybersecurity capabilities of GPT-5.3 Codex?",
-    "question_zh": "GPT-5.3 Codex 的网络安全能力是什么？",
+    "question_zh": "GPT-5.3 Codex 在网络安全方面的能力有哪些？",
     "intent": "informational",
     "source": "research"
   },
   {
-    "question_en": "GPT-5.3 Codex vs Claude Opus 4.6: Which is better for autonomous execution?",
-    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6：哪个更适合自主执行？",
+    "question_en": "Claude Opus 4.6 vs GPT-5.3 Codex for financial research",
+    "question_zh": "Claude Opus 4.6 和 GPT-5.3 Codex 哪个更适合金融研究？",
     "intent": "comparison",
     "source": "research"
   },
   {
-    "question_en": "How does Claude Opus 4.6 Compaction API work?",
+    "question_en": "How does Claude Opus 4.6 compaction API work?",
     "question_zh": "Claude Opus 4.6 的 Compaction API 是如何工作的？",
     "intent": "tutorial",
     "source": "research"
@@ -54,9 +48,15 @@
     "source": "research"
   },
   {
-    "question_en": "How much does the Codex Mac app cost?",
-    "question_zh": "Codex Mac 应用程序的费用是多少？",
+    "question_en": "Is GPT-5.3 Codex available via API?",
+    "question_zh": "GPT-5.3 Codex 是否可以通过 API 使用？",
     "intent": "pricing",
+    "source": "research"
+  },
+  {
+    "question_en": "Claude Opus 4.6 benchmarks Humanity's Last Exam",
+    "question_zh": "Claude Opus 4.6 在 Humanity's Last Exam 基准测试中的表现如何？",
+    "intent": "informational",
     "source": "research"
   }
 ]
