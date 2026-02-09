@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Hot2Content Daily Scout v2
+ * LoreAI Daily Scout v2
  * 
  * 参考 AI Daily Digest 格式，生成带分类、Twitter链接、Action建议的热点报告
  * 
@@ -138,6 +138,7 @@ interface NewsletterSection {
 }
 
 interface NewsletterContent {
+  headline: string;
   intro: string;
   sections: NewsletterSection[];
   closing: string;
@@ -192,7 +193,7 @@ async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterC
 3. 📝 OFFICIAL BLOG - Research papers, engineering deep-dives
 4. 📱 PRODUCT ECOSYSTEM - Product features, partnerships, business news\n\n`;
 
-  const prompt = `You are the editor of "Hot2Content Daily", an AI newsletter.
+  const prompt = `You are the editor of "LoreAI Daily", an AI newsletter.
 
 Today is ${date}. Write a professional newsletter based on these news items.
 
@@ -214,6 +215,7 @@ ${byCategory.product_ecosystem.slice(0, 5).map(i => `- ${i.title}\n  Source: ${i
 
 ## Output Format (JSON):
 {
+  "headline": "A catchy, news-style headline capturing the biggest story of the day (e.g. 'Anthropic and OpenAI Go Head-to-Head in 20-Minute Model Drop')",
   "intro": "One engaging sentence about today's AI news",
   "sections": [
     {
@@ -919,8 +921,9 @@ function generateMarkdownFromNewsletter(newsletter: NewsletterContent): string {
   const lines: string[] = [];
   const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
   
-  // Header
-  lines.push(`# 🔥 Hot2Content Daily — ${date}`);
+  // Header — use AI-generated headline if available
+  const headline = newsletter.headline || `LoreAI Daily — ${date}`;
+  lines.push(`# ${headline}`);
   lines.push('');
   lines.push(`> ${newsletter.intro}`);
   lines.push('');
@@ -962,7 +965,7 @@ function generateMarkdown(digest: DailyDigest, allItems: NewsItem[]): string {
   const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
   
   // ===== HEADER =====
-  lines.push(`# 🔥 Hot2Content Daily — ${date}`);
+  lines.push(`# 🔥 LoreAI Daily — ${date}`);
   lines.push('');
   lines.push('> Get smarter about AI in 3 minutes.');
   lines.push('');
@@ -1013,20 +1016,54 @@ function generateMarkdown(digest: DailyDigest, allItems: NewsItem[]): string {
   }
   
   // ===== FOOTER =====
-  lines.push('*Stay ahead. Build smarter. — Hot2Content*');
+  lines.push('*Stay ahead. Build smarter. — LoreAI*');
   lines.push('');
   
   return lines.join('\n');
 }
 
 // ============================================
+// ============================================
+// Cross-day Dedup: extract URLs from recent newsletters
+// ============================================
+
+function getRecentNewsletterUrls(days: number): Set<string> {
+  const urls = new Set<string>();
+  const newsletterDir = path.join(process.cwd(), 'content', 'newsletters');
+  
+  try {
+    const files = fs.readdirSync(newsletterDir)
+      .filter(f => f.endsWith('.md'))
+      .sort()
+      .slice(-days); // last N files
+    
+    for (const file of files) {
+      const content = fs.readFileSync(path.join(newsletterDir, file), 'utf-8');
+      // Extract URLs from markdown links [text](url) and plain URLs
+      const linkMatches = content.matchAll(/\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g);
+      for (const match of linkMatches) {
+        urls.add(match[2]);
+      }
+      const plainUrls = content.matchAll(/(?<!\()(https?:\/\/[^\s)]+)/g);
+      for (const match of plainUrls) {
+        urls.add(match[0]);
+      }
+    }
+    console.log(`   📂 Found ${urls.size} URLs from ${files.length} recent newsletters`);
+  } catch {
+    console.log('   ⚠️ Could not read recent newsletters for dedup');
+  }
+  
+  return urls;
+}
+
 // Main
 // ============================================
 
 async function main() {
   console.log('\n');
   console.log('═'.repeat(60));
-  console.log('  🔥 Hot2Content Daily Scout v2');
+  console.log('  🔥 LoreAI Daily Scout v2');
   console.log('  AI Daily Digest 格式');
   console.log('═'.repeat(60));
   console.log('\n');
@@ -1045,6 +1082,13 @@ async function main() {
   const deduped = deduplicate(allItems);
   console.log(`   ✅ ${deduped.length} unique items`);
 
+  // Filter out items already covered in recent newsletters
+  const recentUrls = getRecentNewsletterUrls(3);
+  const fresh = recentUrls.size > 0 
+    ? deduped.filter(item => !recentUrls.has(item.url))
+    : deduped;
+  console.log(`   📰 ${fresh.length} fresh items (filtered ${deduped.length - fresh.length} already covered)`);
+
   // Group by category first (for Gemini input)
   const byCategory: Record<Category, NewsItem[]> = {
     model_release: [],
@@ -1053,19 +1097,19 @@ async function main() {
     product_ecosystem: [],
   };
   
-  for (const item of deduped) {
+  for (const item of fresh) {
     byCategory[item.category].push(item);
   }
 
   // Write newsletter with Gemini AI
   console.log('');
-  const newsletterContent = await writeNewsletterWithGemini(deduped);
+  const newsletterContent = await writeNewsletterWithGemini(fresh);
 
   // Create digest
   const digest: DailyDigest = {
     date: new Date().toISOString().split('T')[0],
     generated_at: new Date().toISOString(),
-    items: deduped.slice(0, 20),
+    items: fresh.slice(0, 20),
     by_category: byCategory,
     sources_scanned: {
       tier_1_official: OFFICIAL_BLOGS.length,
