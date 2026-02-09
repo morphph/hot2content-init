@@ -143,6 +143,16 @@ interface NewsletterContent {
   closing: string;
 }
 
+async function loadNewsletterSkill(): Promise<string> {
+  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-en', 'SKILL.md');
+  try {
+    return fs.readFileSync(skillPath, 'utf-8');
+  } catch {
+    console.log('   ⚠️ Newsletter skill not found, using inline style guide');
+    return '';
+  }
+}
+
 async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterContent | null> {
   if (!GEMINI_API_KEY) {
     console.log('   ⚠️ No Gemini API key, skipping newsletter generation');
@@ -150,6 +160,9 @@ async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterC
   }
 
   console.log('🤖 Writing newsletter with Gemini...');
+  
+  // Load writing skill
+  const skill = await loadNewsletterSkill();
   
   // Group items by category for the writer
   const byCategory: Record<Category, NewsItem[]> = {
@@ -165,11 +178,9 @@ async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterC
   
   const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
   
-  const prompt = `You are the editor of "Hot2Content Daily", an AI newsletter like Superhuman AI.
-
-Today is ${date}. Write a professional newsletter based on these news items.
-
-## Style Guide:
+  const skillSection = skill 
+    ? `## Writing Skill (follow this strictly):\n${skill}\n\n`
+    : `## Style Guide:
 - Write like Superhuman AI: concise, professional, insightful
 - Each item needs 1-2 sentences explaining WHAT happened and WHY it matters
 - Use engaging but not hype language
@@ -179,7 +190,13 @@ Today is ${date}. Write a professional newsletter based on these news items.
 1. 🧠 MODEL RELEASE - New AI model announcements (Claude, GPT, Gemini, etc.)
 2. 🔧 DEVELOPER PLATFORM - SDKs, APIs, tools, developer integrations
 3. 📝 OFFICIAL BLOG - Research papers, engineering deep-dives
-4. 📱 PRODUCT ECOSYSTEM - Product features, partnerships, business news
+4. 📱 PRODUCT ECOSYSTEM - Product features, partnerships, business news\n\n`;
+
+  const prompt = `You are the editor of "Hot2Content Daily", an AI newsletter.
+
+Today is ${date}. Write a professional newsletter based on these news items.
+
+${skillSection}
 
 ## Raw News Data:
 
