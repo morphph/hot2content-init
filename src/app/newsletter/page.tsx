@@ -2,61 +2,52 @@ import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
 
-type Category = 'model_release' | 'developer_platform' | 'official_blog' | 'product_ecosystem'
-
-interface NewsItem {
-  id: string
-  title: string
-  summary: string
-  action?: string
-  url: string
-  source: string
-  category: Category
-}
-
-interface DailyDigest {
+interface NewsletterEntry {
   date: string
-  generated_at: string
-  items: NewsItem[]
-  by_category: Record<Category, NewsItem[]>
+  title: string
+  preview: string
 }
 
-const CATEGORY_CONFIG: Record<Category, { label: string; gradient: string }> = {
-  model_release: { 
-    label: 'MODEL RELEASE',
-    gradient: 'linear-gradient(to right, #9333ea, #4f46e5)',
-  },
-  developer_platform: { 
-    label: 'DEVELOPER TOOLS',
-    gradient: 'linear-gradient(to right, #2563eb, #06b6d4)',
-  },
-  official_blog: { 
-    label: 'RESEARCH & BLOG',
-    gradient: 'linear-gradient(to right, #059669, #14b8a6)',
-  },
-  product_ecosystem: { 
-    label: 'PRODUCT NEWS',
-    gradient: 'linear-gradient(to right, #db2777, #f43f5e)',
-  },
-}
-
-const CATEGORY_ORDER: Category[] = [
-  'model_release',
-  'developer_platform',
-  'official_blog',
-  'product_ecosystem',
-]
-
-async function getNewsletterData(): Promise<DailyDigest | null> {
+async function getNewsletterList(): Promise<NewsletterEntry[]> {
   try {
-    const dataPath = path.join(process.cwd(), 'src', 'data', 'newsletter.json')
-    if (!fs.existsSync(dataPath)) {
-      return null
+    const newsletterDir = path.join(process.cwd(), 'content', 'newsletters')
+    if (!fs.existsSync(newsletterDir)) {
+      return []
     }
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'))
-    return data
+    
+    const files = fs.readdirSync(newsletterDir)
+      .filter(f => f.endsWith('.md'))
+      .sort()
+      .reverse()
+    
+    const entries: NewsletterEntry[] = []
+    
+    for (const file of files) {
+      const content = fs.readFileSync(path.join(newsletterDir, file), 'utf-8')
+      const date = file.replace('.md', '')
+      
+      // Extract title (first # heading)
+      const titleMatch = content.match(/^#\s+(.+)$/m)
+      const title = titleMatch ? titleMatch[1] : 'AI Newsletter'
+      
+      // Extract preview (first paragraph after title)
+      const lines = content.split('\n')
+      let preview = ''
+      for (const line of lines) {
+        if (line.startsWith('#') || line.startsWith('**') || line.trim() === '' || line.startsWith('---')) continue
+        if (line.trim().length > 20) {
+          preview = line.trim().slice(0, 150)
+          if (line.trim().length > 150) preview += '...'
+          break
+        }
+      }
+      
+      entries.push({ date, title, preview })
+    }
+    
+    return entries
   } catch {
-    return null
+    return []
   }
 }
 
@@ -75,94 +66,8 @@ export const metadata = {
   description: 'Daily AI news digest - curated hot topics',
 }
 
-function NewsCard({ item }: { item: NewsItem }) {
-  const isTwitter = item.source.startsWith('@')
-  
-  return (
-    <article style={{ marginBottom: '32px' }}>
-      <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>
-        <a 
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: '#2563eb', textDecoration: 'none' }}
-        >
-          {item.title.length > 100 ? item.title.slice(0, 100) + '...' : item.title}
-        </a>
-      </h3>
-      
-      {item.summary && (
-        <p style={{ color: '#4b5563', fontSize: '14px', lineHeight: '1.6', marginBottom: '8px' }}>
-          {item.summary.length > 200 ? item.summary.slice(0, 200) + '...' : item.summary}
-        </p>
-      )}
-      
-      {isTwitter && (
-        <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px' }}>
-          Source: {item.source}
-        </p>
-      )}
-      
-      <a 
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: '#6b7280', fontSize: '13px', textDecoration: 'none' }}
-      >
-        {isTwitter ? 'View on X →' : 'Read more →'}
-      </a>
-    </article>
-  )
-}
-
-function CategorySection({ category, items }: { category: Category; items: NewsItem[] }) {
-  if (!items || items.length === 0) return null
-  
-  const config = CATEGORY_CONFIG[category]
-  const displayItems = items.slice(0, 3)
-  
-  return (
-    <section style={{ marginBottom: '48px' }}>
-      <div style={{ marginBottom: '20px' }}>
-        <span 
-          style={{ 
-            display: 'inline-block',
-            padding: '6px 12px',
-            color: 'white',
-            borderRadius: '4px',
-            fontWeight: 'bold',
-            fontSize: '11px',
-            letterSpacing: '0.05em',
-            background: config.gradient
-          }}
-        >
-          {config.label}
-        </span>
-      </div>
-      
-      <div>
-        {displayItems.map((item) => (
-          <NewsCard key={item.id} item={item} />
-        ))}
-      </div>
-      
-      {items.length > 3 && (
-        <p style={{ color: '#9ca3af', fontSize: '13px' }}>
-          + {items.length - 3} more stories
-        </p>
-      )}
-    </section>
-  )
-}
-
 export default async function NewsletterPage() {
-  const digest = await getNewsletterData()
-
-  const formattedDate = digest?.date 
-    ? formatDateLong(digest.date)
-    : 'Today'
-  
-  const totalItems = digest?.items?.length || 0
+  const newsletters = await getNewsletterList()
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -189,20 +94,21 @@ export default async function NewsletterPage() {
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>
-          <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '4px' }}>
-            {formattedDate}
-          </p>
           <h1 
             style={{ 
               fontSize: '28px', 
               fontWeight: 'bold',
               background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)',
               WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '8px'
             }}
           >
-            Today&apos;s AI News
+            AI Newsletter
           </h1>
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>
+            Daily curated AI news
+          </p>
         </div>
 
         {/* Divider */}
@@ -212,34 +118,59 @@ export default async function NewsletterPage() {
           <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
-        {/* Content */}
-        {!digest || !digest.by_category ? (
+        {/* Newsletter List */}
+        {newsletters.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
-            <p style={{ color: '#6b7280' }}>No news yet. Check back soon!</p>
+            <p style={{ color: '#6b7280' }}>No newsletters yet. Check back soon!</p>
           </div>
         ) : (
-          <div>
-            {CATEGORY_ORDER.map((category) => (
-              <CategorySection 
-                key={category} 
-                category={category} 
-                items={digest.by_category[category]} 
-              />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {newsletters.map((entry) => (
+              <Link 
+                key={entry.date} 
+                href={`/newsletter/${entry.date}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <article 
+                  style={{ 
+                    padding: '24px',
+                    borderRadius: '12px',
+                    border: '1px solid #e5e7eb',
+                    backgroundColor: '#ffffff',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#a855f7'
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(168, 85, 247, 0.1)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#e5e7eb'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
+                >
+                  <p style={{ color: '#6b7280', fontSize: '13px', marginBottom: '8px' }}>
+                    📅 {formatDateLong(entry.date)}
+                  </p>
+                  <h2 style={{ 
+                    fontSize: '18px', 
+                    fontWeight: '600', 
+                    color: '#111827',
+                    marginBottom: '8px',
+                    lineHeight: '1.4'
+                  }}>
+                    {entry.title}
+                  </h2>
+                  {entry.preview && (
+                    <p style={{ color: '#4b5563', fontSize: '14px', lineHeight: '1.6', marginBottom: '12px' }}>
+                      {entry.preview}
+                    </p>
+                  )}
+                  <span style={{ color: '#2563eb', fontSize: '14px', fontWeight: '500' }}>
+                    Read →
+                  </span>
+                </article>
+              </Link>
             ))}
-          </div>
-        )}
-
-        {/* Stats */}
-        {digest && (
-          <div style={{ 
-            padding: '20px', 
-            borderRadius: '8px', 
-            backgroundColor: '#f9fafb',
-            marginTop: '40px',
-            fontSize: '13px',
-            color: '#6b7280'
-          }}>
-            📊 {totalItems} stories from Twitter, HuggingFace, Hacker News & more
           </div>
         )}
 
