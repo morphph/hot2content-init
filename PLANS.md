@@ -94,6 +94,32 @@ git commit -m "🐛 FAQ fix: language separation in prompts + publish validation
 git push
 ```
 
+### 测试步骤
+
+```bash
+# 1. 运行提取脚本，确认无报错
+npx tsx scripts/extract-faq.ts
+
+# 2. 运行发布脚本，确认无语言校验警告
+npx tsx scripts/publish-faq.ts
+
+# 3. 语言检查：EN 文件不应包含大量中文
+grep -P '[\x{4e00}-\x{9fff}]' content/faq/*-en.md | wc -l
+# 期望：0 或极少（品牌名除外）
+
+# 4. 语言检查：ZH 文件应包含中文
+grep -cP '[\x{4e00}-\x{9fff}]' content/faq/*-zh.md
+# 期望：每个文件 > 50 行
+
+# 5. Build 验证
+npm run build
+
+# 6. 部署后用 web_fetch 验证页面
+# - https://loreai.dev/faq → 应有语言切换，显示 EN/ZH 分组
+# - https://loreai.dev/faq/xxx-en → 内容全英文
+# - https://loreai.dev/faq/xxx-zh → 内容全中文
+```
+
 ### 验收标准
 - [ ] EN FAQ 页面全英文
 - [ ] ZH FAQ 页面全中文
@@ -209,6 +235,33 @@ export function generateCompareJsonLd(post: ComparePost): object
 - `content/compare/claude-opus-4-6-vs-gpt-5-3-codex-en.md`
 - `content/compare/claude-opus-4-6-vs-gpt-5-3-codex-zh.md`
 
+### 测试步骤
+
+```bash
+# 1. 运行提取脚本
+npx tsx scripts/extract-compare.ts
+
+# 2. 确认生成了 EN + ZH 文件
+ls content/compare/
+# 期望：至少 2 个文件（*-en.md + *-zh.md）
+
+# 3. 语言检查
+grep -P '[\x{4e00}-\x{9fff}]' content/compare/*-en.md | wc -l
+# 期望：0 或极少
+
+# 4. 检查表格格式（应有 | 分隔的表格行）
+grep -c '|' content/compare/*-en.md
+# 期望：> 10（多行表格数据）
+
+# 5. Build 验证
+npm run build
+
+# 6. 部署后验证
+# - https://loreai.dev/compare → 首页有对比列表
+# - https://loreai.dev/compare/xxx-en → 表格渲染正确，数据完整
+# - 检查页面源码有 JSON-LD Schema
+```
+
 ### 验收标准
 - [ ] Compare 提取脚本可运行
 - [ ] `/compare` 首页 + 详情页正常
@@ -279,6 +332,44 @@ npx tsx scripts/generate-tier2.ts --tier3
 #### 3.4 生成 5 篇样本
 
 从 keywords 表取 5 个关键词，生成 5 篇 EN Tier 3 + 5 篇 ZH Tier 3，放到 `content/blogs/en/` 和 `content/blogs/zh/`。
+
+### 测试步骤
+
+```bash
+# 1. 确认 keywords 表有数据
+npx tsx -e "import{getDb,initSchema}from'./src/lib/db.js';const db=getDb();initSchema(db);const r=db.prepare('SELECT count(*) as c FROM keywords').get();console.log('Keywords:',r)"
+
+# 2. 运行 Tier 3 生成
+npx tsx scripts/generate-tier2.ts --tier3
+
+# 3. 检查生成的文件
+ls -la content/blogs/en/ content/blogs/zh/
+# 期望：新增 Tier 3 文件
+
+# 4. 检查 frontmatter tier 值
+grep -l 'tier: 3' content/blogs/en/*.md content/blogs/zh/*.md
+# 期望：新文件都有 tier: 3
+
+# 5. 字数检查（300-500 字）
+for f in $(grep -l 'tier: 3' content/blogs/en/*.md); do
+  echo "$f: $(wc -w < $f) words"
+done
+# 期望：每篇 300-500 词
+
+# 6. 语言检查
+for f in $(grep -l 'tier: 3' content/blogs/en/*.md); do
+  cnt=$(grep -cP '[\x{4e00}-\x{9fff}]' "$f" || true)
+  echo "$f: $cnt chinese lines"
+done
+# 期望：EN 文件 0 或极少中文行
+
+# 7. Build 验证
+npm run build
+
+# 8. 部署后验证
+# - https://loreai.dev/en/resources → 应显示新的 ⚡ Quick Read 文章
+# - https://loreai.dev/zh/resources → 中文版同上
+```
 
 ### 验收标准
 - [ ] `--tier3` 参数正常工作
