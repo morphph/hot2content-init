@@ -16,12 +16,10 @@ model: opus
 写入 output/core-narrative.json（纯英文 Schema，见 PRD 第 7 节）
 
 ## 重要说明
-Core Narrative 输出纯英文。中文内容由下游的 Kimi 模型基于此框架独立创作，
-不需要你在 JSON 中提供中文字段。
+Core Narrative 输出纯英文。中文内容由下游的 Claude Opus writer-zh 基于此框架 + 调研报告独立创作，不是翻译。
 
 唯一需要包含中文的字段：
-- seo.keywords_zh — 中文 SEO 关键词（3-5 个），供 Kimi 使用
-- china_angle — 如果话题与中国市场相关，写一段中文说明建议的中国视角。如无相关性，设为 null
+- seo.keywords_zh — 中文 SEO 关键词（3-5 个），供中文 writer 使用
 
 ## 质量要求
 

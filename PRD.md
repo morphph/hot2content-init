@@ -1188,7 +1188,7 @@ trend-scout → dedup-checker → researcher → narrative-architect → (writer
 
 ## 核心约定
 - Core Narrative (output/core-narrative.json) 是纯英文叙事中枢
-- 中文博客由 Kimi K2.5 基于英文 Core Narrative + 调研报告独立创作，不是翻译
+- 中文博客由 Claude Opus 基于英文 Core Narrative + 调研报告独立创作，不是翻译
 - output/topic-index.json 是去重数据源，pipeline 完成后追加，勿覆盖
 
 ## 运行
@@ -1199,7 +1199,6 @@ trend-scout → dedup-checker → researcher → narrative-architect → (writer
 
 ## 环境变量
 - GEMINI_API_KEY — Gemini 2.5 Pro API
-- KIMI_API_KEY — Kimi K2.5 API (或 MOONSHOT_API_KEY)
 - TWITTER_API_KEY — twitterapi.io API
 
 ## 质量标准
@@ -1354,7 +1353,93 @@ CREATE TABLE topic_index (
 
 ---
 
-## 17. Roadmap
+## 17. 内容金字塔策略
+
+### 三层内容体系
+
+```
+        ▲ Tier 1: 深度文章
+       ╱ ╲  Gemini Deep Research + Claude Opus
+      ╱   ╲  $1-2/篇 · 1-2篇/周
+     ╱─────╲
+    ╱ Tier 2: 标准文章 ╲
+   ╱  Brave Search + WebFetch  ╲
+  ╱  + Claude Sonnet · ~$0.1/篇 ╲
+ ╱     3-5篇/周                   ╲
+╱───────────────────────────────────╲
+╱  Tier 3: Programmatic SEO 批量文章  ╲
+╱  LLM 关键词扩展 + Gemini Flash       ╲
+╱  ~$0.02/篇 · 10-20篇/周               ╲
+╱─────────────────────────────────────────╲
+```
+
+| | Tier 1 深度 | Tier 2 标准 | Tier 3 批量 |
+|---|---|---|---|
+| **调研** | Gemini Deep Research | Brave Search + WebFetch | 仅 Brave snippets |
+| **写作** | Claude Opus | Claude Sonnet | Gemini Flash |
+| **成本** | $1-2/篇 | ~$0.1/篇 | ~$0.02/篇 |
+| **质量** | 深度分析，独家见解 | 中等，有来源支撑 | 基础，覆盖关键词 |
+| **频率** | 1-2篇/周 | 3-5篇/周 | 10-20篇/周 |
+| **用途** | 品牌建设，高价值流量 | 中等竞争关键词 | 长尾词，铺量 |
+
+### 关键词生成 Pipeline
+
+```
+每日 Newsletter 采集
+    │
+    ▼
+提取热点话题关键词 (trending)
+    │
+    ▼
+LLM 扩展长尾关键词 (Gemini Flash, ~$0.001/次)
+    │  基于用户画像: AI 开发者、产品经理、技术管理者
+    │  生成: 对比类、教程类、问答类、年份类
+    │  中英文各 5-10 个
+    ▼
+存入 keywords 表
+    ├─ trending → 优先 Tier 1/2 文章
+    └─ longtail → 批量 Tier 3 文章
+    │
+    ▼
+每周自动选题:
+    ├─ 1-2 篇 Tier 1 (最热话题)
+    ├─ 3-5 篇 Tier 2 (次热 + 高搜索量)
+    └─ 10-20 篇 Tier 3 (长尾词批量)
+```
+
+### Tier 2 标准文章 Pipeline
+
+```
+长尾关键词
+    → Brave Search (top 10 结果)
+    → WebFetch 前 3-5 篇
+    → Claude Sonnet 生成 1500-2000 词
+    → content/blogs/{lang}/{slug}.md
+    → 自动发布
+```
+
+### 长尾关键词 Prompt 模板
+
+```
+话题: {topic}
+目标读者: AI 开发者、产品经理、技术管理者
+网站: loreai.dev
+
+生成:
+1. 5-10 个英文长尾关键词
+2. 5-10 个中文长尾关键词
+3. 每个标注搜索意图: informational / comparison / tutorial
+
+优先:
+- 对比类: "X vs Y"
+- 教程类: "how to use X"
+- 问答类: "what is X"
+- 年份类: "best X 2026"
+```
+
+---
+
+## 18. Roadmap
 
 ### Phase 1 ✅ 已完成 — MVP
 - [x] Newsletter 自动采集 + 发布 (daily-scout.ts + crontab)
@@ -1374,21 +1459,31 @@ CREATE TABLE topic_index (
 - [ ] 邮件订阅功能
 - [ ] Telegram 推送通知
 
-### Phase 4 — SEO 策略
-- [ ] keywords 表 + 关键词挖掘工具集成
-- [ ] 热点关键词从 daily 采集自动提取
-- [ ] 长尾关键词导入
-- [ ] Programmatic SEO：基于长尾词批量生成文章
+### Phase 4a — 关键词自动生成
+- [ ] 从 daily newsletter 提取 trending 关键词入库
+- [ ] LLM 扩展长尾关键词 (Gemini Flash)
+- [ ] 入库 keywords 表 + 搜索意图标注
+
+### Phase 4b — Tier 2 标准文章 Pipeline
+- [ ] Brave Search + WebFetch 轻量调研脚本
+- [ ] Claude Sonnet 文章生成
+- [ ] 自动发布到 content/blogs/
+
+### Phase 4c — Tier 3 Programmatic SEO
+- [ ] Gemini Flash 批量生成
+- [ ] 质量门控（最低标准检查）
+- [ ] 自动发布 + sitemap 更新
 
 ### Phase 5 — 多渠道分发
 - [ ] distributions 表
 - [ ] 博客 → Twitter thread（自动生成）
-- [ ] 博客 → 口播视频脚本（Kimi K2.5）
+- [ ] 博客 → 口播视频脚本
 - [ ] 博客 → 小红书图文
 - [ ] 博客 → YouTube 视频
 
 ### Phase 6 — 高级功能
-- [ ] SEO 不通过自动返工
+- [ ] SEO 审核自动返工
 - [ ] Twitter/X 扩展到 Tier 3-5 + Thread 自动展开
 - [ ] Reddit 信息源集成
 - [ ] 用户 dashboard（内容管理后台）
+- [ ] 邮件订阅 + Telegram 推送
