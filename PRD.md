@@ -1657,6 +1657,44 @@ loreai.dev
 ├─ /faq                 ← FAQ 合集 (Google 富摘要)
 ```
 
+### AI 搜索引擎优化 (AEO)
+
+传统 SEO 优化 Google 排名，AEO 优化被 AI 搜索引擎（Perplexity、ChatGPT Search、Google AI Overview）引用的概率。
+
+**llms.txt**
+- 网站根目录放置 `llms.txt`，向 AI 爬虫声明网站结构、内容类型、更新频率
+- 类似 robots.txt，但面向 LLM 爬虫
+
+**引用优化格式规则**
+- 每篇文章开头 50 字内包含核心结论（AI 摘要优先抓取）
+- 关键数据用"数据摘要块"格式（加粗数字 + 上下文）
+- 使用清晰的编号列表和对比表（AI 容易结构化引用）
+- Writer skill 中加入这些格式规则
+
+**Schema Markup 清单**
+- `Article` + `dateModified`：所有博客文章（时效性信号）
+- `FAQPage`：FAQ 页面 → Google 富摘要
+- `HowTo`：教程类内容
+- `Dataset`：Compare 对比表、原创数据
+- `ItemList`：列表页（/blog, /resources, /glossary）
+- `BreadcrumbList`：所有页面（站点结构信号）
+
+**Topic Cluster 内链策略**
+- 每个 Tier 1 主题为"支柱页"（Pillar Page）
+- Tier 2/3 + FAQ + Glossary 自动链接回支柱页
+- 每篇文章底部自动生成 "Related Reads"（基于 keywords 表的关联）
+- 目标：形成主题权威性，AI 引擎更倾向引用"权威集群"
+
+**原创数据：LoreAI AI Index**
+- 每月从 news_items 表聚合统计（模型发布数、融资事件、开源项目等）
+- 生成 "State of AI" 数据页面
+- 原创数据是 AI 引擎最爱引用的内容类型
+
+**时效性信号**
+- 所有页面必须有 `dateModified`（AI 引擎优先引用最新内容）
+- Compare 页面定期更新数据 → 更新 dateModified
+- 月度 Roundup 天然具有时效性
+
 ---
 
 ## 18. Roadmap
@@ -1725,6 +1763,15 @@ loreai.dev
 - [ ] `/blog` 列表页过滤只显示 tier: 1
 - [ ] Tier 2/3 文章 URL 改为 /resources/{slug}
 - [ ] A/B 测试模型质量（Flash vs Sonnet）
+
+### Phase 4i — AI 搜索引擎优化 (AEO)
+- [ ] 添加 `llms.txt` 到网站根目录
+- [ ] 所有博客加 `Article` Schema + `dateModified`
+- [ ] 所有页面加 `BreadcrumbList` Schema
+- [ ] Writer skill 加"引用优化格式"规则
+- [ ] Topic Cluster 内链系统（Related reads 自动生成）
+- [ ] Compare/FAQ 页面加 `Dataset` / `HowTo` Schema
+- [ ] 原创数据："LoreAI AI Index" 月度统计
 
 ### Phase 5 — 多渠道分发
 - [ ] distributions 表
