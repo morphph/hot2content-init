@@ -2,7 +2,6 @@ import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
 
-// PRD 分类
 type Category = 'model_release' | 'developer_platform' | 'official_blog' | 'product_ecosystem'
 
 interface NewsItem {
@@ -11,13 +10,8 @@ interface NewsItem {
   summary: string
   action?: string
   url: string
-  twitter_url?: string
   source: string
-  source_tier: number
   category: Category
-  score: number
-  engagement?: number
-  detected_at: string
 }
 
 interface DailyDigest {
@@ -25,33 +19,24 @@ interface DailyDigest {
   generated_at: string
   items: NewsItem[]
   by_category: Record<Category, NewsItem[]>
-  markdown: string
 }
 
-const CATEGORY_CONFIG: Record<Category, { emoji: string; label: string; labelZh: string; color: string }> = {
+const CATEGORY_CONFIG: Record<Category, { label: string; gradient: string }> = {
   model_release: { 
-    emoji: '🧠', 
-    label: 'Model Release', 
-    labelZh: '模型发布',
-    color: 'from-purple-500/20 to-purple-600/10 border-purple-500/30'
+    label: 'MODEL RELEASE',
+    gradient: 'linear-gradient(to right, #9333ea, #4f46e5)',
   },
   developer_platform: { 
-    emoji: '🔧', 
-    label: 'Developer Platform', 
-    labelZh: '开发者平台',
-    color: 'from-blue-500/20 to-blue-600/10 border-blue-500/30'
+    label: 'DEVELOPER TOOLS',
+    gradient: 'linear-gradient(to right, #2563eb, #06b6d4)',
   },
   official_blog: { 
-    emoji: '📝', 
-    label: 'Official Blog', 
-    labelZh: '技术博客',
-    color: 'from-green-500/20 to-green-600/10 border-green-500/30'
+    label: 'RESEARCH & BLOG',
+    gradient: 'linear-gradient(to right, #059669, #14b8a6)',
   },
   product_ecosystem: { 
-    emoji: '📱', 
-    label: 'Product Ecosystem', 
-    labelZh: '产品生态',
-    color: 'from-orange-500/20 to-orange-600/10 border-orange-500/30'
+    label: 'PRODUCT NEWS',
+    gradient: 'linear-gradient(to right, #db2777, #f43f5e)',
   },
 }
 
@@ -75,81 +60,57 @@ async function getNewsletterData(): Promise<DailyDigest | null> {
   }
 }
 
-async function getFormattedNewsletter(): Promise<string | null> {
-  try {
-    const newsletterDir = path.join(process.cwd(), 'content', 'newsletters')
-    if (!fs.existsSync(newsletterDir)) return null
-    
-    const files = fs.readdirSync(newsletterDir)
-      .filter(f => f.endsWith('.md'))
-      .sort()
-      .reverse()
-    
-    if (files.length === 0) return null
-    return fs.readFileSync(path.join(newsletterDir, files[0]), 'utf-8')
-  } catch {
-    return null
-  }
+function formatDateLong(dateStr: string): string {
+  const date = new Date(dateStr + 'T00:00:00')
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  })
 }
 
 export const metadata = {
-  title: 'AI Daily Digest | Lore',
-  description: 'Daily AI and tech news digest - curated hot topics from official sources, Twitter, GitHub, and Hacker News',
+  title: 'Newsletter | LoreAI',
+  description: 'Daily AI news digest - curated hot topics',
 }
 
-function NewsCard({ item, index }: { item: NewsItem; index: number }) {
-  const isTwitter = item.twitter_url || item.url.includes('x.com') || item.url.includes('twitter.com')
+function NewsCard({ item }: { item: NewsItem }) {
+  const isTwitter = item.source.startsWith('@')
   
   return (
-    <article className="group relative">
-      <div className="flex gap-4">
-        {/* Number */}
-        <div className="shrink-0 w-8 h-8 rounded-full bg-foreground/5 flex items-center justify-center text-sm font-medium text-muted">
-          {index + 1}
-        </div>
-        
-        <div className="flex-1 min-w-0">
-          {/* Title */}
-          <h3 className="text-base font-medium mb-2 leading-relaxed">
-            <a 
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-500 transition-colors"
-            >
-              {item.title.length > 100 ? item.title.slice(0, 100) + '...' : item.title}
-            </a>
-          </h3>
-          
-          {/* Summary */}
-          <p className="text-muted text-sm leading-relaxed mb-3">
-            {item.summary.length > 280 ? item.summary.slice(0, 280) + '...' : item.summary}
-          </p>
-          
-          {/* Action & Link */}
-          <div className="flex items-center gap-3 text-xs">
-            {item.action && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-blue-500/10 text-blue-600">
-                ⚡ {item.action}
-              </span>
-            )}
-            <a 
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-foreground transition-colors inline-flex items-center gap-1"
-            >
-              {isTwitter ? '🔗 View on X' : '🔗 Read more'}
-              <svg width="12" height="12" className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-            <span className="text-muted/50">
-              {item.source}
-            </span>
-          </div>
-        </div>
-      </div>
+    <article style={{ marginBottom: '32px' }}>
+      <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>
+        <a 
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#2563eb', textDecoration: 'none' }}
+        >
+          {item.title.length > 100 ? item.title.slice(0, 100) + '...' : item.title}
+        </a>
+      </h3>
+      
+      {item.summary && (
+        <p style={{ color: '#4b5563', fontSize: '14px', lineHeight: '1.6', marginBottom: '8px' }}>
+          {item.summary.length > 200 ? item.summary.slice(0, 200) + '...' : item.summary}
+        </p>
+      )}
+      
+      {isTwitter && (
+        <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px' }}>
+          Source: {item.source}
+        </p>
+      )}
+      
+      <a 
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: '#6b7280', fontSize: '13px', textDecoration: 'none' }}
+      >
+        {isTwitter ? 'View on X →' : 'Read more →'}
+      </a>
     </article>
   )
 }
@@ -158,169 +119,137 @@ function CategorySection({ category, items }: { category: Category; items: NewsI
   if (!items || items.length === 0) return null
   
   const config = CATEGORY_CONFIG[category]
-  const displayItems = items.slice(0, 5) // Show top 5 per category
+  const displayItems = items.slice(0, 3)
   
   return (
-    <section className="mb-12">
-      {/* Category Header */}
-      <div className={`rounded-xl p-6 mb-6 bg-gradient-to-br ${config.color} border`}>
-        <div className="flex items-center gap-3">
-          <span className="text-3xl">{config.emoji}</span>
-          <div>
-            <h2 className="text-xl font-semibold">{config.label}</h2>
-            <p className="text-muted text-sm">{config.labelZh} · {items.length} items</p>
-          </div>
-        </div>
+    <section style={{ marginBottom: '48px' }}>
+      <div style={{ marginBottom: '20px' }}>
+        <span 
+          style={{ 
+            display: 'inline-block',
+            padding: '6px 12px',
+            color: 'white',
+            borderRadius: '4px',
+            fontWeight: 'bold',
+            fontSize: '11px',
+            letterSpacing: '0.05em',
+            background: config.gradient
+          }}
+        >
+          {config.label}
+        </span>
       </div>
       
-      {/* Items */}
-      <div className="space-y-6 pl-2">
-        {displayItems.map((item, index) => (
-          <NewsCard key={item.id} item={item} index={index} />
+      <div>
+        {displayItems.map((item) => (
+          <NewsCard key={item.id} item={item} />
         ))}
-        
-        {items.length > 5 && (
-          <p className="text-muted text-sm pl-12">
-            + {items.length - 5} more items
-          </p>
-        )}
       </div>
+      
+      {items.length > 3 && (
+        <p style={{ color: '#9ca3af', fontSize: '13px' }}>
+          + {items.length - 3} more stories
+        </p>
+      )}
     </section>
   )
 }
 
 export default async function NewsletterPage() {
   const digest = await getNewsletterData()
-  const formattedNewsletter = await getFormattedNewsletter()
 
-  const totalItems = digest?.items?.length || 0
   const formattedDate = digest?.date 
-    ? new Date(digest.date + 'T00:00:00').toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
+    ? formatDateLong(digest.date)
     : 'Today'
-
-  // Extract headline from formatted newsletter
-  const newsletterHeadline = formattedNewsletter
-    ?.split('\n')[0]
-    ?.replace(/^#\s*/, '')
-    || 'AI Daily Digest'
+  
+  const totalItems = digest?.items?.length || 0
 
   return (
-    <main className="min-h-screen px-6 py-12 max-w-3xl mx-auto">
-      {/* Header */}
-      <header className="flex items-center justify-between mb-8">
-        <Link href="/" className="text-2xl tracking-tight hover:opacity-60 transition-opacity font-medium">
-          Lore
-        </Link>
-        <nav className="flex gap-4 text-sm">
-          <Link href="/" className="text-muted hover:text-foreground transition-colors">Blog</Link>
-          <span className="text-muted">/</span>
-          <span className="text-foreground font-medium">Newsletter</span>
-        </nav>
-      </header>
+    <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+      <div style={{ maxWidth: '700px', margin: '0 auto', padding: '48px 24px' }}>
+        {/* Header */}
+        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <span 
+              style={{ 
+                fontSize: '20px',
+                fontWeight: '800',
+                color: '#2563eb',
+                letterSpacing: '-0.02em'
+              }}
+            >
+              LoreAI
+            </span>
+          </Link>
+          <nav style={{ display: 'flex', gap: '16px', fontSize: '14px' }}>
+            <Link href="/newsletter" style={{ color: '#111827', fontWeight: '500', textDecoration: 'none' }}>Newsletter</Link>
+            <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none' }}>Blog</Link>
+          </nav>
+        </header>
 
-      {/* Hero */}
-      <div className="mb-12 text-center py-8">
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
-          {newsletterHeadline}
-        </h1>
-        <p className="text-muted text-lg mb-2">
-          {formattedDate}
-        </p>
-        {digest && (
-          <p className="text-muted text-sm">
-            📊 {totalItems} stories from Twitter, HuggingFace, Hacker News & more
+        {/* Hero */}
+        <div style={{ marginBottom: '40px' }}>
+          <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '4px' }}>
+            {formattedDate}
           </p>
+          <h1 
+            style={{ 
+              fontSize: '28px', 
+              fontWeight: 'bold',
+              background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}
+          >
+            Today&apos;s AI News
+          </h1>
+        </div>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>
+          <div style={{ height: '8px', width: '120px', background: 'linear-gradient(90deg, #EC4899, #8B5CF6, #3B82F6)', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#60A5FA', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
+        </div>
+
+        {/* Content */}
+        {!digest || !digest.by_category ? (
+          <div style={{ textAlign: 'center', padding: '48px 0' }}>
+            <p style={{ color: '#6b7280' }}>No news yet. Check back soon!</p>
+          </div>
+        ) : (
+          <div>
+            {CATEGORY_ORDER.map((category) => (
+              <CategorySection 
+                key={category} 
+                category={category} 
+                items={digest.by_category[category]} 
+              />
+            ))}
+          </div>
         )}
-      </div>
 
-      {/* Newsletter Summary Card */}
-      {formattedNewsletter && (
-        <div className="mb-12 p-6 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20">
-          <div className="flex items-start gap-4">
-            <span className="text-3xl">📰</span>
-            <div className="flex-1">
-              <h2 className="text-lg font-semibold mb-2">Today&apos;s Summary</h2>
-              <p className="text-muted text-sm leading-relaxed mb-4">
-                {formattedNewsletter
-                  .split('\n')
-                  .find(line => line.startsWith('Welcome back') || line.startsWith('Today:'))
-                  ?.replace('Welcome back.', '')
-                  .trim()
-                  || 'The latest AI news, curated for you.'}
-              </p>
-              <Link 
-                href="/newsletter/digest"
-                className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
-              >
-                Read full digest →
-              </Link>
-            </div>
+        {/* Stats */}
+        {digest && (
+          <div style={{ 
+            padding: '20px', 
+            borderRadius: '8px', 
+            backgroundColor: '#f9fafb',
+            marginTop: '40px',
+            fontSize: '13px',
+            color: '#6b7280'
+          }}>
+            📊 {totalItems} stories from Twitter, HuggingFace, Hacker News & more
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent mb-12" />
-
-      {/* Content */}
-      {!digest || !digest.by_category ? (
-        <div className="text-center py-16">
-          <p className="text-muted text-lg mb-4">No digest yet</p>
-          <p className="text-muted text-sm">
-            The daily scout runs automatically. Check back soon!
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>
+            Curated by AI · Updated daily
           </p>
-        </div>
-      ) : (
-        <div>
-          {CATEGORY_ORDER.map((category) => (
-            <CategorySection 
-              key={category} 
-              category={category} 
-              items={digest.by_category[category]} 
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Stats Footer */}
-      {digest && (
-        <div className="mt-12 p-6 rounded-xl bg-foreground/5 border border-foreground/10">
-          <h3 className="font-medium mb-4">📡 Data Sources</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <div>
-              <span className="text-muted">Twitter/X</span>
-              <p className="font-medium">{digest.by_category?.model_release?.filter(i => i.source.startsWith('@')).length || 0}+ tweets</p>
-            </div>
-            <div>
-              <span className="text-muted">HuggingFace</span>
-              <p className="font-medium">Top 5 models</p>
-            </div>
-            <div>
-              <span className="text-muted">Hacker News</span>
-              <p className="font-medium">AI stories</p>
-            </div>
-            <div>
-              <span className="text-muted">GitHub</span>
-              <p className="font-medium">Trending repos</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <footer className="mt-16 pt-8 border-t border-foreground/10 text-center">
-        <p className="text-muted text-sm mb-2">
-          Curated by AI, reviewed by humans
-        </p>
-        <p className="text-muted text-xs">
-          Updated daily at 9:00 AM UTC · Powered by Lore AI
-        </p>
-      </footer>
+        </footer>
+      </div>
     </main>
   )
 }
