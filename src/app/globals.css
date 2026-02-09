@@ -432,3 +432,9 @@ a.link-blue:hover {
     padding: 4px 8px;
   }
 }
+
+/* Newsletter Card Hover */
+.newsletter-card:hover {
+  border-color: #a855f7 !important;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.1);
+}

@@ -129,25 +129,18 @@ export default async function NewsletterPage() {
               <Link 
                 key={entry.date} 
                 href={`/newsletter/${entry.date}`}
-                style={{ textDecoration: 'none' }}
+                className="newsletter-card"
+                style={{ 
+                  textDecoration: 'none',
+                  display: 'block',
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e7eb',
+                  backgroundColor: '#ffffff',
+                  transition: 'all 0.2s ease',
+                }}
               >
-                <article 
-                  style={{ 
-                    padding: '24px',
-                    borderRadius: '12px',
-                    border: '1px solid #e5e7eb',
-                    backgroundColor: '#ffffff',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#a855f7'
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(168, 85, 247, 0.1)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#e5e7eb'
-                    e.currentTarget.style.boxShadow = 'none'
-                  }}
-                >
+                <article>
                   <p style={{ color: '#6b7280', fontSize: '13px', marginBottom: '8px' }}>
                     📅 {formatDateLong(entry.date)}
                   </p>
