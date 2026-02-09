@@ -296,7 +296,12 @@ async function main() {
   console.log('\n');
 
   // Get topic from command line or use default
-  const topic = process.argv[2] || 'Claude Code Agent Teams - Anthropic\'s new multi-agent feature for Claude Code CLI released with Opus 4.6 in February 2026';
+  const topic = process.argv[2];
+  if (!topic) {
+    console.error('❌ Usage: npx tsx scripts/orchestrator.ts "Your topic here"');
+    console.error('   Example: npx tsx scripts/orchestrator.ts "Claude Opus 4.6 Agent Teams"');
+    process.exit(1);
+  }
   
   log('START', `Topic: ${topic}`);
   log('START', `Output dir: ${OUTPUT_DIR}`);

@@ -179,8 +179,26 @@ async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterC
   
   const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
   
+  // Extract just the voice/tone and per-item rules from skill (not the full markdown template)
+  const extractSkillGuidance = (fullSkill: string): string => {
+    const sections: string[] = [];
+    // Extract Voice & Tone section
+    const voiceMatch = fullSkill.match(/## Voice & Tone\n([\s\S]*?)(?=\n## (?!Voice))/);
+    if (voiceMatch) sections.push('## Voice & Tone\n' + voiceMatch[1].trim());
+    // Extract Per-Item Rules
+    const itemRulesMatch = fullSkill.match(/## Per-Item Rules\n([\s\S]*?)(?=\n## )/);
+    if (itemRulesMatch) sections.push('## Per-Item Rules\n' + itemRulesMatch[1].trim());
+    // Extract Title Rules
+    const titleMatch = fullSkill.match(/## Title Rules\n([\s\S]*?)(?=\n## )/);
+    if (titleMatch) sections.push('## Title Rules\n' + titleMatch[1].trim());
+    // Extract Intro Paragraph Rules
+    const introMatch = fullSkill.match(/## Intro Paragraph Rules\n([\s\S]*?)(?=\n## )/);
+    if (introMatch) sections.push('## Intro Paragraph Rules\n' + introMatch[1].trim());
+    return sections.join('\n\n');
+  };
+
   const skillSection = skill 
-    ? `## Writing Skill (follow this strictly):\n${skill}\n\n`
+    ? `## Writing Style Guide (follow strictly):\n${extractSkillGuidance(skill)}\n\n`
     : `## Style Guide:
 - Write like Superhuman AI: concise, professional, insightful
 - Each item needs 1-2 sentences explaining WHAT happened and WHY it matters
@@ -215,8 +233,8 @@ ${byCategory.product_ecosystem.slice(0, 5).map(i => `- ${i.title}\n  Source: ${i
 
 ## Output Format (JSON):
 {
-  "headline": "A catchy, news-style headline capturing the biggest story of the day (e.g. 'Anthropic and OpenAI Go Head-to-Head in 20-Minute Model Drop')",
-  "intro": "One engaging sentence about today's AI news",
+  "headline": "A catchy, news-style headline — NOT a date label. Good: 'Anthropic and OpenAI Go Head-to-Head in 20-Minute Model Drop'. Bad: 'AI Newsletter — Feb 9, 2026'",
+  "intro": "1-2 sentences setting the scene with attitude. Name the biggest story. End with 'Today: X, Y, and Z.'",
   "sections": [
     {
       "category": "model_release",

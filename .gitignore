@@ -3,12 +3,18 @@ node_modules/
 .env
 *.log
 
-# Keep all output files for review
-# output/ is now tracked
+# Pipeline working directory (temporary, regenerated each run)
+output/
 
 # Pipeline inputs (regenerated each run)
 input/topic.json
 input/raw-sources.json
 input/dedup-report.json
+
+# Published content is in content/ (tracked)
+# content/newsletters/*.md
+# content/blogs/{en,zh}/*.md
+
 .vercel
 .next/
+logs/
