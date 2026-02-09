@@ -21,8 +21,11 @@
 import { execSync, spawn } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 import { getDb, initSchema, insertContent, insertResearch, upsertTopicIndex, closeDb } from '../src/lib/db.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
 const INPUT_DIR = path.join(PROJECT_ROOT, 'input');
