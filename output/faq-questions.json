@@ -6,14 +6,14 @@
     "source": "research"
   },
   {
-    "question_en": "Claude Opus 4.6 pricing per token?",
+    "question_en": "Claude Opus 4.6 pricing per token",
     "question_zh": "Claude Opus 4.6 每个 token 的价格是多少？",
     "intent": "pricing",
     "source": "research"
   },
   {
     "question_en": "GPT-5.3 Codex vs Claude Opus 4.6 coding performance",
-    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6 哪个编码性能更好？",
+    "question_zh": "GPT-5.3 Codex 和 Claude Opus 4.6 的编码性能哪个更好？",
     "intent": "comparison",
     "source": "research"
   },
@@ -25,20 +25,20 @@
   },
   {
     "question_en": "What are the cybersecurity capabilities of GPT-5.3 Codex?",
-    "question_zh": "GPT-5.3 Codex 在网络安全方面的能力有哪些？",
+    "question_zh": "GPT-5.3 Codex 的网络安全能力有哪些？",
     "intent": "informational",
     "source": "research"
   },
   {
-    "question_en": "Claude Opus 4.6 vs GPT-5.3 Codex for financial research",
-    "question_zh": "Claude Opus 4.6 和 GPT-5.3 Codex 哪个更适合金融研究？",
+    "question_en": "Claude Opus 4.6 vs GPT-5.2 Codex benchmarks",
+    "question_zh": "Claude Opus 4.6 与 GPT-5.2 Codex 的基准测试对比",
     "intent": "comparison",
     "source": "research"
   },
   {
-    "question_en": "How does Claude Opus 4.6 compaction API work?",
-    "question_zh": "Claude Opus 4.6 的 Compaction API 是如何工作的？",
-    "intent": "tutorial",
+    "question_en": "How much faster is GPT-5.3 Codex than GPT-5.2 Codex?",
+    "question_zh": "GPT-5.3 Codex 比 GPT-5.2 Codex 快多少？",
+    "intent": "informational",
     "source": "research"
   },
   {
@@ -48,14 +48,14 @@
     "source": "research"
   },
   {
-    "question_en": "Is GPT-5.3 Codex available via API?",
-    "question_zh": "GPT-5.3 Codex 是否可以通过 API 使用？",
-    "intent": "pricing",
+    "question_en": "GPT-5.3 Codex Mac app tutorial",
+    "question_zh": "GPT-5.3 Codex Mac 应用教程",
+    "intent": "tutorial",
     "source": "research"
   },
   {
-    "question_en": "Claude Opus 4.6 benchmarks Humanity's Last Exam",
-    "question_zh": "Claude Opus 4.6 在 Humanity's Last Exam 基准测试中的表现如何？",
+    "question_en": "Claude Opus 4.6 financial research capabilities",
+    "question_zh": "Claude Opus 4.6 的金融研究能力",
     "intent": "informational",
     "source": "research"
   }
