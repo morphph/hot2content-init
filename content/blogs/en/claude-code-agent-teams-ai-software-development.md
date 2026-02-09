@@ -10,6 +10,7 @@ keywords:
   - agentic AI programming
 date: 2026-02-07
 lang: en
+tier: 1
 hreflang_zh: /zh/blog/claude-code-agent-teams-ai-software-development
 ---
 

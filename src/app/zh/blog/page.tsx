@@ -1,13 +1,18 @@
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
 
-function formatDate(dateStr: string): { day: string; month: string; weekday: string } {
+function formatDate(dateStr: string): { day: string; month: string } {
   const date = new Date(dateStr + 'T00:00:00')
   return {
-    day: date.getDate().toString().padStart(2, '0'),
+    day: date.getDate().toString(),
     month: (date.getMonth() + 1) + '月',
-    weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()]
   }
+}
+
+const tierConfig = {
+  1: { label: '🔬 深度解读', color: '#7c3aed', bg: '#f5f3ff' },
+  2: { label: '📝 分析', color: '#2563eb', bg: '#eff6ff' },
+  3: { label: '⚡ 快读', color: '#059669', bg: '#ecfdf5' },
 }
 
 export const metadata = {
@@ -25,24 +30,13 @@ export default async function BlogPageZh() {
         <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
             <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-              <span 
-                style={{ 
-                  fontSize: '20px',
-                  fontWeight: '800',
-                  color: '#2563eb',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                LoreAI
-              </span>
+              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>LoreAI</span>
             </Link>
-            
             <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
               <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
               <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>博客</span>
             </nav>
           </div>
-          
           <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
             <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
             <span style={{ color: '#d1d5db' }}>|</span>
@@ -52,21 +46,8 @@ export default async function BlogPageZh() {
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>
-          <h1 
-            style={{ 
-              fontSize: '28px', 
-              fontWeight: 'bold',
-              background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              marginBottom: '8px'
-            }}
-          >
-            博客
-          </h1>
-          <p style={{ color: '#6b7280', fontSize: '16px' }}>
-            深度解读、教程和洞察
-          </p>
+          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>博客</h1>
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>深度解读、教程和洞察</p>
         </div>
 
         {/* Divider */}
@@ -76,68 +57,71 @@ export default async function BlogPageZh() {
           <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
-        {/* Timeline */}
+        {/* Posts */}
         {posts.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '64px 0' }}>
             <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '8px' }}>暂无文章</p>
             <p style={{ color: '#9ca3af', fontSize: '14px' }}>敬请期待！</p>
           </div>
         ) : (
-          <div style={{ borderLeft: '2px solid #e5e7eb', marginLeft: '8px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {posts.map((post) => {
-              const { day, month, weekday } = formatDate(post.date)
+              const { month, day } = formatDate(post.date)
+              const tier = tierConfig[post.tier] || tierConfig[2]
+              const isTier1 = post.tier === 1
+
               return (
-                <Link 
+                <Link
                   key={post.slug}
                   href={`/zh/blog/${post.slug}`}
-                  style={{ 
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '20px',
-                    padding: '20px 0',
-                    marginLeft: '-9px',
+                  style={{
+                    display: 'block',
                     textDecoration: 'none',
-                    borderBottom: '1px solid #f3f4f6'
+                    padding: isTier1 ? '24px' : '16px 20px',
+                    borderRadius: '12px',
+                    border: isTier1 ? '2px solid #e9d5ff' : '1px solid #f3f4f6',
+                    backgroundColor: isTier1 ? '#faf5ff' : '#ffffff',
                   }}
+                  className="blog-card"
                 >
-                  <div 
-                    style={{ 
-                      width: '16px',
-                      height: '16px',
-                      borderRadius: '50%',
-                      backgroundColor: '#3b82f6',
-                      flexShrink: 0,
-                      marginTop: '2px'
-                    }}
-                  />
-                  
-                  <div style={{ width: '56px', flexShrink: 0, textAlign: 'right' }}>
-                    <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827' }}>
-                      {month}{day}日
-                    </div>
-                    <div style={{ fontSize: '12px', color: '#9ca3af' }}>
-                      {weekday}
-                    </div>
-                  </div>
-                  
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <h2 style={{ 
-                      fontSize: '15px', 
-                      fontWeight: '500', 
-                      color: '#111827',
-                      marginBottom: '4px',
-                      lineHeight: '1.5'
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: isTier1 ? '12px' : '6px', flexWrap: 'wrap' }}>
+                    <span style={{
+                      fontSize: '11px',
+                      fontWeight: '600',
+                      color: tier.color,
+                      backgroundColor: tier.bg,
+                      padding: '2px 8px',
+                      borderRadius: '4px',
                     }}>
-                      {post.title}
-                    </h2>
-                    {post.description && (
-                      <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5' }}>
-                        {post.description.length > 80 ? post.description.slice(0, 80) + '...' : post.description}
-                      </p>
-                    )}
+                      {tier.label}
+                    </span>
+                    <span style={{ fontSize: '12px', color: '#9ca3af' }}>{month}{day}日</span>
+                    <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                    <span style={{ fontSize: '12px', color: '#9ca3af' }}>{post.readingTime} 分钟阅读</span>
                   </div>
-                  
-                  <div style={{ color: '#d1d5db', fontSize: '18px', flexShrink: 0 }}>›</div>
+
+                  <h2 style={{
+                    fontSize: isTier1 ? '18px' : '15px',
+                    fontWeight: isTier1 ? '600' : '500',
+                    color: '#111827',
+                    marginBottom: '4px',
+                    lineHeight: '1.4'
+                  }}>
+                    {post.title}
+                  </h2>
+
+                  {post.description && (
+                    <p style={{
+                      fontSize: '13px',
+                      color: '#6b7280',
+                      lineHeight: '1.5',
+                      marginTop: '4px'
+                    }}>
+                      {post.description.length > (isTier1 ? 150 : 80)
+                        ? post.description.slice(0, isTier1 ? 150 : 80) + '...'
+                        : post.description}
+                    </p>
+                  )}
                 </Link>
               )
             })}
@@ -146,9 +130,7 @@ export default async function BlogPageZh() {
 
         {/* Footer */}
         <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <p style={{ color: '#9ca3af', fontSize: '13px' }}>
-            AI 驱动 · 为人而建
-          </p>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 驱动 · 为人而建</p>
         </footer>
       </div>
     </main>

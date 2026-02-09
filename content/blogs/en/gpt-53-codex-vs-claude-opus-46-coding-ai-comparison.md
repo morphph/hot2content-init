@@ -10,6 +10,7 @@ keywords:
   - agentic AI coding
 date: 2026-02-09
 lang: en
+tier: 2
 hreflang_zh: /zh/blog/gpt-53-codex-vs-claude-opus-46-coding-ai-comparison
 ---
 

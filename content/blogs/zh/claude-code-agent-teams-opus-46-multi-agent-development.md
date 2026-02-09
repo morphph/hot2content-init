@@ -5,6 +5,7 @@ description: "Anthropic 发布 Opus 4.6，推出 Agent Teams 多智能体协作�
 keywords: ["Claude Agent Teams", "多智能体编程", "Opus 4.6", "AI编程助手", "Claude Code"]
 date: 2026-02-07
 lang: zh
+tier: 1
 hreflang_en: /en/blog/claude-code-agent-teams-opus-46-multi-agent-development
 ---
 

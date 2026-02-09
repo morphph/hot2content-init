@@ -9,6 +9,7 @@ keywords:
   - Claude Opus 4.6 功能
 date: 2026-02-09
 lang: zh
+tier: 2
 hreflang_en: /en/blog/gpt-53-codex-vs-claude-opus-46-coding-ai-comparison
 ---
 

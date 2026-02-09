@@ -30,7 +30,7 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 # Topic to research
-topic = "Claude Code Agent Teams - Anthropic's new multi-agent feature for Claude Code CLI released with Opus 4.6 in February 2026"
+topic = "GPT-5.3 Codex vs Claude Opus 4.6 - OpenAI and Anthropic released competing AI coding models within 27 minutes of each other in February 2026. Compare features, benchmarks, pricing, and real-world developer experience."
 
 prompt = f"""
 Research the following topic thoroughly using web search:

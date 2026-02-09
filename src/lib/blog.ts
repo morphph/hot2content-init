@@ -14,8 +14,19 @@ export interface BlogPost {
   description: string
   keywords: string[]
   date: string
+  tier: 1 | 2 | 3
+  readingTime: number  // minutes
   content: string
   contentHtml: string
+}
+
+function estimateReadingTime(content: string, lang: string): number {
+  // ~200 wpm for English, ~400 cpm for Chinese
+  if (lang === 'zh') {
+    return Math.max(1, Math.round(content.length / 400))
+  }
+  const words = content.split(/\s+/).length
+  return Math.max(1, Math.round(words / 200))
 }
 
 /**
@@ -64,6 +75,8 @@ export async function getBlogPosts(lang: 'en' | 'zh'): Promise<BlogPost[]> {
           description: data.description || '',
           keywords: data.keywords || [],
           date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
+          tier: data.tier || 2,
+          readingTime: estimateReadingTime(content, lang),
           content,
           contentHtml
         })
@@ -89,6 +102,8 @@ export async function getBlogPosts(lang: 'en' | 'zh'): Promise<BlogPost[]> {
           description: data.description || '',
           keywords: data.keywords || [],
           date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
+          tier: data.tier || 2,
+          readingTime: estimateReadingTime(content, lang),
           content,
           contentHtml
         })
