@@ -1,28 +1,23 @@
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
 
-function formatDate(dateStr: string): { day: string; month: string; weekday: string } {
+function formatDate(dateStr: string): string {
   const date = new Date(dateStr + 'T00:00:00')
-  return {
-    day: date.getDate().toString().padStart(2, '0'),
-    month: date.toLocaleDateString('en-US', { month: 'short' }),
-    weekday: date.toLocaleDateString('en-US', { weekday: 'short' })
-  }
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
 const tierConfig = {
-  1: { label: '🔬 Deep Dive', color: '#7c3aed', bg: '#f5f3ff' },
   2: { label: '📝 Analysis', color: '#2563eb', bg: '#eff6ff' },
   3: { label: '⚡ Quick Read', color: '#059669', bg: '#ecfdf5' },
 }
 
 export const metadata = {
-  title: 'Blog | LoreAI',
-  description: 'Deep dives, tutorials, and insights on AI development',
+  title: 'Resources | LoreAI',
+  description: 'Quick reads, analyses, and insights on trending AI topics',
 }
 
-export default async function BlogPage() {
-  const posts = await getBlogPosts('en', { tier: 1 })
+export default async function ResourcesPage() {
+  const posts = await getBlogPosts('en', { excludeTier: 1 })
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -35,41 +30,43 @@ export default async function BlogPage() {
             </Link>
             <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
               <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
-              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>Blog</span>
+              <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Blog</Link>
+              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #059669', paddingBottom: '4px' }}>Resources</span>
             </nav>
           </div>
           <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
             <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
             <span style={{ color: '#d1d5db' }}>|</span>
-            <Link href="/zh/blog" style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
+            <Link href="/zh/resources" style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
           </div>
         </header>
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>Blog</h1>
-          <p style={{ color: '#6b7280', fontSize: '16px' }}>Deep dives, tutorials, and insights</p>
+          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #059669, #2563eb)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>Resources</h1>
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>Quick reads and analyses on trending AI topics</p>
         </div>
 
         {/* Divider */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>
-          <div style={{ height: '8px', width: '120px', background: 'linear-gradient(90deg, #EC4899, #8B5CF6, #3B82F6)', borderRadius: '2px' }} />
-          <div style={{ width: '8px', height: '8px', backgroundColor: '#60A5FA', borderRadius: '2px' }} />
-          <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
+          <div style={{ height: '8px', width: '120px', background: 'linear-gradient(90deg, #059669, #2563eb)', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#34d399', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#6ee7b7', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
         {/* Posts */}
         {posts.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '64px 0' }}>
-            <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '8px' }}>No posts yet</p>
+            <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '8px' }}>No resources yet</p>
             <p style={{ color: '#9ca3af', fontSize: '14px' }}>Check back soon!</p>
+            <Link href="/en/blog" style={{ color: '#2563eb', fontSize: '14px', textDecoration: 'none', marginTop: '16px', display: 'inline-block' }}>
+              ← Read our deep dives
+            </Link>
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {posts.map((post) => {
-              const { month, day } = formatDate(post.date)
-              const tier = tierConfig[post.tier] || tierConfig[2]
-              const isTier1 = post.tier === 1
+              const tier = tierConfig[post.tier as 2 | 3] || tierConfig[2]
 
               return (
                 <Link
@@ -78,16 +75,14 @@ export default async function BlogPage() {
                   style={{
                     display: 'block',
                     textDecoration: 'none',
-                    padding: isTier1 ? '24px' : '16px 20px',
-                    borderRadius: '12px',
-                    border: isTier1 ? '2px solid #e9d5ff' : '1px solid #f3f4f6',
-                    backgroundColor: isTier1 ? '#faf5ff' : '#ffffff',
-                    transition: 'box-shadow 0.2s',
+                    padding: '14px 18px',
+                    borderRadius: '10px',
+                    border: '1px solid #f3f4f6',
+                    backgroundColor: '#ffffff',
                   }}
                   className="blog-card"
                 >
-                  {/* Meta row: tier badge + date + reading time */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: isTier1 ? '12px' : '6px', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
                     <span style={{
                       fontSize: '11px',
                       fontWeight: '600',
@@ -98,33 +93,16 @@ export default async function BlogPage() {
                     }}>
                       {tier.label}
                     </span>
-                    <span style={{ fontSize: '12px', color: '#9ca3af' }}>{month} {day}</span>
+                    <span style={{ fontSize: '12px', color: '#9ca3af' }}>{formatDate(post.date)}</span>
                     <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
                     <span style={{ fontSize: '12px', color: '#9ca3af' }}>{post.readingTime} min read</span>
                   </div>
-
-                  {/* Title */}
-                  <h2 style={{
-                    fontSize: isTier1 ? '18px' : '15px',
-                    fontWeight: isTier1 ? '600' : '500',
-                    color: '#111827',
-                    marginBottom: '4px',
-                    lineHeight: '1.4'
-                  }}>
+                  <h2 style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>
                     {post.title}
                   </h2>
-
-                  {/* Description */}
                   {post.description && (
-                    <p style={{
-                      fontSize: '13px',
-                      color: '#6b7280',
-                      lineHeight: '1.5',
-                      marginTop: '4px'
-                    }}>
-                      {post.description.length > (isTier1 ? 200 : 100) 
-                        ? post.description.slice(0, isTier1 ? 200 : 100) + '...' 
-                        : post.description}
+                    <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5' }}>
+                      {post.description.length > 120 ? post.description.slice(0, 120) + '...' : post.description}
                     </p>
                   )}
                 </Link>
@@ -132,6 +110,15 @@ export default async function BlogPage() {
             })}
           </div>
         )}
+
+        {/* CTA */}
+        <div style={{ marginTop: '48px', padding: '24px', borderRadius: '12px', backgroundColor: '#f5f3ff', textAlign: 'center' }}>
+          <p style={{ fontSize: '15px', fontWeight: '500', color: '#374151', marginBottom: '8px' }}>Want the full picture?</p>
+          <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>Our deep dives go beyond the surface.</p>
+          <Link href="/en/blog" style={{ fontSize: '14px', color: '#7c3aed', fontWeight: '600', textDecoration: 'none' }}>
+            🔬 Read Deep Dives →
+          </Link>
+        </div>
 
         {/* Footer */}
         <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>

@@ -56,7 +56,7 @@ async function parseMarkdown(content: string): Promise<{
  * Get all blog posts for a language
  * Reads from content/blogs/{lang}/*.md (primary) with fallback to output/ (legacy)
  */
-export async function getBlogPosts(lang: 'en' | 'zh'): Promise<BlogPost[]> {
+export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number; excludeTier?: number }): Promise<BlogPost[]> {
   const posts: BlogPost[] = []
   const langDir = path.join(BLOGS_DIR, lang)
   
@@ -116,7 +116,16 @@ export async function getBlogPosts(lang: 'en' | 'zh'): Promise<BlogPost[]> {
   // Sort by date descending
   posts.sort((a, b) => b.date.localeCompare(a.date))
   
-  return posts
+  // Filter by tier if specified
+  let filtered = posts
+  if (options?.tier) {
+    filtered = filtered.filter(p => p.tier === options.tier)
+  }
+  if (options?.excludeTier) {
+    filtered = filtered.filter(p => p.tier !== options.excludeTier)
+  }
+  
+  return filtered
 }
 
 /**

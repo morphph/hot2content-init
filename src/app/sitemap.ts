@@ -31,13 +31,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE_URL}/en/blog/${post.slug}`,
       lastModified: new Date(post.date),
       changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      priority: post.tier === 1 ? 0.9 : 0.6,
     })),
     ...zhPosts.map((post) => ({
       url: `${BASE_URL}/zh/blog/${post.slug}`,
       lastModified: new Date(post.date),
       changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      priority: post.tier === 1 ? 0.9 : 0.6,
     })),
   ]
 
@@ -72,6 +72,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/en/resources`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/zh/resources`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
     },
     ...newsletterUrls,
     ...blogUrls,
