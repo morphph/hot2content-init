@@ -64,6 +64,30 @@ async function generateArticle(kw: KeywordRow, researchContext: string): Promise
 
   console.log(`\n📝 Generating article for: "${kw.keyword}" [${lang}/${kw.search_intent}]`);
 
+  // Dedup: check if a similar article already exists
+  const blogDir = path.join(PROJECT_ROOT, 'content', 'blogs', lang);
+  if (fs.existsSync(blogDir)) {
+    const existingFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.md'));
+    const existingTitles: string[] = [];
+    for (const file of existingFiles) {
+      const content = fs.readFileSync(path.join(blogDir, file), 'utf-8');
+      const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m);
+      if (titleMatch) existingTitles.push(titleMatch[1].toLowerCase());
+    }
+    // Check keyword overlap with existing titles (>60% word overlap = too similar)
+    const kwWords = new Set(kw.keyword.toLowerCase().split(/\s+/));
+    for (const existing of existingTitles) {
+      const existWords = new Set(existing.split(/\s+/));
+      const overlap = [...kwWords].filter(w => existWords.has(w)).length;
+      const similarity = overlap / Math.max(kwWords.size, 1);
+      if (similarity > 0.6) {
+        console.log(`   ⏭️ Skipping: too similar to existing article "${existing}"`);
+        db.prepare('UPDATE keywords SET status = ? WHERE id = ?').run('skipped_duplicate', kw.id);
+        return;
+      }
+    }
+  }
+
   // Update status to writing
   db.prepare('UPDATE keywords SET status = ? WHERE id = ?').run('writing', kw.id);
 
