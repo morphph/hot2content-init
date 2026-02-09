@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { getBlogPosts } from '@/lib/blog'
+import { getAllFAQTopics } from '@/lib/faq'
 import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
@@ -85,6 +86,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    ...getAllFAQTopics().map((t) => ({
+      url: `${BASE_URL}/faq/${t.slug}`,
+      lastModified: new Date(t.date || new Date()),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
     ...newsletterUrls,
     ...blogUrls,
   ]

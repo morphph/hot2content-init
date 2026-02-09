@@ -26,9 +26,9 @@ export function getAllFAQTopics(): { slug: string; title: string; description: s
       slug: file.replace(/\.md$/, ''),
       title: data.title || file.replace(/\.md$/, ''),
       description: data.description || '',
-      date: data.date || '',
+      date: typeof data.date === 'string' ? data.date : (data.date ? new Date(data.date).toISOString().split('T')[0] : ''),
     }
-  }).sort((a, b) => b.date.localeCompare(a.date))
+  }).sort((a, b) => (b.date || '').localeCompare(a.date || ''))
 }
 
 export async function getFAQTopic(slug: string): Promise<FAQTopic | null> {
