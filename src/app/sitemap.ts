@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import { getBlogPosts } from '@/lib/blog'
 import type { MetadataRoute } from 'next'
 
@@ -5,9 +7,24 @@ export const dynamic = 'force-static'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://loreai.dev'
 
+function getNewsletterDates(): string[] {
+  try {
+    const dir = path.join(process.cwd(), 'content', 'newsletters')
+    if (!fs.existsSync(dir)) return []
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.md'))
+      .map(f => f.replace('.md', ''))
+      .sort()
+      .reverse()
+  } catch {
+    return []
+  }
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const enPosts = await getBlogPosts('en')
   const zhPosts = await getBlogPosts('zh')
+  const newsletterDates = getNewsletterDates()
   
   const blogUrls = [
     ...enPosts.map((post) => ({
@@ -23,6 +40,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     })),
   ]
+
+  const newsletterUrls = newsletterDates.map((date) => ({
+    url: `${BASE_URL}/newsletter/${date}`,
+    lastModified: new Date(date),
+    changeFrequency: 'daily' as const,
+    priority: 0.9,
+  }))
   
   return [
     {
@@ -30,6 +54,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
+    },
+    {
+      url: `${BASE_URL}/newsletter`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
     {
       url: `${BASE_URL}/en/blog`,
@@ -43,6 +73,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       priority: 0.9,
     },
+    ...newsletterUrls,
     ...blogUrls,
   ]
 }
