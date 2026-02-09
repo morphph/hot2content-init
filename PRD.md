@@ -1312,8 +1312,10 @@ CREATE TABLE keywords (
   search_volume INTEGER,
   difficulty INTEGER,
   score INTEGER,
+  search_intent TEXT,      -- 'informational', 'comparison', 'tutorial'
   status TEXT DEFAULT 'backlog',
   content_id INTEGER REFERENCES content(id),
+  parent_research_id INTEGER REFERENCES research(id),  -- 衍生自哪篇调研
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -1407,13 +1409,49 @@ LLM 扩展长尾关键词 (Gemini Flash, ~$0.001/次)
     └─ 10-20 篇 Tier 3 (长尾词批量)
 ```
 
+### 调研资产复用（一鱼多吃）
+
+每完成一篇 Tier 1 深度文章后，自动从 research report 中提取衍生话题：
+
+```
+Tier 1 Blog Pipeline 完成
+    │
+    ▼
+读取 research 表中的 research_report
+    │
+    ▼
+LLM 提取衍生话题 + 长尾关键词 (Gemini Flash)
+    │  例: "Opus 4.6 vs GPT-5.3" →
+    │    - "2026年最佳AI编程助手选购指南"
+    │    - "Claude Opus 4.6 上手教程"
+    │    - "AI编程工具定价对比 2026"
+    ▼
+入库 keywords 表 (status='backlog', parent_research_id=xxx)
+    │
+    ▼
+Tier 2/3 pipeline 自动消费
+```
+
 ### Tier 2 标准文章 Pipeline
 
 ```
-长尾关键词
-    → Brave Search (top 10 结果)
+长尾关键词 (从 keywords 表取 status='backlog')
+    → 检查是否有关联的 research_report (parent_research_id)
+    → 有: 提取相关片段作为基础素材
+    → Brave Search 补充该关键词特有信息 (top 10 结果)
     → WebFetch 前 3-5 篇
-    → Claude Sonnet 生成 1500-2000 词
+    → Claude Sonnet 生成 1500-2000 词 (输入: research 片段 + Brave 结果)
+    → content/blogs/{lang}/{slug}.md
+    → 自动发布
+```
+
+### Tier 3 批量文章 Pipeline
+
+```
+长尾关键词 (从 keywords 表取 longtail)
+    → 如有关联 research_report: 仅提取 1-2 段相关背景
+    → Brave Search snippets (仅摘要，不 WebFetch)
+    → Gemini Flash 生成 800-1200 词
     → content/blogs/{lang}/{slug}.md
     → 自动发布
 ```
@@ -1459,10 +1497,12 @@ LLM 扩展长尾关键词 (Gemini Flash, ~$0.001/次)
 - [ ] 邮件订阅功能
 - [ ] Telegram 推送通知
 
-### Phase 4a — 关键词自动生成
+### Phase 4a — 关键词自动生成 + 调研资产复用
 - [ ] 从 daily newsletter 提取 trending 关键词入库
 - [ ] LLM 扩展长尾关键词 (Gemini Flash)
 - [ ] 入库 keywords 表 + 搜索意图标注
+- [ ] Tier 1 博客完成后，自动从 research report 提取衍生话题
+- [ ] 衍生关键词关联 parent_research_id，供 Tier 2/3 复用调研素材
 
 ### Phase 4b — Tier 2 标准文章 Pipeline
 - [ ] Brave Search + WebFetch 轻量调研脚本
