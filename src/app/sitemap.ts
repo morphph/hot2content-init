@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { getBlogPosts } from '@/lib/blog'
 import { getAllFAQTopics } from '@/lib/faq'
+import { getGlossaryTerms } from '@/lib/glossary'
 import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
@@ -97,6 +98,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(t.date || new Date()),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    {
+      url: `${BASE_URL}/glossary`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    ...getGlossaryTerms('en').map((t) => ({
+      url: `${BASE_URL}/glossary/${t.slug}`,
+      lastModified: new Date(t.date || new Date()),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
     })),
     ...newsletterUrls,
     ...blogUrls,
