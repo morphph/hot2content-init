@@ -75,7 +75,7 @@ export default async function NewsletterPage() {
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
-      <div style={{ maxWidth: '700px', margin: '0 auto', padding: '48px 24px' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         {/* Header */}
         <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
           {/* Logo + Nav */}
