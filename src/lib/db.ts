@@ -115,12 +115,24 @@ export function initSchema(db: Database.Database): void {
       seo_score INTEGER
     );
 
+    -- Add columns if missing (ALTER TABLE is idempotent via try/catch below)
+    
     -- Indexes for common queries
     CREATE INDEX IF NOT EXISTS idx_news_items_detected_at ON news_items(detected_at);
     CREATE INDEX IF NOT EXISTS idx_news_items_url ON news_items(url);
     CREATE INDEX IF NOT EXISTS idx_content_type ON content(type);
     CREATE INDEX IF NOT EXISTS idx_content_slug ON content(slug);
   `);
+
+  // Add columns that may not exist yet (idempotent)
+  const alterStatements = [
+    `ALTER TABLE keywords ADD COLUMN search_intent TEXT`,
+    `ALTER TABLE keywords ADD COLUMN parent_research_id INTEGER REFERENCES research(id)`,
+    `ALTER TABLE keywords ADD COLUMN language TEXT DEFAULT 'en'`,
+  ];
+  for (const sql of alterStatements) {
+    try { db.exec(sql); } catch { /* column already exists */ }
+  }
 }
 
 /**

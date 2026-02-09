@@ -424,6 +424,20 @@ async function main() {
     log('DB', `⚠️ DB write error (non-fatal): ${e}`);
   }
 
+  // Step 5: Extract keywords from research report
+  console.log('\n' + '─'.repeat(60));
+  log('STEP', '5/5 - Extract Keywords (Gemini Flash, ~$0.001)');
+  try {
+    execSync(`cd ${PROJECT_ROOT} && npx tsx scripts/extract-keywords.ts`, {
+      stdio: 'inherit',
+      shell: '/bin/bash',
+      timeout: 2 * 60 * 1000
+    });
+    log('KEYWORDS', '✅ Keywords extracted');
+  } catch (error) {
+    log('KEYWORDS', `⚠️ Keyword extraction failed (non-fatal): ${error}`);
+  }
+
   // Summary
   const elapsed = ((Date.now() - startTime) / 1000 / 60).toFixed(1);
   console.log('\n');
