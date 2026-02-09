@@ -1,16 +1,16 @@
 import Link from 'next/link'
-import { getAllFAQTopics } from '@/lib/faq'
+import { getAllCompares } from '@/lib/compare'
 
 export const metadata = {
-  title: 'FAQ | LoreAI',
-  description: 'Frequently asked questions about AI models, tools, and comparisons.',
+  title: 'Compare AI Models | LoreAI',
+  description: 'Side-by-side comparisons of AI models — benchmarks, pricing, and features.',
 }
 
-export default function FAQIndexPage() {
-  const topics = getAllFAQTopics()
+export default function CompareIndexPage() {
+  const compares = getAllCompares()
 
-  const enTopics = topics.filter(t => t.slug.endsWith('-en') || t.lang === 'en')
-  const zhTopics = topics.filter(t => t.slug.endsWith('-zh') || t.lang === 'zh')
+  const enCompares = compares.filter(c => c.lang === 'en')
+  const zhCompares = compares.filter(c => c.lang === 'zh')
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -24,17 +24,17 @@ export default function FAQIndexPage() {
             <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
               <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
               <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Blog</Link>
-              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>FAQ</span>
+              <Link href="/faq" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>FAQ</Link>
               <Link href="/glossary" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Glossary</Link>
-              <Link href="/compare" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Compare</Link>
+              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>Compare</span>
             </nav>
           </div>
         </header>
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>Frequently Asked Questions</h1>
-          <p style={{ color: '#6b7280', fontSize: '16px' }}>AI models, benchmarks, and tools — your questions answered</p>
+          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>Compare AI Models</h1>
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>Side-by-side comparisons — benchmarks, pricing, and features</p>
         </div>
 
         {/* Divider */}
@@ -44,24 +44,24 @@ export default function FAQIndexPage() {
           <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
-        {topics.length === 0 ? (
-          <p style={{ color: '#9ca3af' }}>No FAQ topics yet. Check back soon!</p>
+        {compares.length === 0 ? (
+          <p style={{ color: '#9ca3af' }}>No comparisons yet. Check back soon!</p>
         ) : (
           <>
             {/* EN Section */}
-            {enTopics.length > 0 && (
+            {enCompares.length > 0 && (
               <div style={{ marginBottom: '40px' }}>
                 <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#a855f7', marginBottom: '16px' }}>
-                  🇺🇸 English ({enTopics.length} {enTopics.length === 1 ? 'topic' : 'topics'})
+                  🇺🇸 English ({enCompares.length})
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {enTopics.map(t => (
-                    <Link key={t.slug} href={`/faq/${t.slug}`} style={{ textDecoration: 'none', padding: '12px 16px', border: '1px solid #e5e7eb', borderRadius: '8px', display: 'block' }}>
+                  {enCompares.map(c => (
+                    <Link key={c.slug} href={`/compare/${c.slug}`} style={{ textDecoration: 'none', padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px', display: 'block' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontWeight: '600', color: '#111827' }}>{t.title}</span>
-                        <span style={{ fontSize: '12px', color: '#9ca3af', backgroundColor: '#f9fafb', padding: '2px 8px', borderRadius: '4px' }}>{t.questionCount} Qs</span>
+                        <span style={{ fontWeight: '600', color: '#111827' }}>{c.title}</span>
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{c.date}</span>
                       </div>
-                      {t.description && <p style={{ color: '#6b7280', fontSize: '14px', marginTop: '4px' }}>{t.description}</p>}
+                      <p style={{ color: '#6b7280', fontSize: '14px', marginTop: '4px' }}>{c.model_a} vs {c.model_b}</p>
                     </Link>
                   ))}
                 </div>
@@ -69,19 +69,19 @@ export default function FAQIndexPage() {
             )}
 
             {/* ZH Section */}
-            {zhTopics.length > 0 && (
+            {zhCompares.length > 0 && (
               <div style={{ marginBottom: '40px' }}>
                 <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#3b82f6', marginBottom: '16px' }}>
-                  🇨🇳 中文 ({zhTopics.length} 个主题)
+                  🇨🇳 中文 ({zhCompares.length})
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {zhTopics.map(t => (
-                    <Link key={t.slug} href={`/faq/${t.slug}`} style={{ textDecoration: 'none', padding: '12px 16px', border: '1px solid #e5e7eb', borderRadius: '8px', display: 'block' }}>
+                  {zhCompares.map(c => (
+                    <Link key={c.slug} href={`/compare/${c.slug}`} style={{ textDecoration: 'none', padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px', display: 'block' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontWeight: '600', color: '#111827' }}>{t.title}</span>
-                        <span style={{ fontSize: '12px', color: '#9ca3af', backgroundColor: '#f9fafb', padding: '2px 8px', borderRadius: '4px' }}>{t.questionCount} 问</span>
+                        <span style={{ fontWeight: '600', color: '#111827' }}>{c.title}</span>
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{c.date}</span>
                       </div>
-                      {t.description && <p style={{ color: '#6b7280', fontSize: '14px', marginTop: '4px' }}>{t.description}</p>}
+                      <p style={{ color: '#6b7280', fontSize: '14px', marginTop: '4px' }}>{c.model_a} vs {c.model_b}</p>
                     </Link>
                   ))}
                 </div>

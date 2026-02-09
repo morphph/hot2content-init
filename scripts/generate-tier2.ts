@@ -19,6 +19,7 @@ if (!GEMINI_API_KEY) {
 }
 
 const PROJECT_ROOT = process.cwd();
+const IS_TIER3 = process.argv.includes('--tier3');
 
 interface KeywordRow {
   id: number;
@@ -91,8 +92,65 @@ async function generateArticle(kw: KeywordRow, researchContext: string): Promise
   // Update status to writing
   db.prepare('UPDATE keywords SET status = ? WHERE id = ?').run('writing', kw.id);
 
-  const prompt = isZh
-    ? `你是 loreai.dev 的中文技术博客作者。
+  let prompt: string;
+
+  if (IS_TIER3) {
+    // Tier 3: Quick Read (300-500 words)
+    prompt = isZh
+      ? `你是 loreai.dev 的技术作者。写一篇快速阅读文章（300-500 字）。
+
+主题/关键词：${kw.keyword}
+参考资料：${researchContext.substring(0, 2000)}
+
+格式要求：
+- 标题要吸引点击，面向搜索优化
+- 2-3 个小节，用 ## 标题
+- 关键要点用列表呈现
+- 包含 1-2 个具体数据
+- 结尾一句话引导读者查看 LoreAI 的更深入内容
+- 必须全中文输出，不要出现英文段落
+
+Frontmatter 格式：
+---
+title: "..."
+date: ${new Date().toISOString().split('T')[0]}
+lang: zh
+tier: 3
+tags: []
+description: "..."
+keywords: ["${kw.keyword}"]
+---
+
+直接输出 Markdown，不要代码块包裹。`
+      : `You are a technical writer for loreai.dev. Write a quick-read article (300-500 words) about the topic.
+
+Topic/Keyword: ${kw.keyword}
+Research context: ${researchContext.substring(0, 2000)}
+
+Format:
+- Title: action-oriented or question-based (SEO friendly)
+- 2-3 short sections with H2 headers
+- Key takeaways as bullet points
+- Include 1-2 specific data points if available
+- End with a one-liner linking to deeper LoreAI content
+- Output ONLY in English. Do not use any Chinese characters.
+
+Frontmatter:
+---
+title: "..."
+date: ${new Date().toISOString().split('T')[0]}
+lang: en
+tier: 3
+tags: []
+description: "..."
+keywords: ["${kw.keyword}"]
+---
+
+Output raw Markdown directly, no code block wrapping.`;
+  } else {
+    // Tier 2: Full article (1500-2500 words)
+    prompt = isZh
+      ? `你是 loreai.dev 的中文技术博客作者。
 
 目标关键词: ${kw.keyword}
 搜索意图: ${kw.search_intent}
@@ -113,7 +171,7 @@ ${researchContext.substring(0, 4000)}
 - 不要: "让我们开始", "本文将", "总而言之"
 
 直接输出 Markdown，不要代码块包裹。`
-    : `You are a technical blog writer for loreai.dev.
+      : `You are a technical blog writer for loreai.dev.
 
 Target keyword: ${kw.keyword}
 Search intent: ${kw.search_intent}
@@ -133,10 +191,12 @@ Requirements:
 - Don't use: "In this article", "Let's dive in", "Game-changing", "revolutionary"
 
 Output raw Markdown directly, no code block wrapping.`;
+  }
 
   const article = await callGemini(prompt);
 
-  if (!article || article.length < 500) {
+  const minLen = IS_TIER3 ? 200 : 500;
+  if (!article || article.length < minLen) {
     console.error(`   ❌ Article too short (${article.length} chars), skipping`);
     db.prepare('UPDATE keywords SET status = ? WHERE id = ?').run('error', kw.id);
     return;
@@ -157,16 +217,16 @@ description: "${kw.keyword}"
 keywords: ["${kw.keyword}"]
 date: ${date}
 lang: ${lang}
-tier: 2
+tier: ${IS_TIER3 ? 3 : 2}
 ---
 
 ${article}`;
   }
 
   // Save to content/blogs/{lang}/
-  const blogDir = path.join(PROJECT_ROOT, 'content', 'blogs', lang);
-  fs.mkdirSync(blogDir, { recursive: true });
-  const filePath = path.join(blogDir, `${slug}.md`);
+  const outputDir = path.join(PROJECT_ROOT, 'content', 'blogs', lang);
+  fs.mkdirSync(outputDir, { recursive: true });
+  const filePath = path.join(outputDir, `${slug}.md`);
   fs.writeFileSync(filePath, finalArticle);
   console.log(`   💾 Saved: content/blogs/${lang}/${slug}.md (${(finalArticle.length / 1024).toFixed(1)} KB)`);
 
@@ -178,7 +238,7 @@ ${article}`;
     body_markdown: finalArticle,
     language: lang,
     status: 'published',
-    source_type: 'tier2_auto',
+    source_type: IS_TIER3 ? 'tier3_auto' : 'tier2_auto',
   });
 
   // Update keyword status
@@ -190,46 +250,54 @@ async function main() {
   const db = getDb();
   initSchema(db);
 
-  // Get one backlog keyword (or specific one from CLI)
-  const targetKeyword = process.argv[2];
-  let kw: KeywordRow | undefined;
+  const batchSize = IS_TIER3 ? 5 : 1;
+  const targetKeyword = process.argv.filter(a => !a.startsWith('--'))[2];
+
+  let keywords: KeywordRow[] = [];
 
   if (targetKeyword) {
-    kw = db.prepare(
+    const kw = db.prepare(
       `SELECT id, keyword, language, search_intent, parent_research_id FROM keywords WHERE keyword LIKE ? LIMIT 1`
     ).get(`%${targetKeyword}%`) as KeywordRow | undefined;
+    if (kw) keywords = [kw];
   } else {
-    kw = db.prepare(
-      `SELECT id, keyword, language, search_intent, parent_research_id FROM keywords WHERE status = 'backlog' ORDER BY id LIMIT 1`
-    ).get() as KeywordRow | undefined;
+    keywords = db.prepare(
+      `SELECT id, keyword, language, search_intent, parent_research_id FROM keywords WHERE status = 'backlog' ORDER BY id LIMIT ?`
+    ).all(batchSize) as KeywordRow[];
   }
 
-  if (!kw) {
+  if (keywords.length === 0) {
     console.log('📭 No backlog keywords found. Run extract-keywords.ts first.');
     closeDb();
     return;
   }
 
-  // Load research context
-  let researchContext = '';
-  if (kw.parent_research_id) {
-    const research = db.prepare(
-      `SELECT research_report FROM research WHERE id = ?`
-    ).get(kw.parent_research_id) as { research_report: string } | undefined;
-    if (research?.research_report) {
-      researchContext = research.research_report;
+  console.log(`🚀 Generating ${IS_TIER3 ? 'Tier 3 (Quick Read)' : 'Tier 2'} articles for ${keywords.length} keyword(s)\n`);
+
+  for (const kw of keywords) {
+    // Load research context
+    let researchContext = '';
+    if (kw.parent_research_id) {
+      const research = db.prepare(
+        `SELECT research_report FROM research WHERE id = ?`
+      ).get(kw.parent_research_id) as { research_report: string } | undefined;
+      if (research?.research_report) {
+        researchContext = research.research_report;
+      }
     }
+
+    // Fallback to file
+    if (!researchContext) {
+      const reportPath = path.join(PROJECT_ROOT, 'output', 'research-report.md');
+      if (fs.existsSync(reportPath)) {
+        researchContext = fs.readFileSync(reportPath, 'utf-8');
+      }
+    }
+
+    await generateArticle(kw, researchContext);
+    await new Promise(r => setTimeout(r, 1000));
   }
 
-  // Fallback to file
-  if (!researchContext) {
-    const reportPath = path.join(PROJECT_ROOT, 'output', 'research-report.md');
-    if (fs.existsSync(reportPath)) {
-      researchContext = fs.readFileSync(reportPath, 'utf-8');
-    }
-  }
-
-  await generateArticle(kw, researchContext);
   closeDb();
 }
 

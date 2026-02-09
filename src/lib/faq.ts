@@ -16,17 +16,20 @@ export interface FAQTopic {
   contentHtml: string
 }
 
-export function getAllFAQTopics(): { slug: string; title: string; description: string; date: string }[] {
+export function getAllFAQTopics(): { slug: string; title: string; description: string; date: string; lang: string; questionCount: number }[] {
   if (!fs.existsSync(FAQ_DIR)) return []
   const files = fs.readdirSync(FAQ_DIR).filter(f => f.endsWith('.md'))
   return files.map(file => {
-    const content = fs.readFileSync(path.join(FAQ_DIR, file), 'utf-8')
-    const { data } = matter(content)
+    const raw = fs.readFileSync(path.join(FAQ_DIR, file), 'utf-8')
+    const { data, content } = matter(raw)
+    const questionCount = (content.match(/^### /gm) || []).length
     return {
       slug: file.replace(/\.md$/, ''),
       title: data.title || file.replace(/\.md$/, ''),
       description: data.description || '',
       date: typeof data.date === 'string' ? data.date : (data.date ? new Date(data.date).toISOString().split('T')[0] : ''),
+      lang: data.lang || (file.endsWith('-zh.md') ? 'zh' : 'en'),
+      questionCount,
     }
   }).sort((a, b) => (b.date || '').localeCompare(a.date || ''))
 }

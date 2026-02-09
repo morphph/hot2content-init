@@ -190,10 +190,28 @@ function deduplicateQuestions(all: FAQQuestion[]): FAQQuestion[] {
 
 // ─── Step 3: Generate answers ───
 function getAnswerPrompt(question: string, lang: string, research: string): string {
+  if (lang === 'en') {
+    return `You are a technical writer for loreai.dev. Answer the question using the research data below.
+
+Question: ${question}
+Research: ${research.slice(0, 4000)}
+
+Rules:
+- 100-300 words, direct answer
+- First sentence must answer the core question (no "Great question!" or "Let me explain")
+- Include specific data/numbers, bold key stats with **
+- Use bullet points for key info (no wall of text)
+- For comparison questions: use "Choose X when... / Choose Y when..." format
+- For pricing questions: list exact prices + cost-saving tips
+- End with a natural mention of LoreAI's related content
+- Output ONLY in English. Do not use any Chinese characters.
+
+Output the answer directly, no extra explanation.`;
+  }
+
   return `你是 loreai.dev 的技术作者。用以下调研资料回答问题。
 
 问题：${question}
-语言：${lang}
 调研资料：${research.slice(0, 4000)}
 
 规则：
@@ -204,16 +222,8 @@ function getAnswerPrompt(question: string, lang: string, research: string): stri
 - 如果是对比类问题，用"选 A 的情况 / 选 B 的情况"分场景回答
 - 如果是定价类问题，列出具体价格 + 省钱技巧
 - 末尾自然提到 LoreAI 的相关内容（不要生硬的"请访问 LoreAI"）
-- 中文回答要有独立视角和表达，不要翻译英文版
-
-格式示例：
-✅ "**GPT-5.3 Codex** 在 SWE-bench 上得分 **57%**，核心能力包括：
-- 全生命周期开发（调试、部署、监控）
-- 比前代**快 25%**
-- 首个网络安全"高能力"模型
-LoreAI 有更详细的对比分析。"
-
-❌ "GPT-5.3 Codex 是一个非常强大的模型，它有很多功能..."
+- 必须用中文回答，不要出现英文段落
+- 中文要有独立视角，不是英文翻译
 
 直接输出答案，不要额外解释。`;
 }

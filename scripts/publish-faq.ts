@@ -17,6 +17,12 @@ interface Question {
   source: string;
 }
 
+function detectChineseRatio(text: string): number {
+  const chinese = text.match(/[\u4e00-\u9fff]/g) || [];
+  const total = text.replace(/\s/g, '').length;
+  return total > 0 ? chinese.length / total : 0;
+}
+
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -89,8 +95,13 @@ ${enQuestions.join('\n\n---\n\n')}
 `;
 
   const enPath = path.join(FAQ_DIR, `${slug}-en.md`);
-  fs.writeFileSync(enPath, enContent);
-  console.log(`✅ EN FAQ: content/faq/${slug}-en.md (${enQuestions.length} questions)`);
+  const enRatio = detectChineseRatio(enQuestions.join('\n'));
+  if (enRatio > 0.3) {
+    console.error(`⚠️  EN FAQ has ${(enRatio * 100).toFixed(0)}% Chinese content — likely language error. Skipping.`);
+  } else {
+    fs.writeFileSync(enPath, enContent);
+    console.log(`✅ EN FAQ: content/faq/${slug}-en.md (${enQuestions.length} questions)`);
+  }
 
   // Write ZH FAQ
   const zhContent = `---
@@ -104,8 +115,13 @@ ${zhQuestions.join('\n\n---\n\n')}
 `;
 
   const zhPath = path.join(FAQ_DIR, `${slug}-zh.md`);
-  fs.writeFileSync(zhPath, zhContent);
-  console.log(`✅ ZH FAQ: content/faq/${slug}-zh.md (${zhQuestions.length} questions)`);
+  const zhRatio = detectChineseRatio(zhQuestions.join('\n'));
+  if (zhRatio < 0.2) {
+    console.error(`⚠️  ZH FAQ has only ${(zhRatio * 100).toFixed(0)}% Chinese content — likely language error. Skipping.`);
+  } else {
+    fs.writeFileSync(zhPath, zhContent);
+    console.log(`✅ ZH FAQ: content/faq/${slug}-zh.md (${zhQuestions.length} questions)`);
+  }
 }
 
 main();

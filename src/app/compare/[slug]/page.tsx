@@ -1,0 +1,91 @@
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { getAllCompares, getCompare, generateCompareJsonLd } from '@/lib/compare'
+import type { Metadata } from 'next'
+
+interface Props {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  return getAllCompares().map(c => ({ slug: c.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getCompare(slug)
+  if (!post) return {}
+  return {
+    title: `${post.title} | LoreAI`,
+    description: post.description,
+  }
+}
+
+export default async function CompareDetailPage({ params }: Props) {
+  const { slug } = await params
+  const post = await getCompare(slug)
+  if (!post) notFound()
+
+  const jsonLd = generateCompareJsonLd(post)
+  const allCompares = getAllCompares(post.lang)
+  const related = allCompares.filter(c => c.slug !== slug).slice(0, 3)
+
+  return (
+    <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
+        {/* Breadcrumb */}
+        <nav style={{ fontSize: '14px', marginBottom: '24px', color: '#6b7280' }}>
+          <Link href="/compare" style={{ color: '#6b7280', textDecoration: 'none' }}>Compare</Link>
+          <span style={{ margin: '0 8px' }}>/</span>
+          <span style={{ color: '#111827' }}>{post.model_a} vs {post.model_b}</span>
+        </nav>
+
+        <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px', color: '#111827' }}>{post.title}</h1>
+        <div style={{ display: 'flex', gap: '16px', fontSize: '14px', color: '#6b7280', marginBottom: '32px' }}>
+          <span>{post.date}</span>
+          <span style={{ backgroundColor: '#f3f4f6', padding: '2px 8px', borderRadius: '4px' }}>{post.category}</span>
+          <span style={{ backgroundColor: '#f3f4f6', padding: '2px 8px', borderRadius: '4px' }}>{post.lang.toUpperCase()}</span>
+        </div>
+
+        {/* Content with table styling */}
+        <div
+          className="prose prose-lg max-w-none"
+          style={{
+            lineHeight: 1.8,
+          }}
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+        />
+
+        {/* Table styles */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          .prose table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 14px; }
+          .prose th, .prose td { padding: 10px 14px; border: 1px solid #e5e7eb; text-align: left; }
+          .prose th { background-color: #f9fafb; font-weight: 600; color: #374151; }
+          .prose tr:hover { background-color: #fafafa; }
+          .prose strong { color: #111827; }
+        `}} />
+
+        {/* Related */}
+        {related.length > 0 && (
+          <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e7eb' }}>
+            <h2 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: '#374151' }}>
+              {post.lang === 'zh' ? '更多对比' : 'More Comparisons'}
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {related.map(r => (
+                <Link key={r.slug} href={`/compare/${r.slug}`} style={{ textDecoration: 'none', padding: '12px', border: '1px solid #e5e7eb', borderRadius: '8px', display: 'block' }}>
+                  <span style={{ fontWeight: '500', color: '#111827' }}>{r.title}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </main>
+  )
+}
