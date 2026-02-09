@@ -55,25 +55,35 @@ export default async function NewsletterDatePage({ params }: { params: Promise<{
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '700px', margin: '0 auto', padding: '48px 24px' }}>
         {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
-          <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-            <span 
-              style={{ 
-                fontSize: '20px',
-                fontWeight: '800',
-                color: '#2563eb',
-                letterSpacing: '-0.02em'
-              }}
-            >
-              LoreAI
-            </span>
-          </Link>
-          <Link 
-            href="/newsletter" 
-            style={{ color: '#6b7280', fontSize: '14px', textDecoration: 'none' }}
-          >
-            ← Back to Newsletter
-          </Link>
+        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
+          {/* Logo + Nav */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
+              <span 
+                style={{ 
+                  fontSize: '20px',
+                  fontWeight: '800',
+                  color: '#2563eb',
+                  letterSpacing: '-0.02em'
+                }}
+              >
+                LoreAI
+              </span>
+            </Link>
+            
+            {/* Main Nav Tabs */}
+            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
+              <Link href="/newsletter" style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px', textDecoration: 'none' }}>Newsletter</Link>
+              <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Blog</Link>
+            </nav>
+          </div>
+          
+          {/* Language Switch */}
+          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
+            <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
+            <span style={{ color: '#d1d5db' }}>|</span>
+            <Link href="/zh" style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
+          </div>
         </header>
 
         {/* Date & Title */}
