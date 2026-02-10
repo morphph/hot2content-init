@@ -210,28 +210,45 @@ ${researchSummary}
 async function runWriterEN(): Promise<boolean> {
   log('WRITER-EN', 'Starting English Writer (Claude Code Subagent)...');
   
+  // Inject narrative key content
+  let narrativeContext = '';
+  const narrativeFile = path.join(OUTPUT_DIR, 'core-narrative.json');
+  if (fs.existsSync(narrativeFile)) {
+    try {
+      const narr = JSON.parse(fs.readFileSync(narrativeFile, 'utf-8'));
+      narrativeContext = `
+Key narrative elements (from core-narrative.json):
+- One-liner: ${narr.one_liner || 'N/A'}
+- Key points: ${JSON.stringify(narr.key_points || [])}
+- Story spine: ${JSON.stringify(narr.story_spine || {})}
+`;
+    } catch {}
+  }
+
   const prompt = `
-你是英文 SEO 博客作家。
+You are an English SEO blog writer.
 
-输入：
-- output/research-gemini-deep.md (深度素材)
-- output/core-narrative.json (结构框架)
-- skills/blog-en/SKILL.md (写作规范)
+Follow skills/blog-en/SKILL.md strictly for formatting, tone, and structure.
 
-写作原则：
-- Narrative 提供结构：按 story_spine 组织文章
-- Research 提供深度：提取具体数据、用户反馈、技术细节
-- 两者结合，产出既有框架又有深度的文章
+Input files:
+- output/research-gemini-deep.md (deep research material)
+- output/core-narrative.json (structural framework)
+- skills/blog-en/SKILL.md (writing spec)
 
-输出：写入 output/blog-en.md
+${narrativeContext}
 
-文章要求：
-- 1500-2500 词
-- 语气专业但易读
-- TL;DR 放最前
-- FAQ 用 H3
-- 包含 Mermaid 图
-- 禁止: "In this article", "Let's dive in", "Game-changing"
+Editorial angle: Extract the one_liner and story_spine from core-narrative.json and use them as your structural backbone. Your article must have a clear *thesis* — not just summarize facts, but argue a position.
+
+What unique insight can LoreAI offer that TechCrunch or The Verge won't? Go deeper on technical implications.
+
+Writing principles:
+- Narrative provides structure: organize by story_spine
+- Research provides depth: extract specific data, user feedback, technical details
+- Combine both for a piece with both framework and depth
+
+Output: write to output/blog-en.md
+
+(Full narrative: output/core-narrative.json, Full research: output/research-gemini-deep.md)
 `.trim();
 
   try {
