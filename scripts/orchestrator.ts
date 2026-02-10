@@ -75,25 +75,37 @@ async function runGeminiResearch(topic: string): Promise<boolean> {
     fs.writeFileSync(scriptPath, script);
   }
   
-  try {
-    log('RESEARCH', 'Running Gemini Deep Research (this may take 10-15 minutes)...');
-    execSync(`cd ${PROJECT_ROOT} && source .venv/bin/activate && python scripts/research-gemini-deep.py`, {
+  log('RESEARCH', 'Running Gemini Deep Research (this may take 10-20 minutes)...');
+  
+  return new Promise((resolve) => {
+    const child = spawn('bash', ['-c',
+      `cd ${PROJECT_ROOT} && source .venv/bin/activate && python scripts/research-gemini-deep.py`
+    ], {
+      cwd: PROJECT_ROOT,
       stdio: 'inherit',
-      shell: '/bin/bash',
-      timeout: 20 * 60 * 1000 // 20 minutes timeout
+      env: { ...process.env },
     });
-    
-    const outputFile = path.join(OUTPUT_DIR, 'research-gemini-deep.md');
-    if (fs.existsSync(outputFile)) {
-      const stats = fs.statSync(outputFile);
-      log('RESEARCH', `✅ Research complete: ${(stats.size / 1024).toFixed(2)} KB`);
-      return true;
-    }
-    return false;
-  } catch (error) {
-    log('RESEARCH', `❌ Research failed: ${error}`);
-    return false;
-  }
+
+    const timer = setTimeout(() => {
+      log('RESEARCH', '⚠️ Timeout after 20 minutes, killing process');
+      child.kill('SIGTERM');
+      setTimeout(() => child.kill('SIGKILL'), 5000);
+      resolve(false);
+    }, 20 * 60 * 1000);
+
+    child.on('close', (code) => {
+      clearTimeout(timer);
+      const outputFile = path.join(OUTPUT_DIR, 'research-gemini-deep.md');
+      if (code === 0 && fs.existsSync(outputFile)) {
+        const stats = fs.statSync(outputFile);
+        log('RESEARCH', `✅ Research complete: ${(stats.size / 1024).toFixed(2)} KB`);
+        resolve(true);
+      } else {
+        log('RESEARCH', `❌ Research failed (exit code ${code})`);
+        resolve(false);
+      }
+    });
+  });
 }
 
 /**

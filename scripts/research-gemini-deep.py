@@ -30,7 +30,7 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 # Topic to research
-topic = "OpenAI testing ads in ChatGPT - implications for AI monetization and user experience in 2026"
+topic = "Claude Code Skills - how custom skills transform AI-assisted development workflows in 2026"
 
 prompt = f"""
 Research the following topic thoroughly using web search:
@@ -74,7 +74,7 @@ try:
     print("⏳ Polling for results", end="", flush=True)
     
     # Poll for results (up to 15 minutes)
-    max_wait = 900  # 15 minutes
+    max_wait = 1200  # 20 minutes
     poll_start = time.time()
     while True:
         interaction = client.interactions.get(interaction.id)
