@@ -3,6 +3,7 @@ slug: claude-code-skills-agentic-development-2026
 title: "Claude Code Skills: How AI Agents Became the $1B Dev Standard"
 description: "Claude Code hit $1B ARR in 6 months. Here's how Skills architecture enables autonomous coding—and why a 48-hour security flaw exposed agentic AI's dark side."
 keywords: [Claude Code, AI coding agent, Model Context Protocol, vibe coding, agentic development]
+tier: 1
 date: 2026-02-10
 lang: en
 hreflang_zh: /zh/blog/claude-code-skills-agentic-development-2026

@@ -3,6 +3,7 @@ slug: claude-code-skills-agentic-development-2026
 title: Claude Code Skills 架构解析：AI 编程如何在 6 个月内做成 10 亿美元生意
 description: 深度解读 Claude Code Skills 的渐进式加载架构与 MCP 协议，以及 Cowork 发布 48 小时即被攻破暴露的智能体安全隐患。
 keywords: [Claude Code, AI 编程助手, 模型上下文协议, 氛围编程, 智能体安全]
+tier: 1
 date: 2026-02-10
 lang: zh
 hreflang_en: /en/blog/claude-code-skills-agentic-development-2026
