@@ -142,21 +142,46 @@ function runClaudePipe(prompt: string, timeoutMs: number = 10 * 60 * 1000): Prom
 async function runNarrativeArchitect(): Promise<boolean> {
   log('NARRATIVE', 'Starting Narrative Architect (Claude Code Subagent)...');
   
+  // Inject research summary for context
+  let researchSummary = '';
+  const researchFile = path.join(OUTPUT_DIR, 'research-gemini-deep.md');
+  if (fs.existsSync(researchFile)) {
+    const full = fs.readFileSync(researchFile, 'utf-8');
+    researchSummary = full.slice(0, 3000);
+  }
+
   const prompt = `
 读取 output/research-gemini-deep.md，提炼 Core Narrative。
 
+Focus on controversy, industry implications, and what makes this story matter to developers — not just what happened.
+
 输出要求：
-1. 写入 output/core-narrative.json
-2. 遵循 PRD 第 7 节的 schema
-3. story_spine 五段完整
-4. key_points 3-5 个，可独立引用
-5. FAQ 至少 3 个
-6. 至少 1 个 Mermaid 图
-7. SEO 字段完整
-8. 不需要特殊本地化字段
+1. 写入 output/core-narrative.json，严格遵循以下 JSON schema：
+   - topic_id: string (kebab-case)
+   - title: string
+   - created_at: string (ISO 8601)
+   - is_update: boolean
+   - previous_topic_id: string | null
+   - one_liner: string (must be provocative enough to share on Twitter)
+   - key_points: string[] (3-5 items, each must contain a specific number, date, or verifiable fact)
+   - story_spine: { background, breakthrough, mechanism, significance, risks } (all non-empty strings)
+   - faq: { question, answer }[] (min 3)
+   - references: { title, url, source, date (YYYY-MM-DD) }[] (min 1)
+   - diagrams: { type: "mermaid", title, code }[] (min 1)
+   - seo: { slug (kebab-case), meta_title_en (50-60 chars), meta_description_en (150-160 chars), keywords_en (3-5), keywords_zh (3-5) }
+
+2. Quality bar:
+   - one_liner must be provocative enough to share on Twitter
+   - key_points must each contain a specific number, date, or verifiable fact
 
 完成后执行: npx tsx scripts/validate-narrative.ts
 如果验证失败，修复后重新输出。
+
+Here is the research executive summary for context:
+
+${researchSummary}
+
+(Full report is at output/research-gemini-deep.md — read it for details)
 `.trim();
 
   try {
