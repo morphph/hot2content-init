@@ -30,24 +30,26 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 # Topic to research
-topic = "GPT-5.3 Codex vs Claude Opus 4.6 - OpenAI and Anthropic released competing AI coding models within 27 minutes of each other in February 2026. Compare features, benchmarks, pricing, and real-world developer experience."
+topic = "OpenAI testing ads in ChatGPT - implications for AI monetization and user experience in 2026"
 
 prompt = f"""
 Research the following topic thoroughly using web search:
 
 TOPIC: {topic}
 
+This research will be used to write a tech blog article for developers and AI practitioners. Include direct quotes from key people involved.
+
 Focus on:
-1. What exactly is this feature and when was it announced?
-2. How does it work technically? (architecture, API, configuration)
-3. Key use cases and examples from official sources
-4. How does it compare to alternatives (OpenAI Codex, other multi-agent systems)?
+1. What exactly happened and when? (timeline, key dates)
+2. Technical details (how it works, architecture, specs)
+3. Key players and their direct quotes
+4. Market context and competitive landscape
 5. Community reactions and early adoption experiences
 
 Requirements:
 - Use ONLY information from web search results
 - Include specific dates, versions, and technical details
-- Cite all sources with URLs
+- Cite all sources with URLs and exact dates
 - If information is not found via search, explicitly state that
 
 Format as a structured research report with clear sections.
