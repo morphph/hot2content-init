@@ -1,18 +1,10 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllQuestionParams, getQuestion, getRelatedQuestions, generateQuestionJsonLd } from '@/lib/faq'
-import type { FAQIntent } from '@/lib/faq'
 import type { Metadata } from 'next'
 
 interface Props {
   params: Promise<{ topic: string; question: string }>
-}
-
-const intentConfig: Record<FAQIntent, { icon: string; label: string }> = {
-  comparison: { icon: '🔄', label: '对比分析' },
-  pricing: { icon: '💰', label: '定价' },
-  tutorial: { icon: '🛠️', label: '教程' },
-  informational: { icon: '📋', label: '功能特性' },
 }
 
 export async function generateStaticParams() {
@@ -38,13 +30,6 @@ export default async function FAQQuestionPageZh({ params }: Props) {
   const related = getRelatedQuestions(topic, questionSlug)
   const enTopicSlug = topicSlug.replace(/-zh$/, '-en')
   const jsonLdArray = generateQuestionJsonLd(question, topic.title, `https://loreai.dev/zh/faq/${topicSlug}/${questionSlug}`)
-
-  const groups = new Map<FAQIntent, typeof related>()
-  for (const q of related) {
-    if (!groups.has(q.intent)) groups.set(q.intent, [])
-    groups.get(q.intent)!.push(q)
-  }
-  const intentOrder: FAQIntent[] = ['comparison', 'pricing', 'tutorial', 'informational']
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -98,26 +83,12 @@ export default async function FAQQuestionPageZh({ params }: Props) {
 
         {related.length > 0 && (
           <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e7eb' }}>
-            <h2 style={{ fontSize: '20px', fontWeight: '600', color: '#374151', marginBottom: '16px' }}>相关问题</h2>
-            {intentOrder.map(intent => {
-              const qs = groups.get(intent)
-              if (!qs || qs.length === 0) return null
-              const cfg = intentConfig[intent]
-              return (
-                <div key={intent} style={{ marginBottom: '16px' }}>
-                  <h3 style={{ fontSize: '15px', fontWeight: '500', color: '#6b7280', marginBottom: '8px' }}>{cfg.icon} {cfg.label}</h3>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {qs.map(q => (
-                      <li key={q.slug}>
-                        <Link href={`/zh/faq/${topicSlug}/${q.slug}`} style={{ color: '#2563eb', textDecoration: 'none', fontSize: '15px' }}>
-                          {q.question}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })}
+            <h2 className="related-section-title">相关问题</h2>
+            {related.slice(0, 5).map(q => (
+              <Link key={q.slug} href={`/zh/faq/${topicSlug}/${q.slug}`} className="related-card">
+                <div className="related-card-title">{q.question}</div>
+              </Link>
+            ))}
           </div>
         )}
       </div>

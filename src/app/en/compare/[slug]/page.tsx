@@ -80,14 +80,12 @@ export default async function CompareDetailPageEn({ params }: Props) {
 
         {related.length > 0 && (
           <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e7eb' }}>
-            <h2 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: '#374151' }}>More Comparisons</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {related.map(r => (
-                <Link key={r.slug} href={`/en/compare/${r.slug}`} style={{ textDecoration: 'none', padding: '12px', border: '1px solid #e5e7eb', borderRadius: '8px', display: 'block' }}>
-                  <span style={{ fontWeight: '500', color: '#111827' }}>{r.title}</span>
-                </Link>
-              ))}
-            </div>
+            <h2 className="related-section-title">More Comparisons</h2>
+            {related.map(r => (
+              <Link key={r.slug} href={`/en/compare/${r.slug}`} className="related-card">
+                <div className="related-card-title">{r.title}</div>
+              </Link>
+            ))}
           </div>
         )}
       </div>

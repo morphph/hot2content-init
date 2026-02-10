@@ -581,3 +581,33 @@ a.link-blue:hover {
   color: #6b7280;
   font-style: italic;
 }
+
+/* === Related content cards === */
+.related-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.related-card {
+  display: block;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.related-card:hover {
+  border-color: #93c5fd;
+  background: #f0f7ff;
+}
+
+.related-card-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2563eb;
+  margin: 0;
+}

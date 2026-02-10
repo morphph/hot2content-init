@@ -81,12 +81,12 @@ export default async function GlossaryTermPageZh({ params }: Props) {
 
         {entry.related.length > 0 && (
           <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid #e5e7eb' }}>
-            <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#6b7280', marginBottom: '12px' }}>相关术语</h3>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {entry.related.map(r => (
-                <Link key={r} href={`/zh/glossary/${r}`} style={{ fontSize: '13px', padding: '4px 12px', borderRadius: '9999px', backgroundColor: '#eff6ff', color: '#2563eb', textDecoration: 'none' }}>{r}</Link>
-              ))}
-            </div>
+            <h2 className="related-section-title">相关术语</h2>
+            {entry.related.map(r => (
+              <Link key={r} href={`/zh/glossary/${r}`} className="related-card">
+                <div className="related-card-title">{r}</div>
+              </Link>
+            ))}
           </div>
         )}
       </div>
