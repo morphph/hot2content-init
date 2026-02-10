@@ -1,4 +1,5 @@
 ---
+slug: claude-opus-4-6-1-million-token-context-window
 title: "Claude Opus 4.6 上线：100 万 Token 上下文窗口意味着什么？"
 date: 2026-02-09
 lang: zh

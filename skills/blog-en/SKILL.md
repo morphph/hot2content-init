@@ -30,6 +30,7 @@ description: {150-160 chars, includes primary keyword}
 keywords: [keyword1, keyword2, keyword3]
 date: {YYYY-MM-DD}
 lang: en
+tier: {1 for deep dives 1500+ words, 2 for analysis 800-1500, 3 for quick reads <800}
 hreflang_zh: /zh/blog/{slug}
 ---
 
@@ -165,4 +166,5 @@ Before finalizing, verify:
 - [ ] keywords array has 3-5 terms
 - [ ] date is ISO format
 - [ ] lang is "en"
+- [ ] tier is 1, 2, or 3 (1=Deep Dive, 2=Analysis, 3=Quick Read)
 - [ ] hreflang_zh points to correct Chinese URL

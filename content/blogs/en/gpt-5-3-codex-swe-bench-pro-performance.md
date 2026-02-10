@@ -1,4 +1,5 @@
 ---
+slug: gpt-5-3-codex-swe-bench-pro-performance
 title: "GPT-5.3 Codex Crushes SWE-bench Pro: What You Need to Know"
 date: 2026-02-09
 lang: en

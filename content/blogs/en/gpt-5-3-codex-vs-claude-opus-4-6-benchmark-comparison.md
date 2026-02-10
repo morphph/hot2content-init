@@ -1,4 +1,5 @@
 ---
+slug: gpt-5-3-codex-vs-claude-opus-4-6-benchmark-comparison
 title: "GPT-5.3 Codex vs Claude Opus 4.6: A Benchmark Comparison for AI Developers"
 description: "GPT-5.3 Codex vs Claude Opus 4.6 benchmark comparison"
 keywords: ["GPT-5.3 Codex vs Claude Opus 4.6 benchmark comparison"]

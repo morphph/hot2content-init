@@ -1,4 +1,5 @@
 ---
+slug: gpt-5-3-codex-vs-claude-opus-4-6-developer-experience-2026
 title: "GPT-5.3 Codex vs Claude Opus 4.6: Which AI Dominates the 2026 Developer Experience?"
 date: 2026-02-09
 lang: en

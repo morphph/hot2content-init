@@ -1,4 +1,5 @@
 ---
+slug: claude-opus-4-6-agent-teams-guide
 title: "Claude Opus 4.6 Agent Teams：协作式 AI 开发的未来已来！"
 date: 2026-02-09
 lang: zh

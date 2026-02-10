@@ -30,6 +30,7 @@ description: {中文摘要，70-80 字}
 keywords: [中文关键词1, 中文关键词2, 中文关键词3]
 date: {YYYY-MM-DD}
 lang: zh
+tier: {1 for deep dives 1500+ words, 2 for analysis 800-1500, 3 for quick reads <800}
 hreflang_en: /en/blog/{slug}
 ---
 
@@ -162,4 +163,5 @@ AI 搜索引擎（Perplexity、ChatGPT、Google AI Overview）会直接提取和
 - [ ] description 70-80 字
 - [ ] keywords 3-5 个中文词
 - [ ] lang 为 "zh"
+- [ ] tier is 1, 2, or 3 (1=Deep Dive, 2=Analysis, 3=Quick Read)
 - [ ] hreflang_en 指向正确的英文 URL

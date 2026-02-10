@@ -1,4 +1,5 @@
 ---
+slug: claude-opus-4-6-agent-teams-in-claude-code-explained
 title: "Claude Opus 4.6 Agent Teams: How They're Revolutionizing Claude Code"
 date: 2026-02-09
 lang: en

@@ -1,4 +1,5 @@
 ---
+slug: how-to-use-claude-opus-4-6-compaction-api
 title: "Infinite Conversations: How to Use the Claude Opus 4.6 Compaction API"
 date: 2026-02-09
 lang: en

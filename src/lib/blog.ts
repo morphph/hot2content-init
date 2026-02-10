@@ -86,7 +86,12 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
           description: data.description || '',
           keywords: data.keywords || [],
           date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
-          tier: data.tier || 2,
+          tier: (() => {
+            if (!data.tier) {
+              console.warn(`⚠️ Missing tier in ${file} — defaulting to 2. Add "tier: 1|2|3" to frontmatter.`)
+            }
+            return data.tier || 2
+          })(),
           readingTime: estimateReadingTime(content, lang),
           content,
           contentHtml
@@ -113,7 +118,12 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
           description: data.description || '',
           keywords: data.keywords || [],
           date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
-          tier: data.tier || 2,
+          tier: (() => {
+            if (!data.tier) {
+              console.warn(`⚠️ Missing tier in ${filename} — defaulting to 2. Add "tier: 1|2|3" to frontmatter.`)
+            }
+            return data.tier || 2
+          })(),
           readingTime: estimateReadingTime(content, lang),
           content,
           contentHtml

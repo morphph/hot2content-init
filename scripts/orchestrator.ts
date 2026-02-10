@@ -258,6 +258,8 @@ Writing principles:
 - Research provides depth: extract specific data, user feedback, technical details
 - Combine both for a piece with both framework and depth
 
+IMPORTANT: Include "tier: 1" in the frontmatter. This pipeline produces Tier 1 deep dive articles.
+
 Output: write to output/blog-en.md
 
 (Full narrative: output/core-narrative.json, Full research: output/research-gemini-deep.md)
@@ -329,6 +331,8 @@ ${narrativeContextZH}
 
 LoreAI 的差异化：比机器之心更有观点，比少数派更有技术深度。
 
+IMPORTANT: Include "tier: 1" in the frontmatter. This pipeline produces Tier 1 deep dive articles.
+
 输出：写入 output/blog-zh.md
 
 (Full narrative: output/core-narrative.json, Full research: output/research-gemini-deep.md)
@@ -379,6 +383,24 @@ function validateOutputs(): { valid: boolean; files: string[] } {
   }
   
   log('VALIDATE', `✅ All outputs present: ${existingFiles.join(', ')}`);
+
+  // Validate blog frontmatter
+  for (const lang of ['en', 'zh']) {
+    const blogFile = path.join(OUTPUT_DIR, `blog-${lang}.md`);
+    if (fs.existsSync(blogFile)) {
+      try {
+        execSync(`npx tsx scripts/validate-blog.ts ${blogFile}`, {
+          cwd: PROJECT_ROOT,
+          stdio: 'inherit',
+          timeout: 30000
+        });
+        log('VALIDATE', `✅ blog-${lang}.md frontmatter valid`);
+      } catch {
+        log('VALIDATE', `❌ blog-${lang}.md frontmatter invalid`);
+      }
+    }
+  }
+
   return { valid: true, files: existingFiles };
 }
 

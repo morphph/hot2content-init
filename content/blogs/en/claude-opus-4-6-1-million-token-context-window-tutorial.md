@@ -1,4 +1,5 @@
 ---
+slug: claude-opus-4-6-1-million-token-context-window-tutorial
 title: "Unlock Claude Opus 4.6's 1 Million Token Context Window: A Quick Guide"
 date: 2026-02-09
 lang: en
