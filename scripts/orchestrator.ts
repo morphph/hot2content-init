@@ -18,7 +18,7 @@
  * - 计费: Gemini API (~$1/篇) + Claude Code Max Plan (免费)
  */
 
-import { execSync, spawn } from 'child_process';
+import { execSync, spawn, ChildProcess } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -97,6 +97,41 @@ async function runGeminiResearch(topic: string): Promise<boolean> {
 }
 
 /**
+ * Helper: run claude -p with PTY support via `script` command
+ * PTY is required because claude CLI may hang without a terminal
+ */
+function runClaudeWithPty(prompt: string, timeoutMs: number = 10 * 60 * 1000): Promise<{ ok: boolean; output: string }> {
+  return new Promise((resolve) => {
+    const escapedPrompt = prompt.replace(/'/g, "'\\''");
+    // Use `script` to provide a PTY wrapper
+    const child = spawn('script', [
+      '-qec',
+      `cd ${PROJECT_ROOT} && claude -p '${escapedPrompt}' --allowedTools Read,Write,Bash`,
+      '/dev/null'
+    ], {
+      shell: false,
+      stdio: ['pipe', 'pipe', 'pipe'],
+      env: { ...process.env, TERM: 'dumb' },
+    });
+
+    let output = '';
+    let stderr = '';
+    child.stdout?.on('data', (d: Buffer) => { output += d.toString(); process.stdout.write(d); });
+    child.stderr?.on('data', (d: Buffer) => { stderr += d.toString(); process.stderr.write(d); });
+
+    const timer = setTimeout(() => {
+      child.kill('SIGTERM');
+      resolve({ ok: false, output: `Timeout after ${timeoutMs / 1000}s` });
+    }, timeoutMs);
+
+    child.on('close', (code) => {
+      clearTimeout(timer);
+      resolve({ ok: code === 0, output: output + stderr });
+    });
+  });
+}
+
+/**
  * Step 2: Claude Code Subagent - Narrative Architect
  * 成本: Max Plan (免费)
  * 
@@ -124,17 +159,14 @@ async function runNarrativeArchitect(): Promise<boolean> {
 `.trim();
 
   try {
-    execSync(`cd ${PROJECT_ROOT} && claude --print -p "${prompt.replace(/"/g, '\\"')}" --allowedTools Read,Write,Bash --model opus`, {
-      stdio: 'inherit',
-      shell: '/bin/bash',
-      timeout: 10 * 60 * 1000 // 10 minutes
-    });
+    const result = await runClaudeWithPty(prompt, 10 * 60 * 1000);
     
     const outputFile = path.join(OUTPUT_DIR, 'core-narrative.json');
     if (fs.existsSync(outputFile)) {
       log('NARRATIVE', '✅ Narrative complete');
       return true;
     }
+    log('NARRATIVE', `❌ Narrative failed: output file not found (exit ok=${result.ok})`);
     return false;
   } catch (error) {
     log('NARRATIVE', `❌ Narrative failed: ${error}`);
@@ -177,17 +209,14 @@ async function runWriterEN(): Promise<boolean> {
 `.trim();
 
   try {
-    execSync(`cd ${PROJECT_ROOT} && claude --print -p "${prompt.replace(/"/g, '\\"')}" --allowedTools Read,Write,Bash --model opus`, {
-      stdio: 'inherit',
-      shell: '/bin/bash',
-      timeout: 10 * 60 * 1000
-    });
+    const result = await runClaudeWithPty(prompt, 10 * 60 * 1000);
     
     const outputFile = path.join(OUTPUT_DIR, 'blog-en.md');
     if (fs.existsSync(outputFile)) {
       log('WRITER-EN', '✅ English blog complete');
       return true;
     }
+    log('WRITER-EN', `❌ Output file not found (exit ok=${result.ok})`);
     return false;
   } catch (error) {
     log('WRITER-EN', `❌ English writer failed: ${error}`);
@@ -238,17 +267,14 @@ async function runWriterZH(): Promise<boolean> {
 `.trim();
 
   try {
-    execSync(`cd ${PROJECT_ROOT} && claude --print -p "${prompt.replace(/"/g, '\\"')}" --allowedTools Read,Write,Bash --model opus`, {
-      stdio: 'inherit',
-      shell: '/bin/bash',
-      timeout: 10 * 60 * 1000
-    });
+    const result = await runClaudeWithPty(prompt, 10 * 60 * 1000);
     
     const outputFile = path.join(OUTPUT_DIR, 'blog-zh.md');
     if (fs.existsSync(outputFile)) {
       log('WRITER-ZH', '✅ Chinese blog complete');
       return true;
     }
+    log('WRITER-ZH', `❌ Output file not found (exit ok=${result.ok})`);
     return false;
   } catch (error) {
     log('WRITER-ZH', `❌ Chinese writer failed: ${error}`);
@@ -336,11 +362,10 @@ async function main() {
   console.log('\n' + '─'.repeat(60));
   log('STEP', '3/4 - Writers EN + ZH (Max Plan, parallel)');
   
-  // Run writers in parallel
-  const [enOk, zhOk] = await Promise.all([
-    runWriterEN(),
-    runWriterZH()
-  ]);
+  // Run writers sequentially to avoid Max Plan rate limits
+  // (Promise.all now works with async spawn, but sequential is safer)
+  const enOk = await runWriterEN();
+  const zhOk = await runWriterZH();
   
   if (!enOk || !zhOk) {
     log('WARN', `Writers: EN=${enOk}, ZH=${zhOk}`);
