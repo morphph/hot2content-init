@@ -106,7 +106,7 @@ function runClaudePipe(prompt: string, timeoutMs: number = 10 * 60 * 1000): Prom
     fs.writeFileSync(tmpFile, prompt);
 
     const child = spawn('bash', ['-c',
-      `cat "${tmpFile}" | cd ${PROJECT_ROOT} && cat "${tmpFile}" | claude -p --allowedTools Read,Write,Bash`
+      `cat "${tmpFile}" | claude -p --allowedTools Read,Write,Bash`
     ], {
       cwd: PROJECT_ROOT,
       stdio: ['pipe', 'pipe', 'pipe'],
@@ -371,6 +371,29 @@ function validateOutputs(): { valid: boolean; files: string[] } {
 }
 
 /**
+ * Health check: verify claude CLI is available
+ */
+async function healthCheck(): Promise<boolean> {
+  try {
+    execSync('echo "hi" | claude -p --allowedTools ""', { timeout: 30000, cwd: PROJECT_ROOT });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Retry wrapper: try once, wait 10s, try again
+ */
+async function withRetry(name: string, fn: () => Promise<boolean>): Promise<boolean> {
+  const result = await fn();
+  if (result) return true;
+  log(name, '⚠️ Failed, retrying in 10s...');
+  await new Promise(r => setTimeout(r, 10000));
+  return fn();
+}
+
+/**
  * Main orchestrator
  */
 async function main() {
@@ -393,13 +416,22 @@ async function main() {
   log('START', `Output dir: ${OUTPUT_DIR}`);
   
   ensureDir(OUTPUT_DIR);
+
+  // Health check
+  log('HEALTH', 'Checking claude CLI availability...');
+  const healthy = await healthCheck();
+  if (!healthy) {
+    log('HEALTH', '❌ claude CLI not available, aborting');
+    process.exit(1);
+  }
+  log('HEALTH', '✅ claude CLI OK');
   
   const startTime = Date.now();
   
   // Step 1: Research (Gemini API - ~$1)
   console.log('\n' + '─'.repeat(60));
   log('STEP', '1/4 - Gemini Deep Research (API, ~$1)');
-  const researchOk = await runGeminiResearch(topic);
+  const researchOk = await withRetry('RESEARCH', () => runGeminiResearch(topic));
   if (!researchOk) {
     log('ERROR', 'Research failed, aborting pipeline');
     process.exit(1);
@@ -408,7 +440,7 @@ async function main() {
   // Step 2: Narrative (Claude Code Subagent - Max Plan)
   console.log('\n' + '─'.repeat(60));
   log('STEP', '2/4 - Narrative Architect (Max Plan)');
-  const narrativeOk = await runNarrativeArchitect();
+  const narrativeOk = await withRetry('NARRATIVE', () => runNarrativeArchitect());
   if (!narrativeOk) {
     log('ERROR', 'Narrative failed, aborting pipeline');
     process.exit(1);
@@ -420,8 +452,8 @@ async function main() {
   
   // Run writers sequentially to avoid Max Plan rate limits
   // (Promise.all now works with async spawn, but sequential is safer)
-  const enOk = await runWriterEN();
-  const zhOk = await runWriterZH();
+  const enOk = await withRetry('WRITER-EN', () => runWriterEN());
+  const zhOk = await withRetry('WRITER-ZH', () => runWriterZH());
   
   if (!enOk || !zhOk) {
     log('WARN', `Writers: EN=${enOk}, ZH=${zhOk}`);
