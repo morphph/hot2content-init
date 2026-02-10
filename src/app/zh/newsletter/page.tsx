@@ -148,8 +148,7 @@ export default async function NewsletterZHPage() {
         <div style={{ marginTop: '48px', padding: '32px', borderRadius: '12px', background: 'linear-gradient(135deg, #fdf2f8, #ede9fe, #eff6ff)', textAlign: 'center' }}>
           <h3 style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginBottom: '8px' }}>订阅简报</h3>
           <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '20px' }}>每日 AI 简报，直达邮箱。</p>
-          <form action="https://buttondown.com/api/emails/newsletter-subscribe" method="post" target="popupwindow" style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <input type="hidden" name="tag" value="loreai" />
+          <form action="https://buttondown.email/api/emails/embed-subscribe/loreai" method="post" target="popupwindow" style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <input type="email" name="email" placeholder="your@email.com" required style={{ padding: '10px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '14px', width: '240px', outline: 'none' }} />
             <button type="submit" style={{ padding: '10px 20px', borderRadius: '8px', border: 'none', background: 'linear-gradient(to right, #8b5cf6, #6366f1)', color: 'white', fontSize: '14px', fontWeight: '500', cursor: 'pointer' }}>订阅</button>
           </form>

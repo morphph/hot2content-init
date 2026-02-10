@@ -222,12 +222,12 @@ export default async function NewsletterPage() {
             Get the AI newsletter delivered to your inbox daily.
           </p>
           <form 
-            action="https://buttondown.com/api/emails/newsletter-subscribe" 
+            action="https://buttondown.email/api/emails/embed-subscribe/loreai" 
             method="post" 
             target="popupwindow"
+            onSubmit={() => { if (typeof window !== 'undefined') window.open('https://buttondown.email/loreai', 'popupwindow') }}
             style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}
           >
-            <input type="hidden" name="tag" value="loreai" />
             <input 
               type="email" 
               name="email" 
