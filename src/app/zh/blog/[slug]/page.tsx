@@ -86,7 +86,7 @@ export default async function BlogPostZh({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="blog-header-container">
         <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
             <Link href="/newsletter" style={{ textDecoration: 'none' }}>
@@ -108,12 +108,12 @@ export default async function BlogPostZh({ params }: Props) {
       </div>
 
       {/* Three-column layout */}
-      <div className="max-w-6xl mx-auto px-6 pb-8 lg:flex lg:gap-8">
+      <div className="blog-layout">
         {/* Left: TOC (desktop only) */}
         <TableOfContents headings={headings} />
 
         {/* Center: Article content */}
-        <div className="max-w-3xl mx-auto flex-1 min-w-0">
+        <div className="blog-content">
           {/* Back link */}
           <div className="mb-8 fade-in">
             <Link href="/zh/blog" className="text-blue-600 text-sm hover:underline">

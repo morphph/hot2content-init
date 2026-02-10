@@ -25,6 +25,7 @@
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -437,4 +438,85 @@ a.link-blue:hover {
 .newsletter-card:hover {
   border-color: #a855f7 !important;
   box-shadow: 0 4px 12px rgba(168, 85, 247, 0.1);
+}
+
+/* === TOC Sidebar === */
+.toc-sidebar {
+  display: none;
+  width: 240px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .toc-sidebar {
+    display: block;
+  }
+}
+
+.toc-sticky {
+  position: sticky;
+  top: 6rem;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 1px solid #e5e7eb;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-link {
+  display: block;
+  padding: 4px 0 4px 16px;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.toc-link:hover {
+  color: #1f2937;
+  border-left-color: #d1d5db;
+}
+
+.toc-link-active {
+  color: #2563eb;
+  font-weight: 500;
+  border-left-color: #2563eb;
+}
+
+/* === Three-column blog layout === */
+.blog-layout {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+}
+
+@media (min-width: 1024px) {
+  .blog-layout {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+.blog-content {
+  max-width: 768px;
+  margin: 0 auto;
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-header-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 32px 24px;
 }
