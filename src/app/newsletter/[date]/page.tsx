@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm'
 
 async function getNewsletterContent(date: string): Promise<string | null> {
   try {
-    const filePath = path.join(process.cwd(), 'content', 'newsletters', `${date}.md`)
+    const filePath = path.join(process.cwd(), 'content', 'newsletters', 'en', `${date}.md`)
     if (!fs.existsSync(filePath)) {
       return null
     }

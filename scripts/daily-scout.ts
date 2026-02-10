@@ -1134,6 +1134,135 @@ ${rawData}`;
 }
 
 // ============================================
+// Chinese Newsletter Generation
+// ============================================
+
+async function generateNewsletterWithOpusZH(items: NewsItem[], date: string): Promise<string | null> {
+  console.log('   ✍️ Generating ZH newsletter with Claude Opus...');
+  
+  const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
+    title: i.title,
+    summary: i.summary?.slice(0, 300),
+    source: i.source,
+    url: i.url,
+    engagement: i.engagement,
+    category: i.category,
+    score: i.score,
+  })), null, 2);
+
+  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+
+## 栏目（使用以下 6 个固定栏目 + 2 个特别栏目）
+🧠 模型动态 — 新模型发布与趋势（包含 HuggingFace 热门模型的点赞和下载数据）
+📱 产品应用 — 消费级产品与平台更新
+🔧 开发工具 — 开发者工具、SDK、API
+📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
+🚀 开源前沿 — 新产品、研究成果、开源项目
+🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释
+🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接
+
+## 写作规范
+1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
+2. 每条：发生了什么 + 为什么重要，1-2 句话
+3. 括号内标注互动数据（点赞、转发、下载 — 分开显示，不要合并）
+4. 每个栏目 3-5 条最重要的内容，空栏目跳过
+5. 语气：专业、简洁、有观点 — 你是主编在策展，不是机器人在搬运
+6. 如果涉及国产模型（Qwen、Kimi、GLM 等），自然融入对比视角
+7. 禁止翻译腔："值得注意的是"、"让我们来看看"、"众所周知"
+8. 输出纯 markdown，标题：🌅 AI 每日简报 — ${date}
+9. 全文使用中文撰写
+10. 每条必须在末尾包含来源链接：[查看详情 →](url)
+
+## 原始数据（${items.length} 条）
+${rawData}`;
+
+  try {
+    const { execSync } = await import('child_process');
+    const tmpPrompt = path.join('/tmp', `opus-prompt-zh-${Date.now()}.txt`);
+    fs.writeFileSync(tmpPrompt, prompt);
+    const result = execSync(
+      `cat "${tmpPrompt}" | claude -p --verbose`,
+      {
+        timeout: 5 * 60 * 1000,
+        maxBuffer: 1024 * 1024,
+        env: { ...process.env },
+        shell: '/bin/bash',
+      }
+    ).toString().trim();
+    try { fs.unlinkSync(tmpPrompt); } catch {}
+    
+    const cleaned = result.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
+    
+    if (cleaned && cleaned.length > 200) {
+      console.log(`   ✅ Opus ZH newsletter: ${cleaned.length} chars`);
+      return cleaned;
+    }
+    console.log('   ⚠️ Opus ZH output too short or empty');
+    return null;
+  } catch (e) {
+    console.log(`   ⚠️ Opus ZH failed: ${e}`);
+    return null;
+  }
+}
+
+async function writeNewsletterWithGeminiZH(items: NewsItem[], date: string): Promise<string | null> {
+  if (!GEMINI_API_KEY) {
+    console.log('   ⚠️ No Gemini API key, skipping ZH newsletter');
+    return null;
+  }
+
+  console.log('🤖 Writing ZH newsletter with Gemini Flash...');
+
+  const rawData = JSON.stringify(items.slice(0, 30).map(i => ({
+    title: i.title,
+    summary: i.summary?.slice(0, 300),
+    source: i.source,
+    url: i.url,
+    engagement: i.engagement,
+  })), null, 2);
+
+  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+
+栏目：🧠 模型动态、📱 产品应用、🔧 开发工具、📝 技术实践、🚀 开源前沿、🎓 概念科普、🎯 今日精选
+
+写作规范：每条用 bullet point + 加粗标题 + 来源，1-2 句话说明发生了什么和为什么重要。括号内标注互动数据。每个栏目 3-5 条，空栏目跳过。语气专业简洁有观点。禁止翻译腔。输出纯 markdown，标题：🌅 AI 每日简报 — ${date}。全文中文。每条末尾包含来源链接。
+
+原始数据（${items.length} 条）：
+${rawData}`;
+
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.4, maxOutputTokens: 4000 }
+        })
+      }
+    );
+
+    if (!response.ok) {
+      console.log(`   ⚠️ Gemini ZH API error: ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    
+    if (text && text.length > 200) {
+      console.log(`   ✅ Gemini ZH newsletter: ${text.length} chars`);
+      return text;
+    }
+    return null;
+  } catch (e) {
+    console.log(`   ⚠️ Gemini ZH error: ${e}`);
+    return null;
+  }
+}
+
+// ============================================
 // Generate Markdown (Fallback - PRD Categories)
 // ============================================
 
@@ -1206,7 +1335,7 @@ function generateMarkdown(digest: DailyDigest, allItems: NewsItem[]): string {
 
 function getRecentNewsletterUrls(days: number): Set<string> {
   const urls = new Set<string>();
-  const newsletterDir = path.join(process.cwd(), 'content', 'newsletters');
+  const newsletterDir = path.join(process.cwd(), 'content', 'newsletters', 'en');
   
   try {
     const files = fs.readdirSync(newsletterDir)
@@ -1369,6 +1498,21 @@ async function main() {
   console.log(`\n✅ Saved JSON: ${jsonPath}`);
   console.log(`✅ Saved Markdown: ${mdPath}`);
   console.log(`✅ Newsletter updated`);
+
+  // ===== Generate Chinese Newsletter =====
+  console.log('\n🇨🇳 Generating Chinese newsletter...');
+  let zhMarkdown: string | null = await generateNewsletterWithOpusZH(fresh, date);
+  if (!zhMarkdown) {
+    console.log('   🔄 Falling back to Gemini Flash for ZH...');
+    zhMarkdown = await writeNewsletterWithGeminiZH(fresh, date);
+  }
+  if (zhMarkdown) {
+    const zhMdPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);
+    fs.writeFileSync(zhMdPath, zhMarkdown);
+    console.log(`✅ Saved ZH Markdown: ${zhMdPath}`);
+  } else {
+    console.log('⚠️ ZH newsletter generation failed (non-fatal)');
+  }
 
   // ===== DB: persist news items + newsletter =====
   try {

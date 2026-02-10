@@ -27,20 +27,29 @@ if ! npx tsx scripts/daily-scout.ts; then
   exit 1
 fi
 
-# Find today's digest
+# Copy EN digest
 if [ -f "output/digest-${DATE}.md" ]; then
-  cp "output/digest-${DATE}.md" "content/newsletters/${DATE}.md"
-  echo "✅ Copied digest for ${DATE}"
+  mkdir -p content/newsletters/en
+  cp "output/digest-${DATE}.md" "content/newsletters/en/${DATE}.md"
+  echo "✅ Copied EN digest for ${DATE}"
 else
-  LATEST=$(ls -t output/digest-*.md 2>/dev/null | head -1)
+  LATEST=$(ls -t output/digest-*.md 2>/dev/null | grep -v 'digest-zh-' | head -1)
   if [ -n "$LATEST" ]; then
     BASENAME=$(basename "$LATEST" | sed 's/digest-//')
-    cp "$LATEST" "content/newsletters/${BASENAME}"
-    echo "✅ Copied $LATEST"
+    mkdir -p content/newsletters/en
+    cp "$LATEST" "content/newsletters/en/${BASENAME}"
+    echo "✅ Copied EN $LATEST"
   else
     notify "failed" "❌ No digest files found for ${DATE}"
     exit 1
   fi
+fi
+
+# Copy ZH digest
+if [ -f "output/digest-zh-${DATE}.md" ]; then
+  mkdir -p content/newsletters/zh
+  cp "output/digest-zh-${DATE}.md" "content/newsletters/zh/${DATE}.md"
+  echo "✅ Copied ZH digest for ${DATE}"
 fi
 
 # Commit and push

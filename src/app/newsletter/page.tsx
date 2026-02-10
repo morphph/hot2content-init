@@ -10,7 +10,7 @@ interface NewsletterEntry {
 
 async function getNewsletterList(): Promise<NewsletterEntry[]> {
   try {
-    const newsletterDir = path.join(process.cwd(), 'content', 'newsletters')
+    const newsletterDir = path.join(process.cwd(), 'content', 'newsletters', 'en')
     if (!fs.existsSync(newsletterDir)) {
       return []
     }
