@@ -1078,27 +1078,28 @@ async function generateNewsletterWithOpus(items: NewsItem[], date: string): Prom
     score: i.score,
   })), null, 2);
 
-  const prompt = `你是 LoreAI Daily 的主编。基于以下原始新闻数据撰写今日 AI 日报。日期: ${date}
+  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
 
-## 分类（严格使用这 6 类 + 2 个特色板块）
-🧠 MODEL — 新模型发布/趋势（含 HuggingFace trending，标注 likes 和 downloads）
-📱 APP — 消费产品/平台更新  
-🔧 DEV — 开发者工具/SDK/API
-📝 TECHNIQUE — 实操技巧/最佳实践/viral tips
-🚀 PRODUCT — 新产品/研究/开源项目
-🎓 MODEL LITERACY — 挑一个今天最值得科普的技术概念，用 3-4 句话解释给非技术读者
-🎯 PICK OF THE DAY — 选今天最有影响力的一条，写 2-3 句推荐理由 + 链接
+## Categories (use exactly these 6 + 2 special sections)
+🧠 MODEL — New model releases & trends (include HuggingFace trending with likes and downloads)
+📱 APP — Consumer products & platform updates
+🔧 DEV — Developer tools, SDKs, APIs
+📝 TECHNIQUE — Practical tips, best practices, viral dev tips
+🚀 PRODUCT — New products, research, open-source projects
+🎓 MODEL LITERACY — Pick one technical concept worth explaining today, 3-4 sentences for non-technical readers
+🎯 PICK OF THE DAY — The single most impactful item today, 2-3 sentences on why it matters + link
 
-## 写作规则
-1. 每条用 bullet point (•)，标题加粗，后跟来源（— @handle 或 — Source Name）
-2. 每条：什么发生了 + 为什么重要，1-2 句
-3. 包含 engagement 数据（likes, RTs, downloads 等括号标注）
-4. 每类 3-5 条最重要的，跳过没新闻的类别
-5. 语气：专业、简洁、有判断力 — 你是编辑在精选，不是机器在转述
-6. 禁止废话: "In this article", "Stay tuned", "Exciting times", "Let's dive in"
-7. 输出纯 markdown，标题用: 🌅 AI Daily Digest — ${date}
+## Writing rules
+1. Each item: bullet point (•), **bold title**, followed by source (— @handle or — Source Name)
+2. Each item: what happened + why it matters, 1-2 sentences
+3. Include engagement data in parentheses (likes, RTs, downloads — show them separately, not combined)
+4. 3-5 most important items per category, skip empty categories
+5. Tone: professional, concise, opinionated — you're an editor curating, not a bot summarizing
+6. Forbidden phrases: "In this article", "Stay tuned", "Exciting times", "Let's dive in", "Game-changing"
+7. Output pure markdown, title: 🌅 AI Daily Digest — ${date}
+8. Write entirely in English
 
-## 原始数据（${items.length} 条）
+## Raw data (${items.length} items)
 ${rawData}`;
 
   try {
