@@ -46,9 +46,20 @@ async function parseMarkdown(content: string): Promise<{
     .use(html, { sanitize: false })
     .process(contentWithoutFirstH1)
   
+  let contentHtml = processedContent.toString()
+  
+  // Add id attributes to H2 tags for TOC anchor links
+  let headingIndex = 0
+  contentHtml = contentHtml.replace(/<h2>(.*?)<\/h2>/gi, (_match, text) => {
+    const plainText = text.replace(/<[^>]*>/g, '')
+    // Use index-based ids to handle all languages (including Chinese)
+    const id = `section-${headingIndex++}`
+    return `<h2 id="${id}">${text}</h2>`
+  })
+  
   return {
     data,
-    contentHtml: processedContent.toString()
+    contentHtml
   }
 }
 
