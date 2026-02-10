@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Skills 技能系统 — 常见问题"
+title: "Claude Code Skills 技能系统"
 description: "关于 Claude Code Skills 的常见问题：什么是技能、如何创建、最佳实践"
 date: 2026-02-10
 lang: zh

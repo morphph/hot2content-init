@@ -1,5 +1,5 @@
 ---
-title: "AI Coding Agents in 2026 — FAQ"
+title: "AI Coding Agents in 2026"
 description: "Frequently asked questions about the AI coding agents landscape in 2026"
 date: 2026-02-10
 lang: en

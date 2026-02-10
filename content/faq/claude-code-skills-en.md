@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Skills — FAQ"
+title: "Claude Code Skills"
 description: "Frequently asked questions about Claude Code Skills: what they are, how to create them, and best practices"
 date: 2026-02-10
 lang: en

@@ -1,5 +1,5 @@
 ---
-title: "Agent Teams 与多代理系统 — 常见问题"
+title: "Agent Teams 与多代理系统"
 description: "关于 Claude Code Agent Teams 和多代理架构的常见问题"
 date: 2026-02-10
 lang: zh

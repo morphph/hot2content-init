@@ -1,5 +1,5 @@
 ---
-title: "2026 年 AI 编程代理 — 常见问题"
+title: "2026 年 AI 编程代理"
 description: "关于 2026 年 AI 编程代理格局的常见问题"
 date: 2026-02-10
 lang: zh

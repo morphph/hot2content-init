@@ -1,5 +1,5 @@
 ---
-title: "GPT-5.3 Codex vs Claude Opus 4.6 — FAQ"
+title: "GPT-5.3 Codex vs Claude Opus 4.6"
 description: "Frequently asked questions about GPT-5.3 Codex vs Claude Opus 4.6"
 date: 2026-02-09
 lang: en

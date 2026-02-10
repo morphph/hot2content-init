@@ -1,5 +1,5 @@
 ---
-title: "百万 Token 上下文窗口 — 常见问题"
+title: "百万 Token 上下文窗口"
 description: "关于百万 token 上下文窗口的常见问题：如何使用、局限性、最佳实践"
 date: 2026-02-10
 lang: zh

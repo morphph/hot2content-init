@@ -1,5 +1,5 @@
 ---
-title: "Compaction API 压缩接口 — 常见问题"
+title: "Compaction API 压缩接口"
 description: "关于 Compaction API 的常见问题：是什么、何时使用、与上下文窗口的对比"
 date: 2026-02-10
 lang: zh

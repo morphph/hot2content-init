@@ -1,5 +1,5 @@
 ---
-title: "1 Million Token Context Window — FAQ"
+title: "1 Million Token Context Window"
 description: "Frequently asked questions about million-token context windows: how to use them, limitations, and best practices"
 date: 2026-02-10
 lang: en

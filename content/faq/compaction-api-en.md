@@ -1,5 +1,5 @@
 ---
-title: "Compaction API — FAQ"
+title: "Compaction API"
 description: "Frequently asked questions about the Compaction API: what it is, when to use it, and how it compares to context windows"
 date: 2026-02-10
 lang: en

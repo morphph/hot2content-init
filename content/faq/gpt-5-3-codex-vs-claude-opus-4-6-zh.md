@@ -1,5 +1,5 @@
 ---
-title: "GPT-5.3 Codex vs Claude Opus 4.6 — 常见问题"
+title: "GPT-5.3 Codex vs Claude Opus 4.6"
 description: "关于 GPT-5.3 Codex vs Claude Opus 4.6 的常见问题解答"
 date: 2026-02-09
 lang: zh
