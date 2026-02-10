@@ -74,18 +74,9 @@ export default async function CompareDetailPageZh({ params }: Props) {
         </div>
 
         <div
-          className="prose prose-lg max-w-none"
-          style={{ lineHeight: 1.8 }}
+          className="content-area"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
-
-        <style dangerouslySetInnerHTML={{ __html: `
-          .prose table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 14px; }
-          .prose th, .prose td { padding: 10px 14px; border: 1px solid #e5e7eb; text-align: left; }
-          .prose th { background-color: #f9fafb; font-weight: 600; color: #374151; }
-          .prose tr:hover { background-color: #fafafa; }
-          .prose strong { color: #111827; }
-        `}} />
 
         {related.length > 0 && (
           <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e7eb' }}>

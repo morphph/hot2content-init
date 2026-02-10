@@ -93,8 +93,7 @@ export default async function FAQQuestionPageEn({ params }: Props) {
         </h1>
 
         <article
-          className="prose prose-lg max-w-none"
-          style={{ color: '#374151', lineHeight: 1.8 }}
+          className="content-area"
           dangerouslySetInnerHTML={{ __html: question.answerHtml }}
         />
 

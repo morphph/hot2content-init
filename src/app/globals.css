@@ -520,3 +520,64 @@ a.link-blue:hover {
   margin: 0 auto;
   padding: 32px 24px;
 }
+
+/* === Shared content area styles (blog, FAQ, compare, glossary) === */
+.content-area table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.content-area th,
+.content-area td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-area th {
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.content-area p {
+  margin: 1rem 0;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.content-area ul, .content-area ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.content-area li {
+  margin: 0.25rem 0;
+  line-height: 1.7;
+}
+
+.content-area strong {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.content-area code {
+  background: #f3f4f6;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.content-area blockquote {
+  border-left: 3px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #6b7280;
+  font-style: italic;
+}

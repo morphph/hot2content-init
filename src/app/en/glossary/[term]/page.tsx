@@ -75,8 +75,7 @@ export default async function GlossaryTermPageEn({ params }: Props) {
         </div>
 
         <div
-          className="prose prose-lg max-w-none"
-          style={{ color: '#374151', lineHeight: 1.8 }}
+          className="content-area"
           dangerouslySetInnerHTML={{ __html: entry.contentHtml }}
         />
 
