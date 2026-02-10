@@ -1098,6 +1098,7 @@ async function generateNewsletterWithOpus(items: NewsItem[], date: string): Prom
 6. Forbidden phrases: "In this article", "Stay tuned", "Exciting times", "Let's dive in", "Game-changing"
 7. Output pure markdown, title: 🌅 AI Daily Digest — ${date}
 8. Write entirely in English
+9. Every item MUST include a source link at the end: [Read more →](url)
 
 ## Raw data (${items.length} items)
 ${rawData}`;
