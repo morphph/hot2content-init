@@ -16,9 +16,12 @@ export interface FAQTopic {
   contentHtml: string
 }
 
-export function getAllFAQTopics(): { slug: string; title: string; description: string; date: string; lang: string; questionCount: number }[] {
+export function getAllFAQTopics(lang?: string): { slug: string; title: string; description: string; date: string; lang: string; questionCount: number }[] {
   if (!fs.existsSync(FAQ_DIR)) return []
-  const files = fs.readdirSync(FAQ_DIR).filter(f => f.endsWith('.md'))
+  let files = fs.readdirSync(FAQ_DIR).filter(f => f.endsWith('.md'))
+  if (lang) {
+    files = files.filter(f => f.endsWith(`-${lang}.md`))
+  }
   return files.map(file => {
     const raw = fs.readFileSync(path.join(FAQ_DIR, file), 'utf-8')
     const { data, content } = matter(raw)

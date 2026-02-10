@@ -3,7 +3,7 @@ term: "上下文窗口（Context Window）"
 slug: context-window
 lang: zh
 category: LLM 基础
-definition: "语言模型在单次交互中能处理的最大 token（词/子词）数量，决定了模型一次能"看到"多少文本。"
+definition: '语言模型在单次交互中能处理的最大 token（词/子词）数量，决定了模型一次能"看到"多少文本。'
 related: [agent-teams, adaptive-thinking]
 date: 2026-02-09
 source_topic: claude-opus-context-window
