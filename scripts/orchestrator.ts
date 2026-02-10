@@ -279,34 +279,47 @@ Output: write to output/blog-en.md
 async function runWriterZH(): Promise<boolean> {
   log('WRITER-ZH', 'Starting Chinese Writer (Claude Code Subagent)...');
   
+  // Inject narrative key content for ZH writer
+  let narrativeContextZH = '';
+  const narrativeFileZH = path.join(OUTPUT_DIR, 'core-narrative.json');
+  if (fs.existsSync(narrativeFileZH)) {
+    try {
+      const narr = JSON.parse(fs.readFileSync(narrativeFileZH, 'utf-8'));
+      narrativeContextZH = `
+核心叙事要素（来自 core-narrative.json）：
+- One-liner: ${narr.one_liner || 'N/A'}
+- Key points: ${JSON.stringify(narr.key_points || [])}
+- Story spine: ${JSON.stringify(narr.story_spine || {})}
+`;
+    } catch {}
+  }
+
   const prompt = `
 你是中文科技博客作家。
+
+严格遵循 skills/blog-zh/SKILL.md 的格式、语气和结构规范。
 
 输入：
 - output/research-gemini-deep.md (深度素材)
 - output/core-narrative.json (结构框架)
 - skills/blog-zh/SKILL.md (写作规范)
 
+${narrativeContextZH}
+
 重要原则：
 - 你不是在翻译！基于同一话题独立创作中文内容
 - 用中文读者熟悉的比喻和类比
-- 正常写中文博客，不需要特殊本地化
+- 如果话题与中国市场相关，自然融入本地视角和国产模型对比；如果不相关，不要强行加入。
 - 专业术语首次出现标注英文：大语言模型（LLM）
 - 语气像懂技术的朋友在科普
 
+文章必须有明确的观点和立场，不是简单的信息汇总。从 core-narrative.json 的 one_liner 和 story_spine 中提取叙事主线。
+
+LoreAI 的差异化：比机器之心更有观点，比少数派更有技术深度。
+
 输出：写入 output/blog-zh.md
 
-文章结构：
-- 一句话总结（TL;DR）
-- 背景：为什么现在要关注
-- 核心事件：到底发生了什么
-- 技术解读：怎么做到的（包含图表）
-- 影响分析：对我们意味着什么
-- 风险与局限
-- 常见问题（至少 3 个）
-- 参考来源
-
-字数：2000-3000 字
+(Full narrative: output/core-narrative.json, Full research: output/research-gemini-deep.md)
 `.trim();
 
   try {
