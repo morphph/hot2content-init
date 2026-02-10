@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { getBlogPosts } from '@/lib/blog'
-import { getAllFAQTopics } from '@/lib/faq'
+import { getAllFAQTopics, getAllQuestionParams } from '@/lib/faq'
 import { getGlossaryTerms } from '@/lib/glossary'
 import { getAllCompares } from '@/lib/compare'
 import type { MetadataRoute } from 'next'
@@ -111,6 +111,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(t.date || new Date()),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    ...getAllQuestionParams('en').map((p) => ({
+      url: `${BASE_URL}/en/faq/${p.topic}/${p.question}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    })),
+    ...getAllQuestionParams('zh').map((p) => ({
+      url: `${BASE_URL}/zh/faq/${p.topic}/${p.question}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
     })),
     {
       url: `${BASE_URL}/en/glossary`,

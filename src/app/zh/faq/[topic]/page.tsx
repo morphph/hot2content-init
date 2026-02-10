@@ -1,10 +1,18 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllFAQTopics, getFAQTopic, generateFAQJsonLd } from '@/lib/faq'
+import type { FAQIntent } from '@/lib/faq'
 import type { Metadata } from 'next'
 
 interface Props {
   params: Promise<{ topic: string }>
+}
+
+const intentConfig: Record<FAQIntent, { icon: string; label: string }> = {
+  comparison: { icon: '🔄', label: '对比分析' },
+  pricing: { icon: '💰', label: '定价' },
+  tutorial: { icon: '🛠️', label: '教程' },
+  informational: { icon: '📋', label: '功能特性' },
 }
 
 export async function generateStaticParams() {
@@ -28,6 +36,13 @@ export default async function FAQTopicPageZh({ params }: Props) {
 
   const jsonLd = generateFAQJsonLd(topic)
   const enSlug = slug.replace(/-zh$/, '-en')
+
+  const groups = new Map<FAQIntent, typeof topic.questions>()
+  for (const q of topic.questions) {
+    if (!groups.has(q.intent)) groups.set(q.intent, [])
+    groups.get(q.intent)!.push(q)
+  }
+  const intentOrder: FAQIntent[] = ['comparison', 'pricing', 'tutorial', 'informational']
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -65,15 +80,35 @@ export default async function FAQTopicPageZh({ params }: Props) {
           <span style={{ color: '#111827' }}>{topic.title}</span>
         </nav>
 
-        <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px', color: '#111827' }}>{topic.title}</h1>
+        <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{topic.title}</h1>
         {topic.description && (
           <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '32px' }}>{topic.description}</p>
         )}
 
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: topic.contentHtml }}
-        />
+        {intentOrder.map(intent => {
+          const qs = groups.get(intent)
+          if (!qs || qs.length === 0) return null
+          const cfg = intentConfig[intent]
+          return (
+            <section key={intent} style={{ marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: '600', color: '#374151', marginBottom: '16px' }}>
+                {cfg.icon} {cfg.label}
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {qs.map(q => (
+                  <Link
+                    key={q.slug}
+                    href={`/zh/faq/${slug}/${q.slug}`}
+                    style={{ display: 'block', padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px', textDecoration: 'none', transition: 'border-color 0.2s' }}
+                  >
+                    <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginBottom: '6px' }}>{q.question}</h3>
+                    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>{q.summary}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )
+        })}
       </div>
     </main>
   )
