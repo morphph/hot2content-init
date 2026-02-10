@@ -1822,3 +1822,92 @@ loreai.dev
 ### 五、核心判断
 
 最大风险不是技术而是内容同质化。Pipeline很强但需要差异化内容。Bella个人视角（AI PM转AI Engineer）是不可替代的差异化。
+
+---
+
+## Track B: SEO Auto-Pipeline
+
+### 问题陈述
+
+当前内容生产是「自上而下」的手动流程：人工选题 → 深度调研 → Tier 1 → 手动提取 T2/T3/FAQ/Glossary。这对品牌建设有效，但无法覆盖 SEO/AEO 所需的长尾关键词量。每周仅 1-2 篇 Tier 1 + 手动衍生内容，远不够建立主题权威性。
+
+### 双轨策略
+
+| | Track A: 品牌/手动 | Track B: SEO/自动 |
+|---|---|---|
+| **触发** | 手动选题 / orchestrator | 每日 cron 自动运行 |
+| **数据源** | Gemini Deep Research | daily-scout 已采集的 news_items |
+| **内容类型** | Tier 1 深度文章 | T2/T3/FAQ/Glossary/Compare |
+| **质量** | Opus 级别，Bella review | Sonnet/Flash 级别，schema 验证 |
+| **频率** | 1-2 篇/周 | 3-5 篇/天 |
+| **目的** | 品牌权威、深度洞察 | 长尾覆盖、搜索流量 |
+
+两条轨道共享同一数据层（news_items、keywords 表）和发布层（content/ 目录 → Vercel SSG），但生产流程完全独立，互不干扰。
+
+### Track B Pipeline 流程
+
+```
+每日 02:00 UTC (newsletter 后 1 小时)
+    │
+    ▼
+┌──────────────────────────────────┐
+│  Step 1: 关键词提取               │
+│  读取 news_items (最近 48h)       │
+│  Claude 提取 trending 关键词      │
+│  交叉去重：已有 content/ 内容     │
+│  评分：newness × relevance       │
+└───────────────┬──────────────────┘
+                ▼
+┌──────────────────────────────────┐
+│  Step 2: 内容类型路由             │
+│  新概念/术语 → Glossary           │
+│  X vs Y → Compare                │
+│  How-to → T3 Quick Read          │
+│  趋势分析 → T2 Analysis          │
+│  常见问题 → FAQ                   │
+└───────────────┬──────────────────┘
+                ▼
+┌──────────────────────────────────┐
+│  Step 3: 批量生成 (EN + ZH)      │
+│  Claude (claude -p) 生成内容      │
+│  注入 news_items 作为上下文       │
+│  参考 SKILL.md 写作规范           │
+└───────────────┬──────────────────┘
+                ▼
+┌──────────────────────────────────┐
+│  Step 4: 验证 + 输出              │
+│  Zod schema 校验 frontmatter     │
+│  dry-run → output/seo-pipeline/  │
+│  production → content/ 目录       │
+│  生成 summary report             │
+└──────────────────────────────────┘
+```
+
+### 质量控制
+
+- **Schema 验证**：所有生成内容必须通过 Zod frontmatter 校验（slug, title, date, tier, tags, description, lang）
+- **去重检查**：对比已有 content/ 下所有 slug + title，避免重复
+- **新闻锚定**：每篇内容必须基于真实 news_items 数据（不允许无来源的凭空生成）
+- **每日摘要通知**：生成完成后输出 summary report，方便 Bella 抽查
+- **90 天归档**：超过 90 天的 T3/FAQ 可标记 archived，避免过时内容影响站点质量
+
+### 内容规格
+
+| 类型 | 字数 | 模板要求 |
+|------|------|---------|
+| Glossary | 300-500 词 | 定义 + 为什么重要 + 工作原理 + 相关术语 |
+| FAQ | 10 Q&A | 场景化问答，每答案 100-300 字 |
+| T3 Quick Read | 800-1200 词 | 实操导向，含代码/步骤 |
+| T2 Analysis | 1500-2500 词 | 数据分析 + 行业影响 |
+| Compare | 对比表 + 散文 | 结构化表格 + 总结 + 选型建议 |
+
+### Brave Search 可选增强
+
+如果配置了 `BRAVE_API_KEY`，在关键词提取后用 Brave Search 验证搜索需求：
+- 有搜索结果 → 确认存在搜索需求
+- 无结果 → 跳过该关键词（太冷门）
+- 未配置 → 跳过此步骤，所有关键词直接通过
+
+### 目标
+
+每日自动生成 3-5 篇长尾内容页面，月产 100+ 页面，半年内建立主题权威性。
