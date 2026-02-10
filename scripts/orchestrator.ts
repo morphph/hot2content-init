@@ -97,21 +97,20 @@ async function runGeminiResearch(topic: string): Promise<boolean> {
 }
 
 /**
- * Helper: run claude -p with PTY support via `script` command
- * PTY is required because claude CLI may hang without a terminal
+ * Helper: run claude -p via stdin pipe
+ * Uses temp file + cat pipe to avoid shell escaping issues with long prompts
  */
-function runClaudeWithPty(prompt: string, timeoutMs: number = 10 * 60 * 1000): Promise<{ ok: boolean; output: string }> {
+function runClaudePipe(prompt: string, timeoutMs: number = 10 * 60 * 1000): Promise<{ ok: boolean; output: string }> {
   return new Promise((resolve) => {
-    const escapedPrompt = prompt.replace(/'/g, "'\\''");
-    // Use `script` to provide a PTY wrapper
-    const child = spawn('script', [
-      '-qec',
-      `cd ${PROJECT_ROOT} && claude -p '${escapedPrompt}' --allowedTools Read,Write,Bash`,
-      '/dev/null'
+    const tmpFile = path.join('/tmp', `claude-prompt-${Date.now()}.txt`);
+    fs.writeFileSync(tmpFile, prompt);
+
+    const child = spawn('bash', ['-c',
+      `cat "${tmpFile}" | cd ${PROJECT_ROOT} && cat "${tmpFile}" | claude -p --allowedTools Read,Write,Bash`
     ], {
-      shell: false,
+      cwd: PROJECT_ROOT,
       stdio: ['pipe', 'pipe', 'pipe'],
-      env: { ...process.env, TERM: 'dumb' },
+      env: { ...process.env },
     });
 
     let output = '';
@@ -121,11 +120,13 @@ function runClaudeWithPty(prompt: string, timeoutMs: number = 10 * 60 * 1000): P
 
     const timer = setTimeout(() => {
       child.kill('SIGTERM');
+      try { fs.unlinkSync(tmpFile); } catch {}
       resolve({ ok: false, output: `Timeout after ${timeoutMs / 1000}s` });
     }, timeoutMs);
 
     child.on('close', (code) => {
       clearTimeout(timer);
+      try { fs.unlinkSync(tmpFile); } catch {}
       resolve({ ok: code === 0, output: output + stderr });
     });
   });
@@ -159,7 +160,7 @@ async function runNarrativeArchitect(): Promise<boolean> {
 `.trim();
 
   try {
-    const result = await runClaudeWithPty(prompt, 10 * 60 * 1000);
+    const result = await runClaudePipe(prompt, 10 * 60 * 1000);
     
     const outputFile = path.join(OUTPUT_DIR, 'core-narrative.json');
     if (fs.existsSync(outputFile)) {
@@ -209,7 +210,7 @@ async function runWriterEN(): Promise<boolean> {
 `.trim();
 
   try {
-    const result = await runClaudeWithPty(prompt, 10 * 60 * 1000);
+    const result = await runClaudePipe(prompt, 10 * 60 * 1000);
     
     const outputFile = path.join(OUTPUT_DIR, 'blog-en.md');
     if (fs.existsSync(outputFile)) {
@@ -267,7 +268,7 @@ async function runWriterZH(): Promise<boolean> {
 `.trim();
 
   try {
-    const result = await runClaudeWithPty(prompt, 10 * 60 * 1000);
+    const result = await runClaudePipe(prompt, 10 * 60 * 1000);
     
     const outputFile = path.join(OUTPUT_DIR, 'blog-zh.md');
     if (fs.existsSync(outputFile)) {
