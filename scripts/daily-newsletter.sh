@@ -2,6 +2,10 @@
 # Daily Newsletter Auto-generation
 # Runs daily via crontab
 
+# Ensure PATH includes node/npm binaries (cron has minimal PATH)
+export PATH="/home/ubuntu/.nvm/versions/node/v22.22.0/bin:/home/ubuntu/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+export NVM_DIR="/home/ubuntu/.nvm"
+
 cd /home/ubuntu/hot2content-init
 source .env
 
