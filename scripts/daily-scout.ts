@@ -81,7 +81,7 @@ const TWITTER_ACCOUNTS = [
   { handle: 'AnthropicAI', tier: 1, category: 'model_release' as Category },
   { handle: 'OpenAI', tier: 1, category: 'model_release' as Category },
   { handle: 'GoogleAI', tier: 1, category: 'model_release' as Category },
-  { handle: 'DeepMind', tier: 1, category: 'official_blog' as Category },
+  { handle: 'GoogleDeepMind', tier: 1, category: 'official_blog' as Category },
   { handle: 'MistralAI', tier: 1, category: 'model_release' as Category },
   { handle: 'AIatMeta', tier: 1, category: 'model_release' as Category },
   // Tier 1 - Developer Platform (开发者平台/SDK)
@@ -91,6 +91,13 @@ const TWITTER_ACCOUNTS = [
   // Tier 1 - Product (产品生态)
   { handle: 'claudeai', tier: 1, category: 'product_ecosystem' as Category },
   { handle: 'ChatGPTapp', tier: 1, category: 'product_ecosystem' as Category },
+  // Tier 1 - Anthropic Team (内部人员，第一手动态)
+  { handle: 'bcherny', tier: 1, category: 'developer_platform' as Category },
+  { handle: 'alexalbert__', tier: 1, category: 'product_ecosystem' as Category },
+  { handle: 'ErikSchluntz', tier: 1, category: 'developer_platform' as Category },
+  { handle: 'mikeyk', tier: 1, category: 'product_ecosystem' as Category },
+  { handle: 'felixrieseberg', tier: 1, category: 'developer_platform' as Category },
+  { handle: 'adocomplete', tier: 1, category: 'developer_platform' as Category },
   // Tier 2 - KOLs
   { handle: 'sama', tier: 2, category: 'product_ecosystem' as Category },
   { handle: 'karpathy', tier: 2, category: 'official_blog' as Category },
@@ -311,7 +318,7 @@ async function fetchTwitter(handle: string): Promise<any[]> {
   
   try {
     const response = await fetch(
-      `${TWITTER_API_BASE}/twitter/user/last_tweets?userName=${handle}&count=5`,
+      `${TWITTER_API_BASE}/twitter/user/last_tweets?userName=${handle}&count=20`,
       {
         headers: {
           'X-API-Key': TWITTER_API_KEY,
@@ -613,6 +620,11 @@ async function scanTwitter(): Promise<NewsItem[]> {
         // Skip retweets and replies
         if (text.startsWith('RT @') || text.startsWith('@')) continue;
         
+        if (!isFreshTweet(tweet)) {
+          console.log(`      ⏭️ Skipped old tweet: "${text.slice(0, 50)}..."`);
+          continue;
+        }
+        
         // Filter low-quality tweets (only emoji/links)
         if (isLowQualityTweet(text)) {
           console.log(`      ⏭️ Filtered low-quality: "${text.slice(0, 50)}..."`);
@@ -682,7 +694,76 @@ async function scanTwitter(): Promise<NewsItem[]> {
     }
   }
   
-  console.log(`   ✅ Found ${items.length} tweets`);
+  console.log(`   ✅ Found ${items.length} tweets from accounts`);
+
+  // --- Twitter Search: catch viral/trending content ---
+  const SEARCH_QUERIES = [
+    'Claude Code',
+    'AI coding agent',
+    'AI agent framework',
+    'MCP server',
+    'open source LLM',
+  ];
+
+  const seenSearchIds = new Set(items.map(i => i.id));
+
+  for (const query of SEARCH_QUERIES) {
+    try {
+      console.log(`   - Search: "${query}"...`);
+      const response = await fetch(
+        `${TWITTER_API_BASE}/twitter/tweet/advanced_search?query=${encodeURIComponent(query)}&queryType=Top&count=5`,
+        {
+          headers: {
+            'X-API-Key': TWITTER_API_KEY!,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      if (!response.ok) continue;
+      const data = await response.json();
+      const tweets = data.data?.tweets || data.tweets || [];
+
+      for (const tweet of tweets) {
+        const text = tweet.text || tweet.full_text || '';
+        const tweetId = tweet.id || tweet.id_str;
+        const itemId = `twitter-search-${tweetId}`;
+        
+        if (seenSearchIds.has(itemId) || seenSearchIds.has(`twitter-${tweetId}`)) continue;
+        seenSearchIds.add(itemId);
+
+        if (text.startsWith('RT @')) continue;
+        if (!isFreshTweet(tweet)) continue;
+
+        const likes = tweet.favorite_count || tweet.public_metrics?.like_count || tweet.likeCount || 0;
+        const retweets = tweet.retweet_count || tweet.public_metrics?.retweet_count || tweet.retweetCount || 0;
+        const views = tweet.view_count || tweet.viewCount || 0;
+        const engagement = likes + retweets * 2;
+
+        if (engagement < 1000) continue; // Only viral content
+
+        const author = tweet.author?.userName || tweet.user?.screen_name || '?';
+        const title = text.split('\n')[0].slice(0, 100).trim();
+
+        items.push({
+          id: itemId,
+          title,
+          summary: text.slice(0, 500),
+          url: `https://x.com/${author}/status/${tweetId}`,
+          twitter_url: `https://x.com/${author}/status/${tweetId}`,
+          source: `@${author}`,
+          source_tier: 2,
+          category: 'developer_platform' as Category,
+          score: Math.min(90, 70 + Math.floor(engagement / 5000)),
+          engagement,
+          detected_at: tweet.created_at || tweet.date || new Date().toISOString(),
+        });
+      }
+    } catch (e) {
+      console.log(`   ❌ Search "${query}": ${e}`);
+    }
+  }
+  console.log(`   ✅ Total after search: ${items.length} tweets`);
+
   return items;
 }
 
@@ -696,7 +777,7 @@ async function scanHuggingFace(): Promise<NewsItem[]> {
 
   try {
     // Use the models API sorted by likes
-    const response = await fetch('https://huggingface.co/api/models?sort=likes&direction=-1&limit=10');
+    const response = await fetch('https://huggingface.co/api/models?sort=likes&direction=-1&limit=30');
     if (!response.ok) {
       console.log(`   ⚠️ HF returned ${response.status}`);
       return items;
@@ -704,7 +785,7 @@ async function scanHuggingFace(): Promise<NewsItem[]> {
 
     const models: any[] = await response.json();
     
-    for (const model of models.slice(0, 5)) {
+    for (const model of models.slice(0, 10)) {
       const modelId = model.id || model.modelId;
       const likes = model.likes || 0;
       const downloads = model.downloads || 0;
@@ -712,12 +793,12 @@ async function scanHuggingFace(): Promise<NewsItem[]> {
       items.push({
         id: `hf-${modelId.replace('/', '-')}`,
         title: `Trending: ${modelId}`,
-        summary: `${likes.toLocaleString()}❤️, ${downloads.toLocaleString()} downloads. ${model.pipeline_tag || 'General model'}`,
+        summary: `${likes.toLocaleString()}❤️, ${downloads.toLocaleString()} downloads. Pipeline: ${model.pipeline_tag || 'General'}. Tags: ${(model.tags || []).slice(0, 5).join(', ')}`,
         action: 'Try it on HuggingFace',
         url: `https://huggingface.co/${modelId}`,
         source: 'HuggingFace Trending',
         source_tier: 3,
-        category: 'developer_platform',  // HF 属于开发者平台
+        category: 'model_release',
         score: Math.min(75, 50 + Math.floor(likes / 100)),
         engagement: likes,
         detected_at: new Date().toISOString(),
@@ -896,6 +977,15 @@ function jaccardSimilarity(a: Set<string>, b: Set<string>): number {
 // Enhanced Deduplication
 // ============================================
 
+function isFreshTweet(tweet: any, maxAgeHours: number = 48): boolean {
+  const dateStr = tweet.created_at || tweet.date;
+  if (!dateStr) return true;
+  const tweetDate = new Date(dateStr);
+  if (isNaN(tweetDate.getTime())) return true;
+  const ageMs = Date.now() - tweetDate.getTime();
+  return ageMs < maxAgeHours * 60 * 60 * 1000;
+}
+
 function deduplicate(items: NewsItem[]): NewsItem[] {
   // Sort by tier (lower tier = higher priority) then by score
   const sorted = [...items].sort((a, b) => {
@@ -973,6 +1063,69 @@ function generateMarkdownFromNewsletter(newsletter: NewsletterContent): string {
   lines.push('');
   
   return lines.join('\n');
+}
+
+async function generateNewsletterWithOpus(items: NewsItem[], date: string): Promise<string | null> {
+  console.log('   ✍️ Generating newsletter with Claude Opus...');
+  
+  const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
+    title: i.title,
+    summary: i.summary?.slice(0, 300),
+    source: i.source,
+    url: i.url,
+    engagement: i.engagement,
+    category: i.category,
+    score: i.score,
+  })), null, 2);
+
+  const prompt = `你是 LoreAI Daily 的主编。基于以下原始新闻数据撰写今日 AI 日报。日期: ${date}
+
+## 分类（严格使用这 6 类 + 2 个特色板块）
+🧠 MODEL — 新模型发布/趋势（含 HuggingFace trending，标注 likes 和 downloads）
+📱 APP — 消费产品/平台更新  
+🔧 DEV — 开发者工具/SDK/API
+📝 TECHNIQUE — 实操技巧/最佳实践/viral tips
+🚀 PRODUCT — 新产品/研究/开源项目
+🎓 MODEL LITERACY — 挑一个今天最值得科普的技术概念，用 3-4 句话解释给非技术读者
+🎯 PICK OF THE DAY — 选今天最有影响力的一条，写 2-3 句推荐理由 + 链接
+
+## 写作规则
+1. 每条用 bullet point (•)，标题加粗，后跟来源（— @handle 或 — Source Name）
+2. 每条：什么发生了 + 为什么重要，1-2 句
+3. 包含 engagement 数据（likes, RTs, downloads 等括号标注）
+4. 每类 3-5 条最重要的，跳过没新闻的类别
+5. 语气：专业、简洁、有判断力 — 你是编辑在精选，不是机器在转述
+6. 禁止废话: "In this article", "Stay tuned", "Exciting times", "Let's dive in"
+7. 输出纯 markdown，标题用: 🌅 AI Daily Digest — ${date}
+
+## 原始数据（${items.length} 条）
+${rawData}`;
+
+  try {
+    const { execSync } = await import('child_process');
+    const result = execSync(
+      "script -qec 'claude -p \"$(cat)\" --max-tokens 4000' /dev/null",
+      {
+        input: prompt,
+        timeout: 5 * 60 * 1000,
+        maxBuffer: 1024 * 1024,
+        env: { ...process.env, TERM: 'dumb' },
+      }
+    ).toString().trim();
+    
+    // Clean ANSI escape codes
+    const cleaned = result.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
+    
+    if (cleaned && cleaned.length > 200) {
+      console.log(`   ✅ Opus newsletter: ${cleaned.length} chars`);
+      return cleaned;
+    }
+    console.log('   ⚠️ Opus output too short or empty');
+    return null;
+  } catch (e) {
+    console.log(`   ⚠️ Opus failed: ${e}`);
+    return null;
+  }
 }
 
 // ============================================
@@ -1117,6 +1270,16 @@ async function main() {
     : deduped;
   console.log(`   📰 ${fresh.length} fresh items (filtered ${deduped.length - fresh.length} already covered)`);
 
+  // Save raw data
+  const OUTPUT_DIR = path.join(process.cwd(), 'output');
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  const date = new Date().toISOString().split('T')[0];
+  fs.writeFileSync(
+    path.join(OUTPUT_DIR, `raw-${date}.json`),
+    JSON.stringify({ date, items: fresh, stats: { total: allItems.length, deduped: deduped.length, fresh: fresh.length } }, null, 2)
+  );
+  console.log(`   💾 Saved raw data: output/raw-${date}.json`);
+
   // Group by category first (for Gemini input)
   const byCategory: Record<Category, NewsItem[]> = {
     model_release: [],
@@ -1129,13 +1292,19 @@ async function main() {
     byCategory[item.category].push(item);
   }
 
-  // Write newsletter with Gemini AI
+  // Try Opus first, fallback to Flash
   console.log('');
-  const newsletterContent = await writeNewsletterWithGemini(fresh);
+  let digestMarkdown: string | null = await generateNewsletterWithOpus(fresh, date);
+  
+  let newsletterContent: NewsletterContent | null = null;
+  if (!digestMarkdown) {
+    console.log('   🔄 Falling back to Gemini Flash...');
+    newsletterContent = await writeNewsletterWithGemini(fresh);
+  }
 
   // Create digest
   const digest: DailyDigest = {
-    date: new Date().toISOString().split('T')[0],
+    date,
     generated_at: new Date().toISOString(),
     items: fresh.slice(0, 20),
     by_category: byCategory,
@@ -1150,20 +1319,23 @@ async function main() {
   };
   
   // Generate markdown from newsletter content (or fallback)
-  digest.markdown = newsletterContent 
-    ? generateMarkdownFromNewsletter(newsletterContent)
-    : generateMarkdown(digest, deduped);
+  if (digestMarkdown) {
+    digest.markdown = digestMarkdown;
+  } else if (newsletterContent) {
+    digest.markdown = generateMarkdownFromNewsletter(newsletterContent);
+  } else {
+    digest.markdown = generateMarkdown(digest, deduped);
+  }
 
   // Save outputs
-  const outputDir = path.join(process.cwd(), 'output');
-  fs.mkdirSync(outputDir, { recursive: true });
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   
   // JSON
-  const jsonPath = path.join(outputDir, 'daily-digest.json');
+  const jsonPath = path.join(OUTPUT_DIR, 'daily-digest.json');
   fs.writeFileSync(jsonPath, JSON.stringify(digest, null, 2));
   
   // Markdown
-  const mdPath = path.join(outputDir, `digest-${digest.date}.md`);
+  const mdPath = path.join(OUTPUT_DIR, `digest-${digest.date}.md`);
   fs.writeFileSync(mdPath, digest.markdown);
   
   // Newsletter data
