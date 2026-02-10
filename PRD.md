@@ -1785,3 +1785,40 @@ loreai.dev
 - [ ] Reddit 信息源集成
 - [ ] 用户 dashboard（内容管理后台）
 - [ ] 邮件订阅 + Telegram 推送
+
+---
+
+## Deep Review (2026-02-10)
+
+### 一、做得好的部分
+
+- Newsletter Pipeline 稳定运行（每日01:00 UTC，EN+ZH，Opus写作+Flash fallback，监控到位）
+- 内容金字塔6层全部建成（66页面，生成+验证+发布全链路）
+- 博客Pipeline E2E验证通过（Research→Narrative→Writers→Validate→Publish）
+- 技术债务意识好（AGENTS.md规范，Git source of truth，Edit>Write）
+
+### 二、断点风险
+
+- 🔴 Gemini Deep Research不稳定（卡35min）→ Plan B: Brave Search + Flash
+- 🔴 Claude CLI token过期风险 → 需要Telegram告警(#22)
+- 🟡 Blog Pipeline手动触发 → #24自动选题
+- 🟡 Tier 2/3衍生内容没有自动触发 → orchestrator自动调用
+- 🟡 EN/ZH内容不对称（EN:9, ZH:5）→ 补ZH旧内容
+
+### 三、内容价值问题（最重要）
+
+- 🔴 话题太窄 — 几乎全是Claude/GPT对比，像Anthropic粉丝站
+- 🔴 没有原创洞察 — 全靠LLM生成，内容同质化
+- 🟡 缺少实操内容 — 需要教程/代码示例/实战案例
+- 🟡 没有社区验证 — 无GSC数据
+- 🟡 FAQ/Glossary太模板化
+
+### 四、三阶段Roadmap
+
+- **Phase A（本周）：** 关闭已完成Issues + Telegram告警(#22) + Buttondown邮件(#28) + GSC注册(#13)
+- **Phase B（下周）：** 话题多样化 + Bella个人视角(AI PM→AI Engineer实战笔记) + SKILL.md few-shot + Gemini fallback
+- **Phase C（下下周）：** 自动选题(#24) + 月度Roundup(#10) + 衍生内容自动触发 + Weekly Newsletter(#2)
+
+### 五、核心判断
+
+最大风险不是技术而是内容同质化。Pipeline很强但需要差异化内容。Bella个人视角（AI PM转AI Engineer）是不可替代的差异化。
