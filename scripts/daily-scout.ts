@@ -1104,12 +1104,12 @@ ${rawData}`;
   try {
     const { execSync } = await import('child_process');
     const result = execSync(
-      "script -qec 'claude -p \"$(cat)\" --max-tokens 4000' /dev/null",
+      `claude -p --verbose`,
       {
         input: prompt,
         timeout: 5 * 60 * 1000,
         maxBuffer: 1024 * 1024,
-        env: { ...process.env, TERM: 'dumb' },
+        env: { ...process.env },
       }
     ).toString().trim();
     
