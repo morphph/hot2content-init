@@ -221,7 +221,7 @@ You MUST cover at least 4 different categories and at least 3 different companie
 - newness: How new/trending (10 = breaking, 1 = well-known)
 
 ## Rules
-- CRITICAL: Do NOT make more than 3 keywords about the same company/product
+- CRITICAL: Do NOT make more than 5 keywords about the same company/product
 - Skip keywords that match existing content slugs
 - Each keyword should have real news data backing it
 - Prefer actionable, searchable phrases over vague topics
