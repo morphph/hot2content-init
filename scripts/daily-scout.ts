@@ -98,6 +98,9 @@ const TWITTER_ACCOUNTS = [
   { handle: 'mikeyk', tier: 1, category: 'product_ecosystem' as Category },
   { handle: 'felixrieseberg', tier: 1, category: 'developer_platform' as Category },
   { handle: 'adocomplete', tier: 1, category: 'developer_platform' as Category },
+  // Tier 2 - AI Engineering
+  { handle: 'simonw', tier: 2, category: 'developer_platform' as Category },
+  { handle: 'chipro', tier: 2, category: 'developer_platform' as Category },
   // Tier 2 - KOLs
   { handle: 'sama', tier: 2, category: 'product_ecosystem' as Category },
   { handle: 'karpathy', tier: 2, category: 'official_blog' as Category },
