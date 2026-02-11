@@ -39,7 +39,7 @@ const DRY_RUN = args.includes('--dry-run');
 const dateIdx = args.indexOf('--date');
 const TARGET_DATE = dateIdx >= 0 ? args[dateIdx + 1] : new Date().toISOString().split('T')[0];
 const limitIdx = args.indexOf('--limit');
-const MAX_ITEMS = limitIdx >= 0 ? parseInt(args[limitIdx + 1]) : 5;
+const MAX_ITEMS = limitIdx >= 0 ? parseInt(args[limitIdx + 1]) : 10;
 
 // ─── Types ───────────────────────────────────────────────
 
@@ -171,9 +171,9 @@ async function extractKeywords(newsItems: NewsItem[], existingSlugs: Set<string>
 
   const existingList = [...existingSlugs].slice(0, 100).join(', ');
 
-  const prompt = `You are an SEO keyword extraction specialist for LoreAI (loreai.dev), an AI industry news and analysis site.
+  const prompt = `You are an SEO keyword extraction specialist for LoreAI (loreai.dev), an AI industry news and analysis site targeting AI developers, engineers, and product managers.
 
-Given these recent AI news items (last 48 hours), extract 8-12 trending keywords/topics that would make good long-tail SEO content.
+Given these recent AI news items (last 48 hours), extract 10-15 trending keywords/topics that would make good long-tail SEO content.
 
 ## News Items
 
@@ -193,10 +193,23 @@ Return ONLY a valid JSON array. Each item:
   "relevance": 1-10,
   "newness": 1-10,
   "context": "Brief explanation of why this keyword matters now",
-  "news_ids": ["id1", "id2"]
+  "news_ids": ["id1", "id2"],
+  "category": "models|tools|infra|safety|opensource|applications"
 }
 
-## Type Assignment Rules
+## MANDATORY: Diversity Requirements
+
+You MUST cover at least 4 different categories and at least 3 different companies/organizations. Do NOT focus on a single vendor.
+
+### Category Quotas (minimum):
+- **models** (2-3): New model releases, benchmarks, architecture innovations (from ANY vendor: OpenAI, Google, Meta, Mistral, Chinese labs, startups)
+- **tools** (2-3): Developer tools, APIs, SDKs, frameworks, IDE integrations
+- **infra** (1-2): Infrastructure, deployment, cost optimization, MLOps
+- **opensource** (1-2): Open-source models, datasets, community projects on HuggingFace etc.
+- **applications** (1-2): Real-world AI use cases, industry adoption, practical implementations
+- **safety** (0-1): AI safety, alignment, policy, responsible AI
+
+### Type Assignment Rules
 - New concept/term that needs definition → "glossary"
 - X vs Y natural comparison → "compare"  
 - Common questions people would search → "faq"
@@ -208,11 +221,13 @@ Return ONLY a valid JSON array. Each item:
 - newness: How new/trending (10 = breaking, 1 = well-known)
 
 ## Rules
+- CRITICAL: Do NOT make more than 3 keywords about the same company/product
 - Skip keywords that match existing content slugs
 - Each keyword should have real news data backing it
 - Prefer actionable, searchable phrases over vague topics
 - Mix of types (don't make all glossary or all FAQ)
 - Include both technical and practical angles
+- Think about what an AI engineer would actually Google right now
 
 Return ONLY the JSON array, no markdown fences, no explanation.`;
 
