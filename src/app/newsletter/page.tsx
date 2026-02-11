@@ -104,7 +104,7 @@ export default async function NewsletterPage() {
           <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
             <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
             <span style={{ color: '#d1d5db' }}>|</span>
-            <Link href="/zh" style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
+            <Link href="/zh/newsletter" style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
           </div>
         </header>
 
