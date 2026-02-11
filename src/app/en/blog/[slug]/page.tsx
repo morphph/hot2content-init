@@ -102,7 +102,7 @@ export default async function BlogPost({ params }: Props) {
           <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
             <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
             <span style={{ color: '#d1d5db' }}>|</span>
-            <Link href={`/zh/blog/${slug}`} style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
+            <Link href={post.hreflang_zh || '/zh/blog'} style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
           </div>
         </header>
       </div>

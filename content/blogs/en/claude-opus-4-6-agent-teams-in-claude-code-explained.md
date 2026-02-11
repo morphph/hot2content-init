@@ -7,6 +7,7 @@ tier: 3
 tags: ["Claude Opus", "Agent Teams", "Claude Code", "AI Agents", "Anthropic"]
 description: "Explore the groundbreaking Agent Teams feature in Claude Opus 4.6 within Claude Code, enabling collaborative AI development workflows."
 keywords: ["Claude Opus 4.6 agent teams in Claude Code explained"]
+hreflang_zh: /zh/blog/claude-opus-4-6-agent-teams-guide
 ---
 
 Anthropic's Claude Opus 4.6, released on February 5th, 2026, introduces a game-changing feature for collaborative coding: Agent Teams within Claude Code. This allows multiple Claude agents to coordinate on a single project, unlocking new levels of efficiency and complexity in AI-assisted development. This innovation arrives alongside a suite of other improvements, including a massive 1 million token context window (in beta).

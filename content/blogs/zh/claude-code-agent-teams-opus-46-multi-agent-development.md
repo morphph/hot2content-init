@@ -6,7 +6,7 @@ keywords: ["Claude Agent Teams", "多智能体编程", "Opus 4.6", "AI编程助�
 date: 2026-02-07
 lang: zh
 tier: 1
-hreflang_en: /en/blog/claude-code-agent-teams-opus-46-multi-agent-development
+hreflang_en: /en/blog/claude-code-agent-teams-ai-software-development
 ---
 
 # Claude Agent Teams：当 AI 从「结对编程」进化到「带团队」

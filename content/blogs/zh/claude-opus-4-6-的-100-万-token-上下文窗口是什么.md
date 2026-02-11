@@ -7,6 +7,7 @@ tier: 3
 tags: ["Claude", "Anthropic", "AI", "上下文窗口", "LLM"]
 description: "深入了解 Claude Opus 4.6 的 100 万 token 上下文窗口，以及它如何改变 AI 的应用场景。"
 keywords: ["Claude Opus 4.6 的 100 万 token 上下文窗口是什么？"]
+hreflang_en: /en/blog/claude-opus-4-6-1-million-token-context-window-tutorial
 ---
 
 Anthropic 于 2026 年 2 月 5 日推出了 Claude Opus 4.6，这款通用前沿模型在众多领域都表现出色，尤其是在编码方面。其中最引人注目的特性之一，就是其高达 100 万 token 的上下文窗口（目前处于 beta 阶段）。那么，这到底意味着什么呢？

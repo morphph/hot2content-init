@@ -7,6 +7,7 @@ tier: 3
 tags: ["Claude Opus", "Agent Teams", "AI 协作", "AI 开发"]
 description: "了解如何利用 Claude Opus 4.6 的 Agent Teams 功能，实现更高效的 AI 协作开发。"
 keywords: ["如何使用 Claude Opus 4.6 的 Agent Teams 功能", "Claude Opus 4.6", "Agent Teams", "AI 协作", "AI 开发"]
+hreflang_en: /en/blog/claude-opus-4-6-agent-teams-in-claude-code-explained
 ---
 
 Anthropic 于 2026 年 2 月 5 日发布了 Claude Opus 4.6，这款通用前沿模型在编码能力上表现出色。其中最引人注目的新功能之一就是 **Agent Teams**，它将多个 AI 代理协同工作，共同完成复杂的项目。 那么，如何使用这项颠覆性的功能呢？

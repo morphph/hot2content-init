@@ -100,7 +100,7 @@ export default async function BlogPostZh({ params }: Props) {
             </nav>
           </div>
           <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <Link href={`/en/blog/${slug}`} style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
+            <Link href={post.hreflang_en || '/en/blog'} style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
             <span style={{ color: '#d1d5db' }}>|</span>
             <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
           </div>

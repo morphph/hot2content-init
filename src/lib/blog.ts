@@ -18,6 +18,8 @@ export interface BlogPost {
   readingTime: number  // minutes
   content: string
   contentHtml: string
+  hreflang_en?: string
+  hreflang_zh?: string
 }
 
 function estimateReadingTime(content: string, lang: string): number {
@@ -94,7 +96,9 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
           })(),
           readingTime: estimateReadingTime(content, lang),
           content,
-          contentHtml
+          contentHtml,
+          hreflang_en: data.hreflang_en,
+          hreflang_zh: data.hreflang_zh,
         })
       } catch (error) {
         console.error(`Error parsing ${file}:`, error)
@@ -126,7 +130,9 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
           })(),
           readingTime: estimateReadingTime(content, lang),
           content,
-          contentHtml
+          contentHtml,
+          hreflang_en: data.hreflang_en,
+          hreflang_zh: data.hreflang_zh,
         })
       } catch (error) {
         console.error(`Error parsing ${filePath}:`, error)

@@ -7,6 +7,7 @@ tier: 3
 tags: ["Claude Opus", "Anthropic", "Large Language Models", "Context Window", "AI Tutorial"]
 description: "Get started with Claude Opus 4.6's massive 1 million token context window. Learn how to leverage this expanded capacity for complex tasks and long-form content creation."
 keywords: ["Claude Opus 4.6 1 million token context window tutorial"]
+hreflang_zh: /zh/blog/claude-opus-4-6-1-million-token-context-window
 ---
 
 Anthropic's Claude Opus 4.6, released on February 5th, 2026, boasts a game-changing 1 million token context window (in beta), dwarfing the previous 200K limit. This unlocks possibilities for handling significantly larger documents, complex codebases, and extended conversations. Here's a quick guide to get you started.
