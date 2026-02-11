@@ -85,7 +85,7 @@ const TWITTER_ACCOUNTS = [
   { handle: 'MistralAI', tier: 1, category: 'model_release' as Category },
   { handle: 'AIatMeta', tier: 1, category: 'model_release' as Category },
   // Tier 1 - Developer Platform (开发者平台/SDK)
-  { handle: 'huggingface', tier: 1, category: 'developer_platform' as Category },
+  // { handle: 'huggingface', tier: 1, category: 'developer_platform' as Category }, // Removed: low signal-to-noise
   { handle: 'OpenAIDevs', tier: 1, category: 'developer_platform' as Category },
   { handle: 'LangChainAI', tier: 1, category: 'developer_platform' as Category },
   // Tier 1 - Product (产品生态)
@@ -568,11 +568,33 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
   items.push(...anthropicNews);
   console.log(`   ✅ Anthropic News: ${anthropicNews.length} items`);
   
-  // 4. HuggingFace Blog (RSS)
+  // 4. HuggingFace Blog (RSS + like filtering)
   console.log('   - HuggingFace Blog (RSS)...');
+  const HF_BLOG_MIN_LIKES = 30;
   const hfBlogItems = await parseRSS('https://huggingface.co/blog/feed.xml');
-  for (const item of hfBlogItems.slice(0, 5)) {
-    // Try description, fallback to "New post: [title]"
+  // Fetch likes from blog page HTML
+  let hfLikesMap: Record<string, number> = {};
+  try {
+    const hfPageResp = await fetch('https://huggingface.co/blog');
+    const hfPageHtml = await hfPageResp.text();
+    // Extract likes: pattern like "/blog/slug ... NN\n ... February" 
+    const likeMatches = hfPageHtml.matchAll(/href="\/blog\/([^"]+)"[\s\S]*?(\d+)\s*\n\s*\n\s*(?:January|February|March|April|May|June|July|August|September|October|November|December)/g);
+    for (const m of likeMatches) {
+      hfLikesMap[m[1]] = parseInt(m[2]);
+    }
+  } catch (e) {
+    console.log('   ⚠️ Could not fetch HF blog likes, using all items');
+  }
+  let hfFiltered = 0;
+  for (const item of hfBlogItems.slice(0, 10)) {
+    // Extract slug from URL
+    const slug = item.link.replace('https://huggingface.co/blog/', '');
+    const likes = hfLikesMap[slug] ?? 999; // If we can't find likes, include it
+    if (likes < HF_BLOG_MIN_LIKES) {
+      console.log(`      ⏭️ HF Blog filtered (${likes} < ${HF_BLOG_MIN_LIKES} likes): ${item.title}`);
+      hfFiltered++;
+      continue;
+    }
     let summary = item.description?.replace(/<[^>]+>/g, '').trim().slice(0, 280);
     if (!summary || summary.length < 20) {
       summary = `New from Hugging Face: ${item.title}`;
@@ -589,7 +611,7 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
       detected_at: item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString(),
     });
   }
-  console.log(`   ✅ HuggingFace Blog: ${hfBlogItems.length} items`);
+  console.log(`   ✅ HuggingFace Blog: ${items.length - (items.length - hfBlogItems.slice(0,10).length + hfFiltered)} items (filtered ${hfFiltered} with <${HF_BLOG_MIN_LIKES} likes)`);
   
   console.log(`   ✅ Total official blog items: ${items.length}`);
   return items;
@@ -1377,7 +1399,9 @@ async function main() {
   // Scan all tiers
   const officialItems = await scanOfficialBlogs();  // Tier 1: Official blogs
   const twitterItems = await scanTwitter();         // Tier 2: Twitter
-  const hfItems = await scanHuggingFace();          // Tier 3: HuggingFace trending
+  // const hfItems = await scanHuggingFace();       // Tier 3: HuggingFace trending (disabled: low relevance)
+  const hfItems: NewsItem[] = [];
+  console.log('📡 Tier 3: HuggingFace Trending... ⏭️ Disabled (low relevance)');
   const hnItems = await scanHackerNews();           // Tier 4: Hacker News
   const ghItems = await scanGitHub();               // Tier 5: GitHub
 
