@@ -1,0 +1,53 @@
+{
+  "topic_id": "remotion-claude-code-skills",
+  "title": "Remotion Skills with Claude Code: AI-Powered Programmatic Video Generation",
+  "one_liner": "Remotion's official Agent Skills turn Claude Code into a video production tool — write React videos with natural language prompts.",
+  "key_points": [
+    "Remotion is a React framework for programmatic video creation (23k+ GitHub stars)",
+    "Claude Code Skills are structured instruction files that extend Claude's domain expertise",
+    "Remotion officially maintains Agent Skills that teach Claude best practices for video coding",
+    "The workflow: create-video → install skills → prompt in natural language → hot-reload preview",
+    "Code-generation approach to video is deterministic, version-controlled, and infinitely scalable",
+    "Went viral in Jan 2026 with developers creating launch videos from single prompts"
+  ],
+  "story_spine": {
+    "background": "Video creation has traditionally required either manual editing tools (Premiere, After Effects) or non-deterministic AI generation (Sora, Runway). Remotion bridged code and video with React, but required deep framework knowledge.",
+    "breakthrough": "Remotion released official Agent Skills for Claude Code, enabling AI agents to write correct Remotion code out of the box. Combined with Claude Code's skill auto-discovery, developers can now prompt videos in natural language.",
+    "mechanism": "Skills are SKILL.md files installed in .claude/skills/ that Claude Code reads automatically. Remotion's skills cover animation APIs, composition patterns, audio handling, fonts, TailwindCSS, and 3D integration. When a user describes a video, Claude applies these rules to generate valid React components.",
+    "significance": "This creates a new category: AI-assisted programmatic video. Unlike pixel-generation AI, the output is code — deterministic, version-controlled, data-driven, and batch-scalable. Developers can generate thousands of video variants from one template.",
+    "risks": "Complex scenes still need manual refinement. Audio synchronization can be tricky. The approach requires Node.js and React knowledge for debugging. Skills need updating as Remotion evolves."
+  },
+  "faq": [
+    {
+      "q": "Do I need to know React to use Remotion with Claude Code?",
+      "a": "Basic React knowledge helps for debugging and customization, but Claude Code with Remotion Skills can generate complete video components from natural language descriptions. You can iterate by prompting rather than coding directly."
+    },
+    {
+      "q": "How is this different from AI video tools like Sora or Runway?",
+      "a": "Sora/Runway generate pixels — you describe a scene and get a video file. Remotion + Claude Code generates code — you get React components that render deterministically, can be version-controlled, data-driven, and batch-scaled. The two approaches are complementary."
+    },
+    {
+      "q": "What kinds of videos work best with this approach?",
+      "a": "Motion graphics, data visualizations, branded intros/outros, social media clips, personalized marketing videos, and any template-based video that needs many variations. It's less suited for photorealistic or live-action content."
+    },
+    {
+      "q": "How do I install Remotion Skills for Claude Code?",
+      "a": "Run `npx skills add remotion-dev/skills` in your Remotion project, or select 'Yes' to install skills when creating a new project with `npx create-video@latest`. The skills are installed to `.claude/skills/remotion-best-practices/`."
+    }
+  ],
+  "references": [
+    { "title": "Remotion Official Site", "url": "https://www.remotion.dev/" },
+    { "title": "Remotion Agent Skills Documentation", "url": "https://www.remotion.dev/docs/ai/skills" },
+    { "title": "Remotion + Claude Code Guide", "url": "https://www.remotion.dev/docs/ai/claude-code" },
+    { "title": "Claude Code Skills Documentation", "url": "https://code.claude.com/docs/en/skills" },
+    { "title": "Agent Skills Open Standard", "url": "https://agentskills.io" },
+    { "title": "Remotion GitHub Repository", "url": "https://github.com/remotion-dev/remotion" }
+  ],
+  "seo": {
+    "slug": "remotion-claude-code-skills-ai-video-development",
+    "meta_title_en": "Remotion + Claude Code Skills: AI-Powered Programmatic Video Generation",
+    "meta_description_en": "Learn how Remotion's Agent Skills integrate with Claude Code to enable natural language video creation with React. Setup guide, code examples, and real-world workflows.",
+    "keywords_en": ["Remotion", "Claude Code", "Agent Skills", "programmatic video", "React video", "AI video generation", "SKILL.md", "motion graphics", "video automation"],
+    "keywords_zh": ["Remotion", "Claude Code", "AI视频生成", "React视频框架", "Agent Skills", "编程式视频", "动态视频", "代码生成视频"]
+  }
+}
