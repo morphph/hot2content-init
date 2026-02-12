@@ -1002,7 +1002,7 @@ function jaccardSimilarity(a: Set<string>, b: Set<string>): number {
 // Enhanced Deduplication
 // ============================================
 
-function isFreshTweet(tweet: any, maxAgeHours: number = 48): boolean {
+function isFreshTweet(tweet: any, maxAgeHours: number = 72): boolean {
   const dateStr = tweet.created_at || tweet.date;
   if (!dateStr) return true;
   const tweetDate = new Date(dateStr);
