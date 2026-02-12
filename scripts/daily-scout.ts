@@ -1105,14 +1105,25 @@ async function generateNewsletterWithOpus(items: NewsItem[], date: string): Prom
 
   const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
 
+## Title Rule (CRITICAL)
+Generate a compelling news-style headline as the H1 title. DO NOT use date-based titles.
+Good: "Anthropic Speeds Up Opus While OpenAI Turns On the Ads"
+Good: "Claude Code Gets Background Agents as GPT-5.3 Drops"
+Bad: "🌅 AI Daily Digest — ${date}"
+Bad: "AI Newsletter — February 12, 2026"
+
+## Opening (CRITICAL)
+After the title, write 1-2 sentences with attitude that set the scene. Name the biggest story. End with a "Today:" line previewing 2-3 key topics.
+Example: "Anthropic and OpenAI dropped competing models 20 minutes apart. Neither blinked.\n\nToday: faster Opus, ChatGPT ads, and a new open-source challenger."
+
 ## Categories (use exactly these 6 + 2 special sections)
 🧠 MODEL — New model releases & trends (include HuggingFace trending with likes and downloads)
 📱 APP — Consumer products & platform updates
 🔧 DEV — Developer tools, SDKs, APIs
 📝 TECHNIQUE — Practical tips, best practices, viral dev tips
 🚀 PRODUCT — New products, research, open-source projects
-🎓 MODEL LITERACY — Pick one technical concept worth explaining today, 3-4 sentences for non-technical readers
-🎯 PICK OF THE DAY — The single most impactful item today, 2-3 sentences on why it matters + link
+🎓 MODEL LITERACY — Pick one technical concept worth explaining today, 3-4 sentences for non-technical readers. MUST be a DIFFERENT topic from yesterday's newsletter.
+🎯 PICK OF THE DAY — The single most impactful item today, 2-3 sentences on why it matters + link. MUST NOT duplicate any item already in the sections above — pick something unique or provide a unique editorial angle.
 
 ## Writing rules
 1. Each item: bullet point (•), **bold title**, followed by source (— @handle or — Source Name)
@@ -1120,8 +1131,8 @@ async function generateNewsletterWithOpus(items: NewsItem[], date: string): Prom
 3. Include engagement data in parentheses (likes, RTs, downloads — show them separately, not combined)
 4. 3-5 most important items per category, skip empty categories
 5. Tone: professional, concise, opinionated — you're an editor curating, not a bot summarizing
-6. Forbidden phrases: "In this article", "Stay tuned", "Exciting times", "Let's dive in", "Game-changing"
-7. Output pure markdown, title: 🌅 AI Daily Digest — ${date}
+6. Forbidden phrases: "In this article", "Stay tuned", "Exciting times", "Let's dive in", "Game-changing", "In today's issue"
+7. Output pure markdown. The H1 title must be a news-style headline (see Title Rule above).
 8. Write entirely in English
 9. Every item MUST include a source link at the end: [Read more →](url)
 
