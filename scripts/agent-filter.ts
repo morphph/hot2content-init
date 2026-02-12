@@ -10,6 +10,29 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { execSync } from 'child_process';
 
+// ============================================
+// Cross-day dedup: extract bold titles from recent newsletters
+// ============================================
+
+function getRecentTitles(days: number = 3): string[] {
+  const titles: string[] = [];
+  const dir = path.join(process.cwd(), 'content', 'newsletters', 'en');
+  try {
+    const files = fs.readdirSync(dir).filter(f => f.endsWith('.md')).sort().slice(-days);
+    for (const file of files) {
+      const content = fs.readFileSync(path.join(dir, file), 'utf-8');
+      const titleMatches = content.matchAll(/\*\*([^*]+)\*\*/g);
+      for (const m of titleMatches) {
+        if (m[1].length > 15) titles.push(m[1]);
+      }
+    }
+    console.log(`   📂 Loaded ${titles.length} recent titles from ${files.length} newsletters for dedup`);
+  } catch {
+    console.log('   ⚠️ Could not read recent newsletters for title dedup');
+  }
+  return titles;
+}
+
 const OUTPUT_DIR = path.join(process.cwd(), 'output');
 
 interface RawItem {
@@ -52,12 +75,18 @@ async function agentFilter(items: RawItem[]): Promise<FilteredItem[]> {
     detected_at: item.detected_at,
   })), null, 2);
 
-  const prompt = `You are the editor-in-chief of an AI industry newsletter. From the following ${items.length} raw news items collected today, select the 8-12 most important ones.
+  // Get recent titles for cross-day dedup
+  const recentTitles = getRecentTitles(3);
+  const dedupSection = recentTitles.length > 0
+    ? `\n## CRITICAL: Cross-day Dedup\nThese are titles from the last 3 days' newsletters. DO NOT select items covering the same topic as these recent titles:\n${recentTitles.map(t => `- ${t}`).join('\n')}\n`
+    : '';
 
+  const prompt = `You are the editor-in-chief of an AI industry newsletter. From the following ${items.length} raw news items collected today, select the 8-12 most important ones.
+${dedupSection}
 ## Selection Criteria
 1. **Signal vs Noise** — Real news vs daily chatter. Product launches, model releases, major updates = signal. Generic tips, self-promotion, vague opinions = noise.
 2. **Impact** — How much does this affect AI developers, product builders, or the industry? Prioritize items with concrete implications.
-3. **Freshness** — Prefer items from the last 24 hours. Deprioritize old content that's been recycled.
+3. **Freshness** — Prefer items from the last 72 hours. Deprioritize old content that's been recycled.
 4. **Semantic Dedup** — Multiple items about the same event should be merged into one. Pick the best source.
 5. **Trend Detection** — If multiple sources discuss the same topic, that's a strong signal. Note it.
 
