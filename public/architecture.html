@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e2e8f0;padding:40px;width:800px}
+h1{text-align:center;font-size:28px;margin-bottom:8px;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#94a3b8;font-size:14px;margin-bottom:40px}
+.layer{border-radius:16px;padding:24px;margin-bottom:24px}
+.layer-title{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.data-layer{background:linear-gradient(135deg,#1e293b,#172032);border:1px solid #3b82f6}
+.data-layer .layer-title{color:#60a5fa}
+.nodes{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.node{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;font-size:12px;text-align:center;min-width:120px}
+.node .icon{font-size:20px;margin-bottom:4px}
+.node .label{font-weight:600;color:#f1f5f9}
+.node .desc{color:#94a3b8;font-size:10px;margin-top:2px}
+.arrow-down{text-align:center;font-size:24px;color:#475569;margin:8px 0}
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.track-a{background:linear-gradient(135deg,#1e1b2e,#2d1b4e);border:1px solid #a855f7}
+.track-a .layer-title{color:#c084fc}
+.track-b{background:linear-gradient(135deg,#1b2e1e,#1b3a1e);border:1px solid #22c55e}
+.track-b .layer-title{color:#4ade80}
+.publish-layer{background:linear-gradient(135deg,#2e1e1b,#3a2a1b);border:1px solid #f97316}
+.publish-layer .layer-title{color:#fb923c}
+.seo-layer{background:linear-gradient(135deg,#1b1e2e,#1b2040);border:1px solid #6366f1}
+.seo-layer .layer-title{color:#818cf8}
+.flow-step{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:12px}
+.flow-step .num{background:rgba(255,255,255,0.1);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.flow-step .text{color:#cbd5e1}
+.output-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.output-node{background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;text-align:center;font-size:11px}
+.output-node .path{color:#fbbf24;font-family:monospace;font-size:10px}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-left:8px}
+.tag-manual{background:rgba(168,85,247,0.2);color:#c084fc}
+.tag-auto{background:rgba(34,197,94,0.2);color:#4ade80}
+.types{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.types span{background:rgba(34,197,94,0.15);padding:4px 8px;border-radius:4px;font-size:10px}
+.meta{margin-top:12px;padding:8px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:11px;color:#94a3b8}
+.cost-bar{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:11px}
+.cost-label{color:#94a3b8}
+.cost-value{color:#4ade80;font-weight:700}
+</style>
+</head>
+<body>
+<h1>LoreAI Pipeline Architecture</h1>
+<p class="subtitle">Dual-Track Content Strategy — 双轨内容引擎</p>
+
+<div class="layer data-layer">
+<div class="layer-title">🔍 数据采集层 <span style="font-weight:400;color:#94a3b8;font-size:12px">daily-scout.ts · 每日 01:00 UTC</span></div>
+<div class="nodes">
+<div class="node"><div class="icon">𝕏</div><div class="label">Twitter/X</div><div class="desc">~20 KOL + 官方</div></div>
+<div class="node"><div class="icon">🤗</div><div class="label">HuggingFace</div><div class="desc">Blog ≥30 likes</div></div>
+<div class="node"><div class="icon">🟧</div><div class="label">Hacker News</div><div class="desc">AI/ML 相关</div></div>
+<div class="node"><div class="icon">🐙</div><div class="label">GitHub</div><div class="desc">Trending Repos</div></div>
+<div class="node"><div class="icon">📝</div><div class="label">官方博客</div><div class="desc">Anthropic/OpenAI/Google</div></div>
+</div>
+<div class="arrow-down">⬇</div>
+<div class="nodes">
+<div class="node" style="border-color:#3b82f6;min-width:300px"><div class="icon">🗄️</div><div class="label">SQLite: loreai.db</div><div class="desc">~300-400条/天 → URL去重 + 评分 → news_items</div></div>
+</div>
+</div>
+
+<div class="arrow-down">⬇</div>
+
+<div class="tracks">
+<div class="layer track-a">
+<div class="layer-title">🅰️ 品牌深度<span class="tag tag-manual">手动</span></div>
+<div class="flow-step"><div class="num">1</div><div class="text">👩 Bella 选题</div></div>
+<div class="flow-step"><div class="num">2</div><div class="text">🔬 Gemini Deep Research</div></div>
+<div class="flow-step"><div class="num">3</div><div class="text">🧠 Claude Opus 核心叙事</div></div>
+<div class="flow-step"><div class="num">4</div><div class="text">✍️ 双语写作 EN + ZH</div></div>
+<div class="flow-step"><div class="num">5</div><div class="text">📄 Tier 1 博客发布</div></div>
+<div class="meta">📅 每周 1-2 篇 · 3000-5000词<br/>🎯 品牌建设 + 行业权威性<br/>💰 ~$1/篇 (Gemini)</div>
+</div>
+
+<div class="layer track-b">
+<div class="layer-title">🅱️ SEO 长尾<span class="tag tag-auto">自动</span></div>
+<div class="flow-step"><div class="num">1</div><div class="text">🔑 Claude Opus 提取关键词</div></div>
+<div class="flow-step"><div class="num">2</div><div class="text">🔍 Brave Search 验证需求</div></div>
+<div class="flow-step"><div class="num">3</div><div class="text">🔀 内容类型路由</div></div>
+<div class="types">
+<span>📖 Glossary</span>
+<span>⚖️ Compare</span>
+<span>❓ FAQ</span>
+<span>📊 Tier 2</span>
+<span>⚡ Tier 3</span>
+</div>
+<div class="meta">📅 每天 5-10 篇 · 300-2500词<br/>🎯 搜索流量 + 长尾覆盖<br/>💰 免费 (Claude Max)</div>
+</div>
+</div>
+
+<div class="arrow-down">⬇</div>
+
+<div class="layer publish-layer">
+<div class="layer-title">📦 发布层 — loreai.dev</div>
+<div class="output-grid">
+<div class="output-node"><div style="font-size:18px">🔬</div><div class="label">/blog</div><div class="path">Tier 1 品牌</div></div>
+<div class="output-node"><div style="font-size:18px">📰</div><div class="label">/newsletter</div><div class="path">每日简报</div></div>
+<div class="output-node"><div style="font-size:18px">📚</div><div class="label">/resources</div><div class="path">Tier 2/3</div></div>
+<div class="output-node"><div style="font-size:18px">❓</div><div class="label">/faq</div><div class="path">FAQPage Schema</div></div>
+<div class="output-node"><div style="font-size:18px">📖</div><div class="label">/glossary</div><div class="path">术语百科</div></div>
+<div class="output-node"><div style="font-size:18px">⚖️</div><div class="label">/compare</div><div class="path">对比分析</div></div>
+</div>
+</div>
+
+<div class="arrow-down">⬇</div>
+
+<div class="layer seo-layer">
+<div class="layer-title">🔗 SEO 增强层</div>
+<div class="nodes">
+<div class="node"><div class="icon">📋</div><div class="label">JSON-LD</div><div class="desc">Article + FAQ + Breadcrumb</div></div>
+<div class="node"><div class="icon">🤖</div><div class="label">llms.txt</div><div class="desc">AEO 优化</div></div>
+<div class="node"><div class="icon">🗺️</div><div class="label">sitemap.xml</div><div class="desc">分层优先级</div></div>
+<div class="node"><div class="icon">📊</div><div class="label">GSC</div><div class="desc">Search Console 监控</div></div>
+</div>
+</div>
+
+<div class="cost-bar">
+<span class="cost-label">💰 月成本估算</span>
+<span><span class="cost-value">~$5-10/月</span> <span class="cost-label">Claude 通过 Max Plan 免费，仅 Gemini 付费</span></span>
+</div>
+</body>
+</html>
