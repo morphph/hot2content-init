@@ -2,18 +2,14 @@
 /**
  * Agent Filter — Claude Opus semantic filtering layer
  * 
- * Reads raw-items-{date}.json, calls Claude to pick 8-12 most important items,
+ * Reads raw-items-{date}.json, calls Claude via CLI (Max Plan),
  * outputs filtered-items-{date}.json
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as dotenv from 'dotenv';
-import Anthropic from '@anthropic-ai/sdk';
+import { execSync } from 'child_process';
 
-dotenv.config();
-
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const OUTPUT_DIR = path.join(process.cwd(), 'output');
 
 interface RawItem {
@@ -39,18 +35,11 @@ interface FilteredItem extends RawItem {
 }
 
 // ============================================
-// Agent Filter via Claude API
+// Agent Filter via Claude CLI (Max Plan)
 // ============================================
 
 async function agentFilter(items: RawItem[]): Promise<FilteredItem[]> {
-  if (!ANTHROPIC_API_KEY) {
-    console.log('⚠️ No ANTHROPIC_API_KEY found, falling back to rule-based filter');
-    return ruleBasedFilter(items);
-  }
-
-  console.log(`🤖 Calling Claude Opus to filter ${items.length} items...`);
-
-  const client = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+  console.log(`🤖 Calling Claude Opus via CLI to filter ${items.length} items...`);
 
   const rawData = JSON.stringify(items.map((item, i) => ({
     index: i,
@@ -73,7 +62,7 @@ async function agentFilter(items: RawItem[]): Promise<FilteredItem[]> {
 5. **Trend Detection** — If multiple sources discuss the same topic, that's a strong signal. Note it.
 
 ## Categories (assign exactly one per item)
-- LAUNCH — New model or product launches (e.g., "Claude 4 released", "GPT-5 announced")
+- LAUNCH — New model or product launches
 - TOOL — Developer tools, SDKs, frameworks, APIs
 - TECHNIQUE — Practical techniques, best practices, coding tips
 - RESEARCH — Papers, benchmarks, technical deep-dives
@@ -90,26 +79,33 @@ Return a JSON array. Each item:
   "action": "<1 short phrase: what the reader should do>"
 }
 
-Sort by agent_score descending. Pick 8-12 items. Return ONLY the JSON array, no markdown.
+Sort by agent_score descending. Pick 8-12 items. Return ONLY the JSON array, no markdown fences.
 
 ## Raw Items
 ${rawData}`;
 
   try {
-    const response = await client.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4000,
-      temperature: 0.3,
-      messages: [{ role: 'user', content: prompt }],
-    });
+    // Write prompt to temp file (too large for command line args)
+    const tmpPrompt = path.join(OUTPUT_DIR, '.agent-filter-prompt.txt');
+    fs.writeFileSync(tmpPrompt, prompt);
 
-    const text = response.content[0].type === 'text' ? response.content[0].text : '';
-    
+    const result = execSync(
+      `cat "${tmpPrompt}" | claude --model claude-opus-4-6 --output-format text --max-turns 1 --print`,
+      {
+        encoding: 'utf-8',
+        timeout: 120000, // 2 min timeout
+        env: { ...process.env, HOME: process.env.HOME || '/home/ubuntu' },
+      }
+    );
+
+    // Clean up temp file
+    fs.unlinkSync(tmpPrompt);
+
     // Parse JSON array from response
-    const jsonMatch = text.match(/\[[\s\S]*\]/);
+    const jsonMatch = result.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {
       console.log('⚠️ Could not parse Claude response, falling back to rule-based');
-      console.log('Raw response:', text.slice(0, 500));
+      console.log('Raw response:', result.slice(0, 500));
       return ruleBasedFilter(items);
     }
 
@@ -138,14 +134,14 @@ ${rawData}`;
     return filtered;
 
   } catch (e) {
-    console.log(`⚠️ Claude API error: ${e}`);
+    console.log(`⚠️ Claude CLI error: ${e}`);
     console.log('Falling back to rule-based filter');
     return ruleBasedFilter(items);
   }
 }
 
 // ============================================
-// Rule-based fallback (mirrors daily-scout logic)
+// Rule-based fallback
 // ============================================
 
 function ruleBasedFilter(items: RawItem[]): FilteredItem[] {
@@ -153,7 +149,6 @@ function ruleBasedFilter(items: RawItem[]): FilteredItem[] {
   
   return items
     .sort((a, b) => {
-      // Tier 1 first, then by score, then by engagement
       if (a.source_tier !== b.source_tier) return a.source_tier - b.source_tier;
       if (a.score !== b.score) return b.score - a.score;
       return (b.engagement || 0) - (a.engagement || 0);
