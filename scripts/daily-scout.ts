@@ -1391,13 +1391,110 @@ function getRecentNewsletterUrls(days: number): Set<string> {
 // Main
 // ============================================
 
+// ============================================
+// CLI Flags
+// ============================================
+const RAW_ONLY = process.argv.includes('--raw-only');
+const FROM_FILTERED = process.argv.includes('--from-filtered');
+
 async function main() {
   console.log('\n');
   console.log('═'.repeat(60));
   console.log('  🔥 LoreAI Daily Scout v2');
-  console.log('  AI Daily Digest 格式');
+  console.log(`  ${RAW_ONLY ? 'Mode: RAW-ONLY (collect + export)' : FROM_FILTERED ? 'Mode: FROM-FILTERED (write from filtered data)' : 'AI Daily Digest 格式'}`);
   console.log('═'.repeat(60));
   console.log('\n');
+
+  const OUTPUT_DIR = path.join(process.cwd(), 'output');
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  const date = new Date().toISOString().split('T')[0];
+
+  // --from-filtered: skip collection, read filtered data and write newsletter
+  if (FROM_FILTERED) {
+    const filteredPath = path.join(OUTPUT_DIR, `filtered-items-${date}.json`);
+    const rawPath = path.join(OUTPUT_DIR, `raw-items-${date}.json`);
+    
+    let items: NewsItem[];
+    if (fs.existsSync(filteredPath)) {
+      console.log(`📂 Reading filtered items from ${filteredPath}...`);
+      const data = JSON.parse(fs.readFileSync(filteredPath, 'utf-8'));
+      items = data.items || data;
+    } else if (fs.existsSync(rawPath)) {
+      console.log(`⚠️ No filtered items found, falling back to raw items...`);
+      const data = JSON.parse(fs.readFileSync(rawPath, 'utf-8'));
+      items = data.items || data;
+    } else {
+      console.log('❌ No filtered or raw items found. Run --raw-only first.');
+      process.exit(1);
+    }
+
+    console.log(`   📰 ${items.length} items to write`);
+
+    // Write newsletters
+    let digestMarkdown: string | null = await generateNewsletterWithOpus(items, date);
+    let newsletterContent: NewsletterContent | null = null;
+    if (!digestMarkdown) {
+      console.log('   🔄 Falling back to Gemini Flash...');
+      newsletterContent = await writeNewsletterWithGemini(items);
+    }
+
+    const byCategory: Record<Category, NewsItem[]> = {
+      model_release: [], developer_platform: [], official_blog: [], product_ecosystem: [],
+    };
+    for (const item of items) {
+      const cat = item.category as Category;
+      if (byCategory[cat]) byCategory[cat].push(item);
+    }
+
+    const digest: DailyDigest = {
+      date, generated_at: new Date().toISOString(), items: items.slice(0, 20),
+      by_category: byCategory,
+      sources_scanned: { tier_1_official: 0, tier_2_twitter: 0, tier_3_huggingface: 0, tier_4_hackernews: 0, tier_5_github: 0 },
+      markdown: '',
+    };
+
+    if (digestMarkdown) digest.markdown = digestMarkdown;
+    else if (newsletterContent) digest.markdown = generateMarkdownFromNewsletter(newsletterContent);
+    else digest.markdown = generateMarkdown(digest, items);
+
+    // Save outputs
+    fs.writeFileSync(path.join(OUTPUT_DIR, 'daily-digest.json'), JSON.stringify(digest, null, 2));
+    const mdPath = path.join(OUTPUT_DIR, `digest-${date}.md`);
+    fs.writeFileSync(mdPath, digest.markdown);
+    const newsletterDir = path.join(process.cwd(), 'src', 'data');
+    fs.mkdirSync(newsletterDir, { recursive: true });
+    fs.writeFileSync(path.join(newsletterDir, 'newsletter.json'), JSON.stringify(digest, null, 2));
+    console.log(`✅ Saved digest: ${mdPath}`);
+
+    // ZH newsletter
+    console.log('\n🇨🇳 Generating Chinese newsletter...');
+    let zhMarkdown: string | null = await generateNewsletterWithOpusZH(items, date);
+    if (!zhMarkdown) zhMarkdown = await writeNewsletterWithGeminiZH(items, date);
+    if (zhMarkdown) {
+      const zhMdPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);
+      fs.writeFileSync(zhMdPath, zhMarkdown);
+      console.log(`✅ Saved ZH digest: ${zhMdPath}`);
+    }
+
+    // DB persist
+    try {
+      const db = getDb(); initSchema(db);
+      insertNewsItems(db, items.map(item => ({
+        id: item.id, title: item.title, url: item.url, source: item.source,
+        source_tier: item.source_tier, category: item.category, score: item.score,
+        raw_summary: item.summary, detected_at: item.detected_at,
+      })));
+      const headline = digest.markdown.split('\n')[0]?.replace(/^#\s*/, '') || `LoreAI Daily — ${date}`;
+      const contentId = insertContent(db, {
+        type: 'newsletter', title: headline, slug: `newsletter-${date}`,
+        body_markdown: digest.markdown, language: 'en', status: 'published', source_type: 'auto',
+      });
+      linkContentSources(db, contentId, items.slice(0, 20).map(i => i.id));
+      closeDb();
+    } catch (e) { console.log(`⚠️ DB write error (non-fatal): ${e}`); }
+
+    return digest;
+  }
 
   // Scan all tiers
   const officialItems = await scanOfficialBlogs();  // Tier 1: Official blogs
@@ -1432,14 +1529,33 @@ async function main() {
   console.log(`   📰 ${fresh.length} fresh items (filtered ${deduped.length - fresh.length} already covered)`);
 
   // Save raw data
-  const OUTPUT_DIR = path.join(process.cwd(), 'output');
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const date = new Date().toISOString().split('T')[0];
   fs.writeFileSync(
     path.join(OUTPUT_DIR, `raw-${date}.json`),
     JSON.stringify({ date, items: fresh, stats: { total: allItems.length, deduped: deduped.length, fresh: fresh.length } }, null, 2)
   );
   console.log(`   💾 Saved raw data: output/raw-${date}.json`);
+
+  // --raw-only: export full raw items with all fields for agent-filter
+  if (RAW_ONLY) {
+    const rawItems = fresh.map(item => ({
+      id: item.id,
+      title: item.title,
+      summary: item.summary,
+      full_text: item.summary, // summary contains full tweet text (up to 500 chars)
+      url: item.url,
+      twitter_url: item.twitter_url || null,
+      source: item.source,
+      source_tier: item.source_tier,
+      category: item.category,
+      score: item.score,
+      engagement: item.engagement || 0,
+      detected_at: item.detected_at,
+    }));
+    const rawItemsPath = path.join(OUTPUT_DIR, `raw-items-${date}.json`);
+    fs.writeFileSync(rawItemsPath, JSON.stringify({ date, count: rawItems.length, items: rawItems }, null, 2));
+    console.log(`\n✅ RAW-ONLY mode complete: ${rawItems.length} items → ${rawItemsPath}`);
+    return { date, items: rawItems } as any;
+  }
 
   // Group by category first (for Gemini input)
   const byCategory: Record<Category, NewsItem[]> = {
