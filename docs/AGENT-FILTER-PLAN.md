@@ -131,12 +131,12 @@ npx tsx scripts/write-newsletter.ts
 | 环节 | 现在 | 改造后 |
 |------|------|--------|
 | 采集 | ~$0 (API free tier) | 不变 |
-| 筛选 | $0 (正则) | ~$0.02-0.05 (Sonnet, ~3K input tokens) |
+| 筛选 | $0 (正则) | ~$0.20-0.50 (Opus, ~3K input tokens) |
 | 英文写稿 | ~$0.01 (Flash) | 不变 |
 | 中文写稿 | ~$0.10 (Opus) | 不变 |
 | **日均总计** | ~$0.11 | ~$0.15 |
 
-增加不到 $0.05/天，月增 ~$1.5。
+增加 ~$0.20-0.50/天，月增 ~$10-15。质量优先。
 
 ---
 
@@ -152,13 +152,15 @@ npx tsx scripts/write-newsletter.ts
 
 ---
 
-## 🤔 待决策
+## ✅ 已决策（2026-02-12）
 
-1. **Agent 筛选用什么模型？** 建议 Sonnet（性价比最优），Opus 会贵 10x 但筛选不需要
-2. **Agent 筛选用 OpenClaw session 还是直接 API？** 建议直接 API（更简单、更可控）
-3. **要不要保留规则筛选作为 fallback？** 建议保留，API 失败时降级
-4. **分类从 4 个改成 6 个？** 建议改，AI News 的 6 分类更实用
+1. **Agent 筛选模型：Claude Opus** — 质量优先
+2. **分类：6 个** — LAUNCH / TOOL / TECHNIQUE / RESEARCH / INSIGHT / BUILD
+3. **保留规则筛选作为 fallback** — API 失败时降级
+4. **直接 API 调用**（不走 OpenClaw session）
 
----
-
-*等 Bella 确认方向后开始实施。*
+### 补充说明：Twitter 热点采集机制保留
+现有采集层通过两个渠道抓热门推文，改造中完全保留：
+- **关键词搜索**：`Claude Code`, `MCP server` 等，engagement > 1000 才入选
+- **关注账号列表**：31 个账号，tier 1 自动高优先级
+Agent 筛选层拿到的 raw data 已包含这些热推，且能做更好的语义去重和趋势合并。
