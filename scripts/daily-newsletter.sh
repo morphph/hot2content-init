@@ -20,11 +20,32 @@ notify() {
   echo "$message"
 }
 
-# Run the scout script
-echo "🔥 Starting daily scout for ${DATE}..."
-if ! npx tsx scripts/daily-scout.ts; then
-  notify "failed" "❌ daily-scout.ts failed for ${DATE}"
-  exit 1
+# Step 1: Collect raw items
+echo "🔥 Step 1: Collecting raw items for ${DATE}..."
+if npx tsx scripts/daily-scout.ts --raw-only; then
+  echo "✅ Raw items collected"
+  
+  # Step 2: Agent semantic filter
+  echo "🧠 Step 2: Running agent filter..."
+  if npx tsx scripts/agent-filter.ts; then
+    echo "✅ Agent filter complete"
+    
+    # Step 3: Write newsletter from filtered data
+    echo "✍️ Step 3: Writing newsletter from filtered data..."
+    if ! npx tsx scripts/daily-scout.ts --from-filtered; then
+      echo "⚠️ --from-filtered failed, falling back to full pipeline"
+      npx tsx scripts/daily-scout.ts
+    fi
+  else
+    echo "⚠️ Agent filter failed, falling back to full pipeline"
+    npx tsx scripts/daily-scout.ts
+  fi
+else
+  echo "⚠️ Raw collection failed, trying full pipeline..."
+  if ! npx tsx scripts/daily-scout.ts; then
+    notify "failed" "❌ daily-scout.ts failed for ${DATE}"
+    exit 1
+  fi
 fi
 
 # Copy EN digest
