@@ -115,20 +115,23 @@ ${rawData}`;
 
   try {
     // Write prompt to temp file (too large for command line args)
-    const tmpPrompt = path.join(OUTPUT_DIR, '.agent-filter-prompt.txt');
+    const tmpPrompt = path.join(OUTPUT_DIR, `.agent-filter-prompt-${Date.now()}.txt`);
     fs.writeFileSync(tmpPrompt, prompt);
+    console.log(`   📝 Wrote prompt to ${tmpPrompt} (${prompt.length} chars)`);
 
     const result = execSync(
-      `cat "${tmpPrompt}" | claude --model claude-opus-4-6 --output-format text --max-turns 1 --print`,
+      `cat '${tmpPrompt}' | claude --model claude-opus-4-6 --output-format text --max-turns 1 --print`,
       {
         encoding: 'utf-8',
-        timeout: 120000, // 2 min timeout
+        timeout: 180000, // 3 min timeout
         env: { ...process.env, HOME: process.env.HOME || '/home/ubuntu' },
+        maxBuffer: 10 * 1024 * 1024, // 10MB buffer
+        cwd: process.cwd(),
       }
     );
 
     // Clean up temp file
-    fs.unlinkSync(tmpPrompt);
+    try { fs.unlinkSync(tmpPrompt); } catch {}
 
     // Parse JSON array from response
     const jsonMatch = result.match(/\[[\s\S]*\]/);
