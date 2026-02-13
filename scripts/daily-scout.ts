@@ -1002,6 +1002,98 @@ async function scanGitHub(): Promise<NewsItem[]> {
 }
 
 // ============================================
+// Tier 6: Reddit
+// ============================================
+
+const REDDIT_SUBREDDITS = ['LocalLLaMA', 'ClaudeAI', 'MachineLearning', 'artificial'];
+
+async function scanReddit(): Promise<NewsItem[]> {
+  console.log('📡 Tier 6: Scanning Reddit...');
+  const items: NewsItem[] = [];
+
+  for (const subreddit of REDDIT_SUBREDDITS) {
+    try {
+      const response = await fetch(`https://old.reddit.com/r/${subreddit}/hot/.json?limit=10`, {
+        headers: {
+          'User-Agent': 'LoreAI/1.0 (by /u/loreai_bot)',
+          'Accept': 'application/json',
+        }
+      });
+
+      if (!response.ok) {
+        console.log(`   ⚠️ r/${subreddit} returned ${response.status} (Reddit may block cloud IPs)`);
+        continue;
+      }
+
+      const data = await response.json() as any;
+      const posts = data?.data?.children || [];
+
+      for (const post of posts) {
+        const item = post.data;
+        if (!item) continue;
+
+        // Filter: score > 50 and fresh
+        if (item.score <= 50) continue;
+        if (!isFreshItem(item.created_utc * 1000, FRESHNESS_HOURS)) continue;
+
+        const title = item.title || '';
+        const isRedditUrl = !item.url || /reddit\.com|redd\.it/i.test(item.url);
+
+        // Get summary
+        let summary = '';
+        if (isRedditUrl && item.selftext) {
+          summary = item.selftext.slice(0, 500);
+        } else if (!isRedditUrl && item.url) {
+          try {
+            summary = await fetchArticleSummary(item.url);
+          } catch {
+            summary = item.selftext?.slice(0, 500) || title;
+          }
+        } else {
+          summary = title;
+        }
+
+        // Category
+        let category: Category;
+        if (/model|release|benchmark|weights/i.test(title)) category = 'model_release';
+        else if (/tool|sdk|api|library|framework/i.test(title)) category = 'developer_platform';
+        else if (/paper|research|arxiv/i.test(title)) category = 'official_blog';
+        else category = 'product_ecosystem';
+
+        const score = Math.min(85, 50 + Math.floor(item.score / 100));
+
+        const postUrl = isRedditUrl
+          ? `https://www.reddit.com${item.permalink}`
+          : item.url;
+
+        items.push({
+          id: `reddit-${item.id}`,
+          title,
+          summary,
+          url: postUrl,
+          source: `Reddit r/${subreddit}`,
+          source_tier: 3,
+          category,
+          score,
+          engagement: item.score,
+          detected_at: new Date(item.created_utc * 1000).toISOString(),
+        });
+      }
+
+      console.log(`   ✅ r/${subreddit}: ${posts.length} posts checked`);
+    } catch (e) {
+      console.log(`   ❌ r/${subreddit} error: ${e}`);
+    }
+
+    // Rate limit
+    await new Promise(r => setTimeout(r, 2000));
+  }
+
+  console.log(`   📊 Reddit total: ${items.length} items`);
+  return items;
+}
+
+// ============================================
 // Low-Quality Tweet Filter
 // ============================================
 
@@ -1618,9 +1710,10 @@ async function main() {
   console.log('📡 Tier 3: HuggingFace Trending... ⏭️ Disabled (low relevance)');
   const hnItems = await scanHackerNews();           // Tier 4: Hacker News
   const ghItems = await scanGitHub();               // Tier 5: GitHub
+  const redditItems = await scanReddit();            // Tier 6: Reddit
 
   // Combine and deduplicate
-  const allItems = [...officialItems, ...twitterItems, ...hfItems, ...hnItems, ...ghItems];
+  const allItems = [...officialItems, ...twitterItems, ...hfItems, ...hnItems, ...ghItems, ...redditItems];
   console.log(`\n🔄 Deduplicating ${allItems.length} items...`);
   
   const deduped = deduplicate(allItems);
