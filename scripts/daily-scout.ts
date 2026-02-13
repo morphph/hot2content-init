@@ -1006,19 +1006,59 @@ async function scanGitHub(): Promise<NewsItem[]> {
 // ============================================
 
 const REDDIT_SUBREDDITS = ['LocalLLaMA', 'ClaudeAI', 'MachineLearning', 'artificial'];
+const REDDIT_CLIENT_ID = process.env.REDDIT_CLIENT_ID || '';
+const REDDIT_CLIENT_SECRET = process.env.REDDIT_CLIENT_SECRET || '';
+
+let redditAccessToken: string | null = null;
+
+async function getRedditToken(): Promise<string | null> {
+  if (redditAccessToken) return redditAccessToken;
+  if (!REDDIT_CLIENT_ID || !REDDIT_CLIENT_SECRET) {
+    console.log('   ⚠️ No Reddit OAuth credentials, trying unauthenticated...');
+    return null;
+  }
+  try {
+    const auth = Buffer.from(`${REDDIT_CLIENT_ID}:${REDDIT_CLIENT_SECRET}`).toString('base64');
+    const resp = await fetch('https://www.reddit.com/api/v1/access_token', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${auth}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'LoreAI/1.0 (by /u/morphph)',
+      },
+      body: 'grant_type=client_credentials',
+    });
+    if (!resp.ok) {
+      console.log(`   ⚠️ Reddit OAuth failed: ${resp.status}`);
+      return null;
+    }
+    const data = await resp.json() as any;
+    redditAccessToken = data.access_token;
+    console.log('   ✅ Reddit OAuth token obtained');
+    return redditAccessToken;
+  } catch (e) {
+    console.log(`   ⚠️ Reddit OAuth error: ${e}`);
+    return null;
+  }
+}
 
 async function scanReddit(): Promise<NewsItem[]> {
   console.log('📡 Tier 6: Scanning Reddit...');
   const items: NewsItem[] = [];
+  const token = await getRedditToken();
 
   for (const subreddit of REDDIT_SUBREDDITS) {
     try {
-      const response = await fetch(`https://old.reddit.com/r/${subreddit}/hot/.json?limit=10`, {
-        headers: {
-          'User-Agent': 'LoreAI/1.0 (by /u/loreai_bot)',
-          'Accept': 'application/json',
-        }
-      });
+      const url = token
+        ? `https://oauth.reddit.com/r/${subreddit}/hot?limit=10`
+        : `https://old.reddit.com/r/${subreddit}/hot/.json?limit=10`;
+      const headers: Record<string, string> = {
+        'User-Agent': 'LoreAI/1.0 (by /u/morphph)',
+        'Accept': 'application/json',
+      };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+
+      const response = await fetch(url, { headers });
 
       if (!response.ok) {
         console.log(`   ⚠️ r/${subreddit} returned ${response.status} (Reddit may block cloud IPs)`);
