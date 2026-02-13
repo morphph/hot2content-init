@@ -1001,40 +1001,37 @@ async function scanGitHub(): Promise<NewsItem[]> {
 
   try {
     // Q1: New repos gaining traction (last 7 days, 50+ stars)
+    // No isAIRepo pre-filter — let Opus agent filter decide relevance
     console.log('   🔍 Q1: New repos (7d, 50+ stars)...');
     const q1Items = await ghSearchQuery(`created:>${date7d} stars:>50`);
-    const q1AI = q1Items.filter(isAIRepo);
-    console.log(`      Found ${q1AI.length} AI repos / ${q1Items.length} total`);
-    allRepos.push(...q1AI);
+    console.log(`      Found ${q1Items.length} repos`);
+    allRepos.push(...q1Items);
 
     // Rate limit: 2s between requests (anonymous: 10 req/min)
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Q2: Rising mid-size repos (8-90 days old, 100-10000 stars, recently active)
-    console.log('   🔍 Q2: Rising repos (8-90d, 100-10k stars)...');
-    const q2Items = await ghSearchQuery(`stars:100..10000 created:${date90d}..${date7d} pushed:>${date3d}`);
-    const q2AI = q2Items.filter(isAIRepo);
-    console.log(`      Found ${q2AI.length} AI repos / ${q2Items.length} total`);
-    allRepos.push(...q2AI);
+    // Q2: Rising repos (8-90 days old, 100+ stars, recently active)
+    // No upper star limit — created date range already excludes ancient mega-repos
+    console.log('   🔍 Q2: Rising repos (8-90d, 100+ stars)...');
+    const q2Items = await ghSearchQuery(`stars:>100 created:${date90d}..${date7d} pushed:>${date3d}`);
+    console.log(`      Found ${q2Items.length} repos`);
+    allRepos.push(...q2Items);
 
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     // Q3: Resurgent repos (any age, 200+ stars, hot-topic keywords, recently active)
-    // Use OR logic: pick 2-3 high-signal keywords per query to avoid AND-ing all terms
+    // Individual keywords — no AI qualifier, Opus agent filter handles relevance
     console.log('   🔍 Q3: Resurgent repos (hot topics, 200+ stars)...');
     const q3Items: GHSearchRepo[] = [];
-    const topicGroups = [['mcp', 'agent'], ['skill', 'plugin'], ['memory', 'rag']];
-    for (const group of topicGroups) {
-      const kw = group.map(k => `"${k}"`).join(' ');
-      const batch = await ghSearchQuery(`${kw} stars:>200 pushed:>${date3d}`, 10);
+    const q3Keywords = ['mcp', 'agent', 'skill', 'plugin', 'memory', 'rag', 'claude code'];
+    for (const kw of q3Keywords) {
+      const batch = await ghSearchQuery(`"${kw}" stars:>200 pushed:>${date3d}`, 15);
+      console.log(`      "${kw}": ${batch.length} repos`);
       q3Items.push(...batch);
-      if (topicGroups.indexOf(group) < topicGroups.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-      }
+      await new Promise(resolve => setTimeout(resolve, 2000));
     }
-    const q3AI = q3Items.filter(isAIRepo);
-    console.log(`      Found ${q3AI.length} AI repos / ${q3Items.length} total`);
-    allRepos.push(...q3AI);
+    console.log(`      Total Q3: ${q3Items.length} repos`);
+    allRepos.push(...q3Items);
 
   } catch (e) {
     console.log(`   ❌ Error: ${e}`);
