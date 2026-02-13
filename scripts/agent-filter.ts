@@ -81,7 +81,9 @@ async function agentFilter(items: RawItem[]): Promise<FilteredItem[]> {
     ? `\n## CRITICAL: Cross-day Dedup\nThese are titles from the last 3 days' newsletters. DO NOT select items covering the same topic as these recent titles:\n${recentTitles.map(t => `- ${t}`).join('\n')}\n`
     : '';
 
-  const prompt = `You are the editor-in-chief of an AI industry newsletter. From the following ${items.length} raw news items collected today, select the 8-12 most important ones.
+  const prompt = `You are the editor-in-chief of an AI industry newsletter. From the following ${items.length} raw news items collected today, select the 20-25 most important ones.
+
+Ensure source diversity: include items from different source types (Twitter accounts, Twitter search, Reddit, Hacker News, official blogs). Do not let any single source dominate more than 40% of selections.
 ${dedupSection}
 ## Selection Criteria
 1. **Signal vs Noise** — Real news vs daily chatter. Product launches, model releases, major updates = signal. Generic tips, self-promotion, vague opinions = noise.
@@ -108,7 +110,7 @@ Return a JSON array. Each item:
   "action": "<1 short phrase: what the reader should do>"
 }
 
-Sort by agent_score descending. Pick 8-12 items. Return ONLY the JSON array, no markdown fences.
+Sort by agent_score descending. Pick 20-25 items. Return ONLY the JSON array, no markdown fences.
 
 ## Raw Items
 ${rawData}`;
@@ -185,7 +187,7 @@ function ruleBasedFilter(items: RawItem[]): FilteredItem[] {
       if (a.score !== b.score) return b.score - a.score;
       return (b.engagement || 0) - (a.engagement || 0);
     })
-    .slice(0, 12)
+    .slice(0, 25)
     .map(item => ({
       ...item,
       agent_category: mapCategory(item.category),
