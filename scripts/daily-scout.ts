@@ -110,6 +110,19 @@ const TWITTER_ACCOUNTS = [
 ];
 
 // PRD 分类 - 按重要性排序：模型发布 > 开发者平台 > 技术博客 > 产品生态
+// Freshness filter: skip items older than this
+const FRESHNESS_HOURS = 72;
+
+function isFreshItem(dateInput: string | number | Date, maxAgeHours: number = FRESHNESS_HOURS): boolean {
+  if (!dateInput) return true; // If no date, include by default
+  const d = typeof dateInput === 'number' 
+    ? new Date(dateInput * 1000)  // Unix timestamp (seconds)
+    : new Date(dateInput);
+  if (isNaN(d.getTime())) return true; // Can't parse → include
+  const ageMs = Date.now() - d.getTime();
+  return ageMs < maxAgeHours * 60 * 60 * 1000;
+}
+
 const CATEGORY_EMOJI: Record<Category, string> = {
   model_release: '🧠',
   developer_platform: '🔧',
@@ -506,6 +519,12 @@ async function fetchAnthropicNews(): Promise<NewsItem[]> {
       const title = match[3].trim();
       
       if (seen.has(slug) || !title || title.length < 5) continue;
+      
+      // Freshness filter
+      if (date && !isFreshItem(date)) {
+        console.log(`      ⏭️ Skipped old Anthropic News: "${title.slice(0, 50)}..." (${date})`);
+        continue;
+      }
       seen.add(slug);
       
       // Smart category detection: model releases vs general announcements
@@ -545,6 +564,12 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
     const isAI = /ai|gemini|model|deepmind|machine learning|neural/i.test(item.title + item.description);
     if (!isAI) continue;
     
+    // Freshness filter
+    if (item.pubDate && !isFreshItem(item.pubDate)) {
+      console.log(`      ⏭️ Skipped old Google AI post: "${item.title.slice(0, 50)}..."`);
+      continue;
+    }
+    
     items.push({
       id: `google-${Buffer.from(item.link).toString('base64').slice(0, 20)}`,
       title: item.title,
@@ -571,8 +596,9 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
   items.push(...anthropicNews);
   console.log(`   ✅ Anthropic News: ${anthropicNews.length} items`);
   
-  // 4. HuggingFace Blog (RSS + like filtering)
-  console.log('   - HuggingFace Blog (RSS)...');
+  // 4. HuggingFace Blog (RSS + like filtering) — DISABLED: low signal-to-noise ratio
+  console.log('   - HuggingFace Blog (RSS)... ⏭️ Disabled');
+  if (false) { // Keep code for future re-enabling
   const HF_BLOG_MIN_LIKES = 30;
   const hfBlogItems = await parseRSS('https://huggingface.co/blog/feed.xml');
   // Fetch likes from blog page HTML
@@ -615,6 +641,7 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
     });
   }
   console.log(`   ✅ HuggingFace Blog: ${items.length - (items.length - hfBlogItems.slice(0,10).length + hfFiltered)} items (filtered ${hfFiltered} with <${HF_BLOG_MIN_LIKES} likes)`);
+  } // end HuggingFace Blog disabled block
   
   console.log(`   ✅ Total official blog items: ${items.length}`);
   return items;
@@ -861,17 +888,37 @@ async function scanHackerNews(): Promise<NewsItem[]> {
         
         if (!isAI || story.score < 50) continue;
         
+        // Freshness filter: HN API provides `time` as Unix timestamp (seconds)
+        if (story.time && !isFreshItem(story.time)) {
+          console.log(`      ⏭️ Skipped old HN story: "${story.title.slice(0, 50)}..."`);
+          continue;
+        }
+        
         // Determine category (PRD分类)
         let category: Category = 'official_blog';  // 默认归类为技术博客
         if (/sdk|api|framework|library|developer|code/i.test(titleLower)) category = 'developer_platform';
         else if (/model|gpt|claude|llama|release|benchmark/i.test(titleLower)) category = 'model_release';
         else if (/app|product|launch|chatgpt|consumer/i.test(titleLower)) category = 'product_ecosystem';
         
+        // Fetch article summary from the original URL
+        const articleUrl = story.url || `https://news.ycombinator.com/item?id=${id}`;
+        let articleSummary = '';
+        if (story.url) {
+          try {
+            articleSummary = await fetchArticleSummary(story.url);
+          } catch {}
+        }
+        if (!articleSummary) {
+          articleSummary = `HN discussion: ${story.score} points, ${story.descendants || 0} comments`;
+        } else {
+          articleSummary = articleSummary.slice(0, 500) + ` (HN: ${story.score} pts, ${story.descendants || 0} comments)`;
+        }
+        
         items.push({
           id: `hn-${id}`,
           title: story.title,
-          summary: `HN discussion: ${story.score} points, ${story.descendants || 0} comments`,
-          url: story.url || `https://news.ycombinator.com/item?id=${id}`,
+          summary: articleSummary,
+          url: articleUrl,
           source: 'Hacker News',
           source_tier: 4,
           category,
@@ -1125,6 +1172,29 @@ Example: "Anthropic and OpenAI dropped competing models 20 minutes apart. Neithe
 🎓 MODEL LITERACY — Pick one technical concept worth explaining today, 3-4 sentences for non-technical readers. MUST be a DIFFERENT topic from yesterday's newsletter.
 🎯 PICK OF THE DAY — The single most impactful item today, 2-3 sentences on why it matters + link. MUST NOT duplicate any item already in the sections above — pick something unique or provide a unique editorial angle.
 
+## Writing Style Guide (CRITICAL)
+
+Write like a knowledgeable friend sharing what they found interesting, NOT like a news wire service.
+
+DO:
+- Use first person occasionally: "I found this fascinating because..."
+- Express genuine opinions: "This is the most important release this week, and here's why"
+- Be specific about implications: not "this is significant" but "this means teams can now X without Y"
+- Use conversational transitions between items
+- Vary sentence length and structure
+- Include "why you should care" naturally in each item
+
+DON'T:
+- Write like a press release: "Company X announced today..."
+- Use filler: "In today's issue", "Let's dive in", "Here's what you need to know"
+- Be vague: "This is an important development for the industry"
+- List items without connecting them
+- Every bullet starting with company name + verb
+
+REFERENCE STYLE (Ben's Bites):
+"My feed is loving GPT-5.3-Codex more — I prefer it some of the time; when opus gets stuck → get codex to sort it out, for planning and brainstorming → opus."
+NOT: "OpenAI released GPT-5.3-Codex, a new coding model optimized for agentic tasks."
+
 ## Writing rules
 1. Each item: bullet point (•), **bold title**, followed by source (— @handle or — Source Name)
 2. Each item: what happened + why it matters, 1-2 sentences
@@ -1214,6 +1284,22 @@ async function generateNewsletterWithOpusZH(items: NewsItem[], date: string): Pr
 4. 每个栏目 3-5 条最重要的内容，空栏目跳过
 5. 语气像懂技术的朋友在微信群里科普，不是机器人在搬运
 6. 如果涉及国产模型（Qwen、Kimi、GLM 等），自然融入对比视角
+
+## 写作风格指南（重要！）
+
+像一个懂技术的朋友在分享发现，不是新闻通稿。
+
+要：
+- 偶尔用第一人称："这个我试了一下，确实..."
+- 表达真实观点："这周最值得关注的就是这个，因为..."
+- 具体说影响：不要"这很重要"，而是"这意味着做 X 的团队可以省掉 Y"
+- 条目之间有连贯感
+- 自然带出"为什么你该关注"
+
+不要：
+- 新闻通稿腔："X 公司于近日发布..."
+- 套话："在本期中"、"让我们来看"
+- 空洞判断："这一发展对行业意义深远"
 
 ## 禁用词和语气规范
 ❌ 禁止使用："值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
