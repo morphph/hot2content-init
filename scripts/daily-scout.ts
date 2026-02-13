@@ -750,11 +750,24 @@ async function scanTwitter(): Promise<NewsItem[]> {
 
   // --- Twitter Search: catch viral/trending content ---
   const SEARCH_QUERIES = [
+    // 🤖 Agent
     'Claude Code',
-    'AI coding agent',
+    'AI agent',
     'AI agent framework',
     'MCP server',
+    // ⚡ Skills
+    'Claude Code skills',
+    // 💻 编码
+    'vibe coding',
+    // 🔧 工具
+    'AI devtools',
+    'LLM tools',
+    // 🏗️ 工程
+    'AI engineering',
+    // 🌐 开源
     'open source LLM',
+    // 💰 创业
+    'AI startup funding',
   ];
 
   const seenSearchIds = new Set(items.map(i => i.id));
