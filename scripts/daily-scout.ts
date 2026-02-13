@@ -909,7 +909,7 @@ async function scanHackerNews(): Promise<NewsItem[]> {
           } catch {}
         }
         if (!articleSummary) {
-          articleSummary = `HN discussion: ${story.score} points, ${story.descendants || 0} comments`;
+          articleSummary = `[No summary available] HN discussion: ${story.score} points, ${story.descendants || 0} comments`;
         } else {
           articleSummary = articleSummary.slice(0, 500) + ` (HN: ${story.score} pts, ${story.descendants || 0} comments)`;
         }
@@ -1338,6 +1338,13 @@ NOT: "OpenAI released GPT-5.3-Codex, a new coding model optimized for agentic ta
 8. Write entirely in English
 9. Every item MUST include a source link at the end: [Read more →](url)
 
+CRITICAL RULE — NO FABRICATION:
+You ONLY have the information provided below. If an item's summary is empty, says "[No summary available]", "HN discussion: X points", or contains no article content:
+- Write ONLY the title + source + engagement stats + link
+- DO NOT describe, interpret, or infer what the article is about
+- Example: "**ai;dr** sparked mass discussion on Hacker News (580 points, 230 comments). [Read more →](url)"
+If you are unsure what an article is about, say so honestly rather than guessing.
+
 ## Raw data (${items.length} items)
 ${rawData}`;
 
@@ -1443,6 +1450,13 @@ async function generateNewsletterWithOpusZH(items: NewsItem[], date: string): Pr
 8. 输出纯 markdown，H1 标题必须是新闻式标题（见上方标题规则）
 9. 全文使用中文撰写
 10. 每条必须在末尾包含来源链接：[查看详情 →](url)
+
+严格规则 — 禁止编造：
+你只能使用下方提供的信息。如果某条新闻的 summary 为空、包含"[No summary available]"、只有"HN discussion: X points"或没有文章内容：
+- 只写标题 + 来源 + 热度数据 + 链接
+- 不要描述、推测或编造文章内容
+- 例如："**ai;dr** 在 Hacker News 引发热议（580 赞，230 评论）。[查看详情 →](url)"
+如果你不确定文章内容，如实说明而不是猜测。
 
 ## 原始数据（${items.length} 条）
 ${rawData}`;
