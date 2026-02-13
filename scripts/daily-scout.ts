@@ -952,65 +952,117 @@ async function scanHackerNews(): Promise<NewsItem[]> {
 }
 
 // ============================================
-// Tier 5: GitHub Trending
+// Tier 5: GitHub Trending (via GitHub Search API)
 // ============================================
+// Three queries to cover different trending signals:
+//   Q1: New repos (7 days, 50+ stars) — discover brand new projects
+//   Q2: Rising repos (8-90 days, 100-10000 stars, recently active) — ecosystem trends
+//   Q3: Resurgent repos (any age, 200+ stars, hot-topic keywords) — old repos trending again
+// Issue #36: Replaced fragile HTML scraping with official GitHub Search API
+
+const GH_AI_KEYWORDS = /ai|llm|gpt|claude|model|machine.?learning|neural|transformer|agent|diffusion|embedding|rag|langchain|openai|anthropic|deep.?learning|mcp|copilot/i;
+const GH_HOT_TOPIC_KEYWORDS = ['memory', 'mcp', 'agent', 'skill', 'rag', 'workflow', 'copilot', 'plugin'];
+const GH_SEARCH_HEADERS = { 'Accept': 'application/vnd.github+json', 'User-Agent': 'Hot2Content/2.0' };
+
+interface GHSearchRepo {
+  full_name: string;
+  description: string | null;
+  stargazers_count: number;
+  html_url: string;
+  created_at: string;
+  language: string | null;
+  topics?: string[];
+}
+
+function isAIRepo(r: GHSearchRepo): boolean {
+  const text = `${r.full_name} ${r.description || ''} ${(r.topics || []).join(' ')}`;
+  return GH_AI_KEYWORDS.test(text);
+}
+
+async function ghSearchQuery(q: string, perPage: number = 30): Promise<GHSearchRepo[]> {
+  const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=${perPage}`;
+  const response = await fetch(url, { headers: GH_SEARCH_HEADERS });
+  if (!response.ok) {
+    console.log(`   ⚠️ GitHub Search API returned ${response.status}: ${await response.text()}`);
+    return [];
+  }
+  const data = await response.json();
+  return data.items || [];
+}
 
 async function scanGitHub(): Promise<NewsItem[]> {
-  console.log('📡 Tier 5: Scanning GitHub Trending...');
-  const items: NewsItem[] = [];
+  console.log('📡 Tier 5: Scanning GitHub Trending (Search API)...');
+  const allRepos: GHSearchRepo[] = [];
+
+  const now = Date.now();
+  const date7d = new Date(now - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+  const date3d = new Date(now - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+  const date90d = new Date(now - 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   try {
-    const response = await fetch('https://github.com/trending?since=daily', {
-      headers: { 'User-Agent': 'Hot2Content/2.0' }
-    });
+    // Q1: New repos gaining traction (last 7 days, 50+ stars)
+    console.log('   🔍 Q1: New repos (7d, 50+ stars)...');
+    const q1Items = await ghSearchQuery(`created:>${date7d} stars:>50`);
+    const q1AI = q1Items.filter(isAIRepo);
+    console.log(`      Found ${q1AI.length} AI repos / ${q1Items.length} total`);
+    allRepos.push(...q1AI);
 
-    if (!response.ok) {
-      console.log(`   ⚠️ GitHub returned ${response.status}`);
-      return items;
-    }
+    // Rate limit: 2s between requests (anonymous: 10 req/min)
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
-    const html = await response.text();
-    
-    // Extract repo info using regex
-    const repoPattern = /<h2 class="h3[^"]*">\s*<a href="\/([^"]+)"[^>]*>/g;
-    const descPattern = /<p class="col-[^"]*">([^<]+)<\/p>/g;
-    
-    const repos: string[] = [];
-    const descs: string[] = [];
-    
-    let match;
-    while ((match = repoPattern.exec(html)) !== null) {
-      repos.push(match[1]);
-    }
-    while ((match = descPattern.exec(html)) !== null) {
-      descs.push(match[1].trim());
-    }
+    // Q2: Rising mid-size repos (8-90 days old, 100-10000 stars, recently active)
+    console.log('   🔍 Q2: Rising repos (8-90d, 100-10k stars)...');
+    const q2Items = await ghSearchQuery(`stars:100..10000 created:${date90d}..${date7d} pushed:>${date3d}`);
+    const q2AI = q2Items.filter(isAIRepo);
+    console.log(`      Found ${q2AI.length} AI repos / ${q2Items.length} total`);
+    allRepos.push(...q2AI);
 
-    for (let i = 0; i < Math.min(repos.length, 10); i++) {
-      const repoPath = repos[i];
-      const desc = descs[i] || '';
-      
-      const isAI = /ai|llm|gpt|claude|model|machine.?learning|neural|transformer|agent/i.test(desc);
-      if (!isAI) continue;
-      
-      items.push({
-        id: `gh-${repoPath.replace('/', '-')}`,
-        title: repoPath,
-        summary: desc.slice(0, 200),
-        action: 'Star the repo',
-        url: `https://github.com/${repoPath}`,
-        source: 'GitHub Trending',
-        source_tier: 5,
-        category: 'developer_platform',  // GitHub 项目属于开发者平台
-        score: 60,
-        detected_at: new Date().toISOString(),
-      });
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Q3: Resurgent repos (any age, 200+ stars, hot-topic keywords, recently active)
+    // Use OR logic: pick 2-3 high-signal keywords per query to avoid AND-ing all terms
+    console.log('   🔍 Q3: Resurgent repos (hot topics, 200+ stars)...');
+    const q3Items: GHSearchRepo[] = [];
+    const topicGroups = [['mcp', 'agent'], ['skill', 'plugin'], ['memory', 'rag']];
+    for (const group of topicGroups) {
+      const kw = group.map(k => `"${k}"`).join(' ');
+      const batch = await ghSearchQuery(`${kw} stars:>200 pushed:>${date3d}`, 10);
+      q3Items.push(...batch);
+      if (topicGroups.indexOf(group) < topicGroups.length - 1) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
     }
+    const q3AI = q3Items.filter(isAIRepo);
+    console.log(`      Found ${q3AI.length} AI repos / ${q3Items.length} total`);
+    allRepos.push(...q3AI);
+
   } catch (e) {
     console.log(`   ❌ Error: ${e}`);
   }
 
-  console.log(`   ✅ Found ${items.length} AI repos`);
+  // Dedup by full_name
+  const seen = new Set<string>();
+  const deduped = allRepos.filter(r => {
+    if (seen.has(r.full_name)) return false;
+    seen.add(r.full_name);
+    return true;
+  });
+
+  // Convert to NewsItem format
+  const items: NewsItem[] = deduped.map(r => ({
+    id: `gh-${r.full_name.replace('/', '-')}`,
+    title: r.full_name,
+    summary: (r.description || '').slice(0, 200),
+    action: `Star the repo (⭐${r.stargazers_count})`,
+    url: r.html_url,
+    source: 'GitHub Trending',
+    source_tier: 5,
+    category: 'developer_platform' as const,
+    score: Math.min(90, 50 + Math.floor(r.stargazers_count / 100)),
+    detected_at: new Date().toISOString(),
+  }));
+
+  console.log(`   ✅ Found ${items.length} unique AI repos from GitHub`);
   return items;
 }
 
