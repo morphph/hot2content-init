@@ -7,6 +7,10 @@ definition: "一种多智能体系统，多个 AI 智能体在共享工作流中
 related: [context-window, adaptive-thinking]
 date: 2026-02-09
 source_topic: claude-opus-agent-teams
+keywords:
+  - "代理团队"
+  - "多代理协作"
+  - "Claude Code 代理团队"
 ---
 
 ## 什么是 Agent Teams？

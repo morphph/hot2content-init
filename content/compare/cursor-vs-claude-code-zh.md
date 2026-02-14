@@ -1,6 +1,11 @@
 ---
 title: "Cursor vs Claude Code：2026 全面对比"
+slug: cursor-vs-claude-code
 description: "Cursor 和 Claude Code 的全方位对比——功能、价格、开发者体验"
+keywords:
+  - "Cursor vs Claude Code"
+  - "AI 代码编辑器对比"
+  - "最佳 AI IDE 2026"
 model_a: "Cursor"
 model_b: "Claude Code"
 date: 2026-02-10

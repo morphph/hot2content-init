@@ -7,6 +7,10 @@ definition: "A reasoning mode in advanced AI models that dynamically adjusts com
 related: [context-window, agent-teams]
 date: 2026-02-09
 source_topic: claude-opus-adaptive-thinking
+keywords:
+  - "adaptive thinking AI"
+  - "Claude adaptive thinking"
+  - "AI reasoning modes"
 ---
 
 ## What is Adaptive Thinking?

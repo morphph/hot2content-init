@@ -7,6 +7,10 @@ definition: '语言模型在单次交互中能处理的最大 token（词/子词
 related: [agent-teams, adaptive-thinking]
 date: 2026-02-09
 source_topic: claude-opus-context-window
+keywords:
+  - "上下文窗口"
+  - "token 限制"
+  - "AI 上下文长度"
 ---
 
 ## 什么是上下文窗口？

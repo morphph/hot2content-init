@@ -1,6 +1,11 @@
 ---
 title: "Claude Opus 4.6 vs GPT-5.3 Codex：2026 全面对比"
+slug: claude-opus-4-6-vs-gpt-5-3-codex
 description: "Claude Opus 4.6 与 GPT-5.3 Codex 的全方位对比 — 基准测试、定价、功能"
+keywords:
+  - "Claude Opus 4.6 vs GPT-5.3 Codex"
+  - "AI 模型对比 2026"
+  - "SWE-bench 基准测试对比"
 model_a: "Claude Opus 4.6"
 model_b: "GPT-5.3 Codex"
 date: 2026-02-09

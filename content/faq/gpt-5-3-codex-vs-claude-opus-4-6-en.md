@@ -3,6 +3,11 @@ title: "GPT-5.3 Codex vs Claude Opus 4.6"
 description: "Frequently asked questions about GPT-5.3 Codex vs Claude Opus 4.6"
 date: 2026-02-09
 lang: en
+slug: gpt-5-3-codex-vs-claude-opus-4-6
+keywords:
+  - "GPT-5.3 Codex vs Claude Opus 4.6"
+  - "AI model comparison FAQ"
+  - "coding AI FAQ"
 ---
 
 ### What is GPT-5.3 Codex used for?

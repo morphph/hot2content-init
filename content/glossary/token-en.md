@@ -7,6 +7,10 @@ definition: "The basic unit of text that language models process — a subword p
 related: [context-window, prompt-engineering]
 date: 2026-02-10
 source_topic: token
+keywords:
+  - "token"
+  - "tokenization"
+  - "LLM tokens"
 ---
 
 ## What is a Token?

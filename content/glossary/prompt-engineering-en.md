@@ -7,6 +7,10 @@ definition: "The practice of designing and optimizing input prompts to elicit de
 related: [chain-of-thought, context-window, fine-tuning]
 date: 2026-02-10
 source_topic: prompt-engineering
+keywords:
+  - "prompt engineering"
+  - "AI prompting"
+  - "LLM prompts"
 ---
 
 ## What is Prompt Engineering?

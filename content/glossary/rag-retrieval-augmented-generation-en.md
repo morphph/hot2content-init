@@ -7,6 +7,10 @@ definition: "A technique that enhances LLM responses by retrieving relevant info
 related: [context-window, hallucination]
 date: 2026-02-10
 source_topic: rag
+keywords:
+  - "RAG"
+  - "retrieval augmented generation"
+  - "AI knowledge retrieval"
 ---
 
 ## What is RAG?

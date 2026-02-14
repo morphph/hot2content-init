@@ -7,6 +7,10 @@ definition: "AI 模型生成看起来合理、但实际上是错误的、捏造�
 related: [rag-retrieval-augmented-generation, prompt-engineering, fine-tuning]
 date: 2026-02-10
 source_topic: hallucination
+keywords:
+  - "AI 幻觉"
+  - "模型幻觉"
+  - "AI 准确性"
 ---
 
 ## 什么是 AI 幻觉？

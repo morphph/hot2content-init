@@ -7,6 +7,10 @@ definition: "一种软件开发范式，AI 代理使用终端、文件系统和 
 related: [agent-teams, mcp-model-context-protocol, swe-bench]
 date: 2026-02-10
 source_topic: agentic-coding
+keywords:
+  - "代理式编程"
+  - "自主 AI 编程"
+  - "AI 软件开发"
 ---
 
 ## 什么是代理式编程？

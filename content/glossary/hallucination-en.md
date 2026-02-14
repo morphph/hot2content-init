@@ -7,6 +7,10 @@ definition: "When an AI model generates information that sounds plausible but is
 related: [rag-retrieval-augmented-generation, prompt-engineering, fine-tuning]
 date: 2026-02-10
 source_topic: hallucination
+keywords:
+  - "AI hallucination"
+  - "model hallucination"
+  - "AI accuracy"
 ---
 
 ## What is AI Hallucination?

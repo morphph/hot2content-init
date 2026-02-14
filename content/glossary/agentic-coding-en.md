@@ -7,6 +7,10 @@ definition: "A software development paradigm where AI agents autonomously plan, 
 related: [agent-teams, mcp-model-context-protocol, swe-bench]
 date: 2026-02-10
 source_topic: agentic-coding
+keywords:
+  - "agentic coding"
+  - "autonomous AI coding"
+  - "AI software development"
 ---
 
 ## What is Agentic Coding?

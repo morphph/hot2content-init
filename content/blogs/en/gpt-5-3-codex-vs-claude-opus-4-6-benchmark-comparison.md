@@ -45,7 +45,7 @@ OpenAI has positioned GPT-5.3 Codex as a significant leap forward, emphasizing i
 GPT-5.3 Codex has demonstrated strong performance on coding-related benchmarks:
 
 *   **SWE-Bench Pro:** 56.8%
-*   **Terminal-Bench 2.0:** 77.3% (vs GPT-5.2 Codex 64.0%)
+*   **Terminal-Bench 2.0:** 77.3% per OpenAI (public leaderboard top entry: ~75.1%)
 *   **SWE-Bench Verified:** 80.0%
 *   **OSWorld-Verified:** 64.7%
 

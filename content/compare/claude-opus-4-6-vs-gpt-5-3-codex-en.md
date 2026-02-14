@@ -1,6 +1,12 @@
 ---
 title: "Claude Opus 4.6 vs GPT-5.3 Codex: Complete Comparison 2026"
+slug: claude-opus-4-6-vs-gpt-5-3-codex
 description: "Side-by-side comparison of Claude Opus 4.6 and GPT-5.3 Codex — benchmarks, pricing, features"
+keywords:
+  - "Claude Opus 4.6 vs GPT-5.3 Codex"
+  - "AI model comparison 2026"
+  - "SWE-bench benchmark comparison"
+  - "best AI coding model"
 model_a: "Claude Opus 4.6"
 model_b: "GPT-5.3 Codex"
 date: 2026-02-09

@@ -3,6 +3,11 @@ title: "百万 Token 上下文窗口"
 description: "关于百万 token 上下文窗口的常见问题：如何使用、局限性、最佳实践"
 date: 2026-02-10
 lang: zh
+slug: context-window-million-tokens
+keywords:
+  - "百万 token 上下文窗口"
+  - "1M 上下文窗口"
+  - "长上下文 AI"
 ---
 
 ### 什么是 100 万 token 上下文窗口？

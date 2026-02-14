@@ -7,6 +7,10 @@ definition: "一种开放协议，标准化 AI 模型连接外部工具、数据
 related: [function-calling, agentic-coding, agent-teams]
 date: 2026-02-10
 source_topic: mcp-protocol
+keywords:
+  - "模型上下文协议"
+  - "MCP"
+  - "AI 工具集成"
 ---
 
 ## 什么是 MCP（模型上下文协议）？

@@ -3,6 +3,11 @@ title: "2026 年 AI 编程代理"
 description: "关于 2026 年 AI 编程代理格局的常见问题"
 date: 2026-02-10
 lang: zh
+slug: ai-coding-agents-2026
+keywords:
+  - "AI 编程代理 2026"
+  - "最佳 AI 编程工具"
+  - "代理式开发"
 ---
 
 ### 什么是 AI 编程代理？

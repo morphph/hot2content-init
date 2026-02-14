@@ -1,6 +1,11 @@
 ---
 title: "Claude Code vs GitHub Copilot：2026 全面对比"
+slug: claude-code-vs-github-copilot
 description: "Claude Code 和 GitHub Copilot 的全方位对比——功能、价格、编程能力"
+keywords:
+  - "Claude Code vs GitHub Copilot"
+  - "AI 编程工具对比"
+  - "最佳 AI 编程助手 2026"
 model_a: "Claude Code"
 model_b: "GitHub Copilot"
 date: 2026-02-10

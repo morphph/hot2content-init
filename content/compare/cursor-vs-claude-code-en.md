@@ -1,6 +1,12 @@
 ---
 title: "Cursor vs Claude Code: Complete Comparison 2026"
+slug: cursor-vs-claude-code
 description: "Side-by-side comparison of Cursor and Claude Code — features, pricing, developer experience"
+keywords:
+  - "Cursor vs Claude Code"
+  - "AI code editor comparison"
+  - "best AI IDE 2026"
+  - "Cursor AI features"
 model_a: "Cursor"
 model_b: "Claude Code"
 date: 2026-02-10

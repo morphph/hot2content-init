@@ -3,6 +3,11 @@ title: "Claude Code Skills 技能系统"
 description: "关于 Claude Code Skills 的常见问题：什么是技能、如何创建、最佳实践"
 date: 2026-02-10
 lang: zh
+slug: claude-code-skills
+keywords:
+  - "Claude Code Skills 技能"
+  - "自定义 AI 技能"
+  - "Claude Code 配置"
 ---
 
 ### 什么是 Claude Code Skills（技能）？

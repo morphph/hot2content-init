@@ -7,6 +7,10 @@ definition: "一个评估 AI 编程代理的基准测试，通过测试其解决
 related: [agentic-coding, context-window]
 date: 2026-02-10
 source_topic: swe-bench-benchmark
+keywords:
+  - "SWE-bench"
+  - "软件工程基准测试"
+  - "AI 编程基准"
 ---
 
 ## 什么是 SWE-Bench？

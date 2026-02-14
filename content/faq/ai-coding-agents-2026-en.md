@@ -3,6 +3,11 @@ title: "AI Coding Agents in 2026"
 description: "Frequently asked questions about the AI coding agents landscape in 2026"
 date: 2026-02-10
 lang: en
+slug: ai-coding-agents-2026
+keywords:
+  - "AI coding agents 2026"
+  - "best AI coding tools"
+  - "agentic development"
 ---
 
 ### What are AI coding agents?

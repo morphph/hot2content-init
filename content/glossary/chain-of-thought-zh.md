@@ -7,6 +7,10 @@ definition: "一种提示策略，引导模型将复杂问题分解为中间推�
 related: [prompt-engineering, adaptive-thinking, hallucination]
 date: 2026-02-10
 source_topic: chain-of-thought
+keywords:
+  - "思维链"
+  - "CoT 提示"
+  - "AI 推理"
 ---
 
 ## 什么是思维链（Chain of Thought）？

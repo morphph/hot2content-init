@@ -7,6 +7,10 @@ definition: "An open protocol that standardizes how AI models connect to externa
 related: [function-calling, agentic-coding, agent-teams]
 date: 2026-02-10
 source_topic: mcp-protocol
+keywords:
+  - "Model Context Protocol"
+  - "MCP"
+  - "AI tool integration"
 ---
 
 ## What is MCP (Model Context Protocol)?

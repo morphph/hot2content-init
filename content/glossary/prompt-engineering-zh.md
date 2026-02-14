@@ -7,6 +7,10 @@ definition: "设计和优化输入提示以从语言模型中获取期望输出�
 related: [chain-of-thought, context-window, fine-tuning]
 date: 2026-02-10
 source_topic: prompt-engineering
+keywords:
+  - "提示工程"
+  - "AI 提示词"
+  - "LLM 提示"
 ---
 
 ## 什么是提示工程？

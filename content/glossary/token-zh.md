@@ -7,6 +7,10 @@ definition: "大语言模型处理文本的基本单位——一个子词片段�
 related: [context-window, prompt-engineering]
 date: 2026-02-10
 source_topic: token
+keywords:
+  - "token"
+  - "分词"
+  - "LLM token"
 ---
 
 ## 什么是 Token？

@@ -7,6 +7,10 @@ definition: "让大语言模型通过生成结构化 JSON 输出来调用外部�
 related: [mcp-model-context-protocol, agentic-coding, agent-teams]
 date: 2026-02-10
 source_topic: function-calling
+keywords:
+  - "函数调用"
+  - "AI 工具使用"
+  - "API 集成 AI"
 ---
 
 ## 什么是函数调用（Function Calling）？

@@ -3,6 +3,11 @@ title: "GPT-5.3 Codex vs Claude Opus 4.6"
 description: "关于 GPT-5.3 Codex vs Claude Opus 4.6 的常见问题解答"
 date: 2026-02-09
 lang: zh
+slug: gpt-5-3-codex-vs-claude-opus-4-6
+keywords:
+  - "GPT-5.3 Codex vs Claude Opus 4.6 常见问题"
+  - "AI 模型对比"
+  - "编程 AI FAQ"
 ---
 
 ### GPT-5.3 Codex是用来做什么的？

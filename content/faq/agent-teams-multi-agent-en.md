@@ -3,6 +3,11 @@ title: "Agent Teams & Multi-Agent Systems"
 description: "Frequently asked questions about Agent Teams in Claude Code and multi-agent architectures"
 date: 2026-02-10
 lang: en
+slug: agent-teams-multi-agent
+keywords:
+  - "Agent Teams multi-agent"
+  - "Claude Code Agent Teams"
+  - "multi-agent AI systems"
 ---
 
 ### What are Agent Teams in Claude Code?

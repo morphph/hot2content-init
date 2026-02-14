@@ -7,6 +7,10 @@ definition: "A multi-agent system where multiple AI agents coordinate and collab
 related: [context-window, adaptive-thinking]
 date: 2026-02-09
 source_topic: claude-opus-agent-teams
+keywords:
+  - "agent teams"
+  - "multi-agent collaboration"
+  - "Claude Code agent teams"
 ---
 
 ## What are Agent Teams?

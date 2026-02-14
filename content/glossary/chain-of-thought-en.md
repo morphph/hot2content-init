@@ -7,6 +7,10 @@ definition: "A prompting strategy where the model is encouraged to break down co
 related: [prompt-engineering, adaptive-thinking, hallucination]
 date: 2026-02-10
 source_topic: chain-of-thought
+keywords:
+  - "chain of thought"
+  - "CoT prompting"
+  - "AI reasoning"
 ---
 
 ## What is Chain of Thought?

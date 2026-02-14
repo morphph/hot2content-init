@@ -7,6 +7,10 @@ definition: "The process of further training a pre-trained language model on a s
 related: [prompt-engineering, rag-retrieval-augmented-generation]
 date: 2026-02-10
 source_topic: fine-tuning
+keywords:
+  - "fine-tuning"
+  - "model fine-tuning"
+  - "AI training"
 ---
 
 ## What is Fine-Tuning?

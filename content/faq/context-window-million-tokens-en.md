@@ -3,6 +3,11 @@ title: "1 Million Token Context Window"
 description: "Frequently asked questions about million-token context windows: how to use them, limitations, and best practices"
 date: 2026-02-10
 lang: en
+slug: context-window-million-tokens
+keywords:
+  - "million token context window"
+  - "1M context window"
+  - "long context AI"
 ---
 
 ### What is a 1 million token context window?

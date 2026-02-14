@@ -7,6 +7,10 @@ definition: "在特定数据集上进一步训练预训练语言模型的过程�
 related: [prompt-engineering, rag-retrieval-augmented-generation]
 date: 2026-02-10
 source_topic: fine-tuning
+keywords:
+  - "微调"
+  - "模型微调"
+  - "AI 训练"
 ---
 
 ## 什么是微调？

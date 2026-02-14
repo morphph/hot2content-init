@@ -7,6 +7,10 @@ definition: "A benchmark that evaluates AI coding agents by testing their abilit
 related: [agentic-coding, context-window]
 date: 2026-02-10
 source_topic: swe-bench-benchmark
+keywords:
+  - "SWE-bench"
+  - "software engineering benchmark"
+  - "AI coding benchmark"
 ---
 
 ## What is SWE-Bench?

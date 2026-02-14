@@ -7,6 +7,10 @@ definition: "一种在生成回答前从外部知识库检索相关信息来增�
 related: [context-window, hallucination]
 date: 2026-02-10
 source_topic: rag
+keywords:
+  - "RAG"
+  - "检索增强生成"
+  - "AI 知识检索"
 ---
 
 ## 什么是 RAG？

@@ -7,6 +7,10 @@ definition: "高级 AI 模型中的一种推理模式，根据任务复杂度动
 related: [context-window, agent-teams]
 date: 2026-02-09
 source_topic: claude-opus-adaptive-thinking
+keywords:
+  - "自适应思考 AI"
+  - "Claude 自适应思考"
+  - "AI 推理模式"
 ---
 
 ## 什么是自适应思考？

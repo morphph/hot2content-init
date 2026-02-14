@@ -1,6 +1,11 @@
 ---
 title: "Gemini 2.5 Pro vs Claude Opus 4.6：2026 全面对比"
+slug: gemini-2-5-pro-vs-claude-opus-4-6
 description: "Google Gemini 2.5 Pro 和 Claude Opus 4.6 的全方位对比——基准测试、价格、功能特性"
+keywords:
+  - "Gemini 2.5 Pro vs Claude Opus 4.6"
+  - "Google vs Anthropic AI 对比"
+  - "最佳 AI 模型 2026"
 model_a: "Gemini 2.5 Pro"
 model_b: "Claude Opus 4.6"
 date: 2026-02-10

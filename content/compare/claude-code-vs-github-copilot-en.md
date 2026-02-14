@@ -1,6 +1,12 @@
 ---
 title: "Claude Code vs GitHub Copilot: Complete Comparison 2026"
+slug: claude-code-vs-github-copilot
 description: "Side-by-side comparison of Claude Code and GitHub Copilot — features, pricing, coding capabilities"
+keywords:
+  - "Claude Code vs GitHub Copilot"
+  - "AI coding tool comparison 2026"
+  - "best AI coding assistant"
+  - "Claude Code features"
 model_a: "Claude Code"
 model_b: "GitHub Copilot"
 date: 2026-02-10

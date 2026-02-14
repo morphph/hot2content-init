@@ -7,6 +7,10 @@ definition: "A capability that allows LLMs to invoke external functions and tool
 related: [mcp-model-context-protocol, agentic-coding, agent-teams]
 date: 2026-02-10
 source_topic: function-calling
+keywords:
+  - "function calling"
+  - "tool use AI"
+  - "API integration AI"
 ---
 
 ## What is Function Calling?

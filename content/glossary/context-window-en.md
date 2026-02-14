@@ -7,6 +7,10 @@ definition: "The maximum number of tokens (words/subwords) a language model can 
 related: [agent-teams, adaptive-thinking]
 date: 2026-02-09
 source_topic: claude-opus-context-window
+keywords:
+  - "context window"
+  - "token limit"
+  - "AI context length"
 ---
 
 ## What is a Context Window?
