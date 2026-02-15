@@ -554,7 +554,7 @@ async function scanGitHub(): Promise<NewsItem[]> {
   const seen = new Set<string>();
   const deduped = allRepos.filter(r => { if (seen.has(r.full_name)) return false; seen.add(r.full_name); return true; });
   const items: NewsItem[] = deduped.map(r => ({
-    id: `gh-${r.full_name.replace('/', '-')}`, title: r.full_name,
+    id: `gh-${r.full_name.replace('/', '-')}`, title: `${r.full_name} (⭐${r.stargazers_count.toLocaleString()})`,
     summary: (r.description || '').slice(0, 200),
     action: `Star the repo (⭐${r.stargazers_count})`,
     url: r.html_url, source: 'GitHub Trending', source_tier: 5,

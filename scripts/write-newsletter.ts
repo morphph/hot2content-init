@@ -89,7 +89,10 @@ async function agentFilter(items: RawItem[]): Promise<FilteredItem[]> {
 
 When items from different days cover the same event, prefer the one with the most complete information or highest engagement. Do NOT select the same story twice just because it appeared on multiple days.
 
-Ensure source diversity: include items from different source types (Twitter accounts, Twitter search, Reddit, Hacker News, official blogs). Do not let any single source dominate more than 40% of selections.
+## Source Quotas (STRICT)
+- **Reddit** (all subreddits combined): MAX 2 items. Only select Reddit posts that contain genuinely unique, high-quality information not available from any other source.
+- **GitHub Trending**: MAX 3-4 items. Prioritize repos with high stars AND clear relevance to AI practitioners. Include the repo description and star count in your assessment.
+- **Twitter/Official blogs/Hacker News**: No hard cap, but ensure diversity across these sources. Do not let any single Twitter account dominate more than 3 items.
 ${dedupSection}
 ## Selection Criteria
 1. **Signal vs Noise** — Real news vs daily chatter. Product launches, model releases, major updates = signal. Generic tips, self-promotion, vague opinions = noise.
