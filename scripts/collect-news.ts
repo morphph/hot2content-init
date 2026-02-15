@@ -69,6 +69,7 @@ const TWITTER_ACCOUNTS = [
   { handle: 'claudeai', tier: 1, category: 'product_ecosystem' as Category },
   { handle: 'ChatGPTapp', tier: 1, category: 'product_ecosystem' as Category },
   { handle: 'bcherny', tier: 1, category: 'developer_platform' as Category },
+  { handle: 'trq212', tier: 1, category: 'developer_platform' as Category },
   { handle: 'alexalbert__', tier: 1, category: 'product_ecosystem' as Category },
   { handle: 'ErikSchluntz', tier: 1, category: 'developer_platform' as Category },
   { handle: 'mikeyk', tier: 1, category: 'product_ecosystem' as Category },
