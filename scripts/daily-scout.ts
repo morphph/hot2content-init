@@ -552,6 +552,92 @@ async function fetchAnthropicNews(): Promise<NewsItem[]> {
   return items;
 }
 
+async function fetchOpenAIChangelog(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  try {
+    const response = await fetch('https://developers.openai.com/api/docs/changelog', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Accept': 'text/html,application/xhtml+xml'
+      }
+    });
+    if (!response.ok) return items;
+    const html = await response.text();
+
+    // Parse changelog entries: look for date + Feature/Update/Fix + description patterns
+    // The page has entries like: "Feb 10\n\nFeature\n...\nDescription text"
+    // We extract date, type, and description
+    const months: Record<string, number> = {
+      'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+      'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+    };
+
+    // Simple text extraction - strip HTML tags
+    const text = html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+                     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+                     .replace(/<[^>]+>/g, '\n')
+                     .replace(/\n{3,}/g, '\n\n');
+
+    // Find entries with dates like "Feb 10" followed by Feature/Update/Fix
+    const entryPattern = /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})\s*\n\s*\n?\s*(Feature|Update|Fix|Announcement)\s*\n([\s\S]*?)(?=(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s*\n|###\s|$)/g;
+    let match;
+    const currentYear = new Date().getFullYear();
+    const seen = new Set<string>();
+
+    while ((match = entryPattern.exec(text)) !== null && items.length < 8) {
+      const monthStr = match[1];
+      const day = parseInt(match[2]);
+      const entryType = match[3];
+      const body = match[4].trim();
+
+      const monthNum = months[monthStr];
+      if (monthNum === undefined) continue;
+      const entryDate = new Date(currentYear, monthNum, day);
+
+      if (!isFreshItem(entryDate)) continue;
+
+      // Extract first meaningful line as title
+      const lines = body.split('\n').map(l => l.trim()).filter(l => l.length > 10);
+      if (lines.length === 0) continue;
+
+      // Find the description line (skip model/endpoint tags)
+      let title = '';
+      let summary = '';
+      for (const line of lines) {
+        // Skip lines that are just model names or endpoints
+        if (/^(gpt-|v1\/|chatgpt-|sora-|dall-e|o[0-9]|claude)/i.test(line) && line.length < 40) continue;
+        if (!title) {
+          title = line.slice(0, 120);
+        } else if (!summary) {
+          summary = line.slice(0, 300);
+        }
+      }
+      if (!title) continue;
+
+      const slug = `openai-changelog-${monthStr.toLowerCase()}${day}-${title.slice(0, 30).replace(/[^a-zA-Z0-9]/g, '-')}`;
+      if (seen.has(slug)) continue;
+      seen.add(slug);
+
+      items.push({
+        id: slug,
+        title: `[OpenAI ${entryType}] ${title}`,
+        summary: summary || title,
+        full_text: body.slice(0, 500),
+        url: 'https://developers.openai.com/api/docs/changelog',
+        source: 'OpenAI Changelog',
+        source_tier: 1,
+        category: entryType === 'Feature' ? 'developer_platform' as Category : 'product_ecosystem' as Category,
+        score: entryType === 'Feature' ? 92 : 85,
+        engagement: 0,
+        detected_at: entryDate.toISOString(),
+      });
+    }
+  } catch (e) {
+    console.log(`   ⚠️ OpenAI Changelog fetch error: ${e}`);
+  }
+  return items;
+}
+
 async function scanOfficialBlogs(): Promise<NewsItem[]> {
   console.log('📡 Tier 1: Scanning Official Blogs...');
   const items: NewsItem[] = [];
@@ -643,6 +729,12 @@ async function scanOfficialBlogs(): Promise<NewsItem[]> {
   console.log(`   ✅ HuggingFace Blog: ${items.length - (items.length - hfBlogItems.slice(0,10).length + hfFiltered)} items (filtered ${hfFiltered} with <${HF_BLOG_MIN_LIKES} likes)`);
   } // end HuggingFace Blog disabled block
   
+  // 5. OpenAI Platform Changelog
+  console.log('   - OpenAI Platform Changelog...');
+  const changelogItems = await fetchOpenAIChangelog();
+  items.push(...changelogItems);
+  console.log(`   ✅ OpenAI Changelog: ${changelogItems.length} items`);
+
   console.log(`   ✅ Total official blog items: ${items.length}`);
   return items;
 }
@@ -768,6 +860,10 @@ async function scanTwitter(): Promise<NewsItem[]> {
     'open source LLM',
     // 💰 创业
     'AI startup funding',
+    // 🔌 API / Platform (catch product updates & changelogs)
+    'OpenAI Responses API',
+    'Claude API',
+    'OpenAI skills',
   ];
 
   const seenSearchIds = new Set(items.map(i => i.id));
