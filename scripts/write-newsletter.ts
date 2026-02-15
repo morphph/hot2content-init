@@ -356,8 +356,22 @@ async function main() {
     process.exit(1);
   }
 
+  // Pre-filter: hard caps on Reddit and GitHub before sending to agent
+  const githubItems = dbItems.filter(i => i.source === 'GitHub Trending');
+  const redditItems = dbItems.filter(i => i.source.startsWith('Reddit'));
+  const otherItems = dbItems.filter(i => i.source !== 'GitHub Trending' && !i.source.startsWith('Reddit'));
+
+  // GitHub: top 3 by score (score correlates with stars)
+  const topGithub = githubItems.sort((a, b) => b.score - a.score).slice(0, 3);
+  // Reddit: top 2 by score
+  const topReddit = redditItems.sort((a, b) => b.score - a.score).slice(0, 2);
+
+  const curatedItems = [...otherItems, ...topGithub, ...topReddit];
+  console.log(`   Pre-filter: GitHub ${githubItems.length} → ${topGithub.length}, Reddit ${redditItems.length} → ${topReddit.length}`);
+  console.log(`   Sending ${curatedItems.length} items to agent filter`);
+
   // Step 2: Agent filter
-  const filtered = await agentFilter(dbItems);
+  const filtered = await agentFilter(curatedItems);
   console.log(`\n✅ Filtered: ${dbItems.length} → ${filtered.length} items`);
 
   // Save filtered output
