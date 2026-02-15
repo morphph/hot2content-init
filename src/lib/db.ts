@@ -289,6 +289,39 @@ export function upsertTopicIndex(db: Database.Database, topic: {
   });
 }
 
+/**
+ * Get recent news items with full fields (for newsletter writing)
+ */
+export function getRecentItemsFull(db: Database.Database, hours: number = 72): Array<{
+  id: string;
+  title: string;
+  url: string;
+  source: string;
+  source_tier: number;
+  category: string;
+  score: number;
+  raw_summary: string;
+  detected_at: string;
+}> {
+  const rows = db.prepare(
+    `SELECT id, title, url, source, source_tier, category, score, raw_summary, detected_at
+     FROM news_items
+     WHERE detected_at > datetime('now', '-' || ? || ' hours')
+     ORDER BY detected_at DESC`
+  ).all(hours) as Array<{
+    id: string;
+    title: string;
+    url: string;
+    source: string;
+    source_tier: number;
+    category: string;
+    score: number;
+    raw_summary: string;
+    detected_at: string;
+  }>;
+  return rows;
+}
+
 export function closeDb(): void {
   if (_db) {
     _db.close();
