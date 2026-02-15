@@ -44,6 +44,11 @@ trend-scout → dedup-checker → researcher → narrative-architect → (writer
 - KIMI_API_KEY — Kimi K2.5 API (或 MOONSHOT_API_KEY)
 - TWITTER_API_KEY — twitterapi.io API
 
+## 开发规范
+- 所有架构改动、新数据源、Prompt 优化、质量控制策略变更必须记录到 `docs/CHANGELOG.md`
+- 格式：日期 + 改动标题 + 原因 + 具体变更 + 已知问题
+- 便于将来优化时查阅历史决策
+
 ## 质量标准
 - Core Narrative 必须通过 validate-narrative.ts
 - SEO ❌ 项必须修复
