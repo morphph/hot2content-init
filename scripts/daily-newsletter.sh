@@ -11,7 +11,7 @@ export NVM_DIR="/home/ubuntu/.nvm"
 cd /home/ubuntu/hot2content-init
 source .env
 
-DATE=$(date -u +%Y-%m-%d)
+DATE=$(TZ='Asia/Singapore' date +%Y-%m-%d)
 STATUS_FILE="/home/ubuntu/hot2content-init/logs/last-run-status.json"
 mkdir -p logs
 

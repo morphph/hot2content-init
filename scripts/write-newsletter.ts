@@ -335,7 +335,7 @@ ${rawData}`;
 // ============================================
 
 async function main() {
-  const date = new Date().toISOString().split('T')[0];
+  const date = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' });
 
   console.log('\n');
   console.log('═'.repeat(60));
