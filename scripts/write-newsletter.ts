@@ -245,7 +245,7 @@ ${rawData}`;
     const tmpPrompt = path.join('/tmp', `opus-prompt-${Date.now()}.txt`);
     fs.writeFileSync(tmpPrompt, prompt);
     const result = execSync(
-      `cat "${tmpPrompt}" | claude -p --verbose`,
+      `cat "${tmpPrompt}" | claude -p --output-format text --max-turns 1 --print`,
       { timeout: 5 * 60 * 1000, maxBuffer: 1024 * 1024, env: { ...process.env }, shell: '/bin/bash' }
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
@@ -313,15 +313,16 @@ ${rawData}`;
     const tmpPrompt = path.join('/tmp', `opus-prompt-zh-${Date.now()}.txt`);
     fs.writeFileSync(tmpPrompt, prompt);
     const result = execSync(
-      `cat "${tmpPrompt}" | claude -p --verbose`,
+      `cat "${tmpPrompt}" | claude -p --output-format text --max-turns 1 --print`,
       { timeout: 5 * 60 * 1000, maxBuffer: 1024 * 1024, env: { ...process.env }, shell: '/bin/bash' }
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
     const cleaned = result.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
-    if (cleaned && cleaned.length > 200) {
+    if (cleaned && cleaned.length > 500) {
       console.log(`   ✅ ZH newsletter: ${cleaned.length} chars`);
       return cleaned;
     }
+    console.log(`   ⚠️ ZH output too short (${cleaned.length} chars), may be meta-summary`);
     return null;
   } catch (e) {
     console.log(`   ⚠️ Opus ZH failed: ${e}`);
