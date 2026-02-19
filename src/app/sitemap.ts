@@ -5,6 +5,7 @@ import { getAllFAQTopics, getAllQuestionParams } from '@/lib/faq'
 import { getGlossaryTerms } from '@/lib/glossary'
 import { getAllCompares } from '@/lib/compare'
 import { getTopicClusters } from '@/lib/topic-cluster'
+import { getAllTimelines } from '@/lib/timeline'
 import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
@@ -215,6 +216,39 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
       },
     ]),
+    // Timeline pages
+    ...(() => {
+      const timelines = getAllTimelines()
+      if (timelines.length === 0) return []
+      return [
+        {
+          url: `${BASE_URL}/en/timeline`,
+          lastModified: new Date(),
+          changeFrequency: 'daily' as const,
+          priority: 0.7,
+        },
+        {
+          url: `${BASE_URL}/zh/timeline`,
+          lastModified: new Date(),
+          changeFrequency: 'daily' as const,
+          priority: 0.7,
+        },
+        ...timelines.flatMap((t) => [
+          {
+            url: `${BASE_URL}/en/timeline/${t.slug}`,
+            lastModified: new Date(t.lastUpdated),
+            changeFrequency: 'daily' as const,
+            priority: 0.6,
+          },
+          {
+            url: `${BASE_URL}/zh/timeline/${t.slug}`,
+            lastModified: new Date(t.lastUpdated),
+            changeFrequency: 'daily' as const,
+            priority: 0.6,
+          },
+        ]),
+      ]
+    })(),
     ...newsletterUrls,
     ...blogUrls,
   ]

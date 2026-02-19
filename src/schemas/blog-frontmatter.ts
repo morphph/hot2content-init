@@ -24,6 +24,7 @@ export const blogFrontmatterSchema = z.object({
   description: z.string(),
   keywords: z.array(z.string()).default([]),
   date: z.union([z.string(), z.date()]),
+  updated: z.union([z.string(), z.date()]).optional(),
   lang: z.string().optional(),
   tier: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),
   hreflang_en: z.string().optional(),
