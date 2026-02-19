@@ -1,13 +1,26 @@
 #!/usr/bin/env tsx
 /**
- * Gemini 2.5 Pro Deep Research API Caller
+ * Gemini 2.5 Pro Research — NON-DEEP FALLBACK
  *
- * Reads topic from input/topic.json, performs deep research using Gemini 2.5 Pro,
- * and outputs a comprehensive research report to output/research-report.md.
+ * This is a lightweight, non-deep research fallback that uses the standard
+ * Gemini 2.5 Pro generateContent API (single-turn, no web search agent).
+ *
+ * The real Deep Research implementation that uses the Interactions API with
+ * background polling and actual web search is in:
+ *   scripts/research-gemini-deep.py
+ *
+ * Use this script only when:
+ *   - The Python Deep Research script is unavailable
+ *   - You need a quick, lower-cost research pass (~$0.05 vs ~$1)
+ *   - The topic doesn't require real-time web search results
+ *
+ * Reads topic from input/topic.json, performs research using Gemini 2.5 Pro,
+ * and outputs a research report to output/research-report.md.
  *
  * Usage: npx tsx scripts/gemini-research.ts
  */
 
+import 'dotenv/config';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -205,43 +218,14 @@ Begin your deep research now.`;
 }
 
 /**
- * Load environment variables from .env file
- */
-function loadEnv(): Map<string, string> {
-  const envPath = path.join(process.cwd(), '.env');
-  const envVars = new Map<string, string>();
-
-  if (!fs.existsSync(envPath)) {
-    console.warn('⚠️  Warning: .env file not found');
-    return envVars;
-  }
-
-  const envContent = fs.readFileSync(envPath, 'utf-8');
-  const lines = envContent.split('\n');
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (trimmed && !trimmed.startsWith('#')) {
-      const [key, ...valueParts] = trimmed.split('=');
-      if (key && valueParts.length > 0) {
-        envVars.set(key.trim(), valueParts.join('=').trim());
-      }
-    }
-  }
-
-  return envVars;
-}
-
-/**
  * Main execution function
  */
 async function main() {
   console.log('\n🔬 Gemini 2.5 Pro Deep Research\n');
   console.log('='.repeat(60) + '\n');
 
-  // Load environment variables
-  const env = loadEnv();
-  const apiKey = env.get('GEMINI_API_KEY') || process.env.GEMINI_API_KEY;
+  // Load API key from environment (dotenv/config loaded at top)
+  const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey) {
     console.error('❌ Error: GEMINI_API_KEY not found in .env file or environment');

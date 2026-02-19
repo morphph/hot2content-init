@@ -5,6 +5,7 @@ node_modules/
 
 # Pipeline working directory (temporary, regenerated each run)
 output/
+!output/topic-index.json
 
 # Pipeline inputs (regenerated each run)
 input/topic.json
@@ -17,7 +18,14 @@ input/dedup-report.json
 
 data/*.db
 data/*.db-journal
+*.db
+*.db-journal
+*.db-wal
 
 .vercel
 .next/
 logs/
+
+# Playwright
+test-results/
+playwright-report/

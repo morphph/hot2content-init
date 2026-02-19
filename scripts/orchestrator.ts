@@ -64,26 +64,16 @@ function ensureDir(dir: string) {
 async function runGeminiResearch(topic: string): Promise<boolean> {
   log('RESEARCH', `Starting Gemini Deep Research for: ${topic}`);
   
-  // Update the topic in the research script
-  const scriptPath = path.join(PROJECT_ROOT, 'scripts', 'research-gemini-deep.py');
-  let script = fs.readFileSync(scriptPath, 'utf-8');
-  
-  // Replace topic in script (simple approach - could be improved with env vars)
-  const topicLine = script.match(/^topic = ".*"$/m);
-  if (topicLine) {
-    script = script.replace(topicLine[0], `topic = "${topic}"`);
-    fs.writeFileSync(scriptPath, script);
-  }
-  
+  // Pass topic via environment variable to avoid command injection
   log('RESEARCH', 'Running Gemini Deep Research (this may take 10-20 minutes)...');
-  
+
   return new Promise((resolve) => {
     const child = spawn('bash', ['-c',
       `cd ${PROJECT_ROOT} && source .venv/bin/activate && python scripts/research-gemini-deep.py`
     ], {
       cwd: PROJECT_ROOT,
       stdio: 'inherit',
-      env: { ...process.env },
+      env: { ...process.env, RESEARCH_TOPIC: topic },
     });
 
     const timer = setTimeout(() => {
@@ -484,10 +474,11 @@ async function main() {
   console.log('\n' + '─'.repeat(60));
   log('STEP', '3/4 - Writers EN + ZH (Max Plan, parallel)');
   
-  // Run writers sequentially to avoid Max Plan rate limits
-  // (Promise.all now works with async spawn, but sequential is safer)
-  const enOk = await withRetry('WRITER-EN', () => runWriterEN());
-  const zhOk = await withRetry('WRITER-ZH', () => runWriterZH());
+  // Run writers in parallel for faster execution
+  const [enOk, zhOk] = await Promise.all([
+    withRetry('WRITER-EN', () => runWriterEN()),
+    withRetry('WRITER-ZH', () => runWriterZH()),
+  ]);
   
   if (!enOk || !zhOk) {
     log('WARN', `Writers: EN=${enOk}, ZH=${zhOk}`);

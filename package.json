@@ -10,9 +10,19 @@
     "lint": "next lint",
     "pipeline": "tsx scripts/orchestrator.ts",
     "research": "tsx scripts/gemini-research.ts",
-    "write-zh": "tsx scripts/kimi-writer.ts",
+    "write-zh": "tsx scripts/claude-writer.ts",
     "trend-scout": "tsx scripts/trend-scout.ts",
-    "validate": "tsx scripts/validate-narrative.ts"
+    "validate": "tsx scripts/validate-narrative.ts",
+    "collect-news": "tsx scripts/collect-news.ts",
+    "write-newsletter": "tsx scripts/write-newsletter.ts",
+    "seo-pipeline": "tsx scripts/seo-pipeline.ts",
+    "extract-faq": "tsx scripts/extract-faq.ts",
+    "extract-glossary": "tsx scripts/extract-glossary.ts",
+    "extract-compare": "tsx scripts/extract-compare.ts",
+    "extract-keywords": "tsx scripts/extract-keywords.ts",
+    "generate-tier2": "tsx scripts/generate-tier2.ts",
+    "test": "playwright test",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
@@ -39,6 +49,6 @@
     "@types/react": "19.2.13",
     "playwright": "^1.58.2",
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "5.9.3"
   }
 }

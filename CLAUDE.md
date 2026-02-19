@@ -1,55 +1,149 @@
-# Hot2Content — AI Content Engine
+# CLAUDE.md
 
-## 概述
-输入话题 → AI 深度调研 → Core Narrative → 多平台内容 → SEO/GEO 长期流量
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 部署架构
+## Project Overview
 
-**网站为主 + Telegram 推送通知**
+**Hot2Content / LoreAI** — AI content engine that transforms trending AI/tech topics into bilingual (EN/ZH) blog posts, newsletters, glossary, FAQ, and comparison pages. Live at loreai.dev.
 
-- **网站 (loreai.dev)**: 每日自动生成内容，作为 source of truth
-- **Telegram**: 通知渠道，提醒"今日内容已生成"，包含链接跳转网站
-- **GitHub**: 代码仓库 + 可选的内容存储（output/ 目录）
+**Core flow:** Topic → Gemini Deep Research → Core Narrative JSON → EN Blog (Claude Opus) + ZH Blog (Claude Opus) → SEO Review → Publish
 
-**设计原则：**
-1. 内容有固定的家 — 不在聊天记录里丢失
-2. 可积累/回溯 — 网站上能看历史记录
-3. 分享便捷 — 一个链接即可
-4. Telegram 保持轻量 — 只负责提醒，不堆积长内容
+## Commands
 
-## 技术栈
-- 热点采集: WebFetch + twitterapi.io (scripts/twitter-collector.ts)
-- 调研: Gemini 2.5 Pro Deep Research API (scripts/gemini-research.ts)
-- 英文内容: Claude Opus (writer-en subagent)
-- 中文内容: Kimi K2.5 (scripts/kimi-writer.ts)
-- 编排: Claude Code Subagents (Task tool)
-- 质量审核: Claude Sonnet (seo-reviewer subagent)
+```bash
+# Development
+npm run dev          # Next.js dev server
+npm run build        # Production build (static export)
+npm run lint         # ESLint
+npm run start        # Serve production build
 
-## Pipeline
-trend-scout → dedup-checker → researcher → narrative-architect → (writer-en ∥ kimi-writer.ts) → seo-reviewer → 更新索引
+# Pipeline scripts (via tsx)
+npm run pipeline     # Full orchestrator (scripts/orchestrator.ts)
+npm run research     # Gemini Deep Research (scripts/gemini-research.ts)
+npm run validate     # Core Narrative schema validation (scripts/validate-narrative.ts)
 
-## 核心约定
-- Core Narrative (output/core-narrative.json) 是纯英文叙事中枢
-- 中文博客由 Kimi K2.5 基于英文 Core Narrative + 调研报告独立创作，不是翻译
-- output/topic-index.json 是去重数据源，pipeline 完成后追加，勿覆盖
+# Individual scripts
+npx tsx scripts/daily-scout.ts           # News collection + newsletter generation
+npx tsx scripts/collect-news.ts          # Pure news collection (no newsletter)
+npx tsx scripts/write-newsletter.ts      # Newsletter composition from DB
+npx tsx scripts/twitter-collector.ts     # Twitter/X collection via twitterapi.io
+npx tsx scripts/extract-faq.ts           # Extract FAQ from blog content
+npx tsx scripts/extract-glossary.ts      # Extract glossary terms
+npx tsx scripts/extract-compare.ts       # Extract comparison tables
+npx tsx scripts/extract-keywords.ts      # Extract keywords to DB
+npx tsx scripts/generate-tier2.ts        # Generate Tier 2/3 articles
+npx tsx scripts/seo-pipeline.ts          # Batch SEO content generation
+npx tsx scripts/validate-blog.ts         # Blog frontmatter validation
 
-## 运行
-- /hot2content [话题] — 完整 pipeline
-- /hot2content https://... — URL 模式
-- /hot2content — 自动热点检测
-- /hot2content-scout — 仅发现话题
+# Claude Code slash commands (run inside Claude Code)
+/hot2content [topic]       # Full 8-step pipeline (keyword/URL/auto-detect)
+/hot2content-scout         # Discovery only (trend-scout + dedup-checker)
+```
 
-## 环境变量
-- GEMINI_API_KEY — Gemini 2.5 Pro API
-- KIMI_API_KEY — Kimi K2.5 API (或 MOONSHOT_API_KEY)
-- TWITTER_API_KEY — twitterapi.io API
+## Architecture
 
-## 开发规范
-- 所有架构改动、新数据源、Prompt 优化、质量控制策略变更必须记录到 `docs/CHANGELOG.md`
-- 格式：日期 + 改动标题 + 原因 + 具体变更 + 已知问题
-- 便于将来优化时查阅历史决策
+### Twin-Track Content Strategy
 
-## 质量标准
-- Core Narrative 必须通过 validate-narrative.ts
-- SEO ❌ 项必须修复
-- 所有引用含来源链接
+**Track A (Manual/Brand):** Human-selected topics → Gemini Deep Research → Core Narrative → Claude Opus blogs → SEO review. 1-2 Tier 1 articles/week.
+
+**Track B (Automatic/SEO):** Daily cron → extract keywords from news_items → route by type (glossary/compare/FAQ/tier2-3) → batch generate. 3-5 articles/day.
+
+Both tracks share the same data layer (SQLite `loreai.db`) and publish to `content/` directory → Vercel SSG.
+
+### 8-Step Blog Pipeline (`/hot2content`)
+
+1. **trend-scout** (Sonnet) — 5-tier source scan, score/rank topics → `input/topic.json`
+2. **dedup-checker** (Haiku) — 3-level dedup against `output/topic-index.json` → PASS/UPDATE/SKIP
+3. **researcher** (Sonnet) — Gemini 2.5 Pro Deep Research → `output/research-report.md`
+4. **narrative-architect** (Opus) — Distill to Core Narrative → `output/core-narrative.json` (pure English)
+5. **writer-en** + **writer-zh** (Opus, parallel) — Generate blogs → `output/blog-en.md` + `output/blog-zh.md`
+6. **seo-reviewer** (Sonnet) — Audit SEO/GEO/E-E-A-T, score 0-100 → `output/seo-review.md`
+7. Update `output/topic-index.json`
+8. Summary report
+
+Agents are defined in `.claude/agents/*.md`. Commands in `.claude/commands/*.md`.
+
+### Content Tiers
+
+| Tier | Quality | Model | Word Count | Cost |
+|------|---------|-------|------------|------|
+| 1 (Deep Dive) | Highest | Claude Opus | EN 1500-2500 / ZH 2000-3000 | $1-2 |
+| 2 (Analysis) | Medium | Claude Sonnet | 800-1500 | ~$0.10 |
+| 3 (Quick Read) | Basic | Gemini Flash | 300-500 | ~$0.02 |
+
+### Data Flow
+
+```
+content/                    # Published content (Vercel reads this)
+├── blogs/{en,zh}/*.md     # Blog posts (all tiers)
+├── newsletters/{en,zh}/*.md
+├── faq/*.md
+├── glossary/*.md
+└── compare/*.md
+
+input/                      # Pipeline working files
+├── topic.json             # Current topic input
+├── raw-sources.json       # Trend scout raw data
+└── dedup-report.json      # Dedup results
+
+output/                     # Pipeline artifacts (intermediate)
+├── core-narrative.json    # Narrative hub (pure English)
+├── research-report.md     # Gemini research output
+├── blog-en.md, blog-zh.md # Generated blogs before publish
+├── seo-review.md          # Review report
+└── topic-index.json       # Dedup registry
+
+loreai.db                   # SQLite: news_items, content, keywords, etc.
+```
+
+### Key Source Files
+
+- `src/lib/blog.ts` — Blog post loader, reading time, tier filtering
+- `src/lib/db.ts` — SQLite schema + helpers (news_items, content, keywords, distributions, research, topic_index)
+- `src/lib/faq.ts` — FAQ parser, JSON-LD FAQPage schema
+- `src/lib/glossary.ts` — Glossary term loader, DefinedTerm JSON-LD
+- `src/lib/compare.ts` — Comparison post reader
+- `src/schemas/blog-frontmatter.ts` — Zod validation for blog frontmatter
+- `src/components/MermaidRenderer.tsx` — Client-side Mermaid diagram renderer
+- `scripts/orchestrator.ts` — Master pipeline coordinator
+- `scripts/daily-scout.ts` — News aggregation (largest script, ~79KB)
+
+### Writing Guidelines
+
+Writing style specs live in `skills/`:
+- `skills/blog-en/SKILL.md` — English: Ars Technica journalist tone, TL;DR first, 1-2% keyword density, no clichés
+- `skills/blog-zh/SKILL.md` — Chinese: knowledgeable friend tone, NOT a translation, China angle, proper Chinese punctuation
+
+## Critical Conventions
+
+- **Core Narrative is pure English** — Chinese writers create independently from the same research, they don't translate
+- **`output/topic-index.json` is append-only** — pipeline appends after completion, never overwrite
+- **Core Narrative must validate** — run `npx tsx scripts/validate-narrative.ts` after any changes
+- **EN prompts in English, ZH prompts in Chinese** — never mix languages in a single prompt
+- **Use `Edit` over `Write`** for existing files — prefer precise edits, not full file overwrites
+- **All architecture changes go to `docs/CHANGELOG.md`** — date + title + reason + changes + known issues
+
+## Environment Variables
+
+- `GEMINI_API_KEY` — Gemini 2.5 Pro / Flash API
+- `TWITTER_API_KEY` — twitterapi.io API
+- `KIMI_API_KEY` (or `MOONSHOT_API_KEY`) — Kimi K2.5 API (reserved for future video scripts)
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, deployed on Vercel)
+- **Language:** TypeScript (ES modules, `"type": "module"`)
+- **Database:** SQLite via better-sqlite3 (`loreai.db`)
+- **Styling:** Tailwind CSS v4
+- **Content:** Markdown with gray-matter frontmatter + remark for HTML rendering
+- **Validation:** Zod schemas for frontmatter and Core Narrative
+- **AI APIs:** Anthropic SDK (@anthropic-ai/sdk), Gemini API, twitterapi.io
+- **Scripts:** tsx for running TypeScript scripts directly
+- **Testing:** Playwright (e2e)
+- **Path alias:** `@/*` → `./src/*`
+
+## Cron Schedule (Production)
+
+- **UTC 22:00** — `collect-news.ts` (news aggregation)
+- **UTC 23:00** — `daily-newsletter.sh` (compose + git push newsletter)
+- **UTC 02:00** — `daily-seo.sh` (Track B: batch SEO content generation)

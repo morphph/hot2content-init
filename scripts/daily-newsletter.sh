@@ -8,11 +8,13 @@
 export PATH="/home/ubuntu/.nvm/versions/node/v22.22.0/bin:/home/ubuntu/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 export NVM_DIR="/home/ubuntu/.nvm"
 
-cd /home/ubuntu/hot2content-init
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+cd "$PROJECT_DIR"
 source .env
 
 DATE=$(TZ='Asia/Singapore' date +%Y-%m-%d)
-STATUS_FILE="/home/ubuntu/hot2content-init/logs/last-run-status.json"
+STATUS_FILE="${PROJECT_DIR}/logs/last-run-status.json"
 mkdir -p logs
 
 notify() {

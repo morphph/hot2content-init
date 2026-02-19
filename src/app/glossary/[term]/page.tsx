@@ -14,5 +14,7 @@ export async function generateStaticParams() {
 
 export default async function GlossaryTermRedirect({ params }: Props) {
   const { term } = await params
-  redirect(`/en/glossary/${term}`)
+  // Detect language from slug suffix, matching the pattern used by FAQ and compare redirects
+  const lang = term.endsWith('-zh') ? 'zh' : 'en'
+  redirect(`/${lang}/glossary/${term}`)
 }

@@ -1,5 +1,30 @@
 # LoreAI Changelog
 
+## 2026-02-19 — Codebase Audit Batch 6: Content & Skills Fixes
+
+### M12: Added `skills/newsletter-zh/SKILL.md`
+- Created Chinese newsletter writing skill (previously missing; only EN existed)
+- Independent creation following the same principle as blog writing — not a translation of the EN skill
+- Uses "knowledgeable friend" tone consistent with `skills/blog-zh/SKILL.md`
+- Includes Chinese punctuation conventions, terminology handling, and China ecosystem perspective
+
+### M21: EN/ZH Newsletter Count Mismatch
+- **EN newsletters:** 12 issues (Feb 8-19)
+- **ZH newsletters:** 10 issues (Feb 8-17)
+- ZH is 2 days behind (Feb 18 and Feb 19 missing)
+- **Recommendation:** Run `write-newsletter.ts` for the missing dates to catch up ZH newsletters. The news items for those dates should still be in the DB within the 72h lookback window, or can be regenerated from the EN source items.
+
+### L12: Removed Deprecated `localization` Fields from `research-gemini-narrative.py`
+- Removed `localization.zh_strategy` and `localization.zh_hints` from the output schema
+- These fields were deprecated in PRD v4.0 (Core Narrative is pure English; Chinese writers create independently)
+
+### L15: Added `scripts/generate-roundup.ts` Stub
+- Phase 2+ placeholder for monthly roundup generation
+- Prints a "not yet implemented" message when run
+- Referenced in PRD but no implementation existed
+
+---
+
 ## 2026-02-15 — Newsletter Pipeline Refactor
 
 ### Architecture: Split Pipeline (#38)

@@ -5,13 +5,15 @@
 
 set -euo pipefail
 
-cd /home/ubuntu/hot2content-init
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+cd "$PROJECT_DIR"
 
 # Ensure logs directory
 mkdir -p logs
 
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Starting SEO pipeline" | tee -a logs/seo-pipeline.log
 
-npx tsx scripts/seo-pipeline.ts --dry-run "$@" 2>&1 | tee -a logs/seo-pipeline.log
+npx tsx scripts/seo-pipeline.ts "$@" 2>&1 | tee -a logs/seo-pipeline.log
 
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — SEO pipeline complete" | tee -a logs/seo-pipeline.log

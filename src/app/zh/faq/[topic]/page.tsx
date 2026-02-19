@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllFAQTopics, getFAQTopic, generateFAQJsonLd } from '@/lib/faq'
+import Header from '@/components/Header'
 import type { FAQIntent } from '@/lib/faq'
 import type { Metadata } from 'next'
 
@@ -23,9 +24,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { topic: slug } = await params
   const topic = await getFAQTopic(slug)
   if (!topic) return {}
+  const enSlugMeta = slug.replace(/-zh$/, '-en')
   return {
     title: `${topic.title} — 常见问题 | LoreAI`,
     description: topic.description,
+    alternates: {
+      languages: {
+        'en': `/en/faq/${enSlugMeta}`,
+        'zh': `/zh/faq/${slug}`,
+      },
+    },
   }
 }
 
@@ -35,6 +43,15 @@ export default async function FAQTopicPageZh({ params }: Props) {
   if (!topic) notFound()
 
   const jsonLd = generateFAQJsonLd(topic)
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: 'https://loreai.dev' },
+      { '@type': 'ListItem', position: 2, name: '常见问题', item: 'https://loreai.dev/zh/faq' },
+      { '@type': 'ListItem', position: 3, name: topic.title },
+    ],
+  }
   const enSlug = slug.replace(/-zh$/, '-en')
 
   const groups = new Map<FAQIntent, typeof topic.questions>()
@@ -49,29 +66,24 @@ export default async function FAQTopicPageZh({ params }: Props) {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
 
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>LoreAI</span>
-            </Link>
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
-              <Link href="/zh/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>博客</Link>
-              <Link href="/zh/faq" style={{ color: '#6b7280', textDecoration: 'none', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>常见问题</Link>
-              <Link href="/zh/glossary" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>术语表</Link>
-              <Link href="/zh/compare" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>对比</Link>
-            </nav>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <Link href={`/en/faq/${enSlug}`} style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
-          </div>
-        </header>
+        <Header
+          lang="zh"
+          navItems={[
+            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '博客', href: '/zh/blog' },
+            { label: '常见问题', href: '/zh/faq', active: true },
+            { label: '术语表', href: '/zh/glossary' },
+            { label: '对比', href: '/zh/compare' },
+          ]}
+          langSwitchHref={`/en/faq/${enSlug}`}
+        />
 
         {/* Breadcrumb */}
         <nav style={{ fontSize: '14px', marginBottom: '24px', color: '#6b7280' }}>

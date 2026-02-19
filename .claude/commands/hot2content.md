@@ -67,14 +67,12 @@ description: 运行 Hot2Content 完整内容生产 pipeline。
 **Task A — writer-en (Claude Subagent)：**
 "读取 output/core-narrative.json，生成英文 SEO 博客 → output/blog-en.md"
 
-**Task B — writer-zh (Kimi 脚本)：**
-执行 bash 命令: `npx tsx scripts/kimi-writer.ts`
-脚本会读取 core-narrative.json + research-report.md，调用 Kimi K2.5 API 生成中文博客 → output/blog-zh.md
+**Task B — writer-zh (Claude Subagent)：**
+用 Task tool 启动 **writer-zh**：
+"读取 output/core-narrative.json + output/research-report.md，按 skills/blog-zh/SKILL.md 规范独立创作中文博客 → output/blog-zh.md"
 
 等待两者都完成。
 确认两个 .md 文件都存在且非空。
-如果 kimi-writer.ts 报错或输出为空，告知用户 Kimi API 调用失败，
-建议用户检查 KIMI_API_KEY 或手动重试。
 
 ---
 
@@ -87,7 +85,7 @@ description: 运行 Hot2Content 完整内容生产 pipeline。
 - PASS (≥80): 继续
 - 有 ❌ 项:
   - 英文问题 → 发给 writer-en 修复
-  - 中文问题 → 重新运行 npx tsx scripts/kimi-writer.ts（附加修改指令）
+  - 中文问题 → 发给 writer-zh 修复
   - 重新审核（最多 1 次）
 - 仅 ⚠️: 展示建议，继续
 
@@ -127,6 +125,6 @@ description: 运行 Hot2Content 完整内容生产 pipeline。
   - output/research-report.md (Gemini 调研)
   - output/core-narrative.json (叙事中枢)
   - output/blog-en.md (Claude 英文博客, XXXX 词)
-  - output/blog-zh.md (Kimi 中文博客, XXXX 字)
+  - output/blog-zh.md (Claude 中文博客, XXXX 字)
   - output/seo-review.md (审核报告)
 ```

@@ -8,10 +8,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
 
 dotenv.config();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
 
@@ -28,24 +28,6 @@ interface FAQQuestion {
   question_zh: string;
   intent: 'comparison' | 'informational' | 'tutorial' | 'pricing';
   source: string;
-}
-
-// ─── Gemini API ───
-async function callGemini(prompt: string): Promise<string> {
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.4, maxOutputTokens: 4000 },
-      }),
-    }
-  );
-  if (!response.ok) throw new Error(`Gemini API error: ${response.status}`);
-  const data = await response.json() as any;
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 }
 
 // ─── Claude API ───
@@ -273,6 +255,36 @@ function writeFAQSample(
   console.log(`✅ Written ${outputFile}`);
 }
 
+// ─── Keyword Extraction Helper ───
+function extractKeywordsFromReport(research: string): string[] {
+  const keywords: string[] = [];
+
+  // Extract model names (e.g., GPT-5.3, Claude Opus 4.6, Gemini 2.5 Pro)
+  const modelPattern = /\b(GPT-[\d.]+\s*\w*|Claude\s+(?:Opus|Sonnet|Haiku)\s*[\d.]*|Gemini\s+[\d.]+\s*\w*|Llama\s+[\d.]+|Mistral\s+\w+[\d.]*|o[1-9][\w-]*)\b/gi;
+  const modelMatches = research.match(modelPattern) || [];
+  const uniqueModels = [...new Set(modelMatches.map(m => m.trim()))];
+  keywords.push(...uniqueModels.slice(0, 3));
+
+  // Extract "X vs Y" comparison pairs from the report
+  const vsPattern = /\b([\w\s.-]+?\d[\w.]*)\s+vs\.?\s+([\w\s.-]+?\d[\w.]*)\b/gi;
+  const vsMatches = research.match(vsPattern) || [];
+  keywords.push(...vsMatches.slice(0, 2).map(m => m.trim()));
+
+  // Extract key terms from the title
+  const titleMatch = research.match(/^#\s+(.+)/m);
+  if (titleMatch) {
+    const titleWords = titleMatch[1].replace(/[^\w\s.-]/g, '').trim();
+    if (titleWords.length > 5) keywords.push(titleWords.slice(0, 80));
+  }
+
+  // Fallback: use topic from report if we still have nothing
+  if (keywords.length === 0) {
+    keywords.push('AI model comparison', 'LLM benchmark', 'AI tools');
+  }
+
+  return [...new Set(keywords)].slice(0, 5);
+}
+
 // ─── Main ───
 async function main() {
   console.log('🚀 FAQ Extraction + A/B Test Sample Generation\n');
@@ -285,8 +297,8 @@ async function main() {
   const topicMatch = research.match(/^# .+?: (.+)/m);
   const topic = topicMatch ? topicMatch[1].trim() : 'AI Model Comparison';
 
-  // Extract keywords for Brave search
-  const keywords = ['GPT-5.3 Codex', 'Claude Opus 4.6', 'GPT-5.3 vs Claude Opus'];
+  // Extract keywords dynamically from the research report
+  const keywords = extractKeywordsFromReport(research);
 
   // Step 1: Collect questions from all sources
   console.log('📋 Step 1: Collecting questions...');

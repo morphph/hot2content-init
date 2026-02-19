@@ -7,7 +7,7 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
 
-const DB_PATH = path.join(process.cwd(), 'data', 'loreai.db');
+const DB_PATH = path.join(process.cwd(), 'loreai.db');
 
 let _db: Database.Database | null = null;
 
@@ -185,8 +185,8 @@ export function insertNewsItems(db: Database.Database, items: Array<Parameters<t
  */
 export function getRecentUrls(db: Database.Database, days: number = 3): Set<string> {
   const rows = db.prepare(
-    `SELECT url FROM news_items WHERE detected_at > datetime('now', '-${days} days')`
-  ).all() as { url: string }[];
+    `SELECT url FROM news_items WHERE detected_at > datetime('now', '-' || ? || ' days')`
+  ).all(days) as { url: string }[];
   return new Set(rows.map(r => r.url));
 }
 

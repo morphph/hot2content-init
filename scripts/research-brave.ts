@@ -76,7 +76,7 @@ async function fetchContent(url: string, maxChars: number = 8000): Promise<strin
 }
 
 async function main() {
-  const topic = "Claude Code Agent Teams - Anthropic's new multi-agent feature for Claude Code CLI released with Opus 4.6 in February 2026";
+  const topic = process.argv[2] || "Claude Code Agent Teams - Anthropic's new multi-agent feature for Claude Code CLI released with Opus 4.6 in February 2026";
   
   console.log('🔍 Brave Search + Web Fetch Research\n');
   console.log('='.repeat(60));

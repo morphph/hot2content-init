@@ -7,10 +7,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
 
 dotenv.config();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
   console.error('❌ GEMINI_API_KEY not set');
   process.exit(1);
@@ -29,24 +29,6 @@ interface GlossaryTerm {
   category: string;
   definition: string;
   related: string[];
-}
-
-// ─── Gemini API ───
-async function callGemini(prompt: string): Promise<string> {
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.4, maxOutputTokens: 8000 },
-      }),
-    }
-  );
-  if (!response.ok) throw new Error(`Gemini API error: ${response.status}`);
-  const data = await response.json() as any;
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 }
 
 // ─── Step 1: Extract terms from research report ───

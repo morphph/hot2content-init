@@ -55,6 +55,11 @@ const OFFICIAL_BLOGS = [
   { name: 'xAI', url: 'https://x.ai/blog', twitter: '@xaborevsky', category: 'model_release' as Category },
   { name: 'Cohere', url: 'https://cohere.com/blog', twitter: '@coaborevsky', category: 'model_release' as Category },
   { name: 'HuggingFace', url: 'https://huggingface.co/blog', twitter: '@huggingface', category: 'developer_platform' as Category },
+  { name: 'Qwen', url: 'https://qwen.ai/blog', twitter: '', category: 'model_release' as Category },
+  { name: 'Kimi', url: 'https://kimi.moonshot.cn/blog', twitter: '', category: 'model_release' as Category },
+  { name: 'Zhipu AI', url: 'https://zhipuai.cn/news', twitter: '', category: 'model_release' as Category },
+  { name: 'Wenxin', url: 'https://cloud.baidu.com/article', twitter: '', category: 'model_release' as Category },
+  { name: 'Doubao', url: 'https://doubao.com/blog', twitter: '', category: 'model_release' as Category },
 ];
 
 const TWITTER_ACCOUNTS = [
@@ -510,7 +515,7 @@ async function scanHackerNews(): Promise<NewsItem[]> {
 }
 
 // ============================================
-// Tier 5: GitHub Trending
+// Tier 3: GitHub Trending
 // ============================================
 
 const GH_SEARCH_HEADERS = { 'Accept': 'application/vnd.github+json', 'User-Agent': 'Hot2Content/2.0' };
@@ -529,7 +534,7 @@ async function ghSearchQuery(q: string, perPage: number = 30): Promise<GHSearchR
 }
 
 async function scanGitHub(): Promise<NewsItem[]> {
-  console.log('📡 Tier 5: Scanning GitHub Trending (Search API)...');
+  console.log('📡 Tier 3: Scanning GitHub Trending (Search API)...');
   const allRepos: GHSearchRepo[] = [];
   const now = Date.now();
   const date7d = new Date(now - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
@@ -558,7 +563,7 @@ async function scanGitHub(): Promise<NewsItem[]> {
     id: `gh-${r.full_name.replace('/', '-')}`, title: `${r.full_name} (⭐${r.stargazers_count.toLocaleString()})`,
     summary: (r.description || '').slice(0, 200),
     action: `Star the repo (⭐${r.stargazers_count})`,
-    url: r.html_url, source: 'GitHub Trending', source_tier: 5,
+    url: r.html_url, source: 'GitHub Trending', source_tier: 3,
     category: 'developer_platform' as const,
     score: Math.min(90, 50 + Math.floor(r.stargazers_count / 100)),
     detected_at: new Date().toISOString(),
@@ -568,7 +573,7 @@ async function scanGitHub(): Promise<NewsItem[]> {
 }
 
 // ============================================
-// Tier 6: Reddit
+// Tier 5: Reddit
 // ============================================
 
 let redditAccessToken: string | null = null;
@@ -591,7 +596,7 @@ async function getRedditToken(): Promise<string | null> {
 }
 
 async function scanReddit(): Promise<NewsItem[]> {
-  console.log('📡 Tier 6: Scanning Reddit...');
+  console.log('📡 Tier 5: Scanning Reddit...');
   const items: NewsItem[] = [];
   const token = await getRedditToken();
   for (const subreddit of REDDIT_SUBREDDITS) {
@@ -623,7 +628,7 @@ async function scanReddit(): Promise<NewsItem[]> {
         const postUrl = isRedditUrl ? `https://www.reddit.com${item.permalink}` : item.url;
         items.push({
           id: `reddit-${item.id}`, title, summary, url: postUrl,
-          source: `Reddit r/${subreddit}`, source_tier: 3, category,
+          source: `Reddit r/${subreddit}`, source_tier: 5, category,
           score: Math.min(85, 50 + Math.floor(item.score / 100)), engagement: item.score,
           detected_at: new Date(item.created_utc * 1000).toISOString(),
         });

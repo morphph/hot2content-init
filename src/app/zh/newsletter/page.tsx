@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
+import Header from '@/components/Header'
 
 interface NewsletterEntry {
   date: string
@@ -65,6 +66,12 @@ function formatDateShort(dateStr: string): { day: string; month: string; weekday
 export const metadata = {
   title: '每日简报 | LoreAI',
   description: 'AI 每日简报 — 精选热点新闻',
+  alternates: {
+    languages: {
+      'en': '/newsletter',
+      'zh': '/zh/newsletter',
+    },
+  },
 }
 
 export default async function NewsletterZHPage() {
@@ -73,25 +80,14 @@ export default async function NewsletterZHPage() {
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/zh/newsletter" style={{ textDecoration: 'none' }}>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>
-                LoreAI
-              </span>
-            </Link>
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>每日简报</span>
-              <Link href="/zh/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>博客</Link>
-            </nav>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
-          </div>
-        </header>
+        <Header
+          lang="zh"
+          navItems={[
+            { label: '每日简报', href: '/zh/newsletter', active: true },
+            { label: '博客', href: '/zh/blog' },
+          ]}
+          langSwitchHref="/newsletter"
+        />
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>

@@ -1,9 +1,16 @@
 import Link from 'next/link'
 import { getAllFAQTopics } from '@/lib/faq'
+import Header from '@/components/Header'
 
 export const metadata = {
   title: '常见问题 | LoreAI',
   description: '关于 AI 模型、工具和对比的常见问题解答。',
+  alternates: {
+    languages: {
+      'en': '/en/faq',
+      'zh': '/zh/faq',
+    },
+  },
 }
 
 export default function FAQPageZh() {
@@ -12,26 +19,17 @@ export default function FAQPageZh() {
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>LoreAI</span>
-            </Link>
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
-              <Link href="/zh/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>博客</Link>
-              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>常见问题</span>
-              <Link href="/zh/glossary" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>术语表</Link>
-              <Link href="/zh/compare" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>对比</Link>
-            </nav>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <Link href="/en/faq" style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
-          </div>
-        </header>
+        <Header
+          lang="zh"
+          navItems={[
+            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '博客', href: '/zh/blog' },
+            { label: '常见问题', href: '/zh/faq', active: true },
+            { label: '术语表', href: '/zh/glossary' },
+            { label: '对比', href: '/zh/compare' },
+          ]}
+          langSwitchHref="/en/faq"
+        />
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>

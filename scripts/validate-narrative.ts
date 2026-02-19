@@ -19,10 +19,16 @@ const ReferenceSchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Reference date must be YYYY-MM-DD'),
 });
 
+// Accept both q/a (legacy) and question/answer (PRD §7) keys
 const FAQSchema = z.object({
-  question: z.string().min(1, 'FAQ question cannot be empty'),
-  answer: z.string().min(1, 'FAQ answer cannot be empty'),
-});
+  question: z.string().min(1, 'FAQ question cannot be empty').optional(),
+  answer: z.string().min(1, 'FAQ answer cannot be empty').optional(),
+  q: z.string().min(1).optional(),
+  a: z.string().min(1).optional(),
+}).refine(
+  (data) => (data.question || data.q) && (data.answer || data.a),
+  { message: 'FAQ must have question/q and answer/a fields' }
+);
 
 const DiagramSchema = z.object({
   type: z.literal('mermaid'),
@@ -49,11 +55,9 @@ const SEOSchema = z.object({
     .min(150, 'meta_description_en must be 150-160 characters')
     .max(160, 'meta_description_en must be 150-160 characters'),
   keywords_en: z.array(z.string().min(1))
-    .min(3, 'keywords_en must have 3-5 keywords')
-    .max(5, 'keywords_en must have 3-5 keywords'),
+    .min(3, 'keywords_en must have at least 3 keywords'),
   keywords_zh: z.array(z.string().min(1))
-    .min(3, 'keywords_zh must have 3-5 keywords')
-    .max(5, 'keywords_zh must have 3-5 keywords'),
+    .min(3, 'keywords_zh must have at least 3 keywords'),
 });
 
 const CoreNarrativeSchema = z.object({
@@ -103,7 +107,14 @@ function main() {
       console.log(`  - References: ${result.data.references.length}`);
       console.log(`  - Diagrams: ${result.data.diagrams.length}`);
       console.log(`  - Is Update: ${result.data.is_update}`);
-      // localization field removed - no special China angle needed
+
+      // Warnings (non-fatal)
+      if (result.data.seo.keywords_en.length > 5) {
+        console.log(`  ⚠️  Warning: keywords_en has ${result.data.seo.keywords_en.length} items (recommended 3-5)`);
+      }
+      if (result.data.seo.keywords_zh.length > 5) {
+        console.log(`  ⚠️  Warning: keywords_zh has ${result.data.seo.keywords_zh.length} items (recommended 3-5)`);
+      }
       console.log();
       process.exit(0);
     } else {

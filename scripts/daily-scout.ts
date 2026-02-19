@@ -74,6 +74,11 @@ const OFFICIAL_BLOGS = [
   { name: 'xAI', url: 'https://x.ai/blog', twitter: '@xaborevsky', category: 'model_release' as Category },
   { name: 'Cohere', url: 'https://cohere.com/blog', twitter: '@coaborevsky', category: 'model_release' as Category },
   { name: 'HuggingFace', url: 'https://huggingface.co/blog', twitter: '@huggingface', category: 'developer_platform' as Category },
+  { name: 'Qwen', url: 'https://qwen.ai/blog', twitter: '', category: 'model_release' as Category },
+  { name: 'Kimi', url: 'https://kimi.moonshot.cn/blog', twitter: '', category: 'model_release' as Category },
+  { name: 'Zhipu AI', url: 'https://zhipuai.cn/news', twitter: '', category: 'model_release' as Category },
+  { name: 'Wenxin', url: 'https://cloud.baidu.com/article', twitter: '', category: 'model_release' as Category },
+  { name: 'Doubao', url: 'https://doubao.com/blog', twitter: '', category: 'model_release' as Category },
 ];
 
 const TWITTER_ACCOUNTS = [
@@ -329,22 +334,34 @@ async function enhanceWithGemini(items: NewsItem[]): Promise<NewsItem[]> {
 // Twitter API
 // ============================================
 
+async function fetchWithRateLimit(url: string, headers: Record<string, string>, retries = 1): Promise<Response | null> {
+  try {
+    const response = await fetch(url, { headers });
+    if (response.status === 429 && retries > 0) {
+      console.log('      Rate limited (429), sleeping 30s before retry...');
+      await new Promise(r => setTimeout(r, 30000));
+      return fetchWithRateLimit(url, headers, retries - 1);
+    }
+    return response;
+  } catch {
+    return null;
+  }
+}
+
 async function fetchTwitter(handle: string): Promise<any[]> {
   if (!TWITTER_API_KEY) return [];
-  
+
   try {
-    const response = await fetch(
+    const response = await fetchWithRateLimit(
       `${TWITTER_API_BASE}/twitter/user/last_tweets?userName=${handle}&count=20`,
       {
-        headers: {
-          'X-API-Key': TWITTER_API_KEY,
-          'Content-Type': 'application/json',
-        },
+        'X-API-Key': TWITTER_API_KEY,
+        'Content-Type': 'application/json',
       }
     );
-    
-    if (!response.ok) return [];
-    
+
+    if (!response || !response.ok) return [];
+
     const data = await response.json();
     return data.data?.tweets || data.tweets || [];
   } catch (e) {
@@ -836,8 +853,10 @@ async function scanTwitter(): Promise<NewsItem[]> {
     } catch (e) {
       console.log(`   ❌ @${account.handle}: ${e}`);
     }
+    // Rate limit: 1s delay between account requests
+    await new Promise(r => setTimeout(r, 1000));
   }
-  
+
   console.log(`   ✅ Found ${items.length} tweets from accounts`);
 
   // --- Twitter Search: catch viral/trending content ---
@@ -871,16 +890,14 @@ async function scanTwitter(): Promise<NewsItem[]> {
   for (const query of SEARCH_QUERIES) {
     try {
       console.log(`   - Search: "${query}"...`);
-      const response = await fetch(
+      const response = await fetchWithRateLimit(
         `${TWITTER_API_BASE}/twitter/tweet/advanced_search?query=${encodeURIComponent(query)}&queryType=Top&count=5`,
         {
-          headers: {
-            'X-API-Key': TWITTER_API_KEY!,
-            'Content-Type': 'application/json',
-          },
+          'X-API-Key': TWITTER_API_KEY!,
+          'Content-Type': 'application/json',
         }
       );
-      if (!response.ok) continue;
+      if (!response || !response.ok) continue;
       const data = await response.json();
       const tweets = data.data?.tweets || data.tweets || [];
 
@@ -922,6 +939,8 @@ async function scanTwitter(): Promise<NewsItem[]> {
     } catch (e) {
       console.log(`   ❌ Search "${query}": ${e}`);
     }
+    // Rate limit: 1s delay between search requests
+    await new Promise(r => setTimeout(r, 1000));
   }
   console.log(`   ✅ Total after search: ${items.length} tweets`);
 

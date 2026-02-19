@@ -1,4 +1,9 @@
 #!/usr/bin/env tsx
+/**
+ * @deprecated -- Use the writer-zh Claude subagent instead.
+ * PRD v4.0: A/B testing confirmed Claude Opus outperforms Kimi K2.5.
+ * This script is kept for reference only.
+ */
 import 'dotenv/config';
 
 /**

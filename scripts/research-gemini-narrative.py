@@ -31,8 +31,8 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-# Topic to research
-topic = "Claude Code Agent Teams - Anthropic's new multi-agent feature for Claude Code CLI released with Opus 4.6 in February 2026"
+# Topic to research (from env var or default)
+topic = os.environ.get('RESEARCH_TOPIC', "Claude Code Agent Teams - Anthropic's new multi-agent feature for Claude Code CLI released with Opus 4.6 in February 2026")
 
 # Combined prompt: Research + Narrative structure
 prompt = f"""
@@ -101,14 +101,12 @@ Return a valid JSON object with this exact structure:
     "meta_description_en": "SEO description 150-160 chars exactly. Include key facts and value proposition for searchers.",
     "keywords_en": ["keyword1", "keyword2", "keyword3"],
     "keywords_zh": ["中文关键词1", "中文关键词2", "中文关键词3"]
-  }},
-  
-  "localization": {{
-    "zh_strategy": "native|adapted|global",
-    "zh_hints": "Optional hints for Chinese content, or null"
   }}
 }}
 ```
+
+NOTE: The "localization" field (zh_strategy, zh_hints) was removed per PRD v4.0.
+Core Narrative is pure English; Chinese writers create independently from the same research.
 
 ## Requirements
 - Use ONLY information from web search results

@@ -10,9 +10,9 @@ export const dynamic = 'force-static'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://loreai.dev'
 
-function getNewsletterDates(): string[] {
+function getNewsletterDates(lang: 'en' | 'zh'): string[] {
   try {
-    const dir = path.join(process.cwd(), 'content', 'newsletters')
+    const dir = path.join(process.cwd(), 'content', 'newsletters', lang)
     if (!fs.existsSync(dir)) return []
     return fs.readdirSync(dir)
       .filter(f => f.endsWith('.md'))
@@ -27,7 +27,8 @@ function getNewsletterDates(): string[] {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const enPosts = await getBlogPosts('en')
   const zhPosts = await getBlogPosts('zh')
-  const newsletterDates = getNewsletterDates()
+  const enNewsletterDates = getNewsletterDates('en')
+  const zhNewsletterDates = getNewsletterDates('zh')
   
   const blogUrls = [
     ...enPosts.map((post) => ({
@@ -44,12 +45,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ]
 
-  const newsletterUrls = newsletterDates.map((date) => ({
-    url: `${BASE_URL}/newsletter/${date}`,
-    lastModified: new Date(date),
-    changeFrequency: 'daily' as const,
-    priority: 0.9,
-  }))
+  const newsletterUrls = [
+    ...enNewsletterDates.map((date) => ({
+      url: `${BASE_URL}/newsletter/${date}`,
+      lastModified: new Date(date),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    })),
+    ...zhNewsletterDates.map((date) => ({
+      url: `${BASE_URL}/zh/newsletter/${date}`,
+      lastModified: new Date(date),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    })),
+  ]
   
   return [
     {
@@ -60,6 +69,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${BASE_URL}/newsletter`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/zh/newsletter`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
+import Header from '@/components/Header'
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr + 'T00:00:00')
@@ -22,24 +23,15 @@ export default async function ResourcesPageZh() {
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>LoreAI</span>
-            </Link>
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
-              <Link href="/zh/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>博客</Link>
-              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #059669', paddingBottom: '4px' }}>资源</span>
-            </nav>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <Link href="/en/resources" style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
-          </div>
-        </header>
+        <Header
+          lang="zh"
+          navItems={[
+            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '博客', href: '/zh/blog' },
+            { label: '资源', href: '/zh/resources', active: true },
+          ]}
+          langSwitchHref="/en/resources"
+        />
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>

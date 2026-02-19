@@ -8,18 +8,27 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import Anthropic from '@anthropic-ai/sdk';
+import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
 import { getDb, initSchema, insertContent, closeDb } from '../src/lib/db.js';
 
 dotenv.config();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+
+const PROJECT_ROOT = process.cwd();
+const IS_TIER3 = process.argv.includes('--tier3');
+
 if (!GEMINI_API_KEY) {
   console.error('❌ GEMINI_API_KEY not set');
   process.exit(1);
 }
 
-const PROJECT_ROOT = process.cwd();
-const IS_TIER3 = process.argv.includes('--tier3');
+if (!IS_TIER3 && !ANTHROPIC_API_KEY) {
+  console.error('❌ ANTHROPIC_API_KEY not set (required for Tier 2 generation)');
+  console.error('   Use --tier3 flag to generate Tier 3 articles with Gemini Flash instead');
+  process.exit(1);
+}
 
 interface KeywordRow {
   id: number;
@@ -29,25 +38,18 @@ interface KeywordRow {
   parent_research_id: number | null;
 }
 
-async function callGemini(prompt: string): Promise<string> {
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.5, maxOutputTokens: 8000 },
-      }),
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error(`Gemini API error: ${response.status}`);
+async function callClaude(prompt: string): Promise<string> {
+  if (!ANTHROPIC_API_KEY) {
+    throw new Error('ANTHROPIC_API_KEY not set — required for Tier 2 generation');
   }
-
-  const data = await response.json() as any;
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const client = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+  const message = await client.messages.create({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 8000,
+    messages: [{ role: 'user', content: prompt }],
+  });
+  const block = message.content[0];
+  return block.type === 'text' ? block.text : '';
 }
 
 function slugify(text: string): string {
@@ -193,7 +195,7 @@ Requirements:
 Output raw Markdown directly, no code block wrapping.`;
   }
 
-  const article = await callGemini(prompt);
+  const article = IS_TIER3 ? await callGemini(prompt) : await callClaude(prompt);
 
   const minLen = IS_TIER3 ? 200 : 500;
   if (!article || article.length < minLen) {

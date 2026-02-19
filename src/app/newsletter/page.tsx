@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
+import Header from '@/components/Header'
 
 interface NewsletterEntry {
   date: string
@@ -68,6 +69,12 @@ function formatDateShort(dateStr: string): { day: string; month: string; weekday
 export const metadata = {
   title: 'Newsletter | LoreAI',
   description: 'Daily AI news digest - curated hot topics',
+  alternates: {
+    languages: {
+      'en': '/newsletter',
+      'zh': '/zh/newsletter',
+    },
+  },
 }
 
 export default async function NewsletterPage() {
@@ -76,37 +83,14 @@ export default async function NewsletterPage() {
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          {/* Logo + Nav */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-              <span 
-                style={{ 
-                  fontSize: '20px',
-                  fontWeight: '800',
-                  color: '#2563eb',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                LoreAI
-              </span>
-            </Link>
-            
-            {/* Main Nav Tabs */}
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <span style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>Newsletter</span>
-              <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Blog</Link>
-            </nav>
-          </div>
-          
-          {/* Language Switch */}
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <Link href="/zh/newsletter" style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
-          </div>
-        </header>
+        <Header
+          lang="en"
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter', active: true },
+            { label: 'Blog', href: '/en/blog' },
+          ]}
+          langSwitchHref="/zh/newsletter"
+        />
 
         {/* Hero */}
         <div style={{ marginBottom: '40px' }}>

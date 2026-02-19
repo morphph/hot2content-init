@@ -4,6 +4,7 @@ import path from 'path'
 import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import Header from '@/components/Header'
 
 async function getNewsletterContent(date: string): Promise<string | null> {
   try {
@@ -27,6 +28,13 @@ function formatDateLong(dateStr: string): string {
   })
 }
 
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), 'content', 'newsletters', 'zh')
+  if (!fs.existsSync(dir)) return []
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'))
+  return files.map(f => ({ date: f.replace('.md', '') }))
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ date: string }> }) {
   const { date } = await params
   const content = await getNewsletterContent(date)
@@ -35,6 +43,12 @@ export async function generateMetadata({ params }: { params: Promise<{ date: str
   return {
     title: `${title} | LoreAI`,
     description: `AI 每日简报 ${date}`,
+    alternates: {
+      languages: {
+        'en': `/newsletter/${date}`,
+        'zh': `/zh/newsletter/${date}`,
+      },
+    },
   }
 }
 
@@ -51,23 +65,14 @@ export default async function NewsletterZHDatePage({ params }: { params: Promise
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/zh/newsletter" style={{ textDecoration: 'none' }}>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>LoreAI</span>
-            </Link>
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <Link href="/zh/newsletter" style={{ color: '#111827', fontWeight: '600', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px', textDecoration: 'none' }}>每日简报</Link>
-              <Link href="/zh/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>博客</Link>
-            </nav>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <Link href={`/newsletter/${date}`} style={{ color: '#6b7280', textDecoration: 'none' }}>EN</Link>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
-          </div>
-        </header>
+        <Header
+          lang="zh"
+          navItems={[
+            { label: '每日简报', href: '/zh/newsletter', active: true },
+            { label: '博客', href: '/zh/blog' },
+          ]}
+          langSwitchHref={`/newsletter/${date}`}
+        />
 
         {/* Date & Title */}
         <div style={{ marginBottom: '40px' }}>

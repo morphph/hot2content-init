@@ -29,8 +29,9 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-# Topic to research
-topic = "Claude Code Skills - how custom skills transform AI-assisted development workflows in 2026"
+# Topic to research — passed via RESEARCH_TOPIC env var from orchestrator.ts
+# Falls back to a default topic if not set (e.g. when running standalone)
+topic = os.environ.get('RESEARCH_TOPIC', "Claude Code Skills - how custom skills transform AI-assisted development workflows in 2026")
 
 prompt = f"""
 Research the following topic thoroughly using web search:

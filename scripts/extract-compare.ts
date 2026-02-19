@@ -7,10 +7,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
 
 dotenv.config();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
   console.error('❌ GEMINI_API_KEY not set');
   process.exit(1);
@@ -19,23 +19,6 @@ if (!GEMINI_API_KEY) {
 const PROJECT_ROOT = process.cwd();
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
 const COMPARE_DIR = path.join(PROJECT_ROOT, 'content', 'compare');
-
-async function callGemini(prompt: string): Promise<string> {
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.4, maxOutputTokens: 8000 },
-      }),
-    }
-  );
-  if (!response.ok) throw new Error(`Gemini API error: ${response.status}`);
-  const data = await response.json() as any;
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-}
 
 function slugify(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
@@ -78,13 +61,10 @@ function extractComparisonPairs(research: string): ComparisonPair[] {
     }
   }
 
-  // Default pair if none found
+  // No default pair — return empty if none detected
   if (pairs.length === 0) {
-    pairs.push({
-      model_a: 'Claude Opus 4.6',
-      model_b: 'GPT-5.3 Codex',
-      slug: 'claude-opus-4-6-vs-gpt-5-3-codex',
-    });
+    console.log('No comparison pairs detected in research report');
+    return [];
   }
 
   return pairs.slice(0, 3); // Max 3 pairs

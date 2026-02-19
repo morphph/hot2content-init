@@ -13,8 +13,9 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { execSync, spawn } from 'child_process';
+import { execSync } from 'child_process';
 import * as dotenv from 'dotenv';
+import { getDb, initSchema } from '../src/lib/db.js';
 
 dotenv.config();
 
@@ -85,18 +86,9 @@ function log(step: string, msg: string) {
 
 function getNewsItems(): NewsItem[] {
   try {
-    // Use better-sqlite3 via dynamic import workaround
-    const result = execSync(
-      `npx tsx -e "
-        import Database from 'better-sqlite3';
-        const db = new Database('${DB_PATH}');
-        const rows = db.prepare(\\"SELECT * FROM news_items WHERE detected_at > datetime('now', '-48 hours') ORDER BY score DESC, detected_at DESC LIMIT 100\\").all();
-        console.log(JSON.stringify(rows));
-        db.close();
-      "`,
-      { cwd: PROJECT_ROOT, timeout: 30000, encoding: 'utf-8' }
-    );
-    return JSON.parse(result.trim());
+    const db = getDb();
+    initSchema(db);
+    return db.prepare("SELECT * FROM news_items WHERE detected_at > datetime('now', '-48 hours') ORDER BY score DESC, detected_at DESC LIMIT 100").all() as NewsItem[];
   } catch (e) {
     log('DB', `Error reading news_items: ${(e as Error).message}`);
     return [];
@@ -692,7 +684,7 @@ tags: ["深度分析", "AI趋势"]
     : path.join(CONTENT_DIRS.tier2, `en/${slug}.md`);
   const zhPath = DRY_RUN
     ? path.join(OUTPUT_DIR, `tier2-${slug}-zh.md`)
-    : path.join(CONTENT_DIRS.tier3, `zh/${slug}.md`);
+    : path.join(CONTENT_DIRS.tier2, `zh/${slug}.md`);
 
   fs.writeFileSync(enPath, extractMarkdown(enContent));
   fs.writeFileSync(zhPath, extractMarkdown(zhContent));

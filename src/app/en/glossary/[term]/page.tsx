@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getGlossaryTerms, getGlossaryTerm, generateGlossaryJsonLd } from '@/lib/glossary'
+import Header from '@/components/Header'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -18,6 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${entry.term} — Glossary | LoreAI`,
     description: entry.definition,
+    alternates: {
+      languages: {
+        'en': `/en/glossary/${slug}`,
+        'zh': `/zh/glossary/${slug}`,
+      },
+    },
   }
 }
 
@@ -27,35 +34,39 @@ export default async function GlossaryTermPageEn({ params }: Props) {
   if (!entry) notFound()
 
   const jsonLd = generateGlossaryJsonLd(entry)
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://loreai.dev' },
+      { '@type': 'ListItem', position: 2, name: 'Glossary', item: 'https://loreai.dev/en/glossary' },
+      { '@type': 'ListItem', position: 3, name: entry.term },
+    ],
+  }
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
 
-        {/* Header */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link href="/newsletter" style={{ textDecoration: 'none' }}>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>LoreAI</span>
-            </Link>
-            <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-              <Link href="/newsletter" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Newsletter</Link>
-              <Link href="/en/blog" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Blog</Link>
-              <Link href="/en/faq" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>FAQ</Link>
-              <Link href="/en/glossary" style={{ color: '#6b7280', textDecoration: 'none', borderBottom: '2px solid #8b5cf6', paddingBottom: '4px' }}>Glossary</Link>
-              <Link href="/en/compare" style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}>Compare</Link>
-            </nav>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
-            <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
-            <span style={{ color: '#d1d5db' }}>|</span>
-            <Link href={`/zh/glossary/${slug}`} style={{ color: '#6b7280', textDecoration: 'none' }}>中文</Link>
-          </div>
-        </header>
+        <Header
+          lang="en"
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter' },
+            { label: 'Blog', href: '/en/blog' },
+            { label: 'FAQ', href: '/en/faq' },
+            { label: 'Glossary', href: '/en/glossary', active: true },
+            { label: 'Compare', href: '/en/compare' },
+          ]}
+          langSwitchHref={`/zh/glossary/${slug}`}
+        />
 
         {/* Breadcrumb */}
         <div style={{ fontSize: '14px', color: '#9ca3af', marginBottom: '24px' }}>

@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 import gfm from 'remark-gfm'
+import { blogFrontmatterSchema } from '@/schemas/blog-frontmatter'
 
 const BLOGS_DIR = path.join(process.cwd(), 'content', 'blogs')
 const OUTPUT_DIR = path.join(process.cwd(), 'output')
@@ -14,6 +15,7 @@ export interface BlogPost {
   description: string
   keywords: string[]
   date: string
+  updated?: string  // dateModified — if absent, falls back to date
   tier: 1 | 2 | 3
   readingTime: number  // minutes
   content: string
@@ -49,7 +51,10 @@ async function parseMarkdown(content: string): Promise<{
     .process(contentWithoutFirstH1)
   
   let contentHtml = processedContent.toString()
-  
+
+  // Strip <script> tags to prevent XSS while preserving Mermaid <pre> blocks
+  contentHtml = contentHtml.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+
   // Add id attributes to H2 tags for TOC anchor links
   let headingIndex = 0
   contentHtml = contentHtml.replace(/<h2>(.*?)<\/h2>/gi, (_match, text) => {
@@ -81,7 +86,13 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
       try {
         const content = fs.readFileSync(path.join(langDir, file), 'utf-8')
         const { data, contentHtml } = await parseMarkdown(content)
-        
+
+        // Validate frontmatter against Zod schema (warn but don't throw for backwards compatibility)
+        const validation = blogFrontmatterSchema.safeParse(data)
+        if (!validation.success) {
+          console.warn(`[blog.ts] Invalid frontmatter in ${file}:`, validation.error.issues.map(i => `${i.path.join('.')}: ${i.message}`).join(', '))
+        }
+
         posts.push({
           slug: data.slug || file.replace('.md', ''),
           title: data.title || 'Untitled',
@@ -99,6 +110,7 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
           contentHtml,
           hreflang_en: data.hreflang_en,
           hreflang_zh: data.hreflang_zh,
+          updated: data.updated ? (typeof data.updated === 'string' ? data.updated : new Date(data.updated).toISOString().split('T')[0]) : undefined,
         })
       } catch (error) {
         console.error(`Error parsing ${file}:`, error)
@@ -115,7 +127,13 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
       try {
         const content = fs.readFileSync(filePath, 'utf-8')
         const { data, contentHtml } = await parseMarkdown(content)
-        
+
+        // Validate frontmatter against Zod schema (warn but don't throw for backwards compatibility)
+        const validation = blogFrontmatterSchema.safeParse(data)
+        if (!validation.success) {
+          console.warn(`[blog.ts] Invalid frontmatter in ${filename}:`, validation.error.issues.map(i => `${i.path.join('.')}: ${i.message}`).join(', '))
+        }
+
         posts.push({
           slug: data.slug || 'untitled',
           title: data.title || 'Untitled',
@@ -133,6 +151,7 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
           contentHtml,
           hreflang_en: data.hreflang_en,
           hreflang_zh: data.hreflang_zh,
+          updated: data.updated ? (typeof data.updated === 'string' ? data.updated : new Date(data.updated).toISOString().split('T')[0]) : undefined,
         })
       } catch (error) {
         console.error(`Error parsing ${filePath}:`, error)
@@ -156,11 +175,116 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
 }
 
 /**
- * Get a single blog post by slug
+ * Get a single blog post by slug (direct file lookup — O(1) instead of loading all posts)
  */
 export async function getBlogPost(lang: 'en' | 'zh', slug: string): Promise<BlogPost | null> {
-  const posts = await getBlogPosts(lang)
-  return posts.find(p => p.slug === slug) || null
+  const langDir = path.join(BLOGS_DIR, lang)
+
+  // Try direct file lookup first: content/blogs/{lang}/{slug}.md
+  const directPath = path.join(langDir, `${slug}.md`)
+  if (fs.existsSync(directPath)) {
+    try {
+      const content = fs.readFileSync(directPath, 'utf-8')
+      const { data, contentHtml } = await parseMarkdown(content)
+
+      const validation = blogFrontmatterSchema.safeParse(data)
+      if (!validation.success) {
+        console.warn(`[blog.ts] Invalid frontmatter in ${slug}.md:`, validation.error.issues.map(i => `${i.path.join('.')}: ${i.message}`).join(', '))
+      }
+
+      return {
+        slug: data.slug || slug,
+        title: data.title || 'Untitled',
+        description: data.description || '',
+        keywords: data.keywords || [],
+        date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
+        tier: (() => {
+          if (!data.tier) {
+            console.warn(`⚠️ Missing tier in ${slug}.md — defaulting to 2. Add "tier: 1|2|3" to frontmatter.`)
+          }
+          return data.tier || 2
+        })(),
+        readingTime: estimateReadingTime(content, lang),
+        content,
+        contentHtml,
+        hreflang_en: data.hreflang_en,
+        hreflang_zh: data.hreflang_zh,
+        updated: data.updated ? (typeof data.updated === 'string' ? data.updated : new Date(data.updated).toISOString().split('T')[0]) : undefined,
+      }
+    } catch (error) {
+      console.error(`Error parsing ${directPath}:`, error)
+    }
+  }
+
+  // Fallback: scan all files in case the filename doesn't match the slug
+  // (e.g., file named differently than frontmatter slug)
+  if (fs.existsSync(langDir)) {
+    const files = fs.readdirSync(langDir).filter(f => f.endsWith('.md'))
+    for (const file of files) {
+      try {
+        const content = fs.readFileSync(path.join(langDir, file), 'utf-8')
+        const { data } = matter(content)
+        if (data.slug === slug) {
+          const { contentHtml } = await parseMarkdown(content)
+          const validation = blogFrontmatterSchema.safeParse(data)
+          if (!validation.success) {
+            console.warn(`[blog.ts] Invalid frontmatter in ${file}:`, validation.error.issues.map(i => `${i.path.join('.')}: ${i.message}`).join(', '))
+          }
+          return {
+            slug: data.slug,
+            title: data.title || 'Untitled',
+            description: data.description || '',
+            keywords: data.keywords || [],
+            date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
+            tier: (() => {
+              if (!data.tier) {
+                console.warn(`⚠️ Missing tier in ${file} — defaulting to 2. Add "tier: 1|2|3" to frontmatter.`)
+              }
+              return data.tier || 2
+            })(),
+            readingTime: estimateReadingTime(content, lang),
+            content,
+            contentHtml,
+            hreflang_en: data.hreflang_en,
+            hreflang_zh: data.hreflang_zh,
+            updated: data.updated ? (typeof data.updated === 'string' ? data.updated : new Date(data.updated).toISOString().split('T')[0]) : undefined,
+          }
+        }
+      } catch (error) {
+        console.error(`Error scanning ${file}:`, error)
+      }
+    }
+  }
+
+  // Fallback: legacy output/ file
+  const filename = lang === 'en' ? 'blog-en.md' : 'blog-zh.md'
+  const filePath = path.join(OUTPUT_DIR, filename)
+  if (fs.existsSync(filePath)) {
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8')
+      const { data, contentHtml } = await parseMarkdown(content)
+      if ((data.slug || 'untitled') === slug) {
+        return {
+          slug: data.slug || 'untitled',
+          title: data.title || 'Untitled',
+          description: data.description || '',
+          keywords: data.keywords || [],
+          date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString().split('T')[0],
+          tier: data.tier || 2,
+          readingTime: estimateReadingTime(content, lang),
+          content,
+          contentHtml,
+          hreflang_en: data.hreflang_en,
+          hreflang_zh: data.hreflang_zh,
+          updated: data.updated ? (typeof data.updated === 'string' ? data.updated : new Date(data.updated).toISOString().split('T')[0]) : undefined,
+        }
+      }
+    } catch (error) {
+      console.error(`Error parsing ${filePath}:`, error)
+    }
+  }
+
+  return null
 }
 
 /**
