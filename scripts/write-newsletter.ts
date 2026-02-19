@@ -11,6 +11,7 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { execSync } from 'child_process';
 import { getDb, initSchema, getRecentItemsFull, insertContent, linkContentSources, closeDb } from '../src/lib/db.js';
+import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
 
 dotenv.config();
 
@@ -331,6 +332,169 @@ ${rawData}`;
 }
 
 // ============================================
+// Newsletter Writing (Kimi K2.5 Fallback for ZH)
+// ============================================
+
+async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string): Promise<string | null> {
+  const apiKey = process.env.KIMI_API_KEY || process.env.MOONSHOT_API_KEY;
+  if (!apiKey) {
+    console.log('   ⚠️ No KIMI_API_KEY, skipping Kimi fallback');
+    return null;
+  }
+
+  console.log('   🤖 Falling back to Kimi K2.5 for ZH newsletter...');
+
+  const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
+    title: i.title, summary: (i.raw_summary || '').slice(0, 300),
+    source: i.source, url: i.url, category: i.agent_category,
+    score: i.agent_score, why_it_matters: i.why_it_matters,
+  })), null, 2);
+
+  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+
+## 标题规则（重要）
+生成一个新闻式中文标题作为 H1。不要用日期标题。
+✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
+❌ 差："🌅 AI 每日简报 — ${date}"
+
+## 开场白（重要）
+标题后写 1-2 句有态度的叙事开场，点出今天最大的故事。然后用一行 "今天：" 预览 2-3 个关键话题。
+
+## 栏目（使用以下 6 个固定栏目 + 2 个特别栏目）
+🧠 模型动态 — 新模型发布与趋势
+📱 产品应用 — 消费级产品与平台更新
+🔧 开发工具 — 开发者工具、SDK、API
+📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
+🚀 开源前沿 — 新产品、研究成果、开源项目
+🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
+🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
+
+## 写作规范
+1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
+2. 每条：发生了什么 + 为什么重要，1-2 句话
+3. 括号内标注互动数据
+4. 每个栏目 3-5 条最重要的内容，空栏目跳过
+5. 语气像懂技术的朋友在微信群里科普
+6. 如果涉及国产模型，自然融入对比视角
+7. 输出纯 markdown，H1 标题必须是新闻式标题
+8. 全文使用中文撰写
+9. 每条必须在末尾包含来源链接：[查看详情 →](url)
+10. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
+
+## 禁用词
+❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
+
+严格规则 — 禁止编造：只使用下方提供的信息。
+
+## 原始数据（${items.length} 条）
+${rawData}`;
+
+  try {
+    const response = await fetch('https://api.moonshot.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'moonshot-v1-128k',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.4,
+        max_tokens: 8000,
+      }),
+    });
+
+    if (!response.ok) {
+      console.log(`   ⚠️ Kimi API error: ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const text = data.choices?.[0]?.message?.content?.trim() || '';
+
+    if (text && text.length > 500) {
+      console.log(`   ✅ Kimi ZH newsletter: ${text.length} chars`);
+      return text;
+    }
+    console.log(`   ⚠️ Kimi ZH output too short (${text.length} chars)`);
+    return null;
+  } catch (e) {
+    console.log(`   ⚠️ Kimi ZH error: ${e}`);
+    return null;
+  }
+}
+
+// ============================================
+// Newsletter Writing (Gemini Flash Fallback for ZH)
+// ============================================
+
+async function generateNewsletterWithGeminiZH(items: FilteredItem[], date: string): Promise<string | null> {
+  if (!GEMINI_API_KEY) {
+    console.log('   ⚠️ No GEMINI_API_KEY, skipping Gemini fallback');
+    return null;
+  }
+
+  console.log('   🤖 Falling back to Gemini Flash for ZH newsletter...');
+
+  const rawData = JSON.stringify(items.slice(0, 30).map(i => ({
+    title: i.title, summary: (i.raw_summary || '').slice(0, 300),
+    source: i.source, url: i.url, category: i.agent_category,
+    score: i.agent_score, why_it_matters: i.why_it_matters,
+  })), null, 2);
+
+  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+
+## 标题规则（重要）
+生成一个新闻式中文标题作为 H1。不要用日期标题。
+✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
+❌ 差："🌅 AI 每日简报 — ${date}"
+
+## 开场白（重要）
+标题后写 1-2 句有态度的叙事开场，点出今天最大的故事。然后用一行 "今天：" 预览 2-3 个关键话题。
+
+## 栏目（使用以下 6 个固定栏目 + 2 个特别栏目）
+🧠 模型动态 — 新模型发布与趋势
+📱 产品应用 — 消费级产品与平台更新
+🔧 开发工具 — 开发者工具、SDK、API
+📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
+🚀 开源前沿 — 新产品、研究成果、开源项目
+🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
+🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
+
+## 写作规范
+1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
+2. 每条：发生了什么 + 为什么重要，1-2 句话
+3. 括号内标注互动数据
+4. 每个栏目 3-5 条最重要的内容，空栏目跳过
+5. 语气像懂技术的朋友在微信群里科普
+6. 如果涉及国产模型，自然融入对比视角
+7. 输出纯 markdown，H1 标题必须是新闻式标题
+8. 全文使用中文撰写
+9. 每条必须在末尾包含来源链接：[查看详情 →](url)
+
+## 禁用词
+❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
+
+严格规则 — 禁止编造：只使用下方提供的信息。
+
+## 原始数据（${items.length} 条）
+${rawData}`;
+
+  try {
+    const text = await callGemini(prompt, { temperature: 0.4, maxOutputTokens: 8000 });
+    if (text && text.length > 500) {
+      console.log(`   ✅ Gemini ZH newsletter: ${text.length} chars`);
+      return text;
+    }
+    console.log(`   ⚠️ Gemini ZH output too short (${text.length} chars)`);
+    return null;
+  } catch (e) {
+    console.log(`   ⚠️ Gemini ZH error: ${e}`);
+    return null;
+  }
+}
+
+// ============================================
 // Main
 // ============================================
 
@@ -398,9 +562,11 @@ async function main() {
     console.log('❌ EN newsletter generation failed');
   }
 
-  // Step 4: Write ZH newsletter
+  // Step 4: Write ZH newsletter (Opus → Kimi K2.5 → Gemini Flash)
   console.log('\n🇨🇳 Writing ZH newsletter...');
-  const zhMarkdown = await generateNewsletterWithOpusZH(filtered, date);
+  let zhMarkdown = await generateNewsletterWithOpusZH(filtered, date);
+  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithKimiZH(filtered, date);
+  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithGeminiZH(filtered, date);
   if (zhMarkdown) {
     const zhPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);
     fs.writeFileSync(zhPath, zhMarkdown);
@@ -410,7 +576,7 @@ async function main() {
     fs.mkdirSync(zhContentDir, { recursive: true });
     fs.copyFileSync(zhPath, path.join(zhContentDir, `${date}.md`));
   } else {
-    console.log('⚠️ ZH newsletter generation failed (non-fatal)');
+    console.log('❌ ZH newsletter generation failed (both Opus and Kimi)');
   }
 
   // Step 5: DB persist newsletter as content
@@ -448,9 +614,11 @@ async function main() {
   // Step 7: Update status file
   const statusFile = path.join(process.cwd(), 'logs', 'last-run-status.json');
   fs.mkdirSync(path.dirname(statusFile), { recursive: true });
-  const status = enMarkdown ? 'success' : 'failed';
-  const message = enMarkdown
-    ? `✅ Newsletter ${date} published successfully`
+  const status = enMarkdown && zhMarkdown ? 'success' : enMarkdown ? 'partial' : 'failed';
+  const message = status === 'success'
+    ? `✅ Newsletter ${date} published (EN + ZH)`
+    : status === 'partial'
+    ? `⚠️ Newsletter ${date} partial (EN only, ZH failed)`
     : `❌ Newsletter ${date} generation failed`;
   fs.writeFileSync(statusFile, JSON.stringify({
     date, status, message, timestamp: new Date().toISOString(),
