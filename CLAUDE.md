@@ -145,5 +145,5 @@ Writing style specs live in `skills/`:
 ## Cron Schedule (Production)
 
 - **UTC 22:00** — `collect-news.ts` (news aggregation)
-- **UTC 23:00** — `daily-newsletter.sh` (compose + git push newsletter)
-- **UTC 02:00** — `daily-seo.sh` (Track B: batch SEO content generation)
+- **UTC 23:00** — `daily-newsletter.sh` (collect → freshness-detector → write newsletter → git push)
+- **UTC 02:00** — `daily-seo.sh` (seo-pipeline → keyword-enricher → paa-miner → content-updater → export-timeline-data)

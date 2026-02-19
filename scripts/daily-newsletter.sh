@@ -33,8 +33,16 @@ else
   exit 1
 fi
 
-# Step 2: Write newsletter from DB data
-echo "✍️ Step 2: Writing newsletter for ${DATE}..."
+# Step 2: Freshness detection (match new news against existing blogs)
+echo "🔄 Step 2: Detecting freshness signals..."
+if npx tsx scripts/freshness-detector.ts; then
+  echo "✅ Freshness detection complete"
+else
+  echo "⚠️ freshness-detector.ts failed (non-fatal)"
+fi
+
+# Step 3: Write newsletter from DB data
+echo "✍️ Step 3: Writing newsletter for ${DATE}..."
 if npx tsx scripts/write-newsletter.ts; then
   echo "✅ Newsletter written and pushed"
 else
