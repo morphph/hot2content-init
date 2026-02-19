@@ -6,7 +6,7 @@ keywords: ["Remotion", "Claude Code", "AI视频生成", "React视频框架", "Ag
 date: 2026-02-11
 lang: zh
 tier: 1
-hreflang_en: /en/remotion-claude-code-skills-ai-video-development
+hreflang_en: /en/blog/remotion-claude-code-skills-ai-video-development
 ---
 
 # 当 React 遇上视频生成：Remotion + Claude Code Skills 如何重新定义 AI 视频工作流

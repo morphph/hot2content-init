@@ -6,6 +6,7 @@ keywords: ["GPT-5.3 Codex vs Claude Opus 4.6 benchmark comparison"]
 date: 2026-02-09
 lang: en
 tier: 2
+hreflang_zh: /zh/blog/gpt-5-3-codex-vs-claude-opus-4-6-benchmark-comparison
 ---
 
 ```markdown

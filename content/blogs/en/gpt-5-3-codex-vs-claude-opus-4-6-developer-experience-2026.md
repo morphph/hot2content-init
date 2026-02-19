@@ -12,6 +12,7 @@ keywords:
   - "developer experience AI models"
   - "Claude Code vs Codex CLI"
   - "agentic coding tools"
+hreflang_zh: /zh/blog/gpt-5-3-codex-vs-claude-opus-4-6-developer-experience-2026
 ---
 
 On February 5, 2026, OpenAI and Anthropic released their latest flagship coding models within minutes of each other: GPT-5.3 Codex and Claude Opus 4.6. While Codex doubles down on coding specialization with faster inference and deeper terminal integration, Opus 4.6 pushes the envelope on context capacity and multi-agent collaboration. For developers choosing between the two, the decision hinges on which part of the development workflow matters most.

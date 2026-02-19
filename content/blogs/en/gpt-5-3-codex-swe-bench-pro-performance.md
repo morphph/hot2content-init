@@ -11,6 +11,7 @@ keywords:
   - "GPT-5.3 Codex benchmark scores"
   - "SWE-bench Pro performance 2026"
   - "OpenAI Codex coding model"
+hreflang_zh: /zh/blog/gpt-5-3-codex-swe-bench-pro-performance
 ---
 
 OpenAI just dropped GPT-5.3 Codex, a coding-specialized model, and it's making waves. Released alongside Anthropic's Claude Opus 4.6, Codex is boasting some impressive benchmark scores, particularly on SWE-bench Pro. Here's a quick rundown of what you need to know.

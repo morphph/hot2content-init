@@ -7,6 +7,7 @@ tier: 3
 tags: []
 description: "Learn how to leverage the Claude Opus 4.6 Compaction API to create truly infinite conversations with Anthropic's latest frontier AI model."
 keywords: ["how to use Claude Opus 4.6 compaction API"]
+hreflang_zh: /zh/blog/how-to-use-claude-opus-4-6-compaction-api
 ---
 
 Anthropic's Claude Opus 4.6, released on February 5th, 2026, alongside OpenAI's GPT-5.3 Codex, introduces a revolutionary feature for long-running conversations: the Compaction API. This API allows developers to effectively manage and summarize conversation context server-side, enabling "infinite" conversational experiences. Here's a quick guide on how to use it.

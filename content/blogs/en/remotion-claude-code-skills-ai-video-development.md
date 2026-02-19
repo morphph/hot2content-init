@@ -6,7 +6,7 @@ keywords: ["Remotion", "Claude Code", "Agent Skills", "programmatic video", "Rea
 date: 2026-02-11
 lang: en
 tier: 1
-hreflang_zh: /zh/remotion-claude-code-skills-ai-video-development
+hreflang_zh: /zh/blog/remotion-claude-code-skills-ai-video-development
 ---
 
 # Remotion + Claude Code Skills: The Developer's Guide to AI-Powered Programmatic Video
