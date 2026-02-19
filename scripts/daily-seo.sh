@@ -5,9 +5,14 @@
 
 set -euo pipefail
 
+# Ensure PATH includes node/npm binaries (cron has minimal PATH)
+export PATH="/home/ubuntu/.nvm/versions/node/v22.22.0/bin:/home/ubuntu/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+export NVM_DIR="/home/ubuntu/.nvm"
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_DIR"
+source .env
 
 # Ensure logs directory
 mkdir -p logs

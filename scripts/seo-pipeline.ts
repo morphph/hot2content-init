@@ -30,7 +30,6 @@ const CONTENT_DIRS = {
   tier2: path.join(PROJECT_ROOT, 'content', 'blogs'),
   tier3: path.join(PROJECT_ROOT, 'content', 'blogs'),
 };
-const DB_PATH = path.join(PROJECT_ROOT, 'data', 'loreai.db');
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
 
 // ─── CLI Args ────────────────────────────────────────────

@@ -20,4 +20,4 @@ for (const t of tables) {
 }
 
 closeDb();
-console.log('✅ Database ready at data/loreai.db');
+console.log('✅ Database ready at loreai.db');
