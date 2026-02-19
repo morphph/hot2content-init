@@ -12,6 +12,9 @@ cd "$PROJECT_DIR"
 # Ensure logs directory
 mkdir -p logs
 
+# Pull latest code before running
+git pull --ff-only 2>&1 | tee -a logs/seo-pipeline.log || { echo "❌ git pull failed" | tee -a logs/seo-pipeline.log; exit 1; }
+
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Starting SEO pipeline" | tee -a logs/seo-pipeline.log
 
 # Step 1: Main SEO pipeline (extracts keywords from news → generates content → persists keywords to DB)
