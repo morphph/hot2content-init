@@ -64,6 +64,8 @@ export default async function NewsletterDatePage({ params }: { params: Promise<{
   }
 
   const formattedDate = formatDateLong(date)
+  const zhExists = fs.existsSync(path.join(process.cwd(), 'content', 'newsletters', 'zh', `${date}.md`))
+  const langSwitchHref = zhExists ? `/zh/newsletter/${date}` : '/zh/newsletter'
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -74,7 +76,7 @@ export default async function NewsletterDatePage({ params }: { params: Promise<{
             { label: 'Newsletter', href: '/newsletter', active: true },
             { label: 'Blog', href: '/en/blog' },
           ]}
-          langSwitchHref={`/zh/newsletter/${date}`}
+          langSwitchHref={langSwitchHref}
         />
 
         {/* Date & Title */}

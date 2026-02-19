@@ -61,6 +61,8 @@ export default async function NewsletterZHDatePage({ params }: { params: Promise
   }
 
   const formattedDate = formatDateLong(date)
+  const enExists = fs.existsSync(path.join(process.cwd(), 'content', 'newsletters', 'en', `${date}.md`))
+  const langSwitchHref = enExists ? `/newsletter/${date}` : '/newsletter'
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -71,7 +73,7 @@ export default async function NewsletterZHDatePage({ params }: { params: Promise
             { label: '每日简报', href: '/zh/newsletter', active: true },
             { label: '博客', href: '/zh/blog' },
           ]}
-          langSwitchHref={`/newsletter/${date}`}
+          langSwitchHref={langSwitchHref}
         />
 
         {/* Date & Title */}
