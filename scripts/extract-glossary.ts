@@ -1,20 +1,12 @@
 #!/usr/bin/env npx tsx
 /**
  * Extract glossary terms from research reports and generate bilingual glossary entries
- * Uses Gemini Flash for content generation
+ * Uses Claude Sonnet via CLI for content generation
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as dotenv from 'dotenv';
-import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
-
-dotenv.config();
-
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY not set');
-  process.exit(1);
-}
+import { callSonnet } from '../src/lib/claude-cli.js';
 
 const PROJECT_ROOT = process.cwd();
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
@@ -56,9 +48,9 @@ Output ONLY a JSON array:
 [{"term": "...", "slug": "...", "category": "...", "definition": "...", "related": ["...", "..."]}]`;
 
   console.log('🔍 Extracting terms from research report...');
-  const result = await callGemini(prompt);
+  const result = await callSonnet(prompt);
   const jsonMatch = result.match(/\[[\s\S]*\]/);
-  if (!jsonMatch) throw new Error('Failed to parse Gemini response');
+  if (!jsonMatch) throw new Error('Failed to parse Sonnet CLI response');
   return JSON.parse(jsonMatch[0]);
 }
 
@@ -111,7 +103,7 @@ Rules:
 - 不要废话或填充句
 - 中文要有独立视角，不是英文翻译`;
 
-  return await callGemini(prompt);
+  return await callSonnet(prompt);
 }
 
 function buildFrontmatter(term: GlossaryTerm, lang: string): string {

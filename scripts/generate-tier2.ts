@@ -1,34 +1,17 @@
 #!/usr/bin/env npx tsx
 /**
  * Generate Tier 2/3 SEO articles from keywords table
- * Uses Gemini Flash for cost-effective content generation (~$0.02/article)
+ * Uses Claude Sonnet via CLI for content generation (free on Max Plan)
  * Reuses research report as context
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as dotenv from 'dotenv';
-import Anthropic from '@anthropic-ai/sdk';
-import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
+import { callSonnet } from '../src/lib/claude-cli.js';
 import { getDb, initSchema, insertContent, closeDb } from '../src/lib/db.js';
-
-dotenv.config();
-
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
 const PROJECT_ROOT = process.cwd();
 const IS_TIER3 = process.argv.includes('--tier3');
-
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY not set');
-  process.exit(1);
-}
-
-if (!IS_TIER3 && !ANTHROPIC_API_KEY) {
-  console.error('❌ ANTHROPIC_API_KEY not set (required for Tier 2 generation)');
-  console.error('   Use --tier3 flag to generate Tier 3 articles with Gemini Flash instead');
-  process.exit(1);
-}
 
 interface KeywordRow {
   id: number;
@@ -36,20 +19,6 @@ interface KeywordRow {
   language: string;
   search_intent: string;
   parent_research_id: number | null;
-}
-
-async function callClaude(prompt: string): Promise<string> {
-  if (!ANTHROPIC_API_KEY) {
-    throw new Error('ANTHROPIC_API_KEY not set — required for Tier 2 generation');
-  }
-  const client = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
-  const message = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 8000,
-    messages: [{ role: 'user', content: prompt }],
-  });
-  const block = message.content[0];
-  return block.type === 'text' ? block.text : '';
 }
 
 function slugify(text: string): string {
@@ -195,7 +164,7 @@ Requirements:
 Output raw Markdown directly, no code block wrapping.`;
   }
 
-  const article = IS_TIER3 ? await callGemini(prompt) : await callClaude(prompt);
+  const article = await callSonnet(prompt);
 
   const minLen = IS_TIER3 ? 200 : 500;
   if (!article || article.length < minLen) {

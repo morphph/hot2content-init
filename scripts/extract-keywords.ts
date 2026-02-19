@@ -1,22 +1,13 @@
 #!/usr/bin/env npx tsx
 /**
- * Extract long-tail keywords from research report using Gemini Flash
+ * Extract long-tail keywords from research report using Claude Sonnet CLI
  * Inserts into keywords table with status='backlog'
- * Cost: ~$0.001 per call
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as dotenv from 'dotenv';
 import { getDb, initSchema, closeDb } from '../src/lib/db.js';
-
-dotenv.config();
-
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY not set');
-  process.exit(1);
-}
+import { callSonnet } from '../src/lib/claude-cli.js';
 
 async function extractKeywords() {
   const PROJECT_ROOT = process.cwd();
@@ -74,25 +65,7 @@ Requirements:
 5. Keywords should be specific, searchable, and relevant to the topic
 6. Return ONLY valid JSON`;
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.3, maxOutputTokens: 2000 },
-      }),
-    }
-  );
-
-  if (!response.ok) {
-    console.error(`❌ Gemini API error: ${response.status}`);
-    process.exit(1);
-  }
-
-  const data = await response.json() as any;
-  let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  let text = await callSonnet(prompt);
   // Strip markdown code blocks if present
   text = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
 
@@ -100,7 +73,7 @@ Requirements:
   try {
     keywords = JSON.parse(text);
   } catch (e) {
-    console.error('❌ Failed to parse Gemini response:', text.substring(0, 500));
+    console.error('❌ Failed to parse Sonnet CLI response:', text.substring(0, 500));
     process.exit(1);
   }
 

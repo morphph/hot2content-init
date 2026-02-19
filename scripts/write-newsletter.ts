@@ -11,7 +11,7 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { execSync } from 'child_process';
 import { getDb, initSchema, getRecentItemsFull, insertContent, linkContentSources, closeDb } from '../src/lib/db.js';
-import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
+import { callSonnet } from '../src/lib/claude-cli.js';
 
 dotenv.config();
 
@@ -425,16 +425,11 @@ ${rawData}`;
 }
 
 // ============================================
-// Newsletter Writing (Gemini Flash Fallback for ZH)
+// Newsletter Writing (Sonnet CLI Fallback for ZH)
 // ============================================
 
-async function generateNewsletterWithGeminiZH(items: FilteredItem[], date: string): Promise<string | null> {
-  if (!GEMINI_API_KEY) {
-    console.log('   ⚠️ No GEMINI_API_KEY, skipping Gemini fallback');
-    return null;
-  }
-
-  console.log('   🤖 Falling back to Gemini Flash for ZH newsletter...');
+async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: string): Promise<string | null> {
+  console.log('   🤖 Falling back to Sonnet CLI for ZH newsletter...');
 
   const rawData = JSON.stringify(items.slice(0, 30).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
@@ -481,15 +476,15 @@ async function generateNewsletterWithGeminiZH(items: FilteredItem[], date: strin
 ${rawData}`;
 
   try {
-    const text = await callGemini(prompt, { temperature: 0.4, maxOutputTokens: 8000 });
+    const text = await callSonnet(prompt);
     if (text && text.length > 500) {
-      console.log(`   ✅ Gemini ZH newsletter: ${text.length} chars`);
+      console.log(`   ✅ Sonnet CLI ZH newsletter: ${text.length} chars`);
       return text;
     }
-    console.log(`   ⚠️ Gemini ZH output too short (${text.length} chars)`);
+    console.log(`   ⚠️ Sonnet CLI ZH output too short (${text.length} chars)`);
     return null;
   } catch (e) {
-    console.log(`   ⚠️ Gemini ZH error: ${e}`);
+    console.log(`   ⚠️ Sonnet CLI ZH error: ${e}`);
     return null;
   }
 }
@@ -566,7 +561,7 @@ async function main() {
   console.log('\n🇨🇳 Writing ZH newsletter...');
   let zhMarkdown = await generateNewsletterWithOpusZH(filtered, date);
   if (!zhMarkdown) zhMarkdown = await generateNewsletterWithKimiZH(filtered, date);
-  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithGeminiZH(filtered, date);
+  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithSonnetZH(filtered, date);
   if (zhMarkdown) {
     const zhPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);
     fs.writeFileSync(zhPath, zhMarkdown);

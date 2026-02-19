@@ -1,5 +1,28 @@
 # LoreAI Changelog
 
+## 2026-02-19 — Migrate Sonnet API + Gemini Flash to Claude CLI (Max Plan)
+
+### Reason
+Eliminate paid Anthropic Sonnet API and Gemini 2.0 Flash API costs by routing all calls through `claude` CLI (free on Max Plan). Only `scripts/gemini-research.ts` (Gemini 2.5 Pro Deep Research) remains on paid API.
+
+### Changes
+- **NEW** `src/lib/claude-cli.ts` — shared CLI helper (callCLI, callSonnet, callOpus)
+- `scripts/extract-glossary.ts` — callGemini → callSonnet (CLI)
+- `scripts/extract-compare.ts` — callGemini → callSonnet (CLI)
+- `scripts/extract-keywords.ts` — inline Gemini fetch → callSonnet (CLI)
+- `scripts/extract-faq.ts` — callClaude (API) + callGemini → callSonnet (CLI), removed A/B test split
+- `scripts/generate-tier2.ts` — Anthropic SDK + callGemini → callSonnet (CLI), removed `@anthropic-ai/sdk` import
+- `scripts/write-newsletter.ts` — Gemini ZH fallback → callSonnet (CLI), renamed `generateNewsletterWithGeminiZH` → `generateNewsletterWithSonnetZH`
+- `scripts/daily-scout.ts` — Gemini Flash fallbacks → callSonnet (CLI), renamed `writeNewsletterWithGemini` → `writeNewsletterWithSonnet`, `writeNewsletterWithGeminiZH` → `writeNewsletterWithSonnetZH`
+- `scripts/claude-writer.ts` — Opus API fetch → callOpus (CLI)
+- **DELETED** `src/lib/gemini.ts` — no longer needed (all callers migrated)
+- `CLAUDE.md` — Updated Content Tiers table (all tiers now $0 CLI)
+
+### Known Issues
+- CLI calls are synchronous (`execSync`); if a call hangs, it blocks the process until timeout (3 min default, 5 min for Opus)
+
+---
+
 ## 2026-02-19 — Codebase Audit Batch 6: Content & Skills Fixes
 
 ### M12: Added `skills/newsletter-zh/SKILL.md`

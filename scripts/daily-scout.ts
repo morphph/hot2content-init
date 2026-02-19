@@ -150,11 +150,11 @@ const CATEGORY_ORDER: Category[] = [
   'product_ecosystem',
 ];
 
-// ============================================
-// Gemini AI Enhancement
-// ============================================
+import { callSonnet } from '../src/lib/claude-cli.js';
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+// ============================================
+// Newsletter Types
+// ============================================
 
 interface NewsletterSection {
   category: Category;
@@ -183,17 +183,12 @@ async function loadNewsletterSkill(): Promise<string> {
   }
 }
 
-async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterContent | null> {
-  if (!GEMINI_API_KEY) {
-    console.log('   ⚠️ No Gemini API key, skipping newsletter generation');
-    return null;
-  }
+async function writeNewsletterWithSonnet(items: NewsItem[]): Promise<NewsletterContent | null> {
+  console.log('🤖 Writing newsletter with Sonnet CLI...');
 
-  console.log('🤖 Writing newsletter with Gemini...');
-  
   // Load writing skill
   const skill = await loadNewsletterSkill();
-  
+
   // Group items by category for the writer
   const byCategory: Record<Category, NewsItem[]> = {
     model_release: [],
@@ -201,32 +196,28 @@ async function writeNewsletterWithGemini(items: NewsItem[]): Promise<NewsletterC
     official_blog: [],
     product_ecosystem: [],
   };
-  
+
   for (const item of items.slice(0, 30)) {
     byCategory[item.category].push(item);
   }
-  
+
   const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
-  
+
   // Extract just the voice/tone and per-item rules from skill (not the full markdown template)
   const extractSkillGuidance = (fullSkill: string): string => {
     const sections: string[] = [];
-    // Extract Voice & Tone section
     const voiceMatch = fullSkill.match(/## Voice & Tone\n([\s\S]*?)(?=\n## (?!Voice))/);
     if (voiceMatch) sections.push('## Voice & Tone\n' + voiceMatch[1].trim());
-    // Extract Per-Item Rules
     const itemRulesMatch = fullSkill.match(/## Per-Item Rules\n([\s\S]*?)(?=\n## )/);
     if (itemRulesMatch) sections.push('## Per-Item Rules\n' + itemRulesMatch[1].trim());
-    // Extract Title Rules
     const titleMatch = fullSkill.match(/## Title Rules\n([\s\S]*?)(?=\n## )/);
     if (titleMatch) sections.push('## Title Rules\n' + titleMatch[1].trim());
-    // Extract Intro Paragraph Rules
     const introMatch = fullSkill.match(/## Intro Paragraph Rules\n([\s\S]*?)(?=\n## )/);
     if (introMatch) sections.push('## Intro Paragraph Rules\n' + introMatch[1].trim());
     return sections.join('\n\n');
   };
 
-  const skillSection = skill 
+  const skillSection = skill
     ? `## Writing Style Guide (follow strictly):\n${extractSkillGuidance(skill)}\n\n`
     : `## Style Guide:
 - Write like Superhuman AI: concise, professional, insightful
@@ -284,33 +275,12 @@ Pick the 2-3 most important items per category. Skip categories with nothing new
 Return ONLY valid JSON, no markdown code blocks.`;
 
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            temperature: 0.4,
-            maxOutputTokens: 3000,
-          }
-        })
-      }
-    );
+    const text = await callSonnet(prompt);
 
-    if (!response.ok) {
-      console.log(`   ⚠️ Gemini API error: ${response.status}`);
-      return null;
-    }
-
-    const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    
     // Parse JSON from response
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      console.log('   ⚠️ Could not parse Gemini response');
+      console.log('   ⚠️ Could not parse Sonnet CLI response');
       console.log('   Raw response:', text.slice(0, 500));
       return null;
     }
@@ -318,9 +288,9 @@ Return ONLY valid JSON, no markdown code blocks.`;
     const newsletter: NewsletterContent = JSON.parse(jsonMatch[0]);
     console.log(`   ✅ Newsletter written with ${newsletter.sections.length} sections`);
     return newsletter;
-    
+
   } catch (e) {
-    console.log(`   ⚠️ Gemini newsletter error: ${e}`);
+    console.log(`   ⚠️ Sonnet CLI newsletter error: ${e}`);
     return null;
   }
 }
@@ -1667,13 +1637,8 @@ ${rawData}`;
   }
 }
 
-async function writeNewsletterWithGeminiZH(items: NewsItem[], date: string): Promise<string | null> {
-  if (!GEMINI_API_KEY) {
-    console.log('   ⚠️ No Gemini API key, skipping ZH newsletter');
-    return null;
-  }
-
-  console.log('🤖 Writing ZH newsletter with Gemini Flash...');
+async function writeNewsletterWithSonnetZH(items: NewsItem[], date: string): Promise<string | null> {
+  console.log('🤖 Writing ZH newsletter with Sonnet CLI...');
 
   const rawData = JSON.stringify(items.slice(0, 30).map(i => ({
     title: i.title,
@@ -1693,33 +1658,15 @@ async function writeNewsletterWithGeminiZH(items: NewsItem[], date: string): Pro
 ${rawData}`;
 
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.4, maxOutputTokens: 4000 }
-        })
-      }
-    );
+    const text = await callSonnet(prompt);
 
-    if (!response.ok) {
-      console.log(`   ⚠️ Gemini ZH API error: ${response.status}`);
-      return null;
-    }
-
-    const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    
     if (text && text.length > 200) {
-      console.log(`   ✅ Gemini ZH newsletter: ${text.length} chars`);
+      console.log(`   ✅ Sonnet CLI ZH newsletter: ${text.length} chars`);
       return text;
     }
     return null;
   } catch (e) {
-    console.log(`   ⚠️ Gemini ZH error: ${e}`);
+    console.log(`   ⚠️ Sonnet CLI ZH error: ${e}`);
     return null;
   }
 }
@@ -1872,7 +1819,7 @@ async function main() {
     let newsletterContent: NewsletterContent | null = null;
     if (!digestMarkdown) {
       console.log('   🔄 Falling back to Gemini Flash...');
-      newsletterContent = await writeNewsletterWithGemini(items);
+      newsletterContent = await writeNewsletterWithSonnet(items);
     }
 
     const byCategory: Record<Category, NewsItem[]> = {
@@ -1906,7 +1853,7 @@ async function main() {
     // ZH newsletter
     console.log('\n🇨🇳 Generating Chinese newsletter...');
     let zhMarkdown: string | null = await generateNewsletterWithOpusZH(items, date);
-    if (!zhMarkdown) zhMarkdown = await writeNewsletterWithGeminiZH(items, date);
+    if (!zhMarkdown) zhMarkdown = await writeNewsletterWithSonnetZH(items, date);
     if (zhMarkdown) {
       const zhMdPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);
       fs.writeFileSync(zhMdPath, zhMarkdown);
@@ -2014,7 +1961,7 @@ async function main() {
   let newsletterContent: NewsletterContent | null = null;
   if (!digestMarkdown) {
     console.log('   🔄 Falling back to Gemini Flash...');
-    newsletterContent = await writeNewsletterWithGemini(fresh);
+    newsletterContent = await writeNewsletterWithSonnet(fresh);
   }
 
   // Create digest
@@ -2085,7 +2032,7 @@ async function main() {
   let zhMarkdown: string | null = await generateNewsletterWithOpusZH(fresh, date);
   if (!zhMarkdown) {
     console.log('   🔄 Falling back to Gemini Flash for ZH...');
-    zhMarkdown = await writeNewsletterWithGeminiZH(fresh, date);
+    zhMarkdown = await writeNewsletterWithSonnetZH(fresh, date);
   }
   if (zhMarkdown) {
     const zhMdPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);

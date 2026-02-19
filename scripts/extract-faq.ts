@@ -1,24 +1,18 @@
 #!/usr/bin/env npx tsx
 /**
- * Extract FAQ questions from multiple sources and generate A/B test samples
- * Sources: Brave Search, Research Report (Gemini), Existing Blog FAQs
- * Models: Gemini Flash (A) vs Claude Sonnet (B)
+ * Extract FAQ questions from multiple sources and generate answers
+ * Sources: Brave Search, Research Report, Existing Blog FAQs
+ * Model: Claude Sonnet via CLI
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
-import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
+import { callSonnet } from '../src/lib/claude-cli.js';
 
 dotenv.config();
 
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
-
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY not set');
-  process.exit(1);
-}
 
 const PROJECT_ROOT = process.cwd();
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
@@ -28,27 +22,6 @@ interface FAQQuestion {
   question_zh: string;
   intent: 'comparison' | 'informational' | 'tutorial' | 'pricing';
   source: string;
-}
-
-// ─── Claude API ───
-async function callClaude(prompt: string): Promise<string> {
-  if (!ANTHROPIC_API_KEY) throw new Error('No Anthropic API key');
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4000,
-      messages: [{ role: 'user', content: prompt }],
-    }),
-  });
-  if (!response.ok) throw new Error(`Claude API error: ${response.status}`);
-  const data = await response.json() as any;
-  return data.content?.[0]?.text || '';
 }
 
 // ─── Step 1a: Brave Search PAA ───
@@ -113,15 +86,15 @@ ${snippet}
 只输出 JSON 数组，不要其他文字：
 [{"question_en": "...", "question_zh": "...", "intent": "comparison|informational|tutorial|pricing"}]`;
 
-  console.log('🔍 Extracting questions from research report via Gemini...');
-  const result = await callGemini(prompt);
+  console.log('🔍 Extracting questions from research report via Sonnet CLI...');
+  const result = await callSonnet(prompt);
   try {
     const jsonMatch = result.match(/\[[\s\S]*\]/);
     if (!jsonMatch) return [];
     const parsed = JSON.parse(jsonMatch[0]) as FAQQuestion[];
     return parsed.map(q => ({ ...q, source: 'research' }));
   } catch {
-    console.error('⚠️  Failed to parse Gemini FAQ extraction response');
+    console.error('⚠️  Failed to parse Sonnet CLI FAQ extraction response');
     return [];
   }
 }
@@ -212,23 +185,18 @@ Output the answer directly, no extra explanation.`;
 
 async function generateAnswers(
   questions: FAQQuestion[],
-  research: string,
-  model: 'gemini' | 'claude'
+  research: string
 ): Promise<{ question: string; answer_en: string; answer_zh: string }[]> {
-  const callModel = model === 'gemini' ? callGemini : callClaude;
   const results: { question: string; answer_en: string; answer_zh: string }[] = [];
 
   for (const q of questions) {
     const qEn = q.question_en || q.question_zh;
     const qZh = q.question_zh || q.question_en;
-    console.log(`  📝 [${model}] ${qEn.slice(0, 60)}...`);
+    console.log(`  📝 [sonnet-cli] ${qEn.slice(0, 60)}...`);
 
     try {
-      const answerEn = await callModel(getAnswerPrompt(qEn, 'en', research));
-      // Small delay to avoid rate limits
-      await new Promise(r => setTimeout(r, 1000));
-      const answerZh = await callModel(getAnswerPrompt(qZh, 'zh', research));
-      await new Promise(r => setTimeout(r, 1000));
+      const answerEn = await callSonnet(getAnswerPrompt(qEn, 'en', research));
+      const answerZh = await callSonnet(getAnswerPrompt(qZh, 'zh', research));
       results.push({ question: qEn, answer_en: answerEn.trim(), answer_zh: answerZh.trim() });
     } catch (e: any) {
       console.error(`  ⚠️  Failed: ${e.message}`);
@@ -323,18 +291,9 @@ async function main() {
   console.log('✅ Written faq-questions.json\n');
 
   // Step 3: Generate answers
-  console.log('🤖 Step 3a: Generating answers with Gemini Flash...');
-  const flashAnswers = await generateAnswers(selected, research, 'gemini');
-  writeFAQSample(flashAnswers, 'Gemini Flash', topic, 'faq-sample-flash.md');
-
-  if (ANTHROPIC_API_KEY) {
-    console.log('\n🤖 Step 3b: Generating answers with Claude Sonnet...');
-    const sonnetAnswers = await generateAnswers(selected, research, 'claude');
-    writeFAQSample(sonnetAnswers, 'Claude Sonnet', topic, 'faq-sample-sonnet.md');
-  } else {
-    console.log('\n⏭️  No ANTHROPIC_API_KEY found. Skipping Claude Sonnet.');
-    console.log('   Bella needs to add ANTHROPIC_API_KEY to .env for A/B testing.');
-  }
+  console.log('🤖 Step 3: Generating answers with Sonnet CLI...');
+  const answers = await generateAnswers(selected, research);
+  writeFAQSample(answers, 'Claude Sonnet (CLI)', topic, 'faq-sample-sonnet.md');
 
   console.log('\n✅ FAQ extraction complete!');
 }

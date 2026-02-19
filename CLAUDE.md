@@ -68,9 +68,9 @@ Agents are defined in `.claude/agents/*.md`. Commands in `.claude/commands/*.md`
 
 | Tier | Quality | Model | Word Count | Cost |
 |------|---------|-------|------------|------|
-| 1 (Deep Dive) | Highest | Claude Opus | EN 1500-2500 / ZH 2000-3000 | $1-2 |
-| 2 (Analysis) | Medium | Claude Sonnet | 800-1500 | ~$0.10 |
-| 3 (Quick Read) | Basic | Gemini Flash | 300-500 | ~$0.02 |
+| 1 (Deep Dive) | Highest | Claude Opus (CLI) | EN 1500-2500 / ZH 2000-3000 | $0 (CLI) |
+| 2 (Analysis) | Medium | Claude Sonnet 4.6 (CLI) | 800-1500 | $0 (CLI) |
+| 3 (Quick Read) | Basic | Claude Sonnet 4.6 (CLI) | 300-500 | $0 (CLI) |
 
 ### Data Flow
 

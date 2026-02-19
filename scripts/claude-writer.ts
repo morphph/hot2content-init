@@ -1,14 +1,14 @@
 #!/usr/bin/env tsx
-import 'dotenv/config';
-
 /**
  * Claude Chinese Blog Writer
  *
  * Reads Core Narrative and Research Report, generates native Chinese blog.
+ * Uses Claude Opus via CLI (free on Max Plan).
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { callOpus } from '../src/lib/claude-cli.js';
 
 interface CoreNarrative {
   topic_id: string;
@@ -37,13 +37,6 @@ interface CoreNarrative {
 async function main() {
   console.log('✍️  Claude 中文博客生成器\n');
   console.log('='.repeat(60) + '\n');
-
-  // Check API key
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    console.error('❌ Error: ANTHROPIC_API_KEY not found in environment');
-    process.exit(1);
-  }
 
   // Read core narrative
   const narrativePath = path.join(process.cwd(), 'output', 'core-narrative.json');
@@ -129,35 +122,13 @@ ${researchReport.substring(0, 8000)}
 
 请创作中文博客，直接输出Markdown格式，不要有任何前言。`;
 
-  console.log('\n📡 Calling Claude API...');
+  console.log('\n📡 Calling Claude Opus via CLI...');
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-opus-4-20250514',
-        max_tokens: 8192,
-        messages: [
-          { role: 'user', content: prompt }
-        ]
-      })
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`API request failed (${response.status}): ${errorText}`);
-    }
-
-    const data = await response.json();
-    const content = data.content?.[0]?.text;
+    const content = await callOpus(prompt, { timeoutMs: 5 * 60 * 1000 });
 
     if (!content) {
-      throw new Error('No content in API response');
+      throw new Error('No content in CLI response');
     }
 
     // Save output

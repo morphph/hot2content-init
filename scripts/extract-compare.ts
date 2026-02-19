@@ -1,20 +1,12 @@
 #!/usr/bin/env npx tsx
 /**
  * Extract structured comparison data from research reports
- * Uses Gemini Flash to generate comparison markdown files
+ * Uses Claude Sonnet via CLI to generate comparison markdown files
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as dotenv from 'dotenv';
-import { callGemini, GEMINI_API_KEY } from '../src/lib/gemini.js';
-
-dotenv.config();
-
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY not set');
-  process.exit(1);
-}
+import { callSonnet } from '../src/lib/claude-cli.js';
 
 const PROJECT_ROOT = process.cwd();
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
@@ -122,7 +114,7 @@ Rules:
 - Bold key stats with **
 - Keep tables properly formatted with | alignment`;
 
-    return await callGemini(prompt);
+    return await callSonnet(prompt);
   }
 
   // ZH prompt
@@ -175,7 +167,7 @@ category: AI 模型对比
 - 表格格式要正确
 - 中文要有独立视角，不是英文翻译`;
 
-  return await callGemini(prompt);
+  return await callSonnet(prompt);
 }
 
 async function main() {
