@@ -21,9 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${result.question.question} — FAQ | LoreAI`,
     description: result.question.summary,
     alternates: {
+      canonical: `https://loreai.dev/en/faq/${topicSlug}/${questionSlug}/`,
       languages: {
-        'en': `/en/faq/${topicSlug}/${questionSlug}`,
-        'zh': `/zh/faq/${zhTopicSlugMeta}/${questionSlug}`,
+        'en': `/en/faq/${topicSlug}/${questionSlug}/`,
+        'zh': `/zh/faq/${zhTopicSlugMeta}/${questionSlug}/`,
+        'x-default': `/en/faq/${topicSlug}/${questionSlug}/`,
       },
     },
   }

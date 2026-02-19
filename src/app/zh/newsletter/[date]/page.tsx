@@ -44,9 +44,11 @@ export async function generateMetadata({ params }: { params: Promise<{ date: str
     title: `${title} | LoreAI`,
     description: `AI 每日简报 ${date}`,
     alternates: {
+      canonical: `https://loreai.dev/zh/newsletter/${date}/`,
       languages: {
-        'en': `/newsletter/${date}`,
-        'zh': `/zh/newsletter/${date}`,
+        'en': `/newsletter/${date}/`,
+        'zh': `/zh/newsletter/${date}/`,
+        'x-default': `/newsletter/${date}/`,
       },
     },
   }

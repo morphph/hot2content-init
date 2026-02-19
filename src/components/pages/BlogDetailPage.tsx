@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getBlogPost } from '@/lib/blog'
+import { getRelatedContent, type RelatedItem } from '@/lib/related-content'
 import Header from '@/components/Header'
 import TableOfContents from '@/components/TableOfContents'
 import MermaidContent from '@/components/MermaidContent'
@@ -39,7 +40,7 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated || post.date,
-    author: { '@type': 'Organization', name: 'LoreAI', url: 'https://loreai.dev' },
+    author: { '@type': 'Organization', name: 'LoreAI', url: 'https://loreai.dev/about/' },
     publisher: { '@type': 'Organization', name: 'LoreAI', url: 'https://loreai.dev' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://loreai.dev/${lang}/blog/${slug}` },
     keywords: post.keywords?.join(', '),
@@ -58,6 +59,7 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
 
   const headings = extractHeadings(post.contentHtml)
   const showMermaid = hasMermaidContent(post.contentHtml)
+  const relatedContent = await getRelatedContent(lang, slug, post.keywords || [])
 
   const altLangHref = isEn
     ? (post.hreflang_zh || '/zh/blog')
@@ -108,6 +110,13 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
                   {post.description}
                 </p>
               )}
+              <div className="mt-4 text-sm text-gray-500">
+                {isEn ? 'By ' : '作者：'}
+                <Link href="/about/" className="text-blue-600 hover:underline">LoreAI</Link>
+                {post.readingTime > 0 && (
+                  <span className="ml-3">{isEn ? `${post.readingTime} min read` : `${post.readingTime} 分钟阅读`}</span>
+                )}
+              </div>
             </header>
 
             {/* Article Content */}
@@ -142,6 +151,42 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
                 Newsletter →
               </Link>
             </div>
+          </div>
+
+          {/* Related Resources */}
+          {relatedContent.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-gray-100">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                {isEn ? 'Related Resources' : '相关资源'}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {relatedContent.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block p-3 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors"
+                  >
+                    <span className="inline-block text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 mb-1">
+                      {item.typeLabel}
+                    </span>
+                    <p className="text-sm font-medium text-gray-900 line-clamp-2">{item.title}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Cross-Content Navigation */}
+          <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap gap-3 justify-center text-sm">
+            <Link href={`/${lang}/faq`} className="px-3 py-1.5 rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors">
+              {isEn ? 'FAQ' : '常见问题'}
+            </Link>
+            <Link href={`/${lang}/glossary`} className="px-3 py-1.5 rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors">
+              {isEn ? 'Glossary' : '术语表'}
+            </Link>
+            <Link href={`/${lang}/compare`} className="px-3 py-1.5 rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors">
+              {isEn ? 'Comparisons' : '对比'}
+            </Link>
           </div>
 
           {/* Footer */}

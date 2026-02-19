@@ -20,9 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${entry.term} — 术语表 | LoreAI`,
     description: entry.definition,
     alternates: {
+      canonical: `https://loreai.dev/zh/glossary/${slug}/`,
       languages: {
-        'en': `/en/glossary/${slug}`,
-        'zh': `/zh/glossary/${slug}`,
+        'en': `/en/glossary/${slug}/`,
+        'zh': `/zh/glossary/${slug}/`,
+        'x-default': `/en/glossary/${slug}/`,
       },
     },
   }

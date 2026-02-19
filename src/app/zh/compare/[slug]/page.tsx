@@ -21,9 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | LoreAI`,
     description: post.description,
     alternates: {
+      canonical: `https://loreai.dev/zh/compare/${slug}/`,
       languages: {
-        'en': `/en/compare/${enSlugMeta}`,
-        'zh': `/zh/compare/${slug}`,
+        'en': `/en/compare/${enSlugMeta}/`,
+        'zh': `/zh/compare/${slug}/`,
+        'x-default': `/en/compare/${enSlugMeta}/`,
       },
     },
   }

@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'LoreAI | AI 内容引擎',
   description: 'AI 驱动的研究和内容创作',
+  other: {
+    'content-language': 'zh',
+  },
 }
 
 export default function ZhLayout({

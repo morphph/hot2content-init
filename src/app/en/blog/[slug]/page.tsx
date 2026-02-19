@@ -22,8 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.description,
     keywords: post.keywords,
     alternates: {
+      canonical: `https://loreai.dev/en/blog/${slug}/`,
       languages: {
-        'zh': `/zh/blog/${slug}`,
+        'en': `/en/blog/${slug}/`,
+        'zh': post.hreflang_zh || `/zh/blog/${slug}/`,
+        'x-default': `/en/blog/${slug}/`,
       },
     },
     openGraph: {

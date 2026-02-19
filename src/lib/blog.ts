@@ -5,6 +5,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import gfm from 'remark-gfm'
 import { blogFrontmatterSchema } from '@/schemas/blog-frontmatter'
+import { getGlossaryTerms } from './glossary'
 
 const BLOGS_DIR = path.join(process.cwd(), 'content', 'blogs')
 const OUTPUT_DIR = path.join(process.cwd(), 'output')
@@ -34,9 +35,63 @@ function estimateReadingTime(content: string, lang: string): number {
 }
 
 /**
+ * Link first occurrence of glossary terms in HTML content.
+ * Avoids linking inside headings, existing links, or code blocks.
+ */
+function linkGlossaryTerms(html: string, lang: 'en' | 'zh'): string {
+  const terms = getGlossaryTerms(lang)
+  if (terms.length === 0) return html
+
+  // Sort by term length descending so longer terms are matched first
+  const sorted = [...terms].sort((a, b) => b.term.length - a.term.length)
+
+  for (const entry of sorted) {
+    if (entry.term.length < 3) continue // skip very short terms
+
+    // Escape regex special chars in term
+    const escaped = entry.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    // Match whole word for English, any occurrence for Chinese
+    const pattern = lang === 'en'
+      ? new RegExp(`(?<![\\w/])${escaped}(?![\\w/])`, 'i')
+      : new RegExp(escaped)
+
+    // Split HTML by tags to only process text nodes outside headings/links/code
+    const parts = html.split(/(<[^>]+>)/g)
+    let insideSkip = 0
+    let linked = false
+
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i]
+
+      // Track tag depth for elements we want to skip
+      if (part.startsWith('<')) {
+        if (/^<(h[1-6]|a |a>|code|pre)/i.test(part)) insideSkip++
+        if (/^<\/(h[1-6]|a|code|pre)>/i.test(part)) insideSkip = Math.max(0, insideSkip - 1)
+        continue
+      }
+
+      if (insideSkip > 0 || linked) continue
+
+      const match = part.match(pattern)
+      if (match) {
+        const href = `/${lang}/glossary/${entry.slug}/`
+        parts[i] = part.replace(pattern, `<a href="${href}" class="glossary-link" title="${entry.definition.slice(0, 100)}">${match[0]}</a>`)
+        linked = true
+      }
+    }
+
+    if (linked) {
+      html = parts.join('')
+    }
+  }
+
+  return html
+}
+
+/**
  * Parse markdown frontmatter and content
  */
-async function parseMarkdown(content: string): Promise<{
+async function parseMarkdown(content: string, lang?: 'en' | 'zh'): Promise<{
   data: Record<string, any>
   contentHtml: string
 }> {
@@ -55,15 +110,18 @@ async function parseMarkdown(content: string): Promise<{
   // Strip <script> tags to prevent XSS while preserving Mermaid <pre> blocks
   contentHtml = contentHtml.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
 
-  // Add id attributes to H2 tags for TOC anchor links
+  // Add id attributes to H2-H6 tags for TOC anchor links and deep-link citability
   let headingIndex = 0
-  contentHtml = contentHtml.replace(/<h2>(.*?)<\/h2>/gi, (_match, text) => {
-    const plainText = text.replace(/<[^>]*>/g, '')
-    // Use index-based ids to handle all languages (including Chinese)
+  contentHtml = contentHtml.replace(/<(h[2-6])>(.*?)<\/\1>/gi, (_match, tag, text) => {
     const id = `section-${headingIndex++}`
-    return `<h2 id="${id}">${text}</h2>`
+    return `<${tag} id="${id}">${text}</${tag}>`
   })
-  
+
+  // Link first occurrence of glossary terms in content
+  if (lang) {
+    contentHtml = linkGlossaryTerms(contentHtml, lang)
+  }
+
   return {
     data,
     contentHtml
@@ -85,7 +143,7 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
     for (const file of files) {
       try {
         const content = fs.readFileSync(path.join(langDir, file), 'utf-8')
-        const { data, contentHtml } = await parseMarkdown(content)
+        const { data, contentHtml } = await parseMarkdown(content, lang)
 
         // Validate frontmatter against Zod schema (warn but don't throw for backwards compatibility)
         const validation = blogFrontmatterSchema.safeParse(data)
@@ -126,7 +184,7 @@ export async function getBlogPosts(lang: 'en' | 'zh', options?: { tier?: number;
     if (fs.existsSync(filePath)) {
       try {
         const content = fs.readFileSync(filePath, 'utf-8')
-        const { data, contentHtml } = await parseMarkdown(content)
+        const { data, contentHtml } = await parseMarkdown(content, lang)
 
         // Validate frontmatter against Zod schema (warn but don't throw for backwards compatibility)
         const validation = blogFrontmatterSchema.safeParse(data)
@@ -185,7 +243,7 @@ export async function getBlogPost(lang: 'en' | 'zh', slug: string): Promise<Blog
   if (fs.existsSync(directPath)) {
     try {
       const content = fs.readFileSync(directPath, 'utf-8')
-      const { data, contentHtml } = await parseMarkdown(content)
+      const { data, contentHtml } = await parseMarkdown(content, lang)
 
       const validation = blogFrontmatterSchema.safeParse(data)
       if (!validation.success) {
@@ -225,7 +283,7 @@ export async function getBlogPost(lang: 'en' | 'zh', slug: string): Promise<Blog
         const content = fs.readFileSync(path.join(langDir, file), 'utf-8')
         const { data } = matter(content)
         if (data.slug === slug) {
-          const { contentHtml } = await parseMarkdown(content)
+          const { contentHtml } = await parseMarkdown(content, lang)
           const validation = blogFrontmatterSchema.safeParse(data)
           if (!validation.success) {
             console.warn(`[blog.ts] Invalid frontmatter in ${file}:`, validation.error.issues.map(i => `${i.path.join('.')}: ${i.message}`).join(', '))
@@ -262,7 +320,7 @@ export async function getBlogPost(lang: 'en' | 'zh', slug: string): Promise<Blog
   if (fs.existsSync(filePath)) {
     try {
       const content = fs.readFileSync(filePath, 'utf-8')
-      const { data, contentHtml } = await parseMarkdown(content)
+      const { data, contentHtml } = await parseMarkdown(content, lang)
       if ((data.slug || 'untitled') === slug) {
         return {
           slug: data.slug || 'untitled',
