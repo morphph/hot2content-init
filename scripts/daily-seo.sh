@@ -25,12 +25,27 @@ npx tsx scripts/keyword-enricher.ts 2>&1 | tee -a logs/seo-pipeline.log || echo 
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Mining PAA questions" | tee -a logs/seo-pipeline.log
 npx tsx scripts/paa-miner.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ paa-miner failed (non-fatal)"
 
-# Step 4: Content freshness updates (append update sections to stale articles)
+# Step 4: Consume PAA questions → generate FAQ pages
+echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Generating FAQ from PAA questions" | tee -a logs/seo-pipeline.log
+npx tsx scripts/generate-paa-faq.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ generate-paa-faq failed (non-fatal)"
+
+# Step 5: Content freshness updates (append update sections to stale articles)
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Updating stale content" | tee -a logs/seo-pipeline.log
 npx tsx scripts/content-updater.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ content-updater failed (non-fatal)"
 
-# Step 5: Export timeline data for SSG
+# Step 6: Export timeline data for SSG
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Exporting timeline data" | tee -a logs/seo-pipeline.log
 npx tsx scripts/export-timeline-data.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ export-timeline-data failed (non-fatal)"
+
+# Step 7: Commit and push generated content
+echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Git commit + push" | tee -a logs/seo-pipeline.log
+git add content/
+if ! git diff --staged --quiet 2>/dev/null; then
+  git commit -m "🤖 Auto SEO content $(date -u +%Y-%m-%d)" 2>&1 | tee -a logs/seo-pipeline.log
+  git push 2>&1 | tee -a logs/seo-pipeline.log
+  echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Pushed to remote" | tee -a logs/seo-pipeline.log
+else
+  echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — No new content to push" | tee -a logs/seo-pipeline.log
+fi
 
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — SEO pipeline complete" | tee -a logs/seo-pipeline.log

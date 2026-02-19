@@ -32,6 +32,7 @@ npx tsx scripts/extract-glossary.ts      # Extract glossary terms
 npx tsx scripts/extract-compare.ts       # Extract comparison tables
 npx tsx scripts/extract-keywords.ts      # Extract keywords to DB
 npx tsx scripts/generate-tier2.ts        # Generate Tier 2/3 articles
+npx tsx scripts/generate-paa-faq.ts      # Generate FAQ from PAA questions
 npx tsx scripts/seo-pipeline.ts          # Batch SEO content generation
 npx tsx scripts/validate-blog.ts         # Blog frontmatter validation
 
@@ -146,4 +147,4 @@ Writing style specs live in `skills/`:
 
 - **UTC 22:00** — `collect-news.ts` (news aggregation)
 - **UTC 23:00** — `daily-newsletter.sh` (collect → freshness-detector → write newsletter → git push)
-- **UTC 02:00** — `daily-seo.sh` (seo-pipeline → keyword-enricher → paa-miner → content-updater → export-timeline-data)
+- **UTC 02:00** — `daily-seo.sh` (seo-pipeline → keyword-enricher → paa-miner → generate-paa-faq → content-updater → export-timeline-data → git push)
