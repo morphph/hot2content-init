@@ -4,6 +4,7 @@ import { getBlogPosts } from '@/lib/blog'
 import { getAllFAQTopics, getAllQuestionParams } from '@/lib/faq'
 import { getGlossaryTerms } from '@/lib/glossary'
 import { getAllCompares } from '@/lib/compare'
+import { getTopicClusters } from '@/lib/topic-cluster'
 import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
@@ -187,6 +188,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
+    // Topic hub pages
+    {
+      url: `${BASE_URL}/en/topics`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/zh/topics`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...getTopicClusters().flatMap((c) => [
+      {
+        url: `${BASE_URL}/en/topics/${c.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${BASE_URL}/zh/topics/${c.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+    ]),
     ...newsletterUrls,
     ...blogUrls,
   ]

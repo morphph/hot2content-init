@@ -264,7 +264,7 @@ async function main() {
     if (kw) keywords = [kw];
   } else {
     keywords = db.prepare(
-      `SELECT id, keyword, language, search_intent, parent_research_id FROM keywords WHERE status = 'backlog' ORDER BY id LIMIT ?`
+      `SELECT id, keyword, language, search_intent, parent_research_id FROM keywords WHERE status = 'backlog' ORDER BY score DESC, id LIMIT ?`
     ).all(batchSize) as KeywordRow[];
   }
 

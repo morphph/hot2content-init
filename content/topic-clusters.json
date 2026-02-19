@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "claude-code",
+    "name_en": "Claude Code",
+    "name_zh": "Claude Code",
+    "description_en": "Everything about Claude Code — the AI-powered CLI for agentic software development, including Skills, Agent Teams, persistent memory, and IDE integrations.",
+    "description_zh": "关于 Claude Code 的一切——AI 驱动的命令行工具，涵盖 Skills、Agent Teams、持久化记忆和 IDE 集成。",
+    "keywords": ["claude code", "claude-code", "claude code skills", "agent teams", "claude cli", "agentic coding", "claude mem", "claude code agent"]
+  },
+  {
+    "slug": "claude-opus",
+    "name_en": "Claude Opus 4.6",
+    "name_zh": "Claude Opus 4.6",
+    "description_en": "Deep dives into Claude Opus 4.6 — Anthropic's most capable model, covering the 1M token context window, Compaction API, benchmarks, and developer experience.",
+    "description_zh": "深入解读 Claude Opus 4.6——Anthropic 最强模型，涵盖百万 token 上下文窗口、Compaction API、基准测试和开发体验。",
+    "keywords": ["claude opus", "opus 4.6", "claude opus 4.6", "context window", "compaction api", "1 million token", "anthropic"]
+  },
+  {
+    "slug": "gpt-codex",
+    "name_en": "GPT-5.3 Codex",
+    "name_zh": "GPT-5.3 Codex",
+    "description_en": "Analysis and comparisons of OpenAI's GPT-5.3 Codex — SWE-bench Pro performance, developer experience, and how it stacks up against Claude and Gemini.",
+    "description_zh": "OpenAI GPT-5.3 Codex 深度解读——SWE-bench Pro 表现、开发体验、与 Claude 和 Gemini 的对比分析。",
+    "keywords": ["gpt-5", "gpt 5.3", "codex", "gpt-5.3", "openai", "swe-bench"]
+  },
+  {
+    "slug": "ai-agents",
+    "name_en": "AI Agents",
+    "name_zh": "AI 智能体",
+    "description_en": "The rise of AI agents — multi-agent architectures, agent teams, function calling, chain-of-thought reasoning, and practical agentic workflows.",
+    "description_zh": "AI 智能体的崛起——多智能体架构、Agent Teams、函数调用、思维链推理和实用化工作流。",
+    "keywords": ["ai agent", "agent teams", "multi-agent", "function calling", "chain of thought", "agentic"]
+  },
+  {
+    "slug": "model-comparison",
+    "name_en": "AI Model Comparisons",
+    "name_zh": "AI 模型对比",
+    "description_en": "Head-to-head comparisons of leading AI models — Claude vs GPT vs Gemini, benchmark analysis, pricing, and developer experience showdowns.",
+    "description_zh": "主流 AI 模型正面对比——Claude vs GPT vs Gemini，基准测试分析、定价和开发体验全方位比较。",
+    "keywords": ["comparison", "vs", "benchmark", "model comparison", "cursor vs", "copilot vs", "gemini vs"]
+  },
+  {
+    "slug": "ai-coding-tools",
+    "name_en": "AI Coding Tools",
+    "name_zh": "AI 编程工具",
+    "description_en": "The best AI coding tools for developers — from Cursor and GitHub Copilot to Claude Code and Gemini Code Assist, plus how to integrate them into your workflow.",
+    "description_zh": "开发者最佳 AI 编程工具——从 Cursor、GitHub Copilot 到 Claude Code、Gemini Code Assist，以及如何整合到你的工作流中。",
+    "keywords": ["coding tool", "cursor", "copilot", "github copilot", "ai coding", "code assist", "ide"]
+  },
+  {
+    "slug": "context-window",
+    "name_en": "Context Windows & Memory",
+    "name_zh": "上下文窗口与记忆",
+    "description_en": "Understanding context windows, token limits, RAG, and persistent memory — how AI models manage and extend their working memory for complex tasks.",
+    "description_zh": "理解上下文窗口、token 限制、RAG 和持久化记忆——AI 模型如何管理和扩展工作记忆以应对复杂任务。",
+    "keywords": ["context window", "token", "million token", "rag", "retrieval augmented", "memory", "compaction"]
+  },
+  {
+    "slug": "ai-video",
+    "name_en": "AI Video Production",
+    "name_zh": "AI 视频制作",
+    "description_en": "Creating videos with AI — using Remotion with Claude Code Skills for programmatic video generation and automated content pipelines.",
+    "description_zh": "用 AI 制作视频——使用 Remotion 和 Claude Code Skills 实现程序化视频生成和自动化内容管线。",
+    "keywords": ["remotion", "video", "ai video", "video production", "video generation"]
+  }
+]

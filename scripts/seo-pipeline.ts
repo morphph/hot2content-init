@@ -841,11 +841,35 @@ async function main() {
     process.exit(0);
   }
 
-  // Save extracted keywords
+  // Save extracted keywords to JSON (for reference)
   const kwPath = path.join(OUTPUT_DIR, 'extracted-keywords.json');
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(kwPath, JSON.stringify(keywords, null, 2));
   log('KEYWORDS', `Saved to ${kwPath}`);
+
+  // Persist keywords to DB for generate-tier2.ts consumption
+  try {
+    const db = getDb();
+    const insertKw = db.prepare(`
+      INSERT OR IGNORE INTO keywords (keyword, keyword_zh, type, score, status, search_intent, language)
+      VALUES (?, ?, ?, ?, 'backlog', ?, 'en')
+    `);
+    const tx = db.transaction(() => {
+      for (const kw of keywords) {
+        insertKw.run(
+          kw.keyword,
+          kw.keyword_zh,
+          kw.type,
+          Math.round(kw.relevance * kw.newness),
+          kw.context,
+        );
+      }
+    });
+    tx();
+    log('KEYWORDS', `Persisted ${keywords.length} keywords to DB`);
+  } catch (e) {
+    log('KEYWORDS', `DB insert warning: ${(e as Error).message}`);
+  }
 
   // Step 2: Brave Search validation (optional)
   const validatedKeywords = await validateWithBrave(keywords);

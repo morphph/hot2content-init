@@ -115,8 +115,32 @@ export function initSchema(db: Database.Database): void {
       seo_score INTEGER
     );
 
+    -- 8. PAA questions (from Brave Search mining)
+    CREATE TABLE IF NOT EXISTS paa_questions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      question TEXT UNIQUE NOT NULL,
+      question_zh TEXT,
+      source_keyword TEXT,
+      source_query TEXT,
+      result_count INTEGER,
+      status TEXT DEFAULT 'discovered',
+      content_id INTEGER REFERENCES content(id),
+      discovered_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    -- 9. Freshness signals (news → existing content matches)
+    CREATE TABLE IF NOT EXISTS freshness_signals (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      content_slug TEXT NOT NULL,
+      content_type TEXT NOT NULL,
+      news_item_id TEXT REFERENCES news_items(id),
+      match_score REAL,
+      status TEXT DEFAULT 'detected',
+      detected_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
     -- Add columns if missing (ALTER TABLE is idempotent via try/catch below)
-    
+
     -- Indexes for common queries
     CREATE INDEX IF NOT EXISTS idx_news_items_detected_at ON news_items(detected_at);
     CREATE INDEX IF NOT EXISTS idx_news_items_url ON news_items(url);
@@ -320,6 +344,96 @@ export function getRecentItemsFull(db: Database.Database, hours: number = 72): A
     detected_at: string;
   }>;
   return rows;
+}
+
+/**
+ * Insert a keyword into the keywords table (idempotent on keyword text)
+ */
+export function insertKeyword(db: Database.Database, kw: {
+  keyword: string;
+  keyword_zh?: string;
+  type?: string;
+  score?: number;
+  status?: string;
+  search_intent?: string;
+  language?: string;
+}): void {
+  const stmt = db.prepare(`
+    INSERT OR IGNORE INTO keywords (keyword, keyword_zh, type, score, status, search_intent, language)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `);
+  stmt.run(
+    kw.keyword,
+    kw.keyword_zh ?? null,
+    kw.type ?? null,
+    kw.score ?? null,
+    kw.status ?? 'backlog',
+    kw.search_intent ?? null,
+    kw.language ?? 'en',
+  );
+}
+
+/**
+ * Get keywords with status='backlog', ordered by score descending
+ */
+export function getKeywordBacklog(db: Database.Database, limit: number = 20): Array<{
+  id: number;
+  keyword: string;
+  keyword_zh: string | null;
+  type: string | null;
+  score: number | null;
+  search_volume: number | null;
+  difficulty: number | null;
+  search_intent: string | null;
+  language: string;
+}> {
+  return db.prepare(
+    `SELECT id, keyword, keyword_zh, type, score, search_volume, difficulty, search_intent, language
+     FROM keywords WHERE status = 'backlog'
+     ORDER BY score DESC, id
+     LIMIT ?`
+  ).all(limit) as any[];
+}
+
+/**
+ * Insert a PAA question (idempotent on question text)
+ */
+export function insertPAAQuestion(db: Database.Database, q: {
+  question: string;
+  question_zh?: string;
+  source_keyword: string;
+  source_query: string;
+  result_count?: number;
+}): void {
+  const stmt = db.prepare(`
+    INSERT OR IGNORE INTO paa_questions (question, question_zh, source_keyword, source_query, result_count)
+    VALUES (?, ?, ?, ?, ?)
+  `);
+  stmt.run(
+    q.question,
+    q.question_zh ?? null,
+    q.source_keyword,
+    q.source_query,
+    q.result_count ?? null,
+  );
+}
+
+/**
+ * Get discovered PAA questions not yet turned into content
+ */
+export function getDiscoveredPAAQuestions(db: Database.Database, limit: number = 20): Array<{
+  id: number;
+  question: string;
+  question_zh: string | null;
+  source_keyword: string;
+  result_count: number | null;
+}> {
+  return db.prepare(
+    `SELECT id, question, question_zh, source_keyword, result_count
+     FROM paa_questions WHERE status = 'discovered'
+     ORDER BY result_count DESC, id
+     LIMIT ?`
+  ).all(limit) as any[];
 }
 
 export function closeDb(): void {

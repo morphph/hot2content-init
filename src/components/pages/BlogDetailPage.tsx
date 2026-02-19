@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getBlogPost } from '@/lib/blog'
 import { getRelatedContent, type RelatedItem } from '@/lib/related-content'
+import { getTopicClusters, type TopicCluster } from '@/lib/topic-cluster'
 import Header from '@/components/Header'
 import TableOfContents from '@/components/TableOfContents'
 import MermaidContent from '@/components/MermaidContent'
@@ -61,6 +62,13 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
   const showMermaid = hasMermaidContent(post.contentHtml)
   const relatedContent = await getRelatedContent(lang, slug, post.keywords || [])
 
+  // Find matching topic cluster
+  const clusters = getTopicClusters()
+  const postSearchable = [post.title.toLowerCase(), ...post.keywords.map(k => k.toLowerCase()), post.slug]
+  const matchedCluster = clusters.find(c =>
+    c.keywords.some(kw => postSearchable.some(t => t.includes(kw)))
+  )
+
   const altLangHref = isEn
     ? (post.hreflang_zh || '/zh/blog')
     : (post.hreflang_en || '/en/blog')
@@ -117,6 +125,19 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
                   <span className="ml-3">{isEn ? `${post.readingTime} min read` : `${post.readingTime} 分钟阅读`}</span>
                 )}
               </div>
+              {matchedCluster && (
+                <div className="mt-3">
+                  <Link
+                    href={`/${lang}/topics/${matchedCluster.slug}`}
+                    className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-purple-50 text-purple-700 hover:bg-purple-100 transition-colors"
+                  >
+                    {isEn
+                      ? `Part of ${matchedCluster.name_en} Hub`
+                      : `${matchedCluster.name_zh} 话题中心`
+                    } &rarr;
+                  </Link>
+                </div>
+              )}
             </header>
 
             {/* Article Content */}
