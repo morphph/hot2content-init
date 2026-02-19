@@ -508,8 +508,7 @@ content/
 | 组件 | 月成本 | 说明 |
 |------|--------|------|
 | Claude (Max Plan) | $200/月 (固定) | 所有 CLI 调用 |
-| Gemini Flash (采集) | ~$0.30/月 | ~$0.01/天 × 30 |
 | Gemini 2.5 Pro (调研) | ~$4-8/月 | ~$1/篇 × 4-8 篇 |
 | Brave Search | $0 | 免费额度内 |
 | Vercel | $0 | Hobby Plan |
-| **总计** | **~$205/月** | |
+| **总计** | **~$204-208/月** | Sonnet/Opus CLI calls included in Max Plan |

@@ -27,7 +27,7 @@ crontab (每天 UTC 01:00)
             │   ├─ HF likes 阈值过滤
             │   └─ HN score > 50 过滤
             │
-            ├─ 写稿层（Gemini Flash 写英文，Opus 写中文）
+            ├─ 写稿层（Sonnet CLI 写英文，Opus CLI 写中文）
             │   └─ 按 4 个固定 category 分组
             │
             └─ 输出：digest-{date}.md + digest-zh-{date}.md

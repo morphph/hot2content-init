@@ -8,7 +8,7 @@
 ## 方案 1：FAQ 修复
 
 ### 问题
-EN FAQ 文件（`content/faq/*-en.md`）里全是中文回答。原因：`extract-faq.ts` 的 `getAnswerPrompt()` 用中文写 prompt 但期望产出英文，Gemini Flash 忽略了 `语言：en` 指令。
+EN FAQ 文件（`content/faq/*-en.md`）里全是中文回答。原因：`extract-faq.ts` 的 `getAnswerPrompt()` 用中文写 prompt 但期望产出英文，原 Gemini Flash 忽略了 `语言：en` 指令。（已迁移至 Sonnet CLI，2026-02-19）
 
 ### 修改文件
 
@@ -137,7 +137,7 @@ npm run build
 
 #### 2.1 `scripts/extract-compare.ts`
 
-从 research report 提取对比数据，使用 Gemini Flash：
+从 research report 提取对比数据，使用 Claude Sonnet CLI：
 
 **输入**：`output/research-report.md`
 **输出**：`content/compare/{model-a}-vs-{model-b}-{lang}.md`
