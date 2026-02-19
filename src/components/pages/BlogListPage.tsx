@@ -37,19 +37,24 @@ interface BlogListPageProps {
 
 export default async function BlogListPage({ lang }: BlogListPageProps) {
   const isEn = lang === 'en'
-  const posts = await getBlogPosts(lang, { tier: 1 })
+  const posts = await getBlogPosts(lang)
   const tierConfig = isEn ? tierConfigEn : tierConfigZh
+
+  const tier1Posts = posts.filter(p => p.tier === 1)
+  const tier2Posts = posts.filter(p => p.tier === 2)
+  const tier3Posts = posts.filter(p => p.tier === 3)
 
   const navItems = [
     { label: isEn ? 'Newsletter' : 'Newsletter', href: isEn ? '/newsletter' : '/zh/newsletter' },
     { label: isEn ? 'Blog' : '博客', href: `/${lang}/blog`, active: true },
   ]
 
+  const allPosts = [...tier1Posts, ...tier2Posts, ...tier3Posts]
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: isEn ? 'LoreAI Blog' : 'LoreAI 博客',
-    itemListElement: posts.slice(0, 20).map((post, idx) => ({
+    itemListElement: allPosts.slice(0, 50).map((post, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
       url: `https://loreai.dev/${lang}/blog/${post.slug}`,
@@ -98,85 +103,127 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
             </p>
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {posts.map((post) => {
-              const tier = tierConfig[post.tier] || tierConfig[2]
-              const isTier1 = post.tier === 1
+          <>
+            {/* Featured / Tier 1 */}
+            {tier1Posts.length > 0 && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
+                {tier1Posts.map((post) => {
+                  const tier = tierConfig[1]
+                  let dateLabel: string
+                  if (isEn) {
+                    const { month, day } = formatDateEn(post.date)
+                    dateLabel = `${month} ${day}`
+                  } else {
+                    const { month, day } = formatDateZh(post.date)
+                    dateLabel = `${month}${day}日`
+                  }
+                  const readTimeLabel = isEn ? `${post.readingTime} min read` : `${post.readingTime} 分钟阅读`
+                  const descLimit = isEn ? 200 : 150
 
-              let dateLabel: string
-              if (isEn) {
-                const { month, day } = formatDateEn(post.date)
-                dateLabel = `${month} ${day}`
-              } else {
-                const { month, day } = formatDateZh(post.date)
-                dateLabel = `${month}${day}日`
-              }
+                  return (
+                    <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} style={{ display: 'block', textDecoration: 'none', padding: '24px', borderRadius: '12px', border: '2px solid #e9d5ff', backgroundColor: '#faf5ff', transition: 'box-shadow 0.2s' }} className="blog-card">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '11px', fontWeight: '600', color: tier.color, backgroundColor: tier.bg, padding: '2px 8px', borderRadius: '4px' }}>{tier.label}</span>
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
+                        <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
+                      </div>
+                      <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>{post.title}</h2>
+                      {post.description && (
+                        <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', marginTop: '4px' }}>
+                          {post.description.length > descLimit ? post.description.slice(0, descLimit) + '...' : post.description}
+                        </p>
+                      )}
+                    </Link>
+                  )
+                })}
+              </div>
+            )}
 
-              const readTimeLabel = isEn
-                ? `${post.readingTime} min read`
-                : `${post.readingTime} 分钟阅读`
+            {/* Analysis / Tier 2 */}
+            {tier2Posts.length > 0 && (
+              <div style={{ marginBottom: '48px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                  <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#2563eb' }}>{isEn ? '📝 Analysis' : '📝 分析'}</h2>
+                  <span style={{ fontSize: '12px', color: '#9ca3af' }}>({tier2Posts.length})</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {tier2Posts.map((post) => {
+                    const tier = tierConfig[2]
+                    let dateLabel: string
+                    if (isEn) {
+                      const { month, day } = formatDateEn(post.date)
+                      dateLabel = `${month} ${day}`
+                    } else {
+                      const { month, day } = formatDateZh(post.date)
+                      dateLabel = `${month}${day}日`
+                    }
+                    const readTimeLabel = isEn ? `${post.readingTime} min read` : `${post.readingTime} 分钟阅读`
+                    const descLimit = isEn ? 100 : 80
 
-              const descLimit = isEn
-                ? (isTier1 ? 200 : 100)
-                : (isTier1 ? 150 : 80)
+                    return (
+                      <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} style={{ display: 'block', textDecoration: 'none', padding: '16px 20px', borderRadius: '12px', border: '1px solid #f3f4f6', backgroundColor: '#ffffff', transition: 'box-shadow 0.2s' }} className="blog-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '11px', fontWeight: '600', color: tier.color, backgroundColor: tier.bg, padding: '2px 8px', borderRadius: '4px' }}>{tier.label}</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
+                          <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
+                        </div>
+                        <h2 style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>{post.title}</h2>
+                        {post.description && (
+                          <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', marginTop: '4px' }}>
+                            {post.description.length > descLimit ? post.description.slice(0, descLimit) + '...' : post.description}
+                          </p>
+                        )}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
 
-              return (
-                <Link
-                  key={post.slug}
-                  href={`/${lang}/blog/${post.slug}`}
-                  style={{
-                    display: 'block',
-                    textDecoration: 'none',
-                    padding: isTier1 ? '24px' : '16px 20px',
-                    borderRadius: '12px',
-                    border: isTier1 ? '2px solid #e9d5ff' : '1px solid #f3f4f6',
-                    backgroundColor: isTier1 ? '#faf5ff' : '#ffffff',
-                    transition: 'box-shadow 0.2s',
-                  }}
-                  className="blog-card"
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: isTier1 ? '12px' : '6px', flexWrap: 'wrap' }}>
-                    <span style={{
-                      fontSize: '11px',
-                      fontWeight: '600',
-                      color: tier.color,
-                      backgroundColor: tier.bg,
-                      padding: '2px 8px',
-                      borderRadius: '4px',
-                    }}>
-                      {tier.label}
-                    </span>
-                    <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
-                    <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
-                    <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
-                  </div>
+            {/* Quick Read / Tier 3 */}
+            {tier3Posts.length > 0 && (
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                  <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#059669' }}>{isEn ? '⚡ Quick Read' : '⚡ 快读'}</h2>
+                  <span style={{ fontSize: '12px', color: '#9ca3af' }}>({tier3Posts.length})</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {tier3Posts.map((post) => {
+                    const tier = tierConfig[3]
+                    let dateLabel: string
+                    if (isEn) {
+                      const { month, day } = formatDateEn(post.date)
+                      dateLabel = `${month} ${day}`
+                    } else {
+                      const { month, day } = formatDateZh(post.date)
+                      dateLabel = `${month}${day}日`
+                    }
+                    const readTimeLabel = isEn ? `${post.readingTime} min read` : `${post.readingTime} 分钟阅读`
+                    const descLimit = isEn ? 100 : 80
 
-                  <h2 style={{
-                    fontSize: isTier1 ? '18px' : '15px',
-                    fontWeight: isTier1 ? '600' : '500',
-                    color: '#111827',
-                    marginBottom: '4px',
-                    lineHeight: '1.4'
-                  }}>
-                    {post.title}
-                  </h2>
-
-                  {post.description && (
-                    <p style={{
-                      fontSize: '13px',
-                      color: '#6b7280',
-                      lineHeight: '1.5',
-                      marginTop: '4px'
-                    }}>
-                      {post.description.length > descLimit
-                        ? post.description.slice(0, descLimit) + '...'
-                        : post.description}
-                    </p>
-                  )}
-                </Link>
-              )
-            })}
-          </div>
+                    return (
+                      <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} style={{ display: 'block', textDecoration: 'none', padding: '16px 20px', borderRadius: '12px', border: '1px solid #f3f4f6', backgroundColor: '#ffffff', transition: 'box-shadow 0.2s' }} className="blog-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '11px', fontWeight: '600', color: tier.color, backgroundColor: tier.bg, padding: '2px 8px', borderRadius: '4px' }}>{tier.label}</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
+                          <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
+                        </div>
+                        <h2 style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>{post.title}</h2>
+                        {post.description && (
+                          <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', marginTop: '4px' }}>
+                            {post.description.length > descLimit ? post.description.slice(0, descLimit) + '...' : post.description}
+                          </p>
+                        )}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         {/* Footer */}

@@ -35,13 +35,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE_URL}/en/blog/${post.slug}`,
       lastModified: new Date(post.date),
       changeFrequency: 'weekly' as const,
-      priority: post.tier === 1 ? 0.9 : 0.6,
+      priority: post.tier === 1 ? 0.9 : post.tier === 2 ? 0.7 : 0.5,
     })),
     ...zhPosts.map((post) => ({
       url: `${BASE_URL}/zh/blog/${post.slug}`,
       lastModified: new Date(post.date),
       changeFrequency: 'weekly' as const,
-      priority: post.tier === 1 ? 0.9 : 0.6,
+      priority: post.tier === 1 ? 0.9 : post.tier === 2 ? 0.7 : 0.5,
     })),
   ]
 
