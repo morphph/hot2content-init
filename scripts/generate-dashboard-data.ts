@@ -65,6 +65,37 @@ interface DashboardData {
     zhArticles: number
     newsletterStreak: { en: number; zh: number; lastEnDate: string; lastZhDate: string }
   }
+
+  recentKeywords?: {
+    days: Array<{
+      date: string
+      count: number
+      items: Array<{
+        keyword: string
+        language: string
+        type: string | null
+        search_intent: string | null
+        score: number | null
+        sourceNews: Array<{ title: string; url: string }>
+      }>
+    }>
+  }
+
+  recentContent?: {
+    days: Array<{
+      date: string
+      count: number
+      items: Array<{
+        title: string
+        slug: string
+        type: 'blog' | 'glossary' | 'faq' | 'compare'
+        language: string
+        tier: number | null
+        wordCount: number
+        preview: string
+      }>
+    }>
+  }
 }
 
 // ─── Pipeline Health ─────────────────────────────────────────────────────────
@@ -117,7 +148,7 @@ function getSeoHealth(): DashboardData['pipelineHealth']['seo'] {
         lastRunStatus = 'complete'
         break
       }
-      if (line.includes('error') || line.includes('Error') || line.includes('FATAL')) {
+      if (/❌|FATAL|\bfailed\b|\berror\b/i.test(line) && !/Errors:\s*0/i.test(line)) {
         lastRunStatus = 'error'
       }
     }
@@ -136,7 +167,7 @@ function getRecentErrors(): string[] {
     const lines = content.split('\n').filter(Boolean)
     const lastLines = lines.slice(-50)
     return lastLines
-      .filter(l => /error|Error|FATAL|failed|❌/i.test(l))
+      .filter(l => /❌|FATAL|\bfailed\b|\berror\b/i.test(l) && !/Errors:\s*0/i.test(l))
       .slice(-10)
   } catch {
     return []
@@ -338,6 +369,136 @@ function getContentOutput(db: ReturnType<typeof getDb>): DashboardData['contentO
   return { byType, byTier, publishedLast7d, publishedLast30d, seoScoreDistribution, enArticles, zhArticles, newsletterStreak }
 }
 
+// ─── Recent Keywords (last 7 days, from DB) ─────────────────────────────────
+
+function getRecentKeywords(db: ReturnType<typeof getDb>): DashboardData['recentKeywords'] {
+  try {
+    const rows = db.prepare(`
+      SELECT
+        k.id as kid, k.keyword, k.language, k.type, k.search_intent, k.score,
+        DATE(k.created_at) as date,
+        n.title as news_title, n.url as news_url
+      FROM keywords k
+      LEFT JOIN research r ON k.parent_research_id = r.id
+      LEFT JOIN content_sources cs ON r.content_id = cs.content_id
+      LEFT JOIN news_items n ON cs.news_item_id = n.id
+      WHERE k.created_at > datetime('now', '-7 days')
+      ORDER BY DATE(k.created_at) DESC, k.score DESC
+    `).all() as Array<{
+      kid: number; keyword: string; language: string; type: string | null
+      search_intent: string | null; score: number | null; date: string
+      news_title: string | null; news_url: string | null
+    }>
+
+    // Group by date, dedup keywords, cap sourceNews at 2 per keyword
+    const dayMap = new Map<string, Map<number, {
+      keyword: string; language: string; type: string | null
+      search_intent: string | null; score: number | null
+      sourceNews: Array<{ title: string; url: string }>
+    }>>()
+
+    for (const row of rows) {
+      if (!dayMap.has(row.date)) dayMap.set(row.date, new Map())
+      const kwMap = dayMap.get(row.date)!
+
+      if (!kwMap.has(row.kid)) {
+        kwMap.set(row.kid, {
+          keyword: row.keyword,
+          language: row.language || 'en',
+          type: row.type,
+          search_intent: row.search_intent,
+          score: row.score,
+          sourceNews: [],
+        })
+      }
+
+      const kw = kwMap.get(row.kid)!
+      if (row.news_title && row.news_url && kw.sourceNews.length < 2) {
+        // Avoid duplicate news entries
+        if (!kw.sourceNews.some(s => s.url === row.news_url)) {
+          kw.sourceNews.push({ title: row.news_title, url: row.news_url })
+        }
+      }
+    }
+
+    const days = Array.from(dayMap.entries())
+      .sort((a, b) => b[0].localeCompare(a[0]))
+      .map(([date, kwMap]) => {
+        const items = Array.from(kwMap.values()).slice(0, 30)
+        return { date, count: kwMap.size, items }
+      })
+
+    return { days }
+  } catch {
+    return { days: [] }
+  }
+}
+
+// ─── Recent Content (last 7 days, from filesystem) ──────────────────────────
+
+function getRecentContent(): DashboardData['recentContent'] {
+  const cutoff = new Date()
+  cutoff.setDate(cutoff.getDate() - 7)
+  const cutoffStr = cutoff.toISOString().slice(0, 10)
+
+  interface ContentItem {
+    title: string; slug: string; type: 'blog' | 'glossary' | 'faq' | 'compare'
+    language: string; tier: number | null; wordCount: number; preview: string; date: string
+  }
+
+  const items: ContentItem[] = []
+
+  const scanDirs: Array<{ dir: string; type: 'blog' | 'glossary' | 'faq' | 'compare'; lang?: string }> = [
+    { dir: path.join(PROJECT_ROOT, 'content', 'blogs', 'en'), type: 'blog', lang: 'en' },
+    { dir: path.join(PROJECT_ROOT, 'content', 'blogs', 'zh'), type: 'blog', lang: 'zh' },
+    { dir: path.join(PROJECT_ROOT, 'content', 'glossary'), type: 'glossary' },
+    { dir: path.join(PROJECT_ROOT, 'content', 'faq'), type: 'faq' },
+    { dir: path.join(PROJECT_ROOT, 'content', 'compare'), type: 'compare' },
+  ]
+
+  for (const { dir, type, lang } of scanDirs) {
+    if (!fs.existsSync(dir)) continue
+    const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'))
+
+    for (const file of files) {
+      try {
+        const raw = fs.readFileSync(path.join(dir, file), 'utf-8')
+        const { data, content } = matter(raw)
+
+        const dateStr = data.date ? (typeof data.date === 'object' ? (data.date as Date).toISOString().slice(0, 10) : String(data.date).slice(0, 10)) : ''
+        if (!dateStr || dateStr < cutoffStr) continue
+
+        const language = lang || data.lang || (file.endsWith('-zh.md') ? 'zh' : 'en')
+        const title = data.title || data.term || file.replace('.md', '')
+        const slug = data.slug || file.replace('.md', '')
+        const tier = type === 'blog' ? (data.tier ?? null) : null
+        const body = content.trim()
+        const wordCount = body.split(/\s+/).length
+        const preview = body.replace(/^#+\s.*/gm, '').replace(/\n+/g, ' ').trim().slice(0, 200)
+
+        items.push({ title, slug, type, language, tier, wordCount, preview, date: dateStr })
+      } catch { /* skip unparseable */ }
+    }
+  }
+
+  // Group by date
+  const dayMap = new Map<string, ContentItem[]>()
+  for (const item of items) {
+    if (!dayMap.has(item.date)) dayMap.set(item.date, [])
+    dayMap.get(item.date)!.push(item)
+  }
+
+  const days = Array.from(dayMap.entries())
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([date, dayItems]) => ({
+      date,
+      count: dayItems.length,
+      items: dayItems.slice(0, 30).map(({ date: _, ...rest }) => rest),
+    }))
+
+  return { days }
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -358,9 +519,13 @@ async function main() {
 
     keywordQuality: getKeywordQuality(db),
     contentOutput: getContentOutput(db),
+    recentKeywords: getRecentKeywords(db),
   }
 
   closeDb()
+
+  // Filesystem-based data (no DB needed)
+  data.recentContent = getRecentContent()
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true })
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2))

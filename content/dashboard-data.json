@@ -1,25 +1,23 @@
 {
-  "generatedAt": "2026-02-20T01:29:36.505Z",
+  "generatedAt": "2026-02-20T02:24:15.128Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-20",
-      "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-20",
-      "enPublished": true,
-      "zhPublished": true
+      "lastRunDate": null,
+      "lastRunStatus": "unknown",
+      "lastRunMessage": "No status file found",
+      "enPublished": false,
+      "zhPublished": false
     },
     "seo": {
       "lastRunTimestamp": null,
-      "lastRunStatus": "error"
+      "lastRunStatus": "unknown"
     },
     "newsItems": {
-      "last24h": 486,
-      "last72h": 488,
-      "total": 490
+      "last24h": 0,
+      "last72h": 0,
+      "total": 0
     },
-    "recentErrors": [
-      "  Errors: 0"
-    ]
+    "recentErrors": []
   },
   "keywordQuality": {
     "byStatus": {},
@@ -42,23 +40,20 @@
     "total": 0
   },
   "contentOutput": {
-    "byType": {
-      "newsletter": 1
-    },
+    "byType": {},
     "byTier": {
-      "0": 6,
       "1": 8,
-      "2": 22,
-      "3": 16
+      "2": 4,
+      "3": 10
     },
-    "publishedLast7d": 1,
-    "publishedLast30d": 1,
+    "publishedLast7d": 0,
+    "publishedLast30d": 0,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 1
+      "noScore": 0
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -68,5 +63,11 @@
       "lastEnDate": "2026-02-20",
       "lastZhDate": "2026-02-20"
     }
+  },
+  "recentKeywords": {
+    "days": []
+  },
+  "recentContent": {
+    "days": []
   }
 }

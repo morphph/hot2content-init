@@ -47,6 +47,37 @@ export interface DashboardData {
     zhArticles: number
     newsletterStreak: { en: number; zh: number; lastEnDate: string; lastZhDate: string }
   }
+
+  recentKeywords?: {
+    days: Array<{
+      date: string
+      count: number
+      items: Array<{
+        keyword: string
+        language: string
+        type: string | null
+        search_intent: string | null
+        score: number | null
+        sourceNews: Array<{ title: string; url: string }>
+      }>
+    }>
+  }
+
+  recentContent?: {
+    days: Array<{
+      date: string
+      count: number
+      items: Array<{
+        title: string
+        slug: string
+        type: 'blog' | 'glossary' | 'faq' | 'compare'
+        language: string
+        tier: number | null
+        wordCount: number
+        preview: string
+      }>
+    }>
+  }
 }
 
 /** Get dashboard data from pre-generated JSON (returns null if file missing) */

@@ -1,5 +1,24 @@
 # LoreAI Changelog
 
+## 2026-02-20 — Dashboard Enhancement: Keyword + Content Review
+
+### Reason
+Dashboard showed aggregate stats but no way to spot-check individual keywords or content. Needed ability to sample-review daily output — keywords with their source news, and articles with body previews — filterable by date.
+
+### Changes
+- **`scripts/generate-dashboard-data.ts`** — Added `getRecentKeywords(db)` (LEFT JOIN chain: keywords → research → content_sources → news_items, capped 30/day, 2 source news per keyword) and `getRecentContent()` (scans content/blogs, glossary, faq, compare dirs, parses frontmatter, 200-char preview)
+- **`src/lib/dashboard.ts`** — Added `recentKeywords?` and `recentContent?` optional fields to `DashboardData` interface
+- **`src/app/admin/page.tsx`** — Added `KeywordReview` and `ContentReview` section components with `<details>/<summary>` collapsible days (most recent open by default, no client JS needed)
+
+### Bug Fixes
+- **"Errors: 0" false positive** — Tightened `getRecentErrors()` regex to `\berror\b` with word boundary and exclude `Errors: 0` pattern
+- **SEO status false "error"** — Tightened `getSeoHealth()` error detection to match same pattern, preventing broad `includes('error')` from matching benign log lines
+
+### Known Issues
+- Source news linkage depends on `parent_research_id` being set on keywords; older keywords may show no sources
+
+---
+
 ## 2026-02-20 — Pipeline Monitoring Dashboard
 
 ### Reason

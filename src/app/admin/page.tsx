@@ -369,6 +369,136 @@ function ContentOutput({ data }: { data: DashboardData['contentOutput'] }) {
   )
 }
 
+// ─── Review Sections ─────────────────────────────────────────────────────────
+
+const TYPE_BADGE_COLORS: Record<string, { bg: string; fg: string }> = {
+  blog: { bg: '#dbeafe', fg: '#1e40af' },
+  glossary: { bg: '#dcfce7', fg: '#166534' },
+  faq: { bg: '#fef3c7', fg: '#92400e' },
+  compare: { bg: '#f3e8ff', fg: '#6b21a8' },
+}
+
+function KeywordReview({ data }: { data: NonNullable<DashboardData['recentKeywords']> }) {
+  if (data.days.length === 0) {
+    return (
+      <section style={{ marginBottom: '40px' }}>
+        <h2 style={sectionHeading}>Keyword Review</h2>
+        <div style={{ ...card, textAlign: 'center', padding: '32px 24px', color: '#6b7280' }}>
+          No keywords found in the last 7 days.
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section style={{ marginBottom: '40px' }}>
+      <h2 style={sectionHeading}>Keyword Review <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>(last 7 days)</span></h2>
+      {data.days.map((day, i) => (
+        <details key={day.date} open={i === 0} style={{ marginBottom: '8px', ...card, padding: 0 }}>
+          <summary style={{ padding: '12px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', color: '#111827', listStyle: 'none' }}>
+            <span style={{ marginRight: '8px' }}>{i === 0 ? '\u25BC' : '\u25B6'}</span>
+            {day.date} — {day.count} keyword{day.count !== 1 ? 's' : ''}
+          </summary>
+          <div style={{ overflowX: 'auto', padding: '0 20px 16px' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+              <thead>
+                <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
+                  <th style={{ textAlign: 'left', padding: '8px 12px', color: '#6b7280' }}>Keyword</th>
+                  <th style={{ textAlign: 'center', padding: '8px 6px', color: '#6b7280' }}>Lang</th>
+                  <th style={{ textAlign: 'center', padding: '8px 6px', color: '#6b7280' }}>Type</th>
+                  <th style={{ textAlign: 'left', padding: '8px 6px', color: '#6b7280' }}>Intent</th>
+                  <th style={{ textAlign: 'right', padding: '8px 6px', color: '#6b7280' }}>Score</th>
+                  <th style={{ textAlign: 'left', padding: '8px 12px', color: '#6b7280' }}>Source News</th>
+                </tr>
+              </thead>
+              <tbody>
+                {day.items.map((kw, j) => (
+                  <tr key={j} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                    <td style={{ padding: '8px 12px', color: '#111827', maxWidth: '260px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{kw.keyword}</td>
+                    <td style={{ padding: '8px 6px', textAlign: 'center', color: '#6b7280' }}>{kw.language?.toUpperCase()}</td>
+                    <td style={{ padding: '8px 6px', textAlign: 'center' }}>
+                      {kw.type ? (
+                        <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '9999px', fontSize: '11px', fontWeight: '500', backgroundColor: '#f3f4f6', color: '#374151' }}>
+                          {kw.type}
+                        </span>
+                      ) : '-'}
+                    </td>
+                    <td style={{ padding: '8px 6px', color: '#6b7280' }}>{kw.search_intent ?? '-'}</td>
+                    <td style={{ padding: '8px 6px', textAlign: 'right', fontWeight: '600', color: '#111827' }}>{kw.score ?? '-'}</td>
+                    <td style={{ padding: '8px 12px', fontSize: '12px' }}>
+                      {kw.sourceNews.length > 0 ? (
+                        kw.sourceNews.map((s, k) => (
+                          <div key={k} style={{ marginBottom: k < kw.sourceNews.length - 1 ? '2px' : 0 }}>
+                            <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none' }} title={s.url}>
+                              {s.title.length > 50 ? s.title.slice(0, 50) + '...' : s.title}
+                            </a>
+                          </div>
+                        ))
+                      ) : (
+                        <span style={{ color: '#d1d5db' }}>-</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      ))}
+    </section>
+  )
+}
+
+function ContentReview({ data }: { data: NonNullable<DashboardData['recentContent']> }) {
+  if (data.days.length === 0) {
+    return (
+      <section style={{ marginBottom: '40px' }}>
+        <h2 style={sectionHeading}>Content Review</h2>
+        <div style={{ ...card, textAlign: 'center', padding: '32px 24px', color: '#6b7280' }}>
+          No content published in the last 7 days.
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section style={{ marginBottom: '40px' }}>
+      <h2 style={sectionHeading}>Content Review <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>(last 7 days)</span></h2>
+      {data.days.map((day, i) => (
+        <details key={day.date} open={i === 0} style={{ marginBottom: '8px', ...card, padding: 0 }}>
+          <summary style={{ padding: '12px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', color: '#111827', listStyle: 'none' }}>
+            <span style={{ marginRight: '8px' }}>{i === 0 ? '\u25BC' : '\u25B6'}</span>
+            {day.date} — {day.count} article{day.count !== 1 ? 's' : ''}
+          </summary>
+          <div style={{ padding: '0 20px 16px', display: 'grid', gap: '12px' }}>
+            {day.items.map((item, j) => {
+              const badge = TYPE_BADGE_COLORS[item.type] || { bg: '#f3f4f6', fg: '#374151' }
+              return (
+                <div key={j} style={{ border: '1px solid #f3f4f6', borderRadius: '8px', padding: '12px 16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                    <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '9999px', fontSize: '11px', fontWeight: '600', backgroundColor: badge.bg, color: badge.fg }}>
+                      {item.type}
+                    </span>
+                    <span style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500' }}>{item.language.toUpperCase()}</span>
+                    {item.tier && (
+                      <span style={{ fontSize: '11px', color: '#6b7280' }}>Tier {item.tier}</span>
+                    )}
+                    <span style={{ fontSize: '11px', color: '#9ca3af', marginLeft: 'auto' }}>{item.wordCount.toLocaleString()} words</span>
+                  </div>
+                  <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>{item.title}</div>
+                  <div style={{ fontSize: '12px', color: '#6b7280', lineHeight: '1.5' }}>
+                    {item.preview}{item.preview.length >= 200 ? '...' : ''}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </details>
+      ))}
+    </section>
+  )
+}
+
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function AdminDashboard() {
@@ -418,6 +548,9 @@ export default function AdminDashboard() {
         <PipelineHealth data={data.pipelineHealth} />
         <KeywordQuality data={data.keywordQuality} />
         <ContentOutput data={data.contentOutput} />
+
+        {data.recentKeywords && <KeywordReview data={data.recentKeywords} />}
+        {data.recentContent && <ContentReview data={data.recentContent} />}
 
         <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e7eb', color: '#9ca3af', fontSize: '13px' }}>
           Internal dashboard. Refreshes after each cron run.
