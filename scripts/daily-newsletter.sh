@@ -55,8 +55,15 @@ fi
 
 notify "success" "✅ Newsletter pipeline complete for ${DATE}"
 
-# Step 4: Refresh dashboard data
-echo "📊 Step 4: Generating dashboard data..."
+# Step 4: Verify build before committing
+echo "🔨 Step 4: Verifying build..."
+if ! npm run build 2>&1 | tail -5; then
+  notify "failed" "❌ Build verification failed for ${DATE} — skipping commit"
+  exit 1
+fi
+
+# Step 5: Refresh dashboard data
+echo "📊 Step 5: Generating dashboard data..."
 npx tsx scripts/generate-dashboard-data.ts || echo "⚠️ Dashboard generation failed (non-fatal)"
 git add content/dashboard-data.json 2>/dev/null
 if ! git diff --staged --quiet 2>/dev/null; then

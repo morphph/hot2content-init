@@ -17,6 +17,10 @@ npm run build        # Production build (static export)
 npm run lint         # ESLint
 npm run start        # Serve production build
 
+# Testing
+npm run test:unit    # Vitest content integrity checks (fast, no server needed)
+npm run test:e2e     # Playwright E2E tests (needs dev server)
+
 # Pipeline scripts (via tsx)
 npm run pipeline     # Full orchestrator (scripts/orchestrator.ts)
 npm run research     # Gemini Deep Research (scripts/gemini-research.ts)
@@ -39,6 +43,7 @@ npx tsx scripts/validate-blog.ts         # Blog frontmatter validation
 # Claude Code slash commands (run inside Claude Code)
 /hot2content [topic]       # Full 8-step pipeline (keyword/URL/auto-detect)
 /hot2content-scout         # Discovery only (trend-scout + dedup-checker)
+/build-test                # Build + lint + unit tests + optional E2E
 ```
 
 ## Architecture
@@ -140,8 +145,15 @@ Writing style specs live in `skills/`:
 - **Validation:** Zod schemas for frontmatter and Core Narrative
 - **AI APIs:** Anthropic SDK (@anthropic-ai/sdk), Gemini API, twitterapi.io
 - **Scripts:** tsx for running TypeScript scripts directly
-- **Testing:** Playwright (e2e)
+- **Testing:** Vitest (unit), Playwright (e2e)
 - **Path alias:** `@/*` → `./src/*`
+
+## Build Verification
+
+After code changes to `src/`, `scripts/`, or config: run `npm run build` and `npm run test:unit`.
+After content generation: run `npm run test:unit` and `npx tsx scripts/validate-blog.ts`.
+After UI changes: also run `npm run test:e2e`.
+Never commit code that fails build or tests.
 
 ## Cron Schedule (Production)
 

@@ -49,7 +49,14 @@ npx tsx scripts/export-timeline-data.ts 2>&1 | tee -a logs/seo-pipeline.log || e
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Generating dashboard data" | tee -a logs/seo-pipeline.log
 npx tsx scripts/generate-dashboard-data.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ Dashboard generation failed (non-fatal)"
 
-# Step 7: Commit and push generated content
+# Step 7: Verify build before committing
+echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Verifying build" | tee -a logs/seo-pipeline.log
+if ! npm run build 2>&1 | tee -a logs/seo-pipeline.log; then
+  echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — ❌ Build failed — skipping commit" | tee -a logs/seo-pipeline.log
+  exit 1
+fi
+
+# Step 8: Commit and push generated content
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Git commit + push" | tee -a logs/seo-pipeline.log
 git add content/
 if ! git diff --staged --quiet 2>/dev/null; then

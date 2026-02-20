@@ -23,7 +23,8 @@
     "generate-tier2": "tsx scripts/generate-tier2.ts",
     "dashboard": "tsx scripts/generate-dashboard-data.ts",
     "test": "playwright test",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:unit": "vitest run"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
@@ -50,6 +51,7 @@
     "@types/react": "19.2.13",
     "playwright": "^1.58.2",
     "tsx": "^4.0.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.0.18"
   }
 }

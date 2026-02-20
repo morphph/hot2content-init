@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npm test *)",
+      "Bash(npx tsx *)",
+      "Bash(npx playwright *)",
+      "Bash(npx vitest *)",
+      "Bash(npx next *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vercel *)",
+      "Bash(node *)",
+      "Bash(git *)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(touch *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(sort *)",
+      "Bash(echo *)",
+      "Bash(date *)",
+      "Bash(diff *)",
+      "Bash(sed *)",
+      "Bash(cat *)",
+      "Bash(chmod *)",
+      "Bash(sqlite3 *)",
+      "Bash(lsof *)",
+      "Bash(env *)",
+      "Bash(bash scripts/*)",
+      "Bash(python3 *)",
+      "Bash(curl *)",
+      "mcp__ide__getDiagnostics"
+    ]
+  }
+}

@@ -253,3 +253,94 @@ test.describe('J. Self-hosted fonts', () => {
     expect(externalFontRequests).toHaveLength(0);
   });
 });
+
+// ──────────────────────────────────────────────
+// K. Content rendering integrity
+// ──────────────────────────────────────────────
+
+test.describe('K. Content rendering integrity', () => {
+  const blogSlug = 'claude-code-agent-teams-ai-software-development';
+
+  test('blog article renders markdown as HTML, not raw text', async ({ page }) => {
+    await page.goto(`/en/blog/${blogSlug}`);
+    const article = page.locator('article');
+    await expect(article).toBeVisible();
+    // Should have rendered HTML elements (paragraphs, headings, etc.), not raw markdown
+    const paragraphs = article.locator('p');
+    expect(await paragraphs.count()).toBeGreaterThan(0);
+    // Should NOT contain raw markdown syntax like "## " or "**" as visible text
+    const articleText = await article.textContent();
+    expect(articleText).not.toMatch(/^## /m);
+  });
+
+  test('blog article does not show raw frontmatter delimiters', async ({ page }) => {
+    await page.goto(`/en/blog/${blogSlug}`);
+    const bodyText = await page.locator('article').textContent();
+    expect(bodyText).not.toContain('---\nslug:');
+    expect(bodyText).not.toContain('---\ntitle:');
+  });
+});
+
+// ──────────────────────────────────────────────
+// L. Internal link validation
+// ──────────────────────────────────────────────
+
+test.describe('L. Internal link validation', () => {
+  test('EN blog list links resolve to valid pages (sample first 3)', async ({ page }) => {
+    await page.goto('/en/blog');
+    const links = page.locator('a[href*="/en/blog/"]');
+    const count = Math.min(await links.count(), 3);
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const href = await links.nth(i).getAttribute('href');
+      if (!href) continue;
+      const response = await page.goto(href);
+      expect(response?.status(), `${href} should not 404/500`).toBeLessThan(400);
+      await expect(page.locator('article')).toBeVisible();
+    }
+  });
+
+  test('newsletter page links resolve (sample first 2)', async ({ page }) => {
+    await page.goto('/newsletter');
+    const links = page.locator('a[href*="/newsletter/2"]');
+    const count = Math.min(await links.count(), 2);
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const href = await links.nth(i).getAttribute('href');
+      if (!href) continue;
+      const response = await page.goto(href);
+      expect(response?.status(), `${href} should not 404/500`).toBeLessThan(400);
+      await expect(page.locator('main')).toBeVisible();
+    }
+  });
+});
+
+// ──────────────────────────────────────────────
+// M. Mobile viewport
+// ──────────────────────────────────────────────
+
+test.describe('M. Mobile viewport', () => {
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  test('homepage renders without horizontal overflow on mobile', async ({ page }) => {
+    await page.goto('/newsletter');
+    const body = page.locator('body');
+    const bodyWidth = await body.evaluate((el) => el.scrollWidth);
+    // scrollWidth should not significantly exceed viewport width
+    expect(bodyWidth).toBeLessThanOrEqual(375 + 5); // allow 5px tolerance
+  });
+
+  test('blog list is usable on mobile', async ({ page }) => {
+    await page.goto('/en/blog');
+    await expect(page.locator('h1')).toBeVisible();
+    const links = page.locator('a[href*="/en/blog/"]');
+    await expect(links.first()).toBeVisible();
+  });
+
+  test('header is visible on mobile', async ({ page }) => {
+    await page.goto('/newsletter');
+    await expect(page.locator('header')).toBeVisible();
+  });
+});
