@@ -1,5 +1,28 @@
 # LoreAI Changelog
 
+## 2026-02-20 — VPS Auto-Sync: Git Pull + Dashboard Refresh
+
+### Reason
+VPS cron jobs only run at UTC 23:00 and 02:00. Code changes pushed mid-day weren't picked up for up to ~20 hours, requiring manual SSH to pull + regenerate dashboard data.
+
+### Changes
+- **NEW** `scripts/auto-sync.sh` — lightweight polling script that runs every 15 min via cron. Fetches origin/main, compares rev-parse hashes, and only pulls + regenerates dashboard data when the local branch is actually behind. Exits silently (exit 0) when already up to date.
+
+### Crontab Entry
+```
+*/15 * * * * /home/ubuntu/hot2content-init/scripts/auto-sync.sh 2>> /home/ubuntu/hot2content-init/logs/auto-sync.log
+```
+
+### Setup (on VPS)
+1. Push this commit from local
+2. SSH → `git pull` → `chmod +x scripts/auto-sync.sh`
+3. `crontab -e` → add the cron line above
+
+### Known Issues
+- Polling interval is 15 min max latency; acceptable for non-realtime content site
+
+---
+
 ## 2026-02-20 — Dashboard Enhancement: Keyword + Content Review
 
 ### Reason
