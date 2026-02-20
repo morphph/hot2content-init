@@ -54,3 +54,12 @@ else
 fi
 
 notify "success" "✅ Newsletter pipeline complete for ${DATE}"
+
+# Step 4: Refresh dashboard data
+echo "📊 Step 4: Generating dashboard data..."
+npx tsx scripts/generate-dashboard-data.ts || echo "⚠️ Dashboard generation failed (non-fatal)"
+git add content/dashboard-data.json 2>/dev/null
+if ! git diff --staged --quiet 2>/dev/null; then
+  git commit -m "📊 Dashboard data ${DATE}" 2>/dev/null
+  git push 2>/dev/null
+fi

@@ -21,6 +21,7 @@
     "extract-compare": "tsx scripts/extract-compare.ts",
     "extract-keywords": "tsx scripts/extract-keywords.ts",
     "generate-tier2": "tsx scripts/generate-tier2.ts",
+    "dashboard": "tsx scripts/generate-dashboard-data.ts",
     "test": "playwright test",
     "test:e2e": "playwright test"
   },

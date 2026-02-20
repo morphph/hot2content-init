@@ -45,6 +45,10 @@ npx tsx scripts/content-updater.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Exporting timeline data" | tee -a logs/seo-pipeline.log
 npx tsx scripts/export-timeline-data.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ export-timeline-data failed (non-fatal)"
 
+# Step 6.5: Refresh dashboard data
+echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Generating dashboard data" | tee -a logs/seo-pipeline.log
+npx tsx scripts/generate-dashboard-data.ts 2>&1 | tee -a logs/seo-pipeline.log || echo "⚠️ Dashboard generation failed (non-fatal)"
+
 # Step 7: Commit and push generated content
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Git commit + push" | tee -a logs/seo-pipeline.log
 git add content/

@@ -1,5 +1,36 @@
 # LoreAI Changelog
 
+## 2026-02-20 — Pipeline Monitoring Dashboard
+
+### Reason
+No monitoring surfaces existed — no dashboard, no status API, no health checks. Logs were scattered with no aggregation. Need visibility into pipeline health, keyword quality, and content output metrics.
+
+### Changes
+- **NEW** `scripts/generate-dashboard-data.ts` — queries SQLite DB + reads log files → writes `content/dashboard-data.json`
+- **NEW** `src/lib/dashboard.ts` — thin JSON reader for build-time loading (follows `timeline.ts` pattern)
+- **NEW** `src/app/admin/page.tsx` — SSG dashboard page at `/admin` (server component, `robots: noindex`)
+- `scripts/daily-newsletter.sh` — added Step 4: dashboard data generation after newsletter completion
+- `scripts/daily-seo.sh` — added Step 6.5: dashboard data generation before git commit
+- `package.json` — added `"dashboard"` script
+
+### Architecture
+```
+VPS cron finishes → generate-dashboard-data.ts → content/dashboard-data.json
+  → git push → Vercel rebuilds → /admin page renders stats
+```
+
+Follows the same pattern as `export-timeline-data.ts` → `content/timelines/*.json` → `/timeline`.
+
+### Dashboard Sections
+- **Pipeline Health:** Newsletter status + SEO pipeline status + news item counts + recent errors
+- **Keyword Quality:** Status distribution bar + by language/intent + volume/difficulty distributions + top 20 table + stale backlog count
+- **Content Output:** Totals + last 7d/30d + by type/tier + SEO score distribution + newsletter streak
+
+### Known Issues
+- Dashboard data may be up to 24h stale (refreshes after each cron run); staleness warning shown if > 36h old
+
+---
+
 ## 2026-02-19 — Migrate Sonnet API + Gemini Flash to Claude CLI (Max Plan)
 
 ### Reason

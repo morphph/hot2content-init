@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-02-20T00:59:35.377Z",
+  "pipelineHealth": {
+    "newsletter": {
+      "lastRunDate": null,
+      "lastRunStatus": "unknown",
+      "lastRunMessage": "No status file found",
+      "enPublished": false,
+      "zhPublished": false
+    },
+    "seo": {
+      "lastRunTimestamp": null,
+      "lastRunStatus": "unknown"
+    },
+    "newsItems": {
+      "last24h": 0,
+      "last72h": 0,
+      "total": 0
+    },
+    "recentErrors": []
+  },
+  "keywordQuality": {
+    "byStatus": {},
+    "byLanguage": {},
+    "byIntent": {},
+    "volumeDistribution": {
+      "noData": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "difficultyDistribution": {
+      "noData": 0,
+      "easy": 0,
+      "medium": 0,
+      "hard": 0
+    },
+    "top20": [],
+    "staleBacklogCount": 0,
+    "total": 0
+  },
+  "contentOutput": {
+    "byType": {},
+    "byTier": {
+      "1": 8,
+      "2": 4,
+      "3": 10
+    },
+    "publishedLast7d": 0,
+    "publishedLast30d": 0,
+    "seoScoreDistribution": {
+      "poor": 0,
+      "fair": 0,
+      "good": 0,
+      "excellent": 0,
+      "noScore": 0
+    },
+    "enArticles": 0,
+    "zhArticles": 0,
+    "newsletterStreak": {
+      "en": 12,
+      "zh": 12,
+      "lastEnDate": "2026-02-19",
+      "lastZhDate": "2026-02-19"
+    }
+  }
+}
