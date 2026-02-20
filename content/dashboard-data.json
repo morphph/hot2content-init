@@ -1,59 +1,168 @@
 {
-  "generatedAt": "2026-02-20T02:24:15.128Z",
+  "generatedAt": "2026-02-20T02:28:31.126Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": null,
-      "lastRunStatus": "unknown",
-      "lastRunMessage": "No status file found",
-      "enPublished": false,
-      "zhPublished": false
+      "lastRunDate": "2026-02-20",
+      "lastRunStatus": "success",
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-20",
+      "enPublished": true,
+      "zhPublished": true
     },
     "seo": {
       "lastRunTimestamp": null,
       "lastRunStatus": "unknown"
     },
     "newsItems": {
-      "last24h": 0,
-      "last72h": 0,
-      "total": 0
+      "last24h": 486,
+      "last72h": 488,
+      "total": 490
     },
     "recentErrors": []
   },
   "keywordQuality": {
-    "byStatus": {},
-    "byLanguage": {},
-    "byIntent": {},
+    "byStatus": {
+      "backlog": 10
+    },
+    "byLanguage": {
+      "en": 10
+    },
+    "byIntent": {
+      "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities": 1,
+      "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons": 1,
+      "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows": 1,
+      "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
+      "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM": 1,
+      "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production": 1,
+      "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities": 1,
+      "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
+      "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns": 1,
+      "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1
+    },
     "volumeDistribution": {
       "noData": 0,
-      "low": 0,
+      "low": 10,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 0,
-      "medium": 0,
-      "hard": 0
+      "easy": 5,
+      "medium": 2,
+      "hard": 3
     },
-    "top20": [],
+    "top20": [
+      {
+        "keyword": "agentic coding benchmark infrastructure noise",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons"
+      },
+      {
+        "keyword": "claude code advanced tool use beta",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 60,
+        "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities"
+      },
+      {
+        "keyword": "AI agent evaluation strategies",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 20,
+        "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate"
+      },
+      {
+        "keyword": "GitHub Copilot SDK multi-platform integration",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 100,
+        "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities"
+      },
+      {
+        "keyword": "long-running AI agent harness design",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows"
+      },
+      {
+        "keyword": "multi-agent workspace orchestration",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 60,
+        "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns"
+      },
+      {
+        "keyword": "opencode vs claude code comparison",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases"
+      },
+      {
+        "keyword": "Gemini CLI vs Claude Code terminal agents",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them"
+      },
+      {
+        "keyword": "context engineering for production agents",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production"
+      },
+      {
+        "keyword": "Goose AI autonomous coding agent",
+        "language": "en",
+        "score": 64,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 20,
+        "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM"
+      }
+    ],
     "staleBacklogCount": 0,
-    "total": 0
+    "total": 10
   },
   "contentOutput": {
-    "byType": {},
-    "byTier": {
-      "1": 8,
-      "2": 4,
-      "3": 10
+    "byType": {
+      "newsletter": 1
     },
-    "publishedLast7d": 0,
-    "publishedLast30d": 0,
+    "byTier": {
+      "0": 6,
+      "1": 8,
+      "2": 30,
+      "3": 16
+    },
+    "publishedLast7d": 1,
+    "publishedLast30d": 1,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 0
+      "noScore": 1
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -65,9 +174,913 @@
     }
   },
   "recentKeywords": {
-    "days": []
+    "days": [
+      {
+        "date": "2026-02-20",
+        "count": 10,
+        "items": [
+          {
+            "keyword": "agentic coding benchmark infrastructure noise",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "claude code advanced tool use beta",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "AI agent evaluation strategies",
+            "language": "en",
+            "type": "faq",
+            "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "GitHub Copilot SDK multi-platform integration",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "long-running AI agent harness design",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "multi-agent workspace orchestration",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "opencode vs claude code comparison",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Gemini CLI vs Claude Code terminal agents",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "context engineering for production agents",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Goose AI autonomous coding agent",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM",
+            "score": 64,
+            "sourceNews": []
+          }
+        ]
+      }
+    ]
   },
   "recentContent": {
-    "days": []
+    "days": [
+      {
+        "date": "2026-02-20",
+        "count": 20,
+        "items": [
+          {
+            "title": "Agentic Coding Benchmark Infrastructure Noise — Analysis and Industry Impact",
+            "slug": "agentic-coding-benchmark-infrastructure-noise",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 320,
+            "preview": "**TL;DR:** Infrastructure configuration—container resources, network settings, and execution environment—can swing agentic coding benchmark scores by several percentage points, sometimes exceeding the"
+          },
+          {
+            "title": "Context Engineering for Production Agents — Analysis and Industry Impact",
+            "slug": "context-engineering-for-production-agents",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1671,
+            "preview": "**TL;DR:** Context engineering has emerged as the critical discipline separating toy demos from production-grade AI agents, with new frameworks like GSD and Haystack codifying systematic approaches to"
+          },
+          {
+            "title": "Long-Running AI Agent Harness Design — Analysis and Industry Impact",
+            "slug": "long-running-ai-agent-harness-design",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1780,
+            "preview": "**TL;DR:** Anthropic Engineering's research into long-running agent harnesses reveals that the most effective designs mirror how human engineers manage complex, multi-session projects—using persistent"
+          },
+          {
+            "title": "Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development Needs",
+            "slug": "multi-agent-workspace-orchestration",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1628,
+            "preview": "**TL;DR:** Three trending GitHub projects—Gas Town (9,796 stars), oh-my-claudecode (6,726 stars), and DeerFlow (20,015 stars)—signal a fundamental shift from single-agent AI assistants to coordinated "
+          },
+          {
+            "title": "智能编程基准测试中的基础设施噪声 — 深度分析与行业影响",
+            "slug": "agentic-coding-benchmark-infrastructure-noise",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 216,
+            "preview": "**一句话总结：** Anthropic 工程团队的量化研究表明，基础设施配置差异可以让同一模型的评测得分波动数个百分点——这个数字有时比排行榜前几名之间的差距还大。 如果你最近在选择 AI 编程工具，大概率看过各种基准测试排行榜。SWE-bench Verified 上 Claude 是多少分、GPT 是多少分、Gemini 又是多少——这些数字被广泛引用，影响着工程团队的工具选型、投资人的估值"
+          },
+          {
+            "title": "生产级智能体的上下文工程 — 深度分析与行业影响",
+            "slug": "context-engineering-for-production-agents",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 275,
+            "preview": "**一句话总结：** 上下文工程（Context Engineering）正在从\"提示词技巧\"进化为一门系统工程学科，它决定了 AI 智能体能否从演示 demo 跨越到生产环境。 --- 2024 年，\"提示词工程\"（Prompt Engineering）是 AI 圈最热的词。大家都在研究怎么写出更好的 prompt，让 ChatGPT 或 Claude 输出更准确的结果。 但到了 2025 年下"
+          },
+          {
+            "title": "长时间运行 AI 智能体的框架设计 — 深度分析与行业影响",
+            "slug": "long-running-ai-agent-harness-design",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 103,
+            "preview": "**一句话总结：** Anthropic 发布了面向长时间运行 AI 智能体的框架设计指南，核心思路是向人类工程师\"偷师\"——笔记、检查点、明确的交接协议，这些老办法在 AI 时代依然有效。 用过 Claude Code 或任何 AI 编程助手的人，可能都遇到过这种情况：上一轮对话里 AI 已经理解了整个项目结构，但超时或断连之后重新开始，它又变成了一张白纸。 这不是 bug，而是架构限制。大语言"
+          },
+          {
+            "title": "多智能体工作空间编排 — 深度分析与行业影响",
+            "slug": "multi-agent-workspace-orchestration",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 290,
+            "preview": "**一句话总结：** 当一个 AI Agent 不够用时，我们需要的不是更强的单兵，而是一套让多个 Agent 协同作战的「工位调度系统」——这正是 Gastown、oh-my-claudecode 和 DeerFlow 等项目正在解决的问题。 如果你用过 Claude Code、Cursor 或者 GitHub Copilot，应该对这个场景不陌生：你让 AI 帮忙重构一个复杂项目，它一开始表现"
+          },
+          {
+            "title": "Claude Code Advanced Tool Use Beta — What It Is and Why It Matters",
+            "slug": "claude-code-advanced-tool-use-beta",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 454,
+            "preview": "Claude Code advanced tool use beta refers to a set of enhanced capabilities on the Claude Developer Platform that enable Claude to discover, learn, and execute tools dynamically at runtime. Unlike sta"
+          },
+          {
+            "title": "Claude Code 高级工具使用测试版（claude code advanced tool use beta）— 定义、原理与应用",
+            "slug": "claude-code-advanced-tool-use-beta",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 86,
+            "preview": "Claude Code 高级工具使用测试版是 Anthropic 在 Claude 开发者平台推出的一组测试功能，允许 Claude 动态发现、学习和执行外部工具。该功能突破了传统工具调用的静态限制，使 AI 代理（Agent）能够在运行时自主探索可用工具并决定调用策略。 传统的大语言模型（LLM）工具调用需要开发者预先定义所有工具的 schema，模型只能在固定范围内选择。这种方式在工具数量庞大"
+          },
+          {
+            "title": "GitHub Copilot SDK multi-platform integration — What It Is and Why It Matters",
+            "slug": "github-copilot-sdk-multi-platform-integration",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 446,
+            "preview": "GitHub Copilot SDK multi-platform integration refers to the official software development kit that enables developers to embed GitHub Copilot's AI-powered code assistance capabilities into application"
+          },
+          {
+            "title": "GitHub Copilot SDK 多平台集成（GitHub Copilot SDK multi-platform integration）— 定义、原理与应用",
+            "slug": "github-copilot-sdk-multi-platform-integration",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 98,
+            "preview": "GitHub Copilot SDK 多平台集成是指通过官方提供的软件开发工具包（SDK），将 GitHub Copilot 的 AI 代码辅助能力嵌入到各类应用程序、服务和开发环境中的技术方案。该 SDK 支持多种编程语言和运行平台，使开发者能够在 VS Code 和 GitHub 生态之外，将 Copilot Agent 的智能能力集成到自定义工具链、企业内部系统或第三方产品中。 随着 AI "
+          },
+          {
+            "title": "Goose AI Autonomous Coding Agent",
+            "slug": "goose-ai-autonomous-coding-agent",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 395,
+            "preview": "Goose is an open-source autonomous coding agent created by Block (formerly Square). Unlike code completion tools that suggest snippets, Goose operates as a full development partner — it can install pa"
+          },
+          {
+            "title": "Goose AI 自主编程智能体（Goose AI autonomous coding agent）— 定义、原理与应用",
+            "slug": "goose-ai-autonomous-coding-agent",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 86,
+            "preview": "Goose 是由 Block（前 Square）开源的自主编程智能体（Autonomous Coding Agent），能够超越传统代码补全工具，直接执行安装依赖、编辑文件、运行测试等完整开发任务。它支持接入任意大语言模型（LLM），通过可扩展的插件架构适配不同开发场景。截至 2026 年 2 月，该项目在 GitHub 上已获得超过 30,000 星标。 传统 AI 编程助手（如早期 Copil"
+          },
+          {
+            "title": "AI agent evaluation strategies — Frequently Asked Questions",
+            "slug": "ai-agent-evaluation-strategies",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 641,
+            "preview": "Traditional benchmarks measure single-turn capabilities like question answering or code completion, but agents operate across multiple steps, make decisions, use tools, and recover from errors. An age"
+          },
+          {
+            "title": "AI 智能体评估策略 — 常见问题解答",
+            "slug": "ai-agent-evaluation-strategies",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 248,
+            "preview": "AI 智能体（AI Agent）正在从实验室走向生产环境。然而，评估这些能够自主执行多步任务、调用工具、与环境交互的系统，远比传统模型评测复杂。Anthropic 工程团队在最新发布的技术文章中指出：让智能体变得有用的特性，恰恰也是让它们难以评估的原因。这份 FAQ 帮你理解评估策略的核心挑战与实战技巧。 --- 传统 AI 评估关注的是\"给定输入，输出是否正确\"——一个确定性的判断。但智能体的运"
+          },
+          {
+            "title": "Gemini CLI vs Claude Code: Terminal AI Agents Compared",
+            "slug": "gemini-cli-vs-claude-code-terminal-agents",
+            "type": "compare",
+            "language": "en",
+            "tier": null,
+            "wordCount": 383,
+            "preview": "**TL;DR:** Gemini CLI offers open-source flexibility with a massive 1M token context window and generous free tier. Claude Code provides tighter IDE integration and superior code understanding at the "
+          },
+          {
+            "title": "Gemini CLI 与 Claude Code 终端智能体对比 — 详细对比分析",
+            "slug": "gemini-cli-vs-claude-code-terminal-agents",
+            "type": "compare",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 451,
+            "preview": "终端 AI 智能体（Terminal AI Agent）正在重塑开发者的工作方式。2026 年 2 月，Google 的 Gemini CLI 以 94,937 颗星登顶 GitHub Trending，Anthropic 的 Claude Code 紧随其后达到 67,801 颗星。两款工具代表了终端 AI 编程的两种不同理念：开源优先 vs 产品化体验。 | 对比维度 | Gemini CLI"
+          },
+          {
+            "title": "OpenCode vs Claude Code — Detailed Comparison",
+            "slug": "opencode-vs-claude-code-comparison",
+            "type": "compare",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1247,
+            "preview": "The terminal-based AI coding agent category has split into two camps: open-source tools that prioritize flexibility and vendor lock-in avoidance, and commercial products that prioritize polish and int"
+          },
+          {
+            "title": "OpenCode 与 Claude Code 对比 — 详细对比分析",
+            "slug": "opencode-vs-claude-code-comparison",
+            "type": "compare",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 404,
+            "preview": "2026 年 2 月，终端 AI 编程代理（Terminal AI Coding Agent）赛道迎来新格局。anomalyco/opencode 以超过 10.7 万颗 GitHub Star 登顶趋势榜，而 Anthropic 的 Claude Code 稳居 6.7 万颗 Star。开源方案与商业方案的正面对决，究竟该如何选择？ **OpenCode** 是一款完全开源的编程代理，由 Ano"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-18",
+        "count": 20,
+        "items": [
+          {
+            "title": "AI Agent Autonomy Measurement Research — Analysis and Industry Impact",
+            "slug": "ai-agent-autonomy-measurement-research",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1677,
+            "preview": "**TL;DR:** Anthropic has published groundbreaking research analyzing millions of AI agent interactions to quantify how much autonomy users actually grant to AI systems, revealing significant gaps betw"
+          },
+          {
+            "title": "AI Coding Agent Skills Marketplace Ecosystem — Analysis and Industry Impact",
+            "slug": "ai-coding-agent-skills-marketplace-ecosystem",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1588,
+            "preview": "**TL;DR:** A thriving ecosystem of third-party skills for AI coding agents has emerged, with repositories like marketing, scientific, and persona-based skill packs gaining thousands of GitHub stars, s"
+          },
+          {
+            "title": "Vibe Coding and AI Slop: The Hidden Quality Crisis in AI-Generated Code",
+            "slug": "vibe-coding-ai-slop-code-quality-issues",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1599,
+            "preview": "**TL;DR:** The democratization of coding through AI assistants has spawned a new problem—\"vibe coding\" that produces superficially plausible but fundamentally flawed code, overwhelming open-source mai"
+          },
+          {
+            "title": "AI 智能体自主性度量研究 — 深度分析与行业影响",
+            "slug": "ai-agent-autonomy-measurement-research",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 360,
+            "preview": "**一句话总结：** Anthropic 首次系统量化了人类实际授予 AI 智能体的自主权限，发现现实部署远比实验室假设更激进——这为整个行业的安全框架敲响了警钟。 2026 年初，AI 领域最热门的词是\"智能体\"（Agent）。从写代码到管理日程，AI 正在从\"回答问题的工具\"变成\"自主行动的助手\"。 但这里有一个根本性问题：**我们到底给了 AI 多大的自主权？这种授权有没有边界？** 以前，"
+          },
+          {
+            "title": "AI 编码智能体技能市场生态 — 深度分析与行业影响",
+            "slug": "ai-coding-agent-skills-marketplace-ecosystem",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 287,
+            "preview": "**一句话总结：** AI 编码智能体正在从\"通用工具\"演变为\"可扩展平台\"，围绕技能（Skills）形成的市场生态将重塑开发者工具链的分发与变现模式。 如果你用过 Claude Code、Cursor 或 GitHub Copilot，你可能已经感受到一个问题：这些 AI 编码助手虽然强大，但它们是\"通才\"。让它们写个 React 组件没问题，但要它们理解你公司特有的代码规范、执行特定的 SEO"
+          },
+          {
+            "title": "氛围编程与 AI 低质量代码问题 — 深度分析与行业影响",
+            "slug": "vibe-coding-ai-slop-code-quality-issues",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 249,
+            "preview": "**一句话总结：** 当\"让 AI 写代码\"从效率工具变成偷懒捷径，开源社区正在被低质量的 AI 生成代码淹没，甚至已经造成了百万美元级别的真实损失。 \"Vibe coding\"（氛围编程）这个词最早由 Andrej Karpathy 在 2025 年初提出，用来描述一种全新的编程方式：你不再逐行敲代码，而是用自然语言描述你想要什么，让 AI 帮你生成代码，然后\"凭感觉\"（vibe）判断结果是否正"
+          },
+          {
+            "title": "Google Lyria 3 Music Generation Model — What It Is and Why It Matters",
+            "slug": "google-lyria-3-music-generation-model",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 406,
+            "preview": "Google Lyria 3 is DeepMind's most advanced generative music model, capable of producing complete musical tracks with vocals, lyrics, and instrumental arrangements from text prompts or images. Released"
+          },
+          {
+            "title": "Google Lyria 3 音乐生成模型（Google Lyria 3 music generation model）— 定义、原理与应用",
+            "slug": "google-lyria-3-music-generation-model",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 100,
+            "preview": "Google Lyria 3 是 Google DeepMind 开发的最新一代生成式音乐模型（Generative Music Model），能够根据文本提示或图片输入生成完整的音乐轨道，包括人声和歌词。该模型代表了 AI 音乐生成领域的重大突破，提供了前所未有的音频清晰度和细粒度创作控制能力。 Lyria 3 的发布标志着 AI 音乐创作进入了新阶段。与早期模型相比，Lyria 3 能够生成\""
+          },
+          {
+            "title": "Memori SQL memory layer for AI agents — What It Is and Why It Matters",
+            "slug": "memori-sql-memory-layer-for-ai-agents",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 417,
+            "preview": "Memori is an open-source SQL-native memory layer designed to provide persistent, queryable memory for large language models (LLMs), AI agents, and multi-agent systems. Unlike ephemeral context windows"
+          },
+          {
+            "title": "Memori SQL 原生 AI 智能体记忆层（Memori SQL memory layer for AI agents）— 定义、原理与应用",
+            "slug": "memori-sql-memory-layer-for-ai-agents",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 110,
+            "preview": "Memori 是一个开源的 SQL 原生记忆层，专为大语言模型（LLM）、AI 智能体（AI Agent）和多智能体系统（Multi-Agent Systems）设计。它将智能体的长期记忆、上下文状态和知识图谱直接存储在关系型数据库中，使开发者能够用熟悉的 SQL 语法查询和管理 AI 系统的记忆数据。 AI 智能体的核心瓶颈之一是记忆管理。传统方案依赖向量数据库或专有存储，学习成本高且难以与现有"
+          },
+          {
+            "title": "OpenAI EVMbench Smart Contract Security Benchmark — What It Is and Why It Matters",
+            "slug": "openai-evmbench-smart-contract-security-benchmark",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 442,
+            "preview": "EVMbench is a benchmark developed by OpenAI that measures how effectively AI agents can detect, exploit, and patch high-severity vulnerabilities in Ethereum Virtual Machine (EVM) smart contracts. It p"
+          },
+          {
+            "title": "OpenAI EVMbench 智能合约安全基准（OpenAI EVMbench smart contract security benchmark）— 定义、原理与应用",
+            "slug": "openai-evmbench-smart-contract-security-benchmark",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 86,
+            "preview": "EVMbench 是 OpenAI 发布的智能合约安全评测基准，专门用于衡量 AI 智能体（AI Agent）在以太坊虚拟机（EVM）环境下检测、利用和修复高严重性智能合约漏洞的能力。该基准为评估 AI 在区块链安全领域的实际应用能力提供了标准化的测试框架。 智能合约一旦部署到区块链上便不可更改，任何安全漏洞都可能导致数百万美元的资金损失。传统的人工代码审计耗时且成本高昂，难以跟上 DeFi（去中"
+          },
+          {
+            "title": "OpenAI Responses API remote MCP support — What It Is and Why It Matters",
+            "slug": "openai-responses-api-remote-mcp-support",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 478,
+            "preview": "OpenAI Responses API remote MCP support refers to OpenAI's integration of the Model Context Protocol (MCP) into their Responses API, enabling AI models to connect directly to external tools and data s"
+          },
+          {
+            "title": "OpenAI Responses API 远程 MCP 支持（OpenAI Responses API remote MCP support）— 定义、原理与应用",
+            "slug": "openai-responses-api-remote-mcp-support",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 123,
+            "preview": "OpenAI Responses API 远程 MCP 支持是指 OpenAI 在其 Responses API 中新增的功能，允许开发者连接托管在远程服务器上的 MCP（Model Context Protocol，模型上下文协议）服务。通过这一特性，大语言模型（LLM）可以在推理过程中动态调用外部工具和数据源，而无需在本地部署这些服务。 MCP 协议由 Anthropic 于 2024 年提出"
+          },
+          {
+            "title": "Sim Studio AI agent orchestration platform — What It Is and Why It Matters",
+            "slug": "sim-studio-ai-agent-orchestration-platform",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 410,
+            "preview": "Sim Studio is an open-source platform for building, deploying, and orchestrating AI agents through a unified interface. It serves as a central intelligence layer that coordinates multiple AI agents, m"
+          },
+          {
+            "title": "Sim Studio AI 智能体编排平台（Sim Studio AI agent orchestration platform）— 定义、原理与应用",
+            "slug": "sim-studio-ai-agent-orchestration-platform",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 82,
+            "preview": "Sim Studio 是一个开源的 AI 智能体编排平台，用于构建、部署和协调多个 AI 智能体（AI Agent）协同工作。它充当 AI 工作流的中央智能层，让开发者通过可视化界面或代码定义智能体之间的交互逻辑、数据流转和任务分配。该项目在 GitHub 上已获得超过 26,000 星标，反映出开发者社区对智能体编排工具的强烈需求。 单一 AI 智能体的能力有限，复杂业务场景往往需要多个智能体分"
+          },
+          {
+            "title": "AI agent web search token optimization — Frequently Asked Questions",
+            "slug": "ai-agent-web-search-token-optimization",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 656,
+            "preview": "Web search token optimization refers to techniques that reduce the number of tokens consumed when an AI agent retrieves and processes web search results. Traditional approaches dump raw search results"
+          },
+          {
+            "title": "AI 智能体网络搜索 token 优化 — 常见问题解答",
+            "slug": "ai-agent-web-search-token-optimization",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 214,
+            "preview": "Token 优化是指在 AI 智能体执行网络搜索时，通过智能过滤和筛选机制减少进入上下文窗口（context window）的无效信息量。传统方式下，智能体会把搜索结果原封不动塞进上下文，导致大量无关内容占用宝贵的 token 配额。 优化后的方案让智能体先编写并执行代码来过滤搜索结果，只保留与任务相关的核心信息。以 Claude 最新发布的功能为例，Sonnet 4.6 通过这种方式在 Brow"
+          },
+          {
+            "title": "Claude Code Figma MCP integration — Frequently Asked Questions",
+            "slug": "claude-code-figma-mcp-integration",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 247,
+            "preview": "The Claude Code Figma MCP integration connects Anthropic's Claude Code terminal-based AI coding assistant with Figma's design platform through the Model Context Protocol (MCP). This integration allows"
+          },
+          {
+            "title": "Claude Code 与 Figma MCP 集成 — 常见问题解答",
+            "slug": "claude-code-figma-mcp-integration",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 375,
+            "preview": "Figma 近期宣布支持从 Claude Code 直接推送代码到 Figma 画布，这一功能通过 MCP（Model Context Protocol，模型上下文协议）服务器实现。开发者现在可以在代码中构建原型，然后发送到 Figma 进行视觉迭代，真正实现\"代码与画布并行\"的工作流。 MCP 是 Anthropic 推出的模型上下文协议，允许 AI 模型与外部工具进行标准化通信。Figma M"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-17",
+        "count": 18,
+        "items": [
+          {
+            "title": "AI Agents for Telecommunications — Analysis and Industry Impact",
+            "slug": "ai-agents-for-telecommunications",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1766,
+            "preview": "**TL;DR:** Anthropic's partnership with Infosys signals that AI agents are moving beyond consumer applications into mission-critical telecommunications infrastructure, with implications for how regula"
+          },
+          {
+            "title": "Claude Code Multi-Agent Orchestration — Analysis and Industry Impact",
+            "slug": "claude-code-multi-agent-orchestration",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1704,
+            "preview": "**TL;DR:** The emergence of multi-agent orchestration frameworks for Claude Code signals a fundamental shift from single-agent AI assistants to coordinated teams of specialized agents, with open-sourc"
+          },
+          {
+            "title": "电信行业 AI 智能体 — 深度分析与行业影响",
+            "slug": "ai-agents-for-telecommunications",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 367,
+            "preview": "**一句话总结：** Anthropic 与 Infosys 的合作标志着 AI 智能体正式进入高度监管的电信行业——这不只是又一个企业 AI 案例，而是 AI 厂商从「通用能力展示」转向「垂直行业攻坚」的战略信号。 如果你打过电信客服电话，可能对这套流程不陌生：按 1 查话费，按 2 办套餐，按 3 人工服务，然后等待 20 分钟听等待音乐。好不容易接通了，对面的客服要你报身份证号、验证码、服务"
+          },
+          {
+            "title": "FastGPT RAG 平台 — 深度分析与行业影响",
+            "slug": "fastgpt-rag-platform",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 385,
+            "preview": "**一句话总结：** FastGPT 在 GitHub 上积累了超过 27,000 颗星，正在成为企业级 RAG 应用的事实标准——它不是又一个 LLM 套壳产品，而是把「检索增强生成」工程化的完整解决方案。 大语言模型有个众所周知的问题：幻觉（Hallucination）。你问它「公司 Q4 财报营收多少」，它可能一本正经地编一个数字。解决方案听起来很简单——**检索增强生成（Retrieval"
+          },
+          {
+            "title": "Agent Skills Specification — What It Is and Why It Matters",
+            "slug": "agent-skills-specification",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 452,
+            "preview": "Agent Skills Specification is an open standard that defines how AI coding agents discover, load, and execute modular capabilities called \"skills.\" A skill is a self-contained unit of functionality—suc"
+          },
+          {
+            "title": "Agent Skills 规范（Agent Skills specification）— 定义、原理与应用",
+            "slug": "agent-skills-specification",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 94,
+            "preview": "Agent Skills 规范是一套开放标准，定义了 AI 代理（AI Agent）如何发现、加载和执行可复用技能模块。该规范通过标准化的元数据格式和执行协议，使不同厂商的 AI 代理能够共享同一套技能生态系统。简单来说，它让 AI 代理像安装应用一样获取新能力。 2026 年 2 月，Anthropic 宣布将 Agent Skills 作为开放标准发布，这标志着 AI 代理生态从封闭走向互通。"
+          },
+          {
+            "title": "Agno agentic programming language — What It Is and Why It Matters",
+            "slug": "agno-agentic-programming-language",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 386,
+            "preview": "Agno is a purpose-built programming language designed specifically for developing agentic software and multi-agent systems. Created by Agno AGI, it provides first-class primitives for streaming, persi"
+          },
+          {
+            "title": "Agno 智能体编程语言（Agno agentic programming language）— 定义、原理与应用",
+            "slug": "agno-agentic-programming-language",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 78,
+            "preview": "Agno 是一种专为构建智能体软件（Agentic Software）设计的编程语言，由 agno-agi 团队开发并开源。它提供了流式处理（Streaming）、记忆管理（Memory）、治理机制（Governance）和请求隔离（Request Isolation）等原生能力，让开发者能够高效构建多智能体系统（Multi-Agent Systems）。与传统编程语言不同，Agno 将 AI 智"
+          },
+          {
+            "title": "Claude Sonnet 4.6 — What It Is and Why It Matters",
+            "slug": "claude-sonnet-4-6",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 429,
+            "preview": "Claude Sonnet 4.6 is Anthropic's latest mid-tier large language model, released on February 17, 2026. It represents a significant upgrade over Sonnet 4.5, delivering near-Opus-level intelligence while"
+          },
+          {
+            "title": "Claude Sonnet 4.6（Claude Sonnet 4.6）— 定义、原理与应用",
+            "slug": "claude-sonnet-4-6",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 122,
+            "preview": "Claude Sonnet 4.6 是 Anthropic 于 2026 年 2 月发布的大语言模型（LLM），属于 Claude 4 系列的中端产品线。它在保持与 Sonnet 4.5 相同定价的基础上，将智能水平提升至接近旗舰模型 Opus 的层级，并首次在 beta 阶段支持 100 万 token 的超长上下文窗口。 Sonnet 4.6 的发布标志着\"中端模型\"概念的重新定义。传统上，用"
+          },
+          {
+            "title": "OpenAI Image Generation Models 2026 — What It Is and Why It Matters",
+            "slug": "openai-image-generation-models-2026",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 444,
+            "preview": "OpenAI image generation models 2026 refers to the latest generation of image synthesis models released by OpenAI, most notably the gpt-image-1 model family. These models represent OpenAI's most advanc"
+          },
+          {
+            "title": "OpenAI 图像生成模型 2026（OpenAI image generation models 2026）— 定义、原理与应用",
+            "slug": "openai-image-generation-models-2026",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 91,
+            "preview": "OpenAI 图像生成模型 2026 是 OpenAI 于 2026 年发布的最新一代图像生成系统，核心模型为 gpt-image-1。该模型基于多模态大语言模型（Multimodal LLM）架构，能够根据文本描述生成高质量图像，支持精确的文字渲染、复杂场景构建以及多轮对话式图像编辑。 gpt-image-1 代表了 AI 图像生成的重大突破。与前代 DALL·E 3 相比，新模型在指令遵循、细"
+          },
+          {
+            "title": "Claude Code Figma integration — Frequently Asked Questions",
+            "slug": "claude-code-figma-integration",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1486,
+            "preview": "Figma's recent integration allows you to bring UI work created in Claude Code directly into Figma as editable design frames. The workflow involves generating your UI components or full page layouts th"
+          },
+          {
+            "title": "Claude Code Figma 集成 — 常见问题解答",
+            "slug": "claude-code-figma-integration",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 198,
+            "preview": "Figma 最新推出了将 Claude Code 生成的 UI 直接导入为可编辑设计稿（editable design frames）的功能。具体操作是：在 Claude Code 中完成 UI 代码编写后，通过 Figma 的导入插件或 API 接口，将代码转换为 Figma 原生图层。导入后的设计稿保留完整的图层结构，你可以像处理普通 Figma 文件一样调整颜色、字体、间距等属性。这个功能特"
+          },
+          {
+            "title": "How to Use Claude Code Agentic Search — Frequently Asked Questions",
+            "slug": "how-to-use-claude-code-agentic-search",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 202,
+            "preview": "Claude Code agentic search is an autonomous search capability where Claude actively writes and executes code to filter web results before they enter the context window. Unlike traditional search that "
+          },
+          {
+            "title": "如何使用 Claude Code 智能搜索 — 常见问题解答",
+            "slug": "how-to-use-claude-code-agentic-search",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 162,
+            "preview": "传统搜索只是把网页结果原样丢给你，而 Claude Code 的智能搜索（Agentic Search）会主动思考、过滤、执行代码来处理搜索结果。根据 Anthropic 最新发布的数据，Sonnet 4.6 在启用智能搜索后，BrowseComp 基准测试准确率提升了 13%，同时输入 token 消耗减少了 32%。这意味着它不只是\"搜到了\"，而是\"搜对了\"——在结果进入上下文窗口之前，AI "
+          },
+          {
+            "title": "mem0 vs memvid AI agent memory — Detailed Comparison",
+            "slug": "mem0-vs-memvid-ai-agent-memory",
+            "type": "compare",
+            "language": "en",
+            "tier": null,
+            "wordCount": 291,
+            "preview": "Two open-source projects are competing to become the standard memory layer for AI agents: mem0 (47K+ GitHub stars) and memvid (13K+ GitHub stars). Both solve the same fundamental problem—giving statel"
+          },
+          {
+            "title": "mem0 与 memvid AI 智能体记忆对比 — 详细对比分析",
+            "slug": "mem0-vs-memvid-ai-agent-memory",
+            "type": "compare",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 342,
+            "preview": "随着 AI 智能体（AI Agent）应用的爆发式增长，如何为智能体提供持久化记忆成为核心技术挑战。2026 年初，两个开源项目在 GitHub 持续霸榜：**mem0**（⭐47,456）和 **memvid**（⭐13,108），分别代表了两种截然不同的记忆层（Memory Layer）设计哲学。 本文将从架构、功能、性能、定价和适用场景五个维度进行深度对比，帮助开发者做出明智选择。 **me"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-16",
+        "count": 37,
+        "items": [
+          {
+            "title": "Agentic Coding Benchmark Noise — Analysis and Industry Impact",
+            "slug": "agentic-coding-benchmark-noise",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1735,
+            "preview": "**TL;DR:** Infrastructure configuration—not model intelligence—can swing agentic coding benchmark scores by several percentage points, sometimes exceeding the performance gap between competing models "
+          },
+          {
+            "title": "Browser Automation for AI Agents — Analysis and Industry Impact",
+            "slug": "browser-automation-for-ai-agents",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1936,
+            "preview": "**TL;DR:** The emergence of browser automation frameworks designed specifically for AI agents—exemplified by browser-use and Vercel's agent-browser—signals a fundamental shift from APIs as the primary"
+          },
+          {
+            "title": "Claude Code Agent Skills: How Anthropic is Building an Ecosystem for AI Tool Discovery",
+            "slug": "claude-code-agent-skills",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1840,
+            "preview": "**TL;DR:** Anthropic's introduction of advanced tool use on the Claude Developer Platform—featuring dynamic tool discovery, learning, and execution—combined with community-driven skills repositories g"
+          },
+          {
+            "title": "GitHub Copilot SDK Integration — Quick Guide",
+            "slug": "github-copilot-sdk-integration",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 220,
+            "preview": "**TL;DR:** The GitHub Copilot SDK lets you embed Copilot's AI agent capabilities directly into your applications, enabling code suggestions, chat interactions, and agent-driven workflows across multip"
+          },
+          {
+            "title": "Unsloth fine-tuning optimization — Quick Guide",
+            "slug": "unsloth-fine-tuning-optimization",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 100,
+            "preview": "**TL;DR:** Unsloth delivers 2x faster fine-tuning with 70% less VRAM through custom CUDA kernels and memory optimization — enabling you to train Llama, Qwen, DeepSeek, and other models on consumer GPU"
+          },
+          {
+            "title": "Vercel's agent-browser: CLI-First Browser Automation for AI Agents",
+            "slug": "vercel-agent-browser-automation",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 327,
+            "preview": "**TL;DR:** Vercel Labs' agent-browser introduces a CLI-native approach to browser automation for AI agents, reflecting a deliberate architectural choice that prioritizes composability, scriptability, "
+          },
+          {
+            "title": "代理编程评测基准噪声 — 深度分析与行业影响",
+            "slug": "agentic-coding-benchmark-noise",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 240,
+            "preview": "**一句话总结：** 基础设施配置带来的得分波动，有时比榜首模型之间的真实差距还大——这意味着我们一直在根据噪声做决策。 如果你关注 AI 编程领域，你一定见过这样的新闻：\"XX 模型 SWE-bench 得分创新高！\"\"YY 模型超越 Claude，登顶编程榜单！\" 这些数字被当作真理传播。公司用它们做采购决策，开发者用它们选工具，投资人用它们估值。 但有一个问题很少被提及：**这些数字到底有多"
+          },
+          {
+            "title": "AI代理浏览器自动化 — 深度分析与行业影响",
+            "slug": "browser-automation-for-ai-agents",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 230,
+            "preview": "**一句话总结：** AI 智能体正在从「能读能写代码」进化到「能像人一样操作网页」——这意味着你的 AI 助手即将学会自己订机票、填表单、抓数据。 过去两年，AI 编程助手的能力飙升。Claude Code 能写代码、跑测试、提交 PR；ChatGPT 能分析文档、生成报告。但有一类任务它们始终做不好：**和网页打交道**。 想让 AI 帮你在携程上搜航班？抱歉，它只能给你一个链接。想让 AI "
+          },
+          {
+            "title": "Claude 高级工具使用测试版 — 快速指南",
+            "slug": "claude-advanced-tool-use-beta",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 75,
+            "preview": "**一句话总结：** Anthropic 发布三项 beta 功能，让 Claude 能够在运行时动态发现、学习和执行工具，彻底改变传统的静态工具定义模式。 传统 LLM 工具调用（Tool Use / Function Calling）要求开发者在 API 请求中预定义所有工具的 JSON Schema。这带来几个实际问题： - **Context 膨胀**：工具定义占用宝贵的上下文窗口 - *"
+          },
+          {
+            "title": "Claude Code 智能体技能 — 深度分析与行业影响",
+            "slug": "claude-code-agent-skills",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 353,
+            "preview": "**一句话总结：** 智能体技能（Agent Skills）正在重塑 AI 编程工具的架构——从「一个聪明的助手」变成「一支可指挥的专家团队」，而开源社区已经在 GitHub 上为这套系统写出了近万星的规范文档。 如果你用过 Claude Code，可能会有这样的体验：每次启动一个新项目，都要重新教 Claude「我们用 pnpm 不用 npm」「测试要跑 vitest」「部署走 Railway "
+          },
+          {
+            "title": "GitHub Copilot SDK 集成指南 — 快速指南",
+            "slug": "github-copilot-sdk-integration",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 41,
+            "preview": "**一句话总结：** GitHub 官方发布多平台 SDK，让开发者能将 Copilot Agent 能力嵌入自己的应用和服务中。 GitHub 近期在 Trending 榜单上线了 `github/copilot-sdk` 项目，这是一套多平台 SDK（Software Development Kit），允许开发者将 GitHub Copilot Agent 的能力集成到自有应用和服务中。这意味"
+          },
+          {
+            "title": "GitHub Copilot SDK 多平台 — 快速指南",
+            "slug": "github-copilot-sdk-multi-platform",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 69,
+            "preview": "**一句话总结：** GitHub 开源了 Copilot SDK，让开发者能在任意平台和应用中集成 AI 编程助手能力。 GitHub 近期在 Trending 榜单上线了 `github/copilot-sdk` 项目——一个多平台 SDK，用于将 GitHub Copilot Agent 集成到各类应用和服务中。这意味着 Copilot 的代码补全、对话、代码解释等能力不再局限于 VS Co"
+          },
+          {
+            "title": "Unsloth 微调优化技术 — 快速指南",
+            "slug": "unsloth-fine-tuning-optimization",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 57,
+            "preview": "**一句话总结：** Unsloth 通过内核级优化让大模型微调速度提升 2 倍、显存占用降低 70%，是目前最实用的低成本微调方案。 微调大模型的门槛一直很高：一张 A100 动辄数万元，即便用 QLoRA 等技术，训练 Llama 70B 仍需 80GB+ 显存。Unsloth 的出现改变了这个局面——它让消费级显卡（如 RTX 4090）也能完成专业级微调任务。 根据 [GitHub Tre"
+          },
+          {
+            "title": "Vercel agent-browser 浏览器自动化 — 深度分析与行业影响",
+            "slug": "vercel-agent-browser-automation",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 221,
+            "preview": "**一句话总结：** Vercel Labs 发布 agent-browser，这是一款专为 AI 智能体设计的命令行浏览器自动化工具——它代表着前端基础设施巨头正式入场 AI Agent 赛道，浏览器正在从\"人类专属界面\"变成\"智能体通用入口\"。 如果你用过 Claude Code、Cursor 或者其他 AI 编程助手，你会发现一个有趣的现象：它们能帮你写代码、跑测试、甚至提交 Git com"
+          },
+          {
+            "title": "AI Agent Memory Layer Architecture — What It Is and Why It Matters",
+            "slug": "ai-agent-memory-layer-architecture",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 421,
+            "preview": "AI agent memory layer architecture refers to the system design pattern that provides persistent, retrievable memory capabilities to AI agents across sessions and interactions. Unlike stateless LLM cal"
+          },
+          {
+            "title": "AI 代理记忆层架构（AI agent memory layer architecture）— 定义、原理与应用",
+            "slug": "ai-agent-memory-layer-architecture",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 108,
+            "preview": "AI 代理记忆层架构是一种为 AI 代理（AI Agent）提供持久化记忆能力的系统设计模式。它使代理能够跨会话存储、检索和更新信息，突破大语言模型（LLM）上下文窗口的限制。该架构通常作为独立的中间层存在，连接 AI 代理与底层存储系统，提供统一的记忆读写接口。 传统 LLM 应用存在\"金鱼记忆\"问题——每次对话都从零开始，无法记住用户偏好或历史交互。记忆层架构直接解决了这一痛点，让 AI 代理"
+          },
+          {
+            "title": "AI-Resistant Technical Evaluations — What It Is and Why It Matters",
+            "slug": "ai-resistant-technical-evaluations",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 415,
+            "preview": "AI-resistant technical evaluations are assessment methods designed to accurately measure a candidate's genuine skills and problem-solving abilities in an era where AI coding assistants can complete ma"
+          },
+          {
+            "title": "AI抗性技术评估（AI-Resistant Technical Evaluations）— 定义、原理与应用",
+            "slug": "ai-resistant-technical-evaluations",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 82,
+            "preview": "AI抗性技术评估是指经过特殊设计、难以被人工智能工具（如大语言模型/LLM）直接解决的技术能力测试。这类评估旨在区分候选人的真实技术水平与其使用AI辅助工具的能力，确保招聘流程能够准确衡量人类的工程能力和问题解决技巧。 随着 Claude、GPT 等 AI 编程助手的普及，传统技术面试题目正面临前所未有的挑战。许多标准的编程题、系统设计题甚至 take-home 项目都可以被 AI 在几分钟内高质"
+          },
+          {
+            "title": "Claude Code plugins ecosystem — What It Is and Why It Matters",
+            "slug": "claude-code-plugins-ecosystem",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 413,
+            "preview": "The Claude Code plugins ecosystem refers to the collection of community-developed and officially curated extensions that enhance Claude Code's capabilities. These plugins add specialized functionality"
+          },
+          {
+            "title": "Claude Code 插件生态系统（Claude Code plugins ecosystem）— 定义、原理与应用",
+            "slug": "claude-code-plugins-ecosystem",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 115,
+            "preview": "Claude Code 插件生态系统是围绕 Anthropic 的 Claude Code 智能编程助手构建的扩展框架，允许开发者通过标准化接口为 Claude Code 添加自定义工具、数据源和工作流能力。该生态系统包含官方维护的插件目录、社区贡献的扩展，以及面向知识工作者的专用插件集合。 随着 AI 编程助手从单一的代码补全工具演变为完整的开发环境，可扩展性成为核心竞争力。Claude Cod"
+          },
+          {
+            "title": "Claude Code skills specification — What It Is and Why It Matters",
+            "slug": "claude-code-skills-specification",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 441,
+            "preview": "Claude Code skills specification is a standardized format for defining custom commands and workflows that extend Claude Code's capabilities. Skills are reusable instruction sets that can be invoked vi"
+          },
+          {
+            "title": "Claude Code 技能规范（Claude Code skills specification）— 定义、原理与应用",
+            "slug": "claude-code-skills-specification",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 86,
+            "preview": "Claude Code 技能规范是一套标准化协议，用于定义 AI 编程代理（Agent）可执行的能力模块。每个技能（Skill）封装特定功能——如代码审查、Git 提交、文档生成等——通过声明式配置让代理理解何时调用、如何执行。该规范使开发者能够扩展 Claude Code 的能力边界，将领域知识转化为可复用的自动化单元。 AI 编程助手正从单纯的代码补全演进为完整的开发工作流代理。技能规范解决了"
+          },
+          {
+            "title": "Context Engineering for AI Agents — What It Is and Why It Matters",
+            "slug": "context-engineering-for-ai-agents",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 416,
+            "preview": "Context engineering is the systematic practice of designing, curating, and optimizing the information provided to AI agents to maximize their effectiveness on specific tasks. Unlike simple prompting, "
+          },
+          {
+            "title": "AI 代理的上下文工程（Context Engineering for AI Agents）— 定义、原理与应用",
+            "slug": "context-engineering-for-ai-agents",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 72,
+            "preview": "上下文工程是一种系统化设计和管理 AI 代理（AI Agent）输入信息的方法论。它超越了传统的提示工程（Prompt Engineering），不仅关注单次对话的提示词，还涵盖记忆管理、工具调用结果、多代理协作信息以及外部知识的动态整合。核心目标是在有限的上下文窗口（Context Window）内，为代理提供最相关、最高效的信息组合。 随着 AI 代理从简单的问答系统演进为能够执行复杂任务的自"
+          },
+          {
+            "title": "DeerFlow multi-agent framework — What It Is and Why It Matters",
+            "slug": "deerflow-multi-agent-framework",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 378,
+            "preview": "DeerFlow is an open-source multi-agent framework developed by ByteDance that orchestrates AI agents to handle complex, long-running tasks. It functions as a \"SuperAgent harness\" that coordinates resea"
+          },
+          {
+            "title": "DeerFlow 多代理框架（DeerFlow multi-agent framework）— 定义、原理与应用",
+            "slug": "deerflow-multi-agent-framework",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 63,
+            "preview": "DeerFlow 是字节跳动开源的多代理（multi-agent）协作框架，定位为\"SuperAgent harness\"——一个能够调度多个子代理（subagent）协同完成复杂任务的编排系统。该框架整合了沙箱执行环境、持久化记忆、工具调用、技能库等核心能力，支持从简单查询到耗时数小时的深度研究任务。 单一大语言模型（LLM）在处理多步骤、跨领域任务时存在明显局限：上下文窗口有限、缺乏状态持久化"
+          },
+          {
+            "title": "memvid AI Agent Memory Layer",
+            "slug": "memvid-ai-agent-memory-layer",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 388,
+            "preview": "memvid is an open-source memory layer designed specifically for AI agents. It provides a lightweight alternative to traditional Retrieval-Augmented Generation (RAG) pipelines by storing agent memories"
+          },
+          {
+            "title": "memvid AI代理记忆层（memvid AI agent memory layer）— 定义、原理与应用",
+            "slug": "memvid-ai-agent-memory-layer",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 100,
+            "preview": "memvid 是一个开源的 AI 代理记忆层解决方案，通过将文本编码为视频格式实现高效的长期记忆存储与即时检索。它以单文件、无服务器的架构替代复杂的 RAG（Retrieval-Augmented Generation，检索增强生成）管道，为 AI 代理提供轻量级的持久化记忆能力。 传统的 RAG 系统需要向量数据库（Vector Database）、嵌入模型（Embedding Model）和复"
+          },
+          {
+            "title": "OpenAI Codex skills catalog — What It Is and Why It Matters",
+            "slug": "openai-codex-skills-catalog",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 460,
+            "preview": "The OpenAI Codex skills catalog is a curated repository of reusable capabilities—called \"skills\"—designed to extend the functionality of OpenAI's Codex coding agent. Each skill defines a specific task"
+          },
+          {
+            "title": "OpenAI Codex 技能目录（OpenAI Codex skills catalog）— 定义、原理与应用",
+            "slug": "openai-codex-skills-catalog",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 89,
+            "preview": "OpenAI Codex 技能目录是一套可扩展的指令模块集合，用于增强 Codex 编程代理（coding agent）的能力边界。每个\"技能\"（skill）本质上是一段预定义的提示词（prompt）或工作流配置，告诉 Codex 如何执行特定类型的任务——从代码重构、测试生成到文档撰写。开发者可以从官方目录中选用现成技能，也可以编写自定义技能来适配团队的工程规范。 Codex 作为运行在终端中的"
+          }
+        ]
+      }
+    ]
   }
 }
