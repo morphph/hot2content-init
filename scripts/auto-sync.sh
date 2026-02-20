@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Auto-sync: polls origin/main every 15 min, pulls if behind,
+# Auto-sync: polls origin/main every 15 min via cron, pulls if behind,
 # regenerates dashboard data if code changed.
 # Crontab: */15 * * * * /home/ubuntu/hot2content-init/scripts/auto-sync.sh 2>> /home/ubuntu/hot2content-init/logs/auto-sync.log
 
