@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-20T02:28:31.126Z",
+  "generatedAt": "2026-02-20T02:35:46.824Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-20",
@@ -267,7 +267,7 @@
     "days": [
       {
         "date": "2026-02-20",
-        "count": 20,
+        "count": 30,
         "items": [
           {
             "title": "Agentic Coding Benchmark Infrastructure Noise — Analysis and Industry Impact",
@@ -412,6 +412,96 @@
             "tier": null,
             "wordCount": 248,
             "preview": "AI 智能体（AI Agent）正在从实验室走向生产环境。然而，评估这些能够自主执行多步任务、调用工具、与环境交互的系统，远比传统模型评测复杂。Anthropic 工程团队在最新发布的技术文章中指出：让智能体变得有用的特性，恰恰也是让它们难以评估的原因。这份 FAQ 帮你理解评估策略的核心挑战与实战技巧。 --- 传统 AI 评估关注的是\"给定输入，输出是否正确\"——一个确定性的判断。但智能体的运"
+          },
+          {
+            "title": "Claude Code and What Comes Next - by Ethan Mollick",
+            "slug": "claude-code-and-what-comes-next-by-ethan-mollick",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 749,
+            "preview": "Ethan Mollick, a Wharton professor known for his AI research, conducted an experiment where he gave Claude Code a single command: \"Develop a web-based or software-based startup idea that will make me "
+          },
+          {
+            "title": "Claude Code and What Comes Next - by Ethan Mollick",
+            "slug": "claude-code-and-what-comes-next-by-ethan-mollick",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 108,
+            "preview": "Ethan Mollick 是宾夕法尼亚大学沃顿商学院教授，长期关注 AI 对工作和创业的影响。在他的文章《Claude Code and What Comes Next》中，他做了一个直接的实验：打开 Claude Code，输入一条指令——\"开发一个能让我每月赚 1000 美元的创业点子，你来完成所有工作，包括构思和实现，我什么都不用做。\" 这个实验的核心发现是：Claude Code 确实能"
+          },
+          {
+            "title": "Claude Code: From Zero to Hero. What is Claude Code?",
+            "slug": "claude-code-from-zero-to-hero-what-is-claude-code",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 793,
+            "preview": "Claude Code is an AI-powered coding assistant that operates directly in your terminal rather than as an IDE plugin. According to multiple sources, it understands your entire codebase and accelerates d"
+          },
+          {
+            "title": "Claude Code: From Zero to Hero. What is Claude Code?",
+            "slug": "claude-code-from-zero-to-hero-what-is-claude-code",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 163,
+            "preview": "Claude Code 是 Anthropic 推出的 AI 编程助手（AI-powered coding assistant），直接运行在终端（Terminal）中，能够理解整个代码库并通过自然语言加速开发流程。 与传统 IDE 插件不同，Claude Code 是一个智能体式助手（Agentic Assistant）。它不只是补全代码片段，而是能够阅读你的整个项目、执行跨多个文件的复杂操作、自"
+          },
+          {
+            "title": "Claude Code: What It Is, How It's Different, and Why Non-Technical People Should Use It",
+            "slug": "claude-code-what-it-is-how-its-different-and-why-non",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 840,
+            "preview": "Claude Code is Anthropic's agentic coding tool that operates directly in your terminal, fundamentally different from the Claude chatbot you might use in a browser. While standard Claude conversations "
+          },
+          {
+            "title": "Claude Code: What It Is, How It's Different, and Why Non",
+            "slug": "claude-code-what-it-is-how-its-different-and-why-non",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 171,
+            "preview": "Claude Code 是 Anthropic 推出的命令行开发工具，让 Claude 直接在你的终端中运行，具备读写文件、执行命令、理解整个代码库的能力。与普通的 Claude 对话界面不同，Claude Code 能够直接操作你的文件系统，而不只是生成代码片段让你复制粘贴。 据 Pragmatic Engineer 报道，Claude Code 的灵感来自 Anthropic 内部一个工程师写"
+          },
+          {
+            "title": "Five Ways People Are Using Claude Code",
+            "slug": "five-ways-people-are-using-claude-code",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 822,
+            "preview": "Claude Code has emerged as a tool that generates working computer code from natural language prompts, enabling people with no coding experience to build their own programs and applications. Based on r"
+          },
+          {
+            "title": "Five Ways People Are Using Claude Code",
+            "slug": "five-ways-people-are-using-claude-code",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 141,
+            "preview": "Claude Code 是 Anthropic 推出的 AI 编程工具，能够根据自然语言提示（Prompt）生成代码，让没有编程经验的人也能创建自己的程序和应用。据《纽约时报》2026年1月报道，以下是用户实际采用的五种使用方式： **1. 紧急通讯应用开发** 助理检察官 Roberts 在 2024 年 8 月使用 Claude Code 和 Cursor 创建了一款名为 AlertAssis"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: What's Claude Code?",
+            "slug": "r-claudeai-on-reddit-whats-claude-code",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 813,
+            "preview": "Claude Code is Anthropic's agentic coding assistant that operates directly in your terminal, allowing developers to interact with Claude through a command-line interface while it reads, writes, and mo"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: What's Claude Code?",
+            "slug": "r-claudeai-on-reddit-whats-claude-code",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 147,
+            "preview": "Claude Code 是 Anthropic 推出的命令行编程助手，基于 Claude 大语言模型（LLM）。它直接在终端中运行，能够读取代码库、执行命令、编辑文件，本质上是一个 AI 编程代理（AI Coding Agent）。 根据 Reddit r/ClaudeAI 社区用户的实际反馈，Claude Code 的核心能力包括： **代码理解与生成**：一位使用超过 6 个月的开发者分享，他"
           },
           {
             "title": "Gemini CLI vs Claude Code: Terminal AI Agents Compared",
@@ -647,7 +737,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1766,
+            "wordCount": 2047,
             "preview": "**TL;DR:** Anthropic's partnership with Infosys signals that AI agents are moving beyond consumer applications into mission-critical telecommunications infrastructure, with implications for how regula"
           },
           {
@@ -842,7 +932,7 @@
             "type": "blog",
             "language": "en",
             "tier": 3,
-            "wordCount": 220,
+            "wordCount": 485,
             "preview": "**TL;DR:** The GitHub Copilot SDK lets you embed Copilot's AI agent capabilities directly into your applications, enabling code suggestions, chat interactions, and agent-driven workflows across multip"
           },
           {
@@ -860,7 +950,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 327,
+            "wordCount": 576,
             "preview": "**TL;DR:** Vercel Labs' agent-browser introduces a CLI-native approach to browser automation for AI agents, reflecting a deliberate architectural choice that prioritizes composability, scriptability, "
           },
           {

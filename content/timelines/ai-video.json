@@ -1,0 +1,78 @@
+{
+  "slug": "ai-video",
+  "name_en": "AI Video Production",
+  "name_zh": "AI 视频制作",
+  "entries": [
+    {
+      "id": "twitter-search-2022958992692306145",
+      "title": "Agent Zero is the world's first AI SuperAgent",
+      "url": "https://x.com/DavidOndrej1/status/2022958992692306145",
+      "source": "@DavidOndrej1",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Agent Zero is the world's first AI SuperAgent\n\nIt's free, 100% private, open source, highly customisable and VERY Powerful\n\nIn this 67 min video, you'll learn everything you need to know about Agent Zero https://t.co/Q3OZ0c75uU",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1935425575457538546",
+      "title": "How to use Claude Code for beginners",
+      "url": "https://x.com/iannuttall/status/1935425575457538546",
+      "source": "@iannuttall",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "How to use Claude Code for beginners\n(This too way too long to edit!)\n\nWatch the 15m video covering:\n- Setting it up in Cursor\n- How to add a lot of context (hint: not by copy/pasting)\n- Covering lots of slash commands\n- How to paste images\n+ lots more 🔥\n\nYT link in replies ↓ https://t.co/LEwzrwIJvL",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1983583069073490288",
+      "title": "I wrote up a lot of my mechanical design, robot math, and stress testing: (also has slow-mo videos o",
+      "url": "https://x.com/ErikSchluntz/status/1983583069073490288",
+      "source": "@ErikSchluntz",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "I wrote up a lot of my mechanical design, robot math, and stress testing: (also has slow-mo videos of airsoft guns) https://t.co/unK9xwDzrJ https://t.co/eBZT5pndjP",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1991178519557046380",
+      "title": "Today we’re excited to unveil a new generation of Segment Anything Models:",
+      "url": "https://x.com/AIatMeta/status/1991178519557046380",
+      "source": "@AIatMeta",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Today we’re excited to unveil a new generation of Segment Anything Models:\n\n1️⃣ SAM 3 enables detecting, segmenting and tracking of objects across images and videos, now with short text phrases and exemplar prompts.\n\n🔗 Learn more about SAM 3: https://t.co/CjMnf7fspz\n\n2️⃣ SAM 3D ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1991191525867270158",
+      "title": "Meet SAM 3, a unified model that enables detection, segmentation, and tracking of objects across ima",
+      "url": "https://x.com/AIatMeta/status/1991191525867270158",
+      "source": "@AIatMeta",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Meet SAM 3, a unified model that enables detection, segmentation, and tracking of objects across images and videos. SAM 3 introduces some of our most highly requested features like text and exemplar prompts to segment all objects of a target category.\n\nLearnings from SAM 3 will h",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2011122136140705916",
+      "title": "Veo update! Here's what's rolling out:",
+      "url": "https://x.com/GoogleAI/status/2011122136140705916",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Veo update! Here's what's rolling out:\n\n— Vertical formats with a more expressive model *and* improved visual consistency across characters, objects, and backgrounds in Veo 3.1 Ingredients to Video\n— State-of-the-art video upscaling to 1080p and 4K across all Veo models\n— Verific",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r90pol",
+      "title": "Claude Code’s CLI feels like a black box. I built a local UI to un-dumb it, and it unexpectedly blew up last week.",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r90pol/claude_codes_cli_feels_like_a_black_box_i_built_a/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "https://reddit.com/link/1r90pol/video/30yd18c4qgkg1/player\n\nHey r/ClaudeAI,\n\nLast weekend, I built a weekend project to scratch my own itch because I was going crazy with how much the official Claude Code CLI hides from us.\n\nI shared it in a smaller sub (\\[[original post](https://www.reddit.com/r/ClaudeCode/comments/1r3to9f/claude_codes_cli_feels_like_a_black_box_now_i/) in r/ClaudeCode here\\]), and the response was insane—it hit #3 on Hacker News, got 700+ stars on GitHub, and crossed 3.7k down",
+      "date": "2026-02-19"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}

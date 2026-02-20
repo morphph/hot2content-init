@@ -1,0 +1,458 @@
+{
+  "slug": "claude-opus",
+  "name_en": "Claude Opus 4.6",
+  "name_zh": "Claude Opus 4.6",
+  "entries": [
+    {
+      "id": "gh-hesreallyhim-awesome-claude-code",
+      "title": "hesreallyhim/awesome-claude-code (⭐24,296)",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A curated list of awesome skills, hooks, slash-commands, agent orchestrators, applications, and plugins for Claude Code by Anthropic",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-anthropics-claude-code",
+      "title": "anthropics/claude-code (⭐67,801)",
+      "url": "https://github.com/anthropics/claude-code",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Shubhamsaboo-awesome-llm-apps",
+      "title": "Shubhamsaboo/awesome-llm-apps (⭐96,099)",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Collection of awesome LLM apps with AI Agents and RAG using OpenAI, Anthropic, Gemini and opensource models.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-danny-avila-LibreChat",
+      "title": "danny-avila/LibreChat (⭐33,954)",
+      "url": "https://github.com/danny-avila/LibreChat",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Enhanced ChatGPT Clone: Features Agents, MCP, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message se",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-anthropics-knowledge-work-plugins",
+      "title": "anthropics/knowledge-work-plugins (⭐7,574)",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-qwibitai-nanoclaw",
+      "title": "qwibitai/nanoclaw (⭐9,479)",
+      "url": "https://github.com/qwibitai/nanoclaw",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A lightweight alternative to Clawdbot / OpenClaw that runs in containers for security. Connects to WhatsApp, has memory, scheduled jobs, and runs directly on Anthropic's Agents SDK",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-sickn33-antigravity-awesome-skills",
+      "title": "sickn33/antigravity-awesome-skills (⭐13,037)",
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "The Ultimate Collection of 800+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents including official skills from Anthropic and Vercel.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-affaan-m-everything-claude-code",
+      "title": "affaan-m/everything-claude-code (⭐48,365)",
+      "url": "https://github.com/affaan-m/everything-claude-code",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Complete Claude Code configuration collection - agents, skills, hooks, commands, rules, MCPs. Battle-tested configs from an Anthropic hackathon winner.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2024061330261463202",
+      "title": "🚨 ترى الفرص اللي تجي ببلاش ما تتكرر كثير!",
+      "url": "https://x.com/cnemalek/status/2024061330261463202",
+      "source": "@cnemalek",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 ترى الفرص اللي تجي ببلاش ما تتكرر كثير!\n\nشركة Anthropic نزلت 5 دورات مجانية بالكامل عن تقنيات Claude و MCP… والمحتوى 🔥 ثقيل:\n\n📚 287 محاضرة\n🎥 26 ساعة فيديو\n🧪 33 اختبار لتعزيز فهمك\n\nالدورات تشمل:\n• التطوير باستخدام Claude API\n• مقدمة إلى MCP\n• استخدام Claude عبر Amazon Bedrock\n• استخدام Claude عبر Vertex AI\n• MCP للمستخدمين المتقدمين\n\nوالأحلى؟ 🤩\nبنهاية كل دورة تاخذ شهادة إتمام.\n\nإذا أنت مطوّر وتبي تفهم عمق وكلاء الذكاء الاصطناعي وتبني تطبيقات احترافية…\nهذي فرصتك لا تفوّتها. 🚀\nاكتب دورة وي",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023356719762747439",
+      "title": "🚨 Anthropic just made a $10,000 AI degree look useless.",
+      "url": "https://x.com/sentientt_media/status/2023356719762747439",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just made a $10,000 AI degree look useless.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate GitHub, workflows, prompt scoring",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1953157471272616442",
+      "title": "Proud to announce @ChaiDiscovery has raised a $70M Series A from @MenloVentures &amp; Anthology Fund",
+      "url": "https://x.com/joshim5/status/1953157471272616442",
+      "source": "@joshim5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Proud to announce @ChaiDiscovery has raised a $70M Series A from @MenloVentures &amp; Anthology Fund (@AnthropicAI), @ThriveCapital, @OpenAI + others.\n\n🧬 Chai is an applied AI lab building frontier tools for molecular design.\n\nThis funding will power our new models, coming soon👇 https://t.co/HdMPIcCVC1",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2020396880828465414",
+      "title": "There's a cheat code for Claude. Most people don't know it exists.",
+      "url": "https://x.com/aaditsh/status/2020396880828465414",
+      "source": "@aaditsh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "There's a cheat code for Claude. Most people don't know it exists.\n\nIt's called Skills. One folder that teaches Claude exactly how you work. Build it in 15-30 minutes. Never explain your process again.\n\nAnthropic gave away the whole playbook. 33 pages. I've been going through it.\n\nThe best AI users don't prompt better. They build systems that prompt for them.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023151595295268939",
+      "title": "how Anthropic's marketing team uses claude code",
+      "url": "https://x.com/robjama/status/2023151595295268939",
+      "source": "@robjama",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "how Anthropic's marketing team uses claude code",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023819309378924691",
+      "title": "Sonnet 4.6 is here and it gives even Opus 4.6 a run for its money. https://t.co/kfzoM2opTr",
+      "url": "https://x.com/adocomplete/status/2023819309378924691",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Sonnet 4.6 is here and it gives even Opus 4.6 a run for its money. https://t.co/kfzoM2opTr",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023823186484404443",
+      "title": "Fun nugget from Sonnet 4.6: With a 1M context window, the model is better at long-horizon planning.",
+      "url": "https://x.com/felixrieseberg/status/2023823186484404443",
+      "source": "@felixrieseberg",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Fun nugget from Sonnet 4.6: With a 1M context window, the model is better at long-horizon planning. \n\nIn the Vending-Bench Arena, models compete to run a simulated business. Sonnet 4.6 developed a new strategy: invest heavily in capacity for the first 10 months, then pivot hard t",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1990852541350076904",
+      "title": "Today we announced a significant new partnership with @Microsoft and @NVIDIA. The investment will fu",
+      "url": "https://x.com/mikeyk/status/1990852541350076904",
+      "source": "@mikeyk",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Today we announced a significant new partnership with @Microsoft and @NVIDIA. The investment will fund our research and expand capacity for our customers. \n\nAnthropic is now the only frontier AI lab partnered with all three major clouds. Can’t wait to see what you build!",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1993034884903034918",
+      "title": "Claude Opus 4.5 is our best model yet. The best in the world at coding, agentic tasks, and everyday",
+      "url": "https://x.com/mikeyk/status/1993034884903034918",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Claude Opus 4.5 is our best model yet. The best in the world at coding, agentic tasks, and everyday work like spreadsheets. Engineers keep telling us Opus 4.5 “just gets it.” Let us know what you think!",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1995920258595749969",
+      "title": "Anthropic is acquiring @bunjavascript!",
+      "url": "https://x.com/mikeyk/status/1995920258595749969",
+      "source": "@mikeyk",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Anthropic is acquiring @bunjavascript!\n\nBun will remain open source and MIT-licensed. We'll keep investing in making it the best runtime, bundler, package manager, and test runner for JS and TS developers, while building even better workflows into Claude Code.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019471455893729548",
+      "title": "Claude Opus 4.6 just launched. It takes development projects from architecture to deployment in hour",
+      "url": "https://x.com/mikeyk/status/2019471455893729548",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Claude Opus 4.6 just launched. It takes development projects from architecture to deployment in hours. At Rakuten, it autonomously closed and assigned issues across a 50-person org. At Harvey, it hit 90.2% — the highest BigLaw Bench score of any Claude model.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2020300371059720413",
+      "title": "I’ve spent all my time after switching to Labs building with fast Opus and it’s a crazy unlock — exc",
+      "url": "https://x.com/mikeyk/status/2020300371059720413",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "I’ve spent all my time after switching to Labs building with fast Opus and it’s a crazy unlock — excited that we’re making it available outside Anthropic too.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2011143093266104800",
+      "title": "I'm happy to share that we (@AnthropicAI) are investing $1.5 million in support of the Python Softwa",
+      "url": "https://x.com/alexalbert__/status/2011143093266104800",
+      "source": "@alexalbert__",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "I'm happy to share that we (@AnthropicAI) are investing $1.5 million in support of the Python Software Foundation and open source security. \n\nPython powers so much of the AI industry. Supporting the folks that make our work possible is an honor.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019467690780324095",
+      "title": "Opus 4.6 is here.",
+      "url": "https://x.com/alexalbert__/status/2019467690780324095",
+      "source": "@alexalbert__",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Opus 4.6 is here. \n\nThe jump in autonomy is real. The biggest shift for me personally has been learning to let it run. \n\nGive it the context, step away, and come back to something pretty amazing. The way we work alongside models is starting to completely change.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023834863858769975",
+      "title": "Underrated dev upgrade from today's launch:",
+      "url": "https://x.com/alexalbert__/status/2023834863858769975",
+      "source": "@alexalbert__",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Underrated dev upgrade from today's launch:\n\nClaude's web search and fetch tools now write and execute code to filter results before they reach the context window.\n\nWhen enabled, Sonnet 4.6 saw 13% higher accuracy on BrowseComp while using 32% fewer input tokens.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023826414806724614",
+      "title": "almost as smart as Opus 4.6 but cheaper and faster 🙏",
+      "url": "https://x.com/trq212/status/2023826414806724614",
+      "source": "@trq212",
+      "category": "model_release",
+      "score": 80,
+      "summary": "almost as smart as Opus 4.6 but cheaper and faster 🙏",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023843421354627533",
+      "title": "Sonnet 4.6 is now live in Claude Code. It's cheaper than Opus 4.6 and nears Opus-level intelligence,",
+      "url": "https://x.com/bcherny/status/2023843421354627533",
+      "source": "@bcherny",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Sonnet 4.6 is now live in Claude Code. It's cheaper than Opus 4.6 and nears Opus-level intelligence, and devs in early testing often preferred it to Opus 4.5. Now the default for Pro and Team plans.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019467372609040752",
+      "title": "Introducing Claude Opus 4.6. Our smartest model got an upgrade.",
+      "url": "https://x.com/claudeai/status/2019467372609040752",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing Claude Opus 4.6. Our smartest model got an upgrade. \n\nOpus 4.6 plans more carefully, sustains agentic tasks for longer, operates reliably in massive codebases, and catches its own mistakes.\n\nIt’s also our first Opus-class model with 1M token context in beta. https://t",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019833113418035237",
+      "title": "Announcing Built with Opus 4.6: a Claude Code virtual hackathon.",
+      "url": "https://x.com/claudeai/status/2019833113418035237",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Announcing Built with Opus 4.6: a Claude Code virtual hackathon.\n\nJoin the Claude Code team for a week of building. Winners will be hand-selected to win $100K in Claude API credits.\n\nApply here: https://t.co/SkEg8Py1l2 https://t.co/w4OEIFOK0N",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2020207322124132504",
+      "title": "Our teams have been building with a 2.5x-faster version of Claude Opus 4.6.",
+      "url": "https://x.com/claudeai/status/2020207322124132504",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Our teams have been building with a 2.5x-faster version of Claude Opus 4.6.\n\nWe’re now making it available as an early experiment via Claude Code and our API.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023817132581208353",
+      "title": "This is Claude Sonnet 4.6: our most capable Sonnet model yet.",
+      "url": "https://x.com/claudeai/status/2023817132581208353",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "This is Claude Sonnet 4.6: our most capable Sonnet model yet.\n\nIt’s a full upgrade across coding, computer use, long-context reasoning, agent planning, knowledge work, and design.\n\nIt also features a 1M token context window in beta. https://t.co/TDId3XUSRs",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2016636581084541278",
+      "title": "New Anthropic Research: Disempowerment patterns in real-world AI assistant interactions.",
+      "url": "https://x.com/AnthropicAI/status/2016636581084541278",
+      "source": "@AnthropicAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "New Anthropic Research: Disempowerment patterns in real-world AI assistant interactions.\n\nAs AI becomes embedded in daily life, one risk is it can distort rather than inform—shaping beliefs, values, or actions in ways users may later regret.\n\nRead more: https://t.co/gyMB2AtOuq",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2018481220741689581",
+      "title": "New Anthropic Fellows research: How does misalignment scale with model intelligence and task complex",
+      "url": "https://x.com/AnthropicAI/status/2018481220741689581",
+      "source": "@AnthropicAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "New Anthropic Fellows research: How does misalignment scale with model intelligence and task complexity?\n\nWhen advanced AI fails, will it do so by pursuing the wrong goals? Or will it fail unpredictably and incoherently—like a \"hot mess?\"\n\nRead more: https://t.co/xzRSoJg43j",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019496582698397945",
+      "title": "New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) w",
+      "url": "https://x.com/AnthropicAI/status/2019496582698397945",
+      "source": "@AnthropicAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) walked away. Two weeks later, it worked on the Linux kernel. \n\nHere's what it taught us about the future of autonomous software development. \n\nRead more: https://t.co/htX0wl4wIf htt",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2020908471936323584",
+      "title": "Nonprofits on Team and Enterprise plans now have access to Claude Opus 4.6, our most capable model,",
+      "url": "https://x.com/AnthropicAI/status/2020908471936323584",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Nonprofits on Team and Enterprise plans now have access to Claude Opus 4.6, our most capable model, at no extra cost.\n\nNonprofits tackle some of society’s most difficult problems. Frontier AI tools can help maximize their impact.\n\nLearn more: https://t.co/6N9SGeiPyL",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021397952791707696",
+      "title": "When we released Claude Opus 4.5, we knew future models would be close to our AI Safety Level 4 thre",
+      "url": "https://x.com/AnthropicAI/status/2021397952791707696",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "When we released Claude Opus 4.5, we knew future models would be close to our AI Safety Level 4 threshold for autonomous AI R&amp;D. We therefore committed to writing sabotage risk reports for future frontier models.\n\nToday we’re delivering on that commitment for Claude Opus 4.6.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022299804894712174",
+      "title": "Anthropic is partnering with @CodePath, the US's largest collegiate computer science program, to bri",
+      "url": "https://x.com/AnthropicAI/status/2022299804894712174",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Anthropic is partnering with @CodePath, the US's largest collegiate computer science program, to bring Claude and Claude Code to 20,000+ students at community colleges, state schools, and HBCUs.\n\nRead more: https://t.co/Cie8Jes16Y",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022326252930318498",
+      "title": "Chris Liddell has been appointed to Anthropic's Board of Directors.",
+      "url": "https://x.com/AnthropicAI/status/2022326252930318498",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Chris Liddell has been appointed to Anthropic's Board of Directors.\n\nChris brings over 30 years of leadership experience, including as CFO of Microsoft and General Motors, and as Deputy Chief of Staff during the first Trump administration.\n\nRead more: https://t.co/xPL9N0u04i",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023322514206957688",
+      "title": "We’re officially opening our Bengaluru office—our new home base in India, and Anthropic's second off",
+      "url": "https://x.com/AnthropicAI/status/2023322514206957688",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We’re officially opening our Bengaluru office—our new home base in India, and Anthropic's second office in Asia-Pacific.\n\nIndia is our second-largest market for https://t.co/RxKnLNNcNR. We’re launching new partnerships to deepen our long-term commitment: https://t.co/q94L1Hesq1",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024210035480678724",
+      "title": "New Anthropic research: Measuring AI agent autonomy in practice.",
+      "url": "https://x.com/AnthropicAI/status/2024210035480678724",
+      "source": "@AnthropicAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "New Anthropic research: Measuring AI agent autonomy in practice.\n\nWe analyzed millions of interactions across Claude Code and our API to understand how much autonomy people grant to agents, where they’re deployed, and what risks they may pose.\n\nRead more: https://t.co/CllNkMF4ZZ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-news-anthropic-infosys",
+      "title": "Anthropic and Infosys collaborate to build AI agents for telecommunications and other regulated industries",
+      "url": "https://www.anthropic.com/news/anthropic-infosys",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 17, 2026)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-news-anthropic-rwanda-mou",
+      "title": "Anthropic and the Government of Rwanda sign MOU for AI in health and education",
+      "url": "https://www.anthropic.com/news/anthropic-rwanda-mou",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 17, 2026)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-news-claude-sonnet-4-6",
+      "title": "Introducing Claude Sonnet 4.6",
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "source": "Anthropic Blog",
+      "category": "model_release",
+      "score": 95,
+      "summary": "Anthropic announcement (Feb 17, 2026)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-eng-effective-harnesses-for-long-running-agents",
+      "title": "Effective harnesses for long-running agents",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "source": "Anthropic Engineering",
+      "category": "official_blog",
+      "score": 92,
+      "summary": "Agents still face challenges working across many context windows. We looked to human engineers for inspiration in creating a more effective harness for long-running agents.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r99wg1",
+      "title": "Anthropic did the absolute right thing by sending OpenClaw a cease &amp; desist and allowing Sam Altman to hire the developer",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r99wg1/anthropic_did_the_absolute_right_thing_by_sending/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Anthropic will never have ChatGPT's first-mover consumer moment--800 million weekly users is an insurmountable head start. But enterprise is a different game. Enterprise buyers don't choose the most popular option. They choose the most trusted one.\n\nAnthropic now commands roughly 40% of enterprise AI spending--nearly double OpenAI's share. Eight of the Fortune 10 are Claude customers.\n\nWithin weeks of going viral, OpenClaw became a documented security disaster:\n\n\\- Cisco's security team called i",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r97osm",
+      "title": "Claude just gave me access to another user’s legal documents",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r97osm/claude_just_gave_me_access_to_another_users_legal/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 61,
+      "summary": "The strangest thing just happened. \n\nI asked Claude Cowork to summarize a document and it began describing a legal document that was totally unrelated to what I had provided. After asking Claude to generate a PDF of the legal document it referenced and I got a complete lease agreement contract in which seems to be highly sensitive information.\n\nI contacted the property management company named in the contract (their contact info was in it), they says they‘ll investigate it. As for Anthropic, I’v",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r7khjx",
+      "title": "Join Claude Code’s 1st Birthday in SF",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r7khjx/join_claude_codes_1st_birthday_in_sf/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Claude Code is turning one, and we’re throwing a birthday party.  \n  \nJoin fellow builders and the Claude Code team in San Francisco on Feb 21 for live demos, top hackathon projects, and cake.   \n  \nCome show us what you're building (*spots are limited*): [https://cerebralvalley.ai/e/anthropic-claude-code-bday](https://cerebralvalley.ai/e/anthropic-claude-code-bday)",
+      "date": "2026-02-17"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}

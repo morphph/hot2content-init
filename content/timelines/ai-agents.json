@@ -1,0 +1,518 @@
+{
+  "slug": "ai-agents",
+  "name_en": "AI Agents",
+  "name_zh": "AI 智能体",
+  "entries": [
+    {
+      "id": "gh-klawsh-klaw.sh",
+      "title": "klawsh/klaw.sh (⭐486)",
+      "url": "https://github.com/klawsh/klaw.sh",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 54,
+      "summary": "kubectl for AI Agents",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-agenticnotetaking-arscontexta",
+      "title": "agenticnotetaking/arscontexta (⭐940)",
+      "url": "https://github.com/agenticnotetaking/arscontexta",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 59,
+      "summary": "Claude Code plugin that generates individualized knowledge systems from conversation. You describe how you think and work, have a conversation and get a complete second brain as markdown files you own",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-ruvnet-claude-flow",
+      "title": "ruvnet/claude-flow (⭐14,240)",
+      "url": "https://github.com/ruvnet/claude-flow",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate autonomous workflows, and build conversational AI systems. Features    enterprise-grade archit",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-wshobson-agents",
+      "title": "wshobson/agents (⭐28,927)",
+      "url": "https://github.com/wshobson/agents",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Intelligent automation and multi-agent orchestration for Claude Code",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-simstudioai-sim",
+      "title": "simstudioai/sim (⭐26,483)",
+      "url": "https://github.com/simstudioai/sim",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Build, deploy, and orchestrate AI agents. Sim is the central intelligence layer for your AI workforce.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-FlowiseAI-Flowise",
+      "title": "FlowiseAI/Flowise (⭐49,199)",
+      "url": "https://github.com/FlowiseAI/Flowise",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Build AI Agents, Visually",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-MemoriLabs-Memori",
+      "title": "MemoriLabs/Memori (⭐12,105)",
+      "url": "https://github.com/MemoriLabs/Memori",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "SQL Native Memory Layer for LLMs, AI Agents & Multi-Agent Systems",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-topoteretes-cognee",
+      "title": "topoteretes/cognee (⭐12,408)",
+      "url": "https://github.com/topoteretes/cognee",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Knowledge Engine for AI Agent Memory in 6 lines of code",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-mem0ai-mem0",
+      "title": "mem0ai/mem0 (⭐47,626)",
+      "url": "https://github.com/mem0ai/mem0",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Universal memory layer for AI Agents",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-AstrBotDevs-AstrBot",
+      "title": "AstrBotDevs/AstrBot (⭐16,862)",
+      "url": "https://github.com/AstrBotDevs/AstrBot",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Agentic IM Chatbot infrastructure that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-crestalnetwork-intentkit",
+      "title": "crestalnetwork/intentkit (⭐6,486)",
+      "url": "https://github.com/crestalnetwork/intentkit",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "An open and fair framework for everyone to build AI agents equipped with powerful skills. Launch your agent, improve the world, your wallet, or both!",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-obra-superpowers",
+      "title": "obra/superpowers (⭐55,320)",
+      "url": "https://github.com/obra/superpowers",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "An agentic skills framework & software development methodology that works.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-OpenBB-finance-OpenBB",
+      "title": "OpenBB-finance/OpenBB (⭐60,495)",
+      "url": "https://github.com/OpenBB-finance/OpenBB",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Financial data platform for analysts, quants and AI agents.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-anthropics-claude-code",
+      "title": "anthropics/claude-code (⭐67,801)",
+      "url": "https://github.com/anthropics/claude-code",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-browser-use-browser-use",
+      "title": "browser-use/browser-use (⭐78,569)",
+      "url": "https://github.com/browser-use/browser-use",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-google-gemini-gemini-cli",
+      "title": "google-gemini/gemini-cli (⭐94,937)",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Shubhamsaboo-awesome-llm-apps",
+      "title": "Shubhamsaboo/awesome-llm-apps (⭐96,099)",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Collection of awesome LLM apps with AI Agents and RAG using OpenAI, Anthropic, Gemini and opensource models.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-block-goose",
+      "title": "block/goose (⭐30,668)",
+      "url": "https://github.com/block/goose",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Mintplex-Labs-anything-llm",
+      "title": "Mintplex-Labs/anything-llm (⭐54,748)",
+      "url": "https://github.com/Mintplex-Labs/anything-llm",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "The all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder, MCP compatibility,  and more.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-lobehub-lobehub",
+      "title": "lobehub/lobehub (⭐72,401)",
+      "url": "https://github.com/lobehub/lobehub",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "The ultimate space for work and life — to find, build, and collaborate with agent teammates that grow with you. We are taking agent harness to the next level — enabling multi-agent collaboration, effo",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-langgenius-dify",
+      "title": "langgenius/dify (⭐129,817)",
+      "url": "https://github.com/langgenius/dify",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Production-ready platform for agentic workflow development.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Yeachan-Heo-oh-my-claudecode",
+      "title": "Yeachan-Heo/oh-my-claudecode (⭐6,726)",
+      "url": "https://github.com/Yeachan-Heo/oh-my-claudecode",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Teams-first Multi-agent orchestration for Claude Code",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-coreyhaines31-marketingskills",
+      "title": "coreyhaines31/marketingskills (⭐8,414)",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-steveyegge-gastown",
+      "title": "steveyegge/gastown (⭐9,796)",
+      "url": "https://github.com/steveyegge/gastown",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Gas Town - multi-agent workspace manager",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-sickn33-antigravity-awesome-skills",
+      "title": "sickn33/antigravity-awesome-skills (⭐13,037)",
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "The Ultimate Collection of 800+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents including official skills from Anthropic and Vercel.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-vercel-labs-agent-browser",
+      "title": "vercel-labs/agent-browser (⭐14,578)",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Browser automation CLI for AI agents",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023763112034173181",
+      "title": "THESE ARE THE 7 OPENCLAW SKILLS THAT CAN RUN AN ENTIRE BUSINESS",
+      "url": "https://x.com/RoundtableSpace/status/2023763112034173181",
+      "source": "@RoundtableSpace",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "THESE ARE THE 7 OPENCLAW SKILLS THAT CAN RUN AN ENTIRE BUSINESS\n\nTHIS IS WHAT THE AGENTIC WORKFLOW ACTUALLY LOOKS LIKE\n\nhttps://t.co/4QxU28oca4",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1866422609967235166",
+      "title": "We are launching a $20 million fund dedicated to supporting the development of autonomous AI agents",
+      "url": "https://x.com/DWFLabs/status/1866422609967235166",
+      "source": "@DWFLabs",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "We are launching a $20 million fund dedicated to supporting the development of autonomous AI agents 🔥\n\nThis initiative aims to support Web3 projects building next-generation AI agent solutions that have the potential to transform industries and redefine the digital economy.\n\nEligible projects will receive comprehensive support, such as accessing up to $100,000 of cloud server credits, to accelerate their growth and adoption.\n\nFind out more here: https://t.co/nYk5fRMtPt",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1970505063064825994",
+      "title": "Announcing our public preview of Chrome DevTools MCP! Experience the full power of DevTools in your",
+      "url": "https://x.com/ChromiumDev/status/1970505063064825994",
+      "source": "@ChromiumDev",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Announcing our public preview of Chrome DevTools MCP! Experience the full power of DevTools in your AI coding agent → https://t.co/u5kOrjFgrq\n\nWith Chrome DevTools MCP, your AI agent can run performance traces, inspect the DOM, &amp; perform real-time debugging of your web pages. https://t.co/aKgmArbihX",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1874113792067682620",
+      "title": "Agentarium is a new Python framework for managing and orchestrating AI agents.",
+      "url": "https://x.com/omarsar0/status/1874113792067682620",
+      "source": "@omarsar0",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Agentarium is a new Python framework for managing and orchestrating AI agents.\n\nFeatures include (from the repo):\n\n• 🤖 Advanced Agent Management: Create and orchestrate multiple AI agents with different roles and capabilities\n• 🔄 Robust Interaction Management: Coordinate complex interactions between agents\n• 💾 Checkpoint System: Save and restore agent states and interactions\n• 📊 Data Generation: Generate synthetic data through agent interactions\n• ⚡ Performance Optimized: Built for efficienc",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1861938364984750398",
+      "title": "AWS released multiagent ai framework 100% opensource.",
+      "url": "https://x.com/rohanpaul_ai/status/1861938364984750398",
+      "source": "@rohanpaul_ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AWS released multiagent ai framework 100% opensource.\n\nRoute, manage and orchestrate multiple AI agents in real-time\n\nRoute queries to specialized AI agents for dynamic conversations. Python/TypeScript support. Handles streaming/non-streaming responses. Maintains context across agents. Ready-to-use classifiers and implementations.\n\nWhat it offers:\n\n📐 Framework for managing multiple specialized AI agents in a single conversation system\n🔄 Dynamic routing and intent classification to select the m",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2022730860009525263",
+      "title": "So what is an AI Agent?",
+      "url": "https://x.com/DivyanshT91162/status/2022730860009525263",
+      "source": "@DivyanshT91162",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "So what is an AI Agent?\n\nAI agents don’t just answer questions.\nThey think, act, and learn to complete tasks on their own ⚡\n\nI’ve compiled 1000+ high-quality resources covering:\n• AI Agents\n• LLMs\n• Prompt engineering\n• SQL\n• Automation guides 🚀\n\nTo get access 👇\n1️⃣ Follow Me(I can DM you)\n2️⃣ Repost this 🔁\n3️⃣ Comment “AI” 💬\n\n#AI #AIAgent #LLM #MachineLearning #Automation #Tech",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1865808159987601520",
+      "title": "Cursors AI Agent builds apps using n8n workflows.",
+      "url": "https://x.com/kevinkern/status/1865808159987601520",
+      "source": "@kevinkern",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Cursors AI Agent builds apps using n8n workflows.\n\nIt plans tasks, connects APIs, and executes actions.\n\nThread 🧵 https://t.co/tnL1LlqNcZ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023070141961970149",
+      "title": "Breaking🚨 It took me 100 hours to find this AI agent masterclass from Google",
+      "url": "https://x.com/Suryanshti777/status/2023070141961970149",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Breaking🚨 It took me 100 hours to find this AI agent masterclass from Google\n\nYou’re getting it in 10 seconds.\n\nInside the 60-page guide: • How AI agents actually work\n• Startup-ready architectures\n• Tool use, memory, and planning\n• Real build examples\n\nThis is the exact blueprint startups use.\n\nFollow + Like + RT\nComment “AGENTS” and I’ll send it.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023736845079900216",
+      "title": "Think it. Say it. Done.",
+      "url": "https://x.com/hwbhatti/status/2023736845079900216",
+      "source": "@hwbhatti",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Think it. Say it. Done.\n\nThe average person spends 3 hours typing + switches 1,000 tabs per day.\n\nThat ends today.\n\nMeet Lemon: The first voice-to-action AI agent that turns your voice commands into finished tasks.\n\nRT + Comment \"Lemon\" to get free access for 30 days.\n\n(must be following so I can DM you)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1883812089212641362",
+      "title": "Harnessing Intelligence: The Future with Crypto AI Agents!",
+      "url": "https://x.com/allo_xyz/status/1883812089212641362",
+      "source": "@allo_xyz",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "Harnessing Intelligence: The Future with Crypto AI Agents!\n\nCrypto AI agents are autonomous tools that use AI to analyze data, make decisions, and execute actions on blockchain networks—like trading or managing assets. They’re reshaping how we interact with crypto. https://t.co/eRFge3SWcr",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1993034884903034918",
+      "title": "Claude Opus 4.5 is our best model yet. The best in the world at coding, agentic tasks, and everyday",
+      "url": "https://x.com/mikeyk/status/1993034884903034918",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Claude Opus 4.5 is our best model yet. The best in the world at coding, agentic tasks, and everyday work like spreadsheets. Engineers keep telling us Opus 4.5 “just gets it.” Let us know what you think!",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1998456026136457532",
+      "title": "We're donating MCP to the @linuxfoundation and launching the Agentic AI Foundation with @OpenAI, @bl",
+      "url": "https://x.com/mikeyk/status/1998456026136457532",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're donating MCP to the @linuxfoundation and launching the Agentic AI Foundation with @OpenAI, @blocks, @AWS, @Bloomberg, @Cloudflare, @Google, and @Microsoft.\n\nMCP went from internal project to industry standard in a year. Now it gets the long-term stewardship it deserves.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023110431037121019",
+      "title": "agentic search and prompt caching rule everything around me",
+      "url": "https://x.com/trq212/status/2023110431037121019",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "agentic search and prompt caching rule everything around me",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019467372609040752",
+      "title": "Introducing Claude Opus 4.6. Our smartest model got an upgrade.",
+      "url": "https://x.com/claudeai/status/2019467372609040752",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing Claude Opus 4.6. Our smartest model got an upgrade. \n\nOpus 4.6 plans more carefully, sustains agentic tasks for longer, operates reliably in massive codebases, and catches its own mistakes.\n\nIt’s also our first Opus-class model with 1M token context in beta. https://t",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021286050623373500",
+      "title": "We're introducing a new set of primitives in the Responses API for long-running agentic work on comp",
+      "url": "https://x.com/OpenAIDevs/status/2021286050623373500",
+      "source": "@OpenAIDevs",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're introducing a new set of primitives in the Responses API for long-running agentic work on computers.\n\nServer-side compaction\n• Enable multi-hour agent runs without hitting context limits.\n\nContainers with networking\n• Give OpenAI-hosted containers controlled internet access",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021632302070026581",
+      "title": "How could AI act as a better research collaborator? 🧑‍🔬",
+      "url": "https://x.com/GoogleDeepMind/status/2021632302070026581",
+      "source": "@GoogleDeepMind",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "How could AI act as a better research collaborator? 🧑‍🔬\n\nIn two new papers with @GoogleResearch, we show how Gemini Deep Think uses agentic workflows to help solve research-level problems in mathematics, physics, and computer science.\n\nMore → https://t.co/yMseF1xhnR",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2016267526330601720",
+      "title": "Introducing Agentic Vision — a new frontier AI capability in Gemini 3 Flash that converts image unde",
+      "url": "https://x.com/GoogleAI/status/2016267526330601720",
+      "source": "@GoogleAI",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Introducing Agentic Vision — a new frontier AI capability in Gemini 3 Flash that converts image understanding from a static act into an agentic process.\n\nBy combining visual reasoning with code execution, one of the first tools supported by Agentic Vision, the model grounds answe",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024193883748651102",
+      "title": "Introducing EVMbench—a new benchmark that measures how well AI agents can detect, exploit, and patch",
+      "url": "https://x.com/OpenAI/status/2024193883748651102",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing EVMbench—a new benchmark that measures how well AI agents can detect, exploit, and patch high-severity smart contract vulnerabilities. https://t.co/op5zufgAGH",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019496582698397945",
+      "title": "New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) w",
+      "url": "https://x.com/AnthropicAI/status/2019496582698397945",
+      "source": "@AnthropicAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "New Engineering blog: We tasked Opus 4.6 using agent teams to build a C compiler. Then we (mostly) walked away. Two weeks later, it worked on the Linux kernel. \n\nHere's what it taught us about the future of autonomous software development. \n\nRead more: https://t.co/htX0wl4wIf htt",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024210035480678724",
+      "title": "New Anthropic research: Measuring AI agent autonomy in practice.",
+      "url": "https://x.com/AnthropicAI/status/2024210035480678724",
+      "source": "@AnthropicAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "New Anthropic research: Measuring AI agent autonomy in practice.\n\nWe analyzed millions of interactions across Claude Code and our API to understand how much autonomy people grant to agents, where they’re deployed, and what risks they may pose.\n\nRead more: https://t.co/CllNkMF4ZZ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-news-anthropic-infosys",
+      "title": "Anthropic and Infosys collaborate to build AI agents for telecommunications and other regulated industries",
+      "url": "https://www.anthropic.com/news/anthropic-infosys",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 17, 2026)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-eng-demystifying-evals-for-ai-agents",
+      "title": "Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "source": "Anthropic Engineering",
+      "category": "official_blog",
+      "score": 92,
+      "summary": "The capabilities that make agents useful also make them difficult to evaluate. The strategies that work across deployments combine techniques to match the complexity of the systems they measure.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-eng-infrastructure-noise",
+      "title": "Quantifying infrastructure noise in agentic coding evals",
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "source": "Anthropic Engineering",
+      "category": "official_blog",
+      "score": 92,
+      "summary": "Infrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r90b3a",
+      "title": "TextWeb: render web pages as 2-5KB text grids instead of 1MB screenshots for AI agents (open source, MCP + LangChain + CrewAI)",
+      "url": "https://github.com/chrisrobison/textweb",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "A text-grid web renderer for AI agents — see the web without screenshots - chrisrobison/textweb",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r8qh08",
+      "title": "I'm 100% convinced that it's the NFT-bros pushing all the openclawd engagement on X",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8qh08/im_100_convinced_that_its_the_nftbros_pushing_all/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "I'm absolutely sure of it. The same usual suspects, the same language, the same who stole from whom the next million dollar ideas. It's insane. NFT-bros are now peddling openclawd crypto schemes. It's all the same BS quasi-tech lingo wrapped into neverending posts with meme-like pictures full of slogans, and graphs that literally means  less than nothing, that lead back to 'blockchain, blah, blah blah, agentic, blah, blah, prediction markets\". I have enough of this.\n\nIs this the sign of a real b",
+      "date": "2026-02-19"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}

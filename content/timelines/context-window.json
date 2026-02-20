@@ -1,0 +1,428 @@
+{
+  "slug": "context-window",
+  "name_en": "Context Windows & Memory",
+  "name_zh": "上下文窗口与记忆",
+  "entries": [
+    {
+      "id": "gh-labring-FastGPT",
+      "title": "labring/FastGPT (⭐27,132)",
+      "url": "https://github.com/labring/FastGPT",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities such as data processing, RAG retrieval, and visual AI workflow orchestration, letti",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-HKUDS-LightRAG",
+      "title": "HKUDS/LightRAG (⭐28,456)",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "[EMNLP2025] \"LightRAG: Simple and Fast Retrieval-Augmented Generation\"",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-microsoft-graphrag",
+      "title": "microsoft/graphrag (⭐30,993)",
+      "url": "https://github.com/microsoft/graphrag",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A modular graph-based Retrieval-Augmented Generation (RAG) system",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-pathwaycom-pathway",
+      "title": "pathwaycom/pathway (⭐59,683)",
+      "url": "https://github.com/pathwaycom/pathway",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Python ETL framework for stream processing, real-time analytics, LLM pipelines, and RAG.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-MemoriLabs-Memori",
+      "title": "MemoriLabs/Memori (⭐12,105)",
+      "url": "https://github.com/MemoriLabs/Memori",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "SQL Native Memory Layer for LLMs, AI Agents & Multi-Agent Systems",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-topoteretes-cognee",
+      "title": "topoteretes/cognee (⭐12,408)",
+      "url": "https://github.com/topoteretes/cognee",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Knowledge Engine for AI Agent Memory in 6 lines of code",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-plasma-umass-scalene",
+      "title": "plasma-umass/scalene (⭐13,283)",
+      "url": "https://github.com/plasma-umass/scalene",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Scalene: a high-performance, high-precision CPU, GPU, and memory profiler for Python with AI-powered optimization proposals",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-bloomberg-memray",
+      "title": "bloomberg/memray (⭐14,881)",
+      "url": "https://github.com/bloomberg/memray",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Memray is a memory profiler for Python",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-apache-arrow",
+      "title": "apache/arrow (⭐16,524)",
+      "url": "https://github.com/apache/arrow",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Apache Arrow is the universal columnar format and multi-language toolbox for fast data interchange and in-memory analytics",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-supermemoryai-supermemory",
+      "title": "supermemoryai/supermemory (⭐16,533)",
+      "url": "https://github.com/supermemoryai/supermemory",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Memory engine and app that is extremely fast, scalable. The Memory API for the AI era.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-steveyegge-beads",
+      "title": "steveyegge/beads (⭐16,745)",
+      "url": "https://github.com/steveyegge/beads",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Beads - A memory upgrade for your coding agent",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-facebook-fresco",
+      "title": "facebook/fresco (⭐17,158)",
+      "url": "https://github.com/facebook/fresco",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "An Android library for managing images and the memory they use.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Dao-AILab-flash-attention",
+      "title": "Dao-AILab/flash-attention (⭐22,302)",
+      "url": "https://github.com/Dao-AILab/flash-attention",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Fast and memory-efficient exact attention",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-typesense-typesense",
+      "title": "typesense/typesense (⭐25,245)",
+      "url": "https://github.com/typesense/typesense",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Open Source alternative to Algolia + Pinecone and an Easier-to-Use alternative to ElasticSearch ⚡ 🔍 ✨ Fast, typo tolerant, in-memory fuzzy Search Engine for building delightful search experiences",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-google-flatbuffers",
+      "title": "google/flatbuffers (⭐25,557)",
+      "url": "https://github.com/google/flatbuffers",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "FlatBuffers: Memory Efficient Serialization Library",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-mem0ai-mem0",
+      "title": "mem0ai/mem0 (⭐47,626)",
+      "url": "https://github.com/mem0ai/mem0",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Universal memory layer for AI Agents",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-vllm-project-vllm",
+      "title": "vllm-project/vllm (⭐70,735)",
+      "url": "https://github.com/vllm-project/vllm",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-bytedance-deer-flow",
+      "title": "bytedance/deer-flow (⭐20,015)",
+      "url": "https://github.com/bytedance/deer-flow",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "An open-source SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skills and subagents, it handles different levels of tasks that could take minutes t",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Shubhamsaboo-awesome-llm-apps",
+      "title": "Shubhamsaboo/awesome-llm-apps (⭐96,099)",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Collection of awesome LLM apps with AI Agents and RAG using OpenAI, Anthropic, Gemini and opensource models.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Mintplex-Labs-anything-llm",
+      "title": "Mintplex-Labs/anything-llm (⭐54,748)",
+      "url": "https://github.com/Mintplex-Labs/anything-llm",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "The all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder, MCP compatibility,  and more.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-qwibitai-nanoclaw",
+      "title": "qwibitai/nanoclaw (⭐9,479)",
+      "url": "https://github.com/qwibitai/nanoclaw",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A lightweight alternative to Clawdbot / OpenClaw that runs in containers for security. Connects to WhatsApp, has memory, scheduled jobs, and runs directly on Anthropic's Agents SDK",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023356719762747439",
+      "title": "🚨 Anthropic just made a $10,000 AI degree look useless.",
+      "url": "https://x.com/sentientt_media/status/2023356719762747439",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just made a $10,000 AI degree look useless.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate GitHub, workflows, prompt scoring",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2008507762809127263",
+      "title": "i vibe coded to solve the biggest problem of human history: DISCIPLINE.",
+      "url": "https://x.com/anjalisayswhat/status/2008507762809127263",
+      "source": "@anjalisayswhat",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "i vibe coded to solve the biggest problem of human history: DISCIPLINE.\n\nits a deflationary token mechanics over a simple idea of new year resolutions\n\na combination of web2 dynamics and with the vibes of 2020-21 DeFi supercycle\n\nall vibe coded in mins on @CodeXero_xyz https://t.co/JW2nvHHNHp",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2022958992692306145",
+      "title": "Agent Zero is the world's first AI SuperAgent",
+      "url": "https://x.com/DavidOndrej1/status/2022958992692306145",
+      "source": "@DavidOndrej1",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Agent Zero is the world's first AI SuperAgent\n\nIt's free, 100% private, open source, highly customisable and VERY Powerful\n\nIn this 67 min video, you'll learn everything you need to know about Agent Zero https://t.co/Q3OZ0c75uU",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023070141961970149",
+      "title": "Breaking🚨 It took me 100 hours to find this AI agent masterclass from Google",
+      "url": "https://x.com/Suryanshti777/status/2023070141961970149",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Breaking🚨 It took me 100 hours to find this AI agent masterclass from Google\n\nYou’re getting it in 10 seconds.\n\nInside the 60-page guide: • How AI agents actually work\n• Startup-ready architectures\n• Tool use, memory, and planning\n• Real build examples\n\nThis is the exact blueprint startups use.\n\nFollow + Like + RT\nComment “AGENTS” and I’ll send it.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023736845079900216",
+      "title": "Think it. Say it. Done.",
+      "url": "https://x.com/hwbhatti/status/2023736845079900216",
+      "source": "@hwbhatti",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Think it. Say it. Done.\n\nThe average person spends 3 hours typing + switches 1,000 tabs per day.\n\nThat ends today.\n\nMeet Lemon: The first voice-to-action AI agent that turns your voice commands into finished tasks.\n\nRT + Comment \"Lemon\" to get free access for 30 days.\n\n(must be following so I can DM you)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022090384562848101",
+      "title": "The tokens must flow.",
+      "url": "https://x.com/adocomplete/status/2022090384562848101",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "The tokens must flow.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023823186484404443",
+      "title": "Fun nugget from Sonnet 4.6: With a 1M context window, the model is better at long-horizon planning.",
+      "url": "https://x.com/felixrieseberg/status/2023823186484404443",
+      "source": "@felixrieseberg",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Fun nugget from Sonnet 4.6: With a 1M context window, the model is better at long-horizon planning. \n\nIn the Vending-Bench Arena, models compete to run a simulated business. Sonnet 4.6 developed a new strategy: invest heavily in capacity for the first 10 months, then pivot hard t",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1981415275695394852",
+      "title": "Memory starts shipping today to @claudeai Max and Pro.",
+      "url": "https://x.com/mikeyk/status/1981415275695394852",
+      "source": "@mikeyk",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "Memory starts shipping today to @claudeai Max and Pro.\n\nWe're building toward Claude understanding your complete work context and adapting automatically — creating sustained thinking partnerships that evolve over weeks and months. https://t.co/QGg4ukQBHd",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2001395493868593506",
+      "title": "&gt; If men learn this, it will implant forgetfulness in their souls; they will cease to exercise me",
+      "url": "https://x.com/ErikSchluntz/status/2001395493868593506",
+      "source": "@ErikSchluntz",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "&gt; If men learn this, it will implant forgetfulness in their souls; they will cease to exercise memory\n\nCriticism of people using LLMs? Actually Plato criticizing READING.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023834863858769975",
+      "title": "Underrated dev upgrade from today's launch:",
+      "url": "https://x.com/alexalbert__/status/2023834863858769975",
+      "source": "@alexalbert__",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Underrated dev upgrade from today's launch:\n\nClaude's web search and fetch tools now write and execute code to filter results before they reach the context window.\n\nWhen enabled, Sonnet 4.6 saw 13% higher accuracy on BrowseComp while using 32% fewer input tokens.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023843077509836853",
+      "title": "Loving Sonnet 4.6 in Cowork -- great balance of capability, speed, and token efficiency",
+      "url": "https://x.com/bcherny/status/2023843077509836853",
+      "source": "@bcherny",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Loving Sonnet 4.6 in Cowork -- great balance of capability, speed, and token efficiency",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2014834616889475508",
+      "title": "Claude in Excel is now available on Pro plans.",
+      "url": "https://x.com/claudeai/status/2014834616889475508",
+      "source": "@claudeai",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "Claude in Excel is now available on Pro plans.\n\nClaude now accepts multiple files via drag and drop, avoids overwriting your existing cells, and handles longer sessions with auto compaction.\n\nGet started: https://t.co/cAMDXM1h7r https://t.co/yt9Gy2HLY3",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2015887159656616143",
+      "title": "Now available on the Free plan: Claude can create and edit files.",
+      "url": "https://x.com/claudeai/status/2015887159656616143",
+      "source": "@claudeai",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "Now available on the Free plan: Claude can create and edit files.\n\nWe’re also bringing skills and compaction to free users, so Claude can take on more complex tasks and keep working as long as you need.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019467372609040752",
+      "title": "Introducing Claude Opus 4.6. Our smartest model got an upgrade.",
+      "url": "https://x.com/claudeai/status/2019467372609040752",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing Claude Opus 4.6. Our smartest model got an upgrade. \n\nOpus 4.6 plans more carefully, sustains agentic tasks for longer, operates reliably in massive codebases, and catches its own mistakes.\n\nIt’s also our first Opus-class model with 1M token context in beta. https://t",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023817132581208353",
+      "title": "This is Claude Sonnet 4.6: our most capable Sonnet model yet.",
+      "url": "https://x.com/claudeai/status/2023817132581208353",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "This is Claude Sonnet 4.6: our most capable Sonnet model yet.\n\nIt’s a full upgrade across coding, computer use, long-context reasoning, agent planning, knowledge work, and design.\n\nIt also features a 1M token context window in beta. https://t.co/TDId3XUSRs",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021286050623373500",
+      "title": "We're introducing a new set of primitives in the Responses API for long-running agentic work on comp",
+      "url": "https://x.com/OpenAIDevs/status/2021286050623373500",
+      "source": "@OpenAIDevs",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're introducing a new set of primitives in the Responses API for long-running agentic work on computers.\n\nServer-side compaction\n• Enable multi-hour agent runs without hitting context limits.\n\nContainers with networking\n• Give OpenAI-hosted containers controlled internet access",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021689433301692444",
+      "title": "We’re here at Pragmatic Summit talking about the future of AI engineering.",
+      "url": "https://x.com/OpenAIDevs/status/2021689433301692444",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "We’re here at Pragmatic Summit talking about the future of AI engineering.\n\nOur team is covering how OpenAI uses Codex internally and what it means to steer an engineering team in an agent-first world. https://t.co/Ua4Zlu3uj0",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1987946571439444361",
+      "title": "Introducing Meta Omnilingual Automatic Speech Recognition (ASR), a suite of models providing ASR cap",
+      "url": "https://x.com/AIatMeta/status/1987946571439444361",
+      "source": "@AIatMeta",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing Meta Omnilingual Automatic Speech Recognition (ASR), a suite of models providing ASR capabilities for over 1,600 languages, including 500 low-coverage languages never before served by any ASR system.\n\nWhile most ASR systems focus on a limited set of languages that are",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1962881084183527932",
+      "title": "Introducing 20+ connectors powered by MCP and a fully controllable Memory in Le Chat—making it one o",
+      "url": "https://x.com/MistralAI/status/1962881084183527932",
+      "source": "@MistralAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing 20+ connectors powered by MCP and a fully controllable Memory in Le Chat—making it one of the most connected and relevant AI assistants for enterprises and consumers.\n\nWhy switch to Le Chat? A 🧵 https://t.co/7HjXEidOC2",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-eng-effective-harnesses-for-long-running-agents",
+      "title": "Effective harnesses for long-running agents",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "source": "Anthropic Engineering",
+      "category": "official_blog",
+      "score": 92,
+      "summary": "Agents still face challenges working across many context windows. We looked to human engineers for inspiration in creating a more effective harness for long-running agents.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "google-aHR0cHM6Ly9ibG9nLmdv",
+      "title": "“No technology has me dreaming bigger than AI”",
+      "url": "https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/",
+      "source": "Google AI Blog",
+      "category": "official_blog",
+      "score": 88,
+      "summary": "&lt;img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI-Google_2.max-600x600.format-webp.webp\"&gt;CEO Sundar Pichai’s remarks at the opening ceremony of the AI Impact Summit 2026",
+      "date": "2026-02-19"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}

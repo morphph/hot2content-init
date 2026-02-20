@@ -1,0 +1,158 @@
+{
+  "slug": "model-comparison",
+  "name_en": "AI Model Comparisons",
+  "name_zh": "AI 模型对比",
+  "entries": [
+    {
+      "id": "gh-bwya77-vscode-dark-islands",
+      "title": "bwya77/vscode-dark-islands (⭐3,670)",
+      "url": "https://github.com/bwya77/vscode-dark-islands",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 86,
+      "summary": "VSCode theme based off the easemate IDE and Jetbrains islands theme",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-AstrBotDevs-AstrBot",
+      "title": "AstrBotDevs/AstrBot (⭐16,862)",
+      "url": "https://github.com/AstrBotDevs/AstrBot",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Agentic IM Chatbot infrastructure that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2018762375386837043",
+      "title": "Xcode 26.3 launched today with a native integration with the Claude Agent SDK, the same harness that",
+      "url": "https://x.com/mikeyk/status/2018762375386837043",
+      "source": "@mikeyk",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Xcode 26.3 launched today with a native integration with the Claude Agent SDK, the same harness that powers Claude Code.\n\nDevs get the full power of Claude Code (subagents, background tasks, and plugins) for long-running, autonomous work directly in Xcode 🤖\n\nhttps://t.co/vQvE29r",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024586006633271386",
+      "title": "Huge quality of life upgrade for devs:",
+      "url": "https://x.com/alexalbert__/status/2024586006633271386",
+      "source": "@alexalbert__",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Huge quality of life upgrade for devs:\n\nWe've added automatic prompt caching to the API which means you no longer have to set cache points in your requests!",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023843421354627533",
+      "title": "Sonnet 4.6 is now live in Claude Code. It's cheaper than Opus 4.6 and nears Opus-level intelligence,",
+      "url": "https://x.com/bcherny/status/2023843421354627533",
+      "source": "@bcherny",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Sonnet 4.6 is now live in Claude Code. It's cheaper than Opus 4.6 and nears Opus-level intelligence, and devs in early testing often preferred it to Opus 4.5. Now the default for Pro and Team plans.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2000980784425931067",
+      "title": "🔉 Introducing SAM Audio, the first unified model that isolates any sound from complex audio mixture",
+      "url": "https://x.com/AIatMeta/status/2000980784425931067",
+      "source": "@AIatMeta",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "🔉 Introducing SAM Audio, the first unified model that isolates any sound from complex audio mixtures using text, visual, or span prompts.\n\nWe’re sharing SAM Audio with the community, along with a perception encoder model, benchmarks and research papers, to empower others to expl",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1968670593412190381",
+      "title": "Introducing Magistral Small 1.2 & Magistral Medium 1.2, minor updates to our Magistral 1.1 models!",
+      "url": "https://x.com/MistralAI/status/1968670593412190381",
+      "source": "@MistralAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing Magistral Small 1.2 & Magistral Medium 1.2, minor updates to our Magistral 1.1 models!\n\n- Multimodality: Now equipped with a vision encoder, these models handle both text and images seamlessly.\n- Performance Boost: 15% improvements on math and coding benchmarks such a",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1985619586977292470",
+      "title": "Full stack devs, SWEs, MLEs, forward deployed engineers, research engineers, applied scientists: we",
+      "url": "https://x.com/MistralAI/status/1985619586977292470",
+      "source": "@MistralAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Full stack devs, SWEs, MLEs, forward deployed engineers, research engineers, applied scientists: we are hiring!\n\nJoin us and tackle cutting-edge challenges including physical AI, time series, material sciences, cybersecurity and many more.\n\nPositions available in Paris, London, S",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1998407332502405347",
+      "title": "Introducing the Devstral 2 coding model family. Two sizes, both open source.",
+      "url": "https://x.com/MistralAI/status/1998407332502405347",
+      "source": "@MistralAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing the Devstral 2 coding model family. Two sizes, both open source.\nAlso, meet Mistral Vibe, a native CLI, enabling end-to-end automation.\n🧵",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1999124574798217324",
+      "title": "Devstral 2 is #1 trending on @openrouter! Try it for free in Mistral Vibe:",
+      "url": "https://x.com/MistralAI/status/1999124574798217324",
+      "source": "@MistralAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Devstral 2 is #1 trending on @openrouter! Try it for free in Mistral Vibe: \n\n→ uv tool install mistral-vibe https://t.co/PP1F4kSRjQ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024573281680887823",
+      "title": "Introducing Gemini 3.1 Pro 🚀",
+      "url": "https://x.com/GoogleAI/status/2024573281680887823",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing Gemini 3.1 Pro 🚀\n\n3.1 Pro represents a major step forward in core reasoning. It scored 77.1% (more than doubling 3 Pro’s score) on ARC-AGI-2, the benchmark that evaluates a model's ability to solve new logic patterns and work through challenges it hasn’t encountered ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019822532795547807",
+      "title": "Over 300M people use ChatGPT to learn how to do something every week.",
+      "url": "https://x.com/OpenAI/status/2019822532795547807",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Over 300M people use ChatGPT to learn how to do something every week. \n\nMore than half of US ChatGPT users say it enables them to achieve things that previously felt impossible. \n\nThese are just a few stories of what they are building. https://t.co/BBb8vS4vEP",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024193883748651102",
+      "title": "Introducing EVMbench—a new benchmark that measures how well AI agents can detect, exploit, and patch",
+      "url": "https://x.com/OpenAI/status/2024193883748651102",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing EVMbench—a new benchmark that measures how well AI agents can detect, exploit, and patch high-severity smart contract vulnerabilities. https://t.co/op5zufgAGH",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "anthropic-eng-infrastructure-noise",
+      "title": "Quantifying infrastructure noise in agentic coding evals",
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "source": "Anthropic Engineering",
+      "category": "official_blog",
+      "score": 92,
+      "summary": "Infrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r8qkyb",
+      "title": "Sonnet vs Opus",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r8qkyb/sonnet_vs_opus/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 67,
+      "summary": "Sonnet vs Opus",
+      "date": "2026-02-19"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}

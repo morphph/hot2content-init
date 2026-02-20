@@ -1,12 +1,26 @@
 ---
 slug: remotion-claude-code-skills-ai-video-development
-title: "Remotion + Claude Code Skills: The Developer's Guide to AI-Powered Programmatic Video"
-description: "Learn how Remotion's official Agent Skills turn Claude Code into a video production tool. Complete setup guide, code examples, and real-world workflows for generating React videos with natural language prompts."
-keywords: ["Remotion", "Claude Code", "Agent Skills", "programmatic video", "React video framework", "AI video generation", "motion graphics automation", "SKILL.md"]
-date: 2026-02-11
+title: >-
+  Remotion + Claude Code Skills: The Developer's Guide to AI-Powered
+  Programmatic Video
+description: >-
+  Learn how Remotion's official Agent Skills turn Claude Code into a video
+  production tool. Complete setup guide, code examples, and real-world workflows
+  for generating React videos with natural language prompts.
+keywords:
+  - Remotion
+  - Claude Code
+  - Agent Skills
+  - programmatic video
+  - React video framework
+  - AI video generation
+  - motion graphics automation
+  - SKILL.md
+date: 2026-02-11T00:00:00.000Z
 lang: en
 tier: 1
 hreflang_zh: /zh/blog/remotion-claude-code-skills-ai-video-development
+updated: '2026-02-20'
 ---
 
 # Remotion + Claude Code Skills: The Developer's Guide to AI-Powered Programmatic Video
@@ -294,3 +308,19 @@ Get started: `npx create-video@latest` → install skills → `claude` → descr
 ---
 
 *References: [Remotion Docs](https://www.remotion.dev/docs/ai/claude-code), [Claude Code Skills](https://code.claude.com/docs/en/skills), [Remotion Agent Skills](https://www.remotion.dev/docs/ai/skills), [Agent Skills Standard](https://agentskills.io)*
+
+Now I have the full context. The blog covers Remotion's official skills, installation via `npx skills add remotion-dev/skills`, and the Claude Code integration. The news item is about VoltAgent/awesome-agent-skills, a community-curated collection that now includes Remotion skills and 300+ others, with cross-agent compatibility.
+
+---
+
+## 📰 Latest Update (2026-02-20)
+
+The Remotion skills ecosystem just got significantly more discoverable. VoltAgent's [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) repository—which hit 7,484 stars this week—now catalogs over 300 agent skills from official developer teams and the community, including Remotion's video production skills.
+
+What makes this notable isn't just the curation. The repository positions itself as agent-agnostic: skills listed there work across Claude Code, OpenAI Codex, Antigravity, Gemini CLI, and Cursor. That's a meaningful shift from vendor-locked tooling toward something resembling a shared standard.
+
+For Remotion users specifically, the practical benefit is discovery. Rather than hunting through documentation to find that `npx skills add remotion-dev/skills` exists, developers can browse a categorized index where video/animation skills sit alongside database tools, testing frameworks, and deployment helpers. The README structure mirrors package registries like npm—searchable, tagged, and community-maintained.
+
+The broader implication: agent skills are becoming infrastructure. When multiple AI coding assistants consume the same skill definitions, skill authors get leverage—write once, work everywhere. Remotion's early investment in official skills now pays dividends across every major coding agent, not just Claude Code.
+
+If you're building Remotion projects with any AI assistant, check whether your tool supports the skills registry. The gap between "knows Remotion" and "generates broken interpolate() calls" increasingly comes down to whether the right skill is installed.

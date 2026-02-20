@@ -1,0 +1,478 @@
+{
+  "slug": "gpt-codex",
+  "name_en": "GPT-5.3 Codex",
+  "name_zh": "GPT-5.3 Codex",
+  "entries": [
+    {
+      "id": "openai-changelog-dec16---our-latest-and-most-advanced",
+      "title": "[OpenAI Feature] , our latest and most advanced models for image generation. Read more",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "source": "OpenAI Changelog",
+      "category": "developer_platform",
+      "score": 92,
+      "summary": ", our latest and most advanced models for image generation. Read more",
+      "date": "2026-12-16"
+    },
+    {
+      "id": "gh-router-for-me-CLIProxyAPI",
+      "title": "router-for-me/CLIProxyAPI (⭐10,988)",
+      "url": "https://github.com/router-for-me/CLIProxyAPI",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service, allowing you to enjoy the free Gemini 2.5 Pro, GPT 5, Claude, Qwen m",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-iOfficeAI-AionUi",
+      "title": "iOfficeAI/AionUi (⭐16,607)",
+      "url": "https://github.com/iOfficeAI/AionUi",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Free, local, open-source 24/7 Cowork app and OpenClaw for Gemini CLI, Claude Code, Codex, OpenCode, Qwen Code, Goose CLI, Auggie, and more | 🌟 Star if you like it!",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-farion1231-cc-switch",
+      "title": "farion1231/cc-switch (⭐18,909)",
+      "url": "https://github.com/farion1231/cc-switch",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A cross-platform desktop All-in-One assistant tool for Claude Code, Codex, OpenCode & Gemini CLI.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-BloopAI-vibe-kanban",
+      "title": "BloopAI/vibe-kanban (⭐21,478)",
+      "url": "https://github.com/BloopAI/vibe-kanban",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Get 10X more out of Claude Code, Codex or any coding agent",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-VoltAgent-awesome-agent-skills",
+      "title": "VoltAgent/awesome-agent-skills (⭐7,484)",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Claude Code Skills and 300+ agent skills from official dev teams and the community, compatible with Codex, Antigravity, Gemini CLI, Cursor and others.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-openai-codex",
+      "title": "openai/codex (⭐61,131)",
+      "url": "https://github.com/openai/codex",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Lightweight coding agent that runs in your terminal",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Shubhamsaboo-awesome-llm-apps",
+      "title": "Shubhamsaboo/awesome-llm-apps (⭐96,099)",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Collection of awesome LLM apps with AI Agents and RAG using OpenAI, Anthropic, Gemini and opensource models.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-danny-avila-LibreChat",
+      "title": "danny-avila/LibreChat (⭐33,954)",
+      "url": "https://github.com/danny-avila/LibreChat",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Enhanced ChatGPT Clone: Features Agents, MCP, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message se",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-zhayujie-chatgpt-on-wechat",
+      "title": "zhayujie/chatgpt-on-wechat (⭐41,325)",
+      "url": "https://github.com/zhayujie/chatgpt-on-wechat",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "CowAgent是基于大模型的超级AI助理，能主动思考和任务规划、访问操作系统和外部资源、创造和执行Skills、拥有长期记忆并不断成长。同时支持飞书、钉钉、企业微信应用、微信公众号、网页等接入，可选择OpenAI/Claude/Gemini/DeepSeek/ Qwen/GLM/Kimi/LinkAI，能处理文本、语音、图片和文件，可快速搭建个人AI助手和企业数字员工。",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-mudler-LocalAI",
+      "title": "mudler/LocalAI (⭐42,909)",
+      "url": "https://github.com/mudler/LocalAI",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": ":robot: The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement,  running on consumer-grade hardware. No GPU required. Runs gguf, transformers,",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-open-webui-open-webui",
+      "title": "open-webui/open-webui (⭐124,356)",
+      "url": "https://github.com/open-webui/open-webui",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1913489908435653107",
+      "title": "99% of people still don’t realize this exists.",
+      "url": "https://x.com/aaditsh/status/1913489908435653107",
+      "source": "@aaditsh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "99% of people still don’t realize this exists.\n\nOpenAI quietly launched a full AI Academy (and it’s way better than you’d expect).\n\nI thought it’d be another boring corporate portal.\n\nBut honestly? It’s the clearest, most practical AI education I’ve seen.\n\nJust spent 2 hours diving into their new Academy. It's a goldmine of free AI education - from \"what's a prompt?\" to building full GPT apps.\n\nThe best part is that it's not just tutorials. They've got live workshops, hands-on labs, and real-wor",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1916067628206198950",
+      "title": "🚨 BREAKING: OpenAI just launched free AI courses.",
+      "url": "https://x.com/JafarNajafov/status/1916067628206198950",
+      "source": "@JafarNajafov",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: OpenAI just launched free AI courses.\n\nCourses for beginners and engineers.\n\nAnd it's 100% free.\n\nHere’s everything you need to know: https://t.co/0xw2gN0JHh",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1721149339819786436",
+      "title": "OpenAI is offering $925,000 for AI jobs.",
+      "url": "https://x.com/DevMuzzammil/status/1721149339819786436",
+      "source": "@DevMuzzammil",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "OpenAI is offering $925,000 for AI jobs.\n\nGoogle, Microsoft and Udemy has launched courses to master AI.\n\nHere're a list of top courses to learn AI in 2023:\n\n[ 🔖 Bookmark for later ] https://t.co/YP98zTY0Px",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2002099762536010235",
+      "title": "🆕 Codex now officially supports skills",
+      "url": "https://x.com/OpenAIDevs/status/2002099762536010235",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🆕 Codex now officially supports skills\n\nSkills are reusable bundles of instructions, scripts, and resources that help Codex complete specific tasks.\n\nYou can call a skill directly with $.skill-name, or let Codex choose the right one based on your prompt. https://t.co/evbKtMkhaU",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1696058467650588743",
+      "title": "OpenAI Offers Salary from $300000 to $925,000 for AI-Focused Roles.",
+      "url": "https://x.com/CodeByPoonam/status/1696058467650588743",
+      "source": "@CodeByPoonam",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "OpenAI Offers Salary from $300000 to $925,000 for AI-Focused Roles.\n\nGoogle, Microsoft and Udemy has launched courses to master AI skills.\n\nHere's a list of Top online courses to learn AI:\n\n[🔖 Bookmark for later] https://t.co/J6iNMEyWbD",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1899541471532867821",
+      "title": "Introducing the Responses API: the new primitive of the OpenAI API.",
+      "url": "https://x.com/athyuttamre/status/1899541471532867821",
+      "source": "@athyuttamre",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Introducing the Responses API: the new primitive of the OpenAI API.\n\nIt is the culmination of 2 years of learnings designing the OpenAI API, and the foundation of our next chapter of building agents.\n\n🧵Here’s the story of how we designed it: https://t.co/Qee6YEisFb",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2018726439206678879",
+      "title": "OpenAI Startup Credits are OPEN btw",
+      "url": "https://x.com/adxtyahq/status/2018726439206678879",
+      "source": "@adxtyahq",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "OpenAI Startup Credits are OPEN btw\n\n> Up to $100K+ in API credits for early-stage startups  \n> Backed by OpenAI + partner VCs / accelerators  \n> Use credits for GPT, vision, embeddings, agents & infra  \n> No revenue requirement, just a real product & traction  \n> One of the easiest ways to ship AI without burning cash  \n\nApply: https://t.co/3YFC54EGss",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1953157471272616442",
+      "title": "Proud to announce @ChaiDiscovery has raised a $70M Series A from @MenloVentures &amp; Anthology Fund",
+      "url": "https://x.com/joshim5/status/1953157471272616442",
+      "source": "@joshim5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Proud to announce @ChaiDiscovery has raised a $70M Series A from @MenloVentures &amp; Anthology Fund (@AnthropicAI), @ThriveCapital, @OpenAI + others.\n\n🧬 Chai is an applied AI lab building frontier tools for molecular design.\n\nThis funding will power our new models, coming soon👇 https://t.co/HdMPIcCVC1",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1868703359454105689",
+      "title": "Stop paying the OpenAI tax. The best AI devtools are actually open-source, free to use, and give you",
+      "url": "https://x.com/avthar/status/1868703359454105689",
+      "source": "@avthar",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Stop paying the OpenAI tax. The best AI devtools are actually open-source, free to use, and give you full control over your data and privacy.\n\nWhile proprietary AI dominated early headlines, the true revolution is happening in open source - where a flourishing ecosystem of smarter models and easy to use developer tools is making advanced AI accessible to everyone.\n\nAfter speaking with hundreds of developers, my @TimescaleDB colleague @cevianNY and I have curated the 'Easy Mode' Open Source AI st",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2008507762809127263",
+      "title": "i vibe coded to solve the biggest problem of human history: DISCIPLINE.",
+      "url": "https://x.com/anjalisayswhat/status/2008507762809127263",
+      "source": "@anjalisayswhat",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "i vibe coded to solve the biggest problem of human history: DISCIPLINE.\n\nits a deflationary token mechanics over a simple idea of new year resolutions\n\na combination of web2 dynamics and with the vibes of 2020-21 DeFi supercycle\n\nall vibe coded in mins on @CodeXero_xyz https://t.co/JW2nvHHNHp",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1998456026136457532",
+      "title": "We're donating MCP to the @linuxfoundation and launching the Agentic AI Foundation with @OpenAI, @bl",
+      "url": "https://x.com/mikeyk/status/1998456026136457532",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're donating MCP to the @linuxfoundation and launching the Agentic AI Foundation with @OpenAI, @blocks, @AWS, @Bloomberg, @Cloudflare, @Google, and @Microsoft.\n\nMCP went from internal project to industry standard in a year. Now it gets the long-term stewardship it deserves.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021004633091735877",
+      "title": "Our Platform API docs now redirect to our main developer hub.",
+      "url": "https://x.com/OpenAIDevs/status/2021004633091735877",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Our Platform API docs now redirect to our main developer hub.\n\nWe’re unifying our developer content by consolidating API docs, guides and cookbooks, and Codex and ChatGPT Apps content under one roof.\n\nConsider this a clean merge 😉\n\nhttps://t.co/zjYJDKB36V",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021286050623373500",
+      "title": "We're introducing a new set of primitives in the Responses API for long-running agentic work on comp",
+      "url": "https://x.com/OpenAIDevs/status/2021286050623373500",
+      "source": "@OpenAIDevs",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're introducing a new set of primitives in the Responses API for long-running agentic work on computers.\n\nServer-side compaction\n• Enable multi-hour agent runs without hitting context limits.\n\nContainers with networking\n• Give OpenAI-hosted containers controlled internet access",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021637918847381656",
+      "title": "📣 Shipping software with Codex without touching code.",
+      "url": "https://x.com/OpenAIDevs/status/2021637918847381656",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "📣 Shipping software with Codex without touching code.\n\nHere’s how a small team steering Codex opened and merged 1,500 pull requests to deliver a product used by hundreds of internal users with zero manual coding.\n\nhttps://t.co/2GaeX7We2n",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021689433301692444",
+      "title": "We’re here at Pragmatic Summit talking about the future of AI engineering.",
+      "url": "https://x.com/OpenAIDevs/status/2021689433301692444",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "We’re here at Pragmatic Summit talking about the future of AI engineering.\n\nOur team is covering how OpenAI uses Codex internally and what it means to steer an engineering team in an agent-first world. https://t.co/Ua4Zlu3uj0",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021730920865398980",
+      "title": "Engineers at @harvey use Codex to explore multiple approaches in parallel and converge faster on a s",
+      "url": "https://x.com/OpenAIDevs/status/2021730920865398980",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Engineers at @harvey use Codex to explore multiple approaches in parallel and converge faster on a solution.\n\nCodex frees up their time for deeper system design and complex decision-making. https://t.co/5oibwmNSa8",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021742142838993059",
+      "title": "Codex is rolling out company-wide at NVIDIA to ~30k engineers.",
+      "url": "https://x.com/OpenAIDevs/status/2021742142838993059",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Codex is rolling out company-wide at NVIDIA to ~30k engineers.\n\nWe partnered closely with their team to deliver cloud-managed admin controls and US-only processing with fail-safes.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022009906329739681",
+      "title": "Introducing GPT-5.3-Codex-Spark, our ultra-fast model purpose built for real-time coding.",
+      "url": "https://x.com/OpenAIDevs/status/2022009906329739681",
+      "source": "@OpenAIDevs",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Introducing GPT-5.3-Codex-Spark, our ultra-fast model purpose built for real-time coding.\n\nWe’re rolling it out as a research preview for ChatGPT Pro users in the Codex app, Codex CLI, and IDE extension. https://t.co/6knTmyQZ4N",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022057144233951338",
+      "title": "At @SierraPlatform, Codex helps the team jump straight into building projects with minimal setup.",
+      "url": "https://x.com/OpenAIDevs/status/2022057144233951338",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "At @SierraPlatform, Codex helps the team jump straight into building projects with minimal setup.\n\nCodex enables them to explore ideas faster and stay focused on solving problems. https://t.co/iUIGipQO7H",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022126471087894531",
+      "title": "Codex-Spark is fast. We told you.",
+      "url": "https://x.com/OpenAIDevs/status/2022126471087894531",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Codex-Spark is fast. We told you.\n\nThis is what our community is saying 👇\n\nhttps://t.co/Wnl3zVVl7N",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022412579696763263",
+      "title": "“If you’re a builder, what a time to be alive.”",
+      "url": "https://x.com/OpenAIDevs/status/2022412579696763263",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "“If you’re a builder, what a time to be alive.”\n\n@steipete breaks down how his workflow changed when you can just build things covering how he prompts, iterates, and ships with Codex.\n\nFull episode drops 2/23. https://t.co/1pEdRd6XWV",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022437972717769073",
+      "title": "Better than flowers 😉",
+      "url": "https://x.com/OpenAIDevs/status/2022437972717769073",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Better than flowers 😉\n\nThank you, Codex. https://t.co/3eJ7xoWbMq",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024212279215198396",
+      "title": "\"The Codex app lets you go further, do more in parallel, and go deeper on the problems you care abou",
+      "url": "https://x.com/OpenAIDevs/status/2024212279215198396",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "\"The Codex app lets you go further, do more in parallel, and go deeper on the problems you care about.\"\n\n— @gdb https://t.co/UMMrjjJqhD",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2016209462621831448",
+      "title": "Introducing Prism, a free workspace for scientists to write and collaborate on research, powered by",
+      "url": "https://x.com/OpenAI/status/2016209462621831448",
+      "source": "@OpenAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Introducing Prism, a free workspace for scientists to write and collaborate on research, powered by GPT-5.2.\n\nAvailable today to anyone with a ChatGPT personal account: https://t.co/9mTLAbxPdH https://t.co/GJOIipU3hx",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2018385565289267236",
+      "title": "Introducing the Codex app—a powerful command center for building with agents.",
+      "url": "https://x.com/OpenAI/status/2018385565289267236",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing the Codex app—a powerful command center for building with agents.\n\nNow available on macOS.\n\nhttps://t.co/HW05s2C9Nr",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2018475750018449615",
+      "title": "Much of today’s scientific tooling has remained unchanged for decades. Prism changes that.",
+      "url": "https://x.com/OpenAI/status/2018475750018449615",
+      "source": "@OpenAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Much of today’s scientific tooling has remained unchanged for decades. Prism changes that.\n\n@ALupsasca joins @kevinweil and @vicapow to walk through what it looks like when GPT-5.2 works inside a LaTeX project with full paper context. https://t.co/RjSCwexLpT",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019173348132188330",
+      "title": "There have been over 500K Codex app downloads since Monday.",
+      "url": "https://x.com/OpenAI/status/2019173348132188330",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "There have been over 500K Codex app downloads since Monday.\n\nYou can just build things, a thread 🧵",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019413712772411528",
+      "title": "Introducing OpenAI Frontier—a new platform that helps enterprises build, deploy, and manage AI cowor",
+      "url": "https://x.com/OpenAI/status/2019413712772411528",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing OpenAI Frontier—a new platform that helps enterprises build, deploy, and manage AI coworkers that can do real work. https://t.co/4W0adQzSZ1",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019474152743223477",
+      "title": "GPT-5.3-Codex is now available in Codex.",
+      "url": "https://x.com/OpenAI/status/2019474152743223477",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "GPT-5.3-Codex is now available in Codex.\n\nYou can just build things.\nhttps://t.co/dyBiIQXGx1",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019488071134347605",
+      "title": "We worked with @Ginkgo to connect GPT-5 to an autonomous lab, so it could propose experiments, run t",
+      "url": "https://x.com/OpenAI/status/2019488071134347605",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We worked with @Ginkgo to connect GPT-5 to an autonomous lab, so it could propose experiments, run them at scale, learn from the results, and decide what to try next. That closed loop brought protein production cost down by 40%. https://t.co/udKBKxnKlW",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021025290366091442",
+      "title": "This week's podcast is all about ads.",
+      "url": "https://x.com/OpenAI/status/2021025290366091442",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "This week's podcast is all about ads.\n\nAsad Awan, one of the leads behind ads at OpenAI, joins @AndrewMayne to share how we came up with our ad principles and how ads in ChatGPT free and Go tiers expand AI access for all. https://t.co/WTptRgg0uE",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021299935678026168",
+      "title": "Deep research in ChatGPT is now powered by GPT-5.2.",
+      "url": "https://x.com/OpenAI/status/2021299935678026168",
+      "source": "@OpenAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Deep research in ChatGPT is now powered by GPT-5.2.\n\nRolling out starting today with more improvements. https://t.co/LdgoWlucuE",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022009582210715925",
+      "title": "GPT-5.3-Codex-Spark is now in research preview.",
+      "url": "https://x.com/OpenAI/status/2022009582210715925",
+      "source": "@OpenAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "GPT-5.3-Codex-Spark is now in research preview.\n\nYou can just build things—faster. https://t.co/85LzDOgcQj",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022390096625078389",
+      "title": "GPT-5.2 derived a new result in theoretical physics.",
+      "url": "https://x.com/OpenAI/status/2022390096625078389",
+      "source": "@OpenAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "GPT-5.2 derived a new result in theoretical physics.\n\nWe’re releasing the result in a preprint with researchers from @the_IAS, @VanderbiltU, @Cambridge_Uni, and @Harvard. It shows that a gluon interaction many physicists expected would not occur can arise under specific condition",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r99wg1",
+      "title": "Anthropic did the absolute right thing by sending OpenClaw a cease &amp; desist and allowing Sam Altman to hire the developer",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r99wg1/anthropic_did_the_absolute_right_thing_by_sending/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Anthropic will never have ChatGPT's first-mover consumer moment--800 million weekly users is an insurmountable head start. But enterprise is a different game. Enterprise buyers don't choose the most popular option. They choose the most trusted one.\n\nAnthropic now commands roughly 40% of enterprise AI spending--nearly double OpenAI's share. Eight of the Fortune 10 are Claude customers.\n\nWithin weeks of going viral, OpenClaw became a documented security disaster:\n\n\\- Cisco's security team called i",
+      "date": "2026-02-19"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}

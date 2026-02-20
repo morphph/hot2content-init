@@ -1,0 +1,608 @@
+{
+  "slug": "ai-coding-tools",
+  "name_en": "AI Coding Tools",
+  "name_zh": "AI 编程工具",
+  "entries": [
+    {
+      "id": "gh-Runnin4ik-dpi-detector",
+      "title": "Runnin4ik/dpi-detector (⭐333)",
+      "url": "https://github.com/Runnin4ik/dpi-detector",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "DPI detection tool for internet censorship testing. Identifies TLS, TCP, HTTP blocking and 16-20KB connection drops",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-AlexsJones-llmfit",
+      "title": "AlexsJones/llmfit (⭐886)",
+      "url": "https://github.com/AlexsJones/llmfit",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 58,
+      "summary": "157 models. 30 providers. One command to find what runs on your hardware.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-bwya77-vscode-dark-islands",
+      "title": "bwya77/vscode-dark-islands (⭐3,670)",
+      "url": "https://github.com/bwya77/vscode-dark-islands",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 86,
+      "summary": "VSCode theme based off the easemate IDE and Jetbrains islands theme",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-VoltAgent-awesome-agent-skills",
+      "title": "VoltAgent/awesome-agent-skills (⭐7,484)",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Claude Code Skills and 300+ agent skills from official dev teams and the community, compatible with Codex, Antigravity, Gemini CLI, Cursor and others.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-norvig-pytudes",
+      "title": "norvig/pytudes (⭐24,271)",
+      "url": "https://github.com/norvig/pytudes",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Python programs, usually short, of considerable difficulty, to perfect particular skills.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-cline-cline",
+      "title": "cline/cline (⭐58,162)",
+      "url": "https://github.com/cline/cline",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Autonomous coding agent right in your IDE, capable of creating/editing files, executing commands, using the browser, and more with your permission every step of the way.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-anthropics-claude-code",
+      "title": "anthropics/claude-code (⭐67,801)",
+      "url": "https://github.com/anthropics/claude-code",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-x1xhlol-system-prompts-and-models-of-ai-tools",
+      "title": "x1xhlol/system-prompts-and-models-of-ai-tools (⭐115,219)",
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, V",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-github-copilot-sdk",
+      "title": "github/copilot-sdk (⭐7,227)",
+      "url": "https://github.com/github/copilot-sdk",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Multi-platform SDK for integrating GitHub Copilot Agent into apps and services",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-NoeFabris-opencode-antigravity-auth",
+      "title": "NoeFabris/opencode-antigravity-auth (⭐8,555)",
+      "url": "https://github.com/NoeFabris/opencode-antigravity-auth",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Enable Opencode to authenticate against Antigravity (Google's IDE) via OAuth so you can use Antigravity rate limits and access models like gemini-3-pro and claude-opus-4-5-thinking with your Google cr",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-Anionex-banana-slides",
+      "title": "Anionex/banana-slides (⭐12,055)",
+      "url": "https://github.com/Anionex/banana-slides",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "一个基于nano banana pro🍌的原生AI PPT生成应用，迈向真正的＂Vibe PPT＂; 支持上传任意模板图片；上传任意素材&智能解析；一句话/大纲/页面描述自动生成PPT；口头修改指定区域、一键导出可编辑ppt - An AI-native PPT generator based on nano banana pro🍌",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-AndyMik90-Auto-Claude",
+      "title": "AndyMik90/Auto-Claude (⭐12,308)",
+      "url": "https://github.com/AndyMik90/Auto-Claude",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Autonomous multi-session AI coding",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "gh-sickn33-antigravity-awesome-skills",
+      "title": "sickn33/antigravity-awesome-skills (⭐13,037)",
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "The Ultimate Collection of 800+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents including official skills from Anthropic and Vercel.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023356719762747439",
+      "title": "🚨 Anthropic just made a $10,000 AI degree look useless.",
+      "url": "https://x.com/sentientt_media/status/2023356719762747439",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just made a $10,000 AI degree look useless.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate GitHub, workflows, prompt scoring",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1970505063064825994",
+      "title": "Announcing our public preview of Chrome DevTools MCP! Experience the full power of DevTools in your",
+      "url": "https://x.com/ChromiumDev/status/1970505063064825994",
+      "source": "@ChromiumDev",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Announcing our public preview of Chrome DevTools MCP! Experience the full power of DevTools in your AI coding agent → https://t.co/u5kOrjFgrq\n\nWith Chrome DevTools MCP, your AI agent can run performance traces, inspect the DOM, &amp; perform real-time debugging of your web pages. https://t.co/aKgmArbihX",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1982668692753129908",
+      "title": "Vibe-coding without real infrastructure is just a toy.",
+      "url": "https://x.com/artavazdm/status/1982668692753129908",
+      "source": "@artavazdm",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Vibe-coding without real infrastructure is just a toy. \n\nWe’re merging AI-native front-end freedom with the battle-tested WordPress backend: turning vibe-coding to full production machine.  \n\nIdea -> AI builds -> You shape by chatting -> Launch with confidence.  \n\nWhy launch with confidence: \n- Fully hosted, secure, version-controlled, SEO-tuned \n- Build your way: chat, visual, or code\n- Runs on WordPress—the engine that already runs the internet  \n\nFast to create. Faster to ship. On a real CMS.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2008507762809127263",
+      "title": "i vibe coded to solve the biggest problem of human history: DISCIPLINE.",
+      "url": "https://x.com/anjalisayswhat/status/2008507762809127263",
+      "source": "@anjalisayswhat",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "i vibe coded to solve the biggest problem of human history: DISCIPLINE.\n\nits a deflationary token mechanics over a simple idea of new year resolutions\n\na combination of web2 dynamics and with the vibes of 2020-21 DeFi supercycle\n\nall vibe coded in mins on @CodeXero_xyz https://t.co/JW2nvHHNHp",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1983331447571124382",
+      "title": "My Claude Code Learning Path",
+      "url": "https://x.com/dani_avila7/status/1983331447571124382",
+      "source": "@dani_avila7",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "My Claude Code Learning Path\n\n(Save this post to review in detail later)\n\nMade this learning path to keep myself on track.\n5 levels:\n - Level 1: Core CLI & Workflows\n - Level 2: Configuration & Customization\n - Level 3: Extension Systems\n - Level 4: Programmatic Usage\n - Level 5: Enterprise Deployment\n\nI'll publish guides for each section with practical examples and real use cases from https://t.co/pEjytZiAFd\n\nHopefully the Claude Code team doesn't ship too many new features while I'm doing this",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023447055914393728",
+      "title": "https://t.co/t2IrGlPjQE's new MCP server is pretty useful for architecture diagrams!",
+      "url": "https://x.com/tamstar1234/status/2023447055914393728",
+      "source": "@tamstar1234",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "https://t.co/t2IrGlPjQE's new MCP server is pretty useful for architecture diagrams!\n\nTested prompts w/ GitHub Copilot:\n1. “Create a clean CI/CD diagram for GitHub Actions deploying to an Azure Container Registry using drawio mcp”\n2. “Azure API Management + Web Apps/Functions Reference Architecture (WAF/CAF aligned)” - combined with my Azure architect agent (with skills to make use of Azure Learn for CAF/WAF etc and render Azure icons/images correctly).\n\nRepo: https://t.co/g5snLE5LrH\n\n#Drawio #M",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2022730860009525263",
+      "title": "So what is an AI Agent?",
+      "url": "https://x.com/DivyanshT91162/status/2022730860009525263",
+      "source": "@DivyanshT91162",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "So what is an AI Agent?\n\nAI agents don’t just answer questions.\nThey think, act, and learn to complete tasks on their own ⚡\n\nI’ve compiled 1000+ high-quality resources covering:\n• AI Agents\n• LLMs\n• Prompt engineering\n• SQL\n• Automation guides 🚀\n\nTo get access 👇\n1️⃣ Follow Me(I can DM you)\n2️⃣ Repost this 🔁\n3️⃣ Comment “AI” 💬\n\n#AI #AIAgent #LLM #MachineLearning #Automation #Tech",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1865808159987601520",
+      "title": "Cursors AI Agent builds apps using n8n workflows.",
+      "url": "https://x.com/kevinkern/status/1865808159987601520",
+      "source": "@kevinkern",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Cursors AI Agent builds apps using n8n workflows.\n\nIt plans tasks, connects APIs, and executes actions.\n\nThread 🧵 https://t.co/tnL1LlqNcZ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2022958992692306145",
+      "title": "Agent Zero is the world's first AI SuperAgent",
+      "url": "https://x.com/DavidOndrej1/status/2022958992692306145",
+      "source": "@DavidOndrej1",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Agent Zero is the world's first AI SuperAgent\n\nIt's free, 100% private, open source, highly customisable and VERY Powerful\n\nIn this 67 min video, you'll learn everything you need to know about Agent Zero https://t.co/Q3OZ0c75uU",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2023070141961970149",
+      "title": "Breaking🚨 It took me 100 hours to find this AI agent masterclass from Google",
+      "url": "https://x.com/Suryanshti777/status/2023070141961970149",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Breaking🚨 It took me 100 hours to find this AI agent masterclass from Google\n\nYou’re getting it in 10 seconds.\n\nInside the 60-page guide: • How AI agents actually work\n• Startup-ready architectures\n• Tool use, memory, and planning\n• Real build examples\n\nThis is the exact blueprint startups use.\n\nFollow + Like + RT\nComment “AGENTS” and I’ll send it.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-1935425575457538546",
+      "title": "How to use Claude Code for beginners",
+      "url": "https://x.com/iannuttall/status/1935425575457538546",
+      "source": "@iannuttall",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "How to use Claude Code for beginners\n(This too way too long to edit!)\n\nWatch the 15m video covering:\n- Setting it up in Cursor\n- How to add a lot of context (hint: not by copy/pasting)\n- Covering lots of slash commands\n- How to paste images\n+ lots more 🔥\n\nYT link in replies ↓ https://t.co/LEwzrwIJvL",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-search-2010864582768693632",
+      "title": "this is still the best guide on Claude Code I've seen that covers basically how you should (and shou",
+      "url": "https://x.com/Hesamation/status/2010864582768693632",
+      "source": "@Hesamation",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "this is still the best guide on Claude Code I've seen that covers basically how you should (and shouldn't) use it. comprehensive, practical, and to-the-point. \n\nhttps://t.co/1P847kkROo https://t.co/UTgBLUjNPT",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022374013104984177",
+      "title": "Claude Code 2.1.41 shipped today",
+      "url": "https://x.com/adocomplete/status/2022374013104984177",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Claude Code 2.1.41 shipped today\n\nLots of good stuff in there, but also removed my #1 productivity hack. Launching Claude inside of Claude so that I can Claude while I Claude. \n\nTip: Start prompt with ! to run terminal commands directly inside of CC. No separate terminal needed. ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024281327554723969",
+      "title": "28 Days of Claude API - Day 18 - Computer Use",
+      "url": "https://x.com/adocomplete/status/2024281327554723969",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 18 - Computer Use\n\nNo API? No problem. Computer use lets Claude interact with any app or web UI.\n\nIf a human can click it, Claude can too.\n\nScreenshot → decision → action → repeat.\n\nYou provide the environment. Claude drives it.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021631360440635443",
+      "title": "New in Cowork: Folder instructions! Claude Code users already know this as \"https://t.co/xCpo4LPVFk\"",
+      "url": "https://x.com/felixrieseberg/status/2021631360440635443",
+      "source": "@felixrieseberg",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "New in Cowork: Folder instructions! Claude Code users already know this as \"https://t.co/xCpo4LPVFk\" files.\n\nUse instructions to guide Claude the same way you would a colleague. In plain language, write down what's important - and Claude will make sure to follow it. https://t.co/",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1979287808834679187",
+      "title": "One of my favorite Claude Code additions from the past few weeks. Good product design comes from mak",
+      "url": "https://x.com/mikeyk/status/1979287808834679187",
+      "source": "@mikeyk",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "One of my favorite Claude Code additions from the past few weeks. Good product design comes from making choices; here Claude can help guide you on the option space and you can work together on exploring those choices.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1983213185332326434",
+      "title": "Had a great time at @GitHub Universe announcing Agent HQ. @Claudeai will soon become a native collab",
+      "url": "https://x.com/mikeyk/status/1983213185332326434",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Had a great time at @GitHub Universe announcing Agent HQ. @Claudeai will soon become a native collaborator in GitHub, able to pick up issues, create branches, commit code, and work alongside you—all powered by the Claude Agent SDK and deeply integrated with GitHub's platform. Exc",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2020300371059720413",
+      "title": "I’ve spent all my time after switching to Labs building with fast Opus and it’s a crazy unlock — exc",
+      "url": "https://x.com/mikeyk/status/2020300371059720413",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "I’ve spent all my time after switching to Labs building with fast Opus and it’s a crazy unlock — excited that we’re making it available outside Anthropic too.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1983583069073490288",
+      "title": "I wrote up a lot of my mechanical design, robot math, and stress testing: (also has slow-mo videos o",
+      "url": "https://x.com/ErikSchluntz/status/1983583069073490288",
+      "source": "@ErikSchluntz",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "I wrote up a lot of my mechanical design, robot math, and stress testing: (also has slow-mo videos of airsoft guns) https://t.co/unK9xwDzrJ https://t.co/eBZT5pndjP",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1992046967061729688",
+      "title": "Just like kids who cheat and succeed because of it... LLMs that reward hack in training can \"general",
+      "url": "https://x.com/ErikSchluntz/status/1992046967061729688",
+      "source": "@ErikSchluntz",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Just like kids who cheat and succeed because of it... LLMs that reward hack in training can \"generalize\" to a host of other very bad behaviors!\n\nThis is bad because it shows how easy it is to accidentally misalign a model, but also good if it makes detection easier.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1995697121417462120",
+      "title": "I've been between side projects for a few weeks, but this is what I'm going to build next: a custom",
+      "url": "https://x.com/ErikSchluntz/status/1995697121417462120",
+      "source": "@ErikSchluntz",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "I've been between side projects for a few weeks, but this is what I'm going to build next: a custom keypad for vibing with Claude Code\n\nAccepting preorders https://t.co/b0nBy7vFcb",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019467690780324095",
+      "title": "Opus 4.6 is here.",
+      "url": "https://x.com/alexalbert__/status/2019467690780324095",
+      "source": "@alexalbert__",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Opus 4.6 is here. \n\nThe jump in autonomy is real. The biggest shift for me personally has been learning to let it run. \n\nGive it the context, step away, and come back to something pretty amazing. The way we work alongside models is starting to completely change.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023492520630776162",
+      "title": "Want to get started with Claude Code but don't want to use a terminal? Try Claude Code Desktop!",
+      "url": "https://x.com/trq212/status/2023492520630776162",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Want to get started with Claude Code but don't want to use a terminal? Try Claude Code Desktop!\n\nHere's a quick guide on how to get started and some of my favorite features in it (that the TUI doesn't have). https://t.co/57XGCT9r4f",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2023797194017706290",
+      "title": "Figma just shipped the ability to bring UI work done in Claude Code straight into Figma as editable",
+      "url": "https://x.com/trq212/status/2023797194017706290",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Figma just shipped the ability to bring UI work done in Claude Code straight into Figma as editable design frames.\n\nUse this to explore new ideas in Figma, view multi-page flows on the canvas, or reimagine user experiences. https://t.co/OwBbfRpvch",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2001104507548398053",
+      "title": "Prompt: Using the provided image of the subject as reference, transform them into a K-pop idol–style",
+      "url": "https://x.com/ChatGPTapp/status/2001104507548398053",
+      "source": "@ChatGPTapp",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "Prompt: Using the provided image of the subject as reference, transform them into a K-pop idol–style version of themselves, fully preserving their natural facial features, skin tone, ethnicity, and identity. Style the subject with a polished, high-fashion idol aesthetic inspired ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2015851783655194640",
+      "title": "Your work tools are now interactive in Claude.",
+      "url": "https://x.com/claudeai/status/2015851783655194640",
+      "source": "@claudeai",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Your work tools are now interactive in Claude.\n\nDraft Slack messages, visualize ideas as Figma diagrams, or build and see Asana timelines. https://t.co/ROWwUOU5vA",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024550844998570324",
+      "title": "Claude in PowerPoint is now available on the Pro plan.",
+      "url": "https://x.com/claudeai/status/2024550844998570324",
+      "source": "@claudeai",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Claude in PowerPoint is now available on the Pro plan. \n\nIt also now supports connectors, bringing context from your daily tools directly into your slides.\n\nTry it here: https://t.co/N52VtGwcPj https://t.co/ZHXgdnbCNG",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021004633091735877",
+      "title": "Our Platform API docs now redirect to our main developer hub.",
+      "url": "https://x.com/OpenAIDevs/status/2021004633091735877",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Our Platform API docs now redirect to our main developer hub.\n\nWe’re unifying our developer content by consolidating API docs, guides and cookbooks, and Codex and ChatGPT Apps content under one roof.\n\nConsider this a clean merge 😉\n\nhttps://t.co/zjYJDKB36V",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021286050623373500",
+      "title": "We're introducing a new set of primitives in the Responses API for long-running agentic work on comp",
+      "url": "https://x.com/OpenAIDevs/status/2021286050623373500",
+      "source": "@OpenAIDevs",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're introducing a new set of primitives in the Responses API for long-running agentic work on computers.\n\nServer-side compaction\n• Enable multi-hour agent runs without hitting context limits.\n\nContainers with networking\n• Give OpenAI-hosted containers controlled internet access",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2021742142838993059",
+      "title": "Codex is rolling out company-wide at NVIDIA to ~30k engineers.",
+      "url": "https://x.com/OpenAIDevs/status/2021742142838993059",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Codex is rolling out company-wide at NVIDIA to ~30k engineers.\n\nWe partnered closely with their team to deliver cloud-managed admin controls and US-only processing with fail-safes.",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022009906329739681",
+      "title": "Introducing GPT-5.3-Codex-Spark, our ultra-fast model purpose built for real-time coding.",
+      "url": "https://x.com/OpenAIDevs/status/2022009906329739681",
+      "source": "@OpenAIDevs",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Introducing GPT-5.3-Codex-Spark, our ultra-fast model purpose built for real-time coding.\n\nWe’re rolling it out as a research preview for ChatGPT Pro users in the Codex app, Codex CLI, and IDE extension. https://t.co/6knTmyQZ4N",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2022057144233951338",
+      "title": "At @SierraPlatform, Codex helps the team jump straight into building projects with minimal setup.",
+      "url": "https://x.com/OpenAIDevs/status/2022057144233951338",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "At @SierraPlatform, Codex helps the team jump straight into building projects with minimal setup.\n\nCodex enables them to explore ideas faster and stay focused on solving problems. https://t.co/iUIGipQO7H",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1991178519557046380",
+      "title": "Today we’re excited to unveil a new generation of Segment Anything Models:",
+      "url": "https://x.com/AIatMeta/status/1991178519557046380",
+      "source": "@AIatMeta",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Today we’re excited to unveil a new generation of Segment Anything Models:\n\n1️⃣ SAM 3 enables detecting, segmenting and tracking of objects across images and videos, now with short text phrases and exemplar prompts.\n\n🔗 Learn more about SAM 3: https://t.co/CjMnf7fspz\n\n2️⃣ SAM 3D ",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-1991191525867270158",
+      "title": "Meet SAM 3, a unified model that enables detection, segmentation, and tracking of objects across ima",
+      "url": "https://x.com/AIatMeta/status/1991191525867270158",
+      "source": "@AIatMeta",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Meet SAM 3, a unified model that enables detection, segmentation, and tracking of objects across images and videos. SAM 3 introduces some of our most highly requested features like text and exemplar prompts to segment all objects of a target category.\n\nLearnings from SAM 3 will h",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2016919756440240479",
+      "title": "Step inside Project Genie: our experimental research prototype that lets you create, edit, and explo",
+      "url": "https://x.com/GoogleDeepMind/status/2016919756440240479",
+      "source": "@GoogleDeepMind",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Step inside Project Genie: our experimental research prototype that lets you create, edit, and explore virtual worlds. 🌎",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2011122136140705916",
+      "title": "Veo update! Here's what's rolling out:",
+      "url": "https://x.com/GoogleAI/status/2011122136140705916",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Veo update! Here's what's rolling out:\n\n— Vertical formats with a more expressive model *and* improved visual consistency across characters, objects, and backgrounds in Veo 3.1 Ingredients to Video\n— State-of-the-art video upscaling to 1080p and 4K across all Veo models\n— Verific",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2016659186348867665",
+      "title": "We’re introducing a series of updates that make Gemini in @googlechrome more helpful, efficient, and",
+      "url": "https://x.com/GoogleAI/status/2016659186348867665",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We’re introducing a series of updates that make Gemini in @googlechrome more helpful, efficient, and personalized for you:\n\n— Side panel for multitasking: The new side panel experience allows you to do things like send emails or compare information without leaving your open tab\n\n",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019092128945553489",
+      "title": "We love stepping inside the worlds you’ve created with Genie 3.",
+      "url": "https://x.com/GoogleAI/status/2019092128945553489",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We love stepping inside the worlds you’ve created with Genie 3.\n\nHere’s a thread of some community favorites. Keep building and share your creations below!🧵",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2024154215182926027",
+      "title": "Today we introduced Lyria 3, @GoogleDeepMind's latest music generation model, which you can use to t",
+      "url": "https://x.com/GoogleAI/status/2024154215182926027",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Today we introduced Lyria 3, @GoogleDeepMind's latest music generation model, which you can use to turn your ideas into musical tracks through prompts or even photos. Here are 3 tips (and fun facts!) to help you make the most out today's launch:\n\n1. We intentionally built this mo",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2018475750018449615",
+      "title": "Much of today’s scientific tooling has remained unchanged for decades. Prism changes that.",
+      "url": "https://x.com/OpenAI/status/2018475750018449615",
+      "source": "@OpenAI",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Much of today’s scientific tooling has remained unchanged for decades. Prism changes that.\n\n@ALupsasca joins @kevinweil and @vicapow to walk through what it looks like when GPT-5.2 works inside a LaTeX project with full paper context. https://t.co/RjSCwexLpT",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "twitter-2019488071134347605",
+      "title": "We worked with @Ginkgo to connect GPT-5 to an autonomous lab, so it could propose experiments, run t",
+      "url": "https://x.com/OpenAI/status/2019488071134347605",
+      "source": "@OpenAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We worked with @Ginkgo to connect GPT-5 to an autonomous lab, so it could propose experiments, run them at scale, learn from the results, and decide what to try next. That closed loop brought protein production cost down by 40%. https://t.co/udKBKxnKlW",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r97osm",
+      "title": "Claude just gave me access to another user’s legal documents",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r97osm/claude_just_gave_me_access_to_another_users_legal/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 61,
+      "summary": "The strangest thing just happened. \n\nI asked Claude Cowork to summarize a document and it began describing a legal document that was totally unrelated to what I had provided. After asking Claude to generate a PDF of the legal document it referenced and I got a complete lease agreement contract in which seems to be highly sensitive information.\n\nI contacted the property management company named in the contract (their contact info was in it), they says they‘ll investigate it. As for Anthropic, I’v",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r92o58",
+      "title": "Seems Microsoft is really set on not repeating a Sidney incident",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r92o58/seems_microsoft_is_really_set_on_not_repeating_a/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Seems Microsoft is really set on not repeating a Sidney incident",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r90pol",
+      "title": "Claude Code’s CLI feels like a black box. I built a local UI to un-dumb it, and it unexpectedly blew up last week.",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r90pol/claude_codes_cli_feels_like_a_black_box_i_built_a/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "https://reddit.com/link/1r90pol/video/30yd18c4qgkg1/player\n\nHey r/ClaudeAI,\n\nLast weekend, I built a weekend project to scratch my own itch because I was going crazy with how much the official Claude Code CLI hides from us.\n\nI shared it in a smaller sub (\\[[original post](https://www.reddit.com/r/ClaudeCode/comments/1r3to9f/claude_codes_cli_feels_like_a_black_box_now_i/) in r/ClaudeCode here\\]), and the response was insane—it hit #3 on Hacker News, got 700+ stars on GitHub, and crossed 3.7k down",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r8qh08",
+      "title": "I'm 100% convinced that it's the NFT-bros pushing all the openclawd engagement on X",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8qh08/im_100_convinced_that_its_the_nftbros_pushing_all/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "I'm absolutely sure of it. The same usual suspects, the same language, the same who stole from whom the next million dollar ideas. It's insane. NFT-bros are now peddling openclawd crypto schemes. It's all the same BS quasi-tech lingo wrapped into neverending posts with meme-like pictures full of slogans, and graphs that literally means  less than nothing, that lead back to 'blockchain, blah, blah blah, agentic, blah, blah, prediction markets\". I have enough of this.\n\nIs this the sign of a real b",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1r8l11x",
+      "title": "[D] Why are serious alternatives to gradient descent not being explored more?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r8l11x/d_why_are_serious_alternatives_to_gradient/",
+      "source": "Reddit r/MachineLearning",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "It feels like there's currently a massive elephant in the room when it comes to ML, and it's specifically around the idea that gradient descent might be a dead end in terms of a method that gets us anywhere near solving continual learning, casual learning, and beyond.\n\n  \nAlmost every researcher, whether postdoc, or PhD I've talked to feels like current methods are flawed and that the field is missing some stroke of creative genius. I've been told multiple times that people are of the opinion th",
+      "date": "2026-02-19"
+    },
+    {
+      "id": "reddit-1pygdbz",
+      "title": "Usage Limits, Bugs and Performance Discussion Megathread - beginning December 29, 2025",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1pygdbz/usage_limits_bugs_and_performance_discussion/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "**Why a Performance, Usage Limits and Bugs** **Discussion Megathread?**\n\nThis Megathread makes it easier for everyone to see what others are experiencing at any time by collecting all experiences. We will publish regular updates on problems and possible workarounds that we and the community finds.\n\n**Why Are You Trying to Hide the Complaints Here?**\n\nContrary to what some were saying in a prior Megathread, this is NOT a place to hide complaints. **This is the MOST VISIBLE, PROMINENT AND OFTEN TH",
+      "date": "2025-12-29"
+    }
+  ],
+  "lastUpdated": "2026-02-20"
+}
