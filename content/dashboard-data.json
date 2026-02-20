@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-20T02:35:46.824Z",
+  "generatedAt": "2026-02-20T03:15:02.349Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-20",
@@ -9,8 +9,8 @@
       "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": null,
-      "lastRunStatus": "unknown"
+      "lastRunTimestamp": "2026-02-20 02:35:47 UTC",
+      "lastRunStatus": "complete"
     },
     "newsItems": {
       "last24h": 486,
