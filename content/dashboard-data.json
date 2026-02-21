@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-20T23:04:49.465Z",
+  "generatedAt": "2026-02-21T02:45:02.077Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-21",
@@ -13,11 +13,16 @@
       "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 562,
-      "last72h": 564,
+      "last24h": 74,
+      "last72h": 563,
       "total": 566
     },
-    "recentErrors": []
+    "recentErrors": [
+      "fatal: Cannot fast-forward to multiple branches.",
+      "fatal: Cannot fast-forward to multiple branches.",
+      "❌ git pull failed",
+      "❌ git pull failed"
+    ]
   },
   "keywordQuality": {
     "byStatus": {
