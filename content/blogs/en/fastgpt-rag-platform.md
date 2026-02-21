@@ -1,5 +1,3 @@
-I don't have permission to search the web or fetch URLs for additional research. I'll write the analysis article based on the context provided and my knowledge of FastGPT and the RAG ecosystem.
-
 ---
 slug: fastgpt-rag-platform
 title: "FastGPT RAG Platform — Analysis and Industry Impact"

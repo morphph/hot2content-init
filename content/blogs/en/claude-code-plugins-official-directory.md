@@ -1,1 +1,0 @@
-Alternatively, use the Claude Code CLI:
