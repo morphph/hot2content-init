@@ -30,7 +30,7 @@ fi
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') Syncing: ${LOCAL:0:7} → ${REMOTE:0:7}" >> "$LOG"
 
 # Pull (fast-forward only — same as cron scripts)
-git pull --ff-only origin main >> "$LOG" 2>&1
+git pull --rebase origin main >> "$LOG" 2>&1
 
 # Regenerate dashboard data with new code
 npx tsx scripts/generate-dashboard-data.ts >> "$LOG" 2>&1

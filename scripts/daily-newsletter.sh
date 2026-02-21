@@ -14,7 +14,7 @@ cd "$PROJECT_DIR"
 source .env
 
 # Pull latest code before running
-git pull --ff-only || { echo "❌ git pull failed — manual intervention needed"; exit 1; }
+git pull --rebase || { echo "❌ git pull failed — manual intervention needed"; exit 1; }
 
 DATE=$(TZ='Asia/Singapore' date +%Y-%m-%d)
 STATUS_FILE="${PROJECT_DIR}/logs/last-run-status.json"

@@ -18,7 +18,7 @@ source .env
 mkdir -p logs
 
 # Pull latest code before running
-git pull --ff-only 2>&1 | tee -a logs/seo-pipeline.log || { echo "❌ git pull failed" | tee -a logs/seo-pipeline.log; exit 1; }
+git pull --rebase 2>&1 | tee -a logs/seo-pipeline.log || { echo "❌ git pull failed" | tee -a logs/seo-pipeline.log; exit 1; }
 
 echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Starting SEO pipeline" | tee -a logs/seo-pipeline.log
 
