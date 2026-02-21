@@ -19,6 +19,22 @@ const OUTPUT_DIR = path.join(process.cwd(), 'output');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 // ============================================
+// Load ZH Newsletter Skill File
+// ============================================
+
+function loadZHNewsletterSkill(): string {
+  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-zh', 'SKILL.md');
+  try {
+    const content = fs.readFileSync(skillPath, 'utf-8');
+    console.log(`   📖 Loaded ZH newsletter skill (${content.length} chars)`);
+    return content;
+  } catch {
+    console.log('   ⚠️ Could not load skills/newsletter-zh/SKILL.md');
+    return '';
+  }
+}
+
+// ============================================
 // Types
 // ============================================
 
@@ -265,15 +281,19 @@ ${rawData}`;
 async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string): Promise<string | null> {
   console.log('   ✍️ Generating ZH newsletter with Claude Opus...');
 
+  const zhSkill = loadZHNewsletterSkill();
+
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
     source: i.source, url: i.url, category: i.agent_category,
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
+  const skillSection = zhSkill ? `## 写作规范（严格遵循）\n\n${zhSkill}\n\n` : '';
+
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
-## 标题规则（重要）
+${skillSection}## 标题规则（重要）
 生成一个新闻式中文标题作为 H1。不要用日期标题。
 ✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
 ❌ 差："🌅 AI 每日简报 — ${date}"
@@ -286,7 +306,7 @@ async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string)
 📱 产品应用 — 消费级产品与平台更新
 🔧 开发工具 — 开发者工具、SDK、API
 📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
-🚀 开源前沿 — 新产品、研究成果、开源项目
+🚀 产品动态 — 新产品、研究成果、开源项目、企业合作
 🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
 🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
 
@@ -305,7 +325,10 @@ async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string)
 ## 禁用词
 ❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
 
-严格规则 — 禁止编造：只使用下方提供的信息。
+严格规则 — 禁止编造：
+你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
+- 只写标题 + 来源 + 互动数据 + 链接
+- 不要描述、推测或补充内容
 
 ## 原始数据（${items.length} 条）
 ${rawData}`;
@@ -319,7 +342,7 @@ ${rawData}`;
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
     const cleaned = result.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
-    if (cleaned && cleaned.length > 500) {
+    if (cleaned && cleaned.length > 200) {
       console.log(`   ✅ ZH newsletter: ${cleaned.length} chars`);
       return cleaned;
     }
@@ -344,15 +367,19 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
 
   console.log('   🤖 Falling back to Kimi K2.5 for ZH newsletter...');
 
+  const zhSkill = loadZHNewsletterSkill();
+
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
     source: i.source, url: i.url, category: i.agent_category,
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
+  const skillSection = zhSkill ? `## 写作规范（严格遵循）\n\n${zhSkill}\n\n` : '';
+
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
-## 标题规则（重要）
+${skillSection}## 标题规则（重要）
 生成一个新闻式中文标题作为 H1。不要用日期标题。
 ✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
 ❌ 差："🌅 AI 每日简报 — ${date}"
@@ -365,7 +392,7 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
 📱 产品应用 — 消费级产品与平台更新
 🔧 开发工具 — 开发者工具、SDK、API
 📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
-🚀 开源前沿 — 新产品、研究成果、开源项目
+🚀 产品动态 — 新产品、研究成果、开源项目、企业合作
 🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
 🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
 
@@ -384,7 +411,10 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
 ## 禁用词
 ❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
 
-严格规则 — 禁止编造：只使用下方提供的信息。
+严格规则 — 禁止编造：
+你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
+- 只写标题 + 来源 + 互动数据 + 链接
+- 不要描述、推测或补充内容
 
 ## 原始数据（${items.length} 条）
 ${rawData}`;
@@ -412,7 +442,7 @@ ${rawData}`;
     const data = await response.json();
     const text = data.choices?.[0]?.message?.content?.trim() || '';
 
-    if (text && text.length > 500) {
+    if (text && text.length > 200) {
       console.log(`   ✅ Kimi ZH newsletter: ${text.length} chars`);
       return text;
     }
@@ -431,15 +461,19 @@ ${rawData}`;
 async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: string): Promise<string | null> {
   console.log('   🤖 Falling back to Sonnet CLI for ZH newsletter...');
 
-  const rawData = JSON.stringify(items.slice(0, 30).map(i => ({
+  const zhSkill = loadZHNewsletterSkill();
+
+  const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
     source: i.source, url: i.url, category: i.agent_category,
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
+  const skillSection = zhSkill ? `## 写作规范（严格遵循）\n\n${zhSkill}\n\n` : '';
+
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
-## 标题规则（重要）
+${skillSection}## 标题规则（重要）
 生成一个新闻式中文标题作为 H1。不要用日期标题。
 ✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
 ❌ 差："🌅 AI 每日简报 — ${date}"
@@ -452,7 +486,7 @@ async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: strin
 📱 产品应用 — 消费级产品与平台更新
 🔧 开发工具 — 开发者工具、SDK、API
 📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
-🚀 开源前沿 — 新产品、研究成果、开源项目
+🚀 产品动态 — 新产品、研究成果、开源项目、企业合作
 🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
 🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
 
@@ -470,14 +504,17 @@ async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: strin
 ## 禁用词
 ❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
 
-严格规则 — 禁止编造：只使用下方提供的信息。
+严格规则 — 禁止编造：
+你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
+- 只写标题 + 来源 + 互动数据 + 链接
+- 不要描述、推测或补充内容
 
 ## 原始数据（${items.length} 条）
 ${rawData}`;
 
   try {
     const text = await callSonnet(prompt);
-    if (text && text.length > 500) {
+    if (text && text.length > 200) {
       console.log(`   ✅ Sonnet CLI ZH newsletter: ${text.length} chars`);
       return text;
     }
@@ -534,12 +571,19 @@ async function main() {
   const filtered = await agentFilter(curatedItems);
   console.log(`\n✅ Filtered: ${dbItems.length} → ${filtered.length} items`);
 
-  // Save filtered output
+  // Save filtered output (ephemeral copy in output/)
   const filteredPath = path.join(OUTPUT_DIR, `filtered-items-${date}.json`);
-  fs.writeFileSync(filteredPath, JSON.stringify({
+  const filteredPayload = JSON.stringify({
     date, generated_at: new Date().toISOString(),
     raw_count: dbItems.length, filtered_count: filtered.length, items: filtered,
-  }, null, 2));
+  }, null, 2);
+  fs.writeFileSync(filteredPath, filteredPayload);
+
+  // Persist filtered items for local reproducibility (git-tracked)
+  const dataDir = path.join(process.cwd(), 'data', 'filtered-items');
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(path.join(dataDir, `${date}.json`), filteredPayload);
+  console.log(`   💾 Persisted filtered items to data/filtered-items/${date}.json`);
 
   // Step 3: Write EN newsletter
   console.log('\n📝 Writing EN newsletter...');
@@ -591,7 +635,7 @@ async function main() {
   // Step 6: Git commit + push
   console.log('\n📤 Git commit + push...');
   try {
-    execSync('git add content/newsletters/', { cwd: process.cwd(), encoding: 'utf-8' });
+    execSync('git add content/newsletters/ data/filtered-items/', { cwd: process.cwd(), encoding: 'utf-8' });
     const diffResult = execSync('git diff --staged --quiet 2>&1 || echo "changes"', {
       cwd: process.cwd(), encoding: 'utf-8',
     }).trim();
