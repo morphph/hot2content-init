@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-21T06:00:02.690Z",
+  "generatedAt": "2026-02-21T06:15:02.130Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-21",
@@ -165,9 +165,8 @@
       "newsletter": 2
     },
     "byTier": {
-      "0": 6,
       "1": 8,
-      "2": 30,
+      "2": 31,
       "3": 16
     },
     "publishedLast7d": 2,
@@ -182,9 +181,9 @@
     "enArticles": 0,
     "zhArticles": 0,
     "bilingualCoverage": {
-      "paired": 27,
-      "enOnly": 3,
-      "zhOnly": 3
+      "paired": 23,
+      "enOnly": 4,
+      "zhOnly": 5
     },
     "freshnessBacklog": 8,
     "newsletterStreak": {
@@ -1102,7 +1101,7 @@
     },
     {
       "date": "2026-02-17",
-      "contentCount": 18,
+      "contentCount": 19,
       "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
@@ -1727,7 +1726,7 @@
       },
       {
         "date": "2026-02-17",
-        "count": 18,
+        "count": 19,
         "items": [
           {
             "title": "AI Agents for Telecommunications — Analysis and Industry Impact",
@@ -1746,6 +1745,15 @@
             "tier": 2,
             "wordCount": 1704,
             "preview": "**TL;DR:** The emergence of multi-agent orchestration frameworks for Claude Code signals a fundamental shift from single-agent AI assistants to coordinated teams of specialized agents, with open-sourc"
+          },
+          {
+            "title": "FastGPT RAG Platform — Analysis and Industry Impact",
+            "slug": "fastgpt-rag-platform",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1688,
+            "preview": "**TL;DR:** FastGPT has emerged as a leading open-source RAG platform with 27,000+ GitHub stars, offering visual workflow orchestration and out-of-the-box knowledge base capabilities that significantly"
           },
           {
             "title": "电信行业 AI 智能体 — 深度分析与行业影响",
