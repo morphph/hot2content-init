@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllFAQTopics, getFAQTopic, generateFAQJsonLd } from '@/lib/faq'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 import type { FAQIntent } from '@/lib/faq'
 import type { Metadata } from 'next'
 
@@ -78,13 +80,7 @@ export default async function FAQTopicPageEn({ params }: Props) {
 
         <Header
           lang="en"
-          navItems={[
-            { label: 'Newsletter', href: '/newsletter' },
-            { label: 'Blog', href: '/en/blog' },
-            { label: 'FAQ', href: '/en/faq', active: true },
-            { label: 'Glossary', href: '/en/glossary' },
-            { label: 'Compare', href: '/en/compare' },
-          ]}
+          navItems={getNavItems('en', '/en/faq')}
           langSwitchHref={`/zh/faq/${zhSlug}`}
         />
 
@@ -124,6 +120,7 @@ export default async function FAQTopicPageEn({ params }: Props) {
             </section>
           )
         })}
+        <Footer lang="en" />
       </div>
     </main>
   )

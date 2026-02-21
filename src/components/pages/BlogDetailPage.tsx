@@ -3,7 +3,9 @@ import Link from 'next/link'
 import { getBlogPost } from '@/lib/blog'
 import { getRelatedContent, type RelatedItem } from '@/lib/related-content'
 import { getTopicClusters, type TopicCluster } from '@/lib/topic-cluster'
+import { getNavItems } from '@/lib/nav'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import TableOfContents from '@/components/TableOfContents'
 import MermaidContent from '@/components/MermaidContent'
 
@@ -73,10 +75,7 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
     ? (post.hreflang_zh || '/zh/blog')
     : (post.hreflang_en || '/en/blog')
 
-  const navItems = [
-    { label: 'Newsletter', href: isEn ? '/newsletter' : '/zh/newsletter' },
-    { label: isEn ? 'Blog' : '博客', href: `/${lang}/blog`, active: true },
-  ]
+  const navItems = getNavItems(lang, `/${lang}/blog`)
 
   return (
     <main className="min-h-screen bg-white">
@@ -210,23 +209,7 @@ export default async function BlogDetailPage({ lang, slug }: BlogDetailPageProps
             </Link>
           </div>
 
-          {/* Footer */}
-          <footer className="mt-16 pt-8 border-t border-gray-100 text-center">
-            <p className="text-muted text-sm mb-2">
-              {isEn ? 'Curated by AI, built for humans' : 'AI 策展，为人而建'}
-            </p>
-            <div className="flex justify-center gap-4 text-sm">
-              <Link href={isEn ? '/' : '/zh'} className="link-blue">
-                {isEn ? 'Home' : '首页'}
-              </Link>
-              <Link href={isEn ? '/newsletter' : '/zh/newsletter'} className="link-blue">
-                Newsletter
-              </Link>
-              <Link href={`/${lang}/blog`} className="link-blue">
-                {isEn ? 'Blog' : '博客'}
-              </Link>
-            </div>
-          </footer>
+          <Footer lang={lang} />
         </div>
       </div>
     </main>

@@ -2,6 +2,8 @@ import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 
 interface NewsletterEntry {
   date: string
@@ -82,10 +84,7 @@ export default async function NewsletterZHPage() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={[
-            { label: '每日简报', href: '/zh/newsletter', active: true },
-            { label: '博客', href: '/zh/blog' },
-          ]}
+          navItems={getNavItems('zh', '/zh/newsletter')}
           langSwitchHref="/newsletter"
         />
 
@@ -150,10 +149,7 @@ export default async function NewsletterZHPage() {
           </form>
         </div>
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '32px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 精选 · 每日更新</p>
-        </footer>
+        <Footer lang="zh" />
       </div>
     </main>
   )

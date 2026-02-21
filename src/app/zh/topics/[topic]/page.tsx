@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 import { getTopicClusters, getTopicClusterContent } from '@/lib/topic-cluster'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -84,11 +86,7 @@ export default async function TopicHubPageZh({ params }: Props) {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
-            { label: '博客', href: '/zh/blog' },
-            { label: '话题', href: '/zh/topics', active: true },
-          ]}
+          navItems={getNavItems('zh', '/zh/topics')}
           langSwitchHref={`/en/topics/${topic}`}
         />
 
@@ -188,10 +186,7 @@ export default async function TopicHubPageZh({ params }: Props) {
           </Link>
         </div>
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 策展 · 为人而建</p>
-        </footer>
+        <Footer lang="zh" />
       </div>
     </main>
   )

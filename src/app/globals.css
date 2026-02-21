@@ -386,10 +386,6 @@ a.link-blue:hover {
    ============================================ */
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 0;
   margin-bottom: 32px;
 }
 
@@ -453,8 +449,8 @@ a.link-blue:hover {
 
 .toc-sticky {
   position: sticky;
-  top: 6rem;
-  max-height: calc(100vh - 8rem);
+  top: 5rem;
+  max-height: calc(100vh - 6rem);
   overflow-y: auto;
 }
 

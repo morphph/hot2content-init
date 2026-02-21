@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -42,13 +44,7 @@ export default function AboutPage() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="en"
-          navItems={[
-            { label: 'Newsletter', href: '/newsletter' },
-            { label: 'Blog', href: '/en/blog' },
-            { label: 'FAQ', href: '/en/faq' },
-            { label: 'Glossary', href: '/en/glossary' },
-            { label: 'Compare', href: '/en/compare' },
-          ]}
+          navItems={getNavItems('en', '/about')}
           langSwitchHref="/about/"
         />
 
@@ -118,13 +114,7 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', fontSize: '14px' }}>
-            <Link href="/" style={{ color: '#2563eb', textDecoration: 'none' }}>Home</Link>
-            <Link href="/en/blog" style={{ color: '#2563eb', textDecoration: 'none' }}>Blog</Link>
-            <Link href="/newsletter" style={{ color: '#2563eb', textDecoration: 'none' }}>Newsletter</Link>
-          </div>
-        </footer>
+        <Footer lang="en" />
       </div>
     </main>
   )
