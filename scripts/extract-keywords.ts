@@ -81,8 +81,8 @@ Requirements:
 
   // Insert into DB
   const insertStmt = db.prepare(`
-    INSERT INTO keywords (keyword, language, type, search_intent, status, parent_research_id)
-    VALUES (?, ?, 'longtail', ?, 'backlog', ?)
+    INSERT INTO keywords (keyword, language, type, search_intent, status, parent_research_id, source)
+    VALUES (?, ?, 'longtail', ?, 'backlog', ?, 'research')
   `);
 
   const tx = db.transaction(() => {

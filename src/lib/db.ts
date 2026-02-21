@@ -153,10 +153,17 @@ export function initSchema(db: Database.Database): void {
     `ALTER TABLE keywords ADD COLUMN search_intent TEXT`,
     `ALTER TABLE keywords ADD COLUMN parent_research_id INTEGER REFERENCES research(id)`,
     `ALTER TABLE keywords ADD COLUMN language TEXT DEFAULT 'en'`,
+    `ALTER TABLE keywords ADD COLUMN source TEXT DEFAULT 'news'`,
+    `ALTER TABLE keywords ADD COLUMN news_ids TEXT`,
   ];
   for (const sql of alterStatements) {
     try { db.exec(sql); } catch { /* column already exists */ }
   }
+
+  // Backfill: mark research-extracted keywords
+  try {
+    db.exec(`UPDATE keywords SET source = 'research' WHERE parent_research_id IS NOT NULL AND source = 'news'`);
+  } catch { /* table may not exist yet */ }
 }
 
 /**

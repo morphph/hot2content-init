@@ -3,6 +3,47 @@ import path from 'path'
 
 const DASHBOARD_PATH = path.join(process.cwd(), 'content', 'dashboard-data.json')
 
+export interface SourceStats {
+  total: number
+  backlog: number
+  published: number
+  error: number
+  avgDaysToPublish: number | null
+}
+
+export interface PAAStats {
+  total: number
+  discovered: number
+  published: number
+  duplicate: number
+  error: number
+}
+
+export interface QualityFlag {
+  name: string
+  status: 'pass' | 'warn' | 'fail'
+  detail?: string
+}
+
+export interface SampleContentItem {
+  title: string
+  slug: string
+  language: string
+  tier: number | null
+  wordCount: number
+  seoScore: number | null
+  flags: QualityFlag[]
+}
+
+export interface SampleReviewItem {
+  keyword: string
+  type: string | null
+  score: number | null
+  source: 'research' | 'news' | 'paa'
+  sourceNews: Array<{ title: string; url: string }>
+  content: SampleContentItem[]
+}
+
 export interface DashboardData {
   generatedAt: string
 
@@ -26,6 +67,8 @@ export interface DashboardData {
     byStatus: Record<string, number>
     byLanguage: Record<string, number>
     byIntent: Record<string, number>
+    byType: Record<string, number>
+    enrichmentCoverage: { enriched: number; unenriched: number }
     volumeDistribution: { noData: number; low: number; medium: number; high: number }
     difficultyDistribution: { noData: number; easy: number; medium: number; hard: number }
     top20: Array<{
@@ -45,8 +88,37 @@ export interface DashboardData {
     seoScoreDistribution: { poor: number; fair: number; good: number; excellent: number; noScore: number }
     enArticles: number
     zhArticles: number
+    bilingualCoverage: { paired: number; enOnly: number; zhOnly: number }
+    freshnessBacklog: number
     newsletterStreak: { en: number; zh: number; lastEnDate: string; lastZhDate: string }
   }
+
+  keywordProvenance: {
+    research: SourceStats
+    news: SourceStats
+    paa: PAAStats
+    last7d: {
+      research: { added: number; published: number }
+      news: { added: number; published: number }
+      paa: { added: number; published: number }
+    }
+  }
+
+  sampleReview: {
+    days: Array<{
+      date: string
+      qualitySummary: { total: number; passed: number; flagged: number; flags: Record<string, number> }
+      items: SampleReviewItem[]
+    }>
+  }
+
+  dailyTrend: Array<{
+    date: string
+    contentCount: number
+    qualityPassRate: number
+    kwExtracted: number
+    kwPublished: number
+  }>
 
   recentKeywords?: {
     days: Array<{

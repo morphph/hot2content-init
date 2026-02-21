@@ -52,6 +52,25 @@ const KEYWORD_STATUS_COLORS: Record<string, string> = {
   skipped: '#d1d5db',
 }
 
+const SOURCE_BADGE_COLORS: Record<string, { bg: string; fg: string }> = {
+  research: { bg: '#dbeafe', fg: '#1e40af' },
+  news: { bg: '#fef3c7', fg: '#92400e' },
+  paa: { bg: '#f3e8ff', fg: '#6b21a8' },
+}
+
+const FLAG_COLORS: Record<string, { bg: string; fg: string }> = {
+  pass: { bg: '#dcfce7', fg: '#166534' },
+  warn: { bg: '#fef3c7', fg: '#92400e' },
+  fail: { bg: '#fecaca', fg: '#991b1b' },
+}
+
+const TYPE_BADGE_COLORS: Record<string, { bg: string; fg: string }> = {
+  blog: { bg: '#dbeafe', fg: '#1e40af' },
+  glossary: { bg: '#dcfce7', fg: '#166534' },
+  faq: { bg: '#fef3c7', fg: '#92400e' },
+  compare: { bg: '#f3e8ff', fg: '#6b21a8' },
+}
+
 function StatusDot({ status }: { status: string }) {
   const color = STATUS_COLORS[status] || STATUS_COLORS.unknown
   return (
@@ -72,60 +91,70 @@ function Check({ ok }: { ok: boolean }) {
   return <span style={{ color: ok ? '#22c55e' : '#d1d5db', marginLeft: '4px' }}>{ok ? '\u2713' : '\u2717'}</span>
 }
 
+function Badge({ label, bg, fg }: { label: string; bg: string; fg: string }) {
+  return (
+    <span style={{
+      display: 'inline-block', padding: '2px 8px', borderRadius: '9999px',
+      fontSize: '11px', fontWeight: '600', backgroundColor: bg, color: fg,
+    }}>
+      {label}
+    </span>
+  )
+}
+
 // ─── Sections ────────────────────────────────────────────────────────────────
 
-function PipelineHealth({ data }: { data: DashboardData['pipelineHealth'] }) {
-  const { newsletter, seo, newsItems, recentErrors } = data
+function HealthStrip({ data }: { data: DashboardData }) {
+  const { pipelineHealth, keywordQuality, contentOutput } = data
+  const { newsletter, seo, newsItems } = pipelineHealth
+  const backlog = keywordQuality.byStatus['backlog'] || 0
+  const bilingual = contentOutput.bilingualCoverage || { paired: 0, enOnly: 0, zhOnly: 0 }
+
+  // Count today's content from dailyTrend
+  const trend = data.dailyTrend || []
+  const todayContent = trend.length > 0 ? trend[0].contentCount : 0
 
   return (
-    <section style={{ marginBottom: '40px' }}>
-      <h2 style={sectionHeading}>Pipeline Health</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-        {/* Newsletter */}
-        <div style={card}>
-          <div style={{ fontSize: '14px', color: '#6b7280', marginBottom: '8px' }}>Newsletter</div>
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
-            <StatusDot status={newsletter.lastRunStatus} />
-            <span style={{ fontWeight: '600', color: '#111827' }}>{newsletter.lastRunDate || 'Never'}</span>
-          </div>
-          <div style={{ fontSize: '13px', color: '#6b7280' }}>
-            EN<Check ok={newsletter.enPublished} /> ZH<Check ok={newsletter.zhPublished} />
-          </div>
-          {newsletter.lastRunMessage && (
-            <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px', wordBreak: 'break-word' }}>
-              {newsletter.lastRunMessage}
-            </div>
-          )}
+    <section style={{ marginBottom: '24px' }}>
+      <div style={{
+        ...card, padding: '12px 20px',
+        display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap',
+        fontSize: '13px', color: '#374151',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <StatusDot status={newsletter.lastRunStatus} />
+          <span>Newsletter</span>
+          <Check ok={newsletter.enPublished} />
+          <Check ok={newsletter.zhPublished} />
         </div>
-
-        {/* SEO Pipeline */}
-        <div style={card}>
-          <div style={{ fontSize: '14px', color: '#6b7280', marginBottom: '8px' }}>SEO Pipeline</div>
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
-            <StatusDot status={seo.lastRunStatus} />
-            <span style={{ fontWeight: '600', color: '#111827' }}>{seo.lastRunStatus}</span>
-          </div>
-          <div style={{ fontSize: '13px', color: '#9ca3af' }}>
-            {seo.lastRunTimestamp || 'No timestamp'}
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <StatusDot status={seo.lastRunStatus} />
+          <span>SEO Pipeline</span>
         </div>
-
-        {/* News Items */}
-        <div style={card}>
-          <div style={{ fontSize: '14px', color: '#6b7280', marginBottom: '8px' }}>News Items</div>
-          <div style={statValue}>{newsItems.last24h}</div>
-          <div style={statLabel}>last 24h</div>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '8px' }}>
-            72h: {newsItems.last72h} &middot; Total: {newsItems.total.toLocaleString()}
-          </div>
+        <div style={{ borderLeft: '1px solid #e5e7eb', paddingLeft: '16px' }}>
+          <strong>{newsItems.last24h}</strong> news (24h)
         </div>
+        <div>
+          <strong>{backlog}</strong> kw backlog
+        </div>
+        <div>
+          <strong>{todayContent}</strong> content today
+        </div>
+        <div>
+          <strong>{bilingual.paired}</strong> paired / <strong>{bilingual.enOnly + bilingual.zhOnly}</strong> unpaired
+        </div>
+        {(contentOutput.freshnessBacklog || 0) > 0 && (
+          <div style={{ color: '#f59e0b' }}>
+            <strong>{contentOutput.freshnessBacklog || 0}</strong> freshness signals
+          </div>
+        )}
       </div>
 
-      {recentErrors.length > 0 && (
-        <div style={{ marginTop: '16px', ...card, borderColor: '#fecaca', backgroundColor: '#fef2f2' }}>
-          <div style={{ fontSize: '14px', fontWeight: '600', color: '#991b1b', marginBottom: '8px' }}>Recent Errors</div>
-          <pre style={{ fontSize: '12px', color: '#7f1d1d', whiteSpace: 'pre-wrap', wordBreak: 'break-word', margin: 0 }}>
-            {recentErrors.join('\n')}
+      {pipelineHealth.recentErrors.length > 0 && (
+        <div style={{ marginTop: '8px', ...card, padding: '10px 20px', borderColor: '#fecaca', backgroundColor: '#fef2f2' }}>
+          <div style={{ fontSize: '13px', fontWeight: '600', color: '#991b1b', marginBottom: '4px' }}>Recent Errors</div>
+          <pre style={{ fontSize: '11px', color: '#7f1d1d', whiteSpace: 'pre-wrap', wordBreak: 'break-word', margin: 0 }}>
+            {pipelineHealth.recentErrors.slice(-5).join('\n')}
           </pre>
         </div>
       )}
@@ -133,8 +162,272 @@ function PipelineHealth({ data }: { data: DashboardData['pipelineHealth'] }) {
   )
 }
 
+function KeywordProvenance({ data }: { data: DashboardData['keywordProvenance'] }) {
+  const sources = [
+    { key: 'research', label: 'Research', stats: data.research, color: '#3b82f6' },
+    { key: 'news', label: 'News', stats: data.news, color: '#f59e0b' },
+  ] as const
+
+  const paa = data.paa
+
+  return (
+    <section style={{ marginBottom: '40px' }}>
+      <h2 style={sectionHeading}>Keyword Provenance</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+        {sources.map(({ key, label, stats, color }) => {
+          const convRate = stats.total > 0 ? Math.round((stats.published / stats.total) * 100) : 0
+          const barTotal = stats.total || 1
+          const last7 = data.last7d[key]
+          return (
+            <div key={key} style={card}>
+              <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827', marginBottom: '12px' }}>{label}</div>
+              {/* Stacked bar */}
+              <div style={{ display: 'flex', borderRadius: '6px', overflow: 'hidden', height: '20px', marginBottom: '8px' }}>
+                <div title={`Published: ${stats.published}`} style={{ width: `${(stats.published / barTotal) * 100}%`, backgroundColor: '#22c55e', minWidth: stats.published > 0 ? '2px' : '0' }} />
+                <div title={`Backlog: ${stats.backlog}`} style={{ width: `${(stats.backlog / barTotal) * 100}%`, backgroundColor: '#9ca3af', minWidth: stats.backlog > 0 ? '2px' : '0' }} />
+                <div title={`Error: ${stats.error}`} style={{ width: `${(stats.error / barTotal) * 100}%`, backgroundColor: '#ef4444', minWidth: stats.error > 0 ? '2px' : '0' }} />
+              </div>
+              <div style={{ display: 'flex', gap: '8px', fontSize: '12px', color: '#6b7280', marginBottom: '12px' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#22c55e', display: 'inline-block' }} /> {stats.published}</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#9ca3af', display: 'inline-block' }} /> {stats.backlog}</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#ef4444', display: 'inline-block' }} /> {stats.error}</span>
+              </div>
+              <div style={{ fontSize: '24px', fontWeight: '700', color: '#111827' }}>{stats.total}</div>
+              <div style={statLabel}>total keywords</div>
+              <div style={{ marginTop: '8px', fontSize: '13px', color: '#374151' }}>
+                <strong>{convRate}%</strong> conversion rate
+              </div>
+              {stats.avgDaysToPublish !== null && (
+                <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                  ~{stats.avgDaysToPublish}d avg to publish
+                </div>
+              )}
+              <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #f3f4f6', fontSize: '12px', color: '#6b7280' }}>
+                7d: +{last7.added} added, {last7.published} published
+              </div>
+            </div>
+          )
+        })}
+
+        {/* PAA column */}
+        <div style={card}>
+          <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827', marginBottom: '12px' }}>PAA Questions</div>
+          <div style={{ display: 'flex', borderRadius: '6px', overflow: 'hidden', height: '20px', marginBottom: '8px' }}>
+            <div title={`Published: ${paa.published}`} style={{ width: `${(paa.published / (paa.total || 1)) * 100}%`, backgroundColor: '#22c55e', minWidth: paa.published > 0 ? '2px' : '0' }} />
+            <div title={`Discovered: ${paa.discovered}`} style={{ width: `${(paa.discovered / (paa.total || 1)) * 100}%`, backgroundColor: '#a78bfa', minWidth: paa.discovered > 0 ? '2px' : '0' }} />
+            <div title={`Duplicate: ${paa.duplicate}`} style={{ width: `${(paa.duplicate / (paa.total || 1)) * 100}%`, backgroundColor: '#d1d5db', minWidth: paa.duplicate > 0 ? '2px' : '0' }} />
+            <div title={`Error: ${paa.error}`} style={{ width: `${(paa.error / (paa.total || 1)) * 100}%`, backgroundColor: '#ef4444', minWidth: paa.error > 0 ? '2px' : '0' }} />
+          </div>
+          <div style={{ display: 'flex', gap: '8px', fontSize: '12px', color: '#6b7280', marginBottom: '12px', flexWrap: 'wrap' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#22c55e', display: 'inline-block' }} /> {paa.published}</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#a78bfa', display: 'inline-block' }} /> {paa.discovered}</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#d1d5db', display: 'inline-block' }} /> {paa.duplicate}</span>
+          </div>
+          <div style={{ fontSize: '24px', fontWeight: '700', color: '#111827' }}>{paa.total}</div>
+          <div style={statLabel}>total questions</div>
+          <div style={{ marginTop: '8px', fontSize: '13px', color: '#374151' }}>
+            <strong>{paa.total > 0 ? Math.round((paa.published / paa.total) * 100) : 0}%</strong> conversion rate
+          </div>
+          <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #f3f4f6', fontSize: '12px', color: '#6b7280' }}>
+            7d: +{data.last7d.paa.added} added, {data.last7d.paa.published} published
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function SampleReview({ data }: { data: DashboardData['sampleReview'] }) {
+  if (data.days.length === 0) {
+    return (
+      <section style={{ marginBottom: '40px' }}>
+        <h2 style={sectionHeading}>Sample Review</h2>
+        <div style={{ ...card, textAlign: 'center', padding: '32px 24px', color: '#6b7280' }}>
+          No keywords found in the last 7 days.
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section style={{ marginBottom: '40px' }}>
+      <h2 style={sectionHeading}>Sample Review <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>(last 7 days)</span></h2>
+      {data.days.map((day, i) => {
+        const qs = day.qualitySummary
+        return (
+          <details key={day.date} open={i === 0} style={{ marginBottom: '8px', ...card, padding: 0 }}>
+            <summary style={{ padding: '12px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', color: '#111827', listStyle: 'none', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <span>{i === 0 ? '\u25BC' : '\u25B6'} {day.date}</span>
+              <span style={{ fontSize: '13px', fontWeight: '400', color: '#6b7280' }}>
+                {day.items.length} keyword{day.items.length !== 1 ? 's' : ''}
+              </span>
+              {qs.total > 0 && (
+                <span style={{ fontSize: '12px', fontWeight: '500', color: qs.flagged > 0 ? '#f59e0b' : '#22c55e' }}>
+                  {qs.passed}/{qs.total} passed{qs.flagged > 0 ? `, ${qs.flagged} flagged` : ''}
+                </span>
+              )}
+            </summary>
+            <div style={{ padding: '0 20px 16px' }}>
+              {day.items.map((item, j) => {
+                const srcBadge = SOURCE_BADGE_COLORS[item.source] || { bg: '#f3f4f6', fg: '#374151' }
+                return (
+                  <div key={j} style={{ borderBottom: j < day.items.length - 1 ? '1px solid #f3f4f6' : 'none', padding: '12px 0' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                      <span style={{ fontSize: '14px', fontWeight: '600', color: '#111827' }}>{item.keyword}</span>
+                      {item.type && <Badge label={item.type} bg="#f3f4f6" fg="#374151" />}
+                      <Badge label={item.source} bg={srcBadge.bg} fg={srcBadge.fg} />
+                      {item.score !== null && (
+                        <span style={{ fontSize: '12px', color: '#6b7280' }}>score: {item.score}</span>
+                      )}
+                    </div>
+
+                    {item.sourceNews.length > 0 && (
+                      <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '6px' }}>
+                        {item.sourceNews.map((s, k) => (
+                          <span key={k}>
+                            <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none' }}>
+                              {s.title.length > 60 ? s.title.slice(0, 60) + '...' : s.title}
+                            </a>
+                            {k < item.sourceNews.length - 1 ? ' | ' : ''}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {item.content.length > 0 && (
+                      <div style={{ marginTop: '8px', paddingLeft: '16px', borderLeft: '2px solid #e5e7eb' }}>
+                        {item.content.map((ci, m) => (
+                          <div key={m} style={{ marginBottom: m < item.content.length - 1 ? '8px' : 0 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                              <span style={{ fontSize: '13px', fontWeight: '500', color: '#374151' }}>{ci.title}</span>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>{ci.language.toUpperCase()}</span>
+                              {ci.tier && <span style={{ fontSize: '11px', color: '#6b7280' }}>T{ci.tier}</span>}
+                              <span style={{ fontSize: '11px', color: '#9ca3af' }}>{ci.wordCount} words</span>
+                            </div>
+                            <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                              {ci.flags.map((flag, n) => {
+                                const fc = FLAG_COLORS[flag.status]
+                                return (
+                                  <span
+                                    key={n}
+                                    title={flag.detail || flag.name}
+                                    style={{
+                                      display: 'inline-block', padding: '1px 6px', borderRadius: '4px',
+                                      fontSize: '10px', fontWeight: '500', backgroundColor: fc.bg, color: fc.fg,
+                                    }}
+                                  >
+                                    {flag.name}
+                                  </span>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </details>
+        )
+      })}
+    </section>
+  )
+}
+
+function DailyTrend({ data }: { data: DashboardData['dailyTrend'] }) {
+  if (data.length === 0) return null
+
+  const maxContent = Math.max(...data.map(d => d.contentCount), 1)
+  const maxKw = Math.max(...data.map(d => d.kwExtracted), 1)
+
+  return (
+    <section style={{ marginBottom: '40px' }}>
+      <h2 style={sectionHeading}>Daily Trend <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>(14 days)</span></h2>
+      <div style={card}>
+        <div style={{ display: 'flex', gap: '16px', marginBottom: '12px', fontSize: '12px', color: '#6b7280' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><span style={{ width: '12px', height: '8px', borderRadius: '2px', backgroundColor: '#3b82f6', display: 'inline-block' }} /> Content</span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><span style={{ width: '12px', height: '8px', borderRadius: '2px', backgroundColor: '#a78bfa', display: 'inline-block' }} /> KW Extracted</span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><span style={{ width: '12px', height: '8px', borderRadius: '2px', backgroundColor: '#22c55e', display: 'inline-block' }} /> Quality Pass %</span>
+        </div>
+        {data.map((day, i) => (
+          <div key={day.date} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+            <span style={{ fontSize: '11px', color: '#6b7280', width: '62px', textAlign: 'right', flexShrink: 0 }}>
+              {day.date.slice(5)}
+            </span>
+            <div style={{ flex: 1, display: 'flex', gap: '2px', alignItems: 'center', height: '18px' }}>
+              {/* Content count bar */}
+              <div
+                title={`${day.contentCount} content`}
+                style={{
+                  width: `${(day.contentCount / maxContent) * 40}%`,
+                  height: '14px', borderRadius: '3px',
+                  backgroundColor: '#3b82f6', minWidth: day.contentCount > 0 ? '3px' : '0',
+                }}
+              />
+              {/* KW extracted bar */}
+              <div
+                title={`${day.kwExtracted} kw extracted`}
+                style={{
+                  width: `${(day.kwExtracted / maxKw) * 40}%`,
+                  height: '14px', borderRadius: '3px',
+                  backgroundColor: '#a78bfa', minWidth: day.kwExtracted > 0 ? '3px' : '0',
+                }}
+              />
+              {/* Quality pass rate indicator */}
+              {day.contentCount > 0 && (
+                <span style={{
+                  fontSize: '10px', fontWeight: '600', marginLeft: '4px',
+                  color: day.qualityPassRate >= 80 ? '#22c55e' : day.qualityPassRate >= 50 ? '#f59e0b' : '#ef4444',
+                }}>
+                  {day.qualityPassRate}%
+                </span>
+              )}
+            </div>
+            <span style={{ fontSize: '11px', color: '#9ca3af', width: '50px', textAlign: 'right', flexShrink: 0 }}>
+              {day.contentCount}c / {day.kwExtracted}k
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function DistributionBar({ items }: { items: Array<{ label: string; value: number; color: string }> }) {
+  const total = items.reduce((sum, i) => sum + i.value, 0) || 1
+  return (
+    <>
+      <div style={{ display: 'flex', borderRadius: '6px', overflow: 'hidden', height: '16px', marginBottom: '8px' }}>
+        {items.map(item => (
+          <div
+            key={item.label}
+            title={`${item.label}: ${item.value}`}
+            style={{
+              width: `${(item.value / total) * 100}%`,
+              backgroundColor: item.color,
+              minWidth: item.value > 0 ? '2px' : '0',
+            }}
+          />
+        ))}
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', fontSize: '12px' }}>
+        {items.map(item => (
+          <span key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#6b7280' }}>
+            <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '2px', backgroundColor: item.color }} />
+            {item.label}: {item.value}
+          </span>
+        ))}
+      </div>
+    </>
+  )
+}
+
 function KeywordQuality({ data }: { data: DashboardData['keywordQuality'] }) {
-  const { byStatus, byLanguage, byIntent, volumeDistribution, difficultyDistribution, top20, staleBacklogCount, total } = data
+  const { byStatus, byLanguage, volumeDistribution, difficultyDistribution, top20, staleBacklogCount, total } = data
+  const byType = data.byType || {}
+  const enrichmentCoverage = data.enrichmentCoverage || { enriched: 0, unenriched: 0 }
 
   // Colored status bar
   const statusEntries = Object.entries(byStatus).sort((a, b) => b[1] - a[1])
@@ -142,7 +435,7 @@ function KeywordQuality({ data }: { data: DashboardData['keywordQuality'] }) {
 
   return (
     <section style={{ marginBottom: '40px' }}>
-      <h2 style={sectionHeading}>Keyword Quality <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>({total} total)</span></h2>
+      <h2 style={sectionHeading}>Keyword Health <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>({total} total)</span></h2>
 
       {/* Status bar */}
       <div style={{ display: 'flex', borderRadius: '8px', overflow: 'hidden', height: '24px', marginBottom: '16px' }}>
@@ -176,10 +469,15 @@ function KeywordQuality({ data }: { data: DashboardData['keywordQuality'] }) {
           ))}
         </div>
         <div style={card}>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '6px' }}>By Intent</div>
-          {Object.entries(byIntent).map(([i, c]) => (
-            <div key={i} style={{ fontSize: '14px', color: '#111827' }}>{i}: {c}</div>
+          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '6px' }}>By Type</div>
+          {Object.entries(byType).map(([t, c]) => (
+            <div key={t} style={{ fontSize: '14px', color: '#111827' }}>{t}: {c}</div>
           ))}
+        </div>
+        <div style={card}>
+          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '6px' }}>Enrichment</div>
+          <div style={{ fontSize: '14px', color: '#111827' }}>Enriched: {enrichmentCoverage.enriched}</div>
+          <div style={{ fontSize: '14px', color: '#111827' }}>Unenriched: {enrichmentCoverage.unenriched}</div>
         </div>
         <div style={card}>
           <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '6px' }}>Stale Backlog</div>
@@ -223,7 +521,6 @@ function KeywordQuality({ data }: { data: DashboardData['keywordQuality'] }) {
                 <th style={{ textAlign: 'center', padding: '8px 6px', color: '#6b7280' }}>Status</th>
                 <th style={{ textAlign: 'right', padding: '8px 6px', color: '#6b7280' }}>Vol</th>
                 <th style={{ textAlign: 'right', padding: '8px 6px', color: '#6b7280' }}>Diff</th>
-                <th style={{ textAlign: 'left', padding: '8px 6px', color: '#6b7280' }}>Intent</th>
               </tr>
             </thead>
             <tbody>
@@ -247,7 +544,6 @@ function KeywordQuality({ data }: { data: DashboardData['keywordQuality'] }) {
                   </td>
                   <td style={{ padding: '8px 6px', textAlign: 'right', color: '#6b7280' }}>{kw.search_volume?.toLocaleString() ?? '-'}</td>
                   <td style={{ padding: '8px 6px', textAlign: 'right', color: '#6b7280' }}>{kw.difficulty ?? '-'}</td>
-                  <td style={{ padding: '8px 6px', color: '#6b7280' }}>{kw.search_intent ?? '-'}</td>
                 </tr>
               ))}
             </tbody>
@@ -258,37 +554,10 @@ function KeywordQuality({ data }: { data: DashboardData['keywordQuality'] }) {
   )
 }
 
-function DistributionBar({ items }: { items: Array<{ label: string; value: number; color: string }> }) {
-  const total = items.reduce((sum, i) => sum + i.value, 0) || 1
-  return (
-    <>
-      <div style={{ display: 'flex', borderRadius: '6px', overflow: 'hidden', height: '16px', marginBottom: '8px' }}>
-        {items.map(item => (
-          <div
-            key={item.label}
-            title={`${item.label}: ${item.value}`}
-            style={{
-              width: `${(item.value / total) * 100}%`,
-              backgroundColor: item.color,
-              minWidth: item.value > 0 ? '2px' : '0',
-            }}
-          />
-        ))}
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', fontSize: '12px' }}>
-        {items.map(item => (
-          <span key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#6b7280' }}>
-            <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '2px', backgroundColor: item.color }} />
-            {item.label}: {item.value}
-          </span>
-        ))}
-      </div>
-    </>
-  )
-}
-
 function ContentOutput({ data }: { data: DashboardData['contentOutput'] }) {
   const { byType, byTier, publishedLast7d, publishedLast30d, seoScoreDistribution, enArticles, zhArticles, newsletterStreak } = data
+  const bilingualCoverage = data.bilingualCoverage || { paired: 0, enOnly: 0, zhOnly: 0 }
+  const freshnessBacklog = data.freshnessBacklog || 0
   const totalContent = Object.values(byType).reduce((s, c) => s + c, 0)
 
   return (
@@ -317,8 +586,8 @@ function ContentOutput({ data }: { data: DashboardData['contentOutput'] }) {
         </div>
       </div>
 
-      {/* By type + by tier */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+      {/* By type + by tier + bilingual */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '20px' }}>
         <div style={card}>
           <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827', marginBottom: '8px' }}>By Type</div>
           {Object.entries(byType).sort((a, b) => b[1] - a[1]).map(([type, count]) => (
@@ -336,6 +605,26 @@ function ContentOutput({ data }: { data: DashboardData['contentOutput'] }) {
               <span style={{ fontWeight: '600', color: '#111827' }}>{count}</span>
             </div>
           ))}
+        </div>
+        <div style={card}>
+          <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827', marginBottom: '8px' }}>Bilingual Coverage</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px', borderBottom: '1px solid #f3f4f6' }}>
+            <span style={{ color: '#374151' }}>Paired (EN+ZH)</span>
+            <span style={{ fontWeight: '600', color: '#22c55e' }}>{bilingualCoverage.paired}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px', borderBottom: '1px solid #f3f4f6' }}>
+            <span style={{ color: '#374151' }}>EN only</span>
+            <span style={{ fontWeight: '600', color: '#f59e0b' }}>{bilingualCoverage.enOnly}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px', borderBottom: '1px solid #f3f4f6' }}>
+            <span style={{ color: '#374151' }}>ZH only</span>
+            <span style={{ fontWeight: '600', color: '#f59e0b' }}>{bilingualCoverage.zhOnly}</span>
+          </div>
+          {freshnessBacklog > 0 && (
+            <div style={{ marginTop: '8px', fontSize: '12px', color: '#f59e0b' }}>
+              {freshnessBacklog} freshness signal{freshnessBacklog !== 1 ? 's' : ''} pending
+            </div>
+          )}
         </div>
       </div>
 
@@ -365,136 +654,6 @@ function ContentOutput({ data }: { data: DashboardData['contentOutput'] }) {
           </div>
         </div>
       </div>
-    </section>
-  )
-}
-
-// ─── Review Sections ─────────────────────────────────────────────────────────
-
-const TYPE_BADGE_COLORS: Record<string, { bg: string; fg: string }> = {
-  blog: { bg: '#dbeafe', fg: '#1e40af' },
-  glossary: { bg: '#dcfce7', fg: '#166534' },
-  faq: { bg: '#fef3c7', fg: '#92400e' },
-  compare: { bg: '#f3e8ff', fg: '#6b21a8' },
-}
-
-function KeywordReview({ data }: { data: NonNullable<DashboardData['recentKeywords']> }) {
-  if (data.days.length === 0) {
-    return (
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={sectionHeading}>Keyword Review</h2>
-        <div style={{ ...card, textAlign: 'center', padding: '32px 24px', color: '#6b7280' }}>
-          No keywords found in the last 7 days.
-        </div>
-      </section>
-    )
-  }
-
-  return (
-    <section style={{ marginBottom: '40px' }}>
-      <h2 style={sectionHeading}>Keyword Review <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>(last 7 days)</span></h2>
-      {data.days.map((day, i) => (
-        <details key={day.date} open={i === 0} style={{ marginBottom: '8px', ...card, padding: 0 }}>
-          <summary style={{ padding: '12px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', color: '#111827', listStyle: 'none' }}>
-            <span style={{ marginRight: '8px' }}>{i === 0 ? '\u25BC' : '\u25B6'}</span>
-            {day.date} — {day.count} keyword{day.count !== 1 ? 's' : ''}
-          </summary>
-          <div style={{ overflowX: 'auto', padding: '0 20px 16px' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
-                  <th style={{ textAlign: 'left', padding: '8px 12px', color: '#6b7280' }}>Keyword</th>
-                  <th style={{ textAlign: 'center', padding: '8px 6px', color: '#6b7280' }}>Lang</th>
-                  <th style={{ textAlign: 'center', padding: '8px 6px', color: '#6b7280' }}>Type</th>
-                  <th style={{ textAlign: 'left', padding: '8px 6px', color: '#6b7280' }}>Intent</th>
-                  <th style={{ textAlign: 'right', padding: '8px 6px', color: '#6b7280' }}>Score</th>
-                  <th style={{ textAlign: 'left', padding: '8px 12px', color: '#6b7280' }}>Source News</th>
-                </tr>
-              </thead>
-              <tbody>
-                {day.items.map((kw, j) => (
-                  <tr key={j} style={{ borderBottom: '1px solid #f3f4f6' }}>
-                    <td style={{ padding: '8px 12px', color: '#111827', maxWidth: '260px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{kw.keyword}</td>
-                    <td style={{ padding: '8px 6px', textAlign: 'center', color: '#6b7280' }}>{kw.language?.toUpperCase()}</td>
-                    <td style={{ padding: '8px 6px', textAlign: 'center' }}>
-                      {kw.type ? (
-                        <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '9999px', fontSize: '11px', fontWeight: '500', backgroundColor: '#f3f4f6', color: '#374151' }}>
-                          {kw.type}
-                        </span>
-                      ) : '-'}
-                    </td>
-                    <td style={{ padding: '8px 6px', color: '#6b7280' }}>{kw.search_intent ?? '-'}</td>
-                    <td style={{ padding: '8px 6px', textAlign: 'right', fontWeight: '600', color: '#111827' }}>{kw.score ?? '-'}</td>
-                    <td style={{ padding: '8px 12px', fontSize: '12px' }}>
-                      {kw.sourceNews.length > 0 ? (
-                        kw.sourceNews.map((s, k) => (
-                          <div key={k} style={{ marginBottom: k < kw.sourceNews.length - 1 ? '2px' : 0 }}>
-                            <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none' }} title={s.url}>
-                              {s.title.length > 50 ? s.title.slice(0, 50) + '...' : s.title}
-                            </a>
-                          </div>
-                        ))
-                      ) : (
-                        <span style={{ color: '#d1d5db' }}>-</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </details>
-      ))}
-    </section>
-  )
-}
-
-function ContentReview({ data }: { data: NonNullable<DashboardData['recentContent']> }) {
-  if (data.days.length === 0) {
-    return (
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={sectionHeading}>Content Review</h2>
-        <div style={{ ...card, textAlign: 'center', padding: '32px 24px', color: '#6b7280' }}>
-          No content published in the last 7 days.
-        </div>
-      </section>
-    )
-  }
-
-  return (
-    <section style={{ marginBottom: '40px' }}>
-      <h2 style={sectionHeading}>Content Review <span style={{ fontSize: '14px', fontWeight: '400', color: '#9ca3af' }}>(last 7 days)</span></h2>
-      {data.days.map((day, i) => (
-        <details key={day.date} open={i === 0} style={{ marginBottom: '8px', ...card, padding: 0 }}>
-          <summary style={{ padding: '12px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', color: '#111827', listStyle: 'none' }}>
-            <span style={{ marginRight: '8px' }}>{i === 0 ? '\u25BC' : '\u25B6'}</span>
-            {day.date} — {day.count} article{day.count !== 1 ? 's' : ''}
-          </summary>
-          <div style={{ padding: '0 20px 16px', display: 'grid', gap: '12px' }}>
-            {day.items.map((item, j) => {
-              const badge = TYPE_BADGE_COLORS[item.type] || { bg: '#f3f4f6', fg: '#374151' }
-              return (
-                <div key={j} style={{ border: '1px solid #f3f4f6', borderRadius: '8px', padding: '12px 16px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
-                    <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '9999px', fontSize: '11px', fontWeight: '600', backgroundColor: badge.bg, color: badge.fg }}>
-                      {item.type}
-                    </span>
-                    <span style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500' }}>{item.language.toUpperCase()}</span>
-                    {item.tier && (
-                      <span style={{ fontSize: '11px', color: '#6b7280' }}>Tier {item.tier}</span>
-                    )}
-                    <span style={{ fontSize: '11px', color: '#9ca3af', marginLeft: 'auto' }}>{item.wordCount.toLocaleString()} words</span>
-                  </div>
-                  <div style={{ fontSize: '14px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>{item.title}</div>
-                  <div style={{ fontSize: '12px', color: '#6b7280', lineHeight: '1.5' }}>
-                    {item.preview}{item.preview.length >= 200 ? '...' : ''}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </details>
-      ))}
     </section>
   )
 }
@@ -545,12 +704,23 @@ export default function AdminDashboard() {
           )}
         </div>
 
-        <PipelineHealth data={data.pipelineHealth} />
-        <KeywordQuality data={data.keywordQuality} />
-        <ContentOutput data={data.contentOutput} />
+        {/* 1. Health Strip */}
+        <HealthStrip data={data} />
 
-        {data.recentKeywords && <KeywordReview data={data.recentKeywords} />}
-        {data.recentContent && <ContentReview data={data.recentContent} />}
+        {/* 2. Keyword Provenance */}
+        {data.keywordProvenance && <KeywordProvenance data={data.keywordProvenance} />}
+
+        {/* 3. Sample Review */}
+        {data.sampleReview && <SampleReview data={data.sampleReview} />}
+
+        {/* 4. Daily Trend */}
+        {data.dailyTrend && <DailyTrend data={data.dailyTrend} />}
+
+        {/* 5. Keyword Health */}
+        <KeywordQuality data={data.keywordQuality} />
+
+        {/* 6. Content Output */}
+        <ContentOutput data={data.contentOutput} />
 
         <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e7eb', color: '#9ca3af', fontSize: '13px' }}>
           Internal dashboard. Refreshes after each cron run.

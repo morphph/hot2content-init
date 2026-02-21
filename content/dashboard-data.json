@@ -1,176 +1,74 @@
 {
-  "generatedAt": "2026-02-21T02:45:02.077Z",
+  "generatedAt": "2026-02-21T05:21:51.676Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-21",
-      "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-21",
-      "enPublished": true,
-      "zhPublished": true
+      "lastRunDate": null,
+      "lastRunStatus": "unknown",
+      "lastRunMessage": "No status file found",
+      "enPublished": false,
+      "zhPublished": false
     },
     "seo": {
-      "lastRunTimestamp": "2026-02-20 02:35:47 UTC",
-      "lastRunStatus": "complete"
+      "lastRunTimestamp": null,
+      "lastRunStatus": "unknown"
     },
     "newsItems": {
-      "last24h": 74,
-      "last72h": 563,
-      "total": 566
+      "last24h": 0,
+      "last72h": 0,
+      "total": 0
     },
-    "recentErrors": [
-      "fatal: Cannot fast-forward to multiple branches.",
-      "fatal: Cannot fast-forward to multiple branches.",
-      "❌ git pull failed",
-      "❌ git pull failed"
-    ]
+    "recentErrors": []
   },
   "keywordQuality": {
-    "byStatus": {
-      "backlog": 10
-    },
-    "byLanguage": {
-      "en": 10
-    },
-    "byIntent": {
-      "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities": 1,
-      "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons": 1,
-      "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows": 1,
-      "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
-      "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM": 1,
-      "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production": 1,
-      "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities": 1,
-      "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
-      "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns": 1,
-      "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1
+    "byStatus": {},
+    "byLanguage": {},
+    "byIntent": {},
+    "byType": {},
+    "enrichmentCoverage": {
+      "enriched": 0,
+      "unenriched": 0
     },
     "volumeDistribution": {
       "noData": 0,
-      "low": 10,
+      "low": 0,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 5,
-      "medium": 2,
-      "hard": 3
+      "easy": 0,
+      "medium": 0,
+      "hard": 0
     },
-    "top20": [
-      {
-        "keyword": "agentic coding benchmark infrastructure noise",
-        "language": "en",
-        "score": 90,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 40,
-        "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons"
-      },
-      {
-        "keyword": "claude code advanced tool use beta",
-        "language": "en",
-        "score": 90,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 60,
-        "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities"
-      },
-      {
-        "keyword": "AI agent evaluation strategies",
-        "language": "en",
-        "score": 81,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 20,
-        "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate"
-      },
-      {
-        "keyword": "GitHub Copilot SDK multi-platform integration",
-        "language": "en",
-        "score": 81,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 100,
-        "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities"
-      },
-      {
-        "keyword": "long-running AI agent harness design",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows"
-      },
-      {
-        "keyword": "multi-agent workspace orchestration",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 60,
-        "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns"
-      },
-      {
-        "keyword": "opencode vs claude code comparison",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases"
-      },
-      {
-        "keyword": "Gemini CLI vs Claude Code terminal agents",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them"
-      },
-      {
-        "keyword": "context engineering for production agents",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 40,
-        "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production"
-      },
-      {
-        "keyword": "Goose AI autonomous coding agent",
-        "language": "en",
-        "score": 64,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 20,
-        "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM"
-      }
-    ],
+    "top20": [],
     "staleBacklogCount": 0,
-    "total": 10
+    "total": 0
   },
   "contentOutput": {
-    "byType": {
-      "newsletter": 2
-    },
+    "byType": {},
     "byTier": {
       "0": 6,
       "1": 8,
       "2": 30,
       "3": 16
     },
-    "publishedLast7d": 2,
-    "publishedLast30d": 2,
+    "publishedLast7d": 0,
+    "publishedLast30d": 0,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 2
+      "noScore": 0
     },
     "enArticles": 0,
     "zhArticles": 0,
+    "bilingualCoverage": {
+      "paired": 27,
+      "enOnly": 3,
+      "zhOnly": 3
+    },
+    "freshnessBacklog": 0,
     "newsletterStreak": {
       "en": 14,
       "zh": 14,
@@ -178,95 +76,148 @@
       "lastZhDate": "2026-02-21"
     }
   },
-  "recentKeywords": {
-    "days": [
-      {
-        "date": "2026-02-20",
-        "count": 10,
-        "items": [
-          {
-            "keyword": "agentic coding benchmark infrastructure noise",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons",
-            "score": 90,
-            "sourceNews": []
-          },
-          {
-            "keyword": "claude code advanced tool use beta",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities",
-            "score": 90,
-            "sourceNews": []
-          },
-          {
-            "keyword": "AI agent evaluation strategies",
-            "language": "en",
-            "type": "faq",
-            "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate",
-            "score": 81,
-            "sourceNews": []
-          },
-          {
-            "keyword": "GitHub Copilot SDK multi-platform integration",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities",
-            "score": 81,
-            "sourceNews": []
-          },
-          {
-            "keyword": "long-running AI agent harness design",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "multi-agent workspace orchestration",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "opencode vs claude code comparison",
-            "language": "en",
-            "type": "compare",
-            "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Gemini CLI vs Claude Code terminal agents",
-            "language": "en",
-            "type": "compare",
-            "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "context engineering for production agents",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Goose AI autonomous coding agent",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM",
-            "score": 64,
-            "sourceNews": []
-          }
-        ]
+  "keywordProvenance": {
+    "research": {
+      "total": 0,
+      "backlog": 0,
+      "published": 0,
+      "error": 0,
+      "avgDaysToPublish": null
+    },
+    "news": {
+      "total": 0,
+      "backlog": 0,
+      "published": 0,
+      "error": 0,
+      "avgDaysToPublish": null
+    },
+    "paa": {
+      "total": 0,
+      "discovered": 0,
+      "published": 0,
+      "duplicate": 0,
+      "error": 0
+    },
+    "last7d": {
+      "research": {
+        "added": 0,
+        "published": 0
+      },
+      "news": {
+        "added": 0,
+        "published": 0
+      },
+      "paa": {
+        "added": 0,
+        "published": 0
       }
-    ]
+    }
+  },
+  "sampleReview": {
+    "days": []
+  },
+  "dailyTrend": [
+    {
+      "date": "2026-02-21",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-20",
+      "contentCount": 30,
+      "qualityPassRate": 3,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-19",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-18",
+      "contentCount": 20,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-17",
+      "contentCount": 18,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-16",
+      "contentCount": 37,
+      "qualityPassRate": 3,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-15",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-14",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-13",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-12",
+      "contentCount": 2,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-11",
+      "contentCount": 2,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-10",
+      "contentCount": 38,
+      "qualityPassRate": 3,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-09",
+      "contentCount": 24,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
+      "date": "2026-02-08",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    }
+  ],
+  "recentKeywords": {
+    "days": []
   },
   "recentContent": {
     "days": [

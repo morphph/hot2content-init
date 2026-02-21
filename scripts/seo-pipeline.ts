@@ -850,8 +850,8 @@ async function main() {
   try {
     const db = getDb();
     const insertKw = db.prepare(`
-      INSERT OR IGNORE INTO keywords (keyword, keyword_zh, type, score, status, search_intent, language)
-      VALUES (?, ?, ?, ?, 'backlog', ?, 'en')
+      INSERT OR IGNORE INTO keywords (keyword, keyword_zh, type, score, status, search_intent, language, source, news_ids)
+      VALUES (?, ?, ?, ?, 'backlog', ?, 'en', 'news', ?)
     `);
     const tx = db.transaction(() => {
       for (const kw of keywords) {
@@ -861,6 +861,7 @@ async function main() {
           kw.type,
           Math.round(kw.relevance * kw.newness),
           kw.context,
+          JSON.stringify(kw.news_ids || []),
         );
       }
     });
