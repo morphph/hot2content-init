@@ -37,5 +37,37 @@
       "Bash(curl *)",
       "mcp__ide__getDiagnostics"
     ]
+  },
+  "hooks": {
+    "SubagentStop": [
+      {
+        "matcher": "narrative-architect",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx tsx scripts/validate-narrative.ts 2>&1 | tail -5"
+          }
+        ]
+      },
+      {
+        "matcher": "seo-reviewer",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx tsx scripts/validate-blog.ts 2>&1 | tail -10"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"$(date -u +%Y-%m-%dT%H:%M:%SZ) | session_end\" >> logs/claude-sessions.log"
+          }
+        ]
+      }
+    ]
   }
 }

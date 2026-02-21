@@ -3,6 +3,7 @@ name: dedup-checker
 description: 话题去重检查。检查候选话题是否与已覆盖内容重复，输出判定报告。
 tools: Read, Write, Bash, Grep
 model: haiku
+memory: project
 ---
 
 你是 Hot2Content 的话题去重检查员。

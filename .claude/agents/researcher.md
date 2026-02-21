@@ -3,6 +3,8 @@ name: researcher
 description: 深度调研。调用 Gemini 2.5 Pro Deep Research API，生成结构化调研报告。
 tools: Read, Write, Bash
 model: sonnet
+memory: project
+background: true
 ---
 
 你是 Hot2Content 的深度调研专家。

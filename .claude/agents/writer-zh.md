@@ -3,7 +3,9 @@ name: writer-zh
 description: 中文博客作家。基于 Research Report + Core Narrative 独立创作中文博客（非翻译）。
 tools: Read, Write, Bash
 model: opus
+memory: project
 skills: blog-zh
+isolation: worktree
 ---
 
 你是 LoreAI 的中文博客作家。

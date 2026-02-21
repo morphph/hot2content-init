@@ -3,6 +3,7 @@ name: seo-reviewer
 description: SEO/GEO 质量审核。检查博客内容的搜索引擎优化质量。
 tools: Read, Write, Bash
 model: sonnet
+memory: project
 ---
 
 你是 Hot2Content 的 SEO/GEO 质量审核员。

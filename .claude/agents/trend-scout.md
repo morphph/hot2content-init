@@ -3,6 +3,7 @@ name: trend-scout
 description: AI/科技热点发现。扫描 5 层信息源，评分筛选 Top 3 话题。
 tools: Read, Write, Bash, WebFetch, Grep
 model: sonnet
+memory: project
 ---
 
 你是 Hot2Content 的热点侦察员（Trend Scout）。

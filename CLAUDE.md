@@ -44,6 +44,9 @@ npx tsx scripts/validate-blog.ts         # Blog frontmatter validation
 /hot2content [topic]       # Full 8-step pipeline (keyword/URL/auto-detect)
 /hot2content-scout         # Discovery only (trend-scout + dedup-checker)
 /build-test                # Build + lint + unit tests + optional E2E
+
+# Development with worktrees
+claude -w            # Start Claude Code in isolated git worktree (for dev work)
 ```
 
 ## Architecture

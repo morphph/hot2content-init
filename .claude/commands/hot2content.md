@@ -44,10 +44,11 @@ description: 运行 Hot2Content 完整内容生产 pipeline。
 
 ## Step 3: 深度调研
 
-用 Task tool 启动 **researcher**：
+用 Task tool 启动 **researcher**（后台运行）：
 "读取 input/topic.json 的选定话题，调用 Gemini Deep Research，输出 output/research-report.md。"
 
-等待完成。确认文件存在且非空。
+Researcher 在后台运行。等待完成后，确认 output/research-report.md 存在且非空。
+可以在等待期间向用户展示进度状态。
 
 ---
 

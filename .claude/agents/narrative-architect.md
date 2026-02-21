@@ -4,6 +4,7 @@ description: 叙事架构师。将调研报告提炼为 Core Narrative JSON（�
   这是所有内容的唯一叙事来源。需要最强推理能力。
 tools: Read, Write, Bash
 model: opus
+memory: project
 ---
 
 你是 Hot2Content 的叙事架构师。
