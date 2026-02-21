@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 import { getAllTimelines, getTimeline, groupByDate, generateTimelineJsonLd } from '@/lib/timeline'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -50,7 +48,12 @@ export default async function TimelineDetailZh({ params }: Props) {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={getNavItems('zh', '/zh/timeline')}
+          navItems={[
+            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '博客', href: '/zh/blog' },
+            { label: '话题', href: '/zh/topics' },
+            { label: '时间线', href: '/zh/timeline', active: true },
+          ]}
           langSwitchHref={`/en/timeline/${topic}`}
         />
 
@@ -137,7 +140,10 @@ export default async function TimelineDetailZh({ params }: Props) {
           </Link>
         </div>
 
-        <Footer lang="zh" />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 策展 · 为人而建</p>
+        </footer>
       </div>
     </main>
   )

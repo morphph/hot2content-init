@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getAllCompares } from '@/lib/compare'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 
 export const metadata = {
   title: 'AI 模型对比 | LoreAI',
@@ -23,7 +21,13 @@ export default function ComparePageZh() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={getNavItems('zh', '/zh/compare')}
+          navItems={[
+            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '博客', href: '/zh/blog' },
+            { label: '常见问题', href: '/zh/faq' },
+            { label: '术语表', href: '/zh/glossary' },
+            { label: '对比', href: '/zh/compare', active: true },
+          ]}
           langSwitchHref="/en/compare"
         />
 
@@ -56,7 +60,10 @@ export default function ComparePageZh() {
           </div>
         )}
 
-        <Footer lang="zh" />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 驱动 · 为人而建</p>
+        </footer>
       </div>
     </main>
   )

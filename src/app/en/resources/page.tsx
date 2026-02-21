@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr + 'T00:00:00')
@@ -33,7 +31,11 @@ export default async function ResourcesPage() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="en"
-          navItems={getNavItems('en', '/en/resources')}
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter' },
+            { label: 'Blog', href: '/en/blog' },
+            { label: 'Resources', href: '/en/resources', active: true },
+          ]}
           langSwitchHref="/zh/resources"
         />
 
@@ -116,7 +118,10 @@ export default async function ResourcesPage() {
           </Link>
         </div>
 
-        <Footer lang="en" />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>Curated by AI · Built for humans</p>
+        </footer>
       </div>
     </main>
   )

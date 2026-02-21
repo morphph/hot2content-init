@@ -2,8 +2,6 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getGlossaryTerms, getGlossaryTerm, generateGlossaryJsonLd } from '@/lib/glossary'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -62,7 +60,13 @@ export default async function GlossaryTermPageEn({ params }: Props) {
 
         <Header
           lang="en"
-          navItems={getNavItems('en', '/en/glossary')}
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter' },
+            { label: 'Blog', href: '/en/blog' },
+            { label: 'FAQ', href: '/en/faq' },
+            { label: 'Glossary', href: '/en/glossary', active: true },
+            { label: 'Compare', href: '/en/compare' },
+          ]}
           langSwitchHref={`/zh/glossary/${slug}`}
         />
 
@@ -98,7 +102,6 @@ export default async function GlossaryTermPageEn({ params }: Props) {
             ))}
           </div>
         )}
-        <Footer lang="en" />
       </div>
     </main>
   )

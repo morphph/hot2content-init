@@ -2,8 +2,6 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllCompares, getCompare, generateCompareJsonLd } from '@/lib/compare'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -66,7 +64,13 @@ export default async function CompareDetailPageEn({ params }: Props) {
 
         <Header
           lang="en"
-          navItems={getNavItems('en', '/en/compare')}
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter' },
+            { label: 'Blog', href: '/en/blog' },
+            { label: 'FAQ', href: '/en/faq' },
+            { label: 'Glossary', href: '/en/glossary' },
+            { label: 'Compare', href: '/en/compare', active: true },
+          ]}
           langSwitchHref={`/zh/compare/${zhSlug}`}
         />
 
@@ -98,7 +102,6 @@ export default async function CompareDetailPageEn({ params }: Props) {
             ))}
           </div>
         )}
-        <Footer lang="en" />
       </div>
     </main>
   )

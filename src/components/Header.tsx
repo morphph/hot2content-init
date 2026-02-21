@@ -1,6 +1,3 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
 
 export type NavItem = {
@@ -19,90 +16,31 @@ interface HeaderProps {
 
 /**
  * Shared site header with logo, navigation, and language switcher.
- * Responsive: hamburger menu on mobile, horizontal nav on desktop.
+ * Used across all pages to avoid duplicating header markup.
  */
 export default function Header({ lang, navItems, langSwitchHref }: HeaderProps) {
-  const [mobileOpen, setMobileOpen] = useState(false)
   const isEn = lang === 'en'
   const homeHref = isEn ? '/newsletter' : '/zh/newsletter'
 
   return (
-    <header className="site-header sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-transparent">
-      <div className="flex items-center justify-between py-4">
-        {/* Logo + Desktop Nav */}
-        <div className="flex items-center gap-8">
-          <Link href={homeHref} className="text-xl font-extrabold text-blue-600 tracking-tight no-underline">
+    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+        <Link href={homeHref} style={{ textDecoration: 'none' }}>
+          <span style={{ fontSize: '20px', fontWeight: '800', color: '#2563eb', letterSpacing: '-0.02em' }}>
             LoreAI
-          </Link>
-          <nav className="hidden md:flex gap-6 text-sm">
-            {navItems.map((item) =>
-              item.active ? (
-                <span
-                  key={item.label}
-                  className="text-gray-900 font-semibold border-b-2 border-purple-500 pb-1"
-                >
-                  {item.label}
-                </span>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-gray-500 hover:text-gray-900 no-underline pb-1 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </nav>
-        </div>
-
-        {/* Language Switcher + Mobile Toggle */}
-        <div className="flex items-center gap-4">
-          {/* Language Switcher */}
-          <div className="flex gap-2 text-[13px]">
-            {isEn ? (
-              <>
-                <span className="text-gray-900 font-medium">EN</span>
-                <span className="text-gray-300">|</span>
-                <Link href={langSwitchHref} className="text-gray-500 no-underline hover:text-gray-900 transition-colors">
-                  中文
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link href={langSwitchHref} className="text-gray-500 no-underline hover:text-gray-900 transition-colors">
-                  EN
-                </Link>
-                <span className="text-gray-300">|</span>
-                <span className="text-gray-900 font-medium">中文</span>
-              </>
-            )}
-          </div>
-
-          {/* Hamburger Button (mobile only) */}
-          <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-          >
-            <span className={`block w-5 h-0.5 bg-gray-700 transition-transform duration-200 ${mobileOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-gray-700 transition-opacity duration-200 ${mobileOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-gray-700 transition-transform duration-200 ${mobileOpen ? '-rotate-45 -translate-y-[4px]' : ''}`} />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Nav Drawer */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-200 ease-in-out ${mobileOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}
-      >
-        <nav className="flex flex-col gap-1 border-t border-gray-100 pt-3">
+          </span>
+        </Link>
+        <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
           {navItems.map((item) =>
             item.active ? (
               <span
                 key={item.label}
-                className="text-gray-900 font-semibold text-sm py-2 px-3 rounded-lg bg-purple-50 border-l-2 border-purple-500"
+                style={{
+                  color: '#111827',
+                  fontWeight: '600',
+                  borderBottom: '2px solid #8b5cf6',
+                  paddingBottom: '4px',
+                }}
               >
                 {item.label}
               </span>
@@ -110,14 +48,32 @@ export default function Header({ lang, navItems, langSwitchHref }: HeaderProps) 
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-gray-500 hover:text-gray-900 hover:bg-gray-50 text-sm py-2 px-3 rounded-lg no-underline transition-colors"
-                onClick={() => setMobileOpen(false)}
+                style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}
               >
                 {item.label}
               </Link>
             )
           )}
         </nav>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', fontSize: '13px' }}>
+        {isEn ? (
+          <>
+            <span style={{ color: '#111827', fontWeight: '500' }}>EN</span>
+            <span style={{ color: '#d1d5db' }}>|</span>
+            <Link href={langSwitchHref} style={{ color: '#6b7280', textDecoration: 'none' }}>
+              中文
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link href={langSwitchHref} style={{ color: '#6b7280', textDecoration: 'none' }}>
+              EN
+            </Link>
+            <span style={{ color: '#d1d5db' }}>|</span>
+            <span style={{ color: '#111827', fontWeight: '500' }}>中文</span>
+          </>
+        )}
       </div>
     </header>
   )

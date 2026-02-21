@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getGlossaryTerms } from '@/lib/glossary'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 
 export const metadata = {
   title: 'Glossary | LoreAI',
@@ -32,7 +30,13 @@ export default function GlossaryPageEn() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="en"
-          navItems={getNavItems('en', '/en/glossary')}
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter' },
+            { label: 'Blog', href: '/en/blog' },
+            { label: 'FAQ', href: '/en/faq' },
+            { label: 'Glossary', href: '/en/glossary', active: true },
+            { label: 'Compare', href: '/en/compare' },
+          ]}
           langSwitchHref="/zh/glossary"
         />
 
@@ -78,7 +82,10 @@ export default function GlossaryPageEn() {
           ))
         )}
 
-        <Footer lang="en" />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>Curated by AI · Built for humans</p>
+        </footer>
       </div>
     </main>
   )

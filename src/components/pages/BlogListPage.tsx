@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 
 const tierConfigEn = {
   1: { label: '🔬 Deep Dive', color: '#7c3aed', bg: '#f5f3ff' },
@@ -46,7 +44,10 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
   const tier2Posts = posts.filter(p => p.tier === 2)
   const tier3Posts = posts.filter(p => p.tier === 3)
 
-  const navItems = getNavItems(lang, `/${lang}/blog`)
+  const navItems = [
+    { label: isEn ? 'Newsletter' : 'Newsletter', href: isEn ? '/newsletter' : '/zh/newsletter' },
+    { label: isEn ? 'Blog' : '博客', href: `/${lang}/blog`, active: true },
+  ]
 
   const allPosts = [...tier1Posts, ...tier2Posts, ...tier3Posts]
   const itemListLd = {
@@ -62,8 +63,8 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-white">
-      <div className="max-w-[800px] mx-auto px-6 py-8">
+    <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
@@ -75,29 +76,29 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
         />
 
         {/* Hero */}
-        <div className="mb-10">
-          <h1 className="text-[28px] font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent mb-2">
+        <div style={{ marginBottom: '40px' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>
             {isEn ? 'Blog' : '博客'}
           </h1>
-          <p className="text-gray-500 text-base">
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>
             {isEn ? 'Deep dives, tutorials, and insights' : '深度解读、教程和洞察'}
           </p>
         </div>
 
         {/* Divider */}
-        <div className="flex items-center gap-1 mb-10">
-          <div className="h-2 w-[120px] bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-sm" />
-          <div className="w-2 h-2 bg-blue-400 rounded-sm" />
-          <div className="w-2 h-2 bg-blue-300 rounded-sm opacity-70" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>
+          <div style={{ height: '8px', width: '120px', background: 'linear-gradient(90deg, #EC4899, #8B5CF6, #3B82F6)', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#60A5FA', borderRadius: '2px' }} />
+          <div style={{ width: '8px', height: '8px', backgroundColor: '#93C5FD', borderRadius: '2px', opacity: 0.7 }} />
         </div>
 
         {/* Posts */}
         {posts.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-gray-500 text-base mb-2">
+          <div style={{ textAlign: 'center', padding: '64px 0' }}>
+            <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '8px' }}>
               {isEn ? 'No posts yet' : '暂无文章'}
             </p>
-            <p className="text-gray-400 text-sm">
+            <p style={{ color: '#9ca3af', fontSize: '14px' }}>
               {isEn ? 'Check back soon!' : '敬请期待！'}
             </p>
           </div>
@@ -105,7 +106,7 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
           <>
             {/* Featured / Tier 1 */}
             {tier1Posts.length > 0 && (
-              <div className="flex flex-col gap-4 mb-12">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
                 {tier1Posts.map((post) => {
                   const tier = tierConfig[1]
                   let dateLabel: string
@@ -120,25 +121,16 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
                   const descLimit = isEn ? 200 : 150
 
                   return (
-                    <Link
-                      key={post.slug}
-                      href={`/${lang}/blog/${post.slug}`}
-                      className="block no-underline p-6 rounded-xl border-2 border-purple-200 bg-purple-50 hover:shadow-md transition-shadow"
-                    >
-                      <div className="flex items-center gap-2 mb-3 flex-wrap">
-                        <span
-                          className="text-[11px] font-semibold px-2 py-0.5 rounded"
-                          style={{ color: tier.color, backgroundColor: tier.bg }}
-                        >
-                          {tier.label}
-                        </span>
-                        <span className="text-xs text-gray-400">{dateLabel}</span>
-                        <span className="text-xs text-gray-300">&middot;</span>
-                        <span className="text-xs text-gray-400">{readTimeLabel}</span>
+                    <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} style={{ display: 'block', textDecoration: 'none', padding: '24px', borderRadius: '12px', border: '2px solid #e9d5ff', backgroundColor: '#faf5ff', transition: 'box-shadow 0.2s' }} className="blog-card">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '11px', fontWeight: '600', color: tier.color, backgroundColor: tier.bg, padding: '2px 8px', borderRadius: '4px' }}>{tier.label}</span>
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
+                        <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
                       </div>
-                      <h2 className="text-lg font-semibold text-gray-900 mb-1 leading-snug">{post.title}</h2>
+                      <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>{post.title}</h2>
                       {post.description && (
-                        <p className="text-[13px] text-gray-500 leading-relaxed mt-1">
+                        <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', marginTop: '4px' }}>
                           {post.description.length > descLimit ? post.description.slice(0, descLimit) + '...' : post.description}
                         </p>
                       )}
@@ -150,12 +142,12 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
 
             {/* Analysis / Tier 2 */}
             {tier2Posts.length > 0 && (
-              <div className="mb-12">
-                <div className="flex items-center gap-2 mb-4">
-                  <h2 className="text-lg font-semibold text-blue-600">{isEn ? '📝 Analysis' : '📝 分析'}</h2>
-                  <span className="text-xs text-gray-400">({tier2Posts.length})</span>
+              <div style={{ marginBottom: '48px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                  <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#2563eb' }}>{isEn ? '📝 Analysis' : '📝 分析'}</h2>
+                  <span style={{ fontSize: '12px', color: '#9ca3af' }}>({tier2Posts.length})</span>
                 </div>
-                <div className="flex flex-col gap-2.5">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {tier2Posts.map((post) => {
                     const tier = tierConfig[2]
                     let dateLabel: string
@@ -170,25 +162,16 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
                     const descLimit = isEn ? 100 : 80
 
                     return (
-                      <Link
-                        key={post.slug}
-                        href={`/${lang}/blog/${post.slug}`}
-                        className="block no-underline px-5 py-4 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-shadow"
-                      >
-                        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                          <span
-                            className="text-[11px] font-semibold px-2 py-0.5 rounded"
-                            style={{ color: tier.color, backgroundColor: tier.bg }}
-                          >
-                            {tier.label}
-                          </span>
-                          <span className="text-xs text-gray-400">{dateLabel}</span>
-                          <span className="text-xs text-gray-300">&middot;</span>
-                          <span className="text-xs text-gray-400">{readTimeLabel}</span>
+                      <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} style={{ display: 'block', textDecoration: 'none', padding: '16px 20px', borderRadius: '12px', border: '1px solid #f3f4f6', backgroundColor: '#ffffff', transition: 'box-shadow 0.2s' }} className="blog-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '11px', fontWeight: '600', color: tier.color, backgroundColor: tier.bg, padding: '2px 8px', borderRadius: '4px' }}>{tier.label}</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
+                          <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
                         </div>
-                        <h2 className="text-[15px] font-medium text-gray-900 mb-1 leading-snug">{post.title}</h2>
+                        <h2 style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>{post.title}</h2>
                         {post.description && (
-                          <p className="text-[13px] text-gray-500 leading-relaxed mt-1">
+                          <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', marginTop: '4px' }}>
                             {post.description.length > descLimit ? post.description.slice(0, descLimit) + '...' : post.description}
                           </p>
                         )}
@@ -201,12 +184,12 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
 
             {/* Quick Read / Tier 3 */}
             {tier3Posts.length > 0 && (
-              <div className="mb-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <h2 className="text-lg font-semibold text-emerald-600">{isEn ? '⚡ Quick Read' : '⚡ 快读'}</h2>
-                  <span className="text-xs text-gray-400">({tier3Posts.length})</span>
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                  <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#059669' }}>{isEn ? '⚡ Quick Read' : '⚡ 快读'}</h2>
+                  <span style={{ fontSize: '12px', color: '#9ca3af' }}>({tier3Posts.length})</span>
                 </div>
-                <div className="flex flex-col gap-2.5">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {tier3Posts.map((post) => {
                     const tier = tierConfig[3]
                     let dateLabel: string
@@ -221,25 +204,16 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
                     const descLimit = isEn ? 100 : 80
 
                     return (
-                      <Link
-                        key={post.slug}
-                        href={`/${lang}/blog/${post.slug}`}
-                        className="block no-underline px-5 py-4 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-shadow"
-                      >
-                        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                          <span
-                            className="text-[11px] font-semibold px-2 py-0.5 rounded"
-                            style={{ color: tier.color, backgroundColor: tier.bg }}
-                          >
-                            {tier.label}
-                          </span>
-                          <span className="text-xs text-gray-400">{dateLabel}</span>
-                          <span className="text-xs text-gray-300">&middot;</span>
-                          <span className="text-xs text-gray-400">{readTimeLabel}</span>
+                      <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} style={{ display: 'block', textDecoration: 'none', padding: '16px 20px', borderRadius: '12px', border: '1px solid #f3f4f6', backgroundColor: '#ffffff', transition: 'box-shadow 0.2s' }} className="blog-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '11px', fontWeight: '600', color: tier.color, backgroundColor: tier.bg, padding: '2px 8px', borderRadius: '4px' }}>{tier.label}</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{dateLabel}</span>
+                          <span style={{ fontSize: '12px', color: '#d1d5db' }}>·</span>
+                          <span style={{ fontSize: '12px', color: '#9ca3af' }}>{readTimeLabel}</span>
                         </div>
-                        <h2 className="text-[15px] font-medium text-gray-900 mb-1 leading-snug">{post.title}</h2>
+                        <h2 style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '4px', lineHeight: '1.4' }}>{post.title}</h2>
                         {post.description && (
-                          <p className="text-[13px] text-gray-500 leading-relaxed mt-1">
+                          <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', marginTop: '4px' }}>
                             {post.description.length > descLimit ? post.description.slice(0, descLimit) + '...' : post.description}
                           </p>
                         )}
@@ -252,7 +226,12 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
           </>
         )}
 
-        <Footer lang={lang} />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>
+            {isEn ? 'Curated by AI · Built for humans' : 'AI 驱动 · 为人而建'}
+          </p>
+        </footer>
       </div>
     </main>
   )

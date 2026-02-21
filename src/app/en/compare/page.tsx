@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getAllCompares } from '@/lib/compare'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 
 export const metadata = {
   title: 'Compare AI Models | LoreAI',
@@ -23,7 +21,13 @@ export default function ComparePageEn() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="en"
-          navItems={getNavItems('en', '/en/compare')}
+          navItems={[
+            { label: 'Newsletter', href: '/newsletter' },
+            { label: 'Blog', href: '/en/blog' },
+            { label: 'FAQ', href: '/en/faq' },
+            { label: 'Glossary', href: '/en/glossary' },
+            { label: 'Compare', href: '/en/compare', active: true },
+          ]}
           langSwitchHref="/zh/compare"
         />
 
@@ -56,7 +60,10 @@ export default function ComparePageEn() {
           </div>
         )}
 
-        <Footer lang="en" />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>Curated by AI · Built for humans</p>
+        </footer>
       </div>
     </main>
   )

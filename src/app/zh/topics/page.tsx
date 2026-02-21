@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getNavItems } from '@/lib/nav'
 import { getAllTopicClustersWithCounts } from '@/lib/topic-cluster'
 
 export const metadata = {
@@ -23,7 +21,11 @@ export default async function TopicsPageZh() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={getNavItems('zh', '/zh/topics')}
+          navItems={[
+            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '博客', href: '/zh/blog' },
+            { label: '话题', href: '/zh/topics', active: true },
+          ]}
           langSwitchHref="/en/topics"
         />
 
@@ -70,7 +72,10 @@ export default async function TopicsPageZh() {
           </div>
         )}
 
-        <Footer lang="zh" />
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 策展 · 为人而建</p>
+        </footer>
       </div>
     </main>
   )
