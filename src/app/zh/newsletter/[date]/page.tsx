@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 
 async function getNewsletterContent(date: string): Promise<string | null> {
   try {
@@ -71,10 +73,7 @@ export default async function NewsletterZHDatePage({ params }: { params: Promise
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={[
-            { label: '每日简报', href: '/zh/newsletter', active: true },
-            { label: '博客', href: '/zh/blog' },
-          ]}
+          navItems={getNavItems('zh', '/zh/newsletter')}
           langSwitchHref={langSwitchHref}
         />
 
@@ -113,12 +112,7 @@ export default async function NewsletterZHDatePage({ params }: { params: Promise
           </ReactMarkdown>
         </article>
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <Link href="/zh/newsletter" style={{ color: '#8b5cf6', fontSize: '14px', textDecoration: 'none' }}>
-            ← 查看所有简报
-          </Link>
-        </footer>
+        <Footer lang="zh" />
       </div>
     </main>
   )

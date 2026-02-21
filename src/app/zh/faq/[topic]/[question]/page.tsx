@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllQuestionParams, getQuestion, getRelatedQuestions, generateQuestionJsonLd } from '@/lib/faq'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -54,13 +56,7 @@ export default async function FAQQuestionPageZh({ params }: Props) {
 
         <Header
           lang="zh"
-          navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
-            { label: '博客', href: '/zh/blog' },
-            { label: '常见问题', href: '/zh/faq', active: true },
-            { label: '术语表', href: '/zh/glossary' },
-            { label: '对比', href: '/zh/compare' },
-          ]}
+          navItems={getNavItems('zh', '/zh/faq')}
           langSwitchHref={`/en/faq/${enTopicSlug}/${questionSlug}`}
         />
 
@@ -92,6 +88,7 @@ export default async function FAQQuestionPageZh({ params }: Props) {
             ))}
           </div>
         )}
+        <Footer lang="zh" />
       </div>
     </main>
   )

@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 
 async function getNewsletterContent(date: string): Promise<string | null> {
   try {
@@ -74,10 +76,7 @@ export default async function NewsletterDatePage({ params }: { params: Promise<{
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="en"
-          navItems={[
-            { label: 'Newsletter', href: '/newsletter', active: true },
-            { label: 'Blog', href: '/en/blog' },
-          ]}
+          navItems={getNavItems('en', '/newsletter')}
           langSwitchHref={langSwitchHref}
         />
 
@@ -208,15 +207,7 @@ export default async function NewsletterDatePage({ params }: { params: Promise<{
           </ReactMarkdown>
         </article>
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <Link 
-            href="/newsletter"
-            style={{ color: '#8b5cf6', fontSize: '14px', textDecoration: 'none' }}
-          >
-            ← View all newsletters
-          </Link>
-        </footer>
+        <Footer lang="en" />
       </div>
     </main>
   )

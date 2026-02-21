@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 import { getAllTopicClustersWithCounts } from '@/lib/topic-cluster'
 
 export const metadata = {
@@ -21,11 +23,7 @@ export default async function TopicsPageEn() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="en"
-          navItems={[
-            { label: 'Newsletter', href: '/newsletter' },
-            { label: 'Blog', href: '/en/blog' },
-            { label: 'Topics', href: '/en/topics', active: true },
-          ]}
+          navItems={getNavItems('en', '/en/topics')}
           langSwitchHref="/zh/topics"
         />
 
@@ -72,10 +70,7 @@ export default async function TopicsPageEn() {
           </div>
         )}
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <p style={{ color: '#9ca3af', fontSize: '13px' }}>Curated by AI · Built for humans</p>
-        </footer>
+        <Footer lang="en" />
       </div>
     </main>
   )

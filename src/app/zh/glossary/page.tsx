@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { getGlossaryTerms } from '@/lib/glossary'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 
 export const metadata = {
   title: '术语表 | LoreAI',
@@ -30,13 +32,7 @@ export default function GlossaryPageZh() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px 24px' }}>
         <Header
           lang="zh"
-          navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
-            { label: '博客', href: '/zh/blog' },
-            { label: '常见问题', href: '/zh/faq' },
-            { label: '术语表', href: '/zh/glossary', active: true },
-            { label: '对比', href: '/zh/compare' },
-          ]}
+          navItems={getNavItems('zh', '/zh/glossary')}
           langSwitchHref="/en/glossary"
         />
 
@@ -82,10 +78,7 @@ export default function GlossaryPageZh() {
           ))
         )}
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '64px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <p style={{ color: '#9ca3af', fontSize: '13px' }}>AI 驱动 · 为人而建</p>
-        </footer>
+        <Footer lang="zh" />
       </div>
     </main>
   )

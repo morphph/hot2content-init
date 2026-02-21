@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllCompares, getCompare, generateCompareJsonLd } from '@/lib/compare'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { getNavItems } from '@/lib/nav'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -64,13 +66,7 @@ export default async function CompareDetailPageZh({ params }: Props) {
 
         <Header
           lang="zh"
-          navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
-            { label: '博客', href: '/zh/blog' },
-            { label: '常见问题', href: '/zh/faq' },
-            { label: '术语表', href: '/zh/glossary' },
-            { label: '对比', href: '/zh/compare', active: true },
-          ]}
+          navItems={getNavItems('zh', '/zh/compare')}
           langSwitchHref={`/en/compare/${enSlug}`}
         />
 
@@ -102,6 +98,7 @@ export default async function CompareDetailPageZh({ params }: Props) {
             ))}
           </div>
         )}
+        <Footer lang="zh" />
       </div>
     </main>
   )
