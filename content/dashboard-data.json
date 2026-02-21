@@ -1,65 +1,183 @@
 {
-  "generatedAt": "2026-02-21T05:21:51.676Z",
+  "generatedAt": "2026-02-21T05:45:02.161Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": null,
-      "lastRunStatus": "unknown",
-      "lastRunMessage": "No status file found",
-      "enPublished": false,
-      "zhPublished": false
+      "lastRunDate": "2026-02-21",
+      "lastRunStatus": "success",
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-21",
+      "enPublished": true,
+      "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": null,
-      "lastRunStatus": "unknown"
+      "lastRunTimestamp": "2026-02-20 02:35:47 UTC",
+      "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 0,
-      "last72h": 0,
-      "total": 0
+      "last24h": 74,
+      "last72h": 563,
+      "total": 566
     },
-    "recentErrors": []
+    "recentErrors": [
+      "fatal: Cannot fast-forward to multiple branches.",
+      "fatal: Cannot fast-forward to multiple branches.",
+      "❌ git pull failed",
+      "❌ git pull failed"
+    ]
   },
   "keywordQuality": {
-    "byStatus": {},
-    "byLanguage": {},
-    "byIntent": {},
-    "byType": {},
+    "byStatus": {
+      "backlog": 10
+    },
+    "byLanguage": {
+      "en": 10
+    },
+    "byIntent": {
+      "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities": 1,
+      "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons": 1,
+      "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows": 1,
+      "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
+      "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM": 1,
+      "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production": 1,
+      "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities": 1,
+      "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
+      "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns": 1,
+      "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1
+    },
+    "byType": {
+      "compare": 2,
+      "faq": 1,
+      "glossary": 3,
+      "tier2": 4
+    },
     "enrichmentCoverage": {
-      "enriched": 0,
+      "enriched": 10,
       "unenriched": 0
     },
     "volumeDistribution": {
       "noData": 0,
-      "low": 0,
+      "low": 10,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 0,
-      "medium": 0,
-      "hard": 0
+      "easy": 5,
+      "medium": 2,
+      "hard": 3
     },
-    "top20": [],
+    "top20": [
+      {
+        "keyword": "agentic coding benchmark infrastructure noise",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons"
+      },
+      {
+        "keyword": "claude code advanced tool use beta",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 60,
+        "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities"
+      },
+      {
+        "keyword": "AI agent evaluation strategies",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 20,
+        "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate"
+      },
+      {
+        "keyword": "GitHub Copilot SDK multi-platform integration",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 100,
+        "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities"
+      },
+      {
+        "keyword": "long-running AI agent harness design",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows"
+      },
+      {
+        "keyword": "multi-agent workspace orchestration",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 60,
+        "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns"
+      },
+      {
+        "keyword": "opencode vs claude code comparison",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases"
+      },
+      {
+        "keyword": "Gemini CLI vs Claude Code terminal agents",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them"
+      },
+      {
+        "keyword": "context engineering for production agents",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production"
+      },
+      {
+        "keyword": "Goose AI autonomous coding agent",
+        "language": "en",
+        "score": 64,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 20,
+        "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM"
+      }
+    ],
     "staleBacklogCount": 0,
-    "total": 0
+    "total": 10
   },
   "contentOutput": {
-    "byType": {},
+    "byType": {
+      "newsletter": 2
+    },
     "byTier": {
       "0": 6,
       "1": 8,
       "2": 30,
       "3": 16
     },
-    "publishedLast7d": 0,
-    "publishedLast30d": 0,
+    "publishedLast7d": 2,
+    "publishedLast30d": 2,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 0
+      "noScore": 2
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -68,7 +186,7 @@
       "enOnly": 3,
       "zhOnly": 3
     },
-    "freshnessBacklog": 0,
+    "freshnessBacklog": 8,
     "newsletterStreak": {
       "en": 14,
       "zh": 14,
@@ -85,16 +203,16 @@
       "avgDaysToPublish": null
     },
     "news": {
-      "total": 0,
-      "backlog": 0,
+      "total": 10,
+      "backlog": 10,
       "published": 0,
       "error": 0,
       "avgDaysToPublish": null
     },
     "paa": {
-      "total": 0,
-      "discovered": 0,
-      "published": 0,
+      "total": 108,
+      "discovered": 103,
+      "published": 5,
       "duplicate": 0,
       "error": 0
     },
@@ -104,17 +222,854 @@
         "published": 0
       },
       "news": {
-        "added": 0,
+        "added": 10,
         "published": 0
       },
       "paa": {
-        "added": 0,
-        "published": 0
+        "added": 108,
+        "published": 5
       }
     }
   },
   "sampleReview": {
-    "days": []
+    "days": [
+      {
+        "date": "2026-02-20",
+        "qualitySummary": {
+          "total": 20,
+          "passed": 1,
+          "flagged": 19,
+          "flags": {
+            "Word count": 11,
+            "Title length": 14,
+            "Description length": 14,
+            "Has TL;DR": 11
+          }
+        },
+        "items": [
+          {
+            "keyword": "agentic coding benchmark infrastructure noise",
+            "type": "tier2",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "Agentic Coding Benchmark Infrastructure Noise — Analysis and Industry Impact",
+                "slug": "agentic-coding-benchmark-infrastructure-noise",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 320,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "320 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "76 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "智能编程基准测试中的基础设施噪声 — 深度分析与行业影响",
+                "slug": "agentic-coding-benchmark-infrastructure-noise",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 216,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "216 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "28 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "40 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "claude code advanced tool use beta",
+            "type": "glossary",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "Claude Code Advanced Tool Use Beta — What It Is and Why It Matters",
+                "slug": "claude-code-advanced-tool-use-beta",
+                "language": "en",
+                "tier": null,
+                "wordCount": 454,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "66 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Claude Code 高级工具使用测试版（claude code advanced tool use beta）— 定义、原理与应用",
+                "slug": "claude-code-advanced-tool-use-beta",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 86,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "86 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "67 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "45 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "AI agent evaluation strategies",
+            "type": "faq",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "AI agent evaluation strategies — Frequently Asked Questions",
+                "slug": "ai-agent-evaluation-strategies",
+                "language": "en",
+                "tier": null,
+                "wordCount": 641,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "641 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "80 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "AI 智能体评估策略 — 常见问题解答",
+                "slug": "ai-agent-evaluation-strategies",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 248,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "248 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "19 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "23 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "GitHub Copilot SDK multi-platform integration",
+            "type": "glossary",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "GitHub Copilot SDK multi-platform integration — What It Is and Why It Matters",
+                "slug": "github-copilot-sdk-multi-platform-integration",
+                "language": "en",
+                "tier": null,
+                "wordCount": 446,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "77 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "GitHub Copilot SDK 多平台集成（GitHub Copilot SDK multi-platform integration）— 定义、原理与应用",
+                "slug": "github-copilot-sdk-multi-platform-integration",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 98,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "98 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "81 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "48 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "long-running AI agent harness design",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "Long-Running AI Agent Harness Design — Analysis and Industry Impact",
+                "slug": "long-running-ai-agent-harness-design",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1780,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "67 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "181 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "长时间运行 AI 智能体的框架设计 — 深度分析与行业影响",
+                "slug": "long-running-ai-agent-harness-design",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 103,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "103 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "29 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "54 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "multi-agent workspace orchestration",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development Needs",
+                "slug": "multi-agent-workspace-orchestration",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1628,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "82 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "194 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "多智能体工作空间编排 — 深度分析与行业影响",
+                "slug": "multi-agent-workspace-orchestration",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 290,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "290 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "22 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "70 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "opencode vs claude code comparison",
+            "type": "compare",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "OpenCode vs Claude Code — Detailed Comparison",
+                "slug": "opencode-vs-claude-code-comparison",
+                "language": "en",
+                "tier": null,
+                "wordCount": 1247,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1247 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "OpenCode 与 Claude Code 对比 — 详细对比分析",
+                "slug": "opencode-vs-claude-code-comparison",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 404,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "43 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Gemini CLI vs Claude Code terminal agents",
+            "type": "compare",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "Gemini CLI vs Claude Code: Terminal AI Agents Compared",
+                "slug": "gemini-cli-vs-claude-code-terminal-agents",
+                "language": "en",
+                "tier": null,
+                "wordCount": 383,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Gemini CLI 与 Claude Code 终端智能体对比 — 详细对比分析",
+                "slug": "gemini-cli-vs-claude-code-terminal-agents",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 451,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "50 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "context engineering for production agents",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "Context Engineering for Production Agents — Analysis and Industry Impact",
+                "slug": "context-engineering-for-production-agents",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1671,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "72 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "生产级智能体的上下文工程 — 深度分析与行业影响",
+                "slug": "context-engineering-for-production-agents",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 275,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "275 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "24 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "36 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Goose AI autonomous coding agent",
+            "type": "glossary",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [],
+            "content": [
+              {
+                "title": "goose-ai-autonomous-coding-agent-en",
+                "slug": "goose-ai-autonomous-coding-agent",
+                "language": "en",
+                "tier": null,
+                "wordCount": 395,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "0 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "0 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Goose AI 自主编程智能体（Goose AI autonomous coding agent）— 定义、原理与应用",
+                "slug": "goose-ai-autonomous-coding-agent",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 86,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "86 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "40 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "dailyTrend": [
     {
@@ -128,7 +1083,7 @@
       "date": "2026-02-20",
       "contentCount": 30,
       "qualityPassRate": 3,
-      "kwExtracted": 0,
+      "kwExtracted": 10,
       "kwPublished": 0
     },
     {
@@ -217,7 +1172,94 @@
     }
   ],
   "recentKeywords": {
-    "days": []
+    "days": [
+      {
+        "date": "2026-02-20",
+        "count": 10,
+        "items": [
+          {
+            "keyword": "agentic coding benchmark infrastructure noise",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "claude code advanced tool use beta",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "AI agent evaluation strategies",
+            "language": "en",
+            "type": "faq",
+            "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "GitHub Copilot SDK multi-platform integration",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "long-running AI agent harness design",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "multi-agent workspace orchestration",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "opencode vs claude code comparison",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Gemini CLI vs Claude Code terminal agents",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "context engineering for production agents",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Goose AI autonomous coding agent",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM",
+            "score": 64,
+            "sourceNews": []
+          }
+        ]
+      }
+    ]
   },
   "recentContent": {
     "days": [
