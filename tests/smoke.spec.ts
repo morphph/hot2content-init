@@ -33,26 +33,88 @@ test.describe('A. Core pages load', () => {
 // ──────────────────────────────────────────────
 
 test.describe('B. Header component', () => {
-  test('newsletter page has nav links and language switcher', async ({ page }) => {
+  test('newsletter page has nav links with valid hrefs', async ({ page }) => {
     await page.goto('/newsletter');
     const header = page.locator('header');
     await expect(header).toBeVisible();
-    // Nav links
-    await expect(header.locator('text=Blog')).toBeVisible();
-    // Language switcher
-    await expect(header.locator('text=中文')).toBeVisible();
+
+    // Logo links to /newsletter (allow trailing slash)
+    const logo = header.locator('a:has-text("LoreAI")');
+    await expect(logo).toHaveAttribute('href', /\/newsletter\/?$/);
+
+    // Nav links exist with correct hrefs
+    const blogLink = header.locator('nav a:has-text("Blog")');
+    await expect(blogLink).toBeVisible();
+    await expect(blogLink).toHaveAttribute('href', /\/en\/blog\/?$/);
+
+    // Language switcher links to ZH equivalent
+    const zhLink = header.locator('a:has-text("中文")');
+    await expect(zhLink).toBeVisible();
+    await expect(zhLink).toHaveAttribute('href', /\/zh\//);
+
+    // All <a> tags in header have non-empty href
+    const allLinks = header.locator('a');
+    const linkCount = await allLinks.count();
+    expect(linkCount).toBeGreaterThan(0);
+    for (let i = 0; i < linkCount; i++) {
+      const href = await allLinks.nth(i).getAttribute('href');
+      expect(href, `header link ${i} should have non-empty href`).toBeTruthy();
+    }
   });
 
-  test('header appears on /en/blog', async ({ page }) => {
+  test('header appears on /en/blog with valid links', async ({ page }) => {
     await page.goto('/en/blog');
-    await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('header >> text=LoreAI')).toBeVisible();
+    const header = page.locator('header');
+    await expect(header).toBeVisible();
+    await expect(header.locator('a:has-text("LoreAI")')).toHaveAttribute('href', /\/newsletter\/?$/);
+
+    // All header links have non-empty href
+    const allLinks = header.locator('a');
+    const linkCount = await allLinks.count();
+    for (let i = 0; i < linkCount; i++) {
+      const href = await allLinks.nth(i).getAttribute('href');
+      expect(href, `header link ${i} should have non-empty href`).toBeTruthy();
+    }
   });
 
-  test('header appears on /en/faq', async ({ page }) => {
+  test('header appears on /en/faq with full nav', async ({ page }) => {
     await page.goto('/en/faq');
-    await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('header >> text=LoreAI')).toBeVisible();
+    const header = page.locator('header');
+    await expect(header).toBeVisible();
+    await expect(header.locator('a:has-text("LoreAI")')).toHaveAttribute('href', /\/newsletter\/?$/);
+
+    // FAQ page should have nav links to other sections
+    const nav = header.locator('nav');
+    const navLinks = nav.locator('a');
+    const navLinkCount = await navLinks.count();
+    // FAQ page has full nav (Newsletter, Blog, Glossary, Compare — FAQ is active span)
+    expect(navLinkCount).toBeGreaterThanOrEqual(2);
+
+    // Each nav link has a valid href
+    for (let i = 0; i < navLinkCount; i++) {
+      const href = await navLinks.nth(i).getAttribute('href');
+      expect(href, `nav link ${i} should have non-empty href`).toBeTruthy();
+    }
+  });
+
+  test('footer present on newsletter page', async ({ page }) => {
+    await page.goto('/newsletter');
+    const footer = page.locator('footer');
+    await expect(footer).toBeVisible();
+    const footerText = await footer.textContent();
+    expect(footerText).toMatch(/Curated by AI|AI 策展|AI 驱动/);
+  });
+
+  test('footer present on EN blog list', async ({ page }) => {
+    await page.goto('/en/blog');
+    const footer = page.locator('footer');
+    await expect(footer).toBeVisible();
+  });
+
+  test('footer present on EN blog detail', async ({ page }) => {
+    await page.goto('/en/blog/claude-code-agent-teams-ai-software-development');
+    const footer = page.locator('footer');
+    await expect(footer).toBeVisible();
   });
 });
 
@@ -339,8 +401,124 @@ test.describe('M. Mobile viewport', () => {
     await expect(links.first()).toBeVisible();
   });
 
-  test('header is visible on mobile', async ({ page }) => {
+  test('header is visible and nav links are accessible on mobile', async ({ page }) => {
     await page.goto('/newsletter');
+    const header = page.locator('header');
+    await expect(header).toBeVisible();
+
+    // Header should not overflow the viewport
+    const headerOverflow = await header.evaluate((el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.right > window.innerWidth;
+    });
+    expect(headerOverflow, 'header should not overflow viewport').toBe(false);
+
+    // All nav links should be reachable — either visible directly or
+    // accessible via a mobile menu toggle (hamburger button)
+    const hamburger = page.locator('header button[aria-label*="menu" i], header button[aria-label*="nav" i], header [data-mobile-toggle]');
+    const hasHamburger = await hamburger.count() > 0;
+
+    if (hasHamburger) {
+      // If hamburger exists, click it to reveal nav
+      await hamburger.first().click();
+      await page.waitForTimeout(300); // allow animation
+    }
+
+    // After toggle (or without toggle), nav links should be within viewport
+    const navLinks = header.locator('nav a');
+    const navLinkCount = await navLinks.count();
+    if (navLinkCount > 0) {
+      for (let i = 0; i < navLinkCount; i++) {
+        const box = await navLinks.nth(i).boundingBox();
+        if (box) {
+          // Link should not extend past the right edge of viewport
+          expect(box.x + box.width, `nav link ${i} right edge should be within viewport`).toBeLessThanOrEqual(375 + 5);
+          // Link should not be hidden to the left
+          expect(box.x + box.width, `nav link ${i} should not be clipped left`).toBeGreaterThan(0);
+        }
+      }
+    }
+  });
+
+  // Known issue: full nav (5 items) overflows on 375px mobile viewport (511px actual).
+  // TODO: Fix with hamburger menu or responsive nav wrapping, then remove .fixme().
+  test.fixme('FAQ page (full nav) does not cause page-level horizontal scroll on mobile', async ({ page }) => {
+    await page.goto('/en/faq');
     await expect(page.locator('header')).toBeVisible();
+
+    // FAQ page has the full nav set — most prone to overflow on mobile.
+    // Check that the page body doesn't scroll horizontally (the header
+    // itself may use overflow:hidden/wrap, but the page must not scroll).
+    const bodyScrollWidth = await page.locator('body').evaluate((el) => el.scrollWidth);
+    expect(bodyScrollWidth, 'page body should not cause horizontal scroll').toBeLessThanOrEqual(375 + 5);
+  });
+});
+
+// ──────────────────────────────────────────────
+// N. Cross-page nav consistency & language switcher
+// ──────────────────────────────────────────────
+
+test.describe('N. Cross-page nav consistency', () => {
+  // Helper: collect nav labels (both <a> links and active <span>s) from a page's header
+  async function getNavLabels(page: import('@playwright/test').Page): Promise<string[]> {
+    const nav = page.locator('header nav');
+    const items = nav.locator('a, span');
+    const count = await items.count();
+    const labels: string[] = [];
+    for (let i = 0; i < count; i++) {
+      const text = await items.nth(i).textContent();
+      if (text?.trim()) labels.push(text.trim());
+    }
+    return labels.sort();
+  }
+
+  test('every EN page header has at least Blog + Newsletter nav items', async ({ page }) => {
+    const pagePaths = ['/newsletter', '/en/blog', '/en/faq'];
+    for (const path of pagePaths) {
+      await page.goto(path);
+      await expect(page.locator('header')).toBeVisible();
+      const labels = await getNavLabels(page);
+      // Every EN page should have at least Newsletter and Blog in the nav
+      expect(labels, `${path} nav should include Newsletter`).toEqual(
+        expect.arrayContaining(['Newsletter'])
+      );
+      expect(labels, `${path} nav should include Blog`).toEqual(
+        expect.arrayContaining(['Blog'])
+      );
+    }
+  });
+
+  test('full-nav EN pages (FAQ, Glossary, Compare) share the same nav set', async ({ page }) => {
+    // These pages all use the full nav with 5 items
+    const fullNavPages = ['/en/faq', '/en/glossary', '/en/compare'];
+    const navLabelSets: string[][] = [];
+
+    for (const path of fullNavPages) {
+      await page.goto(path);
+      await expect(page.locator('header')).toBeVisible();
+      navLabelSets.push(await getNavLabels(page));
+    }
+
+    for (let i = 1; i < navLabelSets.length; i++) {
+      expect(navLabelSets[i], `nav labels on ${fullNavPages[i]} should match ${fullNavPages[0]}`).toEqual(navLabelSets[0]);
+    }
+  });
+
+  test('EN language switcher links to ZH equivalent', async ({ page }) => {
+    await page.goto('/en/blog');
+    const header = page.locator('header');
+    const zhLink = header.locator('a:has-text("中文")');
+    await expect(zhLink).toBeVisible();
+    const href = await zhLink.getAttribute('href');
+    expect(href, 'ZH switcher should point to /zh/ path').toMatch(/\/zh\//);
+  });
+
+  test('ZH language switcher links to EN equivalent', async ({ page }) => {
+    await page.goto('/zh/blog');
+    const header = page.locator('header');
+    const enLink = header.locator('a:has-text("EN")');
+    await expect(enLink).toBeVisible();
+    const href = await enLink.getAttribute('href');
+    expect(href, 'EN switcher should point to /en/ path or /newsletter').toMatch(/\/(en\/|newsletter)/);
   });
 });
