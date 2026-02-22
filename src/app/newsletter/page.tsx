@@ -11,8 +11,8 @@ interface NewsletterEntry {
 
 function getNewsletterDir(type: string): string {
   switch (type) {
-    case 'ai-daily': return path.join(process.cwd(), 'content', 'newsletters', 'en')
-    case 'agentic': return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en')
+    case 'ai-daily': return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en')
+    case 'agentic': return path.join(process.cwd(), 'content', 'newsletters', 'en')
     case 'ai-product': return path.join(process.cwd(), 'content', 'newsletters', 'ai-product', 'en')
     case 'indie': return path.join(process.cwd(), 'content', 'newsletters', 'indie', 'en')
     default: return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en')
