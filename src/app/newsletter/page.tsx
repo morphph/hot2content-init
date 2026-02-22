@@ -11,9 +11,11 @@ interface NewsletterEntry {
 
 function getNewsletterDir(type: string): string {
   switch (type) {
+    case 'ai-daily': return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en')
+    case 'agentic': return path.join(process.cwd(), 'content', 'newsletters', 'en')
     case 'ai-product': return path.join(process.cwd(), 'content', 'newsletters', 'ai-product', 'en')
     case 'indie': return path.join(process.cwd(), 'content', 'newsletters', 'indie', 'en')
-    default: return path.join(process.cwd(), 'content', 'newsletters', 'en')
+    default: return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en')
   }
 }
 
@@ -86,12 +88,13 @@ export const metadata = {
 }
 
 export default async function NewsletterPage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
-  const { type = 'daily' } = await searchParams
-  const currentType = ['daily', 'ai-product', 'indie'].includes(type) ? type : 'daily'
+  const { type = 'ai-daily' } = await searchParams
+  const currentType = ['ai-daily', 'agentic', 'ai-product', 'indie'].includes(type) ? type : 'ai-daily'
   const newsletters = await getNewsletterList(currentType)
 
   const tabs = [
-    { key: 'daily', label: 'Daily' },
+    { key: 'ai-daily', label: 'AI Daily' },
+    { key: 'agentic', label: 'Agentic Engineering' },
     { key: 'ai-product', label: 'AI Product' },
     { key: 'indie', label: 'Indie' },
   ]
@@ -132,7 +135,7 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
           {tabs.map((tab) => (
             <Link
               key={tab.key}
-              href={`/newsletter${tab.key === 'daily' ? '' : `?type=${tab.key}`}`}
+              href={`/newsletter${tab.key === 'ai-daily' ? '' : `?type=${tab.key}`}`}
               style={{
                 padding: '6px 16px',
                 borderRadius: '999px',
@@ -169,7 +172,7 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
               return (
                 <Link 
                   key={entry.date}
-                  href={`/newsletter/${entry.date}${currentType === 'daily' ? '' : `?type=${currentType}`}`}
+                  href={`/newsletter/${entry.date}${currentType === 'ai-daily' ? '' : `?type=${currentType}`}`}
                   style={{ 
                     display: 'flex',
                     alignItems: 'flex-start',

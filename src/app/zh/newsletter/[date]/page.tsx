@@ -8,9 +8,11 @@ import Header from '@/components/Header'
 
 function getContentDir(type: string): string {
   switch (type) {
+    case 'ai-daily': return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'zh')
+    case 'agentic': return path.join(process.cwd(), 'content', 'newsletters', 'zh')
     case 'ai-product': return path.join(process.cwd(), 'content', 'newsletters', 'ai-product', 'zh')
     case 'indie': return path.join(process.cwd(), 'content', 'newsletters', 'indie', 'zh')
-    default: return path.join(process.cwd(), 'content', 'newsletters', 'zh')
+    default: return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'zh')
   }
 }
 
@@ -45,7 +47,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ date: string }>; searchParams: Promise<{ type?: string }> }) {
   const { date } = await params
-  const { type = 'daily' } = await searchParams
+  const { type = 'ai-daily' } = await searchParams
   const content = await getNewsletterContent(date, type)
   const titleMatch = content?.match(/^#\s+(.+)$/m)
   const title = titleMatch ? titleMatch[1] : `AI 简报 - ${date}`
@@ -65,8 +67,8 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
 
 export default async function NewsletterZHDatePage({ params, searchParams }: { params: Promise<{ date: string }>; searchParams: Promise<{ type?: string }> }) {
   const { date } = await params
-  const { type = 'daily' } = await searchParams
-  const currentType = ['daily', 'ai-product', 'indie'].includes(type) ? type : 'daily'
+  const { type = 'ai-daily' } = await searchParams
+  const currentType = ['ai-daily', 'agentic', 'ai-product', 'indie'].includes(type) ? type : 'ai-daily'
   const content = await getNewsletterContent(date, currentType)
 
   if (!content) {
@@ -76,15 +78,18 @@ export default async function NewsletterZHDatePage({ params, searchParams }: { p
   const formattedDate = formatDateLong(date)
   
   // Language switch: check if the corresponding EN version exists for this type
-  const enDir = currentType === 'daily'
+  const enDir = currentType === 'agentic'
     ? path.join(process.cwd(), 'content', 'newsletters', 'en')
+    : currentType === 'ai-daily'
+    ? path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en')
     : path.join(process.cwd(), 'content', 'newsletters', currentType, 'en')
   const enExists = fs.existsSync(path.join(enDir, `${date}.md`))
-  const typeParam = currentType === 'daily' ? '' : `?type=${currentType}`
+  const typeParam = currentType === 'ai-daily' ? '' : `?type=${currentType}`
   const langSwitchHref = enExists ? `/newsletter/${date}${typeParam}` : `/newsletter${typeParam}`
 
   const pageTitle: Record<string, string> = {
-    'daily': 'AI 每日简报',
+    'ai-daily': 'AI 日报',
+    'agentic': 'AI 工程周刊',
     'ai-product': 'AI 产品周刊',
     'indie': '独立开发者周刊',
   }
@@ -138,7 +143,7 @@ export default async function NewsletterZHDatePage({ params, searchParams }: { p
 
         {/* Footer */}
         <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <Link href={`/zh/newsletter${currentType === 'daily' ? '' : `?type=${currentType}`}`} style={{ color: '#8b5cf6', fontSize: '14px', textDecoration: 'none' }}>
+          <Link href={`/zh/newsletter${currentType === 'ai-daily' ? '' : `?type=${currentType}`}`} style={{ color: '#8b5cf6', fontSize: '14px', textDecoration: 'none' }}>
             ← 查看所有简报
           </Link>
         </footer>
