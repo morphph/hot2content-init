@@ -115,25 +115,6 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
           langSwitchHref="/zh/newsletter"
         />
 
-        {/* Hero */}
-        <div style={{ marginBottom: '40px' }}>
-          <h1 
-            style={{ 
-              fontSize: '28px', 
-              fontWeight: 'bold',
-              background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              marginBottom: '8px'
-            }}
-          >
-            AI Newsletter
-          </h1>
-          <p style={{ color: '#6b7280', fontSize: '16px' }}>
-            Daily curated AI news
-          </p>
-        </div>
-
         {/* Tabs */}
         <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
           {tabs.map((tab) => (
