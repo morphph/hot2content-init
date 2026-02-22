@@ -19,22 +19,6 @@ const OUTPUT_DIR = path.join(process.cwd(), 'output');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 // ============================================
-// Load ZH Newsletter Skill File
-// ============================================
-
-function loadZHNewsletterSkill(): string {
-  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-zh', 'SKILL.md');
-  try {
-    const content = fs.readFileSync(skillPath, 'utf-8');
-    console.log(`   📖 Loaded ZH newsletter skill (${content.length} chars)`);
-    return content;
-  } catch {
-    console.log('   ⚠️ Could not load skills/newsletter-zh/SKILL.md');
-    return '';
-  }
-}
-
-// ============================================
 // Types
 // ============================================
 
@@ -281,19 +265,18 @@ ${rawData}`;
 async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string): Promise<string | null> {
   console.log('   ✍️ Generating ZH newsletter with Claude Opus...');
 
-  const zhSkill = loadZHNewsletterSkill();
-
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
     source: i.source, url: i.url, category: i.agent_category,
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const skillSection = zhSkill ? `## 写作规范（严格遵循）\n\n${zhSkill}\n\n` : '';
-
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
-${skillSection}## 标题规则（重要）
+## 覆盖率（强制）
+你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
+
+## 标题规则（重要）
 生成一个新闻式中文标题作为 H1。不要用日期标题。
 ✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
 ❌ 差："🌅 AI 每日简报 — ${date}"
@@ -310,20 +293,31 @@ ${skillSection}## 标题规则（重要）
 🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
 🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
 
+如果某个栏目条目较多，超出 3-5 条的放到末尾的 ⚡ 快讯 栏目（一句话 + 链接）。
+
+## 中文写作约束
+- 语气：像一个消息灵通的科技圈朋友在微信群里分享，专业、简洁、有态度
+- 用短句、主动句式："发布了"、"上线了"、"跑分碾压"、"直接开源"
+- 中文标点：，。！？""''（）
+- 英文与中文之间加空格：使用 Claude 进行开发
+- 技术术语首次出现标注英文：大语言模型（LLM）
+- 没有公认中文译名的术语直接用英文：Transformer、Token、Prompt
+- 数字用阿拉伯数字，大数用万/亿
+- 涉及国产模型时自然融入对比视角（不要强行加）
+- 这不是英文版的翻译，是基于同一批数据的独立中文创作
+
 ## 写作规范
 1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
 2. 每条：发生了什么 + 为什么重要，1-2 句话
-3. 括号内标注互动数据
+3. 括号内标注互动数据（点赞、转发、下载量分开写）
 4. 每个栏目 3-5 条最重要的内容，空栏目跳过
-5. 语气像懂技术的朋友在微信群里科普
-6. 如果涉及国产模型，自然融入对比视角
-7. 输出纯 markdown，H1 标题必须是新闻式标题
-8. 全文使用中文撰写
-9. 每条必须在末尾包含来源链接：[查看详情 →](url)
-10. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
+5. 输出纯 markdown，H1 标题必须是新闻式标题
+6. 全文使用中文撰写
+7. 每条必须在末尾包含来源链接：[查看详情 →](url)
+8. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
 
 ## 禁用词
-❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
+❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"、"In this article"、"Stay tuned"、"Exciting times"、"Let's dive in"、"Game-changing"
 
 严格规则 — 禁止编造：
 你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
@@ -367,19 +361,18 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
 
   console.log('   🤖 Falling back to Kimi K2.5 for ZH newsletter...');
 
-  const zhSkill = loadZHNewsletterSkill();
-
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
     source: i.source, url: i.url, category: i.agent_category,
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const skillSection = zhSkill ? `## 写作规范（严格遵循）\n\n${zhSkill}\n\n` : '';
-
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
-${skillSection}## 标题规则（重要）
+## 覆盖率（强制）
+你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
+
+## 标题规则（重要）
 生成一个新闻式中文标题作为 H1。不要用日期标题。
 ✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
 ❌ 差："🌅 AI 每日简报 — ${date}"
@@ -396,20 +389,31 @@ ${skillSection}## 标题规则（重要）
 🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
 🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
 
+如果某个栏目条目较多，超出 3-5 条的放到末尾的 ⚡ 快讯 栏目（一句话 + 链接）。
+
+## 中文写作约束
+- 语气：像一个消息灵通的科技圈朋友在微信群里分享，专业、简洁、有态度
+- 用短句、主动句式："发布了"、"上线了"、"跑分碾压"、"直接开源"
+- 中文标点：，。！？""''（）
+- 英文与中文之间加空格：使用 Claude 进行开发
+- 技术术语首次出现标注英文：大语言模型（LLM）
+- 没有公认中文译名的术语直接用英文：Transformer、Token、Prompt
+- 数字用阿拉伯数字，大数用万/亿
+- 涉及国产模型时自然融入对比视角（不要强行加）
+- 这不是英文版的翻译，是基于同一批数据的独立中文创作
+
 ## 写作规范
 1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
 2. 每条：发生了什么 + 为什么重要，1-2 句话
-3. 括号内标注互动数据
+3. 括号内标注互动数据（点赞、转发、下载量分开写）
 4. 每个栏目 3-5 条最重要的内容，空栏目跳过
-5. 语气像懂技术的朋友在微信群里科普
-6. 如果涉及国产模型，自然融入对比视角
-7. 输出纯 markdown，H1 标题必须是新闻式标题
-8. 全文使用中文撰写
-9. 每条必须在末尾包含来源链接：[查看详情 →](url)
-10. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
+5. 输出纯 markdown，H1 标题必须是新闻式标题
+6. 全文使用中文撰写
+7. 每条必须在末尾包含来源链接：[查看详情 →](url)
+8. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
 
 ## 禁用词
-❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
+❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"、"In this article"、"Stay tuned"、"Exciting times"、"Let's dive in"、"Game-changing"
 
 严格规则 — 禁止编造：
 你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
@@ -461,19 +465,18 @@ ${rawData}`;
 async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: string): Promise<string | null> {
   console.log('   🤖 Falling back to Sonnet CLI for ZH newsletter...');
 
-  const zhSkill = loadZHNewsletterSkill();
-
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
     source: i.source, url: i.url, category: i.agent_category,
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const skillSection = zhSkill ? `## 写作规范（严格遵循）\n\n${zhSkill}\n\n` : '';
-
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
-${skillSection}## 标题规则（重要）
+## 覆盖率（强制）
+你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
+
+## 标题规则（重要）
 生成一个新闻式中文标题作为 H1。不要用日期标题。
 ✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
 ❌ 差："🌅 AI 每日简报 — ${date}"
@@ -490,19 +493,30 @@ ${skillSection}## 标题规则（重要）
 🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
 🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
 
+如果某个栏目条目较多，超出 3-5 条的放到末尾的 ⚡ 快讯 栏目（一句话 + 链接）。
+
+## 中文写作约束
+- 语气：像一个消息灵通的科技圈朋友在微信群里分享，专业、简洁、有态度
+- 用短句、主动句式："发布了"、"上线了"、"跑分碾压"、"直接开源"
+- 中文标点：，。！？""''（）
+- 英文与中文之间加空格：使用 Claude 进行开发
+- 技术术语首次出现标注英文：大语言模型（LLM）
+- 没有公认中文译名的术语直接用英文：Transformer、Token、Prompt
+- 数字用阿拉伯数字，大数用万/亿
+- 涉及国产模型时自然融入对比视角（不要强行加）
+- 这不是英文版的翻译，是基于同一批数据的独立中文创作
+
 ## 写作规范
 1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
 2. 每条：发生了什么 + 为什么重要，1-2 句话
-3. 括号内标注互动数据
+3. 括号内标注互动数据（点赞、转发、下载量分开写）
 4. 每个栏目 3-5 条最重要的内容，空栏目跳过
-5. 语气像懂技术的朋友在微信群里科普
-6. 如果涉及国产模型，自然融入对比视角
-7. 输出纯 markdown，H1 标题必须是新闻式标题
-8. 全文使用中文撰写
-9. 每条必须在末尾包含来源链接：[查看详情 →](url)
+5. 输出纯 markdown，H1 标题必须是新闻式标题
+6. 全文使用中文撰写
+7. 每条必须在末尾包含来源链接：[查看详情 →](url)
 
 ## 禁用词
-❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"
+❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"、"In this article"、"Stay tuned"、"Exciting times"、"Let's dive in"、"Game-changing"
 
 严格规则 — 禁止编造：
 你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
