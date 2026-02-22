@@ -94,7 +94,7 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
 
   const tabs = [
     { key: 'ai-daily', label: 'AI Daily' },
-    { key: 'agentic', label: 'Agentic Engineering' },
+    { key: 'agentic', label: 'AI Eng' },
     { key: 'ai-product', label: 'AI Product' },
     { key: 'indie', label: 'Indie' },
   ]
@@ -131,7 +131,7 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
         </div>
 
         {/* Tabs */}
-        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
           {tabs.map((tab) => (
             <Link
               key={tab.key}
@@ -142,6 +142,8 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
                 fontSize: '14px',
                 fontWeight: '500',
                 textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
                 ...(currentType === tab.key
                   ? { background: 'linear-gradient(to right, #8b5cf6, #6366f1)', color: '#ffffff' }
                   : { background: '#f3f4f6', color: '#6b7280' }),
