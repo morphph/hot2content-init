@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-02-22T01:50:44.881Z",
+  "generatedAt": "2026-02-22T23:51:13.376Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-22",
+      "lastRunDate": "2026-02-23",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-22",
-      "enPublished": false,
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-23",
+      "enPublished": true,
       "zhPublished": true
     },
     "seo": {
@@ -13,9 +13,9 @@
       "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 101,
-      "last72h": 665,
-      "total": 670
+      "last24h": 151,
+      "last72h": 715,
+      "total": 720
     },
     "recentErrors": [
       "fatal: Cannot fast-forward to multiple branches.",
@@ -168,21 +168,21 @@
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 2
+      "newsletter": 3
     },
     "byTier": {
       "1": 8,
       "2": 31,
       "3": 16
     },
-    "publishedLast7d": 2,
-    "publishedLast30d": 2,
+    "publishedLast7d": 3,
+    "publishedLast30d": 3,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 2
+      "noScore": 3
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -193,10 +193,10 @@
     },
     "freshnessBacklog": 11,
     "newsletterStreak": {
-      "en": 14,
-      "zh": 15,
-      "lastEnDate": "2026-02-21",
-      "lastZhDate": "2026-02-22"
+      "en": 16,
+      "zh": 16,
+      "lastEnDate": "2026-02-23",
+      "lastZhDate": "2026-02-23"
     }
   },
   "keywordProvenance": {
