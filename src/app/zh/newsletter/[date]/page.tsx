@@ -106,6 +106,35 @@ export default async function NewsletterZHDatePage({ params, searchParams }: { p
           langSwitchHref={langSwitchHref}
         />
 
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
+          {[
+            { key: 'ai-daily', label: 'AI Daily' },
+            { key: 'agentic', label: 'AI Dev' },
+            { key: 'ai-product', label: 'AI 产品' },
+            { key: 'indie', label: '独立开发者' },
+          ].map((tab) => (
+            <Link
+              key={tab.key}
+              href={`/zh/newsletter${tab.key === 'ai-daily' ? '' : `?type=${tab.key}`}`}
+              style={{
+                padding: '6px 16px',
+                borderRadius: '999px',
+                fontSize: '14px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                ...(currentType === tab.key
+                  ? { background: 'linear-gradient(to right, #8b5cf6, #6366f1)', color: '#ffffff' }
+                  : { background: '#f3f4f6', color: '#6b7280' }),
+              }}
+            >
+              {tab.label}
+            </Link>
+          ))}
+        </div>
+
         {/* Date & Title */}
         <div style={{ marginBottom: '40px' }}>
           <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '4px' }}>{formattedDate}</p>

@@ -31,24 +31,17 @@ export default function Header({ lang, navItems, langSwitchHref }: HeaderProps) 
           </span>
         </Link>
         <nav style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
-          {navItems.map((item) =>
-            item.active ? (
-              <span
-                key={item.label}
-                style={{
-                  color: '#111827',
-                  fontWeight: '600',
-                  borderBottom: '2px solid #8b5cf6',
-                  paddingBottom: '4px',
-                }}
-              >
-                {item.label}
-              </span>
-            ) : (
+          {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                style={{ color: '#6b7280', textDecoration: 'none', paddingBottom: '4px' }}
+                style={{
+                  color: item.active ? '#111827' : '#6b7280',
+                  fontWeight: item.active ? '600' : '400',
+                  textDecoration: 'none',
+                  paddingBottom: '4px',
+                  ...(item.active ? { borderBottom: '2px solid #8b5cf6' } : {}),
+                }}
               >
                 {item.label}
               </Link>
