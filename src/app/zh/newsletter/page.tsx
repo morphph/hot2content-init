@@ -90,10 +90,10 @@ export default async function NewsletterZHPage({ searchParams }: { searchParams:
   const newsletters = await getNewsletterList(currentType)
 
   const tabs = [
-    { key: 'ai-daily', label: 'AI 日报' },
+    { key: 'ai-daily', label: 'AI Daily' },
     { key: 'agentic', label: 'AI Dev' },
     { key: 'ai-product', label: 'AI 产品' },
-    { key: 'indie', label: '独立开发' },
+    { key: 'indie', label: '独立开发者' },
   ]
 
   return (
