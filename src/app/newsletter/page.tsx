@@ -9,9 +9,17 @@ interface NewsletterEntry {
   preview: string
 }
 
-async function getNewsletterList(): Promise<NewsletterEntry[]> {
+function getNewsletterDir(type: string): string {
+  switch (type) {
+    case 'ai-product': return path.join(process.cwd(), 'content', 'newsletters', 'ai-product', 'en')
+    case 'indie': return path.join(process.cwd(), 'content', 'newsletters', 'indie', 'en')
+    default: return path.join(process.cwd(), 'content', 'newsletters', 'en')
+  }
+}
+
+async function getNewsletterList(type: string = 'daily'): Promise<NewsletterEntry[]> {
   try {
-    const newsletterDir = path.join(process.cwd(), 'content', 'newsletters', 'en')
+    const newsletterDir = getNewsletterDir(type)
     if (!fs.existsSync(newsletterDir)) {
       return []
     }
@@ -77,8 +85,16 @@ export const metadata = {
   },
 }
 
-export default async function NewsletterPage() {
-  const newsletters = await getNewsletterList()
+export default async function NewsletterPage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
+  const { type = 'daily' } = await searchParams
+  const currentType = ['daily', 'ai-product', 'indie'].includes(type) ? type : 'daily'
+  const newsletters = await getNewsletterList(currentType)
+
+  const tabs = [
+    { key: 'daily', label: 'Daily' },
+    { key: 'ai-product', label: 'AI Product' },
+    { key: 'indie', label: 'Indie' },
+  ]
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -111,6 +127,28 @@ export default async function NewsletterPage() {
           </p>
         </div>
 
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+          {tabs.map((tab) => (
+            <Link
+              key={tab.key}
+              href={`/newsletter${tab.key === 'daily' ? '' : `?type=${tab.key}`}`}
+              style={{
+                padding: '6px 16px',
+                borderRadius: '999px',
+                fontSize: '14px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                ...(currentType === tab.key
+                  ? { background: 'linear-gradient(to right, #8b5cf6, #6366f1)', color: '#ffffff' }
+                  : { background: '#f3f4f6', color: '#6b7280' }),
+              }}
+            >
+              {tab.label}
+            </Link>
+          ))}
+        </div>
+
         {/* Divider */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>
           <div style={{ height: '8px', width: '120px', background: 'linear-gradient(90deg, #EC4899, #8B5CF6, #3B82F6)', borderRadius: '2px' }} />
@@ -131,7 +169,7 @@ export default async function NewsletterPage() {
               return (
                 <Link 
                   key={entry.date}
-                  href={`/newsletter/${entry.date}`}
+                  href={`/newsletter/${entry.date}${currentType === 'daily' ? '' : `?type=${currentType}`}`}
                   style={{ 
                     display: 'flex',
                     alignItems: 'flex-start',

@@ -6,9 +6,17 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Header from '@/components/Header'
 
-async function getNewsletterContent(date: string): Promise<string | null> {
+function getContentDir(type: string): string {
+  switch (type) {
+    case 'ai-product': return path.join(process.cwd(), 'content', 'newsletters', 'ai-product', 'zh')
+    case 'indie': return path.join(process.cwd(), 'content', 'newsletters', 'indie', 'zh')
+    default: return path.join(process.cwd(), 'content', 'newsletters', 'zh')
+  }
+}
+
+async function getNewsletterContent(date: string, type: string = 'daily'): Promise<string | null> {
   try {
-    const filePath = path.join(process.cwd(), 'content', 'newsletters', 'zh', `${date}.md`)
+    const filePath = path.join(getContentDir(type), `${date}.md`)
     if (!fs.existsSync(filePath)) {
       return null
     }
@@ -35,9 +43,10 @@ export async function generateStaticParams() {
   return files.map(f => ({ date: f.replace('.md', '') }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ date: string }> }) {
+export async function generateMetadata({ params, searchParams }: { params: Promise<{ date: string }>; searchParams: Promise<{ type?: string }> }) {
   const { date } = await params
-  const content = await getNewsletterContent(date)
+  const { type = 'daily' } = await searchParams
+  const content = await getNewsletterContent(date, type)
   const titleMatch = content?.match(/^#\s+(.+)$/m)
   const title = titleMatch ? titleMatch[1] : `AI 简报 - ${date}`
   return {
@@ -54,9 +63,11 @@ export async function generateMetadata({ params }: { params: Promise<{ date: str
   }
 }
 
-export default async function NewsletterZHDatePage({ params }: { params: Promise<{ date: string }> }) {
+export default async function NewsletterZHDatePage({ params, searchParams }: { params: Promise<{ date: string }>; searchParams: Promise<{ type?: string }> }) {
   const { date } = await params
-  const content = await getNewsletterContent(date)
+  const { type = 'daily' } = await searchParams
+  const currentType = ['daily', 'ai-product', 'indie'].includes(type) ? type : 'daily'
+  const content = await getNewsletterContent(date, currentType)
 
   if (!content) {
     notFound()
@@ -115,7 +126,7 @@ export default async function NewsletterZHDatePage({ params }: { params: Promise
 
         {/* Footer */}
         <footer style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
-          <Link href="/zh/newsletter" style={{ color: '#8b5cf6', fontSize: '14px', textDecoration: 'none' }}>
+          <Link href={`/zh/newsletter${currentType === 'daily' ? '' : `?type=${currentType}`}`} style={{ color: '#8b5cf6', fontSize: '14px', textDecoration: 'none' }}>
             ← 查看所有简报
           </Link>
         </footer>

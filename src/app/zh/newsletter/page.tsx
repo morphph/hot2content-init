@@ -9,9 +9,17 @@ interface NewsletterEntry {
   preview: string
 }
 
-async function getNewsletterList(): Promise<NewsletterEntry[]> {
+function getNewsletterDir(type: string): string {
+  switch (type) {
+    case 'ai-product': return path.join(process.cwd(), 'content', 'newsletters', 'ai-product', 'zh')
+    case 'indie': return path.join(process.cwd(), 'content', 'newsletters', 'indie', 'zh')
+    default: return path.join(process.cwd(), 'content', 'newsletters', 'zh')
+  }
+}
+
+async function getNewsletterList(type: string = 'daily'): Promise<NewsletterEntry[]> {
   try {
-    const newsletterDir = path.join(process.cwd(), 'content', 'newsletters', 'zh')
+    const newsletterDir = getNewsletterDir(type)
     if (!fs.existsSync(newsletterDir)) {
       return []
     }
@@ -74,8 +82,16 @@ export const metadata = {
   },
 }
 
-export default async function NewsletterZHPage() {
-  const newsletters = await getNewsletterList()
+export default async function NewsletterZHPage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
+  const { type = 'daily' } = await searchParams
+  const currentType = ['daily', 'ai-product', 'indie'].includes(type) ? type : 'daily'
+  const newsletters = await getNewsletterList(currentType)
+
+  const tabs = [
+    { key: 'daily', label: '每日' },
+    { key: 'ai-product', label: 'AI 产品' },
+    { key: 'indie', label: '独立开发' },
+  ]
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -95,6 +111,28 @@ export default async function NewsletterZHPage() {
             AI 每日简报
           </h1>
           <p style={{ color: '#6b7280', fontSize: '16px' }}>每日精选 AI 热点新闻</p>
+        </div>
+
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+          {tabs.map((tab) => (
+            <Link
+              key={tab.key}
+              href={`/zh/newsletter${tab.key === 'daily' ? '' : `?type=${tab.key}`}`}
+              style={{
+                padding: '6px 16px',
+                borderRadius: '999px',
+                fontSize: '14px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                ...(currentType === tab.key
+                  ? { background: 'linear-gradient(to right, #8b5cf6, #6366f1)', color: '#ffffff' }
+                  : { background: '#f3f4f6', color: '#6b7280' }),
+              }}
+            >
+              {tab.label}
+            </Link>
+          ))}
         </div>
 
         {/* Divider */}
@@ -117,7 +155,7 @@ export default async function NewsletterZHPage() {
               return (
                 <Link 
                   key={entry.date}
-                  href={`/zh/newsletter/${entry.date}`}
+                  href={`/zh/newsletter/${entry.date}${currentType === 'daily' ? '' : `?type=${currentType}`}`}
                   style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', padding: '20px 0', marginLeft: '-9px', textDecoration: 'none', borderBottom: '1px solid #f3f4f6' }}
                 >
                   <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: '#3b82f6', flexShrink: 0, marginTop: '2px' }} />
