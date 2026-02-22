@@ -585,9 +585,13 @@ async function main() {
   fs.writeFileSync(path.join(dataDir, `${date}.json`), filteredPayload);
   console.log(`   💾 Persisted filtered items to data/filtered-items/${date}.json`);
 
-  // Step 3: Write EN newsletter
+  // Step 3: Write EN newsletter (with retry)
   console.log('\n📝 Writing EN newsletter...');
-  const enMarkdown = await generateNewsletterWithOpus(filtered, date);
+  let enMarkdown = await generateNewsletterWithOpus(filtered, date);
+  if (!enMarkdown) {
+    console.log('   🔄 Retrying EN newsletter generation...');
+    enMarkdown = await generateNewsletterWithOpus(filtered, date);
+  }
   if (enMarkdown) {
     const enPath = path.join(OUTPUT_DIR, `digest-${date}.md`);
     fs.writeFileSync(enPath, enMarkdown);
