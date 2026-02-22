@@ -94,7 +94,7 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
 
   const tabs = [
     { key: 'ai-daily', label: 'AI Daily' },
-    { key: 'agentic', label: 'AI Eng' },
+    { key: 'agentic', label: 'AI Dev' },
     { key: 'ai-product', label: 'AI Product' },
     { key: 'indie', label: 'Indie' },
   ]

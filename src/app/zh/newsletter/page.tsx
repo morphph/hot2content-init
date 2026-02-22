@@ -91,7 +91,7 @@ export default async function NewsletterZHPage({ searchParams }: { searchParams:
 
   const tabs = [
     { key: 'ai-daily', label: 'AI 日报' },
-    { key: 'agentic', label: 'AI 工程' },
+    { key: 'agentic', label: 'AI Dev' },
     { key: 'ai-product', label: 'AI 产品' },
     { key: 'indie', label: '独立开发' },
   ]
