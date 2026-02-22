@@ -93,10 +93,10 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
   const newsletters = await getNewsletterList(currentType)
 
   const tabs = [
-    { key: 'ai-daily', label: 'AI Daily' },
-    { key: 'agentic', label: 'AI Dev' },
-    { key: 'ai-product', label: 'AI Product' },
-    { key: 'indie', label: 'Indie' },
+    { key: 'ai-daily', label: 'AI Daily', desc: 'Daily scan of what\'s happening in AI — models, apps, tools, and trends.' },
+    { key: 'agentic', label: 'AI Dev', desc: 'Deep dives into AI engineering — coding agents, infra, and developer tooling.' },
+    { key: 'ai-product', label: 'AI Product', desc: 'Weekly analysis of AI product strategy, platform moves, and big tech shifts.' },
+    { key: 'indie', label: 'Indie', desc: 'Weekly picks for indie builders — tools, launches, and opportunities in AI.' },
   ]
 
   return (
@@ -153,6 +153,11 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
             </Link>
           ))}
         </div>
+
+        {/* Tab Description */}
+        <p style={{ color: '#9ca3af', fontSize: '14px', marginBottom: '16px', marginTop: '-16px' }}>
+          {tabs.find(t => t.key === currentType)?.desc}
+        </p>
 
         {/* Divider */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>

@@ -90,10 +90,10 @@ export default async function NewsletterZHPage({ searchParams }: { searchParams:
   const newsletters = await getNewsletterList(currentType)
 
   const tabs = [
-    { key: 'ai-daily', label: 'AI Daily' },
-    { key: 'agentic', label: 'AI Dev' },
-    { key: 'ai-product', label: 'AI 产品' },
-    { key: 'indie', label: '独立开发者' },
+    { key: 'ai-daily', label: 'AI Daily', desc: '每日 AI 速览——模型、应用、工具与趋势一网打尽。' },
+    { key: 'agentic', label: 'AI Dev', desc: '深度解读 AI 工程——编码 Agent、基础设施与开发者工具。' },
+    { key: 'ai-product', label: 'AI 产品', desc: '每周分析 AI 产品策略、平台动向与大厂布局。' },
+    { key: 'indie', label: '独立开发者', desc: '每周精选独立开发者关注的 AI 工具、产品发布与机会。' },
   ]
 
   return (
@@ -139,6 +139,11 @@ export default async function NewsletterZHPage({ searchParams }: { searchParams:
             </Link>
           ))}
         </div>
+
+        {/* Tab Description */}
+        <p style={{ color: '#9ca3af', fontSize: '14px', marginBottom: '16px', marginTop: '-16px' }}>
+          {tabs.find(t => t.key === currentType)?.desc}
+        </p>
 
         {/* Divider */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '40px' }}>
