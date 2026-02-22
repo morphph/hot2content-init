@@ -88,10 +88,10 @@ export default async function NewsletterZHDatePage({ params, searchParams }: { p
   const langSwitchHref = enExists ? `/newsletter/${date}${typeParam}` : `/newsletter${typeParam}`
 
   const pageTitle: Record<string, string> = {
-    'ai-daily': 'AI 日报',
+    'ai-daily': 'AI Daily',
     'agentic': 'AI 工程周刊',
     'ai-product': 'AI 产品周刊',
-    'indie': '独立开发者周刊',
+    'indie': '独立开发',
   }
 
   return (
