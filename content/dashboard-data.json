@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-02-21T07:30:02.779Z",
+  "generatedAt": "2026-02-22T01:50:44.881Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-21",
+      "lastRunDate": "2026-02-22",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-21",
-      "enPublished": true,
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-22",
+      "enPublished": false,
       "zhPublished": true
     },
     "seo": {
@@ -13,13 +13,19 @@
       "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 74,
-      "last72h": 563,
-      "total": 566
+      "last24h": 101,
+      "last72h": 665,
+      "total": 670
     },
     "recentErrors": [
       "fatal: Cannot fast-forward to multiple branches.",
       "fatal: Cannot fast-forward to multiple branches.",
+      "❌ git pull failed",
+      "❌ git pull failed",
+      "error: cannot pull with rebase: You have unstaged changes.",
+      "error: cannot pull with rebase: You have unstaged changes.",
+      "error: Please commit or stash them.",
+      "error: Please commit or stash them.",
       "❌ git pull failed",
       "❌ git pull failed"
     ]
@@ -185,12 +191,12 @@
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 8,
+    "freshnessBacklog": 11,
     "newsletterStreak": {
       "en": 14,
-      "zh": 14,
+      "zh": 15,
       "lastEnDate": "2026-02-21",
-      "lastZhDate": "2026-02-21"
+      "lastZhDate": "2026-02-22"
     }
   },
   "keywordProvenance": {
@@ -1072,6 +1078,13 @@
   },
   "dailyTrend": [
     {
+      "date": "2026-02-22",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
       "date": "2026-02-21",
       "contentCount": 0,
       "qualityPassRate": 0,
@@ -1158,13 +1171,6 @@
     {
       "date": "2026-02-09",
       "contentCount": 24,
-      "qualityPassRate": 0,
-      "kwExtracted": 0,
-      "kwPublished": 0
-    },
-    {
-      "date": "2026-02-08",
-      "contentCount": 0,
       "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
