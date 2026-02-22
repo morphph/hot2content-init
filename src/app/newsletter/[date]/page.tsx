@@ -77,8 +77,20 @@ export default async function NewsletterDatePage({ params, searchParams }: { par
   }
 
   const formattedDate = formatDateLong(date)
-  const zhExists = fs.existsSync(path.join(process.cwd(), 'content', 'newsletters', 'zh', `${date}.md`))
-  const langSwitchHref = zhExists ? `/zh/newsletter/${date}` : '/zh/newsletter'
+  
+  // Language switch: check if the corresponding ZH version exists for this type
+  const zhDir = currentType === 'daily' 
+    ? path.join(process.cwd(), 'content', 'newsletters', 'zh')
+    : path.join(process.cwd(), 'content', 'newsletters', currentType, 'zh')
+  const zhExists = fs.existsSync(path.join(zhDir, `${date}.md`))
+  const typeParam = currentType === 'daily' ? '' : `?type=${currentType}`
+  const langSwitchHref = zhExists ? `/zh/newsletter/${date}${typeParam}` : `/zh/newsletter${typeParam}`
+
+  const pageTitle: Record<string, string> = {
+    'daily': 'AI Newsletter',
+    'ai-product': 'AI Product Weekly',
+    'indie': 'Indie Builder Weekly',
+  }
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -106,7 +118,7 @@ export default async function NewsletterDatePage({ params, searchParams }: { par
               WebkitTextFillColor: 'transparent'
             }}
           >
-            AI Newsletter
+            {pageTitle[currentType] || 'AI Newsletter'}
           </h1>
         </div>
 

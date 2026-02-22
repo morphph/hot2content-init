@@ -74,8 +74,20 @@ export default async function NewsletterZHDatePage({ params, searchParams }: { p
   }
 
   const formattedDate = formatDateLong(date)
-  const enExists = fs.existsSync(path.join(process.cwd(), 'content', 'newsletters', 'en', `${date}.md`))
-  const langSwitchHref = enExists ? `/newsletter/${date}` : '/newsletter'
+  
+  // Language switch: check if the corresponding EN version exists for this type
+  const enDir = currentType === 'daily'
+    ? path.join(process.cwd(), 'content', 'newsletters', 'en')
+    : path.join(process.cwd(), 'content', 'newsletters', currentType, 'en')
+  const enExists = fs.existsSync(path.join(enDir, `${date}.md`))
+  const typeParam = currentType === 'daily' ? '' : `?type=${currentType}`
+  const langSwitchHref = enExists ? `/newsletter/${date}${typeParam}` : `/newsletter${typeParam}`
+
+  const pageTitle: Record<string, string> = {
+    'daily': 'AI 每日简报',
+    'ai-product': 'AI 产品周刊',
+    'indie': '独立开发者周刊',
+  }
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
@@ -93,7 +105,7 @@ export default async function NewsletterZHDatePage({ params, searchParams }: { p
         <div style={{ marginBottom: '40px' }}>
           <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '4px' }}>{formattedDate}</p>
           <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            AI 每日简报
+            {pageTitle[currentType] || 'AI 每日简报'}
           </h1>
         </div>
 
