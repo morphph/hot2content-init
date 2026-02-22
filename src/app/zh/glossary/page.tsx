@@ -31,7 +31,7 @@ export default function GlossaryPageZh() {
         <Header
           lang="zh"
           navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '每日简报', href: '/zh/newsletter' },
             { label: '博客', href: '/zh/blog' },
             { label: '常见问题', href: '/zh/faq' },
             { label: '术语表', href: '/zh/glossary', active: true },

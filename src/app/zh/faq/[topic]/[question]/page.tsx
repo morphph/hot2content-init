@@ -55,7 +55,7 @@ export default async function FAQQuestionPageZh({ params }: Props) {
         <Header
           lang="zh"
           navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '每日简报', href: '/zh/newsletter' },
             { label: '博客', href: '/zh/blog' },
             { label: '常见问题', href: '/zh/faq', active: true },
             { label: '术语表', href: '/zh/glossary' },

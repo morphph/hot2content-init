@@ -22,7 +22,7 @@ export default function TimelineIndexZh() {
         <Header
           lang="zh"
           navItems={[
-            { label: 'Newsletter', href: '/zh/newsletter' },
+            { label: '每日简报', href: '/zh/newsletter' },
             { label: '博客', href: '/zh/blog' },
             { label: '话题', href: '/zh/topics' },
             { label: '时间线', href: '/zh/timeline', active: true },

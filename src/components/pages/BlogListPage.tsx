@@ -45,7 +45,7 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
   const tier3Posts = posts.filter(p => p.tier === 3)
 
   const navItems = [
-    { label: isEn ? 'Newsletter' : 'Newsletter', href: isEn ? '/newsletter' : '/zh/newsletter' },
+    { label: isEn ? 'Newsletter' : '每日简报', href: isEn ? '/newsletter' : '/zh/newsletter' },
     { label: isEn ? 'Blog' : '博客', href: `/${lang}/blog`, active: true },
   ]
 
