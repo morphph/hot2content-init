@@ -37,17 +37,21 @@ async function getNewsletterList(type: string = 'daily'): Promise<NewsletterEntr
       const content = fs.readFileSync(path.join(newsletterDir, file), 'utf-8')
       const date = file.replace('.md', '')
       
-      // Extract title (first # heading)
+      // Extract title: prefer Cover Story heading (## 🏆 ...), fallback to first # heading
+      const coverMatch = content.match(/^##\s+🏆\s*(?:Cover Story|封面故事)[：:]\s*(.+)$/m)
       const titleMatch = content.match(/^#\s+(.+)$/m)
-      const title = titleMatch ? titleMatch[1] : 'AI Newsletter'
+      const title = coverMatch ? coverMatch[1] : (titleMatch ? titleMatch[1] : 'AI Newsletter')
       
-      // Extract preview (first paragraph after title)
+      // Extract preview: first paragraph after Cover Story heading (if exists), otherwise first paragraph after title
       const lines = content.split('\n')
       let preview = ''
-      for (const line of lines) {
-        if (line.startsWith('#') || line.startsWith('**') || line.trim() === '' || line.startsWith('---')) continue
+      const startAfter = coverMatch ? lines.findIndex(l => l.match(/^##\s+🏆/)) : 0
+      for (let i = startAfter + 1; i < lines.length; i++) {
+        const line = lines[i]
+        if (line.startsWith('#') || line.trim() === '' || line.startsWith('---') || line.startsWith('>')) continue
+        // Skip date lines like **February 21, 2026** or **2026年...**
+        if (line.startsWith('**') && line.match(/\d{4}/)) continue
         if (line.trim().length > 20) {
-          // Strip markdown formatting (bold, italic, links)
           let cleanLine = line.trim()
             .replace(/\*\*([^*]+)\*\*/g, '$1')  // Remove **bold**
             .replace(/\*([^*]+)\*/g, '$1')      // Remove *italic*
