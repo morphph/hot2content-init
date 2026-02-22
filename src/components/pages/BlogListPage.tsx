@@ -33,12 +33,15 @@ function formatDateZh(dateStr: string): { day: string; month: string } {
 
 interface BlogListPageProps {
   lang: 'en' | 'zh'
+  tier?: string
 }
 
-export default async function BlogListPage({ lang }: BlogListPageProps) {
+export default async function BlogListPage({ lang, tier }: BlogListPageProps) {
   const isEn = lang === 'en'
   const posts = await getBlogPosts(lang)
   const tierConfig = isEn ? tierConfigEn : tierConfigZh
+  
+  const currentTier = tier && ['1', '2', '3'].includes(tier) ? Number(tier) : 0  // 0 = all
 
   const tier1Posts = posts.filter(p => p.tier === 1)
   const tier2Posts = posts.filter(p => p.tier === 2)
@@ -75,14 +78,33 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
           langSwitchHref={isEn ? '/zh/blog' : '/en/blog'}
         />
 
-        {/* Hero */}
-        <div style={{ marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(to right, #ec4899, #a855f7, #6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '8px' }}>
-            {isEn ? 'Blog' : '博客'}
-          </h1>
-          <p style={{ color: '#6b7280', fontSize: '16px' }}>
-            {isEn ? 'Deep dives, tutorials, and insights' : '深度解读、教程和洞察'}
-          </p>
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
+          {[
+            { key: '0', label: isEn ? 'All' : '全部' },
+            { key: '1', label: isEn ? '🔬 Deep Dive' : '🔬 深度解读' },
+            { key: '2', label: isEn ? '📝 Analysis' : '📝 分析' },
+            { key: '3', label: isEn ? '⚡ Quick Read' : '⚡ 快读' },
+          ].map((tab) => (
+            <Link
+              key={tab.key}
+              href={`/${lang}/blog${tab.key === '0' ? '' : `?tier=${tab.key}`}`}
+              style={{
+                padding: '6px 16px',
+                borderRadius: '999px',
+                fontSize: '14px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                ...(currentTier === Number(tab.key)
+                  ? { background: 'linear-gradient(to right, #8b5cf6, #6366f1)', color: '#ffffff' }
+                  : { background: '#f3f4f6', color: '#6b7280' }),
+              }}
+            >
+              {tab.label}
+            </Link>
+          ))}
         </div>
 
         {/* Divider */}
@@ -105,7 +127,7 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
         ) : (
           <>
             {/* Featured / Tier 1 */}
-            {tier1Posts.length > 0 && (
+            {tier1Posts.length > 0 && (currentTier === 0 || currentTier === 1) && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
                 {tier1Posts.map((post) => {
                   const tier = tierConfig[1]
@@ -141,7 +163,7 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
             )}
 
             {/* Analysis / Tier 2 */}
-            {tier2Posts.length > 0 && (
+            {tier2Posts.length > 0 && (currentTier === 0 || currentTier === 2) && (
               <div style={{ marginBottom: '48px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                   <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#2563eb' }}>{isEn ? '📝 Analysis' : '📝 分析'}</h2>
@@ -183,7 +205,7 @@ export default async function BlogListPage({ lang }: BlogListPageProps) {
             )}
 
             {/* Quick Read / Tier 3 */}
-            {tier3Posts.length > 0 && (
+            {tier3Posts.length > 0 && (currentTier === 0 || currentTier === 3) && (
               <div style={{ marginBottom: '16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                   <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#059669' }}>{isEn ? '⚡ Quick Read' : '⚡ 快读'}</h2>

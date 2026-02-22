@@ -11,6 +11,7 @@ export const metadata = {
   },
 }
 
-export default async function BlogPageZh() {
-  return <BlogListPage lang="zh" />
+export default async function BlogPageZh({ searchParams }: { searchParams: Promise<{ tier?: string }> }) {
+  const { tier } = await searchParams
+  return <BlogListPage lang="zh" tier={tier} />
 }
