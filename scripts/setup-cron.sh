@@ -5,9 +5,8 @@ set -euo pipefail
 H="/home/ubuntu/hot2content-init"
 
 cat > /tmp/mycron << CRONTAB
-0 23 * * * $H/scripts/daily-newsletter.sh >> $H/logs/daily-newsletter.log 2>&1
-0 2 * * * $H/scripts/daily-seo.sh >> $H/logs/seo-pipeline.log 2>&1
-*/15 * * * * $H/scripts/auto-sync.sh 2>> $H/logs/auto-sync.log
+0 22 * * * $H/scripts/daily-newsletter.sh >> $H/logs/daily-newsletter.log 2>&1
+0 5 * * * $H/scripts/daily-seo.sh >> $H/logs/seo-pipeline.log 2>&1
 CRONTAB
 
 crontab /tmp/mycron

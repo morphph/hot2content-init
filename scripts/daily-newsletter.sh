@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+
 # Daily Newsletter Auto-generation (v2 - split pipeline)
 # Runs daily via crontab
 # Step 1: collect-news.ts (fetch all sources → DB)
@@ -57,7 +59,7 @@ notify "success" "✅ Newsletter pipeline complete for ${DATE}"
 
 # Step 4: Verify build before committing
 echo "🔨 Step 4: Verifying build..."
-if ! npm run build 2>&1 | tail -5; then
+if ! npm run build 2>&1 | tee -a logs/daily-newsletter.log; then
   notify "failed" "❌ Build verification failed for ${DATE} — skipping commit"
   exit 1
 fi
