@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-02-22T23:51:13.376Z",
+  "generatedAt": "2026-02-23T22:06:58.474Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-23",
+      "lastRunDate": "2026-02-24",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-23",
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-24",
       "enPublished": true,
       "zhPublished": true
     },
@@ -13,19 +13,19 @@
       "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 151,
-      "last72h": 715,
-      "total": 720
+      "last24h": 230,
+      "last72h": 329,
+      "total": 822
     },
     "recentErrors": [
-      "fatal: Cannot fast-forward to multiple branches.",
-      "fatal: Cannot fast-forward to multiple branches.",
-      "❌ git pull failed",
-      "❌ git pull failed",
       "error: cannot pull with rebase: You have unstaged changes.",
       "error: cannot pull with rebase: You have unstaged changes.",
       "error: Please commit or stash them.",
       "error: Please commit or stash them.",
+      "❌ git pull failed",
+      "❌ git pull failed",
+      "fatal: Cannot rebase onto multiple branches.",
+      "fatal: Cannot rebase onto multiple branches.",
       "❌ git pull failed",
       "❌ git pull failed"
     ]
@@ -168,21 +168,21 @@
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 3
+      "newsletter": 4
     },
     "byTier": {
       "1": 8,
       "2": 31,
       "3": 16
     },
-    "publishedLast7d": 3,
-    "publishedLast30d": 3,
+    "publishedLast7d": 4,
+    "publishedLast30d": 4,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 3
+      "noScore": 4
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -191,12 +191,12 @@
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 11,
+    "freshnessBacklog": 13,
     "newsletterStreak": {
-      "en": 16,
-      "zh": 16,
-      "lastEnDate": "2026-02-23",
-      "lastZhDate": "2026-02-23"
+      "en": 17,
+      "zh": 17,
+      "lastEnDate": "2026-02-24",
+      "lastZhDate": "2026-02-24"
     }
   },
   "keywordProvenance": {
@@ -1078,6 +1078,13 @@
   },
   "dailyTrend": [
     {
+      "date": "2026-02-23",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
       "date": "2026-02-22",
       "contentCount": 0,
       "qualityPassRate": 0,
@@ -1165,13 +1172,6 @@
       "date": "2026-02-10",
       "contentCount": 38,
       "qualityPassRate": 3,
-      "kwExtracted": 0,
-      "kwPublished": 0
-    },
-    {
-      "date": "2026-02-09",
-      "contentCount": 24,
-      "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
     }
