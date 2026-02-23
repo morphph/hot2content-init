@@ -13,8 +13,10 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_DIR"
 source .env
 
-# Pull latest code before running
-git pull --rebase || { echo "❌ git pull failed — manual intervention needed"; exit 1; }
+# Pull latest code before running (use merge instead of rebase to avoid conflicts)
+git stash --include-untracked 2>/dev/null
+git pull --no-rebase || git pull --ff-only || { echo "⚠️ git pull failed, resetting to origin/main"; git fetch origin && git reset --hard origin/main; }
+git stash pop 2>/dev/null
 
 DATE=$(TZ='Asia/Singapore' date +%Y-%m-%d)
 STATUS_FILE="${PROJECT_DIR}/logs/last-run-status.json"
