@@ -271,62 +271,58 @@ async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string)
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+  // Use same English prompt as EN version, with Chinese output constraint appended
+  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
 
-重要：请直接输出完整的 Markdown newsletter 正文。不要输出任何前言、解释、确认或思考过程。第一行必须是 # 开头的中文标题。
+## Coverage (MANDATORY)
+You MUST cover ALL provided filtered items. Each item must appear at least once in the main sections or the ⚡ Quick Hits section. Do not omit any item.
 
-## 覆盖率（强制）
-你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
+## Title Rule (CRITICAL)
+Generate a compelling news-style headline as the H1 title. DO NOT use date-based titles.
+Good: "Anthropic Speeds Up Opus While OpenAI Turns On the Ads"
+Bad: "🌅 AI Daily Digest — ${date}"
 
-## 标题规则（重要）
-生成一个新闻式中文标题作为 H1。不要用日期标题。
-✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
-❌ 差："🌅 AI 每日简报 — ${date}"
+## Opening (CRITICAL)
+After the title, write 1-2 sentences with attitude that set the scene. Name the biggest story. End with a "Today:" line previewing 2-3 key topics.
 
-## 开场白（重要）
-标题后写 1-2 句有态度的叙事开场，点出今天最大的故事。然后用一行 "今天：" 预览 2-3 个关键话题。
+## Categories (use exactly these 6 + 2 special sections)
+🧠 MODEL — New model releases & trends
+📱 APP — Consumer products & platform updates
+🔧 DEV — Developer tools, SDKs, APIs
+📝 TECHNIQUE — Practical tips, best practices, viral dev tips
+🚀 PRODUCT — New products, research, open-source projects
+🎓 MODEL LITERACY — Pick one technical concept worth explaining today, 3-4 sentences for non-technical readers.
+🎯 PICK OF THE DAY — The single most impactful item today, 2-3 sentences on why it matters + link.
 
-## 栏目（使用以下 6 个固定栏目 + 2 个特别栏目）
-🧠 模型动态 — 新模型发布与趋势
-📱 产品应用 — 消费级产品与平台更新
-🔧 开发工具 — 开发者工具、SDK、API
-📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
-🚀 产品动态 — 新产品、研究成果、开源项目、企业合作
-🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
-🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
+If a category has more than 5 items, move extras to a ⚡ Quick Hits section at the end (one line + link each).
 
-如果某个栏目条目较多，超出 3-5 条的放到末尾的 ⚡ 快讯 栏目（一句话 + 链接）。
+## Writing rules
+1. Each item: bullet point (•), **bold title**, followed by source (— @handle or — Source Name)
+2. Each item: what happened + why it matters, 1-2 sentences
+3. Include engagement data in parentheses (likes, RTs, downloads — show them separately, not combined)
+4. 3-5 most important items per category, skip empty categories
+5. Tone: professional, concise, opinionated — you're an editor curating, not a bot summarizing
+6. Forbidden phrases: "In this article", "Stay tuned", "Exciting times", "Let's dive in", "Game-changing", "In today's issue", "值得注意的是", "让我们来看看", "总结来看", "众所周知"
+7. Output pure markdown. The H1 title must be a news-style headline.
+8. Every item MUST include a source link at the end: [查看详情 →](url)
+9. For items from OpenAI Changelog or similar platform changelogs, cite as '— OpenAI Changelog (Feb 10)' and link to the changelog page.
 
-## 中文写作约束
-- 语气：像一个消息灵通的科技圈朋友在微信群里分享，专业、简洁、有态度
-- 用短句、主动句式："发布了"、"上线了"、"跑分碾压"、"直接开源"
-- 中文标点：，。！？""''（）
-- 英文与中文之间加空格：使用 Claude 进行开发
-- 技术术语首次出现标注英文：大语言模型（LLM）
-- 没有公认中文译名的术语直接用英文：Transformer、Token、Prompt
-- 数字用阿拉伯数字，大数用万/亿
-- 涉及国产模型时自然融入对比视角（不要强行加）
-- 这不是英文版的翻译，是基于同一批数据的独立中文创作
+CRITICAL RULE — NO FABRICATION:
+You ONLY have the information provided below. If an item's summary is empty or says "[No summary available]":
+- Write ONLY the title + source + engagement stats + link
+- DO NOT describe, interpret, or infer what the article is about
 
-## 写作规范
-1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
-2. 每条：发生了什么 + 为什么重要，1-2 句话
-3. 括号内标注互动数据（点赞、转发、下载量分开写）
-4. 每个栏目 3-5 条最重要的内容，空栏目跳过
-5. 输出纯 markdown，H1 标题必须是新闻式标题
-6. 全文使用中文撰写
-7. 每条必须在末尾包含来源链接：[查看详情 →](url)
-8. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
+## OUTPUT LANGUAGE: CHINESE (MANDATORY)
+Write the ENTIRE newsletter in Chinese. This is not a translation — write naturally in Chinese as an independent creation.
+- Use Chinese punctuation：，。！？""''（）
+- Add a space between English and Chinese: 使用 Claude 进行开发
+- First occurrence of technical terms should include English: 大语言模型（LLM）
+- Terms without established Chinese translations stay in English: Transformer, Token, Prompt
+- Use Arabic numerals, large numbers use 万/亿
+- Tone: like a well-connected tech insider sharing in a WeChat group — professional, concise, opinionated
+- Use active voice and short sentences: "发布了"、"上线了"、"跑分碾压"、"直接开源"
 
-## 禁用词
-❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"、"In this article"、"Stay tuned"、"Exciting times"、"Let's dive in"、"Game-changing"
-
-严格规则 — 禁止编造：
-你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
-- 只写标题 + 来源 + 互动数据 + 链接
-- 不要描述、推测或补充内容
-
-## 原始数据（${items.length} 条）
+## Raw data (${items.length} items)
 ${rawData}`;
 
   try {
@@ -369,62 +365,31 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+  // Same English prompt structure as Opus ZH — just output in Chinese
+  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
 
-重要：请直接输出完整的 Markdown newsletter 正文。不要输出任何前言、解释、确认或思考过程。第一行必须是 # 开头的中文标题。
+## Coverage (MANDATORY)
+Cover ALL provided items. Each must appear in the main sections or ⚡ Quick Hits.
 
-## 覆盖率（强制）
-你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
+## Title Rule: Generate a compelling news-style headline as H1. No date-based titles.
+## Opening: 1-2 sentences with attitude, then a "今天：" line previewing key topics.
 
-## 标题规则（重要）
-生成一个新闻式中文标题作为 H1。不要用日期标题。
-✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
-❌ 差："🌅 AI 每日简报 — ${date}"
+## Categories
+🧠 MODEL  📱 APP  🔧 DEV  📝 TECHNIQUE  🚀 PRODUCT  🎓 MODEL LITERACY  🎯 PICK OF THE DAY
+If a category has 5+ items, extras go to ⚡ Quick Hits (one line + link).
 
-## 开场白（重要）
-标题后写 1-2 句有态度的叙事开场，点出今天最大的故事。然后用一行 "今天：" 预览 2-3 个关键话题。
+## Rules
+- Each item: • **bold title** — source, what happened + why it matters (1-2 sentences), [查看详情 →](url)
+- 3-5 items per category, skip empty ones
+- Tone: professional, concise, opinionated
+- NO fabrication: if summary is empty, write only title + source + link
 
-## 栏目（使用以下 6 个固定栏目 + 2 个特别栏目）
-🧠 模型动态 — 新模型发布与趋势
-📱 产品应用 — 消费级产品与平台更新
-🔧 开发工具 — 开发者工具、SDK、API
-📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
-🚀 产品动态 — 新产品、研究成果、开源项目、企业合作
-🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
-🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
+## OUTPUT LANGUAGE: CHINESE (MANDATORY)
+Write entirely in Chinese. Not a translation — independent Chinese creation.
+Chinese punctuation, space between EN/ZH, technical terms annotated in English on first use.
+Tone: like a tech insider sharing in WeChat — "发布了"、"上线了"、"直接开源"
 
-如果某个栏目条目较多，超出 3-5 条的放到末尾的 ⚡ 快讯 栏目（一句话 + 链接）。
-
-## 中文写作约束
-- 语气：像一个消息灵通的科技圈朋友在微信群里分享，专业、简洁、有态度
-- 用短句、主动句式："发布了"、"上线了"、"跑分碾压"、"直接开源"
-- 中文标点：，。！？""''（）
-- 英文与中文之间加空格：使用 Claude 进行开发
-- 技术术语首次出现标注英文：大语言模型（LLM）
-- 没有公认中文译名的术语直接用英文：Transformer、Token、Prompt
-- 数字用阿拉伯数字，大数用万/亿
-- 涉及国产模型时自然融入对比视角（不要强行加）
-- 这不是英文版的翻译，是基于同一批数据的独立中文创作
-
-## 写作规范
-1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
-2. 每条：发生了什么 + 为什么重要，1-2 句话
-3. 括号内标注互动数据（点赞、转发、下载量分开写）
-4. 每个栏目 3-5 条最重要的内容，空栏目跳过
-5. 输出纯 markdown，H1 标题必须是新闻式标题
-6. 全文使用中文撰写
-7. 每条必须在末尾包含来源链接：[查看详情 →](url)
-8. 对于来自 OpenAI Changelog 或类似平台更新日志的条目，引用格式为 '— OpenAI Changelog (Feb 10)' 并链接到更新日志页面。
-
-## 禁用词
-❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"、"In this article"、"Stay tuned"、"Exciting times"、"Let's dive in"、"Game-changing"
-
-严格规则 — 禁止编造：
-你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
-- 只写标题 + 来源 + 互动数据 + 链接
-- 不要描述、推测或补充内容
-
-## 原始数据（${items.length} 条）
+## Raw data (${items.length} items)
 ${rawData}`;
 
   try {
@@ -475,61 +440,31 @@ async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: strin
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+  // Same English prompt structure — output in Chinese
+  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
 
-重要：请直接输出完整的 Markdown newsletter 正文。不要输出任何前言、解释、确认或思考过程。第一行必须是 # 开头的中文标题。
+## Coverage (MANDATORY)
+Cover ALL provided items. Each must appear in the main sections or ⚡ Quick Hits.
 
-## 覆盖率（强制）
-你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
+## Title Rule: Generate a compelling news-style headline as H1. No date-based titles.
+## Opening: 1-2 sentences with attitude, then a "今天：" line previewing key topics.
 
-## 标题规则（重要）
-生成一个新闻式中文标题作为 H1。不要用日期标题。
-✅ 好："Anthropic 加速 Opus，OpenAI 开始卖广告"
-❌ 差："🌅 AI 每日简报 — ${date}"
+## Categories
+🧠 MODEL  📱 APP  🔧 DEV  📝 TECHNIQUE  🚀 PRODUCT  🎓 MODEL LITERACY  🎯 PICK OF THE DAY
+If a category has 5+ items, extras go to ⚡ Quick Hits (one line + link).
 
-## 开场白（重要）
-标题后写 1-2 句有态度的叙事开场，点出今天最大的故事。然后用一行 "今天：" 预览 2-3 个关键话题。
+## Rules
+- Each item: • **bold title** — source, what happened + why it matters (1-2 sentences), [查看详情 →](url)
+- 3-5 items per category, skip empty ones
+- Tone: professional, concise, opinionated
+- NO fabrication: if summary is empty, write only title + source + link
 
-## 栏目（使用以下 6 个固定栏目 + 2 个特别栏目）
-🧠 模型动态 — 新模型发布与趋势
-📱 产品应用 — 消费级产品与平台更新
-🔧 开发工具 — 开发者工具、SDK、API
-📝 技术实践 — 实用技巧、最佳实践、热门开发技巧
-🚀 产品动态 — 新产品、研究成果、开源项目、企业合作
-🎓 概念科普 — 挑选一个值得今天科普的技术概念，用 3-4 句话向非技术读者解释。
-🎯 今日精选 — 今天最有影响力的一条新闻，2-3 句话说明为什么重要 + 链接。
+## OUTPUT LANGUAGE: CHINESE (MANDATORY)
+Write entirely in Chinese. Not a translation — independent Chinese creation.
+Chinese punctuation, space between EN/ZH, technical terms annotated in English on first use.
+Tone: like a tech insider sharing in WeChat — "发布了"、"上线了"、"直接开源"
 
-如果某个栏目条目较多，超出 3-5 条的放到末尾的 ⚡ 快讯 栏目（一句话 + 链接）。
-
-## 中文写作约束
-- 语气：像一个消息灵通的科技圈朋友在微信群里分享，专业、简洁、有态度
-- 用短句、主动句式："发布了"、"上线了"、"跑分碾压"、"直接开源"
-- 中文标点：，。！？""''（）
-- 英文与中文之间加空格：使用 Claude 进行开发
-- 技术术语首次出现标注英文：大语言模型（LLM）
-- 没有公认中文译名的术语直接用英文：Transformer、Token、Prompt
-- 数字用阿拉伯数字，大数用万/亿
-- 涉及国产模型时自然融入对比视角（不要强行加）
-- 这不是英文版的翻译，是基于同一批数据的独立中文创作
-
-## 写作规范
-1. 每条：bullet point（•），**加粗标题**，来源（— @handle 或 — 来源名称）
-2. 每条：发生了什么 + 为什么重要，1-2 句话
-3. 括号内标注互动数据（点赞、转发、下载量分开写）
-4. 每个栏目 3-5 条最重要的内容，空栏目跳过
-5. 输出纯 markdown，H1 标题必须是新闻式标题
-6. 全文使用中文撰写
-7. 每条必须在末尾包含来源链接：[查看详情 →](url)
-
-## 禁用词
-❌ "值得注意的是"、"让我们来看看"、"总结来看"、"在这一领域"、"众所周知"、"不容忽视"、"In this article"、"Stay tuned"、"Exciting times"、"Let's dive in"、"Game-changing"
-
-严格规则 — 禁止编造：
-你只能使用下方提供的信息。如果某条的摘要为空或显示"[No summary available]"：
-- 只写标题 + 来源 + 互动数据 + 链接
-- 不要描述、推测或补充内容
-
-## 原始数据（${items.length} 条）
+## Raw data (${items.length} items)
 ${rawData}`;
 
   try {
