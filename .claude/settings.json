@@ -32,9 +32,25 @@
       "Bash(sqlite3 *)",
       "Bash(lsof *)",
       "Bash(env *)",
-      "Bash(bash scripts/*)",
+      "Bash(bash *)",
       "Bash(python3 *)",
       "Bash(curl *)",
+      "Bash(ssh loreai *)",
+      "Bash(rm *)",
+      "Bash(gh *)",
+      "Bash(open *)",
+      "Bash(kill *)",
+      "Bash(xargs *)",
+      "Bash(which *)",
+      "Bash(du *)",
+      "Bash(df *)",
+      "Bash(printf *)",
+      "Bash(realpath *)",
+      "Bash(unset *)",
+      "Bash(crontab *)",
+      "Bash(claude *)",
+      "WebSearch",
+      "WebFetch(*)",
       "mcp__ide__getDiagnostics"
     ]
   },
@@ -65,6 +81,10 @@
           {
             "type": "command",
             "command": "echo \"$(date -u +%Y-%m-%dT%H:%M:%SZ) | session_end\" >> logs/claude-sessions.log"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
           }
         ]
       }
