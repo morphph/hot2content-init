@@ -273,6 +273,8 @@ async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string)
 
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
 
+重要：请直接输出完整的 Markdown newsletter 正文。不要输出任何前言、解释、确认或思考过程。第一行必须是 # 开头的中文标题。
+
 ## 覆盖率（强制）
 你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
 
@@ -368,6 +370,8 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
   })), null, 2);
 
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+
+重要：请直接输出完整的 Markdown newsletter 正文。不要输出任何前言、解释、确认或思考过程。第一行必须是 # 开头的中文标题。
 
 ## 覆盖率（强制）
 你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
@@ -472,6 +476,8 @@ async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: strin
   })), null, 2);
 
   const prompt = `你是 LoreAI 每日简报的中文主编。基于以下原始新闻数据，撰写今日 AI 简报。日期：${date}
+
+重要：请直接输出完整的 Markdown newsletter 正文。不要输出任何前言、解释、确认或思考过程。第一行必须是 # 开头的中文标题。
 
 ## 覆盖率（强制）
 你必须覆盖所有提供的 filtered items，每条至少在正文或快讯中出现一次，不得遗漏任何条目。如果某个栏目条目较多，超出 3-5 条的可以放到末尾的 ⚡ 快讯 栏目。
