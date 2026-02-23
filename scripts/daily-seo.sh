@@ -1,6 +1,6 @@
 #!/bin/bash
 # Track B: SEO Auto-Pipeline
-# Run daily at 02:00 UTC (1 hour after newsletter)
+# Run daily at 05:00 UTC (1pm SGT) — 3h gap after last morning job
 # Usage: bash scripts/daily-seo.sh [--dry-run]
 
 set -euo pipefail
@@ -61,7 +61,12 @@ echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Git commit + push" | tee -a logs/s
 git add content/
 if ! git diff --staged --quiet 2>/dev/null; then
   git commit -m "🤖 Auto SEO content $(date -u +%Y-%m-%d)" 2>&1 | tee -a logs/seo-pipeline.log
-  git push 2>&1 | tee -a logs/seo-pipeline.log
+  # Retry push (handles concurrent pushes from OpenClaw)
+  for i in 1 2 3; do
+    git push 2>&1 | tee -a logs/seo-pipeline.log && break
+    echo "⚠️ Push failed (attempt $i/3), rebasing..." | tee -a logs/seo-pipeline.log
+    git pull --rebase origin main 2>&1 | tee -a logs/seo-pipeline.log || { echo "❌ Rebase failed" | tee -a logs/seo-pipeline.log; exit 1; }
+  done
   echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — Pushed to remote" | tee -a logs/seo-pipeline.log
 else
   echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') — No new content to push" | tee -a logs/seo-pipeline.log

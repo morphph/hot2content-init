@@ -13,10 +13,8 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_DIR"
 source .env
 
-# Pull latest code before running (use merge instead of rebase to avoid conflicts)
-git stash --include-untracked 2>/dev/null
-git pull --no-rebase || git pull --ff-only || { echo "⚠️ git pull failed, resetting to origin/main"; git fetch origin && git reset --hard origin/main; }
-git stash pop 2>/dev/null
+# Pull latest code before running
+git pull --rebase origin main || { echo "❌ git pull failed"; exit 1; }
 
 DATE=$(TZ='Asia/Singapore' date +%Y-%m-%d)
 STATUS_FILE="${PROJECT_DIR}/logs/last-run-status.json"
@@ -70,5 +68,10 @@ npx tsx scripts/generate-dashboard-data.ts || echo "⚠️ Dashboard generation 
 git add content/dashboard-data.json 2>/dev/null
 if ! git diff --staged --quiet 2>/dev/null; then
   git commit -m "📊 Dashboard data ${DATE}" 2>/dev/null
-  git push 2>/dev/null
+  # Retry push (handles concurrent pushes from OpenClaw)
+  for i in 1 2 3; do
+    git push && break
+    echo "⚠️ Push failed (attempt $i/3), rebasing..."
+    git pull --rebase origin main || { echo "❌ Rebase failed"; exit 1; }
+  done
 fi

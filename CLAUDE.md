@@ -176,8 +176,9 @@ All times shown in SGT (UTC+8). **Avoid git push during these windows to prevent
 | AI Daily | 4:00am | 20:00 | Daily | OpenClaw cron → `content/newsletters/ai-daily/{en,zh}/` |
 | AI Dev | 6:00am | 22:00 | Daily | System crontab → `daily-newsletter.sh` → `content/newsletters/{en,zh}/` |
 | AI Product | 8:00am | 00:00 | Mon/Wed/Sat | OpenClaw cron → `content/newsletters/ai-product/{en,zh}/` |
-| Indie | 10:00am | 02:00 | Mon/Wed/Sat | OpenClaw cron → `content/newsletters/indie/{en,zh}/` |
+| Indie | 9:00am | 01:00 | Mon/Wed/Sat | OpenClaw cron → `content/newsletters/indie/{en,zh}/` |
+| SEO Pipeline | 1:00pm | 05:00 | Daily | System crontab → `daily-seo.sh` → `content/{blogs,faq,glossary,compare}/` |
 
 **Danger windows (do NOT push during):**
-- Daily: SGT 4:00-5:00, 6:00-7:30
-- Mon/Wed/Sat additionally: SGT 8:00-9:00, 10:00-11:00
+- Daily: SGT 4:00-5:00, 6:00-7:30, 1:00-2:30pm
+- Mon/Wed/Sat additionally: SGT 8:00-9:00, 9:00-10:00
