@@ -131,7 +131,7 @@ ${rawData}`;
     console.log(`   📝 Wrote prompt (${prompt.length} chars)`);
 
     const result = execSync(
-      `cat '${tmpPrompt}' | claude --model claude-opus-4-6 --output-format text --max-turns 1 --print`,
+      `cat '${tmpPrompt}' | claude --model claude-opus-4-6 --output-format text --max-turns 3 --print`,
       {
         encoding: 'utf-8', timeout: 180000,
         env: { ...process.env, HOME: process.env.HOME || '/home/ubuntu' },
@@ -246,7 +246,7 @@ ${rawData}`;
     const tmpPrompt = path.join('/tmp', `opus-prompt-${Date.now()}.txt`);
     fs.writeFileSync(tmpPrompt, prompt);
     const result = execSync(
-      `cat "${tmpPrompt}" | claude -p --output-format text --max-turns 1 --print`,
+      `cat "${tmpPrompt}" | claude -p --output-format text --max-turns 3 --print`,
       { timeout: 5 * 60 * 1000, maxBuffer: 1024 * 1024, env: { ...process.env }, shell: '/bin/bash' }
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
@@ -333,7 +333,7 @@ ${rawData}`;
     const tmpPrompt = path.join('/tmp', `opus-prompt-zh-${Date.now()}.txt`);
     fs.writeFileSync(tmpPrompt, prompt);
     const result = execSync(
-      `cat "${tmpPrompt}" | claude -p --output-format text --max-turns 1 --print`,
+      `cat "${tmpPrompt}" | claude -p --output-format text --max-turns 3 --print`,
       { timeout: 5 * 60 * 1000, maxBuffer: 1024 * 1024, env: { ...process.env }, shell: '/bin/bash' }
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
