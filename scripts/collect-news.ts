@@ -97,6 +97,42 @@ const SEARCH_QUERIES = [
 ];
 
 const REDDIT_SUBREDDITS = ['LocalLLaMA', 'ClaudeAI', 'MachineLearning', 'artificial'];
+
+// ============================================
+// P0: RSS Feed Sources (free, stable, fast)
+// ============================================
+
+const RSS_FEEDS: { url: string; name: string; priority: boolean; category: Category; score_base: number; filter?: RegExp }[] = [
+  // AI/LLM blogs
+  { url: 'https://simonwillison.net/atom/everything/', name: 'Simon Willison', priority: true, category: 'developer_platform', score_base: 85, filter: /ai|llm|claude|gpt|model|agent|mcp/i },
+  { url: 'https://magazine.sebastianraschka.com/feed', name: 'Sebastian Raschka', priority: true, category: 'official_blog', score_base: 82 },
+  { url: 'https://lilianweng.github.io/index.xml', name: "Lil'Log (Lilian Weng)", priority: false, category: 'official_blog', score_base: 80 },
+  { url: 'https://huggingface.co/blog/feed.xml', name: 'HuggingFace Blog', priority: true, category: 'developer_platform', score_base: 88 },
+  { url: 'https://openai.com/blog/rss.xml', name: 'OpenAI Blog RSS', priority: true, category: 'model_release', score_base: 92 },
+  // Tech media
+  { url: 'https://techcrunch.com/category/artificial-intelligence/feed/', name: 'TechCrunch AI', priority: false, category: 'product_ecosystem', score_base: 75 },
+  { url: 'https://feeds.arstechnica.com/arstechnica/index', name: 'Ars Technica', priority: false, category: 'product_ecosystem', score_base: 72, filter: /ai|model|gpu|nvidia|openai|anthropic|google|meta|agent/i },
+  { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', name: 'The Verge AI', priority: false, category: 'product_ecosystem', score_base: 73 },
+  // Chinese media
+  { url: 'https://36kr.com/feed', name: '36氪', priority: true, category: 'product_ecosystem', score_base: 78, filter: /ai|人工智能|大模型|智能|GPT|机器人|算力/i },
+  { url: 'https://www.jiqizhixin.com/rss', name: '机器之心', priority: true, category: 'official_blog', score_base: 82 },
+  // HN (RSS alternative — simpler than API)
+  { url: 'https://hnrss.org/frontpage?count=20', name: 'HN Frontpage RSS', priority: false, category: 'developer_platform', score_base: 70, filter: /ai|llm|model|gpt|claude|agent|ml|neural|transformer|gpu|openai|anthropic/i },
+];
+
+// ============================================
+// P2: GitHub Releases — Core repos to track
+// ============================================
+
+const GITHUB_RELEASE_REPOS = [
+  'langchain-ai/langchain', 'run-llama/llama_index', 'vllm-project/vllm',
+  'ollama/ollama', 'ggerganov/llama.cpp', 'huggingface/transformers',
+  'anthropics/anthropic-sdk-python', 'openai/openai-python',
+  'modelcontextprotocol/servers', 'deepseek-ai/DeepSeek-V3',
+  'QwenLM/Qwen2.5', 'meta-llama/llama', 'crewAIInc/crewAI',
+  'microsoft/autogen', 'BerriAI/litellm', 'dify-ai/dify',
+  'open-webui/open-webui', 'lm-sys/FastChat', 'openclaw/openclaw',
+];
 const REDDIT_CLIENT_ID = process.env.REDDIT_CLIENT_ID || '';
 const REDDIT_CLIENT_SECRET = process.env.REDDIT_CLIENT_SECRET || '';
 
@@ -164,19 +200,23 @@ async function parseRSS(url: string): Promise<RSSItem[]> {
     if (!response.ok) return [];
     const xml = await response.text();
     const items: RSSItem[] = [];
-    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+    // Support both RSS <item> and Atom <entry> formats
+    const itemRegex = /<(?:item|entry)>([\s\S]*?)<\/(?:item|entry)>/g;
     let match;
     while ((match = itemRegex.exec(xml)) !== null) {
       const itemXml = match[1];
-      const title = itemXml.match(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/)?.[1] || '';
-      const link = itemXml.match(/<link>(.*?)<\/link>/)?.[1] || '';
-      const pubDate = itemXml.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || '';
-      const description = itemXml.match(/<description>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/description>/)?.[1] || '';
+      const title = itemXml.match(/<title[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/)?.[1] || '';
+      // RSS uses <link>url</link>, Atom uses <link href="url"/>
+      const rssLink = itemXml.match(/<link>([^<]+)<\/link>/)?.[1] || '';
+      const atomLink = itemXml.match(/<link[^>]*href="([^"]+)"[^>]*\/?>/)?.[1] || '';
+      const link = rssLink || atomLink;
+      const pubDate = itemXml.match(/<(?:pubDate|published|updated)>(.*?)<\/(?:pubDate|published|updated)>/)?.[1] || '';
+      const description = itemXml.match(/<(?:description|summary|content)[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/(?:description|summary|content)>/)?.[1] || '';
       if (title && link) {
-        items.push({ title: title.trim(), link: link.trim(), pubDate, description: description.slice(0, 300) });
+        items.push({ title: title.trim(), link: link.trim(), pubDate, description: description.replace(/<[^>]+>/g, '').slice(0, 300) });
       }
     }
-    return items.slice(0, 10);
+    return items.slice(0, 15);
   } catch (e) {
     console.log(`   ⚠️ RSS parse error: ${e}`);
     return [];
@@ -328,6 +368,92 @@ async function fetchOpenAIChangelog(): Promise<NewsItem[]> {
       });
     }
   } catch (e) { console.log(`   ⚠️ OpenAI Changelog fetch error: ${e}`); }
+  return items;
+}
+
+// ============================================
+// P0: RSS Feed Scanner
+// ============================================
+
+async function scanRSSFeeds(): Promise<NewsItem[]> {
+  console.log('📡 Tier 0: Scanning RSS Feeds...');
+  const items: NewsItem[] = [];
+  
+  for (const feed of RSS_FEEDS) {
+    try {
+      console.log(`   - ${feed.name}...`);
+      const rssItems = await parseRSS(feed.url);
+      let count = 0;
+      for (const item of rssItems.slice(0, 8)) {
+        if (item.pubDate && !isFreshItem(item.pubDate)) continue;
+        if (feed.filter && !feed.filter.test(item.title + (item.description || ''))) continue;
+        items.push({
+          id: `rss-${feed.name.toLowerCase().replace(/\s+/g, '-')}-${Buffer.from(item.link).toString('base64').slice(0, 16)}`,
+          title: item.title,
+          summary: item.description?.replace(/<[^>]+>/g, '').slice(0, 280) || '',
+          url: item.link,
+          source: feed.name,
+          source_tier: feed.priority ? 1 : 2,
+          category: feed.category,
+          score: feed.score_base,
+          detected_at: item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString(),
+        });
+        count++;
+      }
+      if (count > 0) console.log(`   ✅ ${feed.name}: ${count} items`);
+    } catch (e) {
+      console.log(`   ⚠️ ${feed.name} RSS error: ${e}`);
+    }
+  }
+  
+  console.log(`   ✅ Total RSS items: ${items.length}`);
+  return items;
+}
+
+// ============================================
+// P2: GitHub Releases Scanner
+// ============================================
+
+async function scanGitHubReleases(): Promise<NewsItem[]> {
+  console.log('📡 Tier 3b: Scanning GitHub Releases...');
+  const items: NewsItem[] = [];
+  const GH_TOKEN = process.env.GITHUB_TOKEN || '';
+  const headers: Record<string, string> = { 
+    'Accept': 'application/vnd.github+json', 
+    'User-Agent': 'Hot2Content/2.0',
+  };
+  if (GH_TOKEN) headers['Authorization'] = `Bearer ${GH_TOKEN}`;
+  
+  for (const repo of GITHUB_RELEASE_REPOS) {
+    try {
+      const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=3`, { headers });
+      if (!response.ok) continue;
+      const releases = await response.json();
+      
+      for (const release of releases) {
+        if (!release.published_at || !isFreshItem(release.published_at)) continue;
+        const tag = release.tag_name || '';
+        const name = release.name || tag;
+        items.push({
+          id: `gh-release-${repo.replace('/', '-')}-${tag}`,
+          title: `📦 ${repo} ${name}`,
+          summary: (release.body || '').replace(/\r?\n/g, ' ').slice(0, 280),
+          url: release.html_url,
+          source: 'GitHub Release',
+          source_tier: 2,
+          category: 'developer_platform',
+          score: 82,
+          detected_at: new Date(release.published_at).toISOString(),
+        });
+      }
+      // Rate limit: 60/hr unauthenticated, 5000/hr with token
+      await new Promise(r => setTimeout(r, GH_TOKEN ? 200 : 1000));
+    } catch (e) {
+      // Skip silently
+    }
+  }
+  
+  console.log(`   ✅ GitHub Releases: ${items.length} new releases`);
   return items;
 }
 
@@ -679,13 +805,15 @@ async function main() {
   const date = new Date().toISOString().split('T')[0];
 
   // Scan all tiers
+  const rssItems = await scanRSSFeeds();
   const officialItems = await scanOfficialBlogs();
   const twitterItems = await scanTwitter();
   const hnItems = await scanHackerNews();
   const ghItems = await scanGitHub();
+  const ghReleaseItems = await scanGitHubReleases();
   const redditItems = await scanReddit();
 
-  const allItems = [...officialItems, ...twitterItems, ...hnItems, ...ghItems, ...redditItems];
+  const allItems = [...rssItems, ...officialItems, ...twitterItems, ...hnItems, ...ghItems, ...ghReleaseItems, ...redditItems];
   console.log(`\n🔄 Deduplicating ${allItems.length} items...`);
   const deduped = deduplicate(allItems);
   console.log(`   ✅ ${deduped.length} unique items`);
@@ -717,10 +845,12 @@ async function main() {
 
   // Stats
   console.log('\n📊 Collection Stats:');
+  console.log(`   RSS feeds: ${rssItems.length}`);
   console.log(`   Official blogs: ${officialItems.length}`);
   console.log(`   Twitter: ${twitterItems.length}`);
   console.log(`   Hacker News: ${hnItems.length}`);
-  console.log(`   GitHub: ${ghItems.length}`);
+  console.log(`   GitHub trending: ${ghItems.length}`);
+  console.log(`   GitHub releases: ${ghReleaseItems.length}`);
   console.log(`   Reddit: ${redditItems.length}`);
   console.log(`   Total raw: ${allItems.length}`);
   console.log(`   After dedup: ${deduped.length}`);
