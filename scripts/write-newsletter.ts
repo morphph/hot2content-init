@@ -460,16 +460,17 @@ function validateNewsletterContent(content: string, lang: 'en' | 'zh'): { valid:
     return { valid: false, reason: `Only ${boldCount} bold items (need >= 3)` };
   }
 
-  // Meta-summary detection (ZH)
+  // Meta-summary detection — reject if Claude described itself instead of writing
   const metaPatterns = [
     /已经生成了.*简报/,
     /内容覆盖了.*条新闻/,
     /以下是.*简报/,
     /请授权写入权限/,
-    /I've generated the newsletter/i,
-    /I have generated/i,
-    /Here is the newsletter/i,
+    /I've (generated|written|created|prepared) the/i,
+    /I have (generated|written|created|prepared) the/i,
+    /Here('s| is) the (newsletter|content|digest)/i,
     /I'll write the newsletter/i,
+    /Here's the content:/i,
   ];
   for (const pattern of metaPatterns) {
     if (pattern.test(content)) {
