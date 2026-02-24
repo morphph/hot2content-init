@@ -55,6 +55,15 @@ else
   exit 1
 fi
 
+# Step 3b: Write AI Daily (skip if OpenClaw already generated it)
+AI_DAILY_EN="${PROJECT_DIR}/content/newsletters/ai-daily/en/${DATE}.md"
+if [ -f "$AI_DAILY_EN" ]; then
+  echo "✅ AI Daily already exists for ${DATE}, skipping"
+else
+  echo "✍️ Step 3b: Writing AI Daily for ${DATE}..."
+  npx tsx scripts/write-newsletter.ts --type=ai-daily || echo "⚠️ AI Daily failed (non-fatal)"
+fi
+
 notify "success" "✅ Newsletter pipeline complete for ${DATE}"
 
 # Step 4: Verify build before committing

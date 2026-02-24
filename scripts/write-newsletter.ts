@@ -45,9 +45,9 @@ interface FilteredItem extends RawItem {
 // Cross-day dedup: extract bold titles from recent newsletters
 // ============================================
 
-function getRecentTitles(days: number = 3): string[] {
+function getRecentTitles(days: number = 3, dir?: string): string[] {
   const titles: string[] = [];
-  const dir = path.join(process.cwd(), 'content', 'newsletters', 'en');
+  dir = dir || path.join(process.cwd(), 'content', 'newsletters', 'en');
   try {
     const files = fs.readdirSync(dir).filter(f => f.endsWith('.md')).sort().slice(-days);
     for (const file of files) {
@@ -194,8 +194,9 @@ function ruleBasedFilter(items: RawItem[]): FilteredItem[] {
 // Newsletter Writing (Claude Opus via CLI)
 // ============================================
 
-async function generateNewsletterWithOpus(items: FilteredItem[], date: string): Promise<string | null> {
-  console.log('   ✍️ Generating EN newsletter with Claude Opus...');
+async function generateNewsletterWithOpus(items: FilteredItem[], date: string, newsletterType: NewsletterType = 'ai-dev'): Promise<string | null> {
+  const identity = getPromptIdentity(newsletterType);
+  console.log(`   ✍️ Generating EN newsletter (${identity.name}) with Claude Opus...`);
 
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
@@ -203,7 +204,7 @@ async function generateNewsletterWithOpus(items: FilteredItem[], date: string): 
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
-  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
+  const prompt = `You are the editor-in-chief of ${identity.name} (${identity.description}). Write today's AI digest based on the raw news data below. Date: ${date}
 
 ## Title Rule (CRITICAL)
 Generate a compelling news-style headline as the H1 title. DO NOT use date-based titles.
@@ -251,10 +252,12 @@ ${rawData}`;
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
     const cleaned = result.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
-    if (cleaned && cleaned.length > 200) {
+    const validation = validateNewsletterContent(cleaned, 'en');
+    if (validation.valid) {
       console.log(`   ✅ EN newsletter: ${cleaned.length} chars`);
       return cleaned;
     }
+    console.log(`   ⚠️ EN validation failed: ${validation.reason}`);
     return null;
   } catch (e) {
     console.log(`   ⚠️ Opus EN failed: ${e}`);
@@ -262,8 +265,9 @@ ${rawData}`;
   }
 }
 
-async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string): Promise<string | null> {
-  console.log('   ✍️ Generating ZH newsletter with Claude Opus...');
+async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string, newsletterType: NewsletterType = 'ai-dev'): Promise<string | null> {
+  const identity = getPromptIdentity(newsletterType);
+  console.log(`   ✍️ Generating ZH newsletter (${identity.name}) with Claude Opus...`);
 
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
     title: i.title, summary: (i.raw_summary || '').slice(0, 300),
@@ -272,7 +276,7 @@ async function generateNewsletterWithOpusZH(items: FilteredItem[], date: string)
   })), null, 2);
 
   // Use same English prompt as EN version, with Chinese output constraint appended
-  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
+  const prompt = `You are the editor-in-chief of ${identity.name} (${identity.description}). Write today's AI digest based on the raw news data below. Date: ${date}
 
 ## Coverage (MANDATORY)
 You MUST cover ALL provided filtered items. Each item must appear at least once in the main sections or the ⚡ Quick Hits section. Do not omit any item.
@@ -334,11 +338,12 @@ ${rawData}`;
     ).toString().trim();
     try { fs.unlinkSync(tmpPrompt); } catch {}
     const cleaned = result.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
-    if (cleaned && cleaned.length > 200) {
+    const validation = validateNewsletterContent(cleaned, 'zh');
+    if (validation.valid) {
       console.log(`   ✅ ZH newsletter: ${cleaned.length} chars`);
       return cleaned;
     }
-    console.log(`   ⚠️ ZH output too short (${cleaned.length} chars), may be meta-summary`);
+    console.log(`   ⚠️ ZH validation failed: ${validation.reason}`);
     return null;
   } catch (e) {
     console.log(`   ⚠️ Opus ZH failed: ${e}`);
@@ -350,7 +355,7 @@ ${rawData}`;
 // Newsletter Writing (Kimi K2.5 Fallback for ZH)
 // ============================================
 
-async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string): Promise<string | null> {
+async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string, newsletterType: NewsletterType = 'ai-dev'): Promise<string | null> {
   const apiKey = process.env.KIMI_API_KEY || process.env.MOONSHOT_API_KEY;
   if (!apiKey) {
     console.log('   ⚠️ No KIMI_API_KEY, skipping Kimi fallback');
@@ -365,8 +370,9 @@ async function generateNewsletterWithKimiZH(items: FilteredItem[], date: string)
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
+  const identity = getPromptIdentity(newsletterType);
   // Same English prompt structure as Opus ZH — just output in Chinese
-  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
+  const prompt = `You are the editor-in-chief of ${identity.name} (${identity.description}). Write today's AI digest based on the raw news data below. Date: ${date}
 
 ## Coverage (MANDATORY)
 Cover ALL provided items. Each must appear in the main sections or ⚡ Quick Hits.
@@ -415,11 +421,12 @@ ${rawData}`;
     const data = await response.json();
     const text = data.choices?.[0]?.message?.content?.trim() || '';
 
-    if (text && text.length > 200) {
+    const validation = validateNewsletterContent(text, 'zh');
+    if (validation.valid) {
       console.log(`   ✅ Kimi ZH newsletter: ${text.length} chars`);
       return text;
     }
-    console.log(`   ⚠️ Kimi ZH output too short (${text.length} chars)`);
+    console.log(`   ⚠️ Kimi ZH validation failed: ${validation.reason}`);
     return null;
   } catch (e) {
     console.log(`   ⚠️ Kimi ZH error: ${e}`);
@@ -428,10 +435,108 @@ ${rawData}`;
 }
 
 // ============================================
+// Content Validation
+// ============================================
+
+function validateNewsletterContent(content: string, lang: 'en' | 'zh'): { valid: boolean; reason?: string } {
+  if (!content || content.length < 200) {
+    return { valid: false, reason: `Too short (${content?.length || 0} chars)` };
+  }
+
+  // Must have H1 title
+  if (!content.match(/^# .+/m)) {
+    return { valid: false, reason: 'Missing H1 title heading' };
+  }
+
+  // Must have at least 2 H2 section headings
+  const h2Count = (content.match(/^## .+/gm) || []).length;
+  if (h2Count < 2) {
+    return { valid: false, reason: `Only ${h2Count} H2 sections (need >= 2)` };
+  }
+
+  // Must have at least 3 bold items
+  const boldCount = (content.match(/\*\*[^*]+\*\*/g) || []).length;
+  if (boldCount < 3) {
+    return { valid: false, reason: `Only ${boldCount} bold items (need >= 3)` };
+  }
+
+  // Meta-summary detection (ZH)
+  const metaPatterns = [
+    /已经生成了.*简报/,
+    /内容覆盖了.*条新闻/,
+    /以下是.*简报/,
+    /请授权写入权限/,
+    /I've generated the newsletter/i,
+    /I have generated/i,
+    /Here is the newsletter/i,
+    /I'll write the newsletter/i,
+  ];
+  for (const pattern of metaPatterns) {
+    if (pattern.test(content)) {
+      return { valid: false, reason: `Meta-summary detected: ${pattern.source}` };
+    }
+  }
+
+  // Date-based title detection
+  const h1Match = content.match(/^# (.+)/m);
+  if (h1Match) {
+    const title = h1Match[1];
+    if (/AI Daily Digest\s*[—–-]\s*(January|February|March|April|May|June|July|August|September|October|November|December)/i.test(title)) {
+      return { valid: false, reason: 'Date-based EN title detected' };
+    }
+    if (/AI 日报\s*[—–-]\s*\d{4}年/.test(title)) {
+      return { valid: false, reason: 'Date-based ZH title detected' };
+    }
+  }
+
+  return { valid: true };
+}
+
+// ============================================
+// Newsletter Type & Identity
+// ============================================
+
+type NewsletterType = 'ai-daily' | 'ai-dev';
+
+function getPromptIdentity(type: NewsletterType): { name: string; description: string } {
+  if (type === 'ai-daily') {
+    return {
+      name: 'LoreAI AI Daily',
+      description: 'broad daily digest covering all AI news',
+    };
+  }
+  return {
+    name: 'LoreAI AI Dev',
+    description: 'focused on agentic AI engineering, developer tools, infrastructure',
+  };
+}
+
+function getOutputDirs(type: NewsletterType): { en: string; zh: string } {
+  const base = path.join(process.cwd(), 'content', 'newsletters');
+  if (type === 'ai-daily') {
+    return {
+      en: path.join(base, 'ai-daily', 'en'),
+      zh: path.join(base, 'ai-daily', 'zh'),
+    };
+  }
+  return {
+    en: path.join(base, 'en'),
+    zh: path.join(base, 'zh'),
+  };
+}
+
+function getDedupDir(type: NewsletterType): string {
+  if (type === 'ai-daily') {
+    return path.join(process.cwd(), 'content', 'newsletters', 'ai-daily', 'en');
+  }
+  return path.join(process.cwd(), 'content', 'newsletters', 'en');
+}
+
+// ============================================
 // Newsletter Writing (Sonnet CLI Fallback for ZH)
 // ============================================
 
-async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: string): Promise<string | null> {
+async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: string, newsletterType: NewsletterType = 'ai-dev'): Promise<string | null> {
   console.log('   🤖 Falling back to Sonnet CLI for ZH newsletter...');
 
   const rawData = JSON.stringify(items.slice(0, 50).map(i => ({
@@ -440,8 +545,9 @@ async function generateNewsletterWithSonnetZH(items: FilteredItem[], date: strin
     score: i.agent_score, why_it_matters: i.why_it_matters,
   })), null, 2);
 
+  const identity = getPromptIdentity(newsletterType);
   // Same English prompt structure — output in Chinese
-  const prompt = `You are the editor-in-chief of LoreAI Daily. Write today's AI digest based on the raw news data below. Date: ${date}
+  const prompt = `You are the editor-in-chief of ${identity.name} (${identity.description}). Write today's AI digest based on the raw news data below. Date: ${date}
 
 ## Coverage (MANDATORY)
 Cover ALL provided items. Each must appear in the main sections or ⚡ Quick Hits.
@@ -469,11 +575,12 @@ ${rawData}`;
 
   try {
     const text = await callSonnet(prompt);
-    if (text && text.length > 200) {
+    const validation = validateNewsletterContent(text, 'zh');
+    if (validation.valid) {
       console.log(`   ✅ Sonnet CLI ZH newsletter: ${text.length} chars`);
       return text;
     }
-    console.log(`   ⚠️ Sonnet CLI ZH output too short (${text.length} chars)`);
+    console.log(`   ⚠️ Sonnet CLI ZH validation failed: ${validation.reason}`);
     return null;
   } catch (e) {
     console.log(`   ⚠️ Sonnet CLI ZH error: ${e}`);
@@ -486,12 +593,19 @@ ${rawData}`;
 // ============================================
 
 async function main() {
+  // Parse --type argument
+  const typeArg = process.argv.find(a => a.startsWith('--type='));
+  const newsletterType: NewsletterType = typeArg?.split('=')[1] === 'ai-daily' ? 'ai-daily' : 'ai-dev';
+  const identity = getPromptIdentity(newsletterType);
+  const outputDirs = getOutputDirs(newsletterType);
+  const dedupDir = getDedupDir(newsletterType);
+
   const date = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' });
 
   console.log('\n');
   console.log('═'.repeat(60));
-  console.log('  ✍️ LoreAI Newsletter Writer');
-  console.log(`  Date: ${date}`);
+  console.log(`  ✍️ ${identity.name} Newsletter Writer`);
+  console.log(`  Type: ${newsletterType} | Date: ${date}`);
   console.log('═'.repeat(60));
   console.log('');
 
@@ -529,7 +643,7 @@ async function main() {
   // Save filtered output (ephemeral copy in output/)
   const filteredPath = path.join(OUTPUT_DIR, `filtered-items-${date}.json`);
   const filteredPayload = JSON.stringify({
-    date, generated_at: new Date().toISOString(),
+    date, type: newsletterType, generated_at: new Date().toISOString(),
     raw_count: dbItems.length, filtered_count: filtered.length, items: filtered,
   }, null, 2);
   fs.writeFileSync(filteredPath, filteredPayload);
@@ -540,49 +654,56 @@ async function main() {
   fs.writeFileSync(path.join(dataDir, `${date}.json`), filteredPayload);
   console.log(`   💾 Persisted filtered items to data/filtered-items/${date}.json`);
 
-  // Step 3: Write EN newsletter (with retry)
+  // Step 3: Write EN newsletter (with retry, up to 3 attempts)
   console.log('\n📝 Writing EN newsletter...');
-  let enMarkdown = await generateNewsletterWithOpus(filtered, date);
-  if (!enMarkdown) {
-    console.log('   🔄 Retrying EN newsletter generation...');
-    enMarkdown = await generateNewsletterWithOpus(filtered, date);
+  let enMarkdown: string | null = null;
+  for (let attempt = 1; attempt <= 3 && !enMarkdown; attempt++) {
+    if (attempt > 1) console.log(`   🔄 Retrying EN newsletter (attempt ${attempt}/3)...`);
+    enMarkdown = await generateNewsletterWithOpus(filtered, date, newsletterType);
   }
   if (enMarkdown) {
     const enPath = path.join(OUTPUT_DIR, `digest-${date}.md`);
     fs.writeFileSync(enPath, enMarkdown);
     console.log(`✅ Saved EN digest: ${enPath}`);
 
-    // Copy to content dir
-    const enContentDir = path.join(process.cwd(), 'content', 'newsletters', 'en');
-    fs.mkdirSync(enContentDir, { recursive: true });
-    fs.copyFileSync(enPath, path.join(enContentDir, `${date}.md`));
+    // Copy to content dir (type-aware)
+    fs.mkdirSync(outputDirs.en, { recursive: true });
+    fs.copyFileSync(enPath, path.join(outputDirs.en, `${date}.md`));
   } else {
-    console.log('❌ EN newsletter generation failed');
+    console.log('❌ EN newsletter generation failed after 3 attempts');
   }
 
-  // Step 4: Write ZH newsletter (Opus → Kimi K2.5 → Gemini Flash)
+  // Step 4: Write ZH newsletter (Opus x2 → Kimi K2.5 → Sonnet)
   console.log('\n🇨🇳 Writing ZH newsletter...');
-  let zhMarkdown = await generateNewsletterWithOpusZH(filtered, date);
-  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithKimiZH(filtered, date);
-  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithSonnetZH(filtered, date);
+  let zhMarkdown: string | null = null;
+  // First Opus attempt
+  zhMarkdown = await generateNewsletterWithOpusZH(filtered, date, newsletterType);
+  // Second Opus attempt before falling to other providers
+  if (!zhMarkdown) {
+    console.log('   🔄 Retrying ZH with Opus (attempt 2)...');
+    zhMarkdown = await generateNewsletterWithOpusZH(filtered, date, newsletterType);
+  }
+  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithKimiZH(filtered, date, newsletterType);
+  if (!zhMarkdown) zhMarkdown = await generateNewsletterWithSonnetZH(filtered, date, newsletterType);
   if (zhMarkdown) {
     const zhPath = path.join(OUTPUT_DIR, `digest-zh-${date}.md`);
     fs.writeFileSync(zhPath, zhMarkdown);
     console.log(`✅ Saved ZH digest: ${zhPath}`);
 
-    const zhContentDir = path.join(process.cwd(), 'content', 'newsletters', 'zh');
-    fs.mkdirSync(zhContentDir, { recursive: true });
-    fs.copyFileSync(zhPath, path.join(zhContentDir, `${date}.md`));
+    // Copy to content dir (type-aware)
+    fs.mkdirSync(outputDirs.zh, { recursive: true });
+    fs.copyFileSync(zhPath, path.join(outputDirs.zh, `${date}.md`));
   } else {
-    console.log('❌ ZH newsletter generation failed (both Opus and Kimi)');
+    console.log('❌ ZH newsletter generation failed (all providers)');
   }
 
   // Step 5: DB persist newsletter as content
   try {
     if (enMarkdown) {
-      const headline = enMarkdown.split('\n')[0]?.replace(/^#\s*/, '') || `LoreAI Daily — ${date}`;
+      const headline = enMarkdown.split('\n')[0]?.replace(/^#\s*/, '') || `${identity.name} — ${date}`;
+      const slug = newsletterType === 'ai-daily' ? `ai-daily-${date}` : `newsletter-${date}`;
       const contentId = insertContent(db, {
-        type: 'newsletter', title: headline, slug: `newsletter-${date}`,
+        type: 'newsletter', title: headline, slug,
         body_markdown: enMarkdown, language: 'en', status: 'published', source_type: 'auto',
       });
       linkContentSources(db, contentId, filtered.slice(0, 20).map(i => i.id));
@@ -599,7 +720,8 @@ async function main() {
       cwd: process.cwd(), encoding: 'utf-8',
     }).trim();
     if (diffResult === 'changes') {
-      execSync(`git commit -m "📰 Auto newsletter ${date}"`, { cwd: process.cwd(), encoding: 'utf-8' });
+      const label = newsletterType === 'ai-daily' ? 'AI Daily' : 'AI Dev';
+      execSync(`git commit -m "📰 Auto ${label} ${date}"`, { cwd: process.cwd(), encoding: 'utf-8' });
       execSync('git push', { cwd: process.cwd(), encoding: 'utf-8', timeout: 30000 });
       console.log('✅ Pushed to remote');
     } else {
@@ -614,12 +736,12 @@ async function main() {
   fs.mkdirSync(path.dirname(statusFile), { recursive: true });
   const status = enMarkdown && zhMarkdown ? 'success' : enMarkdown ? 'partial' : 'failed';
   const message = status === 'success'
-    ? `✅ Newsletter ${date} published (EN + ZH)`
+    ? `✅ ${identity.name} ${date} published (EN + ZH)`
     : status === 'partial'
-    ? `⚠️ Newsletter ${date} partial (EN only, ZH failed)`
-    : `❌ Newsletter ${date} generation failed`;
+    ? `⚠️ ${identity.name} ${date} partial (EN only, ZH failed)`
+    : `❌ ${identity.name} ${date} generation failed`;
   fs.writeFileSync(statusFile, JSON.stringify({
-    date, status, message, timestamp: new Date().toISOString(),
+    date, type: newsletterType, status, message, timestamp: new Date().toISOString(),
   }));
   console.log(`\n${message}`);
 }
