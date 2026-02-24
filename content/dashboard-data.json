@@ -1,75 +1,75 @@
 {
-  "generatedAt": "2026-02-23T22:06:58.474Z",
+  "generatedAt": "2026-02-24T05:35:54.482Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-24",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-24",
+      "lastRunMessage": "✅ LoreAI AI Daily 2026-02-24 published (EN + ZH)",
       "enPublished": true,
       "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": "2026-02-20 02:35:47 UTC",
-      "lastRunStatus": "complete"
+      "lastRunTimestamp": null,
+      "lastRunStatus": "unknown"
     },
     "newsItems": {
-      "last24h": 230,
-      "last72h": 329,
+      "last24h": 87,
+      "last72h": 251,
       "total": 822
     },
-    "recentErrors": [
-      "error: cannot pull with rebase: You have unstaged changes.",
-      "error: cannot pull with rebase: You have unstaged changes.",
-      "error: Please commit or stash them.",
-      "error: Please commit or stash them.",
-      "❌ git pull failed",
-      "❌ git pull failed",
-      "fatal: Cannot rebase onto multiple branches.",
-      "fatal: Cannot rebase onto multiple branches.",
-      "❌ git pull failed",
-      "❌ git pull failed"
-    ]
+    "recentErrors": []
   },
   "keywordQuality": {
     "byStatus": {
-      "backlog": 10
+      "backlog": 20
     },
     "byLanguage": {
-      "en": 10
+      "en": 20
     },
     "byIntent": {
+      "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases.": 1,
       "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities": 1,
       "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons": 1,
       "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows": 1,
+      "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand.": 1,
       "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
+      "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality.": 1,
       "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM": 1,
+      "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases.": 1,
       "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production": 1,
       "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities": 1,
+      "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications.": 1,
       "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
+      "Microsoft's Playwright MCP server has 27,481 stars, becoming the standard for AI agent browser automation via Model Context Protocol.": 1,
       "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns": 1,
-      "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1
+      "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks.": 1,
+      "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development.": 1,
+      "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders.": 1,
+      "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1,
+      "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users.": 1
     },
     "byType": {
-      "compare": 2,
-      "faq": 1,
-      "glossary": 3,
-      "tier2": 4
+      "compare": 3,
+      "faq": 2,
+      "glossary": 7,
+      "tier2": 6,
+      "tier3": 2
     },
     "enrichmentCoverage": {
-      "enriched": 10,
+      "enriched": 20,
       "unenriched": 0
     },
     "volumeDistribution": {
       "noData": 0,
-      "low": 10,
+      "low": 20,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 5,
-      "medium": 2,
-      "hard": 3
+      "easy": 9,
+      "medium": 4,
+      "hard": 7
     },
     "top20": [
       {
@@ -91,6 +91,15 @@
         "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities"
       },
       {
+        "keyword": "Anthropic distillation attack detection",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand."
+      },
+      {
         "keyword": "AI agent evaluation strategies",
         "language": "en",
         "score": 81,
@@ -107,6 +116,24 @@
         "search_volume": 0,
         "difficulty": 100,
         "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities"
+      },
+      {
+        "keyword": "OpenAI Responses API WebSockets",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 100,
+        "search_intent": "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development."
+      },
+      {
+        "keyword": "SWE-bench Pro vs SWE-bench Verified",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks."
       },
       {
         "keyword": "long-running AI agent harness design",
@@ -154,6 +181,51 @@
         "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production"
       },
       {
+        "keyword": "gpt-realtime-1.5 voice API",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 20,
+        "search_intent": "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders."
+      },
+      {
+        "keyword": "Google TranslateGemma open translation models",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications."
+      },
+      {
+        "keyword": "Claude Code subagents collection",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 80,
+        "search_intent": "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users."
+      },
+      {
+        "keyword": "Playwright MCP server browser automation",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 60,
+        "search_intent": "Microsoft's Playwright MCP server has 27,481 stars, becoming the standard for AI agent browser automation via Model Context Protocol."
+      },
+      {
+        "keyword": "AI Fluency Index human-AI collaboration",
+        "language": "en",
+        "score": 72,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality."
+      },
+      {
         "keyword": "Goose AI autonomous coding agent",
         "language": "en",
         "score": 64,
@@ -161,37 +233,55 @@
         "search_volume": 0,
         "difficulty": 20,
         "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM"
+      },
+      {
+        "keyword": "Alibaba zvec vector database",
+        "language": "en",
+        "score": 64,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 100,
+        "search_intent": "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases."
+      },
+      {
+        "keyword": "zvec vs Chroma vector database",
+        "language": "en",
+        "score": 64,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases."
       }
     ],
     "staleBacklogCount": 0,
-    "total": 10
+    "total": 20
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 4
+      "newsletter": 5
     },
     "byTier": {
       "1": 8,
-      "2": 31,
-      "3": 16
+      "2": 33,
+      "3": 20
     },
-    "publishedLast7d": 4,
-    "publishedLast30d": 4,
+    "publishedLast7d": 5,
+    "publishedLast30d": 5,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 4
+      "noScore": 5
     },
     "enArticles": 0,
     "zhArticles": 0,
     "bilingualCoverage": {
-      "paired": 23,
+      "paired": 26,
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 13,
+    "freshnessBacklog": 0,
     "newsletterStreak": {
       "en": 17,
       "zh": 17,
@@ -208,16 +298,16 @@
       "avgDaysToPublish": null
     },
     "news": {
-      "total": 10,
-      "backlog": 10,
+      "total": 20,
+      "backlog": 20,
       "published": 0,
       "error": 0,
       "avgDaysToPublish": null
     },
     "paa": {
-      "total": 108,
-      "discovered": 103,
-      "published": 5,
+      "total": 137,
+      "discovered": 127,
+      "published": 10,
       "duplicate": 0,
       "error": 0
     },
@@ -227,17 +317,842 @@
         "published": 0
       },
       "news": {
-        "added": 10,
+        "added": 20,
         "published": 0
       },
       "paa": {
-        "added": 108,
-        "published": 5
+        "added": 137,
+        "published": 10
       }
     }
   },
   "sampleReview": {
     "days": [
+      {
+        "date": "2026-02-24",
+        "qualitySummary": {
+          "total": 18,
+          "passed": 0,
+          "flagged": 18,
+          "flags": {
+            "Has TL;DR": 12,
+            "Title length": 8,
+            "Word count": 12,
+            "Description length": 14
+          }
+        },
+        "items": [
+          {
+            "keyword": "Anthropic distillation attack detection",
+            "type": "glossary",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Detecting and preventing distillation attacks",
+                "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks"
+              },
+              {
+                "title": "We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and M",
+                "url": "https://x.com/AnthropicAI/status/2025997928242811253"
+              }
+            ],
+            "content": [
+              {
+                "title": "Anthropic distillation attack detection — What It Is and Why It Matters",
+                "slug": "anthropic-distillation-attack-detection",
+                "language": "en",
+                "tier": null,
+                "wordCount": 430,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "71 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Anthropic 蒸馏攻击检测（Anthropic distillation attack detection）— 定义、原理与应用",
+                "slug": "anthropic-distillation-attack-detection",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 93,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "93 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "67 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "40 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "OpenAI Responses API WebSockets",
+            "type": "tier3",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Introducing WebSockets in the Responses API.",
+                "url": "https://x.com/OpenAIDevs/status/2026025368650690932"
+              },
+              {
+                "title": "📦 openai/openai-python v2.22.0",
+                "url": "https://github.com/openai/openai-python/releases/tag/v2.22.0"
+              }
+            ],
+            "content": [
+              {
+                "title": "OpenAI Responses API WebSockets — Quick Guide",
+                "slug": "openai-responses-api-websockets",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 194,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "194 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "87 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "OpenAI Responses API WebSocket 支持：Agent 开发者的低延迟利器",
+                "slug": "openai-responses-api-websockets",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 72,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "72 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "76 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "SWE-bench Pro vs SWE-bench Verified",
+            "type": "faq",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "The standard for frontier coding evals is changing with model maturity.",
+                "url": "https://x.com/OpenAIDevs/status/2026002219909427270"
+              }
+            ],
+            "content": [
+              {
+                "title": "SWE-bench Pro vs SWE-bench Verified — Frequently Asked Questions",
+                "slug": "swe-bench-pro-vs-swe-bench-verified",
+                "language": "en",
+                "tier": null,
+                "wordCount": 1100,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1100 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "85 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "SWE-bench Pro 与 SWE-bench Verified 对比 — 常见问题解答",
+                "slug": "swe-bench-pro-vs-swe-bench-verified",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 327,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "50 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "gpt-realtime-1.5 voice API",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Voice workflows just got stronger with gpt-realtime-1.5 in the Realtime API.",
+                "url": "https://x.com/OpenAIDevs/status/2026014334787461508"
+              }
+            ],
+            "content": [
+              {
+                "title": "gpt-realtime-1.5 Voice API: OpenAI's Push for Production-Ready Voice Workflows",
+                "slug": "gpt-realtime-1-5-voice-api",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1909,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1909 words (target: 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "78 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "174 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "gpt-realtime-1.5 语音 API — 深度分析与行业影响",
+                "slug": "gpt-realtime-1-5-voice-api",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 228,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "228 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "47 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Google TranslateGemma open translation models",
+            "type": "glossary",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "We’re releasing TranslateGemma, a new family of open translation models with support for 55 language",
+                "url": "https://x.com/GoogleDeepMind/status/2011848249850630363"
+              }
+            ],
+            "content": [
+              {
+                "title": "Google TranslateGemma open translation models — What It Is and Why It Matters",
+                "slug": "google-translategemma-open-translation-models",
+                "language": "en",
+                "tier": null,
+                "wordCount": 439,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "77 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Google TranslateGemma 开源翻译模型（Google TranslateGemma open translation models）— 定义、原理与应用",
+                "slug": "google-translategemma-open-translation-models",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 65,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "65 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "85 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "52 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Claude Code subagents collection",
+            "type": "tier3",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "VoltAgent/awesome-claude-code-subagents (⭐11,007)",
+                "url": "https://github.com/VoltAgent/awesome-claude-code-subagents"
+              }
+            ],
+            "content": [
+              {
+                "title": "Claude Code Subagents Collection — Quick Guide",
+                "slug": "claude-code-subagents-collection",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 172,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "172 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "88 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Claude Code 子代理集合 — 快速指南",
+                "slug": "claude-code-subagents-collection",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 80,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "80 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "24 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "35 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Playwright MCP server browser automation",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "microsoft/playwright-mcp (⭐27,481)",
+                "url": "https://github.com/microsoft/playwright-mcp"
+              }
+            ],
+            "content": []
+          },
+          {
+            "keyword": "AI Fluency Index human-AI collaboration",
+            "type": "glossary",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "New research: The AI Fluency Index.",
+                "url": "https://x.com/AnthropicAI/status/2025950279099961854"
+              }
+            ],
+            "content": [
+              {
+                "title": "AI Fluency Index human-AI collaboration — What It Is and Why It Matters",
+                "slug": "ai-fluency-index-human-ai-collaboration",
+                "language": "en",
+                "tier": null,
+                "wordCount": 402,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "71 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "AI 流畅度指数人机协作（AI Fluency Index human-AI collaboration）— 定义、原理与应用",
+                "slug": "ai-fluency-index-human-ai-collaboration",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 78,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "78 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "36 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Alibaba zvec vector database",
+            "type": "glossary",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "alibaba/zvec (⭐7,452)",
+                "url": "https://github.com/alibaba/zvec"
+              }
+            ],
+            "content": [
+              {
+                "title": "alibaba-zvec-vector-database-en",
+                "slug": "alibaba-zvec-vector-database",
+                "language": "en",
+                "tier": null,
+                "wordCount": 357,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "0 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "0 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "阿里巴巴 zvec 向量数据库（Alibaba zvec vector database）— 定义、原理与应用",
+                "slug": "alibaba-zvec-vector-database",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 74,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "74 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "39 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "zvec vs Chroma vector database",
+            "type": "compare",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "alibaba/zvec (⭐7,452)",
+                "url": "https://github.com/alibaba/zvec"
+              },
+              {
+                "title": "chroma-core/chroma (⭐26,243)",
+                "url": "https://github.com/chroma-core/chroma"
+              }
+            ],
+            "content": [
+              {
+                "title": "zvec vs Chroma vector database — Detailed Comparison",
+                "slug": "zvec-vs-chroma-vector-database",
+                "language": "en",
+                "tier": null,
+                "wordCount": 897,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "897 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "zvec 与 Chroma 向量数据库对比 — 详细对比分析",
+                "slug": "zvec-vs-chroma-vector-database",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 431,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "39 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       {
         "date": "2026-02-20",
         "qualitySummary": {
@@ -245,7 +1160,7 @@
           "passed": 1,
           "flagged": 19,
           "flags": {
-            "Word count": 11,
+            "Word count": 12,
             "Title length": 14,
             "Description length": 14,
             "Has TL;DR": 11
@@ -678,12 +1593,13 @@
                 "slug": "multi-agent-workspace-orchestration",
                 "language": "en",
                 "tier": 2,
-                "wordCount": 1628,
+                "wordCount": 1876,
                 "seoScore": null,
                 "flags": [
                   {
                     "name": "Word count",
-                    "status": "pass"
+                    "status": "warn",
+                    "detail": "1876 words (target: 800-1500)"
                   },
                   {
                     "name": "Has TL;DR",
@@ -1078,6 +1994,13 @@
   },
   "dailyTrend": [
     {
+      "date": "2026-02-24",
+      "contentCount": 28,
+      "qualityPassRate": 0,
+      "kwExtracted": 10,
+      "kwPublished": 0
+    },
+    {
       "date": "2026-02-23",
       "contentCount": 0,
       "qualityPassRate": 0,
@@ -1167,17 +2090,96 @@
       "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
-    },
-    {
-      "date": "2026-02-10",
-      "contentCount": 38,
-      "qualityPassRate": 3,
-      "kwExtracted": 0,
-      "kwPublished": 0
     }
   ],
   "recentKeywords": {
     "days": [
+      {
+        "date": "2026-02-24",
+        "count": 10,
+        "items": [
+          {
+            "keyword": "Anthropic distillation attack detection",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand.",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "OpenAI Responses API WebSockets",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development.",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "SWE-bench Pro vs SWE-bench Verified",
+            "language": "en",
+            "type": "faq",
+            "search_intent": "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks.",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "gpt-realtime-1.5 voice API",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders.",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Google TranslateGemma open translation models",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications.",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Claude Code subagents collection",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users.",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Playwright MCP server browser automation",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Microsoft's Playwright MCP server has 27,481 stars, becoming the standard for AI agent browser automation via Model Context Protocol.",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "AI Fluency Index human-AI collaboration",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality.",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Alibaba zvec vector database",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases.",
+            "score": 64,
+            "sourceNews": []
+          },
+          {
+            "keyword": "zvec vs Chroma vector database",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases.",
+            "score": 64,
+            "sourceNews": []
+          }
+        ]
+      },
       {
         "date": "2026-02-20",
         "count": 10,
@@ -1269,6 +2271,264 @@
   "recentContent": {
     "days": [
       {
+        "date": "2026-02-24",
+        "count": 28,
+        "items": [
+          {
+            "title": "Claude Code Subagents Collection — Quick Guide",
+            "slug": "claude-code-subagents-collection",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 172,
+            "preview": "**TL;DR:** The VoltAgent/awesome-claude-code-subagents repository provides 100+ ready-to-use specialized agents that extend Claude Code's capabilities for specific development tasks—from code review t"
+          },
+          {
+            "title": "gpt-realtime-1.5 Voice API: OpenAI's Push for Production-Ready Voice Workflows",
+            "slug": "gpt-realtime-1-5-voice-api",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1909,
+            "preview": "**TL;DR:** OpenAI released gpt-realtime-1.5, an updated model for their Realtime API that addresses three pain points developers faced with voice applications: inconsistent instruction following, unre"
+          },
+          {
+            "title": "OpenAI Responses API WebSockets — Quick Guide",
+            "slug": "openai-responses-api-websockets",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 194,
+            "preview": "**TL;DR:** OpenAI now supports WebSockets for the Responses API, enabling persistent connections for low-latency agent interactions with heavy tool calling — update to `openai-python` v2.22.0 to use i"
+          },
+          {
+            "title": "Claude Code 子代理集合 — 快速指南",
+            "slug": "claude-code-subagents-collection",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 80,
+            "preview": "**一句话总结：** VoltAgent 开源的 awesome-claude-code-subagents 仓库收录了 100+ 专用子代理（subagent），让你用一行配置就能给 Claude Code 加上代码审查、测试生成、文档写作等专业能力。 Claude Code 的子代理系统允许你定义专门处理特定任务的 AI 助手。主代理在遇到复杂工作时，会自动把任务分派给对应的子代理——就像一个"
+          },
+          {
+            "title": "gpt-realtime-1.5 语音 API — 深度分析与行业影响",
+            "slug": "gpt-realtime-1-5-voice-api",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 228,
+            "preview": "**一句话总结：** OpenAI 发布 gpt-realtime-1.5，这是 Realtime API 的重大升级版本，在指令遵循、工具调用和多语言准确性三个关键维度上实现了显著提升，标志着语音 AI 从\"能用\"迈向\"好用\"的转折点。 过去两年，语音 AI 经历了从实验室到生产环境的快速演进。2024 年 10 月，OpenAI 推出了 Realtime API，让开发者第一次能够构建真正的实"
+          },
+          {
+            "title": "OpenAI Responses API WebSocket 支持：Agent 开发者的低延迟利器",
+            "slug": "openai-responses-api-websockets",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 72,
+            "preview": "**一句话总结：** OpenAI 为 Responses API 新增 WebSocket 模式，通过持久连接和增量输入，让工具调用密集的 Agent 工作流实现约 40% 的端到端延迟优化。 --- 如果你在构建 AI Agent，大概率遇到过这个痛点：Agent 需要反复调用工具（function calling），每次调用都是一次完整的 HTTP 请求。20 轮工具调用下来，光是网络握手的"
+          },
+          {
+            "title": "AI Fluency Index human-AI collaboration — What It Is and Why It Matters",
+            "slug": "ai-fluency-index-human-ai-collaboration",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 402,
+            "preview": "The AI Fluency Index is a measurement framework developed by Anthropic to quantify how effectively humans collaborate with AI systems. It tracks specific behavioral patterns during human-AI interactio"
+          },
+          {
+            "title": "AI 流畅度指数人机协作（AI Fluency Index human-AI collaboration）— 定义、原理与应用",
+            "slug": "ai-fluency-index-human-ai-collaboration",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 78,
+            "preview": "AI 流畅度指数（AI Fluency Index）是 Anthropic 提出的一套量化框架，用于衡量人类与 AI 系统协作的有效程度。该指数追踪用户在与 AI 交互过程中的 11 种行为模式，包括迭代优化频率、任务拆解能力、反馈修正习惯等，从而评估用户是否真正掌握了与 AI 协同工作的技巧。 随着大语言模型（LLM）在工作场景中的普及，单纯\"会用 AI\"已不足以拉开差距。真正的竞争力在于能否与"
+          },
+          {
+            "title": "Alibaba zvec",
+            "slug": "alibaba-zvec-vector-database",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 357,
+            "preview": "Alibaba zvec is an open-source, in-process vector database designed to run embedded within applications rather than as a standalone server. Built on Proxima—Alibaba's production vector search engine—z"
+          },
+          {
+            "title": "阿里巴巴 zvec 向量数据库（Alibaba zvec vector database）— 定义、原理与应用",
+            "slug": "alibaba-zvec-vector-database",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 74,
+            "preview": "zvec 是阿里巴巴开源的轻量级进程内向量数据库（in-process vector database），专为高性能向量相似度检索设计。它直接嵌入应用进程运行，无需独立部署服务端，适合对延迟敏感的 AI 应用场景。 随着大语言模型（LLM）和检索增强生成（RAG）技术的普及，向量数据库成为 AI 应用的核心基础设施。传统方案如 Milvus、Pinecone 虽功能强大，但部署复杂、资源开销大，对"
+          },
+          {
+            "title": "Anthropic distillation attack detection — What It Is and Why It Matters",
+            "slug": "anthropic-distillation-attack-detection",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 430,
+            "preview": "Anthropic distillation attack detection refers to the security systems and methodologies Anthropic uses to identify when external parties attempt to extract Claude's capabilities through systematic qu"
+          },
+          {
+            "title": "Anthropic 蒸馏攻击检测（Anthropic distillation attack detection）— 定义、原理与应用",
+            "slug": "anthropic-distillation-attack-detection",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 93,
+            "preview": "Anthropic 蒸馏攻击检测是 Anthropic 公司开发的一套安全系统，用于识别和阻止竞争对手通过大规模查询 Claude 模型来\"蒸馏\"其能力的行为。模型蒸馏（Model Distillation）指通过收集大型模型的输入输出对，训练一个更小或不同的模型来复制原模型的行为——本质上是一种知识窃取。 2026 年 2 月，Anthropic 公开披露了一起工业级蒸馏攻击事件：DeepSee"
+          },
+          {
+            "title": "Google TranslateGemma open translation models — What It Is and Why It Matters",
+            "slug": "google-translategemma-open-translation-models",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 439,
+            "preview": "TranslateGemma is a family of open-weight translation models released by Google DeepMind, designed for high-quality machine translation across 55 languages. Built on the Gemma architecture, these mode"
+          },
+          {
+            "title": "Google TranslateGemma 开源翻译模型（Google TranslateGemma open translation models）— 定义、原理与应用",
+            "slug": "google-translategemma-open-translation-models",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 65,
+            "preview": "TranslateGemma 是 Google DeepMind 发布的开源机器翻译模型系列，基于 Gemma 架构构建，专门针对翻译任务进行优化。该系列提供 4B、12B 和 27B 三种参数规模，支持 55 种语言之间的互译，在保持翻译质量的同时大幅降低了计算资源需求。 开源翻译模型的发布打破了高质量机器翻译长期被闭源商业服务垄断的局面。此前，企业若需本地部署翻译能力，要么依赖 Google "
+          },
+          {
+            "title": "Claude Code is turning non-programmers into builders. Here's how to start.",
+            "slug": "claude-code-is-turning-non-programmers-into-builders-here-s-how-to-start",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 994,
+            "preview": "Claude Code represents a fundamental shift in who can build software. According to coverage from Dev Genius, the tool has enabled an 8-year-old to create games and helped a Google engineer complete wh"
+          },
+          {
+            "title": "Claude Code is turning non-programmers into builders. Here's how to start.",
+            "slug": "claude-code-is-turning-non-programmers-into-builders-here-s-how-to-start",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 132,
+            "preview": "Claude Code 正在打破编程的门槛。据 Dev Genius 报道，从 8 岁小孩制作游戏，到 Google 工程师用一小时完成原本需要一年的工作量，这款工具正在改变人们构建软件的方式。 **入门只需三步：** 1. **安装极简**：只需运行一条命令即可完成安装，无需配置复杂的开发环境 2. **自然语言描述**：用日常语言描述你想要的功能，Claude Code 会自动生成代码 3. "
+          },
+          {
+            "title": "How Claude Code is built - by Gergely Orosz",
+            "slug": "how-claude-code-is-built-by-gergely-orosz",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 785,
+            "preview": "Gergely Orosz, author of The Pragmatic Engineer newsletter, conducted an exclusive deep-dive with two founding engineers of the Claude Code team at Anthropic. The resulting article provides a rare loo"
+          },
+          {
+            "title": "How Claude Code is built - by Gergely Orosz",
+            "slug": "how-claude-code-is-built-by-gergely-orosz",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 136,
+            "preview": "Gergely Orosz 是知名技术博客 The Pragmatic Engineer 的作者，他与 Claude Code 的两位创始工程师进行了深度对话。这篇文章罕见地展示了这款 AI 开发工具的内部构建方式，以及它可能对软件开发未来的影响。 根据访谈内容，Claude Code 团队的工作方式与传统工程团队截然不同。最引人注目的数据是：**Claude Code 自己编写了 90% 的代码"
+          },
+          {
+            "title": "How I use Claude Code (+ my best tips)",
+            "slug": "how-i-use-claude-code-my-best-tips",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 720,
+            "preview": "The most effective Claude Code users share several habits that maximize productivity while minimizing token waste and frustration. **Clear your context frequently.** Use `/clear` every time you start "
+          },
+          {
+            "title": "How I use Claude Code (+ my best tips)",
+            "slug": "how-i-use-claude-code-my-best-tips",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 105,
+            "preview": "Claude Code 是 Anthropic 推出的命令行 AI 编程助手。根据多位资深用户的实践经验，以下是最实用的使用技巧。 **频繁使用 /clear 命令**是最被推荐的习惯。每次开始新任务时清空对话历史，避免旧内容消耗 token 配额，也省去 Claude 压缩旧对话的开销。如果需要回顾之前的内容，按上箭头键可以浏览历史会话，包括前几天的记录。 **善用 CLAUDE.md 文件**"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: How I use Claude Code",
+            "slug": "r-claudeai-on-reddit-how-i-use-claude-code",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 759,
+            "preview": "Based on extensive discussions in the r/ClaudeAI community, experienced users have developed distinct patterns for maximizing Claude Code's effectiveness. The most common workflow involves maintaining"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: How I use Claude Code",
+            "slug": "r-claudeai-on-reddit-how-i-use-claude-code",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 108,
+            "preview": "Reddit 的 r/ClaudeAI 社区汇集了大量 Claude Code 的实战经验。根据多位资深用户的分享，高效使用 Claude Code 的核心在于**建立结构化的项目文档**和**定制化的工作流程**。 最关键的技巧是善用 `CLAUDE.md` 文件。在 Claude Code 提示词前加上 `#` 前缀，系统会自动将指令保存到 CLAUDE.md 中。这个文件相当于你的项目记忆库"
+          },
+          {
+            "title": "SWE-bench Pro vs SWE-bench Verified — Frequently Asked Questions",
+            "slug": "swe-bench-pro-vs-swe-bench-verified",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1100,
+            "preview": "SWE-bench Verified is a human-validated subset of 500 samples from the original SWE-bench dataset, testing AI models on real GitHub issues primarily from Python repositories. SWE-bench Pro is a newer,"
+          },
+          {
+            "title": "SWE-bench Pro 与 SWE-bench Verified 对比 — 常见问题解答",
+            "slug": "swe-bench-pro-vs-swe-bench-verified",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 327,
+            "preview": "2026 年 2 月，OpenAI 正式宣布不再报告 SWE-bench Verified 成绩，转而推荐 SWE-bench Pro。核心原因有三： **测试用例质量堪忧**。OpenAI 对 27.6% 的数据子集进行审计后发现，至少 59.4% 的问题存在缺陷测试用例——这意味着功能正确的代码可能被错误地判定为失败。另有约 31% 的实例测试套件不够健壮，允许语义错误但\"看起来合理\"的补丁通"
+          },
+          {
+            "title": "What is Claude Code? The AI coding tool anyone can use",
+            "slug": "what-is-claude-code-the-ai-coding-tool-anyone-can-use",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 808,
+            "preview": "Claude Code is an agentic coding tool developed by Anthropic that operates directly in your terminal, IDE, desktop app, or browser. Unlike traditional code completion tools that suggest individual lin"
+          },
+          {
+            "title": "What is Claude Code? The AI coding tool anyone can use",
+            "slug": "what-is-claude-code-the-ai-coding-tool-anyone-can-use",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 122,
+            "preview": "Claude Code 是 Anthropic 推出的智能编程代理（Agentic Coding Tool），运行在终端、IDE、桌面应用和浏览器中。它能阅读你的代码库、编辑文件、执行命令，并与开发工具深度集成——全程通过自然语言交互完成。 与传统代码补全工具不同，Claude Code 具备完整的代理能力：它能自主探索项目结构、理解依赖关系，不需要你手动提供上下文文件。据 Zapier 的评测，"
+          },
+          {
+            "title": "zvec vs Chroma vector database — Detailed Comparison",
+            "slug": "zvec-vs-chroma-vector-database",
+            "type": "compare",
+            "language": "en",
+            "tier": null,
+            "wordCount": 897,
+            "preview": "Two open-source vector databases are competing for the embedded/in-process segment: Alibaba's zvec (7.4K GitHub stars, released February 2026) and Chroma (26K+ GitHub stars). Both run in-process witho"
+          },
+          {
+            "title": "zvec 与 Chroma 向量数据库对比 — 详细对比分析",
+            "slug": "zvec-vs-chroma-vector-database",
+            "type": "compare",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 431,
+            "preview": "向量数据库（Vector Database）是当前 AI 应用的核心基础设施。2026 年 2 月，阿里巴巴开源的 zvec 在 GitHub 上迅速获得 7,400+ 星标，被称为\"向量数据库界的 SQLite\"。而 Chroma 作为老牌选手，已积累 26,000+ 星标和每月 500 万次下载。两者都瞄准 RAG（检索增强生成）场景，但设计理念截然不同。 | 维度 | zvec | Chro"
+          }
+        ]
+      },
+      {
         "date": "2026-02-20",
         "count": 30,
         "items": [
@@ -1305,7 +2565,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1628,
+            "wordCount": 1876,
             "preview": "**TL;DR:** Three trending GitHub projects—Gas Town (9,796 stars), oh-my-claudecode (6,726 stars), and DeerFlow (20,015 stars)—signal a fundamental shift from single-agent AI assistants to coordinated "
           },
           {
@@ -1554,7 +2814,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1677,
+            "wordCount": 1984,
             "preview": "**TL;DR:** Anthropic has published groundbreaking research analyzing millions of AI agent interactions to quantify how much autonomy users actually grant to AI systems, revealing significant gaps betw"
           },
           {
@@ -1904,282 +3164,6 @@
             "tier": null,
             "wordCount": 342,
             "preview": "随着 AI 智能体（AI Agent）应用的爆发式增长，如何为智能体提供持久化记忆成为核心技术挑战。2026 年初，两个开源项目在 GitHub 持续霸榜：**mem0**（⭐47,456）和 **memvid**（⭐13,108），分别代表了两种截然不同的记忆层（Memory Layer）设计哲学。 本文将从架构、功能、性能、定价和适用场景五个维度进行深度对比，帮助开发者做出明智选择。 **me"
-          }
-        ]
-      },
-      {
-        "date": "2026-02-16",
-        "count": 37,
-        "items": [
-          {
-            "title": "Agentic Coding Benchmark Noise — Analysis and Industry Impact",
-            "slug": "agentic-coding-benchmark-noise",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1735,
-            "preview": "**TL;DR:** Infrastructure configuration—not model intelligence—can swing agentic coding benchmark scores by several percentage points, sometimes exceeding the performance gap between competing models "
-          },
-          {
-            "title": "Browser Automation for AI Agents — Analysis and Industry Impact",
-            "slug": "browser-automation-for-ai-agents",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1936,
-            "preview": "**TL;DR:** The emergence of browser automation frameworks designed specifically for AI agents—exemplified by browser-use and Vercel's agent-browser—signals a fundamental shift from APIs as the primary"
-          },
-          {
-            "title": "Claude Code Agent Skills: How Anthropic is Building an Ecosystem for AI Tool Discovery",
-            "slug": "claude-code-agent-skills",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1840,
-            "preview": "**TL;DR:** Anthropic's introduction of advanced tool use on the Claude Developer Platform—featuring dynamic tool discovery, learning, and execution—combined with community-driven skills repositories g"
-          },
-          {
-            "title": "GitHub Copilot SDK Integration — Quick Guide",
-            "slug": "github-copilot-sdk-integration",
-            "type": "blog",
-            "language": "en",
-            "tier": 3,
-            "wordCount": 485,
-            "preview": "**TL;DR:** The GitHub Copilot SDK lets you embed Copilot's AI agent capabilities directly into your applications, enabling code suggestions, chat interactions, and agent-driven workflows across multip"
-          },
-          {
-            "title": "Unsloth fine-tuning optimization — Quick Guide",
-            "slug": "unsloth-fine-tuning-optimization",
-            "type": "blog",
-            "language": "en",
-            "tier": 3,
-            "wordCount": 100,
-            "preview": "**TL;DR:** Unsloth delivers 2x faster fine-tuning with 70% less VRAM through custom CUDA kernels and memory optimization — enabling you to train Llama, Qwen, DeepSeek, and other models on consumer GPU"
-          },
-          {
-            "title": "Vercel's agent-browser: CLI-First Browser Automation for AI Agents",
-            "slug": "vercel-agent-browser-automation",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 576,
-            "preview": "**TL;DR:** Vercel Labs' agent-browser introduces a CLI-native approach to browser automation for AI agents, reflecting a deliberate architectural choice that prioritizes composability, scriptability, "
-          },
-          {
-            "title": "代理编程评测基准噪声 — 深度分析与行业影响",
-            "slug": "agentic-coding-benchmark-noise",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 240,
-            "preview": "**一句话总结：** 基础设施配置带来的得分波动，有时比榜首模型之间的真实差距还大——这意味着我们一直在根据噪声做决策。 如果你关注 AI 编程领域，你一定见过这样的新闻：\"XX 模型 SWE-bench 得分创新高！\"\"YY 模型超越 Claude，登顶编程榜单！\" 这些数字被当作真理传播。公司用它们做采购决策，开发者用它们选工具，投资人用它们估值。 但有一个问题很少被提及：**这些数字到底有多"
-          },
-          {
-            "title": "AI代理浏览器自动化 — 深度分析与行业影响",
-            "slug": "browser-automation-for-ai-agents",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 230,
-            "preview": "**一句话总结：** AI 智能体正在从「能读能写代码」进化到「能像人一样操作网页」——这意味着你的 AI 助手即将学会自己订机票、填表单、抓数据。 过去两年，AI 编程助手的能力飙升。Claude Code 能写代码、跑测试、提交 PR；ChatGPT 能分析文档、生成报告。但有一类任务它们始终做不好：**和网页打交道**。 想让 AI 帮你在携程上搜航班？抱歉，它只能给你一个链接。想让 AI "
-          },
-          {
-            "title": "Claude 高级工具使用测试版 — 快速指南",
-            "slug": "claude-advanced-tool-use-beta",
-            "type": "blog",
-            "language": "zh",
-            "tier": 3,
-            "wordCount": 75,
-            "preview": "**一句话总结：** Anthropic 发布三项 beta 功能，让 Claude 能够在运行时动态发现、学习和执行工具，彻底改变传统的静态工具定义模式。 传统 LLM 工具调用（Tool Use / Function Calling）要求开发者在 API 请求中预定义所有工具的 JSON Schema。这带来几个实际问题： - **Context 膨胀**：工具定义占用宝贵的上下文窗口 - *"
-          },
-          {
-            "title": "Claude Code 智能体技能 — 深度分析与行业影响",
-            "slug": "claude-code-agent-skills",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 353,
-            "preview": "**一句话总结：** 智能体技能（Agent Skills）正在重塑 AI 编程工具的架构——从「一个聪明的助手」变成「一支可指挥的专家团队」，而开源社区已经在 GitHub 上为这套系统写出了近万星的规范文档。 如果你用过 Claude Code，可能会有这样的体验：每次启动一个新项目，都要重新教 Claude「我们用 pnpm 不用 npm」「测试要跑 vitest」「部署走 Railway "
-          },
-          {
-            "title": "GitHub Copilot SDK 集成指南 — 快速指南",
-            "slug": "github-copilot-sdk-integration",
-            "type": "blog",
-            "language": "zh",
-            "tier": 3,
-            "wordCount": 41,
-            "preview": "**一句话总结：** GitHub 官方发布多平台 SDK，让开发者能将 Copilot Agent 能力嵌入自己的应用和服务中。 GitHub 近期在 Trending 榜单上线了 `github/copilot-sdk` 项目，这是一套多平台 SDK（Software Development Kit），允许开发者将 GitHub Copilot Agent 的能力集成到自有应用和服务中。这意味"
-          },
-          {
-            "title": "GitHub Copilot SDK 多平台 — 快速指南",
-            "slug": "github-copilot-sdk-multi-platform",
-            "type": "blog",
-            "language": "zh",
-            "tier": 3,
-            "wordCount": 69,
-            "preview": "**一句话总结：** GitHub 开源了 Copilot SDK，让开发者能在任意平台和应用中集成 AI 编程助手能力。 GitHub 近期在 Trending 榜单上线了 `github/copilot-sdk` 项目——一个多平台 SDK，用于将 GitHub Copilot Agent 集成到各类应用和服务中。这意味着 Copilot 的代码补全、对话、代码解释等能力不再局限于 VS Co"
-          },
-          {
-            "title": "Unsloth 微调优化技术 — 快速指南",
-            "slug": "unsloth-fine-tuning-optimization",
-            "type": "blog",
-            "language": "zh",
-            "tier": 3,
-            "wordCount": 57,
-            "preview": "**一句话总结：** Unsloth 通过内核级优化让大模型微调速度提升 2 倍、显存占用降低 70%，是目前最实用的低成本微调方案。 微调大模型的门槛一直很高：一张 A100 动辄数万元，即便用 QLoRA 等技术，训练 Llama 70B 仍需 80GB+ 显存。Unsloth 的出现改变了这个局面——它让消费级显卡（如 RTX 4090）也能完成专业级微调任务。 根据 [GitHub Tre"
-          },
-          {
-            "title": "Vercel agent-browser 浏览器自动化 — 深度分析与行业影响",
-            "slug": "vercel-agent-browser-automation",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 221,
-            "preview": "**一句话总结：** Vercel Labs 发布 agent-browser，这是一款专为 AI 智能体设计的命令行浏览器自动化工具——它代表着前端基础设施巨头正式入场 AI Agent 赛道，浏览器正在从\"人类专属界面\"变成\"智能体通用入口\"。 如果你用过 Claude Code、Cursor 或者其他 AI 编程助手，你会发现一个有趣的现象：它们能帮你写代码、跑测试、甚至提交 Git com"
-          },
-          {
-            "title": "AI Agent Memory Layer Architecture — What It Is and Why It Matters",
-            "slug": "ai-agent-memory-layer-architecture",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 421,
-            "preview": "AI agent memory layer architecture refers to the system design pattern that provides persistent, retrievable memory capabilities to AI agents across sessions and interactions. Unlike stateless LLM cal"
-          },
-          {
-            "title": "AI 代理记忆层架构（AI agent memory layer architecture）— 定义、原理与应用",
-            "slug": "ai-agent-memory-layer-architecture",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 108,
-            "preview": "AI 代理记忆层架构是一种为 AI 代理（AI Agent）提供持久化记忆能力的系统设计模式。它使代理能够跨会话存储、检索和更新信息，突破大语言模型（LLM）上下文窗口的限制。该架构通常作为独立的中间层存在，连接 AI 代理与底层存储系统，提供统一的记忆读写接口。 传统 LLM 应用存在\"金鱼记忆\"问题——每次对话都从零开始，无法记住用户偏好或历史交互。记忆层架构直接解决了这一痛点，让 AI 代理"
-          },
-          {
-            "title": "AI-Resistant Technical Evaluations — What It Is and Why It Matters",
-            "slug": "ai-resistant-technical-evaluations",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 415,
-            "preview": "AI-resistant technical evaluations are assessment methods designed to accurately measure a candidate's genuine skills and problem-solving abilities in an era where AI coding assistants can complete ma"
-          },
-          {
-            "title": "AI抗性技术评估（AI-Resistant Technical Evaluations）— 定义、原理与应用",
-            "slug": "ai-resistant-technical-evaluations",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 82,
-            "preview": "AI抗性技术评估是指经过特殊设计、难以被人工智能工具（如大语言模型/LLM）直接解决的技术能力测试。这类评估旨在区分候选人的真实技术水平与其使用AI辅助工具的能力，确保招聘流程能够准确衡量人类的工程能力和问题解决技巧。 随着 Claude、GPT 等 AI 编程助手的普及，传统技术面试题目正面临前所未有的挑战。许多标准的编程题、系统设计题甚至 take-home 项目都可以被 AI 在几分钟内高质"
-          },
-          {
-            "title": "Claude Code plugins ecosystem — What It Is and Why It Matters",
-            "slug": "claude-code-plugins-ecosystem",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 413,
-            "preview": "The Claude Code plugins ecosystem refers to the collection of community-developed and officially curated extensions that enhance Claude Code's capabilities. These plugins add specialized functionality"
-          },
-          {
-            "title": "Claude Code 插件生态系统（Claude Code plugins ecosystem）— 定义、原理与应用",
-            "slug": "claude-code-plugins-ecosystem",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 115,
-            "preview": "Claude Code 插件生态系统是围绕 Anthropic 的 Claude Code 智能编程助手构建的扩展框架，允许开发者通过标准化接口为 Claude Code 添加自定义工具、数据源和工作流能力。该生态系统包含官方维护的插件目录、社区贡献的扩展，以及面向知识工作者的专用插件集合。 随着 AI 编程助手从单一的代码补全工具演变为完整的开发环境，可扩展性成为核心竞争力。Claude Cod"
-          },
-          {
-            "title": "Claude Code skills specification — What It Is and Why It Matters",
-            "slug": "claude-code-skills-specification",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 441,
-            "preview": "Claude Code skills specification is a standardized format for defining custom commands and workflows that extend Claude Code's capabilities. Skills are reusable instruction sets that can be invoked vi"
-          },
-          {
-            "title": "Claude Code 技能规范（Claude Code skills specification）— 定义、原理与应用",
-            "slug": "claude-code-skills-specification",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 86,
-            "preview": "Claude Code 技能规范是一套标准化协议，用于定义 AI 编程代理（Agent）可执行的能力模块。每个技能（Skill）封装特定功能——如代码审查、Git 提交、文档生成等——通过声明式配置让代理理解何时调用、如何执行。该规范使开发者能够扩展 Claude Code 的能力边界，将领域知识转化为可复用的自动化单元。 AI 编程助手正从单纯的代码补全演进为完整的开发工作流代理。技能规范解决了"
-          },
-          {
-            "title": "Context Engineering for AI Agents — What It Is and Why It Matters",
-            "slug": "context-engineering-for-ai-agents",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 416,
-            "preview": "Context engineering is the systematic practice of designing, curating, and optimizing the information provided to AI agents to maximize their effectiveness on specific tasks. Unlike simple prompting, "
-          },
-          {
-            "title": "AI 代理的上下文工程（Context Engineering for AI Agents）— 定义、原理与应用",
-            "slug": "context-engineering-for-ai-agents",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 72,
-            "preview": "上下文工程是一种系统化设计和管理 AI 代理（AI Agent）输入信息的方法论。它超越了传统的提示工程（Prompt Engineering），不仅关注单次对话的提示词，还涵盖记忆管理、工具调用结果、多代理协作信息以及外部知识的动态整合。核心目标是在有限的上下文窗口（Context Window）内，为代理提供最相关、最高效的信息组合。 随着 AI 代理从简单的问答系统演进为能够执行复杂任务的自"
-          },
-          {
-            "title": "DeerFlow multi-agent framework — What It Is and Why It Matters",
-            "slug": "deerflow-multi-agent-framework",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 378,
-            "preview": "DeerFlow is an open-source multi-agent framework developed by ByteDance that orchestrates AI agents to handle complex, long-running tasks. It functions as a \"SuperAgent harness\" that coordinates resea"
-          },
-          {
-            "title": "DeerFlow 多代理框架（DeerFlow multi-agent framework）— 定义、原理与应用",
-            "slug": "deerflow-multi-agent-framework",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 63,
-            "preview": "DeerFlow 是字节跳动开源的多代理（multi-agent）协作框架，定位为\"SuperAgent harness\"——一个能够调度多个子代理（subagent）协同完成复杂任务的编排系统。该框架整合了沙箱执行环境、持久化记忆、工具调用、技能库等核心能力，支持从简单查询到耗时数小时的深度研究任务。 单一大语言模型（LLM）在处理多步骤、跨领域任务时存在明显局限：上下文窗口有限、缺乏状态持久化"
-          },
-          {
-            "title": "memvid AI Agent Memory Layer",
-            "slug": "memvid-ai-agent-memory-layer",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 388,
-            "preview": "memvid is an open-source memory layer designed specifically for AI agents. It provides a lightweight alternative to traditional Retrieval-Augmented Generation (RAG) pipelines by storing agent memories"
-          },
-          {
-            "title": "memvid AI代理记忆层（memvid AI agent memory layer）— 定义、原理与应用",
-            "slug": "memvid-ai-agent-memory-layer",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 100,
-            "preview": "memvid 是一个开源的 AI 代理记忆层解决方案，通过将文本编码为视频格式实现高效的长期记忆存储与即时检索。它以单文件、无服务器的架构替代复杂的 RAG（Retrieval-Augmented Generation，检索增强生成）管道，为 AI 代理提供轻量级的持久化记忆能力。 传统的 RAG 系统需要向量数据库（Vector Database）、嵌入模型（Embedding Model）和复"
-          },
-          {
-            "title": "OpenAI Codex skills catalog — What It Is and Why It Matters",
-            "slug": "openai-codex-skills-catalog",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 460,
-            "preview": "The OpenAI Codex skills catalog is a curated repository of reusable capabilities—called \"skills\"—designed to extend the functionality of OpenAI's Codex coding agent. Each skill defines a specific task"
-          },
-          {
-            "title": "OpenAI Codex 技能目录（OpenAI Codex skills catalog）— 定义、原理与应用",
-            "slug": "openai-codex-skills-catalog",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 89,
-            "preview": "OpenAI Codex 技能目录是一套可扩展的指令模块集合，用于增强 Codex 编程代理（coding agent）的能力边界。每个\"技能\"（skill）本质上是一段预定义的提示词（prompt）或工作流配置，告诉 Codex 如何执行特定类型的任务——从代码重构、测试生成到文档撰写。开发者可以从官方目录中选用现成技能，也可以编写自定义技能来适配团队的工程规范。 Codex 作为运行在终端中的"
           }
         ]
       }

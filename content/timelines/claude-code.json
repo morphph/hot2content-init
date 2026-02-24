@@ -4,6 +4,646 @@
   "name_zh": "Claude Code",
   "entries": [
     {
+      "id": "twitter-search-2025859987168543183",
+      "title": "Holy shit... someone just built an App Store for Claude Code.",
+      "url": "https://x.com/sentientt_media/status/2025859987168543183",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Holy shit... someone just built an App Store for Claude Code.\n\nIt's called SkillsMP and there are 200,000+ agent skills that teach your AI exactly how to write PPTX files, review PRs, deploy to cloud, analyze data, and more.\n\nNo complex prompting. No building from scratch. No wasted tokens.\n\n100% Opensource.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-2025998961610297680",
+      "title": "One of the biggest QOL improvements for me with Claude Code/Cowork has been the askUserQuestion tool",
+      "url": "https://x.com/adocomplete/status/2025998961610297680",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "One of the biggest QOL improvements for me with Claude Code/Cowork has been the askUserQuestion tool.\n\nI love when Claude asks follow up questions to really hone in on what I'm trying to accomplish and it actually helps me a ton provide clarity and understand what I even want.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcfac5",
+      "title": "On this day last year, coding changed forever. Happy 1st birthday, Claude Code. 🎂🎉",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rcfac5/on_this_day_last_year_coding_changed_forever/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 61,
+      "summary": "One year in, it went from \"research preview\" to a tool I genuinely can't imagine working without. What a year it's been.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-VoltAgent-awesome-claude-code-subagents",
+      "title": "VoltAgent/awesome-claude-code-subagents (⭐11,007)",
+      "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A collection of 100+ specialized Claude Code subagents covering a wide range of development use cases",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-Ibrahim-3d-conductor-orchestrator-superpowers",
+      "title": "Ibrahim-3d/conductor-orchestrator-superpowers (⭐193)",
+      "url": "https://github.com/Ibrahim-3d/conductor-orchestrator-superpowers",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 51,
+      "summary": "Multi-agent orchestration system for Claude Code with parallel execution, automated quality gates, Board of Directors, and bundled Superpowers skills",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025393836004966694",
+      "title": "Just realized why I’m so addicted to Claude Code.",
+      "url": "https://x.com/codyplof/status/2025393836004966694",
+      "source": "@codyplof",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Just realized why I’m so addicted to Claude Code. \n\nIt’s literally a video game for adults. You get stuck on a level, try everything you can to beat it, and eventually break through. \n\nAnd every level you stack skills and get stronger.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2016906799790923971",
+      "title": "Here is how you can give Claude Code access to any data that exists online.",
+      "url": "https://x.com/svpino/status/2016906799790923971",
+      "source": "@svpino",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Here is how you can give Claude Code access to any data that exists online.\n\nIt's an easy way to make it 10x more powerful than it already is.\n\nFor example:\n\nUse Claude Code to find open LinkedIn jobs in your area, tailor your resume to them, and apply for them automatically. https://t.co/9p75KBZBpt",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025433825002860572",
+      "title": "テレ東さんのYouTubeで非エンジニア向けの「Claude Code」の使い方をこれ以上は無理というくらい分かりやすく解説しました👇 https://t.co/ThFZkTxKVv",
+      "url": "https://x.com/kajikent/status/2025433825002860572",
+      "source": "@kajikent",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "テレ東さんのYouTubeで非エンジニア向けの「Claude Code」の使い方をこれ以上は無理というくらい分かりやすく解説しました👇 https://t.co/ThFZkTxKVv",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025428389901771207",
+      "title": "I think im addicted to making dashborards on Claude Code, this is a news trading dashboard I made in",
+      "url": "https://x.com/WazzCrypto/status/2025428389901771207",
+      "source": "@WazzCrypto",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I think im addicted to making dashborards on Claude Code, this is a news trading dashboard I made in 2 days https://t.co/vMhY4CVcWa",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025656340488601943",
+      "title": "Claude Code agent'larını piksel karakterler haline getiren VS Code eklentisi. Agent'ın o an ne yaptı",
+      "url": "https://x.com/kemal_ersin/status/2025656340488601943",
+      "source": "@kemal_ersin",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Claude Code agent'larını piksel karakterler haline getiren VS Code eklentisi. Agent'ın o an ne yaptığını animasyonlarla gösteriyor. Ayrıca sanal ofisi istediğiniz gibi düzenleyebiliyorsunuz. Açık kaynaklı.\n\nr/AgentsOfAI/comments/1rbskvm https://t.co/K3T1KYNYTY",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025701404988592359",
+      "title": "🎂 Happy 1st birthday to Claude Code",
+      "url": "https://x.com/bcherny/status/2025701404988592359",
+      "source": "@bcherny",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🎂 Happy 1st birthday to Claude Code\n\nThanks everyone for coming out and celebrating with us!! https://t.co/KB5nNOXbCd",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025572300658287030",
+      "title": "Holy shit.",
+      "url": "https://x.com/heygurisingh/status/2025572300658287030",
+      "source": "@heygurisingh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Holy shit.\n\nThe guy who BUILT Claude Code just shared his actual workflow.\n\nBoris Cherny runs 10-15 Claude sessions in parallel every single day.\n\nWhile you're prompting one AI, he has 5 in his terminal + 5-10 on the web all shipping code simultaneously.\n\nAnd the real weapon?\n\nHis https://t.co/WT9VOBmiGo file.\n\nEvery time Claude makes a mistake, the team adds a rule so it NEVER happens again.\n\nBoris literally said: \"After every correction, end with: Update your https://t.co/WT9VOBmiGo so you don",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025463189258076472",
+      "title": "Antigravity Problems:",
+      "url": "https://x.com/pankajkumar_dev/status/2025463189258076472",
+      "source": "@pankajkumar_dev",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Antigravity Problems:\n\n- Eats a lot of RAM and feels very heavy.\n- Quotas finish too fast now. Need API key option, pay-as-you-go, or a plan between Pro and Ultra.\n- Agent terminated due to error happens too frequently. \n- Models don't perform as well compared to Claude Code or Codex, especially with long context.\n- If history gets large, it sometimes doesn't even open. Have to wait or terminate it.\n- UI/UX needs improvement no clear view of remaining context or token usage, and no compact conte",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025549016965271684",
+      "title": "🚨 BREAKING: You can run Claude Code completely free now.",
+      "url": "https://x.com/riyazz_ai/status/2025549016965271684",
+      "source": "@riyazz_ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: You can run Claude Code completely free now.\n\nNo API bills.\nNo rate limits.\nNo data leaving your device.\n\nJust Claude Code running locally fast, private, and 100% yours.\n\nHere’s how to set up Claude Code on your own machine (free + fully private): 👇 https://t.co/D0QE602zSn",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2019863707866873955",
+      "title": "If you want to learn Claude Code but have no idea where to start, this is for you.",
+      "url": "https://x.com/milesdeutscher/status/2019863707866873955",
+      "source": "@milesdeutscher",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "If you want to learn Claude Code but have no idea where to start, this is for you.\n\nClaude Code in action - a 100% free course by Anthropic on Claude Code best practices.\n\nHighly recommend (even if you're advanced, you'll get some good tips):\n\nhttps:// anthropic.skilljar. com/claude-code-in-action",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025554669775503699",
+      "title": "🚨 This GitHub repo just changed how I use Claude Code forever.",
+      "url": "https://x.com/hasantoxr/status/2025554669775503699",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 This GitHub repo just changed how I use Claude Code forever.\n\nIt's called claude-code-best-practice and it gives you production-ready Agents, Commands, Memory, Hooks, and Skills all in one place.\n\nNo guessing. No scattered docs. No trial and error.\n\nHere's what's inside:\n→ Agents — orchestrate complex multi-step tasks autonomously\n→ Commands — custom slash commands you can reuse instantly\n→ Memory — Claude remembers context across every session\n→ Hooks — shell commands that fire on tool call ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1953097967361245251",
+      "title": "I'm thrilled to announce the definitive course on Claude Code, created with @AnthropicAI and taught",
+      "url": "https://x.com/AndrewYNg/status/1953097967361245251",
+      "source": "@AndrewYNg",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "I'm thrilled to announce the definitive course on Claude Code, created with @AnthropicAI and taught by Elie Schoppik @eschoppik. If you want to use highly agentic coding - where AI works autonomously for many minutes or longer, not just completing code snippets - this is it.\n\nClaude Code has been a game-changer for many developers (including me!), but there's real depth to using it well. This comprehensive course covers everything from fundamentals to advanced patterns.\n\nAfter this short course,",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1929251855097618478",
+      "title": "I decompiled Claude Code from just the minified code. Took me 8-10 hours, multiple subagents, and ev",
+      "url": "https://x.com/hrishioa/status/1929251855097618478",
+      "source": "@hrishioa",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I decompiled Claude Code from just the minified code. Took me 8-10 hours, multiple subagents, and every flagship model from every provider.\n\nHoly shit there's a lot in there. Claude Code is NOT just Claude in a loop - there's so much to learn from.\n\nhttps://t.co/6aCDLCBngI",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025263156897907102",
+      "title": "\"This sounds like AI\" is now easily fixable 🤯",
+      "url": "https://x.com/dr_cintas/status/2025263156897907102",
+      "source": "@dr_cintas",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "\"This sounds like AI\" is now easily fixable 🤯\n\nThere is a new Claude Code Skill that removes signs of AI-generated writing from text using 24 detection patterns.\n\nJust type /humanizer and paste your text.\n\n100% Open Source. https://t.co/C0JrEBodaV",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024394269637956041",
+      "title": "サイバーエージェントAI Labの研修資料を複数公開",
+      "url": "https://x.com/komiya5395/status/2024394269637956041",
+      "source": "@komiya5395",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "サイバーエージェントAI Labの研修資料を複数公開\n無料公開のレベルじゃない。 \n\nClineやClaude Codeの活用術まで入ってる。\n\nサイバーエージェントのAI Labが100人規模でやってる研修資料がタダで読めるんだから、いい時代になったもんです。 https://t.co/DGCWWMtLkr",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023527446843388138",
+      "title": "this claude code skill is op https://t.co/Kmosq5iOex",
+      "url": "https://x.com/om_patel5/status/2023527446843388138",
+      "source": "@om_patel5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "this claude code skill is op https://t.co/Kmosq5iOex",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rby0gt",
+      "title": "I cut Claude Code's token usage by 65% by building a local dependency graph and serving context via MCP",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rby0gt/i_cut_claude_codes_token_usage_by_65_by_building/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "I've been using Claude Code full-time on a multi-repo TypeScript project. The biggest pain points:\n\n1. Claude re-reads hundreds of files every session to understand the project\n\n2. It forgets everything between sessions — re-explores the same architecture, re-discovers the same patterns\n\n3. Cross-repo awareness is basically nonexistent\n\n\n\nSo I built a system that:\n\n\\- Parses the codebase with tree-sitter and builds a dependency graph in SQLite\n\n\\- When Claude asks for context, it gets only the r",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbfvwu",
+      "title": "I built a free macOS widget to monitor your Claude usage limits in real-time",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rbfvwu/i_built_a_free_macos_widget_to_monitor_your/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "Hello fellas Mac users! 😎\n\nSo I'm a web dev (mainly Nextjs), and my Swift level is very close to 0 \n\nI wanted to try Swift for a while, perfect occasion for a little vibing session with our beloved Claude\n\nSo if like me, your main source of anxiety is the Claude Code plan usage, \n\nClaude &amp; I introduce: **TokenEater**! \n\nit sits right on your desktop and shows you:\n\n- **Session limit** — with countdown to reset\n- **Weekly usage** — all models combined (Opus, Sonnet, Haiku)\n- **Weekly Sonnet*",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-hamelsmu-claude-review-loop",
+      "title": "hamelsmu/claude-review-loop (⭐223)",
+      "url": "https://github.com/hamelsmu/claude-review-loop",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Claude Code plugin: automated code review loop with Codex",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-EveryInc-compound-engineering-plugin",
+      "title": "EveryInc/compound-engineering-plugin (⭐9,356)",
+      "url": "https://github.com/EveryInc/compound-engineering-plugin",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Official Claude Code compound engineering plugin",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-OthmanAdi-planning-with-files",
+      "title": "OthmanAdi/planning-with-files (⭐14,218)",
+      "url": "https://github.com/OthmanAdi/planning-with-files",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Claude Code skill implementing Manus-style persistent markdown planning — the workflow pattern behind the $2B acquisition.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023645972778168576",
+      "title": "Ollama now supports subagents and web search in Claude Code!",
+      "url": "https://x.com/ollama/status/2023645972778168576",
+      "source": "@ollama",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Ollama now supports subagents and web search in Claude Code! \n\nSubagents can run tasks in parallel, such as file search, code exploration, and research, each in their own context.\n\nNo MCP servers to configure or API keys required. \n\nTry it with any model on Ollama's cloud: \n\nollama launch claude --model minimax-m2.5:cloud",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024801530134892560",
+      "title": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.",
+      "url": "https://x.com/alex_prompter/status/2024801530134892560",
+      "source": "@alex_prompter",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate Git",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023097924331376763",
+      "title": "🚨BREAKING: You can now run Claude Code for FREE.",
+      "url": "https://x.com/Freyabuilds/status/2023097924331376763",
+      "source": "@Freyabuilds",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: You can now run Claude Code for FREE.\n\nNo API costs. No rate limits. 100% local on your machine.\n\nHere's how to run Claude Code locally (100% free &amp; fully private): https://t.co/vY4qTLjLPq",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023738886846038428",
+      "title": "Instead of watching a Netflix movie, watch this masterclass on Claude Code Complete Vibe Coding Guid",
+      "url": "https://x.com/aibytekat/status/2023738886846038428",
+      "source": "@aibytekat",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Instead of watching a Netflix movie, watch this masterclass on Claude Code Complete Vibe Coding Guide\nhttps://t.co/wZgmlDXvIe",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024394606834790446",
+      "title": "2026 年最暴利的生意之一:把 GitHub 免费开源的东西,包装一下放小红书卖",
+      "url": "https://x.com/guishou_56/status/2024394606834790446",
+      "source": "@guishou_56",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "2026 年最暴利的生意之一:把 GitHub 免费开源的东西,包装一下放小红书卖\n\n一个 Obsidian 插件,98 块,已售 2566 份\n\n收益:25 万+\n\n这个插件叫 Excalidraw Visual Skills\n\nGitHub 免费开源:https://t.co/b8H6yP1oG1\n\n🔥 装完配合 Claude Code 更强:\n\n跟它说「用 Excalidraw 画一个 XXX」\n\n• 手绘风架构图\n• Canvas 结构图\n• Mermaid 流程图\n• 全自动生成\n\n💡 你以为的壁垒是技术\n\n其实壁垒是「大多数人不知道去哪找」\n\n赚钱的人不是技术更强,是信息差更大",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025062748800123061",
+      "title": "Master Claude Code",
+      "url": "https://x.com/_vmlops/status/2025062748800123061",
+      "source": "@_vmlops",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Master Claude Code\n\nFrom running commands and accessing full files to connecting tools and automating workflows\n \nClaude Code isn’t just an assistant anymore\n\nIt’s becoming your development operating system\n\nLearn the commands\nUse MCP\nBuild skills\nAutomate everything https://t.co/SQUOViIBnC",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023190615962554765",
+      "title": "- you wake up",
+      "url": "https://x.com/om_patel5/status/2023190615962554765",
+      "source": "@om_patel5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "- you wake up \n- it was all a dream\n- openai never released chatgpt\n- claude code doesn't exist\n- vibe coding isn’t invented at all\n- you have to use stack overflow for every single error\n- read documentation for hours \n- life is pain https://t.co/yhRmMAwYIV",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024967342036255075",
+      "title": "a reminder that you’re in a bubble",
+      "url": "https://x.com/bresslertweets/status/2024967342036255075",
+      "source": "@bresslertweets",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "a reminder that you’re in a bubble\n\nmore people Google “wordpress” than “claude code” https://t.co/dKvRbzGF6Z",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025253684834435445",
+      "title": "🚨 BREAKING: Someone leaked the full system prompts of every major AI tool in one GitHub repo.",
+      "url": "https://x.com/socialwithaayan/status/2025253684834435445",
+      "source": "@socialwithaayan",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: Someone leaked the full system prompts of every major AI tool in one GitHub repo.\n\nYou can now see exactly how they built:\n\n→ Cursor, Devin AI, Windsurf, Claude Code, Replit\n→ v0, Lovable, Manus, Warp, Perplexity, Notion AI\n→ 30,000+ lines of hidden instructions exposed\n→ The exact rules, tools, and personas behind each product\n\n100% open source",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023945619501391903",
+      "title": "life after you install claude code for the first time https://t.co/RkEPseD4i0",
+      "url": "https://x.com/maubaron/status/2023945619501391903",
+      "source": "@maubaron",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "life after you install claude code for the first time https://t.co/RkEPseD4i0",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025079708237660446",
+      "title": "当年的第一步：去深圳",
+      "url": "https://x.com/Stanleysobest/status/2025079708237660446",
+      "source": "@Stanleysobest",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "当年的第一步：去深圳\n\n现在的第一步：安装 Claude code https://t.co/WO4XQgkIot",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025254119636959701",
+      "title": "This 𝗖𝗟𝗔𝗨𝗗𝗘.𝗺𝗱 file will make you 10x engineer 👇",
+      "url": "https://x.com/srishticodes/status/2025254119636959701",
+      "source": "@srishticodes",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This 𝗖𝗟𝗔𝗨𝗗𝗘.𝗺𝗱 file will make you 10x engineer 👇\n\nIt combines all the best practices shared by Claude Code creator:\n\nBoris Cherny (creator of Claude Code at Anthropic) shared on X internal best practices and workflows he and his team actually use with Claude Code daily. Someone turned those threads into a structured 𝗖𝗟𝗔𝗨𝗗𝗘.𝗺𝗱 you can drop into any project.\n\nIt includes:\n• Workflow orchestration\n• Subagent strategy\n• Self-improvement loop\n• Verification before done\n• Autonomous b",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025098247283638446",
+      "title": "If Claude Code is capable of fixing security issues in a codebase why can't he write secure code fro",
+      "url": "https://x.com/karankendre/status/2025098247283638446",
+      "source": "@karankendre",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "If Claude Code is capable of fixing security issues in a codebase why can't he write secure code from the start https://t.co/lu1OTWQNm5",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023276021563490419",
+      "title": "Reviewing Claude Code output before pushing directly to prod",
+      "url": "https://x.com/tlakomy/status/2023276021563490419",
+      "source": "@tlakomy",
+      "category": "developer_platform",
+      "score": 74,
+      "summary": "Reviewing Claude Code output before pushing directly to prod\n\n https://t.co/IJuZLhWWAu",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2022716863667646672",
+      "title": "Claude Code watching me write code manually https://t.co/ajQIYkZ9FZ",
+      "url": "https://x.com/cgtwts/status/2022716863667646672",
+      "source": "@cgtwts",
+      "category": "developer_platform",
+      "score": 77,
+      "summary": "Claude Code watching me write code manually https://t.co/ajQIYkZ9FZ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-2025007393290272904",
+      "title": "Introducing: built-in git worktree support for Claude Code",
+      "url": "https://x.com/bcherny/status/2025007393290272904",
+      "source": "@bcherny",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Introducing: built-in git worktree support for Claude Code \n\nNow, agents can run in parallel without interfering with one other. Each agent gets its own worktree and can work independently.\n\nThe Claude Code Desktop app has had built-in support for worktrees for a while, and now w",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-2024986293248127452",
+      "title": "Our latest Claude Code hackathon is officially a wrap.",
+      "url": "https://x.com/claudeai/status/2024986293248127452",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Our latest Claude Code hackathon is officially a wrap. \n\n500 builders spent a week exploring what they could do with Opus 4.6 and Claude Code.\n\nMeet the winners:",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "hn-47106686",
+      "title": "How I use Claude Code: Separation of planning and execution",
+      "url": "https://boristane.com/blog/how-i-use-claude-code/",
+      "source": "Hacker News",
+      "category": "developer_platform",
+      "score": 51,
+      "summary": "The research-plan-implement workflow I use to build software with Claude Code, and why I never let it write code until I've approved a written plan. (HN: 69 pts, 28 comments)",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rb0wkk",
+      "title": "Obedient Traders Respond to Claude Code Cybersecurity Plugin by Selling Cybersecurity Stocks",
+      "url": "https://gizmodo.com/obedient-traders-respond-to-claude-code-cybersecurity-plugin-by-selling-cybersecurity-stocks-2000723240",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "The SaaSpocalypse is not real, but it can hurt you.",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "reddit-1ramz9o",
+      "title": "How it feels when claude code restarts its own sessions",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1ramz9o/how_it_feels_when_claude_code_restarts_its_own/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "been dealing with peekaaboo permissions \n\nclaude code fella wrote script for restarting tmux server and wished us good luck (all sessions are in tmux) \n\ngot immediate flashback to this picture ",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "gh-ryoppippi-ccusage",
+      "title": "ryoppippi/ccusage (⭐10,852)",
+      "url": "https://github.com/ryoppippi/ccusage",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A CLI tool for analyzing Claude Code/Codex CLI usage from local JSONL files.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "gh-czlonkowski-n8n-mcp",
+      "title": "czlonkowski/n8n-mcp (⭐13,735)",
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you ",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "gh-travisvn-awesome-claude-skills",
+      "title": "travisvn/awesome-claude-skills (⭐7,404)",
+      "url": "https://github.com/travisvn/awesome-claude-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows — particularly Claude Code",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2016987600142078300",
+      "title": "Excited to announce AI Research Skills - an open-source library of 82 specialized skills for AI codi",
+      "url": "https://x.com/ZechenZhang5/status/2016987600142078300",
+      "source": "@ZechenZhang5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Excited to announce AI Research Skills - an open-source library of 82 specialized skills for AI coding tools.\n\nOne command gives your agent expert knowledge in:\n  → Model training & fine-tuning (TRL, Unsloth ...)\n  → Distributed systems (DeepSpeed, FSDP ...)\n  → Inference optimization (vLLM, TensorRT ...)\n  → Agent building ? (Langchain, AutoGPT ...)\nWorks with Claude Code, Cursor, Gemini CLI, Windsurf, and Codex with one click interactive installation\n\n@ npx @orchestra-research/ai-research-skil",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2023947017568002083",
+      "title": "바이브코딩하면서 아직 CLAUDE. md를 안 쓰고 있다면 당장 이것부터 하세요 ✅",
+      "url": "https://x.com/DeepDive_KR/status/2023947017568002083",
+      "source": "@DeepDive_KR",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "바이브코딩하면서 아직 CLAUDE. md를 안 쓰고 있다면 당장 이것부터 하세요 ✅\n\n아래 인용글은 이걸 Skills[.]md에 넣으라고 하는데 클로드 md에 넣는게 맞습니다.\n\n프로젝트 루트에 https://t.co/PVDotqITOE 파일 하나 만들고 아래 내용 붙여넣으면 — Claude Code가 세션 시작할 때 자동으로 읽고 이 규칙대로 움직입니다.\n\n이 지침은 AI 에이전트의 작업 방식 전체를 통제하는 행동 규칙집입니다.\n- 언제 계획을 세울지\n- 서브에이전트를 어떻게 쓸지\n- 실수했을 때 어떻게 기록하고 개선할지\n- 작업 완료 기준은 무엇인지\n- 코드 품질 기준은 어디까지인지\n\n한 번 세팅하면 매 세션마다 AI가 시니어 개발자처럼 행동합니다.\n\n[메모장에 복사 붙여넣고 Claude. md로 저장하기]\n\n## 워크플로우 오케스트레이션\n\n### 1. 플랜 모드 기본값\n- 비자명한 작업(3단계 이상 또는 아키텍처 결정)에는 반드시 플랜 모드 진입\n- 일이 틀어지면 즉시 STOP",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024446886833508394",
+      "title": "Holy shit... someone built a template marketplace for Claude Code.",
+      "url": "https://x.com/mhdfaran/status/2024446886833508394",
+      "source": "@mhdfaran",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Holy shit... someone built a template marketplace for Claude Code.\n\nIt's called AITMPL and it has ready-to-use configs for every stack.\n\n- 30+ companies (OpenAI, Anthropic, Stripe, AWS, GitHub)\n- Pre-built skills, agents, commands, hooks, MCPs\n- Stack builder that generates install commands\n- Real-time analytics & health checks for Claude Code\n\nIts free and available for everyone around the globe.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2009325247762452561",
+      "title": "this github lists +50 skills to use in Claude Code: https://t.co/Ed78KH2BWz",
+      "url": "https://x.com/EXM7777/status/2009325247762452561",
+      "source": "@EXM7777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "this github lists +50 skills to use in Claude Code: https://t.co/Ed78KH2BWz",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024933963186495499",
+      "title": "New on Claude Code Desktop",
+      "url": "https://x.com/adocomplete/status/2024933963186495499",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "New on Claude Code Desktop\n\nWe’re shipping new features for Claude Code on desktop that let you preview running apps, auto-review code, and auto-fix and merge PRs to help close the development loop.\n\n- Server previews: Claude starts dev servers and previews your running app in th",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024949273977389141",
+      "title": "🎁 in Claude Code: Claude can now preview changes directly in the app. Empowering Claude to see and",
+      "url": "https://x.com/felixrieseberg/status/2024949273977389141",
+      "source": "@felixrieseberg",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "🎁 in Claude Code: Claude can now preview changes directly in the app. Empowering Claude to see and click around web apps it's working on makes it *much* better at independently working for you - you no longer have to be Claude's manual tester.\n\nGrab the app at https://t.co/hHH7b",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024638793719177291",
+      "title": "one of the biggest realizations I've had working on Claude Code is that you fundamentally have to de",
+      "url": "https://x.com/trq212/status/2024638793719177291",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "one of the biggest realizations I've had working on Claude Code is that you fundamentally have to design agents for prompt caching first, almost every feature touches on it somehow\n\nI wrote this in a day but it's the culmination of months of learnings, hope you enjoy it",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024950932107366899",
+      "title": "Claude Code Desktop is easily the best way to do any frontend work right now.",
+      "url": "https://x.com/trq212/status/2024950932107366899",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Claude Code Desktop is easily the best way to do any frontend work right now. \n\nWith Preview it can spin up your app, take screenshots and iterate until it's right.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024972703678300229",
+      "title": "A massive ship from the Claude Code Desktop team. We've been dogfooding this for a while, and can't",
+      "url": "https://x.com/bcherny/status/2024972703678300229",
+      "source": "@bcherny",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "A massive ship from the Claude Code Desktop team. We've been dogfooding this for a while, and can't wait for you to try it.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024907535145468326",
+      "title": "Introducing Claude Code Security, now in limited research preview.",
+      "url": "https://x.com/claudeai/status/2024907535145468326",
+      "source": "@claudeai",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "Introducing Claude Code Security, now in limited research preview.\n\nIt scans codebases for vulnerabilities and suggests targeted software patches for human review, allowing teams to find and fix issues that traditional tools often miss.\n\nLearn more: https://t.co/n4SZ9EIklG https:",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024937960572104707",
+      "title": "Claude Code on desktop can now preview your running apps, review your code, and handle CI failures a",
+      "url": "https://x.com/claudeai/status/2024937960572104707",
+      "source": "@claudeai",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "Claude Code on desktop can now preview your running apps, review your code, and handle CI failures and PRs in the background.\n\nHere’s what's new: https://t.co/A2FdH045Tt",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1ra2pla",
+      "title": "Claude Code Security 👮 is here",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1ra2pla/claude_code_security_is_here/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 53,
+      "summary": "Claude Code Security 👮 is here",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9v27c",
+      "title": "All the OpenClaw bros are having a meltdown after the Anthropic subscription lock-down..",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r9v27c/all_the_openclaw_bros_are_having_a_meltdown_after/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "This was going to happen eventually, and honestly the token usage disparity between OpenClaw users and Claude Code users is really telling. I actually agree with Anthropic here, there is no reason why they should not use the API, and given the security implications of allowing an ungrounded AI loose on the net I applaud them from distancing themselves from that project...\n\nThere was some report that showed OpenClaw users used 50,000 tokens to say 'hello' to their AIs...\n\nHow in the world is it b",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9uu5h",
+      "title": "Qwen3 Coder Next on 8GB VRAM",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r9uu5h/qwen3_coder_next_on_8gb_vram/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Hi!\n\nI have a PC with 64 GB of RAM and an RTX 3060 12 GB, and I'm running Qwen3 Coder Next in MXFP4 with 131,072 context tokens.\n\nI get a sustained speed of around 23 t/s throughout the entire conversation.\n\nI mainly use it for front-end and back-end web development, and it works perfectly.\n\nI've stopped paying for my Claude Max plan ($100 USD per month) to use only Claude Code with the following configuration:\n\n`set GGML_CUDA_GRAPH_OPT=1`\n\n`llama-server -m ../GGUF/qwen3-coder-next-mxfp4.gguf -n",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9p5e3",
+      "title": "Official: Anthropic just released Claude Code 2.1.49 with 27 CLI &amp; 14 sys prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - claude-code/CHANGELOG.md at main · an",
+      "date": "2026-02-20"
+    },
+    {
       "id": "gh-craigsc-cmux",
       "title": "craigsc/cmux (⭐290)",
       "url": "https://github.com/craigsc/cmux",
@@ -714,5 +1354,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }

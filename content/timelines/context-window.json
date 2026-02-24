@@ -4,6 +4,476 @@
   "name_zh": "上下文窗口与记忆",
   "entries": [
     {
+      "id": "gh-patchy631-ai-engineering-hub",
+      "title": "patchy631/ai-engineering-hub (⭐30,540)",
+      "url": "https://github.com/patchy631/ai-engineering-hub",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "In-depth tutorials on LLMs, RAGs and real-world AI agent applications.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025956259594137613",
+      "title": "> be Sammy Azdoufal, software engineer",
+      "url": "https://x.com/JacklouisP/status/2025956259594137613",
+      "source": "@JacklouisP",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "> be Sammy Azdoufal, software engineer\n> spend $2000 on DJI Romo vacuum\n> decide to control it with xbox controller like a chad\n> use Claude to reverse engineer the API\n> It works because Claude is the GOAT\n> just need to grab auth token from their cloud servers\n> token works... Claude is unbeaten \n> wait why is he authenticated as 7000 devices\n> ohno.jpg\n> backend trusted any valid token for any device, no ownership verification\n> mfw Sammy has live camera feeds from vacuums in 24 countries\n> w",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-1957808627739173060",
+      "title": "AI Engineering Toolkit!",
+      "url": "https://x.com/Sumanth_077/status/1957808627739173060",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AI Engineering Toolkit!\n\nI have curated list of 100+ LLM libraries and frameworks for training, fine-tuning, building, evaluating, deploying, RAG, and AI Agents!\n\n100% Open Source https://t.co/JR0ZVlAWKu",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025494231289401568",
+      "title": "The right order for learning AI engineering in 2026.",
+      "url": "https://x.com/techNmak/status/2025494231289401568",
+      "source": "@techNmak",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "The right order for learning AI engineering in 2026.\n\nWhat most people do:\n→ Jump to agents\n→ Skip foundations\n→ Ignore MLOps\n→ Wonder why nothing works\n\nWhat this roadmap shows:\n\n1. Foundation (Python, APIs, clean code)\n2. Semantic intelligence (embeddings, vector DBs)\n3. RAG (grounded outputs)\n4. Agents (autonomous workflows)\n5. MLOps (CI/CD, containers)\n6. Evaluation (metrics, drift, bias)\n7. Inference optimization (quantization, caching)\n8. Portfolio\n9. Specialization\n\nThe sequence builds on",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025701861031121331",
+      "title": "unpopular (maybe?) opinion: MCP is dead in the water",
+      "url": "https://x.com/chrysb/status/2025701861031121331",
+      "source": "@chrysb",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "unpopular (maybe?) opinion: MCP is dead in the water\n\n@openclaw has shown me that api & cli will win. \n\nevery MCP server you connect loads its tool definitions into your context window. name, description, parameter schema, all of it. connect 10 servers with 5 tools each and you've burned 50 tool definitions worth of tokens before your conversation even starts.\n\ncontext bloat will never be a good thing - performance-wise or economically. i assume this is why @steipete left it out of @openclaw.\n\nt",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025130375077658857",
+      "title": "🚨BREAKING: Google DeepMind + Meta + Amazon just dropped a 100 page roadmap that redefines what AI a",
+      "url": "https://x.com/ChrisLaubAI/status/2025130375077658857",
+      "source": "@ChrisLaubAI",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: Google DeepMind + Meta + Amazon just dropped a 100 page roadmap that redefines what AI agents actually are.\n\nThey analyzed every major agentic reasoning framework across planning, tool use, memory, and multi-agent coordination.\n\nSingle-agent in stable environments: works great.\nMulti-agent in dynamic environments: falls apart.\n\nThe problem isn't intelligence. It's how agents reason under uncertainty.\n\nThree layers they found that actually matter:\n\n→ Foundational reasoning (planning +",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025859987168543183",
+      "title": "Holy shit... someone just built an App Store for Claude Code.",
+      "url": "https://x.com/sentientt_media/status/2025859987168543183",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Holy shit... someone just built an App Store for Claude Code.\n\nIt's called SkillsMP and there are 200,000+ agent skills that teach your AI exactly how to write PPTX files, review PRs, deploy to cloud, analyze data, and more.\n\nNo complex prompting. No building from scratch. No wasted tokens.\n\n100% Opensource.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcseh1",
+      "title": "Fun fact: Anthropic has never open-sourced any LLMs",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcseh1/fun_fact_anthropic_has_never_opensourced_any_llms/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I’ve been working on a little side project comparing tokenizer efficiency across different companies’ models for multilingual encoding.\n\nThen I saw Anthropic’s announcement today and suddenly realized: there’s no way to analyze claude’s tokenizer lmao!\n\nedit: Google once mentioned in a paper that Gemma and Gemini share the same tokenizer. OpenAI has already open‑sourced their tokenizers (and gpt‑oss). And don’t even get me started on Llama (Llama 5 pls 😭). ",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcr4ju",
+      "title": "Dario Is Scared",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcr4ju/dario_is_scared/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Why did Anthropic choose this exact moment to release that [statement](https://x.com/AnthropicAI/status/2025997928242811253)? Because he’s scared. \n\nEver since OpenClaw launched, token usage from both individuals and model companies has been booming. And yet, on OpenRouter, the top-ranked models are no longer Claude but open-source models like Kimi K2.5 and Minimax M2.5. \n\nhttps://preview.redd.it/kws4m2dtnalg1.png?width=2076&amp;format=png&amp;auto=webp&amp;s=e7355e5685d4cafe68bbb0ad1f2deffa69f7",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rclyvf",
+      "title": "Portable Workstation for Inference",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rclyvf/portable_workstation_for_inference/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Built a new portable workstation for gaming/AI workloads. One of the fans is a 12018 fan bought from aliexpress derived from a fan on the 4090FE, allowing it to provide airflow equivalent to normal 25mm thick fans despite only being 18mm in thickness.\n\nWould've loved to get a Threadripper for additional memory bandwidth, but sadly there aren't any itx Threadripper boards :(\n\nGetting around 150-165 tok/sec running GPT OSS 120B with max context length in LM Studio (Using windows, haven't had time ",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-release-openclaw-openclaw-v2026.2.22",
+      "title": "📦 openclaw/openclaw openclaw 2026.2.22",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.2.22",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "### Changes  - Provider/Mistral: add support for the Mistral provider, including memory embeddings and voice support. (#23845) Thanks @vincentkoc. - Update/Core: add an optional built-in auto-updater for package installs (`update.auto.*`), default-off, with stable rollout delay+j",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-henrypp-memreduct",
+      "title": "henrypp/memreduct (⭐8,818)",
+      "url": "https://github.com/henrypp/memreduct",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Lightweight real-time memory management application to monitor and clean system memory on your computer.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025631594531143740",
+      "title": "An AI agent transferred $300,000 worth of tokens to a reply guy who asked for money. https://t.co/se",
+      "url": "https://x.com/TedPillows/status/2025631594531143740",
+      "source": "@TedPillows",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "An AI agent transferred $300,000 worth of tokens to a reply guy who asked for money. https://t.co/se0vlvmF8L",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2024772237241307256",
+      "title": "🚨 100+ HOURS.",
+      "url": "https://x.com/Suryanshti777/status/2024772237241307256",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 100+ HOURS.\n1 SINGLE SHEET.\nThe complete AI Agent blueprint.\n\nI turned months of research into a no-fluff visual guide that shows you:\n\n• How AI agents actually work\n• Memory + tools + multi-agent systems\n• 50+ agents you can launch\n• Step-by-step build paths (RAG, Voice, Architectures)\n\nNo theory. Just execution.\n\nIf you’re serious about AI in 2026 — this is your unfair advantage.\n\nI’m giving it away FREE.\n\nHow to get it:\n1️⃣ Follow (must – I’ll DM you)\n2️⃣ Comment AI\n3️⃣ RT to help others\n\n",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-release-openclaw-openclaw-v2026.2.22-beta.1",
+      "title": "📦 openclaw/openclaw openclaw 2026.2.22-beta.1",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.2.22-beta.1",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "### Changes  - Provider/Mistral: add support for the Mistral provider, including memory embeddings and voice support. (#23845) Thanks @vincentkoc. - Update/Core: add an optional built-in auto-updater for package installs (`update.auto.*`), default-off, with stable rollout delay+j",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025463189258076472",
+      "title": "Antigravity Problems:",
+      "url": "https://x.com/pankajkumar_dev/status/2025463189258076472",
+      "source": "@pankajkumar_dev",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Antigravity Problems:\n\n- Eats a lot of RAM and feels very heavy.\n- Quotas finish too fast now. Need API key option, pay-as-you-go, or a plan between Pro and Ultra.\n- Agent terminated due to error happens too frequently. \n- Models don't perform as well compared to Claude Code or Codex, especially with long context.\n- If history gets large, it sometimes doesn't even open. Have to wait or terminate it.\n- UI/UX needs improvement no clear view of remaining context or token usage, and no compact conte",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1992020186925301980",
+      "title": "if you're looking for a roadmap to get started on AI engineering, this is a free repo to hold your h",
+      "url": "https://x.com/Hesamation/status/1992020186925301980",
+      "source": "@Hesamation",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "if you're looking for a roadmap to get started on AI engineering, this is a free repo to hold your hand along the way. it includes the courses, youtube videos, and blog posts, all you need to self-learn critical topics:\n→ mathematics of machine learning\n→ ML and computer vision\n→ deep neural networks\n→ gen AI and RAG\n→ agentic AI\n→ reinforcement learning\ncheck it out here: https://t.co/3PgqHFqv2I",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2004847248983949389",
+      "title": "The Ultimate Toolkit for Working with LLMs!",
+      "url": "https://x.com/DailyDoseOfDS_/status/2004847248983949389",
+      "source": "@DailyDoseOfDS_",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "The Ultimate Toolkit for Working with LLMs!\n\nTransformer Lab lets you train, fine-tune, and chat with any LLM - 100% locally. Enjoy 1-click LLM downloads and a drag-and-drop UI for RAG.\n\n100% open-source. https://t.co/Gh51929Nxn",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025554669775503699",
+      "title": "🚨 This GitHub repo just changed how I use Claude Code forever.",
+      "url": "https://x.com/hasantoxr/status/2025554669775503699",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 This GitHub repo just changed how I use Claude Code forever.\n\nIt's called claude-code-best-practice and it gives you production-ready Agents, Commands, Memory, Hooks, and Skills all in one place.\n\nNo guessing. No scattered docs. No trial and error.\n\nHere's what's inside:\n→ Agents — orchestrate complex multi-step tasks autonomously\n→ Commands — custom slash commands you can reuse instantly\n→ Memory — Claude remembers context across every session\n→ Hooks — shell commands that fire on tool call ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1858164694097518799",
+      "title": "AI agent orchestration framework for building LLM apps with RAG and multiple AI Agents in Python.",
+      "url": "https://x.com/Sumanth_077/status/1858164694097518799",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AI agent orchestration framework for building LLM apps with RAG and multiple AI Agents in Python.\n\n100% open source. https://t.co/X2iBuc8lhX",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-2025714989819187567",
+      "title": "28 Days of Claude API - Day 22 - Web Fetch",
+      "url": "https://x.com/adocomplete/status/2025714989819187567",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 22 - Web Fetch\n\nWeb Search (Day 8) returns snippets.\n\nWeb Fetch returns the whole page.\n\nPass a URL. Claude reads the full content like articles, docs, PDFs. No scraping infra needed.\n\nTip: Combine Search and Fetch! No extra charge. Just token costs",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rby0gt",
+      "title": "I cut Claude Code's token usage by 65% by building a local dependency graph and serving context via MCP",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rby0gt/i_cut_claude_codes_token_usage_by_65_by_building/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "I've been using Claude Code full-time on a multi-repo TypeScript project. The biggest pain points:\n\n1. Claude re-reads hundreds of files every session to understand the project\n\n2. It forgets everything between sessions — re-explores the same architecture, re-discovers the same patterns\n\n3. Cross-repo awareness is basically nonexistent\n\n\n\nSo I built a system that:\n\n\\- Parses the codebase with tree-sitter and builds a dependency graph in SQLite\n\n\\- When Claude asks for context, it gets only the r",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbjxpv",
+      "title": "I think openclaw is OVERHYPED. Just use skills",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rbjxpv/i_think_openclaw_is_overhyped_just_use_skills/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I think openclaw is useful, loop, memory, agents, integrations, but after a week a testing, honestly I don't need it much.\n\n\\- memory, is nice. But I prefere to have \"manual memory\". Prompt: Ok, write what yout learnt in \"superreporttrending-skill\". Automatic memory often pollute the context of info you don't care.\n\n\\- cron. Useful but I already use other tools for that and I can always recall a skill whenever i want. I don't need everyday at 8:00AM, i prefere recall it when i want with up to da",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbfvwu",
+      "title": "I built a free macOS widget to monitor your Claude usage limits in real-time",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rbfvwu/i_built_a_free_macos_widget_to_monitor_your/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "Hello fellas Mac users! 😎\n\nSo I'm a web dev (mainly Nextjs), and my Swift level is very close to 0 \n\nI wanted to try Swift for a while, perfect occasion for a little vibing session with our beloved Claude\n\nSo if like me, your main source of anxiety is the Claude Code plan usage, \n\nClaude &amp; I introduce: **TokenEater**! \n\nit sits right on your desktop and shows you:\n\n- **Session limit** — with countdown to reset\n- **Weekly usage** — all models combined (Opus, Sonnet, Haiku)\n- **Weekly Sonnet*",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbesjm",
+      "title": "Is Claude actually writing better code than most of us?",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rbesjm/is_claude_actually_writing_better_code_than_most/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "Lately I’ve been testing Claude on real-world tasks - not toy examples.\n\nRefactors. Edge cases. Architecture suggestions. Even messy legacy code.\n\nAnd honestly… sometimes the output is cleaner, more structured, and more defensive than what I see in a lot of production repos.\n\nSo here’s the uncomfortable question:\n\nAre we reaching a point where Claude writes better baseline code than the average developer?\n\nNot talking about genius-level engineers.\n\nJust everyday dev work.\n\nWhere do you think it ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-Gentleman-Programming-engram",
+      "title": "Gentleman-Programming/engram (⭐283)",
+      "url": "https://github.com/Gentleman-Programming/engram",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Persistent memory system for AI coding agents. Agent-agnostic Go binary with SQLite + FTS5, MCP server, HTTP API, CLI, and TUI.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-tnm-zclaw",
+      "title": "tnm/zclaw (⭐348)",
+      "url": "https://github.com/tnm/zclaw",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "Your personal AI assistant at all-in 888KiB (~25KB in app code). Running on an ESP32. GPIO, cron, memory, and more.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-libvips-libvips",
+      "title": "libvips/libvips (⭐11,093)",
+      "url": "https://github.com/libvips/libvips",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A fast image processing library with low memory needs.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024801530134892560",
+      "title": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.",
+      "url": "https://x.com/alex_prompter/status/2024801530134892560",
+      "source": "@alex_prompter",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate Git",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1782876713938280822",
+      "title": "I’m excited to share that I’m working on a new book about building applications with foundation mode",
+      "url": "https://x.com/chipro/status/1782876713938280822",
+      "source": "@chipro",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I’m excited to share that I’m working on a new book about building applications with foundation models! AI Engineering builds upon Machine Learning Systems Design, but with a focus on large scale, ready made models.\n\nThe book covers:\n\n- The new AI stack (e.g. how it differs from traditional ML engineering)\n\n- Different approaches to evaluate open-ended systems\n\n- Dataset engineering\n\n- Prompt engineering, RAG, agents\n\n- Finetuning\n\n- Compute infrastructure, including how to mitigate latency and ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2004157134821642312",
+      "title": "This GitHub repo contains a 75+ projects on AI Engineering.",
+      "url": "https://x.com/Bhavani_00007/status/2004157134821642312",
+      "source": "@Bhavani_00007",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This GitHub repo contains a 75+ projects on AI Engineering.\n\nEverything is 100% open-source, covering\n\n• LLMs and RAGs\n• Real-world AI agent applications\n• Examples to implement, adapt, and scale in your projects\n\nLink is in replies👇🏻 https://t.co/X4ItAn3s4c",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025237601532121341",
+      "title": "llmfit. Useful tool that probes hardware and tells you exactly which LLMs will actually run.",
+      "url": "https://x.com/wildmindai/status/2025237601532121341",
+      "source": "@wildmindai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "llmfit. Useful tool that probes hardware and tells you exactly which LLMs will actually run.\n- handles MoE expert offloading, picks the best quantization for your RAM, estimates tokens/sec before you even pull the weights.\nEssential for local dev.\nhttps://t.co/qn8PmqQNbV https://t.co/7z7yvOdNNC",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024885035774738700",
+      "title": "We just open-sourced the system we use to manage 30 parallel AI coding agents per person.",
+      "url": "https://x.com/agent_wrapper/status/2024885035774738700",
+      "source": "@agent_wrapper",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "We just open-sourced the system we use to manage 30 parallel AI coding agents per person.\n\n40K lines of TypeScript. 3,288 tests. 17 plugins. Built in 8 days — by the agents it orchestrates.\n\nYes, we used Agent Orchestrator to build Agent Orchestrator.\n\nSome numbers:\n→ 500+ agent-hours in 24 human-hours (20x leverage)\n→ 86 of 102 PRs created by AI (84%)\n→ After Day 4, I stopped writing code entirely\n\nSpawn agents. Step away. Ship faster.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2021839184999395506",
+      "title": "LLM vs. RAG vs. AI Agent vs. Agentic AI https://t.co/b65hTCPp4Q",
+      "url": "https://x.com/PythonPr/status/2021839184999395506",
+      "source": "@PythonPr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "LLM vs. RAG vs. AI Agent vs. Agentic AI https://t.co/b65hTCPp4Q",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1raucof",
+      "title": "Wave Field LLM — O(n log n) attention via wave equation dynamics",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1raucof/wave_field_llm_on_log_n_attention_via_wave/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "I've been working on an alternative attention mechanism that treats language \nas a physical field system instead of using standard O(n²) self-attention.\n\n**How it works:**\n- Tokens are mapped onto a continuous 1D field\n- Information propagates via damped wave equations: k(t) = exp(-α·t)·cos(ω·t + φ)\n- Each attention head has just 3 learnable physics parameters (frequency, damping, phase)\n- Convolution computed via FFT in O(n log n)\n- Heads self-organize into different roles (local grammar, mediu",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "hn-47101171",
+      "title": "CXMT has been offering DDR4 chips at about half the prevailing market rate",
+      "url": "https://www.koreaherald.com/article/10679206",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 53,
+      "summary": "Samsung Electronics and SK hynix are locked in a race to mass-produce sixth-generation high-bandwidth memory, but Chinese rivals are making gains elsewhere — fl (HN: 153 pts, 126 comments)",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "gh-release-ollama-ollama-v0.17.0-rc2",
+      "title": "📦 ollama/ollama v0.17.0",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.17.0-rc2",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## What's Changed * mlx: try loading library via rpath before searching directories by @natl-set in https://github.com/ollama/ollama/pull/14322 * consolidate the tokenizer by @pdevine in https://github.com/ollama/ollama/pull/14327 * app: expose server's default context length to ",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "gh-valyala-fasthttp",
+      "title": "valyala/fasthttp (⭐23,264)",
+      "url": "https://github.com/valyala/fasthttp",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Fast HTTP package for Go. Tuned for high performance. Zero memory allocations in hot paths. Up to 10x faster than net/http",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2011862984595795974",
+      "title": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperabl",
+      "url": "https://x.com/OpenAIDevs/status/2011862984595795974",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperable LLM interfaces built on top of the original OpenAI Responses API.\n\n✅ Multi-provider by default\n✅ Useful for real-world workflows\n✅ Extensible without fragmentation\n\nBuild agentic systems without rewriting your stack for every model: https://t.co/ZJPNDemq40",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-1900546536096117100",
+      "title": "LLM Engineer Toolkit: A curated list of 120+ LLM libraries for training, fine-tuning, building, eval",
+      "url": "https://x.com/Sumanth_077/status/1900546536096117100",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "LLM Engineer Toolkit: A curated list of 120+ LLM libraries for training, fine-tuning, building, evaluating, deploying, RAG, and AI agents!\n\n100% Open Source https://t.co/81X4ZGUx1E",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024700227111047581",
+      "title": "New podcast on AI (full episode). Links below.",
+      "url": "https://x.com/naval/status/2024700227111047581",
+      "source": "@naval",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "New podcast on AI (full episode). Links below.\n\nA Motorcycle for the Mind\n\n0:00 If you want to learn, do\n\n2:13 Vibe coding is the new product management\n\n6:49 Training models is the new coding\n\n10:13 Is traditional software engineering dead?\n\n13:07 There is no demand for average\n\n14:12 The hottest new programming language is English\n\n18:36 AI is adapting to us faster than we are adapting to it\n\n22:56 No entrepreneur is worried about AI taking their job\n\n26:46 The goal is not to have a job\n\n29:49",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024923245611536693",
+      "title": "28 Days of Claude API - Day 20 - 1M Token Context Window",
+      "url": "https://x.com/adocomplete/status/2024923245611536693",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 20 - 1M Token Context Window\n\n~750,000 words in a single API call. Just pass the \"context-1m-2025-08-07\" beta header.\n\nEntire codebases. Full legal contracts. Hours of transcripts. All at once.\n\nNo chunking. No retrieval hacks. Just full send it.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9zt8m",
+      "title": "The top 3 models on openrouter this week ( Chinese models are dominating!)",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r9zt8m/the_top_3_models_on_openrouter_this_week_chinese/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 51,
+      "summary": "the first time i see a model exceed 3 trillion tokens per week on openrouter!\n\nthe first time i see more than one model exceed a trillion token per week ( it was only grok 4 fast month ago)\n\nthe first time i see chinese models destroying US ones like this",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9v27c",
+      "title": "All the OpenClaw bros are having a meltdown after the Anthropic subscription lock-down..",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r9v27c/all_the_openclaw_bros_are_having_a_meltdown_after/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "This was going to happen eventually, and honestly the token usage disparity between OpenClaw users and Claude Code users is really telling. I actually agree with Anthropic here, there is no reason why they should not use the API, and given the security implications of allowing an ungrounded AI loose on the net I applaud them from distancing themselves from that project...\n\nThere was some report that showed OpenClaw users used 50,000 tokens to say 'hello' to their AIs...\n\nHow in the world is it b",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9uu5h",
+      "title": "Qwen3 Coder Next on 8GB VRAM",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r9uu5h/qwen3_coder_next_on_8gb_vram/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Hi!\n\nI have a PC with 64 GB of RAM and an RTX 3060 12 GB, and I'm running Qwen3 Coder Next in MXFP4 with 131,072 context tokens.\n\nI get a sustained speed of around 23 t/s throughout the entire conversation.\n\nI mainly use it for front-end and back-end web development, and it works perfectly.\n\nI've stopped paying for my Claude Max plan ($100 USD per month) to use only Claude Code with the following configuration:\n\n`set GGML_CUDA_GRAPH_OPT=1`\n\n`llama-server -m ../GGUF/qwen3-coder-next-mxfp4.gguf -n",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "hn-47086181",
+      "title": "The path to ubiquitous AI (17k tokens/sec)",
+      "url": "https://taalas.com/the-path-to-ubiquitous-ai/",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 62,
+      "summary": "By Ljubisa Bajic Many believe AI is the real deal. In narrow domains, it already surpasses human performance. Used well, it is an unprecedented... (HN: 637 pts, 368 comments)",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9qa7l",
+      "title": "Kimi has context window expansion ambitions",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r9qa7l/kimi_has_context_window_expansion_ambitions/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "Kimi has context window expansion ambitions",
+      "date": "2026-02-20"
+    },
+    {
       "id": "gh-labring-FastGPT",
       "title": "labring/FastGPT (⭐27,132)",
       "url": "https://github.com/labring/FastGPT",
@@ -414,6 +884,16 @@
       "date": "2026-02-19"
     },
     {
+      "id": "reddit-1r97em2",
+      "title": "[R] The \"Data Scientist\" title is the worst paying title in ML (EMEA).",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r97em2/r_the_data_scientist_title_is_the_worst_paying/",
+      "source": "Reddit r/MachineLearning",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I've been recruiting in tech for 12 years, mostly ML/Data roles across Europe. After watching hundreds of talented Data Scientists over the last year get systematically lowballed in negotiations, I started to dig.\n\nSo I spent the last few months scraping 350K+ tech salaries across Europe live tech jobs to see if there are any patterns.\n\n**What I found shocked me....\"Data Scientist\" is the worst-paying title in ML/Data:**\n\nAverage salaries across all European cities (386k salary datapoints):\n\n* M",
+      "date": "2026-02-19"
+    },
+    {
       "id": "google-aHR0cHM6Ly9ibG9nLmdv",
       "title": "“No technology has me dreaming bigger than AI”",
       "url": "https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/",
@@ -424,5 +904,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }

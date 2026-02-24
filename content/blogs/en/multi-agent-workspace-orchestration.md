@@ -1,13 +1,28 @@
 ---
 slug: multi-agent-workspace-orchestration
-title: "Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development Needs"
-description: "Analysis of the emerging multi-agent orchestration pattern: how projects like Gas Town, oh-my-claudecode, and DeerFlow are solving coordination problems that single-agent systems cannot address."
-keywords: ["multi-agent workspace orchestration", "AI agents", "Claude Code", "agent coordination", "DeerFlow", "Gas Town"]
-date: 2026-02-20
+title: >-
+  Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development
+  Needs
+description: >-
+  Analysis of the emerging multi-agent orchestration pattern: how projects like
+  Gas Town, oh-my-claudecode, and DeerFlow are solving coordination problems
+  that single-agent systems cannot address.
+keywords:
+  - multi-agent workspace orchestration
+  - AI agents
+  - Claude Code
+  - agent coordination
+  - DeerFlow
+  - Gas Town
+date: 2026-02-20T00:00:00.000Z
 tier: 2
 lang: en
 type: blog
-tags: ["analysis", "AI agents", "developer tools"]
+tags:
+  - analysis
+  - AI agents
+  - developer tools
+updated: '2026-02-24'
 ---
 
 # Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development Needs
@@ -155,3 +170,15 @@ Multi-agent workspace orchestration addresses a real limitation in current AI de
 The pattern is early but the direction is clear: AI-assisted development will increasingly involve multiple specialized agents coordinating through shared workspaces rather than single general-purpose assistants operating in isolation. Teams evaluating these tools should focus less on individual agent capabilities and more on orchestration flexibility—the infrastructure that lets them compose agents into effective systems.
 
 The workspace is becoming the unit of AI-assisted development, and orchestration is the layer that makes workspaces work.
+
+Now I can write the update section that adds new information without repeating the original content.
+
+---
+
+## 📰 Latest Update (2026-02-24)
+
+The multi-agent orchestration thesis received unexpected empirical backing this week. Anthropic published research analyzing "millions of interactions" across Claude Code and their API to measure how much autonomy users actually grant to AI agents in practice. The findings confirm what the orchestration projects anticipated: single agents in stable environments work well; multi-agent deployments in dynamic environments—which describes most real software projects—tend to fall apart. The limiting factor, per Anthropic's analysis, isn't raw capability but "how agents reason under uncertainty."
+
+Meanwhile, the infrastructure layer continues expanding sideways. Two new GitHub trending projects reveal where practitioners are investing their attention: **marketingskills** (8,400+ stars) and **antigravity-awesome-skills** (13,000+ stars) represent a growing ecosystem of pre-packaged agent capabilities. The latter collection now indexes over 800 "agentic skills" for Claude Code—essentially the marketplace prediction from the original analysis, arriving faster than expected. These aren't orchestration frameworks themselves, but they're the specialized agents that orchestration systems will coordinate.
+
+A separate 100-page technical roadmap from Google DeepMind, Meta, and Amazon analyzed reasoning frameworks across planning, tool use, memory, and multi-agent coordination. Their finding echoes Anthropic's: the three foundational layers that matter are all about structured reasoning under uncertainty, not raw model scale. The convergence is notable—major labs and open-source projects are independently arriving at the same architectural constraints. Multi-agent orchestration isn't just a pattern anymore; it's becoming the accepted frame for production AI development.

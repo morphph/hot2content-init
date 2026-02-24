@@ -4,6 +4,266 @@
   "name_zh": "Claude Opus 4.6",
   "entries": [
     {
+      "id": "twitter-search-2022355109150363993",
+      "title": "The Vibe Coding Mobile Apps Bible.",
+      "url": "https://x.com/the_agenteers/status/2022355109150363993",
+      "source": "@the_agenteers",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "The Vibe Coding Mobile Apps Bible.\n\nIf you want to build mobile apps with Opus 4.6 that have frontend, backend, payments, and database... You need to watch this video.\n\nhttps://t.co/pDZs7oBCsX",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025701861031121331",
+      "title": "unpopular (maybe?) opinion: MCP is dead in the water",
+      "url": "https://x.com/chrysb/status/2025701861031121331",
+      "source": "@chrysb",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "unpopular (maybe?) opinion: MCP is dead in the water\n\n@openclaw has shown me that api & cli will win. \n\nevery MCP server you connect loads its tool definitions into your context window. name, description, parameter schema, all of it. connect 10 servers with 5 tools each and you've burned 50 tool definitions worth of tokens before your conversation even starts.\n\ncontext bloat will never be a good thing - performance-wise or economically. i assume this is why @steipete left it out of @openclaw.\n\nt",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "anthropic-news-detecting-and-preventing-distillation-attacks",
+      "title": "Detecting and preventing distillation attacks",
+      "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 23, 2026)",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcu741",
+      "title": "Anthropic today",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcu741/anthropic_today/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "While I generally do not agree with the misuse of others' property, this statement is ironic coming from Anthropic.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcseh1",
+      "title": "Fun fact: Anthropic has never open-sourced any LLMs",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcseh1/fun_fact_anthropic_has_never_opensourced_any_llms/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I’ve been working on a little side project comparing tokenizer efficiency across different companies’ models for multilingual encoding.\n\nThen I saw Anthropic’s announcement today and suddenly realized: there’s no way to analyze claude’s tokenizer lmao!\n\nedit: Google once mentioned in a paper that Gemma and Gemini share the same tokenizer. OpenAI has already open‑sourced their tokenizers (and gpt‑oss). And don’t even get me started on Llama (Llama 5 pls 😭). ",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcr4ju",
+      "title": "Dario Is Scared",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcr4ju/dario_is_scared/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Why did Anthropic choose this exact moment to release that [statement](https://x.com/AnthropicAI/status/2025997928242811253)? Because he’s scared. \n\nEver since OpenClaw launched, token usage from both individuals and model companies has been booming. And yet, on OpenRouter, the top-ranked models are no longer Claude but open-source models like Kimi K2.5 and Minimax M2.5. \n\nhttps://preview.redd.it/kws4m2dtnalg1.png?width=2076&amp;format=png&amp;auto=webp&amp;s=e7355e5685d4cafe68bbb0ad1f2deffa69f7",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcmvj5",
+      "title": "Claude is the better product. Two compounding usage caps on the $20 plan are why OpenAI keeps my money.",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rcmvj5/claude_is_the_better_product_two_compounding/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "To Anthropic's product team, if you read this sub:\nI'm a ChatGPT Plus user who prefers Claude. I'm not here to vent — I'm here because you're losing a paying customer not to a better product, but to a better-structured one. I've laid out exactly why below. I'd genuinely rather give you the $20.\n\n\n\nI've been on ChatGPT Plus for 166 weeks. I use Claude's free tier for one thing — editing my book — because Claude is genuinely better at it. Not marginally. Better.\n\n\nI've looked seriously at switchin",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcf5z9",
+      "title": "Scoop: Hegseth to meet Anthropic CEO as Pentagon threatens banishment",
+      "url": "https://www.axios.com/2026/02/23/hegseth-dario-pentagon-meeting-antrhopic-claude",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 55,
+      "summary": "",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcaw67",
+      "title": "Thanks Opus 4.6",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rcaw67/thanks_opus_46/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 55,
+      "summary": "Thanks Opus 4.6",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2024441906261086527",
+      "title": "Fuck it.",
+      "url": "https://x.com/sentientt_media/status/2024441906261086527",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Fuck it.\n\nPrompt engineering officially died last month.\n\nAnthropic dropped the 32-page internal guide that replaces it with “Skills”  reusable workflow folders Claude learns once and never forgets.\n\nProgressive disclosure + MCP = your personal AI employee that actually remembers how you work.\n\nThe era of re-explaining everything every chat is over.\n\nDownload the guide + my updated 2026 Skills starter pack here (free):\n\nComment “SKILLS” and I’ll DM both.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2019863707866873955",
+      "title": "If you want to learn Claude Code but have no idea where to start, this is for you.",
+      "url": "https://x.com/milesdeutscher/status/2019863707866873955",
+      "source": "@milesdeutscher",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "If you want to learn Claude Code but have no idea where to start, this is for you.\n\nClaude Code in action - a 100% free course by Anthropic on Claude Code best practices.\n\nHighly recommend (even if you're advanced, you'll get some good tips):\n\nhttps:// anthropic.skilljar. com/claude-code-in-action",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1953097967361245251",
+      "title": "I'm thrilled to announce the definitive course on Claude Code, created with @AnthropicAI and taught",
+      "url": "https://x.com/AndrewYNg/status/1953097967361245251",
+      "source": "@AndrewYNg",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "I'm thrilled to announce the definitive course on Claude Code, created with @AnthropicAI and taught by Elie Schoppik @eschoppik. If you want to use highly agentic coding - where AI works autonomously for many minutes or longer, not just completing code snippets - this is it.\n\nClaude Code has been a game-changer for many developers (including me!), but there's real depth to using it well. This comprehensive course covers everything from fundamentals to advanced patterns.\n\nAfter this short course,",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbrpmv",
+      "title": "Software Engineer position will never die",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rbrpmv/software_engineer_position_will_never_die/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 65,
+      "summary": "Imagine your boss pays you $570,000. Then tells the world your job disappears in 6 months.\n\nThat just happened at Anthropic.\n\nDario Amodei told Davos that Al can handle \"most, maybe all\" coding tasks in 6 to 12 months. His own engineers don't write code anymore. They edit what Al produces.\n\nMeanwhile, Anthropic pays senior engineers a median of $570k. Some roles hit $759k. L5/L6 postings confirm $474k to $615k.\n\nThey're still hiring.\n\nThe $570k engineers aren't writing for loops. They decide whi",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbkq1u",
+      "title": "Claude’s personality is a bit too good",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rbkq1u/claudes_personality_is_a_bit_too_good/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Generally speaking, I think Anthropic have done a great job of building out a chatbot that makes it feel like I’m interacting with a real person.\n\nOn a more personal note, I’m terrified at how well it adapts to my specific preferences for tone, content, style and substance. It feels like my best friend, matching the type of responses I want to hear and the intellectual detail I am able to consume, perfectly, and it appears that’s just the base model‘s fine tuning and system prompts doing most of",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-NikkeTryHard-zerogravity",
+      "title": "NikkeTryHard/zerogravity (⭐205)",
+      "url": "https://github.com/NikkeTryHard/zerogravity",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "OpenAI, Anthropic, and Gemini-compatible proxy that looks like real Antigravity traffic to Google.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024801530134892560",
+      "title": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.",
+      "url": "https://x.com/alex_prompter/status/2024801530134892560",
+      "source": "@alex_prompter",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate Git",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025254119636959701",
+      "title": "This 𝗖𝗟𝗔𝗨𝗗𝗘.𝗺𝗱 file will make you 10x engineer 👇",
+      "url": "https://x.com/srishticodes/status/2025254119636959701",
+      "source": "@srishticodes",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This 𝗖𝗟𝗔𝗨𝗗𝗘.𝗺𝗱 file will make you 10x engineer 👇\n\nIt combines all the best practices shared by Claude Code creator:\n\nBoris Cherny (creator of Claude Code at Anthropic) shared on X internal best practices and workflows he and his team actually use with Claude Code daily. Someone turned those threads into a structured 𝗖𝗟𝗔𝗨𝗗𝗘.𝗺𝗱 you can drop into any project.\n\nIt includes:\n• Workflow orchestration\n• Subagent strategy\n• Self-improvement loop\n• Verification before done\n• Autonomous b",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-2024986293248127452",
+      "title": "Our latest Claude Code hackathon is officially a wrap.",
+      "url": "https://x.com/claudeai/status/2024986293248127452",
+      "source": "@claudeai",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Our latest Claude Code hackathon is officially a wrap. \n\n500 builders spent a week exploring what they could do with Opus 4.6 and Claude Code.\n\nMeet the winners:",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023413706193776702",
+      "title": "It’s been 8 days since I bought my Mac mini for OpenClaw 🦞",
+      "url": "https://x.com/CrypSaf/status/2023413706193776702",
+      "source": "@CrypSaf",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "It’s been 8 days since I bought my Mac mini for OpenClaw 🦞\n\nHere’s what I’m bleeding on: 🩸\n> Mac mini - $600 (one-time)\n> Claude Opus - $200/mo (max plan)\n> Kimi K2.5 - $10/mo (actually carrying me)\n> OpenAI Codex + GPT - $20/mo\n> Gemini API - $10/mo \n> MiniMax 2.5 - $10/mo (testing)\n> Z. AI (GLM-5) – $30/mo (bulk worker)\n> X Research API - $10/mo \n> Brave Search API - $5/mo \n> Supabase - $25/mo (was a test, regretted it)\n> SuperGrok - $40/mo (just pumping the numbers)\n> Suno API - $10/mo (mus",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024446886833508394",
+      "title": "Holy shit... someone built a template marketplace for Claude Code.",
+      "url": "https://x.com/mhdfaran/status/2024446886833508394",
+      "source": "@mhdfaran",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Holy shit... someone built a template marketplace for Claude Code.\n\nIt's called AITMPL and it has ready-to-use configs for every stack.\n\n- 30+ companies (OpenAI, Anthropic, Stripe, AWS, GitHub)\n- Pre-built skills, agents, commands, hooks, MCPs\n- Stack builder that generates install commands\n- Real-time analytics & health checks for Claude Code\n\nIts free and available for everyone around the globe.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024923245611536693",
+      "title": "28 Days of Claude API - Day 20 - 1M Token Context Window",
+      "url": "https://x.com/adocomplete/status/2024923245611536693",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 20 - 1M Token Context Window\n\n~750,000 words in a single API call. Just pass the \"context-1m-2025-08-07\" beta header.\n\nEntire codebases. Full legal contracts. Hours of transcripts. All at once.\n\nNo chunking. No retrieval hacks. Just full send it.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "anthropic-news-claude-code-security",
+      "title": "Making frontier cybersecurity capabilities available to defenders",
+      "url": "https://www.anthropic.com/news/claude-code-security",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 20, 2026)",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1ra1709",
+      "title": "Sonnet and Opus 4.6 have developed a serious em-dash and colon addiction and it's ruining the natural writing quality",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1ra1709/sonnet_and_opus_46_have_developed_a_serious/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "I've been comparing Sonnet 4.5 and 4.6, and I'm pretty disappointed with what I'm seeing. The new models have picked up the same habit that makes ChatGPT and Gemini so obviously AI-written. They massively overuse em-dashes and colons.\n\nI ran the same prompt through both versions and compared the outputs. In a 500-word response, Sonnet 4.5 used 0 em-dashes. Sonnet 4.6 used 9. That's way too many for natural writing.\n\nThis is frustrating because Claude used to be the one AI that actually produced ",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9v27c",
+      "title": "All the OpenClaw bros are having a meltdown after the Anthropic subscription lock-down..",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1r9v27c/all_the_openclaw_bros_are_having_a_meltdown_after/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "This was going to happen eventually, and honestly the token usage disparity between OpenClaw users and Claude Code users is really telling. I actually agree with Anthropic here, there is no reason why they should not use the API, and given the security implications of allowing an ungrounded AI loose on the net I applaud them from distancing themselves from that project...\n\nThere was some report that showed OpenClaw users used 50,000 tokens to say 'hello' to their AIs...\n\nHow in the world is it b",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9qa7l",
+      "title": "Kimi has context window expansion ambitions",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r9qa7l/kimi_has_context_window_expansion_ambitions/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "Kimi has context window expansion ambitions",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9p5e3",
+      "title": "Official: Anthropic just released Claude Code 2.1.49 with 27 CLI &amp; 14 sys prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - claude-code/CHANGELOG.md at main · an",
+      "date": "2026-02-20"
+    },
+    {
       "id": "gh-hesreallyhim-awesome-claude-code",
       "title": "hesreallyhim/awesome-claude-code (⭐24,296)",
       "url": "https://github.com/hesreallyhim/awesome-claude-code",
@@ -454,5 +714,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }

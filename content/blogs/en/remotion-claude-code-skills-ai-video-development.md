@@ -20,7 +20,7 @@ date: 2026-02-11T00:00:00.000Z
 lang: en
 tier: 1
 hreflang_zh: /zh/blog/remotion-claude-code-skills-ai-video-development
-updated: '2026-02-20'
+updated: '2026-02-24'
 ---
 
 # Remotion + Claude Code Skills: The Developer's Guide to AI-Powered Programmatic Video
@@ -324,3 +324,15 @@ For Remotion users specifically, the practical benefit is discovery. Rather than
 The broader implication: agent skills are becoming infrastructure. When multiple AI coding assistants consume the same skill definitions, skill authors get leverage—write once, work everywhere. Remotion's early investment in official skills now pays dividends across every major coding agent, not just Claude Code.
 
 If you're building Remotion projects with any AI assistant, check whether your tool supports the skills registry. The gap between "knows Remotion" and "generates broken interpolate() calls" increasingly comes down to whether the right skill is installed.
+
+## 📰 Latest Update (2026-02-24)
+
+The Claude Code skills ecosystem just got its first dedicated marketplace. SkillsMP launched this week as an open-source repository hosting over 200,000 agent skills — essentially a package manager for Claude Code capabilities. For Remotion developers who've been manually crafting SKILL.md files, this changes the calculus significantly.
+
+The marketplace covers territory directly relevant to video production workflows: PowerPoint generation (useful for storyboarding), cloud deployment automation, data analysis pipelines, and PR review workflows. While Remotion-specific skills aren't prominently featured yet, the infrastructure now exists for the community to share and iterate on video-focused agent configurations.
+
+What makes this interesting isn't just the skill count — it's the standardization it implies. Claude Code's skills system has been somewhat fragmented, with developers reinventing similar patterns across projects. A centralized marketplace creates pressure toward conventions: consistent SKILL.md structures, predictable tool interactions, and shareable best practices.
+
+For teams already using Claude Code with Remotion, the immediate value is reduced boilerplate. Instead of writing custom skills for common tasks like asset optimization or render farm deployment, you can pull from existing implementations. The open-source nature also means you can fork and adapt rather than starting from scratch.
+
+The timing aligns with growing interest in agentic video workflows. As Remotion projects become more complex — multi-language renders, dynamic data visualization, automated thumbnail generation — the ability to compose specialized skills becomes a multiplier. Whether SkillsMP becomes the npm of Claude Code skills or fragments into competing registries remains to be seen, but the demand is clearly there.

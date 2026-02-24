@@ -14,6 +14,246 @@
       "date": "2026-12-16"
     },
     {
+      "id": "twitter-search-1907135047565770908",
+      "title": "🚨 NEW: OpenAI JUST released new courses on OpenAI Academy and it’s 100% FREE.",
+      "url": "https://x.com/heyshrutimishra/status/1907135047565770908",
+      "source": "@heyshrutimishra",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 NEW: OpenAI JUST released new courses on OpenAI Academy and it’s 100% FREE.\n\nThey launched courses for devs, creators, teachers &amp; professionals.\n\nHere are top AI courses you don’t want to miss. [Bookmark-worthy ] 👇 https://t.co/jzh9YVyYSr",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-2026002219909427270",
+      "title": "The standard for frontier coding evals is changing with model maturity.",
+      "url": "https://x.com/OpenAIDevs/status/2026002219909427270",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "The standard for frontier coding evals is changing with model maturity.\n\nWe now recommend reporting SWE-bench Pro and are sharing more detail on why we’re no longer reporting SWE-bench Verified as we work with the industry to establish stronger coding eval standards.\n\nSWE-bench V",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-release-openai-openai-python-v2.22.0",
+      "title": "📦 openai/openai-python v2.22.0",
+      "url": "https://github.com/openai/openai-python/releases/tag/v2.22.0",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## 2.22.0 (2026-02-23)  Full Changelog: [v2.21.0...v2.22.0](https://github.com/openai/openai-python/compare/v2.21.0...v2.22.0)  ### Features  * **api:** websockets for responses api ([c01f6fb](https://github.com/openai/openai-python/commit/c01f6fb0d55b7454f73c4904ea7a1954553085dc",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcseh1",
+      "title": "Fun fact: Anthropic has never open-sourced any LLMs",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcseh1/fun_fact_anthropic_has_never_opensourced_any_llms/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I’ve been working on a little side project comparing tokenizer efficiency across different companies’ models for multilingual encoding.\n\nThen I saw Anthropic’s announcement today and suddenly realized: there’s no way to analyze claude’s tokenizer lmao!\n\nedit: Google once mentioned in a paper that Gemma and Gemini share the same tokenizer. OpenAI has already open‑sourced their tokenizers (and gpt‑oss). And don’t even get me started on Llama (Llama 5 pls 😭). ",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcmvj5",
+      "title": "Claude is the better product. Two compounding usage caps on the $20 plan are why OpenAI keeps my money.",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rcmvj5/claude_is_the_better_product_two_compounding/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "To Anthropic's product team, if you read this sub:\nI'm a ChatGPT Plus user who prefers Claude. I'm not here to vent — I'm here because you're losing a paying customer not to a better product, but to a better-structured one. I've laid out exactly why below. I'd genuinely rather give you the $20.\n\n\n\nI've been on ChatGPT Plus for 166 weeks. I use Claude's free tier for one thing — editing my book — because Claude is genuinely better at it. Not marginally. Better.\n\n\nI've looked seriously at switchin",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "hn-47119871",
+      "title": "Show HN: AI Timeline – 171 LLMs from Transformer (2017) to GPT-5.3 (2026)",
+      "url": "https://llm-timeline.com/",
+      "source": "Hacker News",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Interactive AI timeline tracking 194+ Large Language Models from 2017 to 2026. Explore the history of ChatGPT, GPT-4, Claude, Gemini, LLaMA, Mistral, DeepSeek and every major LLM ever released. (HN: 113 pts, 46 comments)",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025463189258076472",
+      "title": "Antigravity Problems:",
+      "url": "https://x.com/pankajkumar_dev/status/2025463189258076472",
+      "source": "@pankajkumar_dev",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Antigravity Problems:\n\n- Eats a lot of RAM and feels very heavy.\n- Quotas finish too fast now. Need API key option, pay-as-you-go, or a plan between Pro and Ultra.\n- Agent terminated due to error happens too frequently. \n- Models don't perform as well compared to Claude Code or Codex, especially with long context.\n- If history gets large, it sometimes doesn't even open. Have to wait or terminate it.\n- UI/UX needs improvement no clear view of remaining context or token usage, and no compact conte",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1925210339836391875",
+      "title": "The OpenAI Responses API now supports Model Context Protocol. 📡",
+      "url": "https://x.com/OpenAIDevs/status/1925210339836391875",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "The OpenAI Responses API now supports Model Context Protocol. 📡\n\nYou can connect our models to any remote MCP server with just a few lines of code. https://t.co/73ypG782uH",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1822981361608888619",
+      "title": "I'm excited to share that we've built the world's most capable AI software engineer, achieving 30.08",
+      "url": "https://x.com/AlistairPullen/status/1822981361608888619",
+      "source": "@AlistairPullen",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I'm excited to share that we've built the world's most capable AI software engineer, achieving 30.08% on SWE-Bench – ahead of Amazon and Cognition. This model is so much more than a benchmark score: it was trained from the start to think and behave like a human SWE. https://t.co/OyvqKLxcGV",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1900735621036937709",
+      "title": "🔥 🤖 🕵️‍♂️ INTRODUCING: Meta Agent",
+      "url": "https://x.com/daniel_mac8/status/1900735621036937709",
+      "source": "@daniel_mac8",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🔥 🤖 🕵️‍♂️ INTRODUCING: Meta Agent\n\n💥 this is by far the most exciting thing I've created using AI!!!\n\n>>> made using Manus and @windsurf_ai \n\n🔑 Meta Agent is an AI agent that uses the OpenAI Agents SDK to GENERATE NEW AGENTS\n\nyou simply tell Meta Agent in natural language the agent you want...\n\n🤯 and Meta Agent generates it for you\n\nfully open --> link to GitHub and example walkthrough below ⬇️",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-2025712197100589353",
+      "title": "What did you build with Codex this weekend?",
+      "url": "https://x.com/OpenAIDevs/status/2025712197100589353",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "What did you build with Codex this weekend?",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-NikkeTryHard-zerogravity",
+      "title": "NikkeTryHard/zerogravity (⭐205)",
+      "url": "https://github.com/NikkeTryHard/zerogravity",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "OpenAI, Anthropic, and Gemini-compatible proxy that looks like real Antigravity traffic to Google.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-hamelsmu-claude-review-loop",
+      "title": "hamelsmu/claude-review-loop (⭐223)",
+      "url": "https://github.com/hamelsmu/claude-review-loop",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Claude Code plugin: automated code review loop with Codex",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-openai-skills",
+      "title": "openai/skills (⭐9,245)",
+      "url": "https://github.com/openai/skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Skills Catalog for Codex",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2019417963397275741",
+      "title": "OpenAI isn't saying it, but Frontier to me is basically like a platform for digital employees. Or, l",
+      "url": "https://x.com/_simonsmith/status/2019417963397275741",
+      "source": "@_simonsmith",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "OpenAI isn't saying it, but Frontier to me is basically like a platform for digital employees. Or, like OpenClaw for organizations, where you create autonomous digital agents, give them skills and tools, and oversee their work. We're truly going through an evolution into an era of autonomous agent swarms right now.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1721934026624385104",
+      "title": "Just tested OpenAI's new Assistant's API.",
+      "url": "https://x.com/samhogan/status/1721934026624385104",
+      "source": "@samhogan",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Just tested OpenAI's new Assistant's API. \n\nThis is now all the code you need to create a custom ChatGPT trained on an entire website. \n\nLess than 30 lines 🤯 https://t.co/rVhZOJQfEX",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023190615962554765",
+      "title": "- you wake up",
+      "url": "https://x.com/om_patel5/status/2023190615962554765",
+      "source": "@om_patel5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "- you wake up \n- it was all a dream\n- openai never released chatgpt\n- claude code doesn't exist\n- vibe coding isn’t invented at all\n- you have to use stack overflow for every single error\n- read documentation for hours \n- life is pain https://t.co/yhRmMAwYIV",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-ryoppippi-ccusage",
+      "title": "ryoppippi/ccusage (⭐10,852)",
+      "url": "https://github.com/ryoppippi/ccusage",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A CLI tool for analyzing Claude Code/Codex CLI usage from local JSONL files.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2016987600142078300",
+      "title": "Excited to announce AI Research Skills - an open-source library of 82 specialized skills for AI codi",
+      "url": "https://x.com/ZechenZhang5/status/2016987600142078300",
+      "source": "@ZechenZhang5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Excited to announce AI Research Skills - an open-source library of 82 specialized skills for AI coding tools.\n\nOne command gives your agent expert knowledge in:\n  → Model training & fine-tuning (TRL, Unsloth ...)\n  → Distributed systems (DeepSpeed, FSDP ...)\n  → Inference optimization (vLLM, TensorRT ...)\n  → Agent building ? (Langchain, AutoGPT ...)\nWorks with Claude Code, Cursor, Gemini CLI, Windsurf, and Codex with one click interactive installation\n\n@ npx @orchestra-research/ai-research-skil",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2023413706193776702",
+      "title": "It’s been 8 days since I bought my Mac mini for OpenClaw 🦞",
+      "url": "https://x.com/CrypSaf/status/2023413706193776702",
+      "source": "@CrypSaf",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "It’s been 8 days since I bought my Mac mini for OpenClaw 🦞\n\nHere’s what I’m bleeding on: 🩸\n> Mac mini - $600 (one-time)\n> Claude Opus - $200/mo (max plan)\n> Kimi K2.5 - $10/mo (actually carrying me)\n> OpenAI Codex + GPT - $20/mo\n> Gemini API - $10/mo \n> MiniMax 2.5 - $10/mo (testing)\n> Z. AI (GLM-5) – $30/mo (bulk worker)\n> X Research API - $10/mo \n> Brave Search API - $5/mo \n> Supabase - $25/mo (was a test, regretted it)\n> SuperGrok - $40/mo (just pumping the numbers)\n> Suno API - $10/mo (mus",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2011862984595795974",
+      "title": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperabl",
+      "url": "https://x.com/OpenAIDevs/status/2011862984595795974",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperable LLM interfaces built on top of the original OpenAI Responses API.\n\n✅ Multi-provider by default\n✅ Useful for real-world workflows\n✅ Extensible without fragmentation\n\nBuild agentic systems without rewriting your stack for every model: https://t.co/ZJPNDemq40",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024446886833508394",
+      "title": "Holy shit... someone built a template marketplace for Claude Code.",
+      "url": "https://x.com/mhdfaran/status/2024446886833508394",
+      "source": "@mhdfaran",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Holy shit... someone built a template marketplace for Claude Code.\n\nIt's called AITMPL and it has ready-to-use configs for every stack.\n\n- 30+ companies (OpenAI, Anthropic, Stripe, AWS, GitHub)\n- Pre-built skills, agents, commands, hooks, MCPs\n- Stack builder that generates install commands\n- Real-time analytics & health checks for Claude Code\n\nIts free and available for everyone around the globe.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024002939539366135",
+      "title": "Codex in a code base written mainly by Claude https://t.co/wKNW666OG9",
+      "url": "https://x.com/xeophon/status/2024002939539366135",
+      "source": "@xeophon",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Codex in a code base written mainly by Claude https://t.co/wKNW666OG9",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024933773205492018",
+      "title": "Looking for a Codex meetup in your city?",
+      "url": "https://x.com/OpenAIDevs/status/2024933773205492018",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Looking for a Codex meetup in your city?\n\nOur ambassador community is bringing Codex to you.\n\nCreate and ship projects with your local developer community, compare workflows, grab coffee, and meet people building with Codex.\n\nhttps://t.co/dBVLNWr9SK https://t.co/bIH2eK1dHm",
+      "date": "2026-02-20"
+    },
+    {
       "id": "gh-router-for-me-CLIProxyAPI",
       "title": "router-for-me/CLIProxyAPI (⭐10,988)",
       "url": "https://github.com/router-for-me/CLIProxyAPI",
@@ -474,5 +714,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }

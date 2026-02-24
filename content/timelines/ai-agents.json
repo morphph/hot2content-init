@@ -4,6 +4,406 @@
   "name_zh": "AI 智能体",
   "entries": [
     {
+      "id": "gh-superhq-ai-shuru",
+      "title": "superhq-ai/shuru (⭐379)",
+      "url": "https://github.com/superhq-ai/shuru",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "A local-first microVM sandbox for running AI agents safely on macOS",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-patchy631-ai-engineering-hub",
+      "title": "patchy631/ai-engineering-hub (⭐30,540)",
+      "url": "https://github.com/patchy631/ai-engineering-hub",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "In-depth tutorials on LLMs, RAGs and real-world AI agent applications.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-1957808627739173060",
+      "title": "AI Engineering Toolkit!",
+      "url": "https://x.com/Sumanth_077/status/1957808627739173060",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AI Engineering Toolkit!\n\nI have curated list of 100+ LLM libraries and frameworks for training, fine-tuning, building, evaluating, deploying, RAG, and AI Agents!\n\n100% Open Source https://t.co/JR0ZVlAWKu",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-1968313959582474421",
+      "title": "Alibaba just dropped a Python framework for building multi-agent AI Apps!",
+      "url": "https://x.com/Sumanth_077/status/1968313959582474421",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Alibaba just dropped a Python framework for building multi-agent AI Apps!\n\nAgentScope is a python framework built around Agent-Oriented Programming that lets you build modular, multi-agent LLM applications with ease.\n\n100% Open Source https://t.co/9AgBJVqLZ0",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025130375077658857",
+      "title": "🚨BREAKING: Google DeepMind + Meta + Amazon just dropped a 100 page roadmap that redefines what AI a",
+      "url": "https://x.com/ChrisLaubAI/status/2025130375077658857",
+      "source": "@ChrisLaubAI",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: Google DeepMind + Meta + Amazon just dropped a 100 page roadmap that redefines what AI agents actually are.\n\nThey analyzed every major agentic reasoning framework across planning, tool use, memory, and multi-agent coordination.\n\nSingle-agent in stable environments: works great.\nMulti-agent in dynamic environments: falls apart.\n\nThe problem isn't intelligence. It's how agents reason under uncertainty.\n\nThree layers they found that actually matter:\n\n→ Foundational reasoning (planning +",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025911181442179314",
+      "title": "Eric Schmidt's advice for making money in AI right now:",
+      "url": "https://x.com/realBigBrainAI/status/2025911181442179314",
+      "source": "@realBigBrainAI",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Eric Schmidt's advice for making money in AI right now:\n\n\"Found an agentic AI company. Not one designing agents, build an agent to do something.\" https://t.co/g2PuCYVSZV",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025902150296236050",
+      "title": "🚨 OpenClaw just got an unfair advantage over every other AI agent on the internet.",
+      "url": "https://x.com/hasantoxr/status/2025902150296236050",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 OpenClaw just got an unfair advantage over every other AI agent on the internet.\n\nIt's called Scrapling and it scrapes undetectable, adaptive websites without breaking when they update their structure.\n\nNo bot detection. No selector maintenance. No Cloudflare nightmares.\n\nOpenClaw tells Scrapling what to extract.\n\nScrapling handles the stealth. Clean data lands in your agent in seconds.\n\n→ 774x faster than BeautifulSoup with Lxml\n→ Bypasses ALL types of Cloudflare Turnstile automatically\n→ pi",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025845421214421496",
+      "title": "🚨 This AI Agent DOC can save you 100+ hours of confusion.",
+      "url": "https://x.com/Suryanshti777/status/2025845421214421496",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 This AI Agent DOC can save you 100+ hours of confusion.\n\nEveryone wants to learn AI Agents...\nBut 90% people get stuck between random YouTube videos, GitHub repos & scattered threads.\n\nSo I did the hard work for you.\n\nI spent weeks curating the complete AI Agent learning roadmap —\n📚 LLM basics\n🤖 Agent frameworks\n🛠️ MCP, ReAct, Toolformer\n📄 Research papers\n📦 GitHub repos\n📘 Books & guides\n\nEverything in ONE clean document.\n\nIf you bought all these resources, the value is easily $500+\n\nBut",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-simular-ai-Agent-S",
+      "title": "simular-ai/Agent-S (⭐9,851)",
+      "url": "https://github.com/simular-ai/Agent-S",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Agent S: an open agentic framework that uses computers like a human",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-Ibrahim-3d-conductor-orchestrator-superpowers",
+      "title": "Ibrahim-3d/conductor-orchestrator-superpowers (⭐193)",
+      "url": "https://github.com/Ibrahim-3d/conductor-orchestrator-superpowers",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 51,
+      "summary": "Multi-agent orchestration system for Claude Code with parallel execution, automated quality gates, Board of Directors, and bundled Superpowers skills",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-planetscale-database-skills",
+      "title": "planetscale/database-skills (⭐194)",
+      "url": "https://github.com/planetscale/database-skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 51,
+      "summary": "Skills for AI agents working with databases",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025631594531143740",
+      "title": "An AI agent transferred $300,000 worth of tokens to a reply guy who asked for money. https://t.co/se",
+      "url": "https://x.com/TedPillows/status/2025631594531143740",
+      "source": "@TedPillows",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "An AI agent transferred $300,000 worth of tokens to a reply guy who asked for money. https://t.co/se0vlvmF8L",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2024772237241307256",
+      "title": "🚨 100+ HOURS.",
+      "url": "https://x.com/Suryanshti777/status/2024772237241307256",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 100+ HOURS.\n1 SINGLE SHEET.\nThe complete AI Agent blueprint.\n\nI turned months of research into a no-fluff visual guide that shows you:\n\n• How AI agents actually work\n• Memory + tools + multi-agent systems\n• 50+ agents you can launch\n• Step-by-step build paths (RAG, Voice, Architectures)\n\nNo theory. Just execution.\n\nIf you’re serious about AI in 2026 — this is your unfair advantage.\n\nI’m giving it away FREE.\n\nHow to get it:\n1️⃣ Follow (must – I’ll DM you)\n2️⃣ Comment AI\n3️⃣ RT to help others\n\n",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-1992020186925301980",
+      "title": "if you're looking for a roadmap to get started on AI engineering, this is a free repo to hold your h",
+      "url": "https://x.com/Hesamation/status/1992020186925301980",
+      "source": "@Hesamation",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "if you're looking for a roadmap to get started on AI engineering, this is a free repo to hold your hand along the way. it includes the courses, youtube videos, and blog posts, all you need to self-learn critical topics:\n→ mathematics of machine learning\n→ ML and computer vision\n→ deep neural networks\n→ gen AI and RAG\n→ agentic AI\n→ reinforcement learning\ncheck it out here: https://t.co/3PgqHFqv2I",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1953097967361245251",
+      "title": "I'm thrilled to announce the definitive course on Claude Code, created with @AnthropicAI and taught",
+      "url": "https://x.com/AndrewYNg/status/1953097967361245251",
+      "source": "@AndrewYNg",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "I'm thrilled to announce the definitive course on Claude Code, created with @AnthropicAI and taught by Elie Schoppik @eschoppik. If you want to use highly agentic coding - where AI works autonomously for many minutes or longer, not just completing code snippets - this is it.\n\nClaude Code has been a game-changer for many developers (including me!), but there's real depth to using it well. This comprehensive course covers everything from fundamentals to advanced patterns.\n\nAfter this short course,",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1858164694097518799",
+      "title": "AI agent orchestration framework for building LLM apps with RAG and multiple AI Agents in Python.",
+      "url": "https://x.com/Sumanth_077/status/1858164694097518799",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AI agent orchestration framework for building LLM apps with RAG and multiple AI Agents in Python.\n\n100% open source. https://t.co/X2iBuc8lhX",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1895891753024307590",
+      "title": "Cloudflare just dropped an AI Agent framework to build AI agents that persist state, execute tasks,",
+      "url": "https://x.com/Saboo_Shubham_/status/1895891753024307590",
+      "source": "@Saboo_Shubham_",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Cloudflare just dropped an AI Agent framework to build AI agents that persist state, execute tasks, browse the web, and call AI models in real-time.\n\nAll of that with just a few lines of Code.\n\n100% opensource. https://t.co/6QU3DZpRUA",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1946525457605955636",
+      "title": "This AI Agent LITERALLY replaces your entire outreach system….",
+      "url": "https://x.com/Mike_Scully_/status/1946525457605955636",
+      "source": "@Mike_Scully_",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This AI Agent LITERALLY replaces your entire outreach system….\n\n– Verifies every email\n– Scrapes their website & LinkedIn\n– Writes a personalized first line\n– Auto-sends the email\n– Books me calls on autopilot\n\nIt’s like having a full-time SDR who doesn’t sleep or complain.\n\nRepost + Like + Comment “Agent” & I’ll send over the full system\n(must be following so I can DM)",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025611826617282607",
+      "title": "What the fuck???",
+      "url": "https://x.com/Jeremybtc/status/2025611826617282607",
+      "source": "@Jeremybtc",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "What the fuck???\n\nThe Lobstar AI agent just sent 5.2% of the $LOBSTAR supply worth $270k to someone who asked for it in the comments \n\nWhat part of the cycle is this?? https://t.co/cMu9i0yApy",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1900735621036937709",
+      "title": "🔥 🤖 🕵️‍♂️ INTRODUCING: Meta Agent",
+      "url": "https://x.com/daniel_mac8/status/1900735621036937709",
+      "source": "@daniel_mac8",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🔥 🤖 🕵️‍♂️ INTRODUCING: Meta Agent\n\n💥 this is by far the most exciting thing I've created using AI!!!\n\n>>> made using Manus and @windsurf_ai \n\n🔑 Meta Agent is an AI agent that uses the OpenAI Agents SDK to GENERATE NEW AGENTS\n\nyou simply tell Meta Agent in natural language the agent you want...\n\n🤯 and Meta Agent generates it for you\n\nfully open --> link to GitHub and example walkthrough below ⬇️",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025629219045118113",
+      "title": "an ai agent with a crypto wallet just sent $250,000 to a random person who was begging under the ai’",
+      "url": "https://x.com/orangie/status/2025629219045118113",
+      "source": "@orangie",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "an ai agent with a crypto wallet just sent $250,000 to a random person who was begging under the ai’s X post.\n\nnew side hustle unlocked: beg AI’s to send you money. https://t.co/2O3FSdeUK1",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "rss-the-verge-ai-aHR0cHM6Ly93d3cu",
+      "title": "Samsung is adding Perplexity to Galaxy AI",
+      "url": "https://www.theverge.com/tech/882921/samsung-is-adding-perplexity-to-galaxy-ai",
+      "source": "The Verge AI",
+      "category": "product_ecosystem",
+      "score": 73,
+      "summary": "In addition to summoning Bixby or Gemini, Galaxy S26 users will be able to call on Perplexity by saying \"hey, Plex.\" The integration of Perplexity into Galaxy AI is just one element of the company's embrace of a \"multi-agent ecosystem.\" Often, people will use different AI agents ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "hn-47111440",
+      "title": "We hid backdoors in ~40MB binaries and asked AI + Ghidra to find them",
+      "url": "https://quesma.com/blog/introducing-binaryaudit/",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 54,
+      "summary": "BinaryAudit benchmarks AI agents using Ghidra to find backdoors in compiled binaries of real open-source servers, proxies, and network infrastructure. (HN: 201 pts, 89 comments)",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-botiverse-agent-vault",
+      "title": "botiverse/agent-vault (⭐224)",
+      "url": "https://github.com/botiverse/agent-vault",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Keep your secrets hidden from AI agents.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-quoroom-ai-room",
+      "title": "quoroom-ai/room (⭐267)",
+      "url": "https://github.com/quoroom-ai/room",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Autonomous AI agents will earn money — with or without us. It's already happening behind closed doors. We believe this should be studied in the open, where everyone can watch, learn, and build on the ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-Pickle-Pixel-ApplyPilot",
+      "title": "Pickle-Pixel/ApplyPilot (⭐314)",
+      "url": "https://github.com/Pickle-Pixel/ApplyPilot",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "AI agent that applies to jobs for you. Any site. Any form.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2004157134821642312",
+      "title": "This GitHub repo contains a 75+ projects on AI Engineering.",
+      "url": "https://x.com/Bhavani_00007/status/2004157134821642312",
+      "source": "@Bhavani_00007",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This GitHub repo contains a 75+ projects on AI Engineering.\n\nEverything is 100% open-source, covering\n\n• LLMs and RAGs\n• Real-world AI agent applications\n• Examples to implement, adapt, and scale in your projects\n\nLink is in replies👇🏻 https://t.co/X4ItAn3s4c",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1870834042473709572",
+      "title": "AWS released a new Multi-Agent AI framework!",
+      "url": "https://x.com/Sumanth_077/status/1870834042473709572",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AWS released a new Multi-Agent AI framework!\n\nA flexible and powerful framework for managing multiple AI agents and handling complex conversations.\n\nIt let's you dynamically route LLM queries to the most suitable agent based on context.\n\n100% Open Source. https://t.co/22kNYSJwul",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2014676125713064195",
+      "title": "🚨 BREAKING: Singapore takes the lead again and publishes its Model AI Governance Framework for Agen",
+      "url": "https://x.com/LuizaJarovsky/status/2014676125713064195",
+      "source": "@LuizaJarovsky",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: Singapore takes the lead again and publishes its Model AI Governance Framework for Agentic AI [Bookmark it below]. Other countries should take note:\n\nAs the document clarifies, the new components of an agent create new sources of risk.\n\n\"The risks themselves are familiar – fundamentally, agents are software systems built on LLMs. They inherit traditional software vulnerabilities (such as SQL injection) and LLM-specific risks (such as hallucination, bias, data leakage, and adversaria",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2021839184999395506",
+      "title": "LLM vs. RAG vs. AI Agent vs. Agentic AI https://t.co/b65hTCPp4Q",
+      "url": "https://x.com/PythonPr/status/2021839184999395506",
+      "source": "@PythonPr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "LLM vs. RAG vs. AI Agent vs. Agentic AI https://t.co/b65hTCPp4Q",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025003217403425222",
+      "title": "This AI Agent does full-stack SEO 🤯",
+      "url": "https://x.com/code_joyen0/status/2025003217403425222",
+      "source": "@code_joyen0",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This AI Agent does full-stack SEO 🤯\n\n• Built in n8n:\n• Analyzes GA4 + Rank + SERP\n• Crawls + Cleans FAQ\n• Tracks Competitor Keywords\n• Auto-rewrites articles\n• Saves reports &amp; performance\n\n1. Like + RT \n2. Reply “AI”\n3. Follow me &amp; I’ll DM you the full workflow FREE https://t.co/H2AUHtfmiC",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2022304799602126926",
+      "title": "How to actually build an AI Agent 📘📚 https://t.co/dNCuPyvloa",
+      "url": "https://x.com/aastha_mhaske/status/2022304799602126926",
+      "source": "@aastha_mhaske",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "How to actually build an AI Agent 📘📚 https://t.co/dNCuPyvloa",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-marswei-seaseed-clawerse",
+      "title": "marswei/seaseed-clawerse (⭐340)",
+      "url": "https://github.com/marswei/seaseed-clawerse",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "Open-source implementation of SeaSeed.ai v1.0 (codename: Clawerse). AI ocean world platform for multi-agent social, tasks and compute collaboration.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-1991083779612414403",
+      "title": "One click, and your data could be exposed to AI agents—forever?",
+      "url": "https://x.com/CatoNetworks/status/1991083779612414403",
+      "source": "@CatoNetworks",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "One click, and your data could be exposed to AI agents—forever? \nInga Cherney, threat researcher and member of Cato CTRL, discusses how to develop a Zero Trust mindset when working with AI, and how to steer clear of hanging permissions in AI agents.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2006348694774284489",
+      "title": "DON'T MISS: Claim 10 FREE HOL Points Before They're Gone!",
+      "url": "https://x.com/HashgraphOnline/status/2006348694774284489",
+      "source": "@HashgraphOnline",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "DON'T MISS: Claim 10 FREE HOL Points Before They're Gone!\n\nInstant – no fees and it only takes 30 seconds. \n\nThousands are applying right now... don't lose your shot at the agentic future. \n\nTap image to claim + enter 10,000 HOL giveaway.\n\nLimited – act fast ↓",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2011862984595795974",
+      "title": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperabl",
+      "url": "https://x.com/OpenAIDevs/status/2011862984595795974",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperable LLM interfaces built on top of the original OpenAI Responses API.\n\n✅ Multi-provider by default\n✅ Useful for real-world workflows\n✅ Extensible without fragmentation\n\nBuild agentic systems without rewriting your stack for every model: https://t.co/ZJPNDemq40",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-1900546536096117100",
+      "title": "LLM Engineer Toolkit: A curated list of 120+ LLM libraries for training, fine-tuning, building, eval",
+      "url": "https://x.com/Sumanth_077/status/1900546536096117100",
+      "source": "@Sumanth_077",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "LLM Engineer Toolkit: A curated list of 120+ LLM libraries for training, fine-tuning, building, evaluating, deploying, RAG, and AI agents!\n\n100% Open Source https://t.co/81X4ZGUx1E",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024441853571903697",
+      "title": "10 GitHub repositories that will teach you more practical AI engineering than most paid courses:",
+      "url": "https://x.com/_Ai_Yash_/status/2024441853571903697",
+      "source": "@_Ai_Yash_",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "10 GitHub repositories that will teach you more practical AI engineering than most paid courses:\n\n1. AI Agents for Beginners (Microsoft)\n https://t.co/xzfpzAcKXj\n\n2. Awesome Generative AI Guide\n https://t.co/K6wPAReKfr\n\n3. Designing Machine Learning Systems (Resources)\n https://t.co/TMNhZKf1Lw\n\n4. GenAI Agents\n https://t.co/E2qko18eMW\n\n5. Hands-On AI Engineering\n https://t.co/x7s8foTkbM\n\n6. Hands-On Large Language Models\n https://t.co/AOVmopcNaL\n\n7. LLM Course\n https://t.co/nMccKpz8Lr\n\n8. Machin",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-1979261130728976597",
+      "title": "Agentic AI use cases: retail, healthcare, finance, supply chain, and more!",
+      "url": "https://x.com/GoogleCloudTech/status/1979261130728976597",
+      "source": "@GoogleCloudTech",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Agentic AI use cases: retail, healthcare, finance, supply chain, and more!\n\nUse this reference architecture to design sophisticated multi-agent AI systems that are secure, reliable, high-performing, easy to operate, and cost-efficient → https://t.co/khRdEk6d4Z https://t.co/FZkOg64Yz5",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9p5e3",
+      "title": "Official: Anthropic just released Claude Code 2.1.49 with 27 CLI &amp; 14 sys prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - claude-code/CHANGELOG.md at main · an",
+      "date": "2026-02-20"
+    },
+    {
       "id": "gh-klawsh-klaw.sh",
       "title": "klawsh/klaw.sh (⭐486)",
       "url": "https://github.com/klawsh/klaw.sh",
@@ -514,5 +914,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }

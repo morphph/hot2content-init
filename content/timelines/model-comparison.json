@@ -4,6 +4,116 @@
   "name_zh": "AI 模型对比",
   "entries": [
     {
+      "id": "twitter-search-1907135047565770908",
+      "title": "🚨 NEW: OpenAI JUST released new courses on OpenAI Academy and it’s 100% FREE.",
+      "url": "https://x.com/heyshrutimishra/status/1907135047565770908",
+      "source": "@heyshrutimishra",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 NEW: OpenAI JUST released new courses on OpenAI Academy and it’s 100% FREE.\n\nThey launched courses for devs, creators, teachers &amp; professionals.\n\nHere are top AI courses you don’t want to miss. [Bookmark-worthy ] 👇 https://t.co/jzh9YVyYSr",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025911181442179314",
+      "title": "Eric Schmidt's advice for making money in AI right now:",
+      "url": "https://x.com/realBigBrainAI/status/2025911181442179314",
+      "source": "@realBigBrainAI",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Eric Schmidt's advice for making money in AI right now:\n\n\"Found an agentic AI company. Not one designing agents, build an agent to do something.\" https://t.co/g2PuCYVSZV",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcnv9h",
+      "title": "GLM-5 is the new top open-weights model on the Extended NYT Connections benchmark, with a score of 81.8, edging out Kimi K2.5 Thinking (78.3)",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcnv9h/glm5_is_the_new_top_openweights_model_on_the/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 50,
+      "summary": "More info: [https://github.com/lechmazur/nyt-connections/](https://github.com/lechmazur/nyt-connections/)",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025656340488601943",
+      "title": "Claude Code agent'larını piksel karakterler haline getiren VS Code eklentisi. Agent'ın o an ne yaptı",
+      "url": "https://x.com/kemal_ersin/status/2025656340488601943",
+      "source": "@kemal_ersin",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Claude Code agent'larını piksel karakterler haline getiren VS Code eklentisi. Agent'ın o an ne yaptığını animasyonlarla gösteriyor. Ayrıca sanal ofisi istediğiniz gibi düzenleyebiliyorsunuz. Açık kaynaklı.\n\nr/AgentsOfAI/comments/1rbskvm https://t.co/K3T1KYNYTY",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-1669025412138299392",
+      "title": "Here's how I think of open-source LLM vs top proprietary ones:",
+      "url": "https://x.com/DrJimFan/status/1669025412138299392",
+      "source": "@DrJimFan",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Here's how I think of open-source LLM vs top proprietary ones:\n\n1) Open LLMs will improve at an accelerating pace.\n\n2) However, their gap from the best commercial models will continue to *widen*. This is because OSS community is decentralized and chases different objectives, but big companies are able to concentrate their massive GPU & talent firepower at babysitting a single model, while also learning the best tricks from OSS. GPTs, Claudes, and DeepMind Gemini's will improve at an even faster ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1822981361608888619",
+      "title": "I'm excited to share that we've built the world's most capable AI software engineer, achieving 30.08",
+      "url": "https://x.com/AlistairPullen/status/1822981361608888619",
+      "source": "@AlistairPullen",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I'm excited to share that we've built the world's most capable AI software engineer, achieving 30.08% on SWE-Bench – ahead of Amazon and Cognition. This model is so much more than a benchmark score: it was trained from the start to think and behave like a human SWE. https://t.co/OyvqKLxcGV",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "hn-47111440",
+      "title": "We hid backdoors in ~40MB binaries and asked AI + Ghidra to find them",
+      "url": "https://quesma.com/blog/introducing-binaryaudit/",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 54,
+      "summary": "BinaryAudit benchmarks AI agents using Ghidra to find backdoors in compiled binaries of real open-source servers, proxies, and network infrastructure. (HN: 201 pts, 89 comments)",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-paradigmxyz-evmbench",
+      "title": "paradigmxyz/evmbench (⭐274)",
+      "url": "https://github.com/paradigmxyz/evmbench",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "A benchmark and harness for finding and exploiting smart contract bugs",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2021839184999395506",
+      "title": "LLM vs. RAG vs. AI Agent vs. Agentic AI https://t.co/b65hTCPp4Q",
+      "url": "https://x.com/PythonPr/status/2021839184999395506",
+      "source": "@PythonPr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "LLM vs. RAG vs. AI Agent vs. Agentic AI https://t.co/b65hTCPp4Q",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rar2jt",
+      "title": "Software dev director, struggling with team morale.",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rar2jt/software_dev_director_struggling_with_team_morale/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 56,
+      "summary": "Hi everyone,\n\nFirst time poster, but looking for some help/advice.  I have been in software for 24 years, 12 past years in various leadership roles: manager, director, VP, etc.\n\nI have a team of 8 now in a software east-cost company and we specialize in cloud costs.  We are connected to the AI world because many of our biggest customers want to understand their AI costs deeply.   Our internal engineering team \\~40 devs is definitely utilizing Claude heavily, but based on what I read here on this",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "reddit-1raokhv",
+      "title": "The Hypocrisy: company developing software to automate everything doesn't want devs to automate their software",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1raokhv/the_hypocrisy_company_developing_software_to/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "The Hypocrisy: company developing software to automate everything doesn't want devs to automate their software",
+      "date": "2026-02-21"
+    },
+    {
       "id": "gh-bwya77-vscode-dark-islands",
       "title": "bwya77/vscode-dark-islands (⭐3,670)",
       "url": "https://github.com/bwya77/vscode-dark-islands",
@@ -154,5 +264,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }

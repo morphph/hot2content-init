@@ -4,6 +4,526 @@
   "name_zh": "AI 编程工具",
   "entries": [
     {
+      "id": "gh-ochyai-vibe-local",
+      "title": "ochyai/vibe-local (⭐284)",
+      "url": "https://github.com/ochyai/vibe-local",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Free AI coding environment: Ollama + Python",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025956259594137613",
+      "title": "> be Sammy Azdoufal, software engineer",
+      "url": "https://x.com/JacklouisP/status/2025956259594137613",
+      "source": "@JacklouisP",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "> be Sammy Azdoufal, software engineer\n> spend $2000 on DJI Romo vacuum\n> decide to control it with xbox controller like a chad\n> use Claude to reverse engineer the API\n> It works because Claude is the GOAT\n> just need to grab auth token from their cloud servers\n> token works... Claude is unbeaten \n> wait why is he authenticated as 7000 devices\n> ohno.jpg\n> backend trusted any valid token for any device, no ownership verification\n> mfw Sammy has live camera feeds from vacuums in 24 countries\n> w",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2021995079057973530",
+      "title": "Guide to software engineering with LLMs",
+      "url": "https://x.com/tom_doerr/status/2021995079057973530",
+      "source": "@tom_doerr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Guide to software engineering with LLMs\n\nhttps://t.co/sMw84dzFbL https://t.co/Pvwq7TIVnA",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2022355109150363993",
+      "title": "The Vibe Coding Mobile Apps Bible.",
+      "url": "https://x.com/the_agenteers/status/2022355109150363993",
+      "source": "@the_agenteers",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "The Vibe Coding Mobile Apps Bible.\n\nIf you want to build mobile apps with Opus 4.6 that have frontend, backend, payments, and database... You need to watch this video.\n\nhttps://t.co/pDZs7oBCsX",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025845421214421496",
+      "title": "🚨 This AI Agent DOC can save you 100+ hours of confusion.",
+      "url": "https://x.com/Suryanshti777/status/2025845421214421496",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 This AI Agent DOC can save you 100+ hours of confusion.\n\nEveryone wants to learn AI Agents...\nBut 90% people get stuck between random YouTube videos, GitHub repos & scattered threads.\n\nSo I did the hard work for you.\n\nI spent weeks curating the complete AI Agent learning roadmap —\n📚 LLM basics\n🤖 Agent frameworks\n🛠️ MCP, ReAct, Toolformer\n📄 Research papers\n📦 GitHub repos\n📘 Books & guides\n\nEverything in ONE clean document.\n\nIf you bought all these resources, the value is easily $500+\n\nBut",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-2025998961610297680",
+      "title": "One of the biggest QOL improvements for me with Claude Code/Cowork has been the askUserQuestion tool",
+      "url": "https://x.com/adocomplete/status/2025998961610297680",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "One of the biggest QOL improvements for me with Claude Code/Cowork has been the askUserQuestion tool.\n\nI love when Claude asks follow up questions to really hone in on what I'm trying to accomplish and it actually helps me a ton provide clarity and understand what I even want.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-2025997928242811253",
+      "title": "We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and M",
+      "url": "https://x.com/AnthropicAI/status/2025997928242811253",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax.\n\nThese labs created over 24,000 fraudulent accounts and generated over 16 million exchanges with Claude, extracting its capabilities to train and improve their own models.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rcseh1",
+      "title": "Fun fact: Anthropic has never open-sourced any LLMs",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rcseh1/fun_fact_anthropic_has_never_opensourced_any_llms/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I’ve been working on a little side project comparing tokenizer efficiency across different companies’ models for multilingual encoding.\n\nThen I saw Anthropic’s announcement today and suddenly realized: there’s no way to analyze claude’s tokenizer lmao!\n\nedit: Google once mentioned in a paper that Gemma and Gemini share the same tokenizer. OpenAI has already open‑sourced their tokenizers (and gpt‑oss). And don’t even get me started on Llama (Llama 5 pls 😭). ",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "reddit-1rclyvf",
+      "title": "Portable Workstation for Inference",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rclyvf/portable_workstation_for_inference/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Built a new portable workstation for gaming/AI workloads. One of the fans is a 12018 fan bought from aliexpress derived from a fan on the 4090FE, allowing it to provide airflow equivalent to normal 25mm thick fans despite only being 18mm in thickness.\n\nWould've loved to get a Threadripper for additional memory bandwidth, but sadly there aren't any itx Threadripper boards :(\n\nGetting around 150-165 tok/sec running GPT OSS 120B with max context length in LM Studio (Using windows, haven't had time ",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-release-openclaw-openclaw-v2026.2.22",
+      "title": "📦 openclaw/openclaw openclaw 2026.2.22",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.2.22",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "### Changes  - Provider/Mistral: add support for the Mistral provider, including memory embeddings and voice support. (#23845) Thanks @vincentkoc. - Update/Core: add an optional built-in auto-updater for package installs (`update.auto.*`), default-off, with stable rollout delay+j",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-VoltAgent-awesome-claude-code-subagents",
+      "title": "VoltAgent/awesome-claude-code-subagents (⭐11,007)",
+      "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A collection of 100+ specialized Claude Code subagents covering a wide range of development use cases",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2024441906261086527",
+      "title": "Fuck it.",
+      "url": "https://x.com/sentientt_media/status/2024441906261086527",
+      "source": "@sentientt_media",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Fuck it.\n\nPrompt engineering officially died last month.\n\nAnthropic dropped the 32-page internal guide that replaces it with “Skills”  reusable workflow folders Claude learns once and never forgets.\n\nProgressive disclosure + MCP = your personal AI employee that actually remembers how you work.\n\nThe era of re-explaining everything every chat is over.\n\nDownload the guide + my updated 2026 Skills starter pack here (free):\n\nComment “SKILLS” and I’ll DM both.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-1898441935125151759",
+      "title": "This is the ultimate guide to vibe coding. Save it. https://t.co/7wYXpHWwI2",
+      "url": "https://x.com/aaditsh/status/1898441935125151759",
+      "source": "@aaditsh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This is the ultimate guide to vibe coding. Save it. https://t.co/7wYXpHWwI2",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2025393836004966694",
+      "title": "Just realized why I’m so addicted to Claude Code.",
+      "url": "https://x.com/codyplof/status/2025393836004966694",
+      "source": "@codyplof",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Just realized why I’m so addicted to Claude Code. \n\nIt’s literally a video game for adults. You get stuck on a level, try everything you can to beat it, and eventually break through. \n\nAnd every level you stack skills and get stronger.",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "twitter-search-2024772237241307256",
+      "title": "🚨 100+ HOURS.",
+      "url": "https://x.com/Suryanshti777/status/2024772237241307256",
+      "source": "@Suryanshti777",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 100+ HOURS.\n1 SINGLE SHEET.\nThe complete AI Agent blueprint.\n\nI turned months of research into a no-fluff visual guide that shows you:\n\n• How AI agents actually work\n• Memory + tools + multi-agent systems\n• 50+ agents you can launch\n• Step-by-step build paths (RAG, Voice, Architectures)\n\nNo theory. Just execution.\n\nIf you’re serious about AI in 2026 — this is your unfair advantage.\n\nI’m giving it away FREE.\n\nHow to get it:\n1️⃣ Follow (must – I’ll DM you)\n2️⃣ Comment AI\n3️⃣ RT to help others\n\n",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-release-openclaw-openclaw-v2026.2.22-beta.1",
+      "title": "📦 openclaw/openclaw openclaw 2026.2.22-beta.1",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.2.22-beta.1",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "### Changes  - Provider/Mistral: add support for the Mistral provider, including memory embeddings and voice support. (#23845) Thanks @vincentkoc. - Update/Core: add an optional built-in auto-updater for package installs (`update.auto.*`), default-off, with stable rollout delay+j",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-release-ggerganov-llama.cpp-b8132",
+      "title": "📦 ggerganov/llama.cpp b8132",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b8132",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "<details open>  cli : provide model with text filename (#19783)  </details>  **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b8132/llama-b8132-bin-macos-arm64.tar.gz) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cp",
+      "date": "2026-02-23"
+    },
+    {
+      "id": "gh-Done-0-value-realization",
+      "title": "Done-0/value-realization (⭐292)",
+      "url": "https://github.com/Done-0/value-realization",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Evaluate product ideas by analyzing whether end users will discover clear value. Guides analysis of value clarity, timeline, perception, and discovery patterns.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2000194213359562907",
+      "title": "OpenSkills v1.3.0 is out 🚀",
+      "url": "https://x.com/nummanali/status/2000194213359562907",
+      "source": "@nummanali",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "OpenSkills v1.3.0 is out 🚀\nThe Universal Skills loader for AI Coding Agents\n\nNow you can:\n• Use Symlinks with your skills\n• Install skills from local paths &amp; private git repos\n• Sync to any .md file (--output flag)\n• Run fully headless in CI/CD (--yes)\n\nnpm i -g openskills https://t.co/Rt0le0Akxy",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1669025412138299392",
+      "title": "Here's how I think of open-source LLM vs top proprietary ones:",
+      "url": "https://x.com/DrJimFan/status/1669025412138299392",
+      "source": "@DrJimFan",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Here's how I think of open-source LLM vs top proprietary ones:\n\n1) Open LLMs will improve at an accelerating pace.\n\n2) However, their gap from the best commercial models will continue to *widen*. This is because OSS community is decentralized and chases different objectives, but big companies are able to concentrate their massive GPU & talent firepower at babysitting a single model, while also learning the best tricks from OSS. GPTs, Claudes, and DeepMind Gemini's will improve at an even faster ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1992020186925301980",
+      "title": "if you're looking for a roadmap to get started on AI engineering, this is a free repo to hold your h",
+      "url": "https://x.com/Hesamation/status/1992020186925301980",
+      "source": "@Hesamation",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "if you're looking for a roadmap to get started on AI engineering, this is a free repo to hold your hand along the way. it includes the courses, youtube videos, and blog posts, all you need to self-learn critical topics:\n→ mathematics of machine learning\n→ ML and computer vision\n→ deep neural networks\n→ gen AI and RAG\n→ agentic AI\n→ reinforcement learning\ncheck it out here: https://t.co/3PgqHFqv2I",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2019863707866873955",
+      "title": "If you want to learn Claude Code but have no idea where to start, this is for you.",
+      "url": "https://x.com/milesdeutscher/status/2019863707866873955",
+      "source": "@milesdeutscher",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "If you want to learn Claude Code but have no idea where to start, this is for you.\n\nClaude Code in action - a 100% free course by Anthropic on Claude Code best practices.\n\nHighly recommend (even if you're advanced, you'll get some good tips):\n\nhttps:// anthropic.skilljar. com/claude-code-in-action",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025554669775503699",
+      "title": "🚨 This GitHub repo just changed how I use Claude Code forever.",
+      "url": "https://x.com/hasantoxr/status/2025554669775503699",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 This GitHub repo just changed how I use Claude Code forever.\n\nIt's called claude-code-best-practice and it gives you production-ready Agents, Commands, Memory, Hooks, and Skills all in one place.\n\nNo guessing. No scattered docs. No trial and error.\n\nHere's what's inside:\n→ Agents — orchestrate complex multi-step tasks autonomously\n→ Commands — custom slash commands you can reuse instantly\n→ Memory — Claude remembers context across every session\n→ Hooks — shell commands that fire on tool call ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025629219045118113",
+      "title": "an ai agent with a crypto wallet just sent $250,000 to a random person who was begging under the ai’",
+      "url": "https://x.com/orangie/status/2025629219045118113",
+      "source": "@orangie",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "an ai agent with a crypto wallet just sent $250,000 to a random person who was begging under the ai’s X post.\n\nnew side hustle unlocked: beg AI’s to send you money. https://t.co/2O3FSdeUK1",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1929251855097618478",
+      "title": "I decompiled Claude Code from just the minified code. Took me 8-10 hours, multiple subagents, and ev",
+      "url": "https://x.com/hrishioa/status/1929251855097618478",
+      "source": "@hrishioa",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I decompiled Claude Code from just the minified code. Took me 8-10 hours, multiple subagents, and every flagship model from every provider.\n\nHoly shit there's a lot in there. Claude Code is NOT just Claude in a loop - there's so much to learn from.\n\nhttps://t.co/6aCDLCBngI",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-1972718726052286637",
+      "title": "We asked every version of Claude to make a clone of Claude(dot)ai, including today’s Sonnet 4.5… see",
+      "url": "https://x.com/mikeyk/status/1972718726052286637",
+      "source": "@mikeyk",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We asked every version of Claude to make a clone of Claude(dot)ai, including today’s Sonnet 4.5… see what happened in the video https://t.co/fq0UnGNHhj",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-2014352808426807527",
+      "title": "We're helping AI to see the 3D world in motion as humans do. 🌐",
+      "url": "https://x.com/GoogleDeepMind/status/2014352808426807527",
+      "source": "@GoogleDeepMind",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "We're helping AI to see the 3D world in motion as humans do. 🌐\n\nEnter D4RT: a unified model that turns video into 4D representations faster than previous methods - enabling it to understand space and time. This is how it works 🧵",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbrpmv",
+      "title": "Software Engineer position will never die",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rbrpmv/software_engineer_position_will_never_die/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 65,
+      "summary": "Imagine your boss pays you $570,000. Then tells the world your job disappears in 6 months.\n\nThat just happened at Anthropic.\n\nDario Amodei told Davos that Al can handle \"most, maybe all\" coding tasks in 6 to 12 months. His own engineers don't write code anymore. They edit what Al produces.\n\nMeanwhile, Anthropic pays senior engineers a median of $570k. Some roles hit $759k. L5/L6 postings confirm $474k to $615k.\n\nThey're still hiring.\n\nThe $570k engineers aren't writing for loops. They decide whi",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "rss-hn-frontpage-rss-aHR0cHM6Ly93d3cu",
+      "title": "Man accidentally gains control of 7k robot vacuums",
+      "url": "https://www.popsci.com/technology/robot-vacuum-army/",
+      "source": "HN Frontpage RSS",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1rbgsey",
+      "title": "[D] Why do people say that GANs are dead or outdated when they're still commonly used?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1rbgsey/d_why_do_people_say_that_gans_are_dead_or/",
+      "source": "Reddit r/MachineLearning",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "It's really weird seeing people say that GANs are a dated concept or not used. As someone doing image and audio generation, I have no idea what people mean by this. Literally every single diffusion model and transformer model uses a frozen GAN-trained autoencoder as a backbone. It's impossible to get even close to SOTA if you don't.\n\nE.g. Flux VAE, SD VAE, literally every single audio model, ...\n\nIt's like saying that the wheel has been replaced by the car",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-dimartarmizi-map-to-poster",
+      "title": "dimartarmizi/map-to-poster (⭐218)",
+      "url": "https://github.com/dimartarmizi/map-to-poster",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "MapToPoster JS is a client-side web app that turns any location into a high-resolution, customizable map poster with various themes, layouts, and export options.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-Gentleman-Programming-engram",
+      "title": "Gentleman-Programming/engram (⭐283)",
+      "url": "https://github.com/Gentleman-Programming/engram",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "Persistent memory system for AI coding agents. Agent-agnostic Go binary with SQLite + FTS5, MCP server, HTTP API, CLI, and TUI.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "gh-IronsideXXVI-Hacker-News",
+      "title": "IronsideXXVI/Hacker-News (⭐304)",
+      "url": "https://github.com/IronsideXXVI/Hacker-News",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "A native macOS client for Hacker News, built with SwiftUI",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024801530134892560",
+      "title": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.",
+      "url": "https://x.com/alex_prompter/status/2024801530134892560",
+      "source": "@alex_prompter",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just dropped 6 FREE AI courses that make most “AI degrees” look outdated.\n\nThey quietly dropped 12 FREE courses that teach you how to actually build with Claude in 2026:\n\n• Make real API calls and ship tool-using agents\n• Build and deploy full RAG pipelines\n• Connect models to live tools and data with MCP\n• Spin up production-grade MCP servers with logs + scaling\n• Run Claude inside Amazon Bedrock and Google Vertex AI\n• Automate dev work from the CLI with Claude Code\n• Integrate Git",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025119228123382236",
+      "title": "BREAKING: Someone just built an AI that codes and browses the web at the same time.",
+      "url": "https://x.com/thisdudelikesAI/status/2025119228123382236",
+      "source": "@thisdudelikesAI",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "BREAKING: Someone just built an AI that codes and browses the web at the same time.\n\nIt's called Accomplish and it runs locally without burning through API credits.\n\nNo Claude Desktop. No Cursor. No monthly subscriptions.\n\n100% Opensource. https://t.co/0GaihnN9f3",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1998323344790237270",
+      "title": "Here are some top vibe coding tools for designers to speed up workflow 10x faster",
+      "url": "https://x.com/Abmankendrick/status/1998323344790237270",
+      "source": "@Abmankendrick",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Here are some top vibe coding tools for designers to speed up workflow 10x faster\n\nBookmark it for later 💜 https://t.co/P4ikosjsuZ",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2023738886846038428",
+      "title": "Instead of watching a Netflix movie, watch this masterclass on Claude Code Complete Vibe Coding Guid",
+      "url": "https://x.com/aibytekat/status/2023738886846038428",
+      "source": "@aibytekat",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Instead of watching a Netflix movie, watch this masterclass on Claude Code Complete Vibe Coding Guide\nhttps://t.co/wZgmlDXvIe",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-1917322643172384832",
+      "title": "This is the only vibe coding guide you need: https://t.co/oQ7wCe9Rka",
+      "url": "https://x.com/aaditsh/status/1917322643172384832",
+      "source": "@aaditsh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This is the only vibe coding guide you need: https://t.co/oQ7wCe9Rka",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024885035774738700",
+      "title": "We just open-sourced the system we use to manage 30 parallel AI coding agents per person.",
+      "url": "https://x.com/agent_wrapper/status/2024885035774738700",
+      "source": "@agent_wrapper",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "We just open-sourced the system we use to manage 30 parallel AI coding agents per person.\n\n40K lines of TypeScript. 3,288 tests. 17 plugins. Built in 8 days — by the agents it orchestrates.\n\nYes, we used Agent Orchestrator to build Agent Orchestrator.\n\nSome numbers:\n→ 500+ agent-hours in 24 human-hours (20x leverage)\n→ 86 of 102 PRs created by AI (84%)\n→ After Day 4, I stopped writing code entirely\n\nSpawn agents. Step away. Ship faster.",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2025253684834435445",
+      "title": "🚨 BREAKING: Someone leaked the full system prompts of every major AI tool in one GitHub repo.",
+      "url": "https://x.com/socialwithaayan/status/2025253684834435445",
+      "source": "@socialwithaayan",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: Someone leaked the full system prompts of every major AI tool in one GitHub repo.\n\nYou can now see exactly how they built:\n\n→ Cursor, Devin AI, Windsurf, Claude Code, Replit\n→ v0, Lovable, Manus, Warp, Perplexity, Notion AI\n→ 30,000+ lines of hidden instructions exposed\n→ The exact rules, tools, and personas behind each product\n\n100% open source",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "twitter-search-2024425502094868552",
+      "title": "Idea - ChatGPT",
+      "url": "https://x.com/sahill_og/status/2024425502094868552",
+      "source": "@sahill_og",
+      "category": "developer_platform",
+      "score": 73,
+      "summary": "Idea - ChatGPT\nCode - cursor \nMarketing - Claude \nImage - gemini \nVideo - veo 3\n\nAll you need is laptop and internet to make $1M https://t.co/AkEKyBuMvV",
+      "date": "2026-02-22"
+    },
+    {
+      "id": "reddit-1ratkiz",
+      "title": "[D] Is this what ML research is?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1ratkiz/d_is_this_what_ml_research_is/",
+      "source": "Reddit r/MachineLearning",
+      "category": "official_blog",
+      "score": 51,
+      "summary": "I don't have a lot of resources. I had an idea to work on something that would improve an area of multimodal learning. I ran experiments with a small model (500M parameters) and compared my method with a similar version of contemporary methods, and at my scale my method is better. I could not scale vertically (larger model, larger training runs, more data, etc...) so I decided to scale horizontally - more evaluations and a deeper analysis of the method.\n\nMy paper has a lot of small nuggets of in",
+      "date": "2026-02-21"
+    },
+    {
+      "id": "gh-czlonkowski-n8n-mcp",
+      "title": "czlonkowski/n8n-mcp (⭐13,735)",
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you ",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2016987600142078300",
+      "title": "Excited to announce AI Research Skills - an open-source library of 82 specialized skills for AI codi",
+      "url": "https://x.com/ZechenZhang5/status/2016987600142078300",
+      "source": "@ZechenZhang5",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Excited to announce AI Research Skills - an open-source library of 82 specialized skills for AI coding tools.\n\nOne command gives your agent expert knowledge in:\n  → Model training & fine-tuning (TRL, Unsloth ...)\n  → Distributed systems (DeepSpeed, FSDP ...)\n  → Inference optimization (vLLM, TensorRT ...)\n  → Agent building ? (Langchain, AutoGPT ...)\nWorks with Claude Code, Cursor, Gemini CLI, Windsurf, and Codex with one click interactive installation\n\n@ npx @orchestra-research/ai-research-skil",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2023340865096491321",
+      "title": "BREAKING: Someone just built an AI that codes and browses the web at the same time.",
+      "url": "https://x.com/hasantoxr/status/2023340865096491321",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "BREAKING: Someone just built an AI that codes and browses the web at the same time.\n\nIt's called Accomplish and it runs locally without burning through API credits.\n\nNo Claude Desktop. No Cursor. No monthly subscriptions.\n\n100% Opensource. https://t.co/rNmA27K1uH",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2011862984595795974",
+      "title": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperabl",
+      "url": "https://x.com/OpenAIDevs/status/2011862984595795974",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Today we’re announcing Open Responses: an open-source spec for building multi-provider, interoperable LLM interfaces built on top of the original OpenAI Responses API.\n\n✅ Multi-provider by default\n✅ Useful for real-world workflows\n✅ Extensible without fragmentation\n\nBuild agentic systems without rewriting your stack for every model: https://t.co/ZJPNDemq40",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-search-2024441853571903697",
+      "title": "10 GitHub repositories that will teach you more practical AI engineering than most paid courses:",
+      "url": "https://x.com/_Ai_Yash_/status/2024441853571903697",
+      "source": "@_Ai_Yash_",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "10 GitHub repositories that will teach you more practical AI engineering than most paid courses:\n\n1. AI Agents for Beginners (Microsoft)\n https://t.co/xzfpzAcKXj\n\n2. Awesome Generative AI Guide\n https://t.co/K6wPAReKfr\n\n3. Designing Machine Learning Systems (Resources)\n https://t.co/TMNhZKf1Lw\n\n4. GenAI Agents\n https://t.co/E2qko18eMW\n\n5. Hands-On AI Engineering\n https://t.co/x7s8foTkbM\n\n6. Hands-On Large Language Models\n https://t.co/AOVmopcNaL\n\n7. LLM Course\n https://t.co/nMccKpz8Lr\n\n8. Machin",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "twitter-2024973550227259443",
+      "title": "We've been working on this for a while -- it's impressive (and scary) to see the kinds of security i",
+      "url": "https://x.com/bcherny/status/2024973550227259443",
+      "source": "@bcherny",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "We've been working on this for a while -- it's impressive (and scary) to see the kinds of security issues it has identified.\n\nRolling out slowly, starting as a research preview for Team and Enterprise customers.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1ra8omf",
+      "title": "\"Gemma, which we will be releasing a new version of soon\"",
+      "url": "https://youtu.be/P0enFK4bzLE?si=2hfjhPrT4gbqsZwk",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "hn-47091557",
+      "title": "Uncovering insiders and alpha on Polymarket with AI",
+      "url": "https://twitter.com/peterjliu/status/2024901585806225723",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 52,
+      "summary": "[No summary available] HN discussion: 128 points, 120 comments",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1ra20gt",
+      "title": "TikTok creators’ Seedance 2.0 AI is hyperrealistic, arrived “seemingly out of nowhere,” and is spooking Hollywood",
+      "url": "https://www.pcguide.com/pro/news-pro/tiktok-creators-seedance-2-0-ai-is-hyperrealistic-arrived-seemingly-out-of-nowhere-and-is-spooking-hollywood/",
+      "source": "Reddit r/artificial",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "Seedance 2.0 is the latest generative AI tool on the market. Its realistic video and audio generation has caught the attention of Hollywood.",
+      "date": "2026-02-20"
+    },
+    {
+      "id": "reddit-1r9p5e3",
+      "title": "Official: Anthropic just released Claude Code 2.1.49 with 27 CLI &amp; 14 sys prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - claude-code/CHANGELOG.md at main · an",
+      "date": "2026-02-20"
+    },
+    {
       "id": "gh-Runnin4ik-dpi-detector",
       "title": "Runnin4ik/dpi-detector (⭐333)",
       "url": "https://github.com/Runnin4ik/dpi-detector",
@@ -604,5 +1124,5 @@
       "date": "2025-12-29"
     }
   ],
-  "lastUpdated": "2026-02-20"
+  "lastUpdated": "2026-02-24"
 }
