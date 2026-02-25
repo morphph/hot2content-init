@@ -50,6 +50,12 @@ async function getNewsletterList(type: string = 'daily'): Promise<NewsletterEntr
         const line = lines[i]
         if (line.startsWith('#') || line.trim() === '' || line.startsWith('---') || line.startsWith('>')) continue
         if (line.startsWith('**') && line.match(/\d{4}/)) continue
+        // Skip italic subtitle/date lines like *AI 日报 — 2026年2月25日*
+        if (line.trim().match(/^\*[^*]+\*$/) && line.match(/\d{4}/)) continue
+        // Skip bold-only lines (section item headers like **Qwen3.5-397B 开源**)
+        if (line.trim().match(/^\*\*[^*]+\*\*$/)) continue
+        // Skip bullet-point item headers (• **Title** — @source)
+        if (line.trim().startsWith('•')) continue
         if (line.trim().length > 20) {
           let cleanLine = line.trim()
             .replace(/\*\*([^*]+)\*\*/g, '$1')
