@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-02-24T05:35:54.482Z",
+  "generatedAt": "2026-02-25T04:25:59.117Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-24",
+      "lastRunDate": "2026-02-25",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ LoreAI AI Daily 2026-02-24 published (EN + ZH)",
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-25",
       "enPublished": true,
       "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": null,
-      "lastRunStatus": "unknown"
+      "lastRunTimestamp": "2026-02-24 05:37:18 UTC",
+      "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 87,
-      "last72h": 251,
-      "total": 822
+      "last24h": 104,
+      "last72h": 336,
+      "total": 928
     },
     "recentErrors": []
   },
@@ -258,21 +258,21 @@
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 5
+      "newsletter": 6
     },
     "byTier": {
       "1": 8,
       "2": 33,
       "3": 20
     },
-    "publishedLast7d": 5,
-    "publishedLast30d": 5,
+    "publishedLast7d": 6,
+    "publishedLast30d": 6,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 5
+      "noScore": 6
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -281,12 +281,12 @@
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 0,
+    "freshnessBacklog": 3,
     "newsletterStreak": {
-      "en": 17,
-      "zh": 17,
-      "lastEnDate": "2026-02-24",
-      "lastZhDate": "2026-02-24"
+      "en": 18,
+      "zh": 18,
+      "lastEnDate": "2026-02-25",
+      "lastZhDate": "2026-02-25"
     }
   },
   "keywordProvenance": {
@@ -1994,6 +1994,13 @@
   },
   "dailyTrend": [
     {
+      "date": "2026-02-25",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
       "date": "2026-02-24",
       "contentCount": 28,
       "qualityPassRate": 0,
@@ -2079,13 +2086,6 @@
     },
     {
       "date": "2026-02-12",
-      "contentCount": 2,
-      "qualityPassRate": 0,
-      "kwExtracted": 0,
-      "kwPublished": 0
-    },
-    {
-      "date": "2026-02-11",
       "contentCount": 2,
       "qualityPassRate": 0,
       "kwExtracted": 0,
@@ -2987,183 +2987,6 @@
             "tier": null,
             "wordCount": 375,
             "preview": "Figma 近期宣布支持从 Claude Code 直接推送代码到 Figma 画布，这一功能通过 MCP（Model Context Protocol，模型上下文协议）服务器实现。开发者现在可以在代码中构建原型，然后发送到 Figma 进行视觉迭代，真正实现\"代码与画布并行\"的工作流。 MCP 是 Anthropic 推出的模型上下文协议，允许 AI 模型与外部工具进行标准化通信。Figma M"
-          }
-        ]
-      },
-      {
-        "date": "2026-02-17",
-        "count": 19,
-        "items": [
-          {
-            "title": "AI Agents for Telecommunications — Analysis and Industry Impact",
-            "slug": "ai-agents-for-telecommunications",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 2047,
-            "preview": "**TL;DR:** Anthropic's partnership with Infosys signals that AI agents are moving beyond consumer applications into mission-critical telecommunications infrastructure, with implications for how regula"
-          },
-          {
-            "title": "Claude Code Multi-Agent Orchestration — Analysis and Industry Impact",
-            "slug": "claude-code-multi-agent-orchestration",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1704,
-            "preview": "**TL;DR:** The emergence of multi-agent orchestration frameworks for Claude Code signals a fundamental shift from single-agent AI assistants to coordinated teams of specialized agents, with open-sourc"
-          },
-          {
-            "title": "FastGPT RAG Platform — Analysis and Industry Impact",
-            "slug": "fastgpt-rag-platform",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1688,
-            "preview": "**TL;DR:** FastGPT has emerged as a leading open-source RAG platform with 27,000+ GitHub stars, offering visual workflow orchestration and out-of-the-box knowledge base capabilities that significantly"
-          },
-          {
-            "title": "电信行业 AI 智能体 — 深度分析与行业影响",
-            "slug": "ai-agents-for-telecommunications",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 367,
-            "preview": "**一句话总结：** Anthropic 与 Infosys 的合作标志着 AI 智能体正式进入高度监管的电信行业——这不只是又一个企业 AI 案例，而是 AI 厂商从「通用能力展示」转向「垂直行业攻坚」的战略信号。 如果你打过电信客服电话，可能对这套流程不陌生：按 1 查话费，按 2 办套餐，按 3 人工服务，然后等待 20 分钟听等待音乐。好不容易接通了，对面的客服要你报身份证号、验证码、服务"
-          },
-          {
-            "title": "FastGPT RAG 平台 — 深度分析与行业影响",
-            "slug": "fastgpt-rag-platform",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 385,
-            "preview": "**一句话总结：** FastGPT 在 GitHub 上积累了超过 27,000 颗星，正在成为企业级 RAG 应用的事实标准——它不是又一个 LLM 套壳产品，而是把「检索增强生成」工程化的完整解决方案。 大语言模型有个众所周知的问题：幻觉（Hallucination）。你问它「公司 Q4 财报营收多少」，它可能一本正经地编一个数字。解决方案听起来很简单——**检索增强生成（Retrieval"
-          },
-          {
-            "title": "Agent Skills Specification — What It Is and Why It Matters",
-            "slug": "agent-skills-specification",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 452,
-            "preview": "Agent Skills Specification is an open standard that defines how AI coding agents discover, load, and execute modular capabilities called \"skills.\" A skill is a self-contained unit of functionality—suc"
-          },
-          {
-            "title": "Agent Skills 规范（Agent Skills specification）— 定义、原理与应用",
-            "slug": "agent-skills-specification",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 94,
-            "preview": "Agent Skills 规范是一套开放标准，定义了 AI 代理（AI Agent）如何发现、加载和执行可复用技能模块。该规范通过标准化的元数据格式和执行协议，使不同厂商的 AI 代理能够共享同一套技能生态系统。简单来说，它让 AI 代理像安装应用一样获取新能力。 2026 年 2 月，Anthropic 宣布将 Agent Skills 作为开放标准发布，这标志着 AI 代理生态从封闭走向互通。"
-          },
-          {
-            "title": "Agno agentic programming language — What It Is and Why It Matters",
-            "slug": "agno-agentic-programming-language",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 386,
-            "preview": "Agno is a purpose-built programming language designed specifically for developing agentic software and multi-agent systems. Created by Agno AGI, it provides first-class primitives for streaming, persi"
-          },
-          {
-            "title": "Agno 智能体编程语言（Agno agentic programming language）— 定义、原理与应用",
-            "slug": "agno-agentic-programming-language",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 78,
-            "preview": "Agno 是一种专为构建智能体软件（Agentic Software）设计的编程语言，由 agno-agi 团队开发并开源。它提供了流式处理（Streaming）、记忆管理（Memory）、治理机制（Governance）和请求隔离（Request Isolation）等原生能力，让开发者能够高效构建多智能体系统（Multi-Agent Systems）。与传统编程语言不同，Agno 将 AI 智"
-          },
-          {
-            "title": "Claude Sonnet 4.6 — What It Is and Why It Matters",
-            "slug": "claude-sonnet-4-6",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 429,
-            "preview": "Claude Sonnet 4.6 is Anthropic's latest mid-tier large language model, released on February 17, 2026. It represents a significant upgrade over Sonnet 4.5, delivering near-Opus-level intelligence while"
-          },
-          {
-            "title": "Claude Sonnet 4.6（Claude Sonnet 4.6）— 定义、原理与应用",
-            "slug": "claude-sonnet-4-6",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 122,
-            "preview": "Claude Sonnet 4.6 是 Anthropic 于 2026 年 2 月发布的大语言模型（LLM），属于 Claude 4 系列的中端产品线。它在保持与 Sonnet 4.5 相同定价的基础上，将智能水平提升至接近旗舰模型 Opus 的层级，并首次在 beta 阶段支持 100 万 token 的超长上下文窗口。 Sonnet 4.6 的发布标志着\"中端模型\"概念的重新定义。传统上，用"
-          },
-          {
-            "title": "OpenAI Image Generation Models 2026 — What It Is and Why It Matters",
-            "slug": "openai-image-generation-models-2026",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 444,
-            "preview": "OpenAI image generation models 2026 refers to the latest generation of image synthesis models released by OpenAI, most notably the gpt-image-1 model family. These models represent OpenAI's most advanc"
-          },
-          {
-            "title": "OpenAI 图像生成模型 2026（OpenAI image generation models 2026）— 定义、原理与应用",
-            "slug": "openai-image-generation-models-2026",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 91,
-            "preview": "OpenAI 图像生成模型 2026 是 OpenAI 于 2026 年发布的最新一代图像生成系统，核心模型为 gpt-image-1。该模型基于多模态大语言模型（Multimodal LLM）架构，能够根据文本描述生成高质量图像，支持精确的文字渲染、复杂场景构建以及多轮对话式图像编辑。 gpt-image-1 代表了 AI 图像生成的重大突破。与前代 DALL·E 3 相比，新模型在指令遵循、细"
-          },
-          {
-            "title": "Claude Code Figma integration — Frequently Asked Questions",
-            "slug": "claude-code-figma-integration",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 1486,
-            "preview": "Figma's recent integration allows you to bring UI work created in Claude Code directly into Figma as editable design frames. The workflow involves generating your UI components or full page layouts th"
-          },
-          {
-            "title": "Claude Code Figma 集成 — 常见问题解答",
-            "slug": "claude-code-figma-integration",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 198,
-            "preview": "Figma 最新推出了将 Claude Code 生成的 UI 直接导入为可编辑设计稿（editable design frames）的功能。具体操作是：在 Claude Code 中完成 UI 代码编写后，通过 Figma 的导入插件或 API 接口，将代码转换为 Figma 原生图层。导入后的设计稿保留完整的图层结构，你可以像处理普通 Figma 文件一样调整颜色、字体、间距等属性。这个功能特"
-          },
-          {
-            "title": "How to Use Claude Code Agentic Search — Frequently Asked Questions",
-            "slug": "how-to-use-claude-code-agentic-search",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 202,
-            "preview": "Claude Code agentic search is an autonomous search capability where Claude actively writes and executes code to filter web results before they enter the context window. Unlike traditional search that "
-          },
-          {
-            "title": "如何使用 Claude Code 智能搜索 — 常见问题解答",
-            "slug": "how-to-use-claude-code-agentic-search",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 162,
-            "preview": "传统搜索只是把网页结果原样丢给你，而 Claude Code 的智能搜索（Agentic Search）会主动思考、过滤、执行代码来处理搜索结果。根据 Anthropic 最新发布的数据，Sonnet 4.6 在启用智能搜索后，BrowseComp 基准测试准确率提升了 13%，同时输入 token 消耗减少了 32%。这意味着它不只是\"搜到了\"，而是\"搜对了\"——在结果进入上下文窗口之前，AI "
-          },
-          {
-            "title": "mem0 vs memvid AI agent memory — Detailed Comparison",
-            "slug": "mem0-vs-memvid-ai-agent-memory",
-            "type": "compare",
-            "language": "en",
-            "tier": null,
-            "wordCount": 291,
-            "preview": "Two open-source projects are competing to become the standard memory layer for AI agents: mem0 (47K+ GitHub stars) and memvid (13K+ GitHub stars). Both solve the same fundamental problem—giving statel"
-          },
-          {
-            "title": "mem0 与 memvid AI 智能体记忆对比 — 详细对比分析",
-            "slug": "mem0-vs-memvid-ai-agent-memory",
-            "type": "compare",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 342,
-            "preview": "随着 AI 智能体（AI Agent）应用的爆发式增长，如何为智能体提供持久化记忆成为核心技术挑战。2026 年初，两个开源项目在 GitHub 持续霸榜：**mem0**（⭐47,456）和 **memvid**（⭐13,108），分别代表了两种截然不同的记忆层（Memory Layer）设计哲学。 本文将从架构、功能、性能、定价和适用场景五个维度进行深度对比，帮助开发者做出明智选择。 **me"
           }
         ]
       }
