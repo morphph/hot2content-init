@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-02-25T05:34:52.007Z",
+  "generatedAt": "2026-02-25T22:14:16.614Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-25",
+      "lastRunDate": "2026-02-26",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-25",
-      "enPublished": true,
-      "zhPublished": true
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-26",
+      "enPublished": false,
+      "zhPublished": false
     },
     "seo": {
-      "lastRunTimestamp": null,
-      "lastRunStatus": "unknown"
+      "lastRunTimestamp": "2026-02-25 05:36:29 UTC",
+      "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 104,
-      "last72h": 336,
-      "total": 928
+      "last24h": 158,
+      "last72h": 390,
+      "total": 982
     },
     "recentErrors": []
   },
@@ -292,7 +292,7 @@
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 0,
+    "freshnessBacklog": 3,
     "newsletterStreak": {
       "en": 18,
       "zh": 18,
