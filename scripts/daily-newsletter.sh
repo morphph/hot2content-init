@@ -16,7 +16,9 @@ cd "$PROJECT_DIR"
 source .env
 
 # Pull latest code before running
+git stash --include-untracked -q 2>/dev/null
 git pull --rebase origin main || { echo "❌ git pull failed"; exit 1; }
+git stash pop -q 2>/dev/null || true
 
 DATE=$(TZ='Asia/Singapore' date +%Y-%m-%d)
 STATUS_FILE="${PROJECT_DIR}/logs/last-run-status.json"
