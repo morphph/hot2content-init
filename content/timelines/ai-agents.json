@@ -4,6 +4,66 @@
   "name_zh": "AI 智能体",
   "entries": [
     {
+      "id": "gh-muratcankoylan-Agent-Skills-for-Context-Engineering",
+      "title": "muratcankoylan/Agent-Skills-for-Context-Engineering (⭐10,089)",
+      "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A comprehensive collection of Agent Skills for context engineering, multi-agent architectures, and production agent systems. Use when building, optimizing, or debugging agent systems that require effe",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025949510678233209",
+      "title": "🚨BREAKING: HuggingFace just dropped a plugin that turns Claude Code, Gemini, and Cursor into full M",
+      "url": "https://x.com/mhdfaran/status/2025949510678233209",
+      "source": "@mhdfaran",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: HuggingFace just dropped a plugin that turns Claude Code, Gemini, and Cursor into full ML engineers.\n\nIt's called HF Skills and it's completely free.\n\nOne command. Your AI agent can now train models, run evals, and publish research papers.\n\n2.1K stars. Apache 2.0. https://t.co/w3Pl4wnPYM",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026293413952327785",
+      "title": "someone built a SELF-EVOLVING AI agent that rewrites its own code, prompts, and identity AUTONOMOUSL",
+      "url": "https://x.com/chiefofautism/status/2026293413952327785",
+      "source": "@chiefofautism",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "someone built a SELF-EVOLVING AI agent that rewrites its own code, prompts, and identity AUTONOMOUSLY, with having a background consciousness\n\nits called OUROBOROS, open source, built by a russian PhD researcher who studies transformer internals, he built it as an experiment, it built everything else\n\nit thinks on its own even when nobody is talking to it, each thought costs $0.07\n\nwhen the researcher went to sleep at midnight, by 3:41am it mass produced 20 versions of itself, burned $2K in API ",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026059511241535628",
+      "title": "Teams are using WebSockets in the Responses API to speed up agentic workflows",
+      "url": "https://x.com/OpenAIDevs/status/2026059511241535628",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Teams are using WebSockets in the Responses API to speed up agentic workflows\n\nhttps://t.co/CNKDniYfe1",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1rdxfdu",
+      "title": "Qwen3.5-35B-A3B is a gamechanger for agentic coding.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/qwen3535ba3b_is_a_gamechanger_for_agentic_coding/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "[Qwen3.5-35B-A3B with Opencode](https://preview.redd.it/m4v951sv5jlg1.jpg?width=2367&amp;format=pjpg&amp;auto=webp&amp;s=bec61ca20f08bb766987147287c7d6664308fa2f)\n\n\n\nJust tested this badboy with Opencode **cause frankly I couldn't believe those benchmarks.** Running it on a single RTX 3090 on a headless Linux box. Freshly compiled Llama.cpp and those are my settings after some tweaking, still not fully tuned: \n\n./llama.cpp/llama-server \\\\\n\n\\-m /models/**Qwen3.5-35B-A3B-MXFP4\\_MOE.gguf** \\\\\n\n\\-a ",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "hn-47140322",
+      "title": "Show HN: Emdash – Open-source agentic development environment",
+      "url": "https://github.com/generalaction/emdash",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 52,
+      "summary": "Emdash is the Open-Source Agentic Development Environment (🧡 YC W26). Run multiple coding agents in parallel. Use any provider. - generalaction/emdash (HN: 122 pts, 52 comments)",
+      "date": "2026-02-24"
+    },
+    {
       "id": "gh-superhq-ai-shuru",
       "title": "superhq-ai/shuru (⭐379)",
       "url": "https://github.com/superhq-ai/shuru",
@@ -914,5 +974,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

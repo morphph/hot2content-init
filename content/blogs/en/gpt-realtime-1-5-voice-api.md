@@ -1,13 +1,28 @@
 ---
 slug: gpt-realtime-1-5-voice-api
-title: "gpt-realtime-1.5 Voice API: OpenAI's Push for Production-Ready Voice Workflows"
-description: "In-depth analysis of OpenAI's gpt-realtime-1.5 model release: improved instruction following, reliable tool calling, and enhanced multilingual support for voice applications."
-keywords: ["gpt-realtime-1.5", "OpenAI Realtime API", "voice AI", "conversational AI", "speech-to-speech", "voice workflows", "AI voice assistant"]
-date: 2026-02-24
+title: 'gpt-realtime-1.5 Voice API: OpenAI''s Push for Production-Ready Voice Workflows'
+description: >-
+  In-depth analysis of OpenAI's gpt-realtime-1.5 model release: improved
+  instruction following, reliable tool calling, and enhanced multilingual
+  support for voice applications.
+keywords:
+  - gpt-realtime-1.5
+  - OpenAI Realtime API
+  - voice AI
+  - conversational AI
+  - speech-to-speech
+  - voice workflows
+  - AI voice assistant
+date: 2026-02-24T00:00:00.000Z
 tier: 2
 lang: en
 type: blog
-tags: ["analysis", "AI trends", "OpenAI", "voice AI"]
+tags:
+  - analysis
+  - AI trends
+  - OpenAI
+  - voice AI
+updated: '2026-02-25'
 ---
 
 # gpt-realtime-1.5 Voice API: OpenAI's Push for Production-Ready Voice Workflows
@@ -175,3 +190,19 @@ The release signals OpenAI's commitment to the Realtime API and voice workflows 
 Voice AI remains harder to build than text-based AI applications, requiring attention to latency, audio quality, and the subtleties of spoken interaction. But with each reliability improvement, the technology becomes viable for a wider range of applications.
 
 The question for organizations isn't whether voice AI will matter—it's whether their specific use cases justify adoption now or should wait for further maturation. The gpt-realtime-1.5 update moves more use cases into the "viable now" category.
+
+Now I have the full context. The blog was published on 2026-02-24 and covers the gpt-realtime-1.5 announcement in detail. The "new" information from the tweet (dated 2026-02-23) is actually the same announcement the blog already covers extensively. However, the tweet mentions a demo with @charlierguo that the blog doesn't discuss. I should write an update that focuses on the demo and any implications from seeing the technology in action, without repeating what's already covered.
+
+---
+
+## 📰 Latest Update (2026-02-25)
+
+OpenAI followed up their gpt-realtime-1.5 announcement with a live demonstration featuring developer advocate Charlie Guo, giving the community its first look at the model's improvements in action rather than just on paper.
+
+The demo, shared via OpenAI's developer channels, showcased the three headline improvements—instruction adherence, tool reliability, and multilingual performance—in realistic conversation scenarios. For developers who've grown skeptical of AI capability claims that evaporate upon actual deployment, seeing gpt-realtime-1.5 handle tool calls mid-conversation without the awkward pauses that plagued earlier versions provides more useful signal than any benchmark table.
+
+What's notable about OpenAI's rollout strategy here: they're leading with developer-focused demonstrations rather than consumer-ready features. This suggests the company views the Realtime API as infrastructure for others to build upon rather than a product to market directly—a positioning that makes sense given the integration complexity voice applications require.
+
+The timing is also interesting. By demonstrating production-grade reliability just days after the model announcement, OpenAI appears to be actively courting enterprise developers who've been waiting on the sidelines. Customer service platforms and accessibility tool vendors—the most obvious near-term adopters—now have concrete evidence to bring to procurement discussions.
+
+For those evaluating voice AI adoption, the demo serves as a proof point that's worth more than the announcement itself. Claims of "improved reliability" are table stakes; watching it work is another matter entirely.

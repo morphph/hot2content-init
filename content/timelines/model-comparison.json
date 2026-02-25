@@ -4,6 +4,16 @@
   "name_zh": "AI 模型对比",
   "entries": [
     {
+      "id": "reddit-1rdxfdu",
+      "title": "Qwen3.5-35B-A3B is a gamechanger for agentic coding.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/qwen3535ba3b_is_a_gamechanger_for_agentic_coding/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "[Qwen3.5-35B-A3B with Opencode](https://preview.redd.it/m4v951sv5jlg1.jpg?width=2367&amp;format=pjpg&amp;auto=webp&amp;s=bec61ca20f08bb766987147287c7d6664308fa2f)\n\n\n\nJust tested this badboy with Opencode **cause frankly I couldn't believe those benchmarks.** Running it on a single RTX 3090 on a headless Linux box. Freshly compiled Llama.cpp and those are my settings after some tweaking, still not fully tuned: \n\n./llama.cpp/llama-server \\\\\n\n\\-m /models/**Qwen3.5-35B-A3B-MXFP4\\_MOE.gguf** \\\\\n\n\\-a ",
+      "date": "2026-02-25"
+    },
+    {
       "id": "twitter-search-1907135047565770908",
       "title": "🚨 NEW: OpenAI JUST released new courses on OpenAI Academy and it’s 100% FREE.",
       "url": "https://x.com/heyshrutimishra/status/1907135047565770908",
@@ -264,5 +274,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

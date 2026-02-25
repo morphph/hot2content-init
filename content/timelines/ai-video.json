@@ -4,6 +4,16 @@
   "name_zh": "AI 视频制作",
   "entries": [
     {
+      "id": "gh-chatfire-AI-huobao-drama",
+      "title": "chatfire-AI/huobao-drama (⭐8,206)",
+      "url": "https://github.com/chatfire-AI/huobao-drama",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🎬 火宝短剧 - 基于AI的一站式短剧生成平台 《一句话生成完整短剧，从剧本到成片全自动化》  Huobao Drama - An AI-Powered End-to-End Short Drama Generator \"One Sentence to Complete Drama: Fully Automated from Script to Final Video\"",
+      "date": "2026-02-25"
+    },
+    {
       "id": "twitter-search-2022355109150363993",
       "title": "The Vibe Coding Mobile Apps Bible.",
       "url": "https://x.com/the_agenteers/status/2022355109150363993",
@@ -164,5 +174,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

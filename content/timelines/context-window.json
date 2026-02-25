@@ -4,6 +4,76 @@
   "name_zh": "上下文窗口与记忆",
   "entries": [
     {
+      "id": "gh-letta-ai-letta",
+      "title": "letta-ai/letta (⭐21,244)",
+      "url": "https://github.com/letta-ai/letta",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Letta is the platform for building stateful agents: AI with advanced memory that can learn and self-improve over time.",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "gh-square-leakcanary",
+      "title": "square/leakcanary (⭐29,899)",
+      "url": "https://github.com/square/leakcanary",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A memory leak detection library for Android.",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "gh-infiniflow-ragflow",
+      "title": "infiniflow/ragflow (⭐73,654)",
+      "url": "https://github.com/infiniflow/ragflow",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1991626308611371387",
+      "title": "we just made Claude Code",
+      "url": "https://x.com/aaxsh18/status/1991626308611371387",
+      "source": "@aaxsh18",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "we just made Claude Code\n- use 53% fewer tokens\n- respond 48% faster\n- give 3.2x better responses\n\njust by giving it a better grep https://t.co/GUf1dS9e8B",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1rdvq3s",
+      "title": "Qwen3.5 27B is Match Made in Heaven for Size and Performance",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdvq3s/qwen35_27b_is_match_made_in_heaven_for_size_and/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Just got Qwen3.5 27B running on server and wanted to share the full setup for anyone trying to do the same.\n\n**Setup:**\n\n* Model: Qwen3.5-27B-Q8\\_0 (unsloth GGUF) , Thanks Dan\n* GPU: RTX A6000 48GB\n* Inference: llama.cpp with CUDA\n* Context: 32K\n* Speed: \\~19.7 tokens/sec\n\n**Why Q8 and not a lower quant?** With 48GB VRAM the Q8 fits comfortably at 28.6GB leaving plenty of headroom for KV cache. Quality is virtually identical to full BF16 — no reason to go lower if your VRAM allows it.\n\n**What's ",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "gh-release-ollama-ollama-v0.17.1-rc0",
+      "title": "📦 ollama/ollama v0.17.1",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.17.1-rc0",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## What's Changed * models: add nemotron architecture support by @jmorganca in https://github.com/ollama/ollama/pull/14356 * Avoid Excessive MLX Memory Usage by @jessegross in https://github.com/ollama/ollama/pull/14341 * ui: use capability-based detection for web search by @hoyy",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "reddit-1rdi26s",
+      "title": "Liquid AI releases LFM2-24B-A2B",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdi26s/liquid_ai_releases_lfm224ba2b/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Today, Liquid AI releases LFM2-24B-A2B, their largest LFM2 model to date\n\nLFM2-24B-A2B is a sparse Mixture-of-Experts (MoE) model with 24 billion total parameters with 2 billion active per token, showing that the LFM2 hybrid architecture scales effectively to larger sizes maintaining quality without inflating per-token compute.\n\nThis release expands the LFM2 family from 350M to 24B parameters, demonstrating predictable scaling across nearly two orders of magnitude.\n\nKey highlights:\n\n-&gt; MoE ar",
+      "date": "2026-02-24"
+    },
+    {
       "id": "gh-patchy631-ai-engineering-hub",
       "title": "patchy631/ai-engineering-hub (⭐30,540)",
       "url": "https://github.com/patchy631/ai-engineering-hub",
@@ -904,5 +974,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

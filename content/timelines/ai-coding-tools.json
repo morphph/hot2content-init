@@ -4,6 +4,166 @@
   "name_zh": "AI 编程工具",
   "entries": [
     {
+      "id": "gh-GreatScott-enveil",
+      "title": "GreatScott/enveil (⭐315)",
+      "url": "https://github.com/GreatScott/enveil",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "ENVeil: Hide .env secrets from prAIng eyes: secrets live in local encrypted stores (per project) and are injected directly into apps at runtime, never touching disk as plaintext.",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "gh-chatfire-AI-huobao-drama",
+      "title": "chatfire-AI/huobao-drama (⭐8,206)",
+      "url": "https://github.com/chatfire-AI/huobao-drama",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🎬 火宝短剧 - 基于AI的一站式短剧生成平台 《一句话生成完整短剧，从剧本到成片全自动化》  Huobao Drama - An AI-Powered End-to-End Short Drama Generator \"One Sentence to Complete Drama: Fully Automated from Script to Final Video\"",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2006050274042077398",
+      "title": "Advent of Claude Day 30 - LSP",
+      "url": "https://x.com/adocomplete/status/2006050274042077398",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Advent of Claude Day 30 - LSP\n\nLanguage Server Protocol in Claude Code provides\n\n- Instant diagnostics to see errors and warnings \n- Navigation with go to definition, find references, and more\n- Type info and docs for code symbols\n\nClaude Code now has IDE-level code intelligence",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1935466820959617479",
+      "title": "I ditched Cursor for Claude Code and it's absolutely insane 🤯",
+      "url": "https://x.com/robj3d3/status/1935466820959617479",
+      "source": "@robj3d3",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I ditched Cursor for Claude Code and it's absolutely insane 🤯\n\n$1000s of API credits for just $100-200/month AND way better at following instructions\n\nMy complete guide to 10x your coding with Claude Code: https://t.co/jNi3WVWRO0",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1916493552613511447",
+      "title": "This is the ultimate guide to vibe coding. Save it. https://t.co/MtvOm5CBwZ",
+      "url": "https://x.com/aaditsh/status/1916493552613511447",
+      "source": "@aaditsh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This is the ultimate guide to vibe coding. Save it. https://t.co/MtvOm5CBwZ",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025949510678233209",
+      "title": "🚨BREAKING: HuggingFace just dropped a plugin that turns Claude Code, Gemini, and Cursor into full M",
+      "url": "https://x.com/mhdfaran/status/2025949510678233209",
+      "source": "@mhdfaran",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: HuggingFace just dropped a plugin that turns Claude Code, Gemini, and Cursor into full ML engineers.\n\nIt's called HF Skills and it's completely free.\n\nOne command. Your AI agent can now train models, run evals, and publish research papers.\n\n2.1K stars. Apache 2.0. https://t.co/w3Pl4wnPYM",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026293413952327785",
+      "title": "someone built a SELF-EVOLVING AI agent that rewrites its own code, prompts, and identity AUTONOMOUSL",
+      "url": "https://x.com/chiefofautism/status/2026293413952327785",
+      "source": "@chiefofautism",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "someone built a SELF-EVOLVING AI agent that rewrites its own code, prompts, and identity AUTONOMOUSLY, with having a background consciousness\n\nits called OUROBOROS, open source, built by a russian PhD researcher who studies transformer internals, he built it as an experiment, it built everything else\n\nit thinks on its own even when nobody is talking to it, each thought costs $0.07\n\nwhen the researcher went to sleep at midnight, by 3:41am it mass produced 20 versions of itself, burned $2K in API ",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025932574858858875",
+      "title": "This guy literally turns a 7-hour crash course into a 27-minute guide to master Claude Code:",
+      "url": "https://x.com/Parul_Gautam7/status/2025932574858858875",
+      "source": "@Parul_Gautam7",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This guy literally turns a 7-hour crash course into a 27-minute guide to master Claude Code:\nhttps://t.co/TNxQ5Hhewl",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026047559257719282",
+      "title": "idea -&gt; excalidraw -&gt; gemini -&gt; aura -&gt; claude code -&gt; prod 😋 https://t.co/7zTfo1LY1",
+      "url": "https://x.com/kaylanhua/status/2026047559257719282",
+      "source": "@kaylanhua",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "idea -&gt; excalidraw -&gt; gemini -&gt; aura -&gt; claude code -&gt; prod 😋 https://t.co/7zTfo1LY1N",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025913726059348183",
+      "title": "You won’t lose to AI.",
+      "url": "https://x.com/s_mohinii/status/2025913726059348183",
+      "source": "@s_mohinii",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "You won’t lose to AI.\n\nYou’ll lose to someone who mastered Claude Code first.\n\nI put together every resource you need to go from curious about Claude Code to actually shipping with it.\n \nThis Includes:\n🚀 3 Getting Started resources\n 📚 4 Long Courses\n 🧠 4 Best Practices guides\n 🛠 3 Tools & Libraries\n 🐙 8 battle-tested GitHub repos\n 📺 6 YouTube tutorials from builders actually using it\n 👥 6 creators worth following\n 📧 6 newsletters to stay sharp\n\nThis isn't theory. It's the exact stack peo",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026459429106036807",
+      "title": "As Claude Code turns one today, it is wild to think about how different life as a software engineer",
+      "url": "https://x.com/adocomplete/status/2026459429106036807",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "As Claude Code turns one today, it is wild to think about how different life as a software engineer was just 1 year ago. \n\nWe had AI coding tools (I worked for a company building one) but Claude Code changed the software development landscape completely.\n\nI have been writing code",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026096054253564002",
+      "title": "We're proud to support @LACMA's Art + Technology Lab—a program that empowers artists to prototype id",
+      "url": "https://x.com/AnthropicAI/status/2026096054253564002",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "We're proud to support @LACMA's Art + Technology Lab—a program that empowers artists to prototype ideas at the edges of art, science, and emerging technology.\n\nThe 2026 call for proposals is open to artists worldwide. Grants up to $50K.\n\nApply by Apr 22: https://t.co/DZ2lC0IOgm",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1rdvq3s",
+      "title": "Qwen3.5 27B is Match Made in Heaven for Size and Performance",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdvq3s/qwen35_27b_is_match_made_in_heaven_for_size_and/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Just got Qwen3.5 27B running on server and wanted to share the full setup for anyone trying to do the same.\n\n**Setup:**\n\n* Model: Qwen3.5-27B-Q8\\_0 (unsloth GGUF) , Thanks Dan\n* GPU: RTX A6000 48GB\n* Inference: llama.cpp with CUDA\n* Context: 32K\n* Speed: \\~19.7 tokens/sec\n\n**Why Q8 and not a lower quant?** With 48GB VRAM the Q8 fits comfortably at 28.6GB leaving plenty of headroom for KV cache. Quality is virtually identical to full BF16 — no reason to go lower if your VRAM allows it.\n\n**What's ",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "hn-47140632",
+      "title": "OpenAI, the US government and Persona built an identity surveillance machine",
+      "url": "https://vmfunc.re/blog/persona/",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 59,
+      "summary": "53MB of source code leaked from a government endpoint. 269 verification checks. biometric face databases. SAR filings to FinCEN. and the same company that verifies your ChatGPT account. (HN: 494 pts, 159 comments)",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "hn-47140322",
+      "title": "Show HN: Emdash – Open-source agentic development environment",
+      "url": "https://github.com/generalaction/emdash",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 52,
+      "summary": "Emdash is the Open-Source Agentic Development Environment (🧡 YC W26). Run multiple coding agents in parallel. Use any provider. - generalaction/emdash (HN: 122 pts, 52 comments)",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "reddit-1rdca7x",
+      "title": "[D] Papers with no code",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1rdca7x/d_papers_with_no_code/",
+      "source": "Reddit r/MachineLearning",
+      "category": "official_blog",
+      "score": 51,
+      "summary": "I can't believe the amount of papers in major conferences that are accepted without providing any code or evidence to back up their claims. A lot of these papers claim to train huge models and present SOTA performance in the results section/tables but provide no way for anyone to try the model out themselves. Since the models are so expensive/labor intensive to train from scratch, there is no way for anyone to check whether: (1) the results are entirely fabricated; (2) they trained on the test d",
+      "date": "2026-02-24"
+    },
+    {
       "id": "gh-ochyai-vibe-local",
       "title": "ochyai/vibe-local (⭐284)",
       "url": "https://github.com/ochyai/vibe-local",
@@ -1124,5 +1284,5 @@
       "date": "2025-12-29"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

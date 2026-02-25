@@ -4,6 +4,206 @@
   "name_zh": "Claude Code",
   "entries": [
     {
+      "id": "twitter-search-2022240927394525229",
+      "title": "🚨BREAKING: You can now run Claude Code for FREE.",
+      "url": "https://x.com/lazukars/status/2022240927394525229",
+      "source": "@lazukars",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: You can now run Claude Code for FREE.\n\nNo API costs. No rate limits. 100% local on your machine.\n\nHere's how to run Claude Code locally (100% free &amp; fully private): https://t.co/Egxk4TIQeL",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1935703290471149759",
+      "title": "Introducing Claudia - A powerful GUI app and Toolkit for Claude Code.",
+      "url": "https://x.com/mufeedvh/status/1935703290471149759",
+      "source": "@mufeedvh",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Introducing Claudia - A powerful GUI app and Toolkit for Claude Code.\n\nCreate custom agents, manage interactive Claude Code sessions, run secure background agents, and more.\n\n✨ Features\n- Interactive GUI Claude Code sessions.\n- Checkpoints and reverting. (Yes, that one missing feature from Claude Code)\n- Create and share custom agents.\n- Run sandboxed background agents. (experimental)\n- No-code MCP installation and configuration.\n- Real-time Usage Dashboard.\n\nFree and open-source. Get started at",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1991626308611371387",
+      "title": "we just made Claude Code",
+      "url": "https://x.com/aaxsh18/status/1991626308611371387",
+      "source": "@aaxsh18",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "we just made Claude Code\n- use 53% fewer tokens\n- respond 48% faster\n- give 3.2x better responses\n\njust by giving it a better grep https://t.co/GUf1dS9e8B",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2006050274042077398",
+      "title": "Advent of Claude Day 30 - LSP",
+      "url": "https://x.com/adocomplete/status/2006050274042077398",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Advent of Claude Day 30 - LSP\n\nLanguage Server Protocol in Claude Code provides\n\n- Instant diagnostics to see errors and warnings \n- Navigation with go to definition, find references, and more\n- Type info and docs for code symbols\n\nClaude Code now has IDE-level code intelligence",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1935466820959617479",
+      "title": "I ditched Cursor for Claude Code and it's absolutely insane 🤯",
+      "url": "https://x.com/robj3d3/status/1935466820959617479",
+      "source": "@robj3d3",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I ditched Cursor for Claude Code and it's absolutely insane 🤯\n\n$1000s of API credits for just $100-200/month AND way better at following instructions\n\nMy complete guide to 10x your coding with Claude Code: https://t.co/jNi3WVWRO0",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026002234920821178",
+      "title": "You've been scammed.",
+      "url": "https://x.com/heyshrutimishra/status/2026002234920821178",
+      "source": "@heyshrutimishra",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "You've been scammed.\n\nAI course sellers are making $50K/month repackaging these 3 free Anthropic resources:\n\n> Anthropic Academy (Free courses from source)\nhttps://t.co/iPOMivINjH\n> Official Skills GitHub (115 active issues, 412 PRs)\nhttps://t.co/s4tBHZaGRd\n> Claude Code Subagents Catalog (Plug-and-play agents)\nhttps://t.co/jjlwBtWD1R\n\nMost \"Claude experts\" are just repackaging these repos and selling them back to you.\n\nRepost to spread awareness, so nobody overpays.\n\nBookmark this before it get",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025949510678233209",
+      "title": "🚨BREAKING: HuggingFace just dropped a plugin that turns Claude Code, Gemini, and Cursor into full M",
+      "url": "https://x.com/mhdfaran/status/2025949510678233209",
+      "source": "@mhdfaran",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨BREAKING: HuggingFace just dropped a plugin that turns Claude Code, Gemini, and Cursor into full ML engineers.\n\nIt's called HF Skills and it's completely free.\n\nOne command. Your AI agent can now train models, run evals, and publish research papers.\n\n2.1K stars. Apache 2.0. https://t.co/w3Pl4wnPYM",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025932574858858875",
+      "title": "This guy literally turns a 7-hour crash course into a 27-minute guide to master Claude Code:",
+      "url": "https://x.com/Parul_Gautam7/status/2025932574858858875",
+      "source": "@Parul_Gautam7",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "This guy literally turns a 7-hour crash course into a 27-minute guide to master Claude Code:\nhttps://t.co/TNxQ5Hhewl",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026047559257719282",
+      "title": "idea -&gt; excalidraw -&gt; gemini -&gt; aura -&gt; claude code -&gt; prod 😋 https://t.co/7zTfo1LY1",
+      "url": "https://x.com/kaylanhua/status/2026047559257719282",
+      "source": "@kaylanhua",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "idea -&gt; excalidraw -&gt; gemini -&gt; aura -&gt; claude code -&gt; prod 😋 https://t.co/7zTfo1LY1N",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025913726059348183",
+      "title": "You won’t lose to AI.",
+      "url": "https://x.com/s_mohinii/status/2025913726059348183",
+      "source": "@s_mohinii",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "You won’t lose to AI.\n\nYou’ll lose to someone who mastered Claude Code first.\n\nI put together every resource you need to go from curious about Claude Code to actually shipping with it.\n \nThis Includes:\n🚀 3 Getting Started resources\n 📚 4 Long Courses\n 🧠 4 Best Practices guides\n 🛠 3 Tools & Libraries\n 🐙 8 battle-tested GitHub repos\n 📺 6 YouTube tutorials from builders actually using it\n 👥 6 creators worth following\n 📧 6 newsletters to stay sharp\n\nThis isn't theory. It's the exact stack peo",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026036464287412412",
+      "title": "how to use obsidian + claude code to build a 24/7 personal operating system and build your startup:",
+      "url": "https://x.com/gregisenberg/status/2026036464287412412",
+      "source": "@gregisenberg",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "how to use obsidian + claude code to build a 24/7 personal operating system and build your startup:\n\n1. write everything in markdown (daily notes, projects, beliefs, people, meetings)\n\n2. link your notes together so they mirror how your brain actually thinks.\n\n3. install obsidian cli so claude code can read your entire vault + the relationships.\n\n4. stop reexplaining projects every session. use reference files instead.\n\n5. build custom slash commands:\n\n/context → load your full life + work state",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026371260805271615",
+      "title": "Announcing a new Claude Code feature: Remote Control. It's rolling out now to Max users in research",
+      "url": "https://x.com/noahzweben/status/2026371260805271615",
+      "source": "@noahzweben",
+      "category": "developer_platform",
+      "score": 73,
+      "summary": "Announcing a new Claude Code feature: Remote Control. It's rolling out now to Max users in research preview. Try it with /remote-control\n\nStart local sessions from the terminal, then continue them from your phone. Take a walk, see the sun, walk your dog without losing your flow.",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026353117441503535",
+      "title": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing",
+      "url": "https://x.com/adocomplete/status/2026353117441503535",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing projects that deserve a shoutout. \n\nToday, I want to highlight ClassBuild by Jason Tangen (@tangenjm)\n\nEducation is a huge frontier for AI, and ClassBuild shows why. https://t.co/4",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026356364474462546",
+      "title": "Claude Code Meetups this week:",
+      "url": "https://x.com/adocomplete/status/2026356364474462546",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Claude Code Meetups this week: \n\n🇩🇪 Munich, 🇨🇦 Halifax, 🇳🇴 Oslo, 🇩🇪 Berlin, 🇨🇦 Vancouver, 🎥 LA, 🇰🇪 Mombasa, 🇹🇷 Istanbul, 🇩🇰 Copenhagen, 🇮🇪 Dublin, 🇫🇷 Lyon,  🌉 SF, 🇵🇱 Warsaw, 🌴 Miami, 🌲 Portland, 🏄 OC, 🇮🇳 Bhopal",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026459429106036807",
+      "title": "As Claude Code turns one today, it is wild to think about how different life as a software engineer",
+      "url": "https://x.com/adocomplete/status/2026459429106036807",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "As Claude Code turns one today, it is wild to think about how different life as a software engineer was just 1 year ago. \n\nWe had AI coding tools (I worked for a company building one) but Claude Code changed the software development landscape completely.\n\nI have been writing code",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026407439101481157",
+      "title": "Also, since we're already busy shipping: Update your Claude Code to the latest version, run /remote-",
+      "url": "https://x.com/felixrieseberg/status/2026407439101481157",
+      "source": "@felixrieseberg",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Also, since we're already busy shipping: Update your Claude Code to the latest version, run /remote-control, and then just remote-control your Claude Code from your mobile phone.\n\nCoding on your computer but from your phone so you can go and touch grass and still push code",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026438391299191026",
+      "title": "Slack has rolled out a new plugin that allows you to connect to Slack for search, messaging, documen",
+      "url": "https://x.com/trq212/status/2026438391299191026",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Slack has rolled out a new plugin that allows you to connect to Slack for search, messaging, document creation and more.\n\nUse this to get context from Slack into Claude Code so it has context on what you're working on or to post updates. https://t.co/WhzBMHu3BS",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026449617915884009",
+      "title": "We shipped Claude Code as a research preview a year ago today.",
+      "url": "https://x.com/bcherny/status/2026449617915884009",
+      "source": "@bcherny",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "We shipped Claude Code as a research preview a year ago today.\n\nDevelopers have used it to build weekend projects, ship production apps, write code at the world's largest companies, and help plan a Mars rover drive.\n\nWe built it, and you showed us what it was for. https://t.co/Pz",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026418433911603668",
+      "title": "New in Claude Code: Remote Control.",
+      "url": "https://x.com/claudeai/status/2026418433911603668",
+      "source": "@claudeai",
+      "category": "product_ecosystem",
+      "score": 80,
+      "summary": "New in Claude Code: Remote Control.\n\nKick off a task in your terminal and pick it up from your phone while you take a walk or join a meeting. \n\nClaude keeps running on your machine, and you can control the session from the Claude app or https://t.co/er6Blrr63e https://t.co/FxUVDe",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1rdxfdu",
+      "title": "Qwen3.5-35B-A3B is a gamechanger for agentic coding.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/qwen3535ba3b_is_a_gamechanger_for_agentic_coding/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "[Qwen3.5-35B-A3B with Opencode](https://preview.redd.it/m4v951sv5jlg1.jpg?width=2367&amp;format=pjpg&amp;auto=webp&amp;s=bec61ca20f08bb766987147287c7d6664308fa2f)\n\n\n\nJust tested this badboy with Opencode **cause frankly I couldn't believe those benchmarks.** Running it on a single RTX 3090 on a headless Linux box. Freshly compiled Llama.cpp and those are my settings after some tweaking, still not fully tuned: \n\n./llama.cpp/llama-server \\\\\n\n\\-m /models/**Qwen3.5-35B-A3B-MXFP4\\_MOE.gguf** \\\\\n\n\\-a ",
+      "date": "2026-02-25"
+    },
+    {
       "id": "twitter-search-2025859987168543183",
       "title": "Holy shit... someone just built an App Store for Claude Code.",
       "url": "https://x.com/sentientt_media/status/2025859987168543183",
@@ -1354,5 +1554,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

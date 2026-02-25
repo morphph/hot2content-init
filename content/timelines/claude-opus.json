@@ -4,6 +4,126 @@
   "name_zh": "Claude Opus 4.6",
   "entries": [
     {
+      "id": "gh-anthropics-financial-services-plugins",
+      "title": "anthropics/financial-services-plugins (⭐522)",
+      "url": "https://github.com/anthropics/financial-services-plugins",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 55,
+      "summary": "",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "gh-anthropics-skills",
+      "title": "anthropics/skills (⭐75,020)",
+      "url": "https://github.com/anthropics/skills",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Public repository for Agent Skills",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026002234920821178",
+      "title": "You've been scammed.",
+      "url": "https://x.com/heyshrutimishra/status/2026002234920821178",
+      "source": "@heyshrutimishra",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "You've been scammed.\n\nAI course sellers are making $50K/month repackaging these 3 free Anthropic resources:\n\n> Anthropic Academy (Free courses from source)\nhttps://t.co/iPOMivINjH\n> Official Skills GitHub (115 active issues, 412 PRs)\nhttps://t.co/s4tBHZaGRd\n> Claude Code Subagents Catalog (Plug-and-play agents)\nhttps://t.co/jjlwBtWD1R\n\nMost \"Claude experts\" are just repackaging these repos and selling them back to you.\n\nRepost to spread awareness, so nobody overpays.\n\nBookmark this before it get",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026353117441503535",
+      "title": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing",
+      "url": "https://x.com/adocomplete/status/2026353117441503535",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing projects that deserve a shoutout. \n\nToday, I want to highlight ClassBuild by Jason Tangen (@tangenjm)\n\nEducation is a huge frontier for AI, and ClassBuild shows why. https://t.co/4",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026110215561822374",
+      "title": "Claude in Chrome is now significantly faster with our Quick Mode experiment, and you can also pair w",
+      "url": "https://x.com/trq212/status/2026110215561822374",
+      "source": "@trq212",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Claude in Chrome is now significantly faster with our Quick Mode experiment, and you can also pair with Opus 4.6 fast to get blazing speeds",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "anthropic-news-responsible-scaling-policy-v3",
+      "title": "Anthropic’s Responsible Scaling Policy: Version 3.0",
+      "url": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 24, 2026)",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "rss-hn-frontpage-rss-aHR0cHM6Ly90aW1l",
+      "title": "Anthropic Drops Flagship Safety Pledge",
+      "url": "https://time.com/7380854/exclusive-anthropic-drops-flagship-safety-pledge/",
+      "source": "HN Frontpage RSS",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1rduhxw",
+      "title": "Anthropic believes RSI (recursive self improvement) could arrive “as soon as early 2027”",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rduhxw/anthropic_believes_rsi_recursive_self_improvement/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "[https://www.anthropic.com/responsible-scaling-policy/roadmap](https://www.anthropic.com/responsible-scaling-policy/roadmap)",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "reddit-1rdqdib",
+      "title": "Exclusive: Hegseth gives Anthropic until Friday to back down on AI safeguards",
+      "url": "https://www.axios.com/2026/02/24/anthropic-pentagon-claude-hegseth-dario",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 56,
+      "summary": "",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "reddit-1rdir26",
+      "title": "I had Opus 4.6 complete the entire Blender Donut Tutorial autonomously by watching it on YouTube",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rdir26/i_had_opus_46_complete_the_entire_blender_donut/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 61,
+      "summary": "I had Opus 4.6 complete the entire Blender Donut Tutorial autonomously by watching it on YouTube",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "gh-release-langchain-ai-langchain-langchain-anthropic==1.3.4",
+      "title": "📦 langchain-ai/langchain langchain-anthropic==1.3.4",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.3.4",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "Changes since langchain-anthropic==1.3.3  release(anthropic): 1.3.4 (#35418) fix(anthropic): filter out common OpenAI Responses block types (#35417) fix(anthropic): update integration tests (#35396) revert: add ChatAnthropicBedrockWrapper (#35371) fix(anthropic): replace retired ",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "reddit-1rcxj45",
+      "title": "IBM stock tumbles 10% after Anthropic launches COBOL AI tool",
+      "url": "https://finance.yahoo.com/news/ibm-stock-tumbles-10-anthropic-194042677.html",
+      "source": "Reddit r/artificial",
+      "category": "developer_platform",
+      "score": 56,
+      "summary": "",
+      "date": "2026-02-23"
+    },
+    {
       "id": "twitter-search-2022355109150363993",
       "title": "The Vibe Coding Mobile Apps Bible.",
       "url": "https://x.com/the_agenteers/status/2022355109150363993",
@@ -714,5 +834,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-24"
+  "lastUpdated": "2026-02-25"
 }

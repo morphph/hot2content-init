@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-25T04:25:59.117Z",
+  "generatedAt": "2026-02-25T05:34:52.007Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-25",
@@ -9,8 +9,8 @@
       "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": "2026-02-24 05:37:18 UTC",
-      "lastRunStatus": "complete"
+      "lastRunTimestamp": null,
+      "lastRunStatus": "unknown"
     },
     "newsItems": {
       "last24h": 104,
@@ -21,10 +21,10 @@
   },
   "keywordQuality": {
     "byStatus": {
-      "backlog": 20
+      "backlog": 30
     },
     "byLanguage": {
-      "en": 20
+      "en": 30
     },
     "byIntent": {
       "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases.": 1,
@@ -32,44 +32,54 @@
       "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons": 1,
       "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows": 1,
       "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand.": 1,
+      "Anthropic just released RSP v3.0 on Feb 24, 2026 - major update to their AI safety framework with new transparency commitments": 1,
+      "Anthropic launching private plugin marketplaces for teams plus Google Workspace connectors for Calendar, Drive, Gmail": 1,
       "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
       "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality.": 1,
       "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM": 1,
       "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases.": 1,
+      "Chinese AI platform generating complete short dramas from single sentence - script to final video fully automated": 1,
       "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production": 1,
       "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities": 1,
+      "GitHub's official MCP Server at 27K+ stars enabling direct integration between AI agents and GitHub repos": 1,
       "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications.": 1,
       "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
+      "HuggingFace guide on deploying open source Vision Language Models on NVIDIA Jetson for edge AI applications": 1,
+      "Letta platform for building stateful agents with advanced memory that can learn and self-improve over time - 21K+ stars": 1,
+      "Meta announced multi-year agreement with AMD for Instinct GPUs, deploying approximately 6GW of data center capacity": 1,
       "Microsoft's Playwright MCP server has 27,481 stars, becoming the standard for AI agent browser automation via Model Context Protocol.": 1,
       "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns": 1,
+      "New feature allowing developers to control Claude Code sessions from mobile phone while away from computer": 1,
       "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks.": 1,
       "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development.": 1,
+      "OpenAI recommending SWE-bench Pro over Verified as coding eval standards evolve with model maturity": 1,
       "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders.": 1,
       "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1,
+      "RAGFlow at 73K+ GitHub stars is now the leading open-source RAG engine, combining RAG with Agent capabilities": 1,
       "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users.": 1
     },
     "byType": {
       "compare": 3,
-      "faq": 2,
-      "glossary": 7,
-      "tier2": 6,
-      "tier3": 2
+      "faq": 3,
+      "glossary": 10,
+      "tier2": 9,
+      "tier3": 5
     },
     "enrichmentCoverage": {
-      "enriched": 20,
+      "enriched": 30,
       "unenriched": 0
     },
     "volumeDistribution": {
       "noData": 0,
-      "low": 20,
+      "low": 30,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 9,
-      "medium": 4,
-      "hard": 7
+      "easy": 14,
+      "medium": 5,
+      "hard": 11
     },
     "top20": [
       {
@@ -98,6 +108,24 @@
         "search_volume": 0,
         "difficulty": 0,
         "search_intent": "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand."
+      },
+      {
+        "keyword": "Anthropic Responsible Scaling Policy v3",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Anthropic just released RSP v3.0 on Feb 24, 2026 - major update to their AI safety framework with new transparency commitments"
+      },
+      {
+        "keyword": "Claude Code Remote Control",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 20,
+        "search_intent": "New feature allowing developers to control Claude Code sessions from mobile phone while away from computer"
       },
       {
         "keyword": "AI agent evaluation strategies",
@@ -226,44 +254,27 @@
         "search_intent": "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality."
       },
       {
-        "keyword": "Goose AI autonomous coding agent",
+        "keyword": "Claude Cowork enterprise plugins",
         "language": "en",
-        "score": 64,
+        "score": 72,
         "status": "backlog",
         "search_volume": 0,
         "difficulty": 20,
-        "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM"
-      },
-      {
-        "keyword": "Alibaba zvec vector database",
-        "language": "en",
-        "score": 64,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 100,
-        "search_intent": "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases."
-      },
-      {
-        "keyword": "zvec vs Chroma vector database",
-        "language": "en",
-        "score": 64,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 40,
-        "search_intent": "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases."
+        "search_intent": "Anthropic launching private plugin marketplaces for teams plus Google Workspace connectors for Calendar, Drive, Gmail"
       }
     ],
     "staleBacklogCount": 0,
-    "total": 20
+    "total": 30
   },
   "contentOutput": {
     "byType": {
       "newsletter": 6
     },
     "byTier": {
+      "0": 3,
       "1": 8,
-      "2": 33,
-      "3": 20
+      "2": 38,
+      "3": 24
     },
     "publishedLast7d": 6,
     "publishedLast30d": 6,
@@ -277,11 +288,11 @@
     "enArticles": 0,
     "zhArticles": 0,
     "bilingualCoverage": {
-      "paired": 26,
+      "paired": 32,
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 3,
+    "freshnessBacklog": 0,
     "newsletterStreak": {
       "en": 18,
       "zh": 18,
@@ -298,16 +309,16 @@
       "avgDaysToPublish": null
     },
     "news": {
-      "total": 20,
-      "backlog": 20,
+      "total": 30,
+      "backlog": 30,
       "published": 0,
       "error": 0,
       "avgDaysToPublish": null
     },
     "paa": {
-      "total": 137,
-      "discovered": 127,
-      "published": 10,
+      "total": 158,
+      "discovered": 143,
+      "published": 15,
       "duplicate": 0,
       "error": 0
     },
@@ -317,17 +328,809 @@
         "published": 0
       },
       "news": {
-        "added": 20,
+        "added": 30,
         "published": 0
       },
       "paa": {
-        "added": 137,
-        "published": 10
+        "added": 158,
+        "published": 15
       }
     }
   },
   "sampleReview": {
     "days": [
+      {
+        "date": "2026-02-25",
+        "qualitySummary": {
+          "total": 17,
+          "passed": 0,
+          "flagged": 17,
+          "flags": {
+            "Title length": 7,
+            "Word count": 11,
+            "Description length": 12,
+            "Has TL;DR": 8
+          }
+        },
+        "items": [
+          {
+            "keyword": "Anthropic Responsible Scaling Policy v3",
+            "type": "tier2",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Anthropic’s Responsible Scaling Policy: Version 3.0",
+                "url": "https://www.anthropic.com/news/responsible-scaling-policy-v3"
+              },
+              {
+                "title": "We're updating our Responsible Scaling Policy to its third version.",
+                "url": "https://x.com/AnthropicAI/status/2026393790500540566"
+              }
+            ],
+            "content": [
+              {
+                "title": "Anthropic Responsible Scaling Policy v3 — Analysis and Industry Impact",
+                "slug": "anthropic-responsible-scaling-policy-v3",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1488,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "70 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Anthropic 负责任扩展政策 v3：从硬承诺到灵活框架的转型",
+                "slug": "anthropic-responsible-scaling-policy-v3",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 230,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "230 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "60 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Claude Code Remote Control",
+            "type": "tier3",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "New in Claude Code: Remote Control.",
+                "url": "https://x.com/claudeai/status/2026418433911603668"
+              },
+              {
+                "title": "Also, since we're already busy shipping: Update your Claude Code to the latest version, run /remote-",
+                "url": "https://x.com/felixrieseberg/status/2026407439101481157"
+              },
+              {
+                "title": "Announcing a new Claude Code feature: Remote Control. It's rolling out now to Max users in research",
+                "url": "https://x.com/noahzweben/status/2026371260805271615"
+              }
+            ],
+            "content": [
+              {
+                "title": "Claude Code 远程控制功能 — 快速指南",
+                "slug": "claude-code-remote-control",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 71,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "71 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "25 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "36 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Claude Cowork enterprise plugins",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Some enterprise love for Claude Cowork! Starting today, teams can create private plugin marketplaces",
+                "url": "https://x.com/felixrieseberg/status/2026358808797393381"
+              },
+              {
+                "title": "Also, one thing I'm particularly excited by: We're launching new connectors for Claude Cowork & Code",
+                "url": "https://x.com/felixrieseberg/status/2026359503000838389"
+              },
+              {
+                "title": "Introducing Cowork and plugin updates that help enterprises customize Claude for better collaboratio",
+                "url": "https://x.com/claudeai/status/2026305186671608315"
+              }
+            ],
+            "content": [
+              {
+                "title": "Claude Cowork Enterprise Plugins: Private Marketplaces and Industry-Specific AI Collaboration",
+                "slug": "claude-cowork-enterprise-plugins",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1760,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "93 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "216 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "GitHub MCP Server official",
+            "type": "tier3",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "github/github-mcp-server (⭐27,152)",
+                "url": "https://github.com/github/github-mcp-server"
+              }
+            ],
+            "content": [
+              {
+                "title": "GitHub 官方 MCP 服务器 — 快速指南",
+                "slug": "github-mcp-server-official",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 113,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "113 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "24 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "35 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "SWE-bench Pro vs Verified deprecation",
+            "type": "faq",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "The standard for frontier coding evals is changing with model maturity.",
+                "url": "https://x.com/OpenAIDevs/status/2026002219909427270"
+              }
+            ],
+            "content": [
+              {
+                "title": "SWE-bench Pro vs Verified deprecation — Frequently Asked Questions",
+                "slug": "swe-bench-pro-vs-verified-deprecation",
+                "language": "en",
+                "tier": null,
+                "wordCount": 1141,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1141 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "66 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "87 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "SWE-bench Pro 与 Verified 废弃对比 — 常见问题解答",
+                "slug": "swe-bench-pro-vs-verified-deprecation",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 262,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "262 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "42 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Meta AMD GPU partnership",
+            "type": "tier2",
+            "score": 70,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Meta 🤝 AMD",
+                "url": "https://x.com/AIatMeta/status/2026266818789454057"
+              }
+            ],
+            "content": [
+              {
+                "title": "Meta's $100B AMD Deal Signals the End of Nvidia's AI Monopoly",
+                "slug": "meta-amd-gpu-partnership",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1192,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "173 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Meta 与 AMD GPU 合作 — 深度分析与行业影响",
+                "slug": "meta-amd-gpu-partnership",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 331,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "331 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "29 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "41 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "RAGFlow open source RAG engine",
+            "type": "glossary",
+            "score": 56,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "infiniflow/ragflow (⭐73,654)",
+                "url": "https://github.com/infiniflow/ragflow"
+              }
+            ],
+            "content": [
+              {
+                "title": "RAGFlow open source RAG engine — What It Is and Why It Matters",
+                "slug": "ragflow-open-source-rag-engine",
+                "language": "en",
+                "tier": null,
+                "wordCount": 425,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "RAGFlow 开源 RAG 引擎（RAGFlow open source RAG engine）— 定义、原理与应用",
+                "slug": "ragflow-open-source-rag-engine",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 87,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "87 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "41 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Letta stateful AI agents",
+            "type": "glossary",
+            "score": 56,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "letta-ai/letta (⭐21,244)",
+                "url": "https://github.com/letta-ai/letta"
+              }
+            ],
+            "content": [
+              {
+                "title": "Letta stateful AI agents — What It Is and Why It Matters",
+                "slug": "letta-stateful-ai-agents",
+                "language": "en",
+                "tier": null,
+                "wordCount": 451,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Letta 有状态 AI 代理（Letta stateful AI agents）— 定义、原理与应用",
+                "slug": "letta-stateful-ai-agents",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 86,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "86 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "39 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Huobao Drama AI video generation",
+            "type": "glossary",
+            "score": 56,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "chatfire-AI/huobao-drama (⭐8,206)",
+                "url": "https://github.com/chatfire-AI/huobao-drama"
+              }
+            ],
+            "content": [
+              {
+                "title": "Huobao Drama AI video generation — What It Is and Why It Matters",
+                "slug": "huobao-drama-ai-video-generation",
+                "language": "en",
+                "tier": null,
+                "wordCount": 468,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "火宝短剧 AI 视频生成（Huobao Drama AI video generation）— 定义、原理与应用",
+                "slug": "huobao-drama-ai-video-generation",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 71,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "71 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "36 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "VLM deployment Jetson edge",
+            "type": "tier3",
+            "score": 56,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Deploying Open Source Vision Language Models (VLM) on Jetson",
+                "url": "https://huggingface.co/blog/nvidia/cosmos-on-jetson"
+              }
+            ],
+            "content": [
+              {
+                "title": "VLM Deployment on Jetson Edge — Quick Guide",
+                "slug": "vlm-deployment-jetson-edge",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 226,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "226 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Jetson 边缘部署视觉语言模型 — 快速指南",
+                "slug": "vlm-deployment-jetson-edge",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 125,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "125 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "24 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "35 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       {
         "date": "2026-02-24",
         "qualitySummary": {
@@ -628,13 +1431,13 @@
                 "slug": "gpt-realtime-1-5-voice-api",
                 "language": "en",
                 "tier": 2,
-                "wordCount": 1909,
+                "wordCount": 2209,
                 "seoScore": null,
                 "flags": [
                   {
                     "name": "Word count",
                     "status": "warn",
-                    "detail": "1909 words (target: 800-1500)"
+                    "detail": "2209 words (target: 800-1500)"
                   },
                   {
                     "name": "Has TL;DR",
@@ -1593,13 +2396,13 @@
                 "slug": "multi-agent-workspace-orchestration",
                 "language": "en",
                 "tier": 2,
-                "wordCount": 1876,
+                "wordCount": 2125,
                 "seoScore": null,
                 "flags": [
                   {
                     "name": "Word count",
                     "status": "warn",
-                    "detail": "1876 words (target: 800-1500)"
+                    "detail": "2125 words (target: 800-1500)"
                   },
                   {
                     "name": "Has TL;DR",
@@ -1995,9 +2798,9 @@
   "dailyTrend": [
     {
       "date": "2026-02-25",
-      "contentCount": 0,
+      "contentCount": 27,
       "qualityPassRate": 0,
-      "kwExtracted": 0,
+      "kwExtracted": 10,
       "kwPublished": 0
     },
     {
@@ -2094,6 +2897,92 @@
   ],
   "recentKeywords": {
     "days": [
+      {
+        "date": "2026-02-25",
+        "count": 10,
+        "items": [
+          {
+            "keyword": "Anthropic Responsible Scaling Policy v3",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Anthropic just released RSP v3.0 on Feb 24, 2026 - major update to their AI safety framework with new transparency commitments",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Claude Code Remote Control",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "New feature allowing developers to control Claude Code sessions from mobile phone while away from computer",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Claude Cowork enterprise plugins",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Anthropic launching private plugin marketplaces for teams plus Google Workspace connectors for Calendar, Drive, Gmail",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "GitHub MCP Server official",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "GitHub's official MCP Server at 27K+ stars enabling direct integration between AI agents and GitHub repos",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "SWE-bench Pro vs Verified deprecation",
+            "language": "en",
+            "type": "faq",
+            "search_intent": "OpenAI recommending SWE-bench Pro over Verified as coding eval standards evolve with model maturity",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Meta AMD GPU partnership",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Meta announced multi-year agreement with AMD for Instinct GPUs, deploying approximately 6GW of data center capacity",
+            "score": 70,
+            "sourceNews": []
+          },
+          {
+            "keyword": "RAGFlow open source RAG engine",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "RAGFlow at 73K+ GitHub stars is now the leading open-source RAG engine, combining RAG with Agent capabilities",
+            "score": 56,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Letta stateful AI agents",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Letta platform for building stateful agents with advanced memory that can learn and self-improve over time - 21K+ stars",
+            "score": 56,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Huobao Drama AI video generation",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Chinese AI platform generating complete short dramas from single sentence - script to final video fully automated",
+            "score": 56,
+            "sourceNews": []
+          },
+          {
+            "keyword": "VLM deployment Jetson edge",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "HuggingFace guide on deploying open source Vision Language Models on NVIDIA Jetson for edge AI applications",
+            "score": 56,
+            "sourceNews": []
+          }
+        ]
+      },
       {
         "date": "2026-02-24",
         "count": 10,
@@ -2271,6 +3160,255 @@
   "recentContent": {
     "days": [
       {
+        "date": "2026-02-25",
+        "count": 27,
+        "items": [
+          {
+            "title": "Anthropic Responsible Scaling Policy v3 — Analysis and Industry Impact",
+            "slug": "anthropic-responsible-scaling-policy-v3",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1488,
+            "preview": "**TL;DR:** Anthropic's RSP v3 fundamentally restructures the company's AI safety framework, replacing hard commitments to pause development with a transparency-focused approach featuring Risk Reports,"
+          },
+          {
+            "title": "Claude Cowork Enterprise Plugins: Private Marketplaces and Industry-Specific AI Collaboration",
+            "slug": "claude-cowork-enterprise-plugins",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1760,
+            "preview": "**TL;DR:** Anthropic has launched private plugin marketplaces for Claude Cowork, allowing enterprise teams to create curated collections of AI connectors—including new Google Workspace integrations an"
+          },
+          {
+            "title": "Meta's $100B AMD Deal Signals the End of Nvidia's AI Monopoly",
+            "slug": "meta-amd-gpu-partnership",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1192,
+            "preview": "**TL;DR:** Meta has signed a multi-year agreement with AMD to deploy 6 gigawatts of Instinct GPUs across its AI data centers, a deal valued between $90-120 billion that represents the largest single c"
+          },
+          {
+            "title": "VLM Deployment on Jetson Edge — Quick Guide",
+            "slug": "vlm-deployment-jetson-edge",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 226,
+            "preview": "**TL;DR:** Deploy Vision Language Models locally on NVIDIA Jetson devices using vLLM containers and FP8-quantized models—get zero network latency and complete data privacy for robotics, smart cameras,"
+          },
+          {
+            "title": "Anthropic 负责任扩展政策 v3：从硬承诺到灵活框架的转型",
+            "slug": "anthropic-responsible-scaling-policy-v3",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 230,
+            "preview": "**一句话总结：** Anthropic 在 2026 年 2 月发布的 RSP v3 放弃了\"绝对不训练危险模型\"的硬承诺，转向\"公开透明 + 相对竞争对手做得更好\"的灵活框架，这标志着 AI 安全策略从理想主义向务实主义的重大转变。 负责任扩展政策（Responsible Scaling Policy，简称 RSP）是 Anthropic 在 2023 年 9 月首创的 AI 安全框架。核心思"
+          },
+          {
+            "title": "Claude Code 远程控制功能 — 快速指南",
+            "slug": "claude-code-remote-control",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 71,
+            "preview": "**一句话总结：** 在终端启动 Claude Code 任务后，用手机随时随地查看进度、审批操作、继续对话——代码在本地跑，你人在外面浪。 写代码时最纠结的场景之一：Claude 正在帮你跑一个耗时任务，但你需要离开电脑。以前只能干等着，或者冒着任务中断的风险走开。 Remote Control（远程控制）功能让你摆脱这个困境。任务继续在你的本地机器上执行，而你可以通过手机上的 Claude 应"
+          },
+          {
+            "title": "GitHub 官方 MCP 服务器 — 快速指南",
+            "slug": "github-mcp-server-official",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 113,
+            "preview": "**一句话总结：** GitHub 官方推出的 MCP 服务器让 AI 助手能直接操作你的仓库、Issue 和 PR，把\"帮我查一下这个 bug\"变成真正可执行的动作。 Model Context Protocol（MCP）是 Anthropic 提出的开放协议，让 AI 模型能够安全地访问外部工具和数据源。GitHub 官方的 MCP 服务器（github/github-mcp-server）就"
+          },
+          {
+            "title": "Meta 与 AMD GPU 合作 — 深度分析与行业影响",
+            "slug": "meta-amd-gpu-partnership",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 331,
+            "preview": "**一句话总结：** Meta 宣布与 AMD 达成多年合作协议，将在约 6GW 的数据中心容量中部署 AMD Instinct GPU，这是 AI 芯片市场格局可能被重塑的标志性事件。 过去几年，如果你关注 AI 基础设施领域，会发现一个几乎不变的事实：NVIDIA 统治一切。从 GPT-4 到 Llama，从 Google 的 Gemini 到各家创业公司的大模型，背后几乎清一色都是 NVID"
+          },
+          {
+            "title": "Jetson 边缘部署视觉语言模型 — 快速指南",
+            "slug": "vlm-deployment-jetson-edge",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 125,
+            "preview": "**一句话总结：** 借助 Hugging Face 的 SmolVLM 系列和 SGLang 推理框架，开发者可以在 NVIDIA Jetson 边缘设备上以可接受的速度运行视觉语言模型，实现本地化的图像理解能力。 视觉语言模型（Vision Language Model，VLM）能同时理解图像和文本，典型应用包括工业质检、机器人视觉问答、智能安防等场景。但这类模型通常参数量大、算力需求高，传统"
+          },
+          {
+            "title": "Huobao Drama AI video generation — What It Is and Why It Matters",
+            "slug": "huobao-drama-ai-video-generation",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 468,
+            "preview": "Huobao Drama (火宝短剧) is an open-source, AI-powered platform that generates complete short dramas from a single text prompt. The system automates the entire production pipeline—from script writing and s"
+          },
+          {
+            "title": "火宝短剧 AI 视频生成（Huobao Drama AI video generation）— 定义、原理与应用",
+            "slug": "huobao-drama-ai-video-generation",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 71,
+            "preview": "火宝短剧是一个开源的 AI 驱动短剧生成平台，能够将一句话描述转化为完整的短剧视频。该系统整合了剧本创作、角色设计、场景生成、配音合成等多个环节，实现从文本输入到成片输出的全自动化流程。 短剧市场在中国持续爆发，但传统制作流程耗时长、成本高。火宝短剧将制作周期从数周压缩到数小时，大幅降低了内容创作门槛。对于个人创作者和中小团队而言，这意味着无需专业影视制作背景也能产出可观看的短剧内容。 从开发者角"
+          },
+          {
+            "title": "Letta stateful AI agents — What It Is and Why It Matters",
+            "slug": "letta-stateful-ai-agents",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 451,
+            "preview": "Letta is an open-source platform for building stateful AI agents—autonomous systems that maintain persistent memory across conversations and can learn and self-improve over time. Unlike traditional st"
+          },
+          {
+            "title": "Letta 有状态 AI 代理（Letta stateful AI agents）— 定义、原理与应用",
+            "slug": "letta-stateful-ai-agents",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 86,
+            "preview": "Letta 有状态 AI 代理是一种具备持久记忆能力的智能代理系统。与传统的无状态对话模型不同，Letta 代理能够跨会话保留上下文信息，随着交互不断学习并自我改进。这种架构让 AI 代理拥有类似人类的长期记忆，可以记住用户偏好、历史对话和任务进度。 传统大语言模型（LLM）的上下文窗口有限，每次对话结束后状态即清空。这导致用户需要反复解释背景，AI 助手也无法建立持续的用户画像。Letta 通过"
+          },
+          {
+            "title": "RAGFlow open source RAG engine — What It Is and Why It Matters",
+            "slug": "ragflow-open-source-rag-engine",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 425,
+            "preview": "RAGFlow is an open-source Retrieval-Augmented Generation (RAG) engine developed by InfiniFlow that combines document understanding, retrieval capabilities, and agent functionality to provide grounded "
+          },
+          {
+            "title": "RAGFlow 开源 RAG 引擎（RAGFlow open source RAG engine）— 定义、原理与应用",
+            "slug": "ragflow-open-source-rag-engine",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 87,
+            "preview": "RAGFlow 是由 InfiniFlow 开发的开源检索增强生成（Retrieval-Augmented Generation, RAG）引擎。它将深度文档理解能力与大语言模型（LLM）结合，帮助企业和开发者基于私有知识库构建可靠的问答系统。RAGFlow 的核心特点是对复杂文档格式的精准解析，以及可追溯的引用机制——每个回答都能指向原始文档来源。 传统 RAG 方案在处理 PDF 表格、扫描件"
+          },
+          {
+            "title": "Claude Opus 4.6: What Actually Changed and Why It Matters",
+            "slug": "claude-opus-4-6-what-actually-changed-and-why-it-matters",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 744,
+            "preview": "Claude Opus 4.6 represents Anthropic's most capable model to date, but the improvements are more targeted than revolutionary. According to testing by developers and the official documentation, the mos"
+          },
+          {
+            "title": "Claude Opus 4.6: What Actually Changed and Why It Matters",
+            "slug": "claude-opus-4-6-what-actually-changed-and-why-it-matters",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 103,
+            "preview": "Claude Opus 4.6 相比 4.5 版本的最大改进并非速度或风格，而是**记忆能力（Memory）**。根据 Reddit 用户的实测反馈，这一变化在长对话和复杂项目中表现尤为明显。 Anthropic 官方文档显示，Opus 4.6 引入了**自适应思维（Adaptive Thinking）**功能，自动启用交错思维（Interleaved Thinking），原先需要手动设置的 `i"
+          },
+          {
+            "title": "Codex vs Claude Code: which is the better AI coding agent?",
+            "slug": "codex-vs-claude-code-which-is-the-better-ai-coding-agent",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 816,
+            "preview": "Neither Codex nor Claude Code is universally \"better\"—the right choice depends on your workflow, technical expertise, and specific needs. **Codex excels for experienced developers** building real appl"
+          },
+          {
+            "title": "Codex vs Claude Code: which is the better AI coding agent?",
+            "slug": "codex-vs-claude-code-which-is-the-better-ai-coding-agent",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 163,
+            "preview": "Codex 和 Claude Code 是当前最受关注的两款 AI 编码代理（AI Coding Agent），但它们的定位和优势有明显差异。 **速度与推理风格**：据 Builder.io 的实测对比，Codex 的推理时间更长，但可见的 token 输出速度更快；Claude Code 推理更简洁，但输出速度稍慢。在 Cursor 编辑器中切换模型时，这种体验差异同样明显。 **实际项目表现"
+          },
+          {
+            "title": "How I Use Every Claude Code Feature - by Shrivu Shankar",
+            "slug": "how-i-use-every-claude-code-feature-by-shrivu-shankar",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 776,
+            "preview": "Shrivu Shankar's guide is a comprehensive walkthrough of Claude Code's capabilities, written from the perspective of a power user who has extensively tested the tool for both individual development an"
+          },
+          {
+            "title": "How I Use Every Claude Code Feature - by Shrivu Shankar",
+            "slug": "how-i-use-every-claude-code-feature-by-shrivu-shankar",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 117,
+            "preview": "Shrivu Shankar 是一位 Claude Code 深度用户，他撰写了一篇详尽的功能指南，覆盖了从基础配置到高级自动化的完整使用场景。这篇文章被 Simon Willison 评价为\"详细且实用\"，特别适合个人开发者和团队项目配置参考。 指南核心内容包括： **基础配置层**：`CLAUDE.md` 文件是 Claude Code 的项目指令中心，开发者可以在这里定义代码规范、项目上下文"
+          },
+          {
+            "title": "r/Anthropic on Reddit: Claude Code VS Code extension is now incredible!",
+            "slug": "r-anthropic-on-reddit-claude-code-vs-code-extension-is-now-incredible",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 787,
+            "preview": "The Claude Code VS Code extension has undergone significant improvements that have transformed it from a basic integration into a powerful development tool. According to Reddit discussions on r/Anthro"
+          },
+          {
+            "title": "r/Anthropic on Reddit: Claude Code VS Code extension is now incredible!",
+            "slug": "r-anthropic-on-reddit-claude-code-vs-code-extension-is-now-incredible",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 159,
+            "preview": "根据 Reddit r/Anthropic 社区的讨论，Claude Code 的 VS Code 扩展经历了显著的质量提升。一位用户在帖子中表示\"absolutely floored\"（完全震惊），对比之前的版本，现在的体验有了质的飞跃。该帖获得了 76 票赞同和 34 条评论，反映出社区对这一改进的广泛认可。 扩展正式进入通用可用（GA）阶段后，功能上已经非常接近命令行（CLI）体验。r/Cl"
+          },
+          {
+            "title": "r/ClaudeCode on Reddit: Claude Code vs Competition: Why I Switched My Entire Workflow",
+            "slug": "r-claudecode-on-reddit-claude-code-vs-competition-why-i-switched-my-entire-workf",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 744,
+            "preview": "The r/ClaudeCode community has documented compelling reasons why developers are abandoning competing AI coding tools. One detailed case study involved migrating an Express application to TypeScript—a "
+          },
+          {
+            "title": "r/ClaudeCode on Reddit: Claude Code vs Competition: Why I Switched My Entire Workflow",
+            "slug": "r-claudecode-on-reddit-claude-code-vs-competition-why-i-switched-my-entire-workf",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 113,
+            "preview": "根据 Reddit r/ClaudeCode 社区的实战分享，Claude Code 在大型代码迁移项目中展现了独特优势。一位开发者完成了 Express 到 TypeScript 的完整迁移，涉及超过 40 个路由文件、20 多个中间件函数、数据库查询层、100 多个测试文件以及贯穿整个代码库的类型定义。 Claude Code 的核心差异在于**架构级理解能力**——它不只是处理单个文件，而是"
+          },
+          {
+            "title": "SWE-bench Pro vs Verified deprecation — Frequently Asked Questions",
+            "slug": "swe-bench-pro-vs-verified-deprecation",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1141,
+            "preview": "SWE-bench is a benchmark designed to test AI systems on real-world software engineering tasks. Rather than synthetic coding puzzles, it uses actual GitHub issues and pull requests from popular open-so"
+          },
+          {
+            "title": "SWE-bench Pro 与 Verified 废弃对比 — 常见问题解答",
+            "slug": "swe-bench-pro-vs-verified-deprecation",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 262,
+            "preview": "2026 年 2 月 23 日，OpenAI 正式宣布停止报告 SWE-bench Verified 分数。核心原因有两个：**测试设计缺陷**和**数据污染**。经审计发现，至少 59.4% 的 Verified 测试用例存在问题——它们会错误拒绝功能正确的代码提交。更严重的是，GPT-5.2、Claude Opus 4.5、Gemini 3 Flash 等前沿模型已经能从记忆中复现部分原始修复"
+          }
+        ]
+      },
+      {
         "date": "2026-02-24",
         "count": 28,
         "items": [
@@ -2289,7 +3427,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1909,
+            "wordCount": 2209,
             "preview": "**TL;DR:** OpenAI released gpt-realtime-1.5, an updated model for their Realtime API that addresses three pain points developers faced with voice applications: inconsistent instruction following, unre"
           },
           {
@@ -2565,7 +3703,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1876,
+            "wordCount": 2125,
             "preview": "**TL;DR:** Three trending GitHub projects—Gas Town (9,796 stars), oh-my-claudecode (6,726 stars), and DeerFlow (20,015 stars)—signal a fundamental shift from single-agent AI assistants to coordinated "
           },
           {
