@@ -4,6 +4,86 @@
   "name_zh": "Claude Opus 4.6",
   "entries": [
     {
+      "id": "twitter-2026712899499208931",
+      "title": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing",
+      "url": "https://x.com/adocomplete/status/2026712899499208931",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing projects that deserve a shoutout.\n\nToday I want to highlight SimForge by Jake Kang (@jakekang). SimForge turns photos into physics simulations and it's wild! https://t.co/YfY5JuWsT",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026765820098130111",
+      "title": "In November, we outlined our approach to deprecating and preserving older Claude models.",
+      "url": "https://x.com/AnthropicAI/status/2026765820098130111",
+      "source": "@AnthropicAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "In November, we outlined our approach to deprecating and preserving older Claude models.\n\nWe noted we were exploring keeping certain models available to the public post-retirement, and giving past models a way to pursue their interests.\n\nWith Claude Opus 3, we’re doing both.",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "anthropic-news-acquires-vercept",
+      "title": "Anthropic acquires Vercept to advance Claude&#x27;s computer use capabilities",
+      "url": "https://www.anthropic.com/news/acquires-vercept",
+      "source": "Anthropic Blog",
+      "category": "model_release",
+      "score": 95,
+      "summary": "Anthropic announcement (Feb 25, 2026)",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1req3oz",
+      "title": "Claude Opus 3 is being deprecated, and getting a blog!",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1req3oz/claude_opus_3_is_being_deprecated_and_getting_a/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "[https://x.com/AnthropicAI/status/2026765820098130111](https://x.com/AnthropicAI/status/2026765820098130111)\n\n\n\n[https://www.anthropic.com/research/deprecation-updates-opus-3](https://www.anthropic.com/research/deprecation-updates-opus-3)\n\n  \n[https://substack.com/@claudeopus3](https://substack.com/@claudeopus3)",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1req1ad",
+      "title": "Official: An update on model deprecation commitments for Claude Opus 3",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1req1ad/official_an_update_on_model_deprecation/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 50,
+      "summary": "**Source:** Anthropic AI\n\n[Full Thread](https://x.com/i/status/2026765824506364136)",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1recva7",
+      "title": "Pentagon, Claude and the military use",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1recva7/pentagon_claude_and_the_military_use/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 58,
+      "summary": "https://www.bfmtv.com/tech/intelligence-artificielle/le-pentagone-donne-72-heures-a-anthropic-pour-permettre-a-l-armee-d-utiliser-son-ia-claude-sous-peine-de-forcer-la-start-up-avec-une-loi-de-1950_AD-202602250483.html",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1re6ifz",
+      "title": "Anthropic is the leading contributor to open weight models",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1re6ifz/anthropic_is_the_leading_contributor_to_open/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 54,
+      "summary": "It just happens to be entirely against their will and TOS. I say: Distill Baby Distill!",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "gh-release-anthropics-anthropic-sdk-python-v0.84.0",
+      "title": "📦 anthropics/anthropic-sdk-python v0.84.0",
+      "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.84.0",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## 0.84.0 (2026-02-25)  Full Changelog: [v0.83.0...v0.84.0](https://github.com/anthropics/anthropic-sdk-python/compare/v0.83.0...v0.84.0)  ### Features  * **api:** change array_format to brackets ([925d2ad](https://github.com/anthropics/anthropic-sdk-python/commit/925d2ad6b76ad7c",
+      "date": "2026-02-25"
+    },
+    {
       "id": "gh-anthropics-financial-services-plugins",
       "title": "anthropics/financial-services-plugins (⭐522)",
       "url": "https://github.com/anthropics/financial-services-plugins",
@@ -834,5 +914,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-25"
+  "lastUpdated": "2026-02-26"
 }

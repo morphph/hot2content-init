@@ -4,6 +4,36 @@
   "name_zh": "AI 模型对比",
   "entries": [
     {
+      "id": "reddit-1rei65v",
+      "title": "Qwen3.5-35B-A3B quantization quality + speed benchmarks on RTX 5080 16GB (Q8_0 vs Q4_K_M vs UD-Q4_K_XL)",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/qwen3535ba3b_quantization_quality_speed/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 50,
+      "summary": "Ran some benchmarks on Qwen3.5-35B-A3B with llama.cpp on a single-GPU consumer workstation. Model doesn't fit in VRAM so this is a CPU/GPU offloading setup over PCIe 5.0.\n\n# System Specs\n\n|Component|Spec|\n|:-|:-|\n|GPU|NVIDIA GeForce RTX 5080 16GB GDDR7 (Blackwell, sm\\_120, 960 GB/s bandwidth)|\n|CPU|AMD Ryzen 9 9950X (32 threads)|\n|RAM|128 GB DDR5-4800 (dual channel, \\~77 GB/s)|\n|PCIe|5.0 x16 (\\~64 GB/s bidirectional)|\n|OS|Ubuntu 24.04.3 LTS, kernel 6.17.0|\n|CUDA|13.1, driver 590.48.01|\n|llama.cp",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1reds0p",
+      "title": "Qwen 3.5 craters on hard coding tasks — tested all Qwen3.5 models (And Codex 5.3) on 70 real repos so you don't have to.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1reds0p/qwen_35_craters_on_hard_coding_tasks_tested_all/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 53,
+      "summary": "Hey everyone, some of you might remember [https://www.reddit.com/r/LocalLLaMA/comments/1r7shtv/i\\_built\\_a\\_benchmark\\_that\\_tests\\_coding\\_llms\\_on/](https://www.reddit.com/r/LocalLLaMA/comments/1r7shtv/i_built_a_benchmark_that_tests_coding_llms_on/) where I shared APEX Testing — my benchmark that tests coding models on real codebases with real problems.\n\n\n\nSince then I've added 5 more tasks (now 70 total), and more importantly tested a bunch of new models people were asking about: all the Qwen",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "rss-sebastian-raschka-aHR0cHM6Ly9tYWdh",
+      "title": "A Dream of Spring for Open-Weight LLMs: 10 Architectures from Jan-Feb 2026",
+      "url": "https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight",
+      "source": "Sebastian Raschka",
+      "category": "official_blog",
+      "score": 82,
+      "summary": "A Round Up And Comparison of 10 Open-Weight LLM Releases in Spring 2026",
+      "date": "2026-02-25"
+    },
+    {
       "id": "reddit-1rdxfdu",
       "title": "Qwen3.5-35B-A3B is a gamechanger for agentic coding.",
       "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/qwen3535ba3b_is_a_gamechanger_for_agentic_coding/",
@@ -274,5 +304,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-25"
+  "lastUpdated": "2026-02-26"
 }

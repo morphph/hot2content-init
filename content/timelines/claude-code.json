@@ -4,6 +4,86 @@
   "name_zh": "Claude Code",
   "entries": [
     {
+      "id": "gh-SuperClaude-Org-SuperClaude_Framework",
+      "title": "SuperClaude-Org/SuperClaude_Framework (⭐21,003)",
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "A configuration framework that enhances Claude Code with specialized commands, cognitive personas, and development methodologies.",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2023830098118586464",
+      "title": "BREAKING: The largest collection of AI coding skills",
+      "url": "https://x.com/techNmak/status/2023830098118586464",
+      "source": "@techNmak",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "BREAKING: The largest collection of AI coding skills\n\n860+ skills. One repo. Works everywhere.\n\n→ Claude Code\n→ Gemini CLI\n→ Codex CLI\n→ Cursor\n→ GitHub Copilot\n→ OpenCode\n→ Antigravity IDE\n→ AdaL CLI\n\nWhat are skills?\n\nAI agents are smart but generic. They don't know your deployment protocol. They don't know your company's architecture patterns. They don't know AWS CloudFormation syntax.\n\nSkills are small markdown files that teach them.\n\nOne skill = one capability. Perfectly executed. Every tim",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026296443959431364",
+      "title": "Stop coding from scratch with agents.",
+      "url": "https://x.com/heykahn/status/2026296443959431364",
+      "source": "@heykahn",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Stop coding from scratch with agents.\n\nThis repo gives you 860+ battle-tested skills for Claude Code, Gemini CLI, Cursor, and Copilot.\n\nIt’s essentially a curated library that transforms your AI assistant from a basic chat interface into a production-ready engineering partner.\n\nP.S. Check out 100+ such repos shared in this community of 200K+ AI/ML Engineers: \nhttps://t.co/cSeCMfne9l\n\nYou can use it for:\n→ RAG pipelines & LLM systems\n→ Docker, AWS serverless, Vercel deployment\n→ Security audits &",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-1898789901824590328",
+      "title": "Here's how to write a MCP server in 28 lines of code.",
+      "url": "https://x.com/mattpocockuk/status/1898789901824590328",
+      "source": "@mattpocockuk",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Here's how to write a MCP server in 28 lines of code.\n\nWorks with Cursor, Windsurf, Claude Code, Zed... Any MCP client. https://t.co/Rkh9pTkJP3",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2023322026413564044",
+      "title": "pov: Life after you start coding with Claude code",
+      "url": "https://x.com/cgtwts/status/2023322026413564044",
+      "source": "@cgtwts",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "pov: Life after you start coding with Claude code\n\n https://t.co/6NdYJf1kiX",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026447080928002163",
+      "title": "this guy started vibe coding 139 days ago ON LIVE.",
+      "url": "https://x.com/om_patel5/status/2026447080928002163",
+      "source": "@om_patel5",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "this guy started vibe coding 139 days ago ON LIVE.  \n\ntoday, he just crossed $41,000 in revenue.  \n\ncrazy to think what you can do with JUST a Claude Code subscription https://t.co/R1zrEUMk4I",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026662444316434569",
+      "title": "Claude Code was too expensive so I hired a Dev instead",
+      "url": "https://x.com/karankendre/status/2026662444316434569",
+      "source": "@karankendre",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Claude Code was too expensive so I hired a Dev instead\nNow he wants a Claude Code subscription https://t.co/YKX8eok0TS",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026712899499208931",
+      "title": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing",
+      "url": "https://x.com/adocomplete/status/2026712899499208931",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing projects that deserve a shoutout.\n\nToday I want to highlight SimForge by Jake Kang (@jakekang). SimForge turns photos into physics simulations and it's wild! https://t.co/YfY5JuWsT",
+      "date": "2026-02-25"
+    },
+    {
       "id": "twitter-search-2022240927394525229",
       "title": "🚨BREAKING: You can now run Claude Code for FREE.",
       "url": "https://x.com/lazukars/status/2022240927394525229",
@@ -1554,5 +1634,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-25"
+  "lastUpdated": "2026-02-26"
 }

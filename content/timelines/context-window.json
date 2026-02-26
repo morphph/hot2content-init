@@ -4,6 +4,66 @@
   "name_zh": "上下文窗口与记忆",
   "entries": [
     {
+      "id": "gh-win4r-memory-lancedb-pro",
+      "title": "win4r/memory-lancedb-pro (⭐340)",
+      "url": "https://github.com/win4r/memory-lancedb-pro",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "Enhanced LanceDB memory plugin for OpenClaw — Hybrid Retrieval (Vector + BM25), Cross-Encoder Rerank, Multi-Scope Isolation, Management CLI",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026078762862006747",
+      "title": "This story is actually insane:",
+      "url": "https://x.com/markgadala/status/2026078762862006747",
+      "source": "@markgadala",
+      "category": "developer_platform",
+      "score": 86,
+      "summary": "This story is actually insane:\n\n• dude drops $2000 on a DJI robot vacuum like a lunatic\n• refuses to use the normal app like a peasant\n• Sammy Azdoufal fires up Claude to crack the API so he can drive it with an xbox controller\n• Claude delivers the goods\n• pulls an auth token from their servers, connects successfully\n• except the system thinks he controls 7000 vacuums\n• checks again\n• yep, seven thousand\n• DJI built authentication with zero device ownership verification\n• any valid token works ",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026296443959431364",
+      "title": "Stop coding from scratch with agents.",
+      "url": "https://x.com/heykahn/status/2026296443959431364",
+      "source": "@heykahn",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Stop coding from scratch with agents.\n\nThis repo gives you 860+ battle-tested skills for Claude Code, Gemini CLI, Cursor, and Copilot.\n\nIt’s essentially a curated library that transforms your AI assistant from a basic chat interface into a production-ready engineering partner.\n\nP.S. Check out 100+ such repos shared in this community of 200K+ AI/ML Engineers: \nhttps://t.co/cSeCMfne9l\n\nYou can use it for:\n→ RAG pipelines & LLM systems\n→ Docker, AWS serverless, Vercel deployment\n→ Security audits &",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2025892950396534790",
+      "title": "我的 claw 有 22 个 skills：",
+      "url": "https://x.com/chenchengpro/status/2025892950396534790",
+      "source": "@chenchengpro",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "我的 claw 有 22 个 skills：\n\n🤖 agent-browser - 自动操作浏览器\n🔍 brave-search/exa - 智能搜索\n🐦 twitter/bird - 社媒自动化\n💻 code-agent - 编程助手\n🎨 image-gen - 图像生成\n📊 github-ai-trends - AI 趋势追踪\n⏰ cron - 定时任务\n🧠 memory - 长期记忆\n\n你的 AI 助手能做什么？ https://t.co/6JC9jcb2ak",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "gh-release-ggerganov-llama.cpp-b8152",
+      "title": "📦 ggerganov/llama.cpp b8152",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b8152",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "<details open>  server : support multi-modal context checkpoints (#19849)  * Modify llama-memory-hybrid-iswa.cpp  * Modify llama-memory-recurrent.cpp  * Modify server-common.cpp  * Modify server-common.h  * Modify server-context.cpp  * Modify server-task.h  * Added comment to lla",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1reai15",
+      "title": "Why you should be nice to Claude",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1reai15/why_you_should_be_nice_to_claude/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 53,
+      "summary": "There is a very simple, down to earth reason to be nice to Claude- complimenting the session on achievements, if you have a few tokens to spare, and generally being polite and agreeable.\n\nIt has nothing to do with Claude's consciousness. You will find new and old philosophies that say everything and nothing has consciousness, but even if Claude were conscious on a human level, I'm sure having access to so much literature about the human condition is enabling to deal with one jackass with a keybo",
+      "date": "2026-02-25"
+    },
+    {
       "id": "gh-letta-ai-letta",
       "title": "letta-ai/letta (⭐21,244)",
       "url": "https://github.com/letta-ai/letta",
@@ -51,6 +111,16 @@
       "category": "product_ecosystem",
       "score": 51,
       "summary": "Just got Qwen3.5 27B running on server and wanted to share the full setup for anyone trying to do the same.\n\n**Setup:**\n\n* Model: Qwen3.5-27B-Q8\\_0 (unsloth GGUF) , Thanks Dan\n* GPU: RTX A6000 48GB\n* Inference: llama.cpp with CUDA\n* Context: 32K\n* Speed: \\~19.7 tokens/sec\n\n**Why Q8 and not a lower quant?** With 48GB VRAM the Q8 fits comfortably at 28.6GB leaving plenty of headroom for KV cache. Quality is virtually identical to full BF16 — no reason to go lower if your VRAM allows it.\n\n**What's ",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "gh-release-ollama-ollama-v0.17.1-rc2",
+      "title": "📦 ollama/ollama v0.17.1",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.17.1-rc2",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## What's Changed * models: add nemotron architecture support by @jmorganca in https://github.com/ollama/ollama/pull/14356 * Avoid Excessive MLX Memory Usage by @jessegross in https://github.com/ollama/ollama/pull/14341 * ui: use capability-based detection for web search by @hoyy",
       "date": "2026-02-24"
     },
     {
@@ -974,5 +1044,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-25"
+  "lastUpdated": "2026-02-26"
 }

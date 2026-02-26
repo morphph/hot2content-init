@@ -14,6 +14,26 @@
       "date": "2026-12-16"
     },
     {
+      "id": "twitter-search-2023830098118586464",
+      "title": "BREAKING: The largest collection of AI coding skills",
+      "url": "https://x.com/techNmak/status/2023830098118586464",
+      "source": "@techNmak",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "BREAKING: The largest collection of AI coding skills\n\n860+ skills. One repo. Works everywhere.\n\n→ Claude Code\n→ Gemini CLI\n→ Codex CLI\n→ Cursor\n→ GitHub Copilot\n→ OpenCode\n→ Antigravity IDE\n→ AdaL CLI\n\nWhat are skills?\n\nAI agents are smart but generic. They don't know your deployment protocol. They don't know your company's architecture patterns. They don't know AWS CloudFormation syntax.\n\nSkills are small markdown files that teach them.\n\nOne skill = one capability. Perfectly executed. Every tim",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "reddit-1reds0p",
+      "title": "Qwen 3.5 craters on hard coding tasks — tested all Qwen3.5 models (And Codex 5.3) on 70 real repos so you don't have to.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1reds0p/qwen_35_craters_on_hard_coding_tasks_tested_all/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 53,
+      "summary": "Hey everyone, some of you might remember [https://www.reddit.com/r/LocalLLaMA/comments/1r7shtv/i\\_built\\_a\\_benchmark\\_that\\_tests\\_coding\\_llms\\_on/](https://www.reddit.com/r/LocalLLaMA/comments/1r7shtv/i_built_a_benchmark_that_tests_coding_llms_on/) where I shared APEX Testing — my benchmark that tests coding models on real codebases with real problems.\n\n\n\nSince then I've added 5 more tasks (now 70 total), and more importantly tested a bunch of new models people were asking about: all the Qwen",
+      "date": "2026-02-25"
+    },
+    {
       "id": "twitter-search-1925841291557970139",
       "title": "🚨 BREAKING: OpenAI just launched free AI courses.",
       "url": "https://x.com/bigaiguy/status/1925841291557970139",
@@ -804,5 +824,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-25"
+  "lastUpdated": "2026-02-26"
 }

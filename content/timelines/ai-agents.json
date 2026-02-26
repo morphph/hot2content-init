@@ -4,6 +4,66 @@
   "name_zh": "AI 智能体",
   "entries": [
     {
+      "id": "twitter-search-2023830098118586464",
+      "title": "BREAKING: The largest collection of AI coding skills",
+      "url": "https://x.com/techNmak/status/2023830098118586464",
+      "source": "@techNmak",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "BREAKING: The largest collection of AI coding skills\n\n860+ skills. One repo. Works everywhere.\n\n→ Claude Code\n→ Gemini CLI\n→ Codex CLI\n→ Cursor\n→ GitHub Copilot\n→ OpenCode\n→ Antigravity IDE\n→ AdaL CLI\n\nWhat are skills?\n\nAI agents are smart but generic. They don't know your deployment protocol. They don't know your company's architecture patterns. They don't know AWS CloudFormation syntax.\n\nSkills are small markdown files that teach them.\n\nOne skill = one capability. Perfectly executed. Every tim",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2023029972286529886",
+      "title": "AI Agent Course for Free (2 Hours)",
+      "url": "https://x.com/techyoutbe/status/2023029972286529886",
+      "source": "@techyoutbe",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AI Agent Course for Free (2 Hours)\n\nBuild &amp; Automate ANYTHING 🔥🔥\n\n https://t.co/Kvy02ENbZL",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026305257257775524",
+      "title": "introducing polymarket cli - the fastest way for ai agents to access prediction markets",
+      "url": "https://x.com/SuhailKakar/status/2026305257257775524",
+      "source": "@SuhailKakar",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "introducing polymarket cli - the fastest way for ai agents to access prediction markets\n\nbuilt with rust. your agent can query markets, place trades, and pull data - all from the terminal\n\nfast, lightweight, no overhead https://t.co/Q67wGD9pWW",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2026600334588596461",
+      "title": "Human-in-the-loop doesn’t disappear.",
+      "url": "https://x.com/dtelecom/status/2026600334588596461",
+      "source": "@dtelecom",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Human-in-the-loop doesn’t disappear.\n\nSo if every agent should speak,\nSTT/TTS becomes core infra.\n\nAt $0.05–0.2/min (current rates),\nAI won’t scale.\n\nWe run full voice 🙎‍♂️&lt;&gt;🤖&lt;&gt;🙎‍♂️ pipeline at $0.016/min.\n\nNo subs/KYC.\nx402-native.\nProgrammatic.\n\nWe unlocked Agentic economy. https://t.co/IYVMhubTWu",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-search-2023438545369636890",
+      "title": "My AI agent is not doing its job https://t.co/B0N3TvKWyO",
+      "url": "https://x.com/chasedownleads/status/2023438545369636890",
+      "source": "@chasedownleads",
+      "category": "developer_platform",
+      "score": 72,
+      "summary": "My AI agent is not doing its job https://t.co/B0N3TvKWyO",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "twitter-2026734366118879390",
+      "title": "How does a single prompt become a navigable environment? 🌐",
+      "url": "https://x.com/GoogleDeepMind/status/2026734366118879390",
+      "source": "@GoogleDeepMind",
+      "category": "official_blog",
+      "score": 80,
+      "summary": "How does a single prompt become a navigable environment? 🌐\n\nWe asked the researchers behind Project Genie to explain the mechanics of world models and their potential for training future AI agents. 🧵",
+      "date": "2026-02-25"
+    },
+    {
       "id": "gh-muratcankoylan-Agent-Skills-for-Context-Engineering",
       "title": "muratcankoylan/Agent-Skills-for-Context-Engineering (⭐10,089)",
       "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
@@ -974,5 +1034,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-25"
+  "lastUpdated": "2026-02-26"
 }
