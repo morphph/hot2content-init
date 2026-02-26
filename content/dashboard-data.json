@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-02-26T05:38:13.010Z",
+  "generatedAt": "2026-02-26T22:09:14.433Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-02-26",
+      "lastRunDate": "2026-02-27",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-26",
-      "enPublished": false,
-      "zhPublished": false
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-02-27",
+      "enPublished": true,
+      "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": null,
-      "lastRunStatus": "unknown"
+      "lastRunTimestamp": "2026-02-26 05:39:50 UTC",
+      "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 133,
-      "last72h": 247,
-      "total": 982
+      "last24h": 196,
+      "last72h": 311,
+      "total": 1046
     },
     "recentErrors": []
   },
@@ -278,7 +278,7 @@
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 6
+      "newsletter": 7
     },
     "byTier": {
       "0": 5,
@@ -286,14 +286,14 @@
       "2": 46,
       "3": 28
     },
-    "publishedLast7d": 6,
-    "publishedLast30d": 6,
+    "publishedLast7d": 7,
+    "publishedLast30d": 7,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 6
+      "noScore": 7
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -302,12 +302,12 @@
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 0,
+    "freshnessBacklog": 4,
     "newsletterStreak": {
-      "en": 18,
-      "zh": 18,
-      "lastEnDate": "2026-02-25",
-      "lastZhDate": "2026-02-25"
+      "en": 1,
+      "zh": 1,
+      "lastEnDate": "2026-02-27",
+      "lastZhDate": "2026-02-27"
     }
   },
   "keywordProvenance": {
