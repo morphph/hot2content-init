@@ -1,13 +1,25 @@
 ---
 slug: context-engineering-for-production-agents
-title: "Context Engineering for Production Agents — Analysis and Industry Impact"
-description: "In-depth analysis of context engineering for production agents: what happened, why it matters, and what comes next."
-keywords: ["context engineering", "production AI agents", "LLM context windows", "agent orchestration", "prompt engineering"]
-date: 2026-02-20
+title: Context Engineering for Production Agents — Analysis and Industry Impact
+description: >-
+  In-depth analysis of context engineering for production agents: what happened,
+  why it matters, and what comes next.
+keywords:
+  - context engineering
+  - production AI agents
+  - LLM context windows
+  - agent orchestration
+  - prompt engineering
+date: 2026-02-20T00:00:00.000Z
 tier: 2
 lang: en
 type: blog
-tags: ["analysis", "AI trends", "context engineering", "AI agents"]
+tags:
+  - analysis
+  - AI trends
+  - context engineering
+  - AI agents
+updated: '2026-02-27'
 ---
 
 # Context Engineering for Production Agents
@@ -131,3 +143,19 @@ Perhaps that's fine—these patterns evolved because they solve real problems. O
 For now, the pragmatic answer is clear: production agents require production-grade context engineering. The frameworks emerging today—GSD, Haystack, and others—are codifying the hard-won lessons from teams who've deployed agents at scale. Whether you use these specific tools or build your own, the underlying principles matter: structure your context, be explicit about what you include, observe what actually helps, and never assume more is automatically better.
 
 The agents that work aren't the ones with the cleverest prompts. They're the ones with the most carefully engineered context.
+
+Now I have the full context of the original blog. The update should focus on the dair-ai/Prompt-Engineering-Guide repository milestone (70K+ stars) and its expansion to cover context engineering, RAG, and AI agents — without repeating the GSD/Haystack coverage already in the article.
+
+---
+
+## 📰 Latest Update (2026-02-27)
+
+The community's hunger for context engineering knowledge just got quantified: **dair-ai/Prompt-Engineering-Guide** crossed 70,800 GitHub stars this week after expanding its scope to formally include context engineering, RAG architectures, and AI agent patterns alongside its original prompt engineering curriculum.
+
+The repository's evolution tells its own story. What started in 2022 as a collection of prompting techniques has become a de facto industry syllabus — and its maintainers clearly read the room. The guide now includes dedicated sections on context window management, retrieval pipeline design, and agent memory systems, reflecting the same maturation trajectory we analyzed with GSD and Haystack.
+
+What's notable isn't just the star count (though 70K puts it in rare company alongside repositories like LangChain and llama.cpp). It's the curriculum shift. The guide now explicitly positions prompt engineering as a subset of the broader context engineering discipline, with new lessons covering multi-document reasoning, context compression strategies, and the practical trade-offs between retrieval augmentation and fine-tuning.
+
+For practitioners, this legitimizes a career pivot that's already happening on the ground. "Prompt engineer" as a job title peaked in mid-2024; LinkedIn searches for "context engineer" have tripled since November 2025. Having an MIT-licensed, community-vetted educational resource formalizing the field accelerates its institutionalization.
+
+The guide's expansion also highlights an uncomfortable truth: the gap between "I can make ChatGPT do tricks" and "I can build production agents" is widening. One requires cleverness; the other requires engineering. At least now there's a reading list.

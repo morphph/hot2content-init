@@ -14,6 +14,26 @@
       "date": "2026-12-16"
     },
     {
+      "id": "gh-slopus-happy",
+      "title": "slopus/happy (⭐13,654)",
+      "url": "https://github.com/slopus/happy",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Mobile and Web client for Codex and Claude Code, with realtime voice, encryption and fully featured",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027062351724527723",
+      "title": "Code → design → code",
+      "url": "https://x.com/OpenAIDevs/status/2027062351724527723",
+      "source": "@OpenAIDevs",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Code → design → code\n\nGenerate design files from code, collaborate in @Figma, and implement updates all within Codex without breaking your flow. https://t.co/OXdfoy5mXS",
+      "date": "2026-02-26"
+    },
+    {
       "id": "twitter-search-2023830098118586464",
       "title": "BREAKING: The largest collection of AI coding skills",
       "url": "https://x.com/techNmak/status/2023830098118586464",
@@ -824,5 +844,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

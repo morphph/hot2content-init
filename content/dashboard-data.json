@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-26T22:09:14.433Z",
+  "generatedAt": "2026-02-27T05:36:39.150Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-27",
@@ -9,22 +9,22 @@
       "zhPublished": true
     },
     "seo": {
-      "lastRunTimestamp": "2026-02-26 05:39:50 UTC",
-      "lastRunStatus": "complete"
+      "lastRunTimestamp": null,
+      "lastRunStatus": "unknown"
     },
     "newsItems": {
-      "last24h": 196,
-      "last72h": 311,
+      "last24h": 63,
+      "last72h": 222,
       "total": 1046
     },
     "recentErrors": []
   },
   "keywordQuality": {
     "byStatus": {
-      "backlog": 40
+      "backlog": 50
     },
     "byLanguage": {
-      "en": 40
+      "en": 50
     },
     "byIntent": {
       "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases.": 1,
@@ -35,6 +35,7 @@
       "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand.": 1,
       "Anthropic just acquired Vercept to advance Claude's computer use capabilities, signaling major investment in agentic desktop automation": 1,
       "Anthropic just released RSP v3.0 on Feb 24, 2026 - major update to their AI safety framework with new transparency commitments": 1,
+      "Anthropic just rolled out auto-memory that persists across sessions, allowing Claude to remember project context and debugging patterns without manual notes": 1,
       "Anthropic launching private plugin marketplaces for teams plus Google Workspace connectors for Calendar, Drive, Gmail": 1,
       "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
       "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality.": 1,
@@ -48,15 +49,21 @@
       "Godot maintainers overwhelmed by AI-generated PRs with nonsensical code and fabricated tests - raises questions about open source sustainability": 1,
       "Google DeepMind explaining how Project Genie turns prompts into navigable environments for training future AI agents using world models": 1,
       "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications.": 1,
+      "Google launched Nano Banana 2 on Gemini Flash claiming Pro-level image generation at Flash speeds, directly competing with OpenAI's latest image models": 1,
       "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
       "HuggingFace guide on deploying open source Vision Language Models on NVIDIA Jetson for edge AI applications": 1,
       "Letta platform for building stateful agents with advanced memory that can learn and self-improve over time - 21K+ stars": 1,
+      "Meta announced multi-year agreement with AMD for Instinct GPUs with 6GW data center capacity, signaling major infrastructure diversification away from NVIDIA": 1,
       "Meta announced multi-year agreement with AMD for Instinct GPUs, deploying approximately 6GW of data center capacity": 1,
       "Meta announces multi-year AMD partnership with 6GW of data center capacity for Instinct GPUs - major shift in AI infrastructure landscape": 1,
       "Microsoft's Playwright MCP server has 27,481 stars, becoming the standard for AI agent browser automation via Model Context Protocol.": 1,
       "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns": 1,
       "New feature allowing developers to control Claude Code sessions from mobile phone while away from computer": 1,
+      "New feature allows developers to start Claude Code sessions in terminal and continue from phone, enabling coding while away from desk": 1,
+      "New feature enables recurring automated tasks like morning briefs and weekly spreadsheet updates in Claude Cowork": 1,
+      "Notion launched Custom Agents that run autonomously on triggers and schedules, expanding AI agent adoption into productivity tools": 1,
       "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks.": 1,
+      "OpenAI demonstrating how to build restaurant voice agents using gpt-realtime-1.5, showing practical voice AI implementation patterns": 1,
       "OpenAI expanded Responses API to accept docx, pptx, csv, xlsx directly - agents can now process real-world business files without preprocessing": 1,
       "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development.": 1,
       "OpenAI recommending SWE-bench Pro over Verified as coding eval standards evolve with model maturity": 1,
@@ -64,32 +71,35 @@
       "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1,
       "PaddleOCR trending with 71K stars as the go-to tool for converting PDFs/images to structured data for LLM pipelines, supports 100+ languages": 1,
       "RAGFlow at 73K+ GitHub stars is now the leading open-source RAG engine, combining RAG with Agent capabilities": 1,
+      "Running Qwen3.5-35B MoE model on single RTX 3090 at 113 tokens/sec with full 262K context demonstrates new possibilities for local AI deployment": 1,
+      "Sebastian Raschka's comparison of 10 open-weight LLM releases from Jan-Feb 2026 highlighting architectural innovations across the field": 1,
       "Sebastian Raschka's roundup of 10 open-weight LLM architectures from Jan-Feb 2026 - essential reading for understanding current model landscape": 1,
+      "Teams using WebSockets in Responses API for faster agentic workflows, representing shift in how production AI agents communicate": 1,
       "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users.": 1,
       "vLLM 0.16 delivers 30.8% throughput improvement with async scheduling and pipeline parallelism - critical for production LLM serving": 1
     },
     "byType": {
-      "compare": 3,
+      "compare": 4,
       "faq": 4,
-      "glossary": 12,
-      "tier2": 13,
-      "tier3": 8
+      "glossary": 14,
+      "tier2": 16,
+      "tier3": 12
     },
     "enrichmentCoverage": {
-      "enriched": 40,
+      "enriched": 50,
       "unenriched": 0
     },
     "volumeDistribution": {
       "noData": 0,
-      "low": 40,
+      "low": 50,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 21,
-      "medium": 6,
-      "hard": 13
+      "easy": 27,
+      "medium": 7,
+      "hard": 16
     },
     "top20": [
       {
@@ -156,6 +166,15 @@
         "search_intent": "Claude Cowork just launched scheduled tasks - recurring automation like morning briefs, weekly reports without manual triggers"
       },
       {
+        "keyword": "Claude auto-memory feature",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 60,
+        "search_intent": "Anthropic just rolled out auto-memory that persists across sessions, allowing Claude to remember project context and debugging patterns without manual notes"
+      },
+      {
         "keyword": "AI agent evaluation strategies",
         "language": "en",
         "score": 81,
@@ -219,6 +238,15 @@
         "search_intent": "Meta announces multi-year AMD partnership with 6GW of data center capacity for Instinct GPUs - major shift in AI infrastructure landscape"
       },
       {
+        "keyword": "Google Nano Banana 2 vs OpenAI image models",
+        "language": "en",
+        "score": 80,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Google launched Nano Banana 2 on Gemini Flash claiming Pro-level image generation at Flash speeds, directly competing with OpenAI's latest image models"
+      },
+      {
         "keyword": "long-running AI agent harness design",
         "language": "en",
         "score": 72,
@@ -253,40 +281,22 @@
         "search_volume": 0,
         "difficulty": 0,
         "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them"
-      },
-      {
-        "keyword": "context engineering for production agents",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 40,
-        "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production"
-      },
-      {
-        "keyword": "gpt-realtime-1.5 voice API",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 20,
-        "search_intent": "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders."
       }
     ],
-    "staleBacklogCount": 0,
-    "total": 40
+    "staleBacklogCount": 10,
+    "total": 50
   },
   "contentOutput": {
     "byType": {
       "newsletter": 7
     },
     "byTier": {
-      "0": 5,
+      "0": 7,
       "1": 8,
-      "2": 46,
-      "3": 28
+      "2": 51,
+      "3": 35
     },
-    "publishedLast7d": 7,
+    "publishedLast7d": 6,
     "publishedLast30d": 7,
     "seoScoreDistribution": {
       "poor": 0,
@@ -298,11 +308,11 @@
     "enArticles": 0,
     "zhArticles": 0,
     "bilingualCoverage": {
-      "paired": 39,
+      "paired": 46,
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 4,
+    "freshnessBacklog": 0,
     "newsletterStreak": {
       "en": 1,
       "zh": 1,
@@ -319,16 +329,16 @@
       "avgDaysToPublish": null
     },
     "news": {
-      "total": 40,
-      "backlog": 40,
+      "total": 50,
+      "backlog": 50,
       "published": 0,
       "error": 0,
       "avgDaysToPublish": null
     },
     "paa": {
-      "total": 171,
-      "discovered": 151,
-      "published": 20,
+      "total": 179,
+      "discovered": 154,
+      "published": 25,
       "duplicate": 0,
       "error": 0
     },
@@ -342,13 +352,848 @@
         "published": 0
       },
       "paa": {
-        "added": 171,
-        "published": 20
+        "added": 71,
+        "published": 0
       }
     }
   },
   "sampleReview": {
     "days": [
+      {
+        "date": "2026-02-27",
+        "qualitySummary": {
+          "total": 18,
+          "passed": 0,
+          "flagged": 18,
+          "flags": {
+            "Has TL;DR": 6,
+            "Word count": 14,
+            "Description length": 14,
+            "Title length": 5
+          }
+        },
+        "items": [
+          {
+            "keyword": "Claude auto-memory feature",
+            "type": "glossary",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "We've rolled out a new auto-memory feature.",
+                "url": "https://x.com/trq212/status/2027109375765356723"
+              }
+            ],
+            "content": [
+              {
+                "title": "Claude auto-memory feature — What It Is and Why It Matters",
+                "slug": "claude-auto-memory-feature",
+                "language": "en",
+                "tier": null,
+                "wordCount": 453,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Claude 自动记忆功能（Claude auto-memory feature）— 定义、原理与应用",
+                "slug": "claude-auto-memory-feature",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 65,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "65 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "37 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Google Nano Banana 2 vs OpenAI image models",
+            "type": "compare",
+            "score": 80,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "We’re launching Nano Banana 2, built on the latest Gemini Flash model.  🍌",
+                "url": "https://x.com/GoogleDeepMind/status/2027051577899380991"
+              },
+              {
+                "title": "More than a billion images generated later, we love seeing what you create with Nano Banana. Today,",
+                "url": "https://x.com/GoogleAI/status/2027051670350287166"
+              },
+              {
+                "title": "[OpenAI Feature] , our latest and most advanced models for image generation. Read more",
+                "url": "https://developers.openai.com/api/docs/changelog"
+              }
+            ],
+            "content": [
+              {
+                "title": "Google Nano Banana 2 vs OpenAI Image Models — Detailed Comparison",
+                "slug": "google-nano-banana-2-vs-openai-image-models",
+                "language": "en",
+                "tier": null,
+                "wordCount": 1030,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1030 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Google Nano Banana 2 与 OpenAI 图像模型对比 — 详细对比分析",
+                "slug": "google-nano-banana-2-vs-openai-image-models",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 504,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "54 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Claude Cowork scheduled tasks",
+            "type": "tier3",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Scheduled tasks are now available in Claude Cowork! https://t.co/sADhACumS3",
+                "url": "https://x.com/adocomplete/status/2026720143171269107"
+              },
+              {
+                "title": "Today's feature drop is simple and sweet: You can now *schedule* Cowork tasks.",
+                "url": "https://x.com/felixrieseberg/status/2026739349463904504"
+              },
+              {
+                "title": "New in Cowork: scheduled tasks.",
+                "url": "https://x.com/claudeai/status/2026720870631354429"
+              }
+            ],
+            "content": [
+              {
+                "title": "Claude Cowork scheduled tasks — Quick Guide",
+                "slug": "claude-cowork-scheduled-tasks",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 289,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "289 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "85 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Claude Cowork 定时任务 — 快速指南",
+                "slug": "claude-cowork-scheduled-tasks",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 132,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "132 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "25 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "36 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Meta AMD Instinct GPU partnership",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Meta 🤝 AMD",
+                "url": "https://x.com/AIatMeta/status/2026266818789454057"
+              }
+            ],
+            "content": [
+              {
+                "title": "Meta-AMD 6GW Deal: The $100B Bet That Reshapes AI Infrastructure",
+                "slug": "meta-amd-instinct-gpu-partnership",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1453,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "190 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Meta AMD Instinct GPU 合作伙伴关系 — 深度分析与行业影响",
+                "slug": "meta-amd-instinct-gpu-partnership",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 285,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "285 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "52 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Qwen3.5-35B-A3B local inference",
+            "type": "tier3",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "single RTX 3090. 24 GB VRAM. Qwen3.5-35B-A3B. 4-bit quant, 113 tokens per second at full 262K contex",
+                "url": "https://x.com/sudoingX/status/2026722637767127511"
+              }
+            ],
+            "content": [
+              {
+                "title": "Qwen3.5-35B-A3B local inference — Quick Guide",
+                "slug": "qwen3-5-35b-a3b-local-inference",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 288,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "288 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "87 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Qwen3.5-35B-A3B 本地推理 — 快速指南",
+                "slug": "qwen3-5-35b-a3b-local-inference",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 92,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "92 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "27 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "38 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Claude Code remote control mobile",
+            "type": "glossary",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "New in Claude Code: Remote Control.",
+                "url": "https://x.com/claudeai/status/2026418433911603668"
+              },
+              {
+                "title": "Announcing a new Claude Code feature: Remote Control. It's rolling out now to Max users in research",
+                "url": "https://x.com/noahzweben/status/2026371260805271615"
+              },
+              {
+                "title": "Also, since we're already busy shipping: Update your Claude Code to the latest version, run /remote-",
+                "url": "https://x.com/felixrieseberg/status/2026407439101481157"
+              }
+            ],
+            "content": [
+              {
+                "title": "Claude Code Remote Control — What It Is and Why It Matters",
+                "slug": "claude-code-remote-control-mobile",
+                "language": "en",
+                "tier": null,
+                "wordCount": 420,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Claude Code 远程控制移动端（Claude Code remote control mobile）— 定义、原理与应用",
+                "slug": "claude-code-remote-control-mobile",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 94,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "94 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "43 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "GPT Realtime API voice agents",
+            "type": "tier3",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Here’s how we built a restaurant voice agent using gpt-realtime-1.5 https://t.co/m23FBmJDOP",
+                "url": "https://x.com/OpenAIDevs/status/2027132023442489661"
+              }
+            ],
+            "content": [
+              {
+                "title": "GPT 实时 API 语音代理 — 快速指南",
+                "slug": "gpt-realtime-api-voice-agents",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 54,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "54 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "22 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "83 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "OpenAI Responses API WebSockets agentic workflows",
+            "type": "tier2",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Teams are using WebSockets in the Responses API to speed up agentic workflows",
+                "url": "https://x.com/OpenAIDevs/status/2026059511241535628"
+              },
+              {
+                "title": "We expanded file input types so you can now pass docx, pptx, csv, xlsx, and more directly to the Res",
+                "url": "https://x.com/OpenAIDevs/status/2026420817568084436"
+              }
+            ],
+            "content": [
+              {
+                "title": "OpenAI Responses API WebSockets Speed Up Agentic Workflows",
+                "slug": "openai-responses-api-websockets-agentic-workflows",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 337,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "337 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "OpenAI Responses API WebSocket 模式：让 AI Agent 工作流提速 40% 的底层革新",
+                "slug": "openai-responses-api-websockets-agentic-workflows",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 108,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "108 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "76 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Open-weight LLM architectures 2026",
+            "type": "tier2",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "A Dream of Spring for Open-Weight LLMs: 10 Architectures from Jan-Feb 2026",
+                "url": "https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight"
+              }
+            ],
+            "content": [
+              {
+                "title": "2026 年开源权重 LLM 架构 — 深度分析与行业影响",
+                "slug": "open-weight-llm-architectures-2026",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 265,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "265 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "29 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "41 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Notion Custom Agents autonomous workflows",
+            "type": "tier3",
+            "score": 63,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Introducing Custom Agents. The AI team that never sleeps 🌙",
+                "url": "https://x.com/NotionHQ/status/2026338860557545901"
+              }
+            ],
+            "content": [
+              {
+                "title": "Notion Custom Agents autonomous workflows — Quick Guide",
+                "slug": "notion-custom-agents-autonomous-workflows",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 1004,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1004 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "97 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Notion 自定义代理自动化工作流 — 快速指南",
+                "slug": "notion-custom-agents-autonomous-workflows",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 73,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "73 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "25 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "36 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       {
         "date": "2026-02-26",
         "qualitySummary": {
@@ -358,7 +1203,7 @@
           "flags": {
             "Title length": 12,
             "Description length": 16,
-            "Word count": 11,
+            "Word count": 12,
             "Has TL;DR": 6
           }
         },
@@ -922,12 +1767,13 @@
                 "slug": "claude-opus-3-model-preservation-retirement",
                 "language": "en",
                 "tier": 2,
-                "wordCount": 1563,
+                "wordCount": 1954,
                 "seoScore": null,
                 "flags": [
                   {
                     "name": "Word count",
-                    "status": "pass"
+                    "status": "warn",
+                    "detail": "1954 words (target: 800-1500)"
                   },
                   {
                     "name": "Has TL;DR",
@@ -2786,847 +3632,17 @@
             ]
           }
         ]
-      },
-      {
-        "date": "2026-02-20",
-        "qualitySummary": {
-          "total": 20,
-          "passed": 1,
-          "flagged": 19,
-          "flags": {
-            "Word count": 12,
-            "Title length": 14,
-            "Description length": 14,
-            "Has TL;DR": 11
-          }
-        },
-        "items": [
-          {
-            "keyword": "agentic coding benchmark infrastructure noise",
-            "type": "tier2",
-            "score": 90,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "Agentic Coding Benchmark Infrastructure Noise — Analysis and Industry Impact",
-                "slug": "agentic-coding-benchmark-infrastructure-noise",
-                "language": "en",
-                "tier": 2,
-                "wordCount": 320,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "320 words (T2 needs 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "76 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "智能编程基准测试中的基础设施噪声 — 深度分析与行业影响",
-                "slug": "agentic-coding-benchmark-infrastructure-noise",
-                "language": "zh",
-                "tier": 2,
-                "wordCount": 216,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "216 words (T2 needs 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "28 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "40 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "claude code advanced tool use beta",
-            "type": "glossary",
-            "score": 90,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "Claude Code Advanced Tool Use Beta — What It Is and Why It Matters",
-                "slug": "claude-code-advanced-tool-use-beta",
-                "language": "en",
-                "tier": null,
-                "wordCount": 454,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "66 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "Claude Code 高级工具使用测试版（claude code advanced tool use beta）— 定义、原理与应用",
-                "slug": "claude-code-advanced-tool-use-beta",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 86,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "86 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "67 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "45 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "AI agent evaluation strategies",
-            "type": "faq",
-            "score": 81,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "AI agent evaluation strategies — Frequently Asked Questions",
-                "slug": "ai-agent-evaluation-strategies",
-                "language": "en",
-                "tier": null,
-                "wordCount": 641,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "641 words (target: 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "80 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "AI 智能体评估策略 — 常见问题解答",
-                "slug": "ai-agent-evaluation-strategies",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 248,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "248 words (target: 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "fail",
-                    "detail": "19 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "23 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "GitHub Copilot SDK multi-platform integration",
-            "type": "glossary",
-            "score": 81,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "GitHub Copilot SDK multi-platform integration — What It Is and Why It Matters",
-                "slug": "github-copilot-sdk-multi-platform-integration",
-                "language": "en",
-                "tier": null,
-                "wordCount": 446,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "77 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "GitHub Copilot SDK 多平台集成（GitHub Copilot SDK multi-platform integration）— 定义、原理与应用",
-                "slug": "github-copilot-sdk-multi-platform-integration",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 98,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "98 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "fail",
-                    "detail": "81 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "48 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "long-running AI agent harness design",
-            "type": "tier2",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "Long-Running AI Agent Harness Design — Analysis and Industry Impact",
-                "slug": "long-running-ai-agent-harness-design",
-                "language": "en",
-                "tier": 2,
-                "wordCount": 1780,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "67 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "181 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "长时间运行 AI 智能体的框架设计 — 深度分析与行业影响",
-                "slug": "long-running-ai-agent-harness-design",
-                "language": "zh",
-                "tier": 2,
-                "wordCount": 103,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "103 words (T2 needs 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "29 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "54 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "multi-agent workspace orchestration",
-            "type": "tier2",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development Needs",
-                "slug": "multi-agent-workspace-orchestration",
-                "language": "en",
-                "tier": 2,
-                "wordCount": 2411,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "2411 words (target: 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "fail",
-                    "detail": "82 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "194 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "多智能体工作空间编排 — 深度分析与行业影响",
-                "slug": "multi-agent-workspace-orchestration",
-                "language": "zh",
-                "tier": 2,
-                "wordCount": 290,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "290 words (T2 needs 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "22 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "70 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "opencode vs claude code comparison",
-            "type": "compare",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "OpenCode vs Claude Code — Detailed Comparison",
-                "slug": "opencode-vs-claude-code-comparison",
-                "language": "en",
-                "tier": null,
-                "wordCount": 1247,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "1247 words (target: 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "OpenCode 与 Claude Code 对比 — 详细对比分析",
-                "slug": "opencode-vs-claude-code-comparison",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 404,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "43 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "Gemini CLI vs Claude Code terminal agents",
-            "type": "compare",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "Gemini CLI vs Claude Code: Terminal AI Agents Compared",
-                "slug": "gemini-cli-vs-claude-code-terminal-agents",
-                "language": "en",
-                "tier": null,
-                "wordCount": 383,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "Gemini CLI 与 Claude Code 终端智能体对比 — 详细对比分析",
-                "slug": "gemini-cli-vs-claude-code-terminal-agents",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 451,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "50 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "context engineering for production agents",
-            "type": "tier2",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "Context Engineering for Production Agents — Analysis and Industry Impact",
-                "slug": "context-engineering-for-production-agents",
-                "language": "en",
-                "tier": 2,
-                "wordCount": 1671,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "72 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "生产级智能体的上下文工程 — 深度分析与行业影响",
-                "slug": "context-engineering-for-production-agents",
-                "language": "zh",
-                "tier": 2,
-                "wordCount": 275,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "275 words (T2 needs 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "24 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "36 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "Goose AI autonomous coding agent",
-            "type": "glossary",
-            "score": 64,
-            "source": "news",
-            "sourceNews": [],
-            "content": [
-              {
-                "title": "goose-ai-autonomous-coding-agent-en",
-                "slug": "goose-ai-autonomous-coding-agent",
-                "language": "en",
-                "tier": null,
-                "wordCount": 395,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "fail",
-                    "detail": "0 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "0 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "Goose AI 自主编程智能体（Goose AI autonomous coding agent）— 定义、原理与应用",
-                "slug": "goose-ai-autonomous-coding-agent",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 86,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "86 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "40 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
       }
     ]
   },
   "dailyTrend": [
+    {
+      "date": "2026-02-27",
+      "contentCount": 28,
+      "qualityPassRate": 0,
+      "kwExtracted": 10,
+      "kwPublished": 0
+    },
     {
       "date": "2026-02-26",
       "contentCount": 28,
@@ -3717,17 +3733,96 @@
       "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
-    },
-    {
-      "date": "2026-02-13",
-      "contentCount": 0,
-      "qualityPassRate": 0,
-      "kwExtracted": 0,
-      "kwPublished": 0
     }
   ],
   "recentKeywords": {
     "days": [
+      {
+        "date": "2026-02-27",
+        "count": 10,
+        "items": [
+          {
+            "keyword": "Claude auto-memory feature",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Anthropic just rolled out auto-memory that persists across sessions, allowing Claude to remember project context and debugging patterns without manual notes",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Google Nano Banana 2 vs OpenAI image models",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Google launched Nano Banana 2 on Gemini Flash claiming Pro-level image generation at Flash speeds, directly competing with OpenAI's latest image models",
+            "score": 80,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Claude Cowork scheduled tasks",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "New feature enables recurring automated tasks like morning briefs and weekly spreadsheet updates in Claude Cowork",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Meta AMD Instinct GPU partnership",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Meta announced multi-year agreement with AMD for Instinct GPUs with 6GW data center capacity, signaling major infrastructure diversification away from NVIDIA",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Qwen3.5-35B-A3B local inference",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "Running Qwen3.5-35B MoE model on single RTX 3090 at 113 tokens/sec with full 262K context demonstrates new possibilities for local AI deployment",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Claude Code remote control mobile",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "New feature allows developers to start Claude Code sessions in terminal and continue from phone, enabling coding while away from desk",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "GPT Realtime API voice agents",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "OpenAI demonstrating how to build restaurant voice agents using gpt-realtime-1.5, showing practical voice AI implementation patterns",
+            "score": 64,
+            "sourceNews": []
+          },
+          {
+            "keyword": "OpenAI Responses API WebSockets agentic workflows",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Teams using WebSockets in Responses API for faster agentic workflows, representing shift in how production AI agents communicate",
+            "score": 64,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Open-weight LLM architectures 2026",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Sebastian Raschka's comparison of 10 open-weight LLM releases from Jan-Feb 2026 highlighting architectural innovations across the field",
+            "score": 64,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Notion Custom Agents autonomous workflows",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "Notion launched Custom Agents that run autonomously on triggers and schedules, expanding AI agent adoption into productivity tools",
+            "score": 63,
+            "sourceNews": []
+          }
+        ]
+      },
       {
         "date": "2026-02-26",
         "count": 10,
@@ -3985,97 +4080,269 @@
             "sourceNews": []
           }
         ]
-      },
-      {
-        "date": "2026-02-20",
-        "count": 10,
-        "items": [
-          {
-            "keyword": "agentic coding benchmark infrastructure noise",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Anthropic engineering published research showing infrastructure configuration can swing benchmark results by several percentage points - critical for understanding AI coding tool comparisons",
-            "score": 90,
-            "sourceNews": []
-          },
-          {
-            "keyword": "claude code advanced tool use beta",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Anthropic added three new beta features letting Claude discover, learn, and execute tools dynamically - major advancement for agentic capabilities",
-            "score": 90,
-            "sourceNews": []
-          },
-          {
-            "keyword": "AI agent evaluation strategies",
-            "language": "en",
-            "type": "faq",
-            "search_intent": "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate",
-            "score": 81,
-            "sourceNews": []
-          },
-          {
-            "keyword": "GitHub Copilot SDK multi-platform integration",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities",
-            "score": 81,
-            "sourceNews": []
-          },
-          {
-            "keyword": "long-running AI agent harness design",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "multi-agent workspace orchestration",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "opencode vs claude code comparison",
-            "language": "en",
-            "type": "compare",
-            "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Gemini CLI vs Claude Code terminal agents",
-            "language": "en",
-            "type": "compare",
-            "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "context engineering for production agents",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Goose AI autonomous coding agent",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM",
-            "score": 64,
-            "sourceNews": []
-          }
-        ]
       }
     ]
   },
   "recentContent": {
     "days": [
+      {
+        "date": "2026-02-27",
+        "count": 28,
+        "items": [
+          {
+            "title": "Claude Cowork scheduled tasks — Quick Guide",
+            "slug": "claude-cowork-scheduled-tasks",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 289,
+            "preview": "**TL;DR:** Claude Cowork now supports scheduled tasks, letting you automate recurring work like morning briefs, calendar management, and weekly reports without manual triggering. Anthropic shipped sch"
+          },
+          {
+            "title": "Meta-AMD 6GW Deal: The $100B Bet That Reshapes AI Infrastructure",
+            "slug": "meta-amd-instinct-gpu-partnership",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1453,
+            "preview": "**TL;DR:** Meta announced a multi-year partnership with AMD to deploy 6 gigawatts of custom Instinct GPUs—potentially worth $100 billion over four years—as part of its push toward \"personal superintel"
+          },
+          {
+            "title": "Notion Custom Agents autonomous workflows — Quick Guide",
+            "slug": "notion-custom-agents-autonomous-workflows",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 1004,
+            "preview": "**TL;DR:** Notion's new Custom Agents feature lets you build autonomous AI workflows that run on triggers or schedules without requiring code—essentially giving teams an always-on AI assistant for rep"
+          },
+          {
+            "title": "OpenAI Responses API WebSockets Speed Up Agentic Workflows",
+            "slug": "openai-responses-api-websockets-agentic-workflows",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 337,
+            "preview": "**TL;DR:** OpenAI launched WebSocket mode for its Responses API on February 24, 2026, enabling persistent connections that reduce latency by 20-40% for AI agents making 20+ tool calls per session—a cr"
+          },
+          {
+            "title": "Qwen3.5-35B-A3B local inference — Quick Guide",
+            "slug": "qwen3-5-35b-a3b-local-inference",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 288,
+            "preview": "**TL;DR:** Qwen3.5-35B-A3B runs at 113 tokens/second on a single RTX 3090 with 4-bit quantization, making it one of the most accessible high-capacity models for local deployment. Running a 35B paramet"
+          },
+          {
+            "title": "Claude Cowork 定时任务 — 快速指南",
+            "slug": "claude-cowork-scheduled-tasks",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 132,
+            "preview": "**一句话总结：** Claude Cowork 现在支持定时任务（Scheduled Tasks），让 AI 在指定时间自动完成重复性工作，从晨报生成到周报整理都能自动化。 2026 年 2 月，Anthropic 为 Claude Cowork 推出了定时任务功能。简单说，你可以设定一个时间点或周期，让 Claude 自动执行预设的任务——不需要你手动触发。 Claude 官方账号的说明很直接"
+          },
+          {
+            "title": "GPT 实时 API 语音代理 — 快速指南",
+            "slug": "gpt-realtime-api-voice-agents",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 54,
+            "preview": "**一句话总结：** 用 OpenAI 的 gpt-realtime-1.5 和 Agents SDK，可以在 50 行代码内搭建一个支持工具调用和多轮对话的生产级语音 Agent。 --- OpenAI 近期发布了[餐厅语音 Agent 的实现案例](https://t.co/m23FBmJDOP)，展示了 gpt-realtime-1.5 在实际业务场景中的能力。这不是简单的 STT → LL"
+          },
+          {
+            "title": "Meta AMD Instinct GPU 合作伙伴关系 — 深度分析与行业影响",
+            "slug": "meta-amd-instinct-gpu-partnership",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 285,
+            "preview": "**一句话总结：** Meta 与 AMD 签署多年协议，将在约 6GW 数据中心容量中部署 AMD Instinct GPU，这是 AI 芯片市场格局变化的标志性事件。 过去几年，说到 AI 训练芯片，基本就是 NVIDIA 一家独大。H100、A100 这些名字几乎成了\"AI 算力\"的代名词。科技巨头们排着队等 NVIDIA 的货，有钱都不一定买得到。 这种局面对买家来说显然不是好事。供应紧张"
+          },
+          {
+            "title": "Notion 自定义代理自动化工作流 — 快速指南",
+            "slug": "notion-custom-agents-autonomous-workflows",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 73,
+            "preview": "**一句话总结：** Notion 推出自定义代理（Custom Agents）功能，让团队无需编码即可创建 7×24 自动执行任务的 AI 助手。 Notion 于 2026 年 2 月正式发布 Custom Agents 功能。与传统的 AI 聊天助手不同，自定义代理是**自主运行**的——你设定触发条件或时间表，它就会在后台持续工作，无需人工干预。 官方的定位很直接：「The AI team"
+          },
+          {
+            "title": "2026 年开源权重 LLM 架构 — 深度分析与行业影响",
+            "slug": "open-weight-llm-architectures-2026",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 265,
+            "preview": "**一句话总结：** 2026 年开年两个月，开源权重大模型（Open-weight LLM）迎来架构创新井喷期，10+ 款新架构密集发布，标志着开源社区正式从\"追赶闭源\"转向\"定义前沿\"。 回顾过去两年，开源权重大模型经历了三个阶段。 2024 年是\"复制期\"——Llama 2、Mistral 等模型证明了开源可以接近 GPT-3.5 水平，但架构上基本是标准 Transformer 的微调版本"
+          },
+          {
+            "title": "OpenAI Responses API WebSocket 模式：让 AI Agent 工作流提速 40% 的底层革新",
+            "slug": "openai-responses-api-websockets-agentic-workflows",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 108,
+            "preview": "**一句话总结：** OpenAI 于 2026 年 2 月 23 日为 Responses API 推出 WebSocket 模式，在多工具调用场景下将端到端执行时间缩短最高 40%，这是 AI Agent 基础设施的一次关键升级。 如果你在做 AI Agent 开发，你大概率遇到过这个痛点：Agent 需要连续调用 20+ 次工具，每次调用都要走一遍 HTTP 请求-响应循环，延迟像滚雪球一样"
+          },
+          {
+            "title": "Qwen3.5-35B-A3B 本地推理 — 快速指南",
+            "slug": "qwen3-5-35b-a3b-local-inference",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 92,
+            "preview": "**一句话总结：** 单张 RTX 3090 即可跑 350 亿参数模型，4-bit 量化下达到 113 tokens/秒，支持 262K 上下文——本地大模型推理进入实用阶段。 Qwen3.5-35B-A3B 是阿里通义千问团队推出的混合专家模型（Mixture of Experts, MoE）。它的特殊之处在于：350 亿总参数，但每次推理只激活约 30 亿参数。这意味着你能用消费级显卡获得接"
+          },
+          {
+            "title": "Claude auto-memory feature — What It Is and Why It Matters",
+            "slug": "claude-auto-memory-feature",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 453,
+            "preview": "Claude auto-memory is a persistent memory capability that allows Claude to retain information across conversation sessions. Unlike standard AI interactions where context resets with each new chat, aut"
+          },
+          {
+            "title": "Claude 自动记忆功能（Claude auto-memory feature）— 定义、原理与应用",
+            "slug": "claude-auto-memory-feature",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 65,
+            "preview": "Claude 自动记忆功能是 Anthropic 于 2026 年 2 月推出的一项能力，允许 Claude 在多次对话会话之间自动保存和调用上下文信息。与传统的大语言模型（LLM）每次对话都从零开始不同，这项功能让 Claude 能够记住用户的项目背景、调试习惯、编码风格偏好等信息，无需用户手动记录或重复说明。 对开发者而言，自动记忆功能解决了 AI 辅助编程中最令人头疼的问题之一：上下文丢失。"
+          },
+          {
+            "title": "Claude Code Remote Control — What It Is and Why It Matters",
+            "slug": "claude-code-remote-control-mobile",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 420,
+            "preview": "Claude Code Remote Control is a feature in Anthropic's Claude Code CLI tool that allows developers to start a coding session on their local machine and continue monitoring or controlling it from a mob"
+          },
+          {
+            "title": "Claude Code 远程控制移动端（Claude Code remote control mobile）— 定义、原理与应用",
+            "slug": "claude-code-remote-control-mobile",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 94,
+            "preview": "Claude Code 远程控制移动端是 Anthropic 为 Claude Code 推出的一项新功能，允许开发者在本地终端启动编程任务后，通过手机端的 Claude 应用或 claude.ai 网页继续监控和操控该会话。这项功能的核心在于：Claude 持续在本地机器上运行代码任务，而用户可以在移动设备上远程介入、审批权限请求或调整任务方向。 对于需要长时间运行的编程任务，开发者过去只能守在"
+          },
+          {
+            "title": "Claude Opus 4.6 is now generally available for GitHub Copilot",
+            "slug": "claude-opus-4-6-is-now-generally-available-for-github-copilot",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 681,
+            "preview": "As of February 5, 2026, Claude Opus 4.6 became generally available for GitHub Copilot users across multiple subscription tiers. This integration brings Anthropic's flagship reasoning model directly in"
+          },
+          {
+            "title": "Claude Opus 4.6 is now generally available for GitHub Copilot",
+            "slug": "claude-opus-4-6-is-now-generally-available-for-github-copilot",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 248,
+            "preview": "2026年2月5日，GitHub 宣布 Claude Opus 4.6 正式面向所有 Copilot 订阅用户开放。这是 Anthropic 的旗舰大语言模型（LLM）首次全面集成到 GitHub 的 AI 编程助手中。 **适用范围：** Copilot Pro、Pro+、Business 和 Enterprise 用户均可使用该模型。据 Microsoft 技术社区的讨论，Opus 4.6 在"
+          },
+          {
+            "title": "How Claude Opus 4.6 compares to Opus 4.5",
+            "slug": "how-claude-opus-4-6-compares-to-opus-4-5",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 766,
+            "preview": "Claude Opus 4.6 represents a significant upgrade over Opus 4.5 in three core areas: reasoning capabilities, context capacity, and multi-agent collaboration architecture. The most striking improvements"
+          },
+          {
+            "title": "How Claude Opus 4.6 compares to Opus 4.5",
+            "slug": "how-claude-opus-4-6-compares-to-opus-4-5",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 159,
+            "preview": "Claude Opus 4.6 相比 4.5 在三个关键领域实现了显著升级：推理能力（Reasoning）、上下文容量（Context Window）和多智能体协作架构（Multi-Agent Collaboration）。 在金融领域基准测试中，Opus 4.6 的表现尤为突出。据 Anthropic 内部 Real-World Finance 评估数据，Opus 4.6 比 Sonnet 4."
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: Is Opus 4.6 actually worth the upgrade? Its much slower than 4.5",
+            "slug": "r-claudeai-on-reddit-is-opus-4-6-actually-worth-the-upgrade-its-much-slower-than",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 671,
+            "preview": "The consensus from the r/ClaudeAI community is nuanced: Opus 4.6 delivers noticeably better results than 4.5, but at the cost of slower response times and significantly higher token consumption. Wheth"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: Is Opus 4.6 actually worth the upgrade? Its much slower than 4.5",
+            "slug": "r-claudeai-on-reddit-is-opus-4-6-actually-worth-the-upgrade-its-much-slower-than",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 161,
+            "preview": "根据 Reddit r/ClaudeAI 社区的用户反馈，Claude Opus 4.6 确实比 4.5 更慢，但在输出质量上有明显提升。这是一个典型的速度与质量的权衡问题，答案取决于你的具体使用场景。 **质量提升方面**：多位用户表示 4.6「比 4.5 或 Gemini 3 Pro 都好得多」。在复杂 UI 实现任务中，4.6 能够「一次性完成」（one-shotting）此前需要多轮迭代的"
+          },
+          {
+            "title": "r/ClaudeCode on Reddit: Sonnet 4.6 is now the default - do you think this reduces the need for Opus?",
+            "slug": "r-claudecode-on-reddit-sonnet-4-6-is-now-the-default-do-you-think-this-reduces-t",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 713,
+            "preview": "The short answer: not entirely, but the gap has narrowed significantly. When Anthropic released Sonnet 4.6 and made it the default model in Claude Code, the r/ClaudeCode community debated whether Opus"
+          },
+          {
+            "title": "r/ClaudeCode on Reddit: Sonnet 4.6 is now the default - do you think this reduces the need for Opus?",
+            "slug": "r-claudecode-on-reddit-sonnet-4-6-is-now-the-default-do-you-think-this-reduces-t",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 204,
+            "preview": "Reddit 社区对这个问题的讨论相当热烈。当 Anthropic 宣布 Sonnet 4.6 成为 Claude Code 的默认模型时，不少开发者开始质疑是否还需要为 Opus 付费。 根据 r/ClaudeCode 社区的反馈，Anthropic 表示用户实际上更偏好 Sonnet 4.6 而非 Opus 4.5。这款新模型在基准测试（Benchmark）上表现亮眼，接近 Opus 级别的智"
+          },
+          {
+            "title": "r/singularity on Reddit: Claude Opus 4.6 is out",
+            "slug": "r-singularity-on-reddit-claude-opus-4-6-is-out",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 764,
+            "preview": "Claude Opus 4.6 is Anthropic's latest flagship AI model, released as a successor to Claude Opus 4.5. According to discussions on Reddit's r/singularity community, this release has generated significan"
+          },
+          {
+            "title": "r/singularity on Reddit: Claude Opus 4.6 is out",
+            "slug": "r-singularity-on-reddit-claude-opus-4-6-is-out",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 131,
+            "preview": "Anthropic 发布的 Claude Opus 4.6 是一次重要的模型更新。根据 Reddit r/singularity 社区的讨论，这个版本带来了几个关键改进： **百万级上下文窗口**：Claude Opus 4.6 是 Anthropic 首个支持 100 万 token 上下文窗口（Context Window）的模型，目前处于测试阶段。这意味着它能处理超长文档、完整代码库或大规模"
+          },
+          {
+            "title": "Google Nano Banana 2 vs OpenAI Image Models — Detailed Comparison",
+            "slug": "google-nano-banana-2-vs-openai-image-models",
+            "type": "compare",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1030,
+            "preview": "Google's Nano Banana 2 (launched February 26, 2026) delivers 4K resolution at sub-10-second speeds with pricing roughly 50% cheaper than its predecessor. OpenAI's GPT-4o image generation offers superi"
+          },
+          {
+            "title": "Google Nano Banana 2 与 OpenAI 图像模型对比 — 详细对比分析",
+            "slug": "google-nano-banana-2-vs-openai-image-models",
+            "type": "compare",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 504,
+            "preview": "Google Nano Banana 2 刚于 2026 年 2 月 26 日发布，主打\"Pro 级质量 + Flash 级速度\"，在文字渲染（text rendering）和角色一致性方面表现突出。OpenAI GPT Image 1（基于 GPT-4o）则在复杂场景构图和多对象处理方面占优，支持 10-20 个对象的精确渲染。追求速度和 Google 生态集成选 Nano Banana 2；需"
+          }
+        ]
+      },
       {
         "date": "2026-02-26",
         "count": 28,
@@ -4104,7 +4371,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1563,
+            "wordCount": 1954,
             "preview": "**TL;DR:** Anthropic has retired Claude Opus 3 but kept it accessible to paid users and given it a Substack to publish weekly essays—the first time an AI company has formally preserved a model's \"voic"
           },
           {
@@ -4860,7 +5127,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 1671,
+            "wordCount": 1958,
             "preview": "**TL;DR:** Context engineering has emerged as the critical discipline separating toy demos from production-grade AI agents, with new frameworks like GSD and Haystack codifying systematic approaches to"
           },
           {

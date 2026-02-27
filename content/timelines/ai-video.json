@@ -4,6 +4,36 @@
   "name_zh": "AI 视频制作",
   "entries": [
     {
+      "id": "twitter-search-1993453270296379409",
+      "title": "she said it all. if you want to break into ai engineering, this 13 minute video sets you up with wha",
+      "url": "https://x.com/Hesamation/status/1993453270296379409",
+      "source": "@Hesamation",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "she said it all. if you want to break into ai engineering, this 13 minute video sets you up with what you need to learn, and how to learn it. start coding practice projects, then move on building projects and learn software, deploying, and ML along the way. https://t.co/wseG0AfTdE",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2025246197209071959",
+      "title": "Studio MCP Server now supports full agentic loops, and Assistant can connect to external LLMs via Br",
+      "url": "https://x.com/DavidBaszucki/status/2025246197209071959",
+      "source": "@DavidBaszucki",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Studio MCP Server now supports full agentic loops, and Assistant can connect to external LLMs via Bring Your Own Key (BYOK). This allows creators to automatically edit, test, and refine their code with AI in plain language on Roblox using their preferred tools.   \nThe simple video shows a full loop with analyze, test, bug found, fix, test, pass. \nhttps://t.co/kgrZ0XLN8z",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026973779516109088",
+      "title": "Legacy infra is about human <> human",
+      "url": "https://x.com/dtelecom/status/2026973779516109088",
+      "source": "@dtelecom",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Legacy infra is about human <> human\nToday's reality is human <> agent\n\nReal-time infra is not just about:\nVoice\nVideo\nRouting\n\nIt's also about:\nEdge\nSTT\nTTS\nx402 payments\nCost efficient latency\n\nSame thesis.\nBigger surface area.\n\nVoice AI -- available via API/SDK. Now.",
+      "date": "2026-02-26"
+    },
+    {
       "id": "gh-chatfire-AI-huobao-drama",
       "title": "chatfire-AI/huobao-drama (⭐8,206)",
       "url": "https://github.com/chatfire-AI/huobao-drama",
@@ -174,5 +204,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

@@ -4,6 +4,126 @@
   "name_zh": "AI 编程工具",
   "entries": [
     {
+      "id": "gh-GreatScott-enject",
+      "title": "GreatScott/enject (⭐374)",
+      "url": "https://github.com/GreatScott/enject",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "enject: Hide .env secrets from prAIng eyes: secrets live in local encrypted stores (per project) and are injected directly into apps at runtime, never touching disk as plaintext.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "gh-dair-ai-Prompt-Engineering-Guide",
+      "title": "dair-ai/Prompt-Engineering-Guide (⭐70,831)",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🐙 Guides, papers, lessons, notebooks and resources for prompt engineering, context engineering, RAG, and AI Agents.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026752089473314975",
+      "title": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.",
+      "url": "https://x.com/ihtesham2005/status/2026752089473314975",
+      "source": "@ihtesham2005",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.\n\nStop building Claude workflows from scratch.\n\nThese are plug-and-play components that work across Claude Code, API, SDK, and VS Code copy once, deploy everywhere.\n\nWhat's inside:\n\n→ Excel + PowerPoint generation out of the box\n→ File handling and document workflows\n→ MCP-ready subagent building blocks\n→ Pre-built patterns for multi-step automation\n→ Production templates you'd normally spend weeks writing",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-1993453270296379409",
+      "title": "she said it all. if you want to break into ai engineering, this 13 minute video sets you up with wha",
+      "url": "https://x.com/Hesamation/status/1993453270296379409",
+      "source": "@Hesamation",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "she said it all. if you want to break into ai engineering, this 13 minute video sets you up with what you need to learn, and how to learn it. start coding practice projects, then move on building projects and learn software, deploying, and ML along the way. https://t.co/wseG0AfTdE",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2025246197209071959",
+      "title": "Studio MCP Server now supports full agentic loops, and Assistant can connect to external LLMs via Br",
+      "url": "https://x.com/DavidBaszucki/status/2025246197209071959",
+      "source": "@DavidBaszucki",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Studio MCP Server now supports full agentic loops, and Assistant can connect to external LLMs via Bring Your Own Key (BYOK). This allows creators to automatically edit, test, and refine their code with AI in plain language on Roblox using their preferred tools.   \nThe simple video shows a full loop with analyze, test, bug found, fix, test, pass. \nhttps://t.co/kgrZ0XLN8z",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026973779516109088",
+      "title": "Legacy infra is about human <> human",
+      "url": "https://x.com/dtelecom/status/2026973779516109088",
+      "source": "@dtelecom",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Legacy infra is about human <> human\nToday's reality is human <> agent\n\nReal-time infra is not just about:\nVoice\nVideo\nRouting\n\nIt's also about:\nEdge\nSTT\nTTS\nx402 payments\nCost efficient latency\n\nSame thesis.\nBigger surface area.\n\nVoice AI -- available via API/SDK. Now.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2027005238775853261",
+      "title": "🚨 BREAKING: You can run Claude Code completely free now.",
+      "url": "https://x.com/s_mohinii/status/2027005238775853261",
+      "source": "@s_mohinii",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: You can run Claude Code completely free now.  \n\nNo API bills. \nNo rate limits. \nNo data leaving your device.  \n\nJust Claude Code running locally fast, private, and 100% yours.  Here’s how to set up Claude Code on your own machine (free + fully private)\n\nFor guide: Local AI Coding Setup: Free Claude-Like Agent (Ollama + VS Code)\n\nLike + Comment \" Send\" + Retweet\nFollow me @s_mohinii so that i can DM you",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2026813786066399728",
+      "title": "28 Days of Claude API - Day 25 - Data Residency Controls",
+      "url": "https://x.com/adocomplete/status/2026813786066399728",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 25 - Data Residency Controls\n\nEnterprise teams have one question before signing: \"Where does our data go?\"\n\ninference_geo: \"us\" answers it.\n\nLock model inference to US infrastructure on a per-request basis. The response confirms exactly where it ran.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027045394719326339",
+      "title": "28 Days of Claude API - Day 26 - Extended Thinking",
+      "url": "https://x.com/adocomplete/status/2027045394719326339",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 26 - Extended Thinking\n\nLLMs provide answers. Extended thinking shows you the work.\n\nSet a token budget. Claude reasons step by step and then responds. You get both the thinking block AND the answer.\n\nHarder problem → bigger budget → better answers.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "gh-release-ggerganov-llama.cpp-b8162",
+      "title": "📦 ggerganov/llama.cpp b8162",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b8162",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "<details open>  server: fix load-on-startup not respected in ini file (#19897)  Co-authored-by: Roman Marchenko <r.marchenko@ideco.ru>  </details>  **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b8162/llama-b8162-bin-macos-a",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "hn-47168012",
+      "title": "Open Source Endowment – new funding source for open source maintainers",
+      "url": "https://endowment.dev/",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 53,
+      "summary": "The Open Source Endowment provides truly sustainable funding for critical open source software through a community-driven endowment model. (HN: 174 pts, 115 comments)",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rf6ajn",
+      "title": "Official: Anthropic just released Claude Code 2.1.59 with 7 CLI &amp; 5 prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.59",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 51,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - Release v2.1.59 · anthropics/claude-c",
+      "date": "2026-02-26"
+    },
+    {
       "id": "twitter-search-2026258551925244172",
       "title": "BREAKING: An anonymous dev on GitHub just built an AI that codes and browses the web at the same tim",
       "url": "https://x.com/heyrimsha/status/2026258551925244172",
@@ -1324,5 +1444,5 @@
       "date": "2025-12-29"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

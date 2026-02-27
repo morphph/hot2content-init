@@ -4,6 +4,46 @@
   "name_zh": "AI 模型对比",
   "entries": [
     {
+      "id": "twitter-search-2026752089473314975",
+      "title": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.",
+      "url": "https://x.com/ihtesham2005/status/2026752089473314975",
+      "source": "@ihtesham2005",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.\n\nStop building Claude workflows from scratch.\n\nThese are plug-and-play components that work across Claude Code, API, SDK, and VS Code copy once, deploy everywhere.\n\nWhat's inside:\n\n→ Excel + PowerPoint generation out of the box\n→ File handling and document workflows\n→ MCP-ready subagent building blocks\n→ Pre-built patterns for multi-step automation\n→ Production templates you'd normally spend weeks writing",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2027005238775853261",
+      "title": "🚨 BREAKING: You can run Claude Code completely free now.",
+      "url": "https://x.com/s_mohinii/status/2027005238775853261",
+      "source": "@s_mohinii",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: You can run Claude Code completely free now.  \n\nNo API bills. \nNo rate limits. \nNo data leaving your device.  \n\nJust Claude Code running locally fast, private, and 100% yours.  Here’s how to set up Claude Code on your own machine (free + fully private)\n\nFor guide: Local AI Coding Setup: Free Claude-Like Agent (Ollama + VS Code)\n\nLike + Comment \" Send\" + Retweet\nFollow me @s_mohinii so that i can DM you",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rfg3kx",
+      "title": "American closed models vs Chinese open models is becoming a problem.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rfg3kx/american_closed_models_vs_chinese_open_models_is/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 52,
+      "summary": "The work I do involves customers that are sensitive to nation state politics. We cannot and do not use cloud API services for AI because the data must not leak. Ever. As a result we use open models in closed environments.\n\nThe problem is that my customers don’t want Chinese models. “National security risk”.\n\nBut the only recent semi-capable model we have from the US is gpt-oss-120b, which is far behind modern LLMs like GLM, MiniMax, etc.\n\nSo we are in a bind: use an older, less capable model and",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rfds1h",
+      "title": "Qwen3.5-35B-A3B Q4 Quantization Comparison",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rfds1h/qwen3535ba3b_q4_quantization_comparison/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "This is a Q4 quantization sweep across all major community quants of Qwen3.5-35B-A3B, comparing faithfulness to the BF16 baseline across different quantizers and recipes.\n\nThe goal is to give people a data-driven basis for picking a file rather than just grabbing whatever is available.\n\nFor the uninitiated:\n\n**KLD (KL Divergence):** \"Faithfulness.\" It shows how much the quantized model's probability distribution drifts from a baseline (the probability distribution of the original weights). Lower",
+      "date": "2026-02-26"
+    },
+    {
       "id": "reddit-1rei65v",
       "title": "Qwen3.5-35B-A3B quantization quality + speed benchmarks on RTX 5080 16GB (Q8_0 vs Q4_K_M vs UD-Q4_K_XL)",
       "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/qwen3535ba3b_quantization_quality_speed/",
@@ -304,5 +344,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

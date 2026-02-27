@@ -4,6 +4,96 @@
   "name_zh": "AI 智能体",
   "entries": [
     {
+      "id": "gh-harshkedia177-axon",
+      "title": "harshkedia177/axon (⭐329)",
+      "url": "https://github.com/harshkedia177/axon",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "Graph-powered code intelligence engine — indexes codebases into a knowledge graph, exposed via MCP tools for AI agents and a CLI for developers.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "gh-dair-ai-Prompt-Engineering-Guide",
+      "title": "dair-ai/Prompt-Engineering-Guide (⭐70,831)",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🐙 Guides, papers, lessons, notebooks and resources for prompt engineering, context engineering, RAG, and AI Agents.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026713568666648661",
+      "title": "AI agents are already moving money — unverified and unaccountable.",
+      "url": "https://x.com/t54ai/status/2026713568666648661",
+      "source": "@t54ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "AI agents are already moving money — unverified and unaccountable.\n\nToday, we’re announcing our $5M seed round to build the trust layer for the agentic economy.\n\nLed by Anagram, PL Capital, and Franklin Templeton, with strategic investment from Ripple.\n\nhttps://t.co/VtmPxJycVX https://t.co/4WXO1dNgSj",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2025246197209071959",
+      "title": "Studio MCP Server now supports full agentic loops, and Assistant can connect to external LLMs via Br",
+      "url": "https://x.com/DavidBaszucki/status/2025246197209071959",
+      "source": "@DavidBaszucki",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Studio MCP Server now supports full agentic loops, and Assistant can connect to external LLMs via Bring Your Own Key (BYOK). This allows creators to automatically edit, test, and refine their code with AI in plain language on Roblox using their preferred tools.   \nThe simple video shows a full loop with analyze, test, bug found, fix, test, pass. \nhttps://t.co/kgrZ0XLN8z",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2003905528456749210",
+      "title": "Everyone is building AI agents.",
+      "url": "https://x.com/BharukaShraddha/status/2003905528456749210",
+      "source": "@BharukaShraddha",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Everyone is building AI agents.\nVery few understand the agentic frameworks that actually power them.\n\nIn 2025, two frameworks dominate agent development —\nnot as competitors, but as complementary layers:\n\nn8n — Visual Workflow Automation\n\nWhat it does\n• Visually connects AI agents with business tools and APIs\n• Flow: Trigger → AI Agent → Tools → Action\n• Removes integration complexity and speeds up deployment\n\nThink of it as:\nThe orchestrator that plugs AI into your entire tech stack\n\n—\n\nLangGra",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2027087571889631248",
+      "title": "After 5 hours, I finally set up my AI agent.",
+      "url": "https://x.com/isabellasg3/status/2027087571889631248",
+      "source": "@isabellasg3",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "After 5 hours, I finally set up my AI agent. \n\nI am extremely tech-illiterate. So if you have any advice on how to maximize my AI agent, let me know. https://t.co/PFMLxH4O2T",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026950250301198501",
+      "title": "Mom: How’s your super smart ai agent doing?",
+      "url": "https://x.com/cousincrypt0/status/2026950250301198501",
+      "source": "@cousincrypt0",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Mom: How’s your super smart ai agent doing? \n\nMy ai agent: https://t.co/eef2PZeQcm",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rf740o",
+      "title": "DeepSeek released new paper: DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rf740o/deepseek_released_new_paper_dualpath_breaking_the/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 51,
+      "summary": "[https://arxiv.org/abs/2602.21548](https://arxiv.org/abs/2602.21548)\n\nhttps://preview.redd.it/25rh3yahktlg1.png?width=536&amp;format=png&amp;auto=webp&amp;s=f282d71496b6386841732137a474f1b238269950\n\nA joint research team from Peking University, Tsinghua University, and DeepSeek-AI has released its latest research findings on optimizing Large Language Model (LLM) inference architectures. The team successfully developed a novel inference system called \\*\\*DualPath\\*\\*, specifically designed to add",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rf6ajn",
+      "title": "Official: Anthropic just released Claude Code 2.1.59 with 7 CLI &amp; 5 prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.59",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 51,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - Release v2.1.59 · anthropics/claude-c",
+      "date": "2026-02-26"
+    },
+    {
       "id": "twitter-search-2023830098118586464",
       "title": "BREAKING: The largest collection of AI coding skills",
       "url": "https://x.com/techNmak/status/2023830098118586464",
@@ -1034,5 +1124,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

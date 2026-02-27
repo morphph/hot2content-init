@@ -4,6 +4,46 @@
   "name_zh": "Claude Opus 4.6",
   "entries": [
     {
+      "id": "gh-mgechev-skills-best-practices",
+      "title": "mgechev/skills-best-practices (⭐574)",
+      "url": "https://github.com/mgechev/skills-best-practices",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 55,
+      "summary": "Write professional-grade skills for agents, validate them using LLMs, and maintain a lean context window.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026752089473314975",
+      "title": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.",
+      "url": "https://x.com/ihtesham2005/status/2026752089473314975",
+      "source": "@ihtesham2005",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.\n\nStop building Claude workflows from scratch.\n\nThese are plug-and-play components that work across Claude Code, API, SDK, and VS Code copy once, deploy everywhere.\n\nWhat's inside:\n\n→ Excel + PowerPoint generation out of the box\n→ File handling and document workflows\n→ MCP-ready subagent building blocks\n→ Pre-built patterns for multi-step automation\n→ Production templates you'd normally spend weeks writing",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027072062624551139",
+      "title": "Beyond the winners of our \"Built with Opus 4.6 Claude Code Hackathon,\" there were so many amazing pr",
+      "url": "https://x.com/adocomplete/status/2027072062624551139",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Beyond the winners of our \"Built with Opus 4.6 Claude Code Hackathon,\" there were so many amazing projects that deserve a shoutout. \n\nToday I want to highlight Pasal by Ilham Putra. 280 million Indonesians can't easily search their own laws. Pasal fixes that. https://t.co/VJcMj3B",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rf6ajn",
+      "title": "Official: Anthropic just released Claude Code 2.1.59 with 7 CLI &amp; 5 prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.59",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 51,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - Release v2.1.59 · anthropics/claude-c",
+      "date": "2026-02-26"
+    },
+    {
       "id": "twitter-2026712899499208931",
       "title": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing",
       "url": "https://x.com/adocomplete/status/2026712899499208931",
@@ -914,5 +954,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

@@ -4,6 +4,126 @@
   "name_zh": "Claude Code",
   "entries": [
     {
+      "id": "gh-slopus-happy",
+      "title": "slopus/happy (⭐13,654)",
+      "url": "https://github.com/slopus/happy",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "Mobile and Web client for Codex and Claude Code, with realtime voice, encryption and fully featured",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026752089473314975",
+      "title": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.",
+      "url": "https://x.com/ihtesham2005/status/2026752089473314975",
+      "source": "@ihtesham2005",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.\n\nStop building Claude workflows from scratch.\n\nThese are plug-and-play components that work across Claude Code, API, SDK, and VS Code copy once, deploy everywhere.\n\nWhat's inside:\n\n→ Excel + PowerPoint generation out of the box\n→ File handling and document workflows\n→ MCP-ready subagent building blocks\n→ Pre-built patterns for multi-step automation\n→ Production templates you'd normally spend weeks writing",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026722637767127511",
+      "title": "single RTX 3090. 24 GB VRAM. Qwen3.5-35B-A3B. 4-bit quant, 113 tokens per second at full 262K contex",
+      "url": "https://x.com/sudoingX/status/2026722637767127511",
+      "source": "@sudoingX",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "single RTX 3090. 24 GB VRAM. Qwen3.5-35B-A3B. 4-bit quant, 113 tokens per second at full 262K context harnessing Claude Code locally with no API, no subscription, no proxy.\n\ntold it what it is. 30 Mamba2 layers, 10 attention, 256 experts, 8 active per token. said \"build something that shows off what you can do.\"\n\nit visualized its own architecture. interactive. tokens flowing through layers. 256 experts lighting up on routing. served in the browser from the same GPU running inference. single pro",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026495493791166474",
+      "title": "@tkzwgrs Claude codeは「星野ロミのXの投稿を全て取得して、投稿日・いいね数・リツイートなど全てプログラムで取得してCSVに保存しろ。その後バズる法則を見つけろ」と指示するだけで完全",
+      "url": "https://x.com/romi_hoshino/status/2026495493791166474",
+      "source": "@romi_hoshino",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "@tkzwgrs Claude codeは「星野ロミのXの投稿を全て取得して、投稿日・いいね数・リツイートなど全てプログラムで取得してCSVに保存しろ。その後バズる法則を見つけろ」と指示するだけで完全自動でコード付きで完成品くれます！\nChatGPTとかGeminiは質問して答えはくれるしプログラムは教えてくれるけど自分で貼り付けして実装しないといけないです\nプログラム書けなくてもデータ収集からアプリ作成まで余裕でできます！",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026296815860203888",
+      "title": "Claude Code writes great code.",
+      "url": "https://x.com/ashu_trv/status/2026296815860203888",
+      "source": "@ashu_trv",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Claude Code writes great code.\nIt still cannot see your screen.\nIt cannot hear you think.\nWe fixed that.\nMeet Pair Programmer for Claude Code. @claudeai https://t.co/ugUQNHAUDJ",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2027062972753866796",
+      "title": "What Claude Code actually chooses if you ask it to build with no tool names anywhere in the input. h",
+      "url": "https://x.com/shadcn/status/2027062972753866796",
+      "source": "@shadcn",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "What Claude Code actually chooses if you ask it to build with no tool names anywhere in the input. https://t.co/TOI69JIfNN",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2027005238775853261",
+      "title": "🚨 BREAKING: You can run Claude Code completely free now.",
+      "url": "https://x.com/s_mohinii/status/2027005238775853261",
+      "source": "@s_mohinii",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 BREAKING: You can run Claude Code completely free now.  \n\nNo API bills. \nNo rate limits. \nNo data leaving your device.  \n\nJust Claude Code running locally fast, private, and 100% yours.  Here’s how to set up Claude Code on your own machine (free + fully private)\n\nFor guide: Local AI Coding Setup: Free Claude-Like Agent (Ollama + VS Code)\n\nLike + Comment \" Send\" + Retweet\nFollow me @s_mohinii so that i can DM you",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027072062624551139",
+      "title": "Beyond the winners of our \"Built with Opus 4.6 Claude Code Hackathon,\" there were so many amazing pr",
+      "url": "https://x.com/adocomplete/status/2027072062624551139",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Beyond the winners of our \"Built with Opus 4.6 Claude Code Hackathon,\" there were so many amazing projects that deserve a shoutout. \n\nToday I want to highlight Pasal by Ilham Putra. 280 million Indonesians can't easily search their own laws. Pasal fixes that. https://t.co/VJcMj3B",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027132703808872726",
+      "title": "So much of what makes Claude Code great came from feedback from OSS developers. Excited we can give",
+      "url": "https://x.com/bcherny/status/2027132703808872726",
+      "source": "@bcherny",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "So much of what makes Claude Code great came from feedback from OSS developers. Excited we can give back a little.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rfkmj1",
+      "title": "New: Auto-memory feature in Claude code, details below",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rfkmj1/new_automemory_feature_in_claude_code_details/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Claude now remembers what it learns across sessions — your project context, debugging patterns, preferred approaches — and recalls it later without you having to write anything down.\n\nYou can now think of Claude.MD as your instructions to Claude and Memory.MD as Claude's memory scratchpad it updates. If you ask Claude to remember something it will write it there.\n\nRead the docs here to learn more about memory and how it works: [Docs](https://code.claude.com/docs/en/memory)\n\n**Source:** ClaudeAI\n",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "rss-hn-frontpage-rss-aHR0cHM6Ly9hbXBs",
+      "title": "What Claude Code Chooses",
+      "url": "https://amplifying.ai/research/claude-code-picks",
+      "source": "HN Frontpage RSS",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rf6ajn",
+      "title": "Official: Anthropic just released Claude Code 2.1.59 with 7 CLI &amp; 5 prompt changes, details below",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.59",
+      "source": "Reddit r/ClaudeAI",
+      "category": "model_release",
+      "score": 51,
+      "summary": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - Release v2.1.59 · anthropics/claude-c",
+      "date": "2026-02-26"
+    },
+    {
       "id": "gh-SuperClaude-Org-SuperClaude_Framework",
       "title": "SuperClaude-Org/SuperClaude_Framework (⭐21,003)",
       "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
@@ -1634,5 +1754,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }

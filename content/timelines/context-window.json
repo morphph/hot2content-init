@@ -4,6 +4,86 @@
   "name_zh": "上下文窗口与记忆",
   "entries": [
     {
+      "id": "gh-mgechev-skills-best-practices",
+      "title": "mgechev/skills-best-practices (⭐574)",
+      "url": "https://github.com/mgechev/skills-best-practices",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 55,
+      "summary": "Write professional-grade skills for agents, validate them using LLMs, and maintain a lean context window.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "gh-dair-ai-Prompt-Engineering-Guide",
+      "title": "dair-ai/Prompt-Engineering-Guide (⭐70,831)",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "🐙 Guides, papers, lessons, notebooks and resources for prompt engineering, context engineering, RAG, and AI Agents.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-search-2026722637767127511",
+      "title": "single RTX 3090. 24 GB VRAM. Qwen3.5-35B-A3B. 4-bit quant, 113 tokens per second at full 262K contex",
+      "url": "https://x.com/sudoingX/status/2026722637767127511",
+      "source": "@sudoingX",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "single RTX 3090. 24 GB VRAM. Qwen3.5-35B-A3B. 4-bit quant, 113 tokens per second at full 262K context harnessing Claude Code locally with no API, no subscription, no proxy.\n\ntold it what it is. 30 Mamba2 layers, 10 attention, 256 experts, 8 active per token. said \"build something that shows off what you can do.\"\n\nit visualized its own architecture. interactive. tokens flowing through layers. 256 experts lighting up on routing. served in the browser from the same GPU running inference. single pro",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027045394719326339",
+      "title": "28 Days of Claude API - Day 26 - Extended Thinking",
+      "url": "https://x.com/adocomplete/status/2027045394719326339",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "28 Days of Claude API - Day 26 - Extended Thinking\n\nLLMs provide answers. Extended thinking shows you the work.\n\nSet a token budget. Claude reasons step by step and then responds. You get both the thinking block AND the answer.\n\nHarder problem → bigger budget → better answers.",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "twitter-2027109375765356723",
+      "title": "We've rolled out a new auto-memory feature.",
+      "url": "https://x.com/trq212/status/2027109375765356723",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "We've rolled out a new auto-memory feature.\n\nClaude now remembers what it learns across sessions — your project context, debugging patterns, preferred approaches — and recalls it later without you having to write anything down. https://t.co/c7PyGaukNQ",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rfkmj1",
+      "title": "New: Auto-memory feature in Claude code, details below",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rfkmj1/new_automemory_feature_in_claude_code_details/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Claude now remembers what it learns across sessions — your project context, debugging patterns, preferred approaches — and recalls it later without you having to write anything down.\n\nYou can now think of Claude.MD as your instructions to Claude and Memory.MD as Claude's memory scratchpad it updates. If you ask Claude to remember something it will write it there.\n\nRead the docs here to learn more about memory and how it works: [Docs](https://code.claude.com/docs/en/memory)\n\n**Source:** ClaudeAI\n",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rfddpi",
+      "title": "Training a 144M Spiking Neural Network for text generation from scratch — no transformer teacher, no distillation",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rfddpi/training_a_144m_spiking_neural_network_for_text/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 50,
+      "summary": "I built a 144M parameter SNN language model with a fully original architecture (not based on RWKV, transformers, or any existing SNN). Trained from scratch on FineWeb-Edu for \\~$10 on a rented A5000.\n\nSome interesting findings:\n\n• 97-98% inference sparsity — only 2-3% of neurons fire per token. This emerges naturally during training without any sparsity loss.\n\n• Topic coherence advantage — when comparing with GPT-2 Small (124M) on the same prompts, Nord stays on-topic while GPT-2 drifts. On \"How",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rf740o",
+      "title": "DeepSeek released new paper: DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rf740o/deepseek_released_new_paper_dualpath_breaking_the/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 51,
+      "summary": "[https://arxiv.org/abs/2602.21548](https://arxiv.org/abs/2602.21548)\n\nhttps://preview.redd.it/25rh3yahktlg1.png?width=536&amp;format=png&amp;auto=webp&amp;s=f282d71496b6386841732137a474f1b238269950\n\nA joint research team from Peking University, Tsinghua University, and DeepSeek-AI has released its latest research findings on optimizing Large Language Model (LLM) inference architectures. The team successfully developed a novel inference system called \\*\\*DualPath\\*\\*, specifically designed to add",
+      "date": "2026-02-26"
+    },
+    {
       "id": "gh-win4r-memory-lancedb-pro",
       "title": "win4r/memory-lancedb-pro (⭐340)",
       "url": "https://github.com/win4r/memory-lancedb-pro",
@@ -111,6 +191,16 @@
       "category": "product_ecosystem",
       "score": 51,
       "summary": "Just got Qwen3.5 27B running on server and wanted to share the full setup for anyone trying to do the same.\n\n**Setup:**\n\n* Model: Qwen3.5-27B-Q8\\_0 (unsloth GGUF) , Thanks Dan\n* GPU: RTX A6000 48GB\n* Inference: llama.cpp with CUDA\n* Context: 32K\n* Speed: \\~19.7 tokens/sec\n\n**Why Q8 and not a lower quant?** With 48GB VRAM the Q8 fits comfortably at 28.6GB leaving plenty of headroom for KV cache. Quality is virtually identical to full BF16 — no reason to go lower if your VRAM allows it.\n\n**What's ",
+      "date": "2026-02-24"
+    },
+    {
+      "id": "gh-release-ollama-ollama-v0.17.1",
+      "title": "📦 ollama/ollama v0.17.1",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.17.1",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## What's Changed * models: add nemotron architecture support by @jmorganca in https://github.com/ollama/ollama/pull/14356 * Avoid Excessive MLX Memory Usage by @jessegross in https://github.com/ollama/ollama/pull/14341 * ui: use capability-based detection for web search by @hoyy",
       "date": "2026-02-24"
     },
     {
@@ -1044,5 +1134,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-26"
+  "lastUpdated": "2026-02-27"
 }
