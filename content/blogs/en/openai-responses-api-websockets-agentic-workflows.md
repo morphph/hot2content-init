@@ -1,14 +1,26 @@
 ---
 slug: openai-responses-api-websockets-agentic-workflows
-title: "OpenAI Responses API WebSockets Speed Up Agentic Workflows"
-description: "OpenAI's WebSocket mode for the Responses API delivers up to 40% faster execution for agentic workflows with 20+ tool calls. Here's how it works."
-keywords: ["OpenAI Responses API", "WebSockets", "agentic workflows", "AI agents", "low-latency AI"]
-date: 2026-02-27
+title: OpenAI Responses API WebSockets Speed Up Agentic Workflows
+description: >-
+  OpenAI's WebSocket mode for the Responses API delivers up to 40% faster
+  execution for agentic workflows with 20+ tool calls. Here's how it works.
+keywords:
+  - OpenAI Responses API
+  - WebSockets
+  - agentic workflows
+  - AI agents
+  - low-latency AI
+date: 2026-02-27T00:00:00.000Z
 tier: 2
 lang: en
 type: blog
-tags: ["OpenAI", "API", "agentic AI", "WebSockets"]
+tags:
+  - OpenAI
+  - API
+  - agentic AI
+  - WebSockets
 hreflang_zh: /zh/blog/openai-responses-api-websockets-agentic-workflows
+updated: '2026-02-28'
 ---
 
 # OpenAI Responses API WebSockets Speed Up Agentic Workflows
@@ -41,3 +53,13 @@ The same day, OpenAI detailed the mechanism:
 - Multiplexing: Not supported (one in-flight response per connection)
 
 ...
+
+## 📰 Latest Update (2026-02-28)
+
+The WebSocket capabilities in OpenAI's Responses API are seeing rapid adoption among development teams looking to shave latency off their agentic workflows. According to OpenAI's developer account, teams are actively leveraging persistent WebSocket connections to maintain state across multi-turn agent interactions—eliminating the overhead of repeatedly establishing connections that plagues traditional REST-based approaches.
+
+Perhaps more interesting is what's being built on top of this infrastructure. Stripe's Jeff Weinstein announced that Stripe MCP (Model Context Protocol) integration is now available directly within the Responses API. The pitch is straightforward: drop in your API key and prompt Stripe operations as part of your agentic workflows. This effectively turns payment processing into just another tool an AI agent can invoke mid-conversation—no custom integration code required.
+
+The Stripe MCP addition signals a broader trend toward treating enterprise APIs as first-class citizens in agent architectures. Rather than building bespoke connectors for each service, MCP standardizes how agents discover and interact with external tools. Combined with WebSocket's persistent connections, this creates a foundation where agents can orchestrate complex multi-service workflows with minimal latency penalties.
+
+For developers currently polling REST endpoints in their agent loops, the writing's on the wall: WebSockets are becoming the default transport for anything requiring real-time coordination. The Stripe integration demonstrates that the ecosystem is coalescing around this model—expect more enterprise MCP integrations to follow in the coming weeks.

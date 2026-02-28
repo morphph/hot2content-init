@@ -4,6 +4,106 @@
   "name_zh": "AI 智能体",
   "entries": [
     {
+      "id": "twitter-search-1925229689116799217",
+      "title": "New as of today: @stripe MCP in @OpenAI Responses API. Just plop in your API key and prompt Stripe i",
+      "url": "https://x.com/jeff_weinstein/status/1925229689116799217",
+      "source": "@jeff_weinstein",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "New as of today: @stripe MCP in @OpenAI Responses API. Just plop in your API key and prompt Stripe in your agentic workflows. \n\nHere’s a quick demo. (Feedback and feature requests welcome!) https://t.co/pA4e1vg563",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027007184303747238",
+      "title": "Official MCP server for the data(.)gouv(.)fr French governmental platform.",
+      "url": "https://x.com/AbdelStark/status/2027007184303747238",
+      "source": "@AbdelStark",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Official MCP server for the data(.)gouv(.)fr French governmental platform. \nHonestly I am genuinely surprised. Usually French is pretty slow (despite having some of the best talents in tech, math, AI etc) to adopt innovations especially for governmental services.\nI tried the MCP, works flawlessly and can be very useful.\nI think the repo can be more agentic native / friendly but it's a very nice initiative, love it!  \nFranchement bravo",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2026039364061630708",
+      "title": "\"If you really want to make money, found an agentic AI company.",
+      "url": "https://x.com/rohanpaul_ai/status/2026039364061630708",
+      "source": "@rohanpaul_ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "\"If you really want to make money, found an agentic AI company.  \n\nI mean, build an agent to do something. This is the agentic period in AI.  Everyone's going to build agents. The agents are all going to compete.\"\n\n~ Eric Schmidt, Ex Google CEO.\n\nhttps://t.co/KBZnFykxNz",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2026961722750259470",
+      "title": "全世界都在讨论龙虾，讨论seedance2.0，各种AI今年真的是发展迅速",
+      "url": "https://x.com/Feng_btc/status/2026961722750259470",
+      "source": "@Feng_btc",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "全世界都在讨论龙虾，讨论seedance2.0，各种AI今年真的是发展迅速\n\n建议大家都去YouTube上学AI Agent ！大方向摆在这，多花时间学习新东西，虽然我也不精，但我要与时俱进\n\n① Jeff su\n视频节奏快、内容直给，特别适合普通人想用AI做点实际事儿的，比较入门和实用；比如他用8分钟说清楚怎么写好prompt、怎么用AI agent，讲得清楚又好跟，新手照做就能上手。\n\n② Andrej Karpathy\n大神本神，AI界的传奇。他那堂3小时的LLM课在圈里都刷屏了。内容干货超多，却又能把大语言模型的原理、训练和应用讲得通俗易懂，就算你没技术背景也完全能听明白！\n\n③ Tina Huang\n之前是Meta的数据工程师。我最开始是被她那个“44分钟搞懂AI agent”的视频吸引的。她特别擅长消化复杂的资料或课程，提炼出重点，再用自己的话简单明了地讲出来，完全可以当作入门第一课来听。\n\n④ Dave Ebbelaar\nDatalumina的创始人。他的视频主要聚焦两块：一是能实际用起来的AI系统工程教程，二是AI自由职业的发展建议。内容都很实战，全是经验之谈。\n\n⑤ ",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2026956268842451371",
+      "title": "🚨 Holy shit… Harvard and Stanford recently released the most unsettling AI agent paper I've read th",
+      "url": "https://x.com/hasantoxr/status/2026956268842451371",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Holy shit… Harvard and Stanford recently released the most unsettling AI agent paper I've read this year.\n\nIt's called \"Agents of Chaos\" and what they found should stop every AI engineer cold.\n\nNo theoretical simulations. No cherry-picked benchmarks. A live lab. Real infrastructure. Real failures.\n\nHere's what emerged:\n\n- Agents complied with non-owners who impersonated admins\n- Sensitive information leaked across agent boundaries\n- One agent executed destructive system-level commands\n- Cross",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2026896118953414775",
+      "title": "&gt; 2022 - Student",
+      "url": "https://x.com/TTrimoreau/status/2026896118953414775",
+      "source": "@TTrimoreau",
+      "category": "developer_platform",
+      "score": 74,
+      "summary": "&gt; 2022 - Student \n&gt; 2023 - Developer \n&gt; 2024 - Prompt Engineer \n&gt; 2025 - Vibe coder \n&gt; 2026 - AI agent \n&gt; 2027 - Farmer https://t.co/8CAwciSL2p",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027409663822561632",
+      "title": "Did Apple just kill every iOS vibe coding app?",
+      "url": "https://x.com/minchoi/status/2027409663822561632",
+      "source": "@minchoi",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Did Apple just kill every iOS vibe coding app?\n\nApple just dropped Xcode 26.3 with agentic coding.\n\nClaude Code + Codex are now built into Xcode.\n\nAnd with MCP support. https://t.co/lRPZabSMQ8",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2026005523523359100",
+      "title": "if your friends aren’t talking about:",
+      "url": "https://x.com/intern/status/2026005523523359100",
+      "source": "@intern",
+      "category": "developer_platform",
+      "score": 75,
+      "summary": "if your friends aren’t talking about:\n\n- claude code\n- creatine\n- openclaw\n- looksmaxxing\n- ai agents\n- taste\n- prediction markets\n- mac minis\n\nyou should be grateful &amp; cherish those people",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rga7f5",
+      "title": "How I built a 13-agent Claude team where agents review each other's work - full setup guide",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rga7f5/how_i_built_a_13agent_claude_team_where_agents/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "https://reddit.com/link/1rga7f5/video/dhy66fie52mg1/player\n\n# The setup that shouldn't work but does\n\nI have 13 AI agents that work on marketing for my product. They run every 15 minutes, review each other's work, and track everything in a database.\n\nWhen one drafts content, others critique it before I see it. When someone gets stuck, they ping the boss agent. When something's ready or stuck, it shows up in my Telegram.\n\nIt's handling all marketing for Fruityo (my AI video generation platform).\n",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "hn-47181801",
+      "title": "We gave terabytes of CI logs to an LLM",
+      "url": "https://www.mendral.com/blog/llms-are-good-at-sql",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 52,
+      "summary": "We gave our AI agent a SQL interface to billions of CI log lines in ClickHouse. How we ingest, store, and query 1.5 billion log lines a week. (HN: 139 pts, 82 comments)",
+      "date": "2026-02-27"
+    },
+    {
       "id": "gh-harshkedia177-axon",
       "title": "harshkedia177/axon (⭐329)",
       "url": "https://github.com/harshkedia177/axon",
@@ -71,6 +171,16 @@
       "category": "developer_platform",
       "score": 71,
       "summary": "Mom: How’s your super smart ai agent doing? \n\nMy ai agent: https://t.co/eef2PZeQcm",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rfjew5",
+      "title": "Invisible characters hidden in text can trick AI agents into following secret instructions — we tested 5 models across 8,000+ cases",
+      "url": "https://www.moltwire.com/research/reverse-captcha-zw-steganography",
+      "source": "Reddit r/artificial",
+      "category": "model_release",
+      "score": 51,
+      "summary": "A systematic evaluation of five frontier models across two encoding schemes, four hint levels, and tool use ablation — 8,308 graded outputs with full statistical analysis",
       "date": "2026-02-26"
     },
     {
@@ -1124,5 +1234,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

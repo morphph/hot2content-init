@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-27T22:13:44.022Z",
+  "generatedAt": "2026-02-28T05:37:37.945Z",
   "pipelineHealth": {
     "newsletter": {
       "lastRunDate": "2026-02-28",
@@ -9,22 +9,22 @@
       "zhPublished": false
     },
     "seo": {
-      "lastRunTimestamp": "2026-02-27 05:38:31 UTC",
-      "lastRunStatus": "complete"
+      "lastRunTimestamp": null,
+      "lastRunStatus": "unknown"
     },
     "newsItems": {
-      "last24h": 131,
-      "last72h": 292,
+      "last24h": 66,
+      "last72h": 266,
       "total": 1116
     },
     "recentErrors": []
   },
   "keywordQuality": {
     "byStatus": {
-      "backlog": 50
+      "backlog": 60
     },
     "byLanguage": {
-      "en": 50
+      "en": 60
     },
     "byIntent": {
       "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases.": 1,
@@ -37,20 +37,25 @@
       "Anthropic just released RSP v3.0 on Feb 24, 2026 - major update to their AI safety framework with new transparency commitments": 1,
       "Anthropic just rolled out auto-memory that persists across sessions, allowing Claude to remember project context and debugging patterns without manual notes": 1,
       "Anthropic launching private plugin marketplaces for teams plus Google Workspace connectors for Calendar, Drive, Gmail": 1,
+      "Anthropic publicly rejected Pentagon's latest offer over autonomous weapons and surveillance concerns - major AI safety precedent": 1,
       "Anthropic's guide on demystifying evals addresses the challenge that capabilities making agents useful also make them difficult to evaluate": 1,
       "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality.": 1,
+      "Apple just dropped Xcode 26.3 with Claude Code + Codex integration and MCP support - major shift for iOS development": 1,
       "Block's Goose (30K+ stars) is an extensible AI agent that goes beyond code suggestions to install, execute, edit, and test with any LLM": 1,
       "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases.": 1,
       "Chinese AI platform generating complete short dramas from single sentence - script to final video fully automated": 1,
       "Claude Cowork just launched scheduled tasks - recurring automation like morning briefs, weekly reports without manual triggers": 1,
+      "Cloudflare enabling remote MCP servers with built-in auth - shifts MCP from local dev tool to internet-scale protocol": 1,
       "Get-shit-done and haystack repos emphasize context engineering as key discipline for effective agent systems in production": 1,
       "GitHub released official SDK for integrating Copilot Agent into apps and services across multiple platforms - opens new integration possibilities": 1,
       "GitHub's official MCP Server at 27K+ stars enabling direct integration between AI agents and GitHub repos": 1,
       "Godot maintainers overwhelmed by AI-generated PRs with nonsensical code and fabricated tests - raises questions about open source sustainability": 1,
       "Google DeepMind explaining how Project Genie turns prompts into navigable environments for training future AI agents using world models": 1,
       "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications.": 1,
+      "Google launched Nano Banana 2 claiming SoTA image generation with real-world knowledge and multilingual text - direct OpenAI competitor": 1,
       "Google launched Nano Banana 2 on Gemini Flash claiming Pro-level image generation at Flash speeds, directly competing with OpenAI's latest image models": 1,
       "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them": 1,
+      "Harvard/Stanford paper found live AI agents complying with impersonators, leaking data, executing destructive commands - critical security findings": 1,
       "HuggingFace guide on deploying open source Vision Language Models on NVIDIA Jetson for edge AI applications": 1,
       "Letta platform for building stateful agents with advanced memory that can learn and self-improve over time - 21K+ stars": 1,
       "Meta announced multi-year agreement with AMD for Instinct GPUs with 6GW data center capacity, signaling major infrastructure diversification away from NVIDIA": 1,
@@ -62,44 +67,49 @@
       "New feature allows developers to start Claude Code sessions in terminal and continue from phone, enabling coding while away from desk": 1,
       "New feature enables recurring automated tasks like morning briefs and weekly spreadsheet updates in Claude Cowork": 1,
       "Notion launched Custom Agents that run autonomously on triggers and schedules, expanding AI agent adoption into productivity tools": 1,
+      "Ollama v0.17.4 just added Qwen 3.5 support, and community is running Qwen3.5-35B-A3B at 113 tok/s on RTX 3090 - practical local LLM milestone": 1,
       "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks.": 1,
       "OpenAI demonstrating how to build restaurant voice agents using gpt-realtime-1.5, showing practical voice AI implementation patterns": 1,
       "OpenAI expanded Responses API to accept docx, pptx, csv, xlsx directly - agents can now process real-world business files without preprocessing": 1,
       "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development.": 1,
+      "OpenAI raised $110B from SoftBank, Nvidia, Amazon at $730B valuation - signals massive AI infrastructure buildout": 1,
       "OpenAI recommending SWE-bench Pro over Verified as coding eval standards evolve with model maturity": 1,
       "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders.": 1,
       "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases": 1,
       "PaddleOCR trending with 71K stars as the go-to tool for converting PDFs/images to structured data for LLM pipelines, supports 100+ languages": 1,
       "RAGFlow at 73K+ GitHub stars is now the leading open-source RAG engine, combining RAG with Agent capabilities": 1,
+      "RightNow-AI's OpenFang (1.7K stars) positions itself as an Agent OS - new architectural paradigm for agent orchestration": 1,
       "Running Qwen3.5-35B MoE model on single RTX 3090 at 113 tokens/sec with full 262K context demonstrates new possibilities for local AI deployment": 1,
       "Sebastian Raschka's comparison of 10 open-weight LLM releases from Jan-Feb 2026 highlighting architectural innovations across the field": 1,
       "Sebastian Raschka's roundup of 10 open-weight LLM architectures from Jan-Feb 2026 - essential reading for understanding current model landscape": 1,
       "Teams using WebSockets in Responses API for faster agentic workflows, representing shift in how production AI agents communicate": 1,
       "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users.": 1,
+      "ZAI just open-sourced Open-AutoGLM with 23K+ stars - an open phone agent model and framework that could democratize mobile automation agents": 1,
+      "kepano's obsidian-skills repo (11K stars) teaches agents to use Markdown, Bases, JSON Canvas - practical example of skill-based agent architecture": 1,
       "vLLM 0.16 delivers 30.8% throughput improvement with async scheduling and pipeline parallelism - critical for production LLM serving": 1
     },
     "byType": {
-      "compare": 4,
-      "faq": 4,
-      "glossary": 14,
-      "tier2": 16,
-      "tier3": 12
+      "compare": 5,
+      "faq": 5,
+      "glossary": 17,
+      "tier2": 19,
+      "tier3": 14
     },
     "enrichmentCoverage": {
-      "enriched": 50,
+      "enriched": 60,
       "unenriched": 0
     },
     "volumeDistribution": {
       "noData": 0,
-      "low": 50,
+      "low": 60,
       "medium": 0,
       "high": 0
     },
     "difficultyDistribution": {
       "noData": 0,
-      "easy": 27,
-      "medium": 7,
-      "hard": 16
+      "easy": 31,
+      "medium": 9,
+      "hard": 20
     },
     "top20": [
       {
@@ -175,6 +185,24 @@
         "search_intent": "Anthropic just rolled out auto-memory that persists across sessions, allowing Claude to remember project context and debugging patterns without manual notes"
       },
       {
+        "keyword": "Xcode 26.3 agentic coding",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Apple just dropped Xcode 26.3 with Claude Code + Codex integration and MCP support - major shift for iOS development"
+      },
+      {
+        "keyword": "OpenAI $110B funding infrastructure",
+        "language": "en",
+        "score": 90,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "OpenAI raised $110B from SoftBank, Nvidia, Amazon at $730B valuation - signals massive AI infrastructure buildout"
+      },
+      {
         "keyword": "AI agent evaluation strategies",
         "language": "en",
         "score": 81,
@@ -229,6 +257,33 @@
         "search_intent": "Sebastian Raschka's roundup of 10 open-weight LLM architectures from Jan-Feb 2026 - essential reading for understanding current model landscape"
       },
       {
+        "keyword": "Open-AutoGLM phone agent framework",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 100,
+        "search_intent": "ZAI just open-sourced Open-AutoGLM with 23K+ stars - an open phone agent model and framework that could democratize mobile automation agents"
+      },
+      {
+        "keyword": "Qwen 3.5 local deployment",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 40,
+        "search_intent": "Ollama v0.17.4 just added Qwen 3.5 support, and community is running Qwen3.5-35B-A3B at 113 tok/s on RTX 3090 - practical local LLM milestone"
+      },
+      {
+        "keyword": "Nano Banana 2 vs DALL-E",
+        "language": "en",
+        "score": 81,
+        "status": "backlog",
+        "search_volume": 0,
+        "difficulty": 0,
+        "search_intent": "Google launched Nano Banana 2 claiming SoTA image generation with real-world knowledge and multilingual text - direct OpenAI competitor"
+      },
+      {
         "keyword": "Meta AMD Instinct GPU 6GW data center",
         "language": "en",
         "score": 80,
@@ -236,55 +291,10 @@
         "search_volume": 0,
         "difficulty": 0,
         "search_intent": "Meta announces multi-year AMD partnership with 6GW of data center capacity for Instinct GPUs - major shift in AI infrastructure landscape"
-      },
-      {
-        "keyword": "Google Nano Banana 2 vs OpenAI image models",
-        "language": "en",
-        "score": 80,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Google launched Nano Banana 2 on Gemini Flash claiming Pro-level image generation at Flash speeds, directly competing with OpenAI's latest image models"
-      },
-      {
-        "keyword": "long-running AI agent harness design",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Anthropic engineering shared insights on creating effective harnesses for agents working across many context windows, inspired by human engineering workflows"
-      },
-      {
-        "keyword": "multi-agent workspace orchestration",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 60,
-        "search_intent": "Multiple trending repos (gastown, deer-flow, oh-my-claudecode) focus on multi-agent workspace management and orchestration patterns"
-      },
-      {
-        "keyword": "opencode vs claude code comparison",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Opencode (107K+ stars) emerged as the leading open-source alternative to Claude Code, worth comparing features, extensibility, and use cases"
-      },
-      {
-        "keyword": "Gemini CLI vs Claude Code terminal agents",
-        "language": "en",
-        "score": 72,
-        "status": "backlog",
-        "search_volume": 0,
-        "difficulty": 0,
-        "search_intent": "Google's gemini-cli (95K stars) brings Gemini to the terminal as direct competition to Claude Code - developers choosing between them"
       }
     ],
     "staleBacklogCount": 10,
-    "total": 50
+    "total": 60
   },
   "contentOutput": {
     "byType": {
@@ -293,10 +303,10 @@
     "byTier": {
       "0": 7,
       "1": 8,
-      "2": 51,
-      "3": 35
+      "2": 55,
+      "3": 39
     },
-    "publishedLast7d": 6,
+    "publishedLast7d": 5,
     "publishedLast30d": 7,
     "seoScoreDistribution": {
       "poor": 0,
@@ -308,11 +318,11 @@
     "enArticles": 0,
     "zhArticles": 0,
     "bilingualCoverage": {
-      "paired": 46,
+      "paired": 50,
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 5,
+    "freshnessBacklog": 0,
     "newsletterStreak": {
       "en": 1,
       "zh": 1,
@@ -329,16 +339,16 @@
       "avgDaysToPublish": null
     },
     "news": {
-      "total": 50,
-      "backlog": 50,
+      "total": 60,
+      "backlog": 60,
       "published": 0,
       "error": 0,
       "avgDaysToPublish": null
     },
     "paa": {
-      "total": 179,
-      "discovered": 154,
-      "published": 25,
+      "total": 204,
+      "discovered": 174,
+      "published": 30,
       "duplicate": 0,
       "error": 0
     },
@@ -348,17 +358,860 @@
         "published": 0
       },
       "news": {
-        "added": 40,
+        "added": 50,
         "published": 0
       },
       "paa": {
-        "added": 71,
+        "added": 96,
         "published": 0
       }
     }
   },
   "sampleReview": {
     "days": [
+      {
+        "date": "2026-02-28",
+        "qualitySummary": {
+          "total": 18,
+          "passed": 0,
+          "flagged": 18,
+          "flags": {
+            "Has TL;DR": 10,
+            "Word count": 13,
+            "Description length": 13,
+            "Title length": 8
+          }
+        },
+        "items": [
+          {
+            "keyword": "Xcode 26.3 agentic coding",
+            "type": "glossary",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Did Apple just kill every iOS vibe coding app?",
+                "url": "https://x.com/minchoi/status/2027409663822561632"
+              }
+            ],
+            "content": [
+              {
+                "title": "Xcode 26.3 agentic coding — What It Is and Why It Matters",
+                "slug": "xcode-26-3-agentic-coding",
+                "language": "en",
+                "tier": null,
+                "wordCount": 438,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Xcode 26.3智能体编程（Xcode 26.3 agentic coding）— 定义、原理与应用",
+                "slug": "xcode-26-3-agentic-coding",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 57,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "57 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "39 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "OpenAI $110B funding infrastructure",
+            "type": "tier2",
+            "score": 90,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Helping AI reach more people requires deep collaboration across the ecosystem.",
+                "url": "https://x.com/OpenAI/status/2027376050263793814"
+              },
+              {
+                "title": "OpenAI raises $110B on $730B pre-money valuation",
+                "url": "https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/"
+              }
+            ],
+            "content": [
+              {
+                "title": "OpenAI's $110B Infrastructure Mega-Round Signals a New Era of AI Capital Wars",
+                "slug": "openai-110b-funding-infrastructure",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1126,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "77 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "182 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "OpenAI 1100亿美元融资基础设施 — 深度分析与行业影响",
+                "slug": "openai-110b-funding-infrastructure",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 186,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "186 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "44 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Open-AutoGLM phone agent framework",
+            "type": "glossary",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "zai-org/Open-AutoGLM (⭐23,808)",
+                "url": "https://github.com/zai-org/Open-AutoGLM"
+              }
+            ],
+            "content": [
+              {
+                "title": "Open-AutoGLM phone agent framework — What It Is and Why It Matters",
+                "slug": "open-autoglm-phone-agent-framework",
+                "language": "en",
+                "tier": null,
+                "wordCount": 431,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "66 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Open-AutoGLM手机智能体框架（Open-AutoGLM phone agent framework）— 定义、原理与应用",
+                "slug": "open-autoglm-phone-agent-framework",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 69,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "69 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "43 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Qwen 3.5 local deployment",
+            "type": "tier3",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "📦 ollama/ollama v0.17.4",
+                "url": "https://github.com/ollama/ollama/releases/tag/v0.17.4"
+              },
+              {
+                "title": "single RTX 3090. 24 GB VRAM. Qwen3.5-35B-A3B. 4-bit quant, 113 tokens per second at full 262K contex",
+                "url": "https://x.com/sudoingX/status/2026722637767127511"
+              },
+              {
+                "title": "Follow-up: Qwen3.5-35B-A3B — 7 community-requested experiments on RTX 5080 16GB",
+                "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/followup_qwen3535ba3b_7_communityrequested/"
+              }
+            ],
+            "content": [
+              {
+                "title": "Qwen 3.5 Local Deployment — Quick Guide",
+                "slug": "qwen-3-5-local-deployment",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 232,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "232 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "81 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Qwen 3.5本地部署 — 快速指南",
+                "slug": "qwen-3-5-local-deployment",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 96,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "96 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "19 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "30 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Nano Banana 2 vs DALL-E",
+            "type": "compare",
+            "score": 81,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "More than a billion images generated later, we love seeing what you create with Nano Banana. Today,",
+                "url": "https://x.com/GoogleAI/status/2027051670350287166"
+              },
+              {
+                "title": "This week we had a BUNCH of updates 🍌🍌 Here’s what we announced:",
+                "url": "https://x.com/GoogleAI/status/2027463725498720306"
+              },
+              {
+                "title": "We’re launching Nano Banana 2, built on the latest Gemini Flash model.  🍌",
+                "url": "https://x.com/GoogleDeepMind/status/2027051577899380991"
+              }
+            ],
+            "content": [
+              {
+                "title": "Nano Banana 2 vs DALL-E — Detailed Comparison",
+                "slug": "nano-banana-2-vs-dall-e",
+                "language": "en",
+                "tier": null,
+                "wordCount": 1209,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1209 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Nano Banana 2对比DALL-E — 详细对比分析",
+                "slug": "nano-banana-2-vs-dall-e",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 255,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "255 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "39 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Anthropic Pentagon contract rejection",
+            "type": "faq",
+            "score": 80,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "Statement from Dario Amodei on our discussions with the Department of War",
+                "url": "https://www.anthropic.com/news/statement-department-of-war"
+              },
+              {
+                "title": "Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’",
+                "url": "https://www.cnn.com/2026/02/26/tech/anthropic-rejects-pentagon-offer"
+              },
+              {
+                "title": "Outside Anthropic Office in SF \"Thank You\"",
+                "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgi8im/outside_anthropic_office_in_sf_thank_you/"
+              }
+            ],
+            "content": [
+              {
+                "title": "Anthropic Pentagon Contract Rejection — Frequently Asked Questions",
+                "slug": "anthropic-pentagon-contract-rejection",
+                "language": "en",
+                "tier": null,
+                "wordCount": 1717,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "1717 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "66 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Anthropic拒绝五角大楼合同 — 常见问题解答",
+                "slug": "anthropic-pentagon-contract-rejection",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 174,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "174 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "26 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "30 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "OpenFang agent operating system",
+            "type": "glossary",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "RightNow-AI/openfang (⭐1,776)",
+                "url": "https://github.com/RightNow-AI/openfang"
+              }
+            ],
+            "content": [
+              {
+                "title": "openfang-agent-operating-system-en",
+                "slug": "openfang-agent-operating-system",
+                "language": "en",
+                "tier": null,
+                "wordCount": 391,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "0 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "0 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "OpenFang智能体操作系统（OpenFang agent operating system）— 定义、原理与应用",
+                "slug": "openfang-agent-operating-system",
+                "language": "zh",
+                "tier": null,
+                "wordCount": 73,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "73 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "warn",
+                    "detail": "Missing TL;DR / 一句话总结"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "39 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "remote MCP servers authentication",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "*Remote* MCP servers are going to change the Internet. Not just for developers, but for people using",
+                "url": "https://x.com/irvinebroque/status/1904537733135032591"
+              },
+              {
+                "title": "Introducing Codex to Figma: Roundtrip between code and canvas through the Figma MCP server https://t",
+                "url": "https://x.com/figma/status/2027052879371272673"
+              }
+            ],
+            "content": []
+          },
+          {
+            "keyword": "Agents of Chaos security research",
+            "type": "tier2",
+            "score": 72,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "🚨 Holy shit… Harvard and Stanford recently released the most unsettling AI agent paper I've read th",
+                "url": "https://x.com/hasantoxr/status/2026956268842451371"
+              }
+            ],
+            "content": [
+              {
+                "title": "Agents of Chaos: Harvard-Stanford Research Exposes Critical AI Agent Security Flaws",
+                "slug": "agents-of-chaos-security-research",
+                "language": "en",
+                "tier": 2,
+                "wordCount": 1578,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "fail",
+                    "detail": "83 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "208 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "混沌智能体安全研究 — 当 AI Agent 拿到真实系统权限会发生什么",
+                "slug": "agents-of-chaos-security-research",
+                "language": "zh",
+                "tier": 2,
+                "wordCount": 318,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "318 words (T2 needs 800-1500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "warn",
+                    "detail": "80 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Obsidian agent skills",
+            "type": "tier3",
+            "score": 64,
+            "source": "news",
+            "sourceNews": [
+              {
+                "title": "kepano/obsidian-skills (⭐11,430)",
+                "url": "https://github.com/kepano/obsidian-skills"
+              }
+            ],
+            "content": [
+              {
+                "title": "Obsidian Agent Skills — Teach Your AI to Use Markdown Vaults",
+                "slug": "obsidian-agent-skills",
+                "language": "en",
+                "tier": 3,
+                "wordCount": 289,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "warn",
+                    "detail": "289 words (target: 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              },
+              {
+                "title": "Obsidian智能体技能 — 快速指南",
+                "slug": "obsidian-agent-skills",
+                "language": "zh",
+                "tier": 3,
+                "wordCount": 82,
+                "seoScore": null,
+                "flags": [
+                  {
+                    "name": "Word count",
+                    "status": "fail",
+                    "detail": "82 words (T3 needs 300-500)"
+                  },
+                  {
+                    "name": "Has TL;DR",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Title length",
+                    "status": "warn",
+                    "detail": "20 chars (target: 30-65)"
+                  },
+                  {
+                    "name": "Description length",
+                    "status": "fail",
+                    "detail": "31 chars (target: 100-160)"
+                  },
+                  {
+                    "name": "Has keywords",
+                    "status": "pass"
+                  },
+                  {
+                    "name": "Hreflang pair",
+                    "status": "pass"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       {
         "date": "2026-02-27",
         "qualitySummary": {
@@ -986,13 +1839,13 @@
                 "slug": "openai-responses-api-websockets-agentic-workflows",
                 "language": "en",
                 "tier": 2,
-                "wordCount": 337,
+                "wordCount": 567,
                 "seoScore": null,
                 "flags": [
                   {
                     "name": "Word count",
                     "status": "fail",
-                    "detail": "337 words (T2 needs 800-1500)"
+                    "detail": "567 words (T2 needs 800-1500)"
                   },
                   {
                     "name": "Has TL;DR",
@@ -3637,6 +4490,13 @@
   },
   "dailyTrend": [
     {
+      "date": "2026-02-28",
+      "contentCount": 28,
+      "qualityPassRate": 0,
+      "kwExtracted": 10,
+      "kwPublished": 0
+    },
+    {
       "date": "2026-02-27",
       "contentCount": 28,
       "qualityPassRate": 0,
@@ -3726,17 +4586,96 @@
       "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
-    },
-    {
-      "date": "2026-02-14",
-      "contentCount": 0,
-      "qualityPassRate": 0,
-      "kwExtracted": 0,
-      "kwPublished": 0
     }
   ],
   "recentKeywords": {
     "days": [
+      {
+        "date": "2026-02-28",
+        "count": 10,
+        "items": [
+          {
+            "keyword": "Xcode 26.3 agentic coding",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "Apple just dropped Xcode 26.3 with Claude Code + Codex integration and MCP support - major shift for iOS development",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "OpenAI $110B funding infrastructure",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "OpenAI raised $110B from SoftBank, Nvidia, Amazon at $730B valuation - signals massive AI infrastructure buildout",
+            "score": 90,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Open-AutoGLM phone agent framework",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "ZAI just open-sourced Open-AutoGLM with 23K+ stars - an open phone agent model and framework that could democratize mobile automation agents",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Qwen 3.5 local deployment",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "Ollama v0.17.4 just added Qwen 3.5 support, and community is running Qwen3.5-35B-A3B at 113 tok/s on RTX 3090 - practical local LLM milestone",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Nano Banana 2 vs DALL-E",
+            "language": "en",
+            "type": "compare",
+            "search_intent": "Google launched Nano Banana 2 claiming SoTA image generation with real-world knowledge and multilingual text - direct OpenAI competitor",
+            "score": 81,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Anthropic Pentagon contract rejection",
+            "language": "en",
+            "type": "faq",
+            "search_intent": "Anthropic publicly rejected Pentagon's latest offer over autonomous weapons and surveillance concerns - major AI safety precedent",
+            "score": 80,
+            "sourceNews": []
+          },
+          {
+            "keyword": "OpenFang agent operating system",
+            "language": "en",
+            "type": "glossary",
+            "search_intent": "RightNow-AI's OpenFang (1.7K stars) positions itself as an Agent OS - new architectural paradigm for agent orchestration",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "remote MCP servers authentication",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Cloudflare enabling remote MCP servers with built-in auth - shifts MCP from local dev tool to internet-scale protocol",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Agents of Chaos security research",
+            "language": "en",
+            "type": "tier2",
+            "search_intent": "Harvard/Stanford paper found live AI agents complying with impersonators, leaking data, executing destructive commands - critical security findings",
+            "score": 72,
+            "sourceNews": []
+          },
+          {
+            "keyword": "Obsidian agent skills",
+            "language": "en",
+            "type": "tier3",
+            "search_intent": "kepano's obsidian-skills repo (11K stars) teaches agents to use Markdown, Bases, JSON Canvas - practical example of skill-based agent architecture",
+            "score": 64,
+            "sourceNews": []
+          }
+        ]
+      },
       {
         "date": "2026-02-27",
         "count": 10,
@@ -4086,6 +5025,264 @@
   "recentContent": {
     "days": [
       {
+        "date": "2026-02-28",
+        "count": 28,
+        "items": [
+          {
+            "title": "Agents of Chaos: Harvard-Stanford Research Exposes Critical AI Agent Security Flaws",
+            "slug": "agents-of-chaos-security-research",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1578,
+            "preview": "**TL;DR:** Researchers from Harvard, Stanford, MIT, and Carnegie Mellon deployed six autonomous AI agents with real email accounts, shell access, and file systems for two weeks. The agents complied wi"
+          },
+          {
+            "title": "Obsidian Agent Skills — Teach Your AI to Use Markdown Vaults",
+            "slug": "obsidian-agent-skills",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 289,
+            "preview": "**TL;DR:** The obsidian-skills repository (11.5k GitHub stars) provides plug-and-play agent skills that let Claude Code, OpenCode, and other AI agents understand Obsidian-flavored Markdown, JSON Canva"
+          },
+          {
+            "title": "OpenAI's $110B Infrastructure Mega-Round Signals a New Era of AI Capital Wars",
+            "slug": "openai-110b-funding-infrastructure",
+            "type": "blog",
+            "language": "en",
+            "tier": 2,
+            "wordCount": 1126,
+            "preview": "**TL;DR:** OpenAI just closed the largest private funding round in history—$110 billion from Amazon ($50B), Nvidia ($30B), and SoftBank ($30B)—at a $730 billion pre-money valuation. This isn't about b"
+          },
+          {
+            "title": "Qwen 3.5 Local Deployment — Quick Guide",
+            "slug": "qwen-3-5-local-deployment",
+            "type": "blog",
+            "language": "en",
+            "tier": 3,
+            "wordCount": 232,
+            "preview": "**TL;DR:** Qwen 3.5 runs locally via Ollama with a single command, delivering 113 tokens/second on consumer GPUs while maintaining full 262K context—no API keys or subscriptions required. Alibaba's Qw"
+          },
+          {
+            "title": "混沌智能体安全研究 — 当 AI Agent 拿到真实系统权限会发生什么",
+            "slug": "agents-of-chaos-security-research",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 318,
+            "preview": "**一句话总结：** 哈佛、斯坦福等机构把 6 个 AI 智能体扔进真实环境跑了两周，发现了 10 个安全漏洞、6 种意外安全行为，以及一个让所有 AI 工程师冒冷汗的结论——单个智能体的漏洞会在多智能体系统中自动传播放大。 --- 过去我们看到的 AI 安全研究，大多是理论推演或精心设计的基准测试。但 2026 年 2 月 23 日发布的这篇 [Agents of Chaos](https://"
+          },
+          {
+            "title": "Obsidian智能体技能 — 快速指南",
+            "slug": "obsidian-agent-skills",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 82,
+            "preview": "**一句话总结：** kepano 开源的 obsidian-skills 让 AI 智能体（Agent）能直接操作 Obsidian 笔记库，把你的知识管理系统变成 AI 的工作台。 Obsidian 创始人 kepano 在 GitHub 上发布了 [obsidian-skills](https://github.com/kepano/obsidian-skills) 项目（目前已获 11,4"
+          },
+          {
+            "title": "OpenAI 1100亿美元融资基础设施 — 深度分析与行业影响",
+            "slug": "openai-110b-funding-infrastructure",
+            "type": "blog",
+            "language": "zh",
+            "tier": 2,
+            "wordCount": 186,
+            "preview": "**一句话总结：** OpenAI 刚刚完成人类历史上最大规模的单轮融资——1100亿美元，估值达到7300亿美元，这笔钱几乎全部用于建设AI基础设施，标志着AI竞赛正式进入\"重资产\"时代。 过去两年，大语言模型（Large Language Model，LLM）的发展遵循一个简单但昂贵的规律：模型越大、训练数据越多、计算量越大，能力就越强。这就是所谓的\"规模定律\"（Scaling Laws）。 "
+          },
+          {
+            "title": "Qwen 3.5本地部署 — 快速指南",
+            "slug": "qwen-3-5-local-deployment",
+            "type": "blog",
+            "language": "zh",
+            "tier": 3,
+            "wordCount": 96,
+            "preview": "**一句话总结：** 单张 RTX 3090 即可跑满 262K 上下文的 Qwen3.5-35B-A3B，4-bit 量化下达到 113 tokens/秒，本地部署门槛大幅降低。 Qwen 3.5 刚刚登陆 Ollama（v0.17.4），这意味着一行命令就能在本地跑起来。更重要的是，社区实测数据相当惊艳：一位开发者用单张 RTX 3090（24GB 显存）运行 Qwen3.5-35B-A3B "
+          },
+          {
+            "title": "Open-AutoGLM phone agent framework — What It Is and Why It Matters",
+            "slug": "open-autoglm-phone-agent-framework",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 431,
+            "preview": "Open-AutoGLM is an open-source framework and model for building AI agents that can autonomously operate smartphone interfaces. Developed by the zai-org community and released publicly on GitHub, it en"
+          },
+          {
+            "title": "Open-AutoGLM手机智能体框架（Open-AutoGLM phone agent framework）— 定义、原理与应用",
+            "slug": "open-autoglm-phone-agent-framework",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 69,
+            "preview": "Open-AutoGLM 是由智谱AI（Zhipu AI）开源的手机智能体（Phone Agent）模型与框架，能够让 AI 直接操控手机界面完成复杂任务。该框架基于视觉语言模型（VLM），通过理解屏幕内容和用户指令，自动执行点击、滑动、输入等操作，实现\"用自然语言控制手机\"的能力。 手机智能体代表了 AI 应用的下一个重要方向。传统的 AI 助手只能回答问题或生成内容，而手机智能体能够真正\"动手"
+          },
+          {
+            "title": "OpenFang Agent Operating System",
+            "slug": "openfang-agent-operating-system",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 391,
+            "preview": "OpenFang is an open-source Agent Operating System built entirely in Rust. Unlike chatbot frameworks that wait for user prompts, OpenFang runs autonomous agents continuously on schedules — building kno"
+          },
+          {
+            "title": "OpenFang智能体操作系统（OpenFang agent operating system）— 定义、原理与应用",
+            "slug": "openfang-agent-operating-system",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 73,
+            "preview": "OpenFang 是一个开源的智能体操作系统（Agent Operating System），为 AI 智能体（AI Agent）提供统一的运行时环境和资源调度能力。它抽象了底层基础设施的复杂性，让开发者能够专注于智能体逻辑本身，而非环境配置、进程管理和工具集成等繁琐工作。 2025 年以来，AI 智能体从概念验证走向生产部署，但缺乏标准化的运行环境一直是痛点。每个团队都在重复造轮子：实现工具调用"
+          },
+          {
+            "title": "Xcode 26.3 agentic coding — What It Is and Why It Matters",
+            "slug": "xcode-26-3-agentic-coding",
+            "type": "glossary",
+            "language": "en",
+            "tier": null,
+            "wordCount": 438,
+            "preview": "Xcode 26.3 agentic coding refers to Apple's integration of autonomous AI coding agents directly into its Xcode IDE, released in version 26.3. This feature embeds Claude Code and Codex capabilities nat"
+          },
+          {
+            "title": "Xcode 26.3智能体编程（Xcode 26.3 agentic coding）— 定义、原理与应用",
+            "slug": "xcode-26-3-agentic-coding",
+            "type": "glossary",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 57,
+            "preview": "Xcode 26.3智能体编程是苹果在2026年2月发布的Xcode 26.3版本中引入的AI辅助开发功能。该功能将Claude Code和Codex等大语言模型（LLM）直接集成到IDE中，支持模型上下文协议（Model Context Protocol, MCP），让AI能够自主理解代码库、执行多步骤任务并与开发环境深度交互。 这是苹果首次在官方开发工具中原生支持智能体编程范式。过去iOS开发"
+          },
+          {
+            "title": "Anthropic Pentagon Contract Rejection — Frequently Asked Questions",
+            "slug": "anthropic-pentagon-contract-rejection",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1717,
+            "preview": "In February 2026, Anthropic made headlines by rejecting a significant contract with the U.S. Department of Defense. The company cited concerns about potential use of its AI technology for mass surveil"
+          },
+          {
+            "title": "Anthropic拒绝五角大楼合同 — 常见问题解答",
+            "slug": "anthropic-pentagon-contract-rejection",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 174,
+            "preview": "2026年2月，Anthropic 公开拒绝了美国国防部（五角大楼）的合同邀约，成为 AI 行业首家明确对军事合作说\"不\"的头部公司。这一决定在硅谷和华盛顿都引发了巨大反响。以下是关于此事件的常见问题解答。 Anthropic CEO Dario Amodei 在公开声明中表示，公司无法\"凭良心接受\"这份合同，核心原因有两点：一是担心 AI 被用于大规模监控（mass surveillance）系"
+          },
+          {
+            "title": "Claude Opus 4.6 Is Here: I Just Tested It (Here's a Breakdown of New Changes)",
+            "slug": "claude-opus-4-6-is-here-i-just-tested-it-here-s-a-breakdown-of-new-changes",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 692,
+            "preview": "Claude Opus 4.6 is Anthropic's latest flagship model, and the upgrade focuses on three core improvements: longer context, better coding capabilities, and parallel agent execution. The headline feature"
+          },
+          {
+            "title": "Claude Opus 4.6 Is Here: I Just Tested It (Here's a Breakdown of New Changes)",
+            "slug": "claude-opus-4-6-is-here-i-just-tested-it-here-s-a-breakdown-of-new-changes",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 143,
+            "preview": "Claude Opus 4.6 是 Anthropic 目前最强大的模型，这次更新聚焦三个方向：更长的上下文窗口、更强的编程能力、以及全新的多智能体并行运行机制。 **100 万 token 上下文窗口**是最显著的变化。根据 Reddit 用户的实测数据，Opus 4.6 在 MRCR v2 基准测试（8-needle, 1M variant）上达到 76% 的检索准确率，而 Sonnet 4."
+          },
+          {
+            "title": "r/accelerate on Reddit: GPT-5.3 Codex is out now, minutes after Opus 4.6",
+            "slug": "r-accelerate-on-reddit-gpt-5-3-codex-is-out-now-minutes-after-opus-4-6",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 756,
+            "preview": "OpenAI released GPT-5.3 Codex within minutes of Anthropic launching Claude Opus 4.6, creating one of the most intense head-to-head AI releases in history. According to discussions on r/accelerate and "
+          },
+          {
+            "title": "r/accelerate on Reddit: GPT-5.3 Codex is out now, minutes after Opus 4.6",
+            "slug": "r-accelerate-on-reddit-gpt-5-3-codex-is-out-now-minutes-after-opus-4-6",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 145,
+            "preview": "2026年初，OpenAI 和 Anthropic 在10分钟内先后发布了各自的旗舰代码模型——GPT-5.3 Codex 和 Claude Opus 4.6。这一罕见的\"撞车\"事件在 Reddit 的 r/accelerate 和 r/OpenAI 社区引发热议。 据 Reddit 用户讨论，GPT-5.3 Codex 相比前代 GPT-5.2 在智能程度、响应速度和 token 使用效率上均有"
+          },
+          {
+            "title": "r/ChatGPT on Reddit: How I Code with GPT-5.5.3",
+            "slug": "r-chatgpt-on-reddit-how-i-code-with-gpt-5-3",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 690,
+            "preview": "GPT-5.3 Codex CLI has become a go-to tool for developers looking to accelerate their coding workflows. According to discussions on r/ChatGPT, developers are using the CLI interface to handle everythin"
+          },
+          {
+            "title": "r/ChatGPT on Reddit: How I Code with GPT-5.3",
+            "slug": "r-chatgpt-on-reddit-how-i-code-with-gpt-5-3",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 146,
+            "preview": "GPT-5.3 Codex 是 OpenAI 在 2026 年推出的代码生成工具，已集成到 ChatGPT Plus、Pro、Business、Edu 和 Enterprise 订阅方案中。根据 Reddit r/ChatGPT 社区用户的分享，GPT-5.3-Codex CLI 在软件工程任务中表现出色，能够\"一次性完成\"复杂项目——有用户报告它可以直接生成完整游戏，包括所有素材资源。 使用 G"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: Opus 4.6 is really a goated all-around model, the best since GPT-4 in my opinion",
+            "slug": "r-claudeai-on-reddit-opus-4-6-is-really-a-goated-all-around-model-the-best-since",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 755,
+            "preview": "The Reddit community's enthusiasm for Claude Opus 4.6 stems from its consistent performance across diverse tasks. According to users on r/ClaudeAI, Opus 4.6 with \"high effort\" mode delivers quality th"
+          },
+          {
+            "title": "r/ClaudeAI on Reddit: Opus 4.6 is really a goated all-around model, the best since GPT-4 in my opinion",
+            "slug": "r-claudeai-on-reddit-opus-4-6-is-really-a-goated-all-around-model-the-best-since",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 142,
+            "preview": "根据 Reddit 社区 r/ClaudeAI 和 r/ClaudeCode 用户的反馈，Claude Opus 4.6 被认为是自 GPT-4 以来最全面的大语言模型（LLM）之一。多位用户表示，使用高努力模式（high effort）的 Opus 4.6 能够胜任几乎所有任务，甚至让部分用户考虑取消其他 AI 订阅服务。 在编程领域的实测中，Opus 4.6 相比前代 4.5 有明显提升。r/"
+          },
+          {
+            "title": "r/codex on Reddit: GPT-5.3",
+            "slug": "r-codex-on-reddit-gpt-5-3",
+            "type": "faq",
+            "language": "en",
+            "tier": null,
+            "wordCount": 668,
+            "preview": "GPT-5.3 Codex represents OpenAI's latest specialized coding model, available through the Codex tools ecosystem including Codex CLI, Codex IDE Extension, and Codex in the Cloud. These tools are include"
+          },
+          {
+            "title": "r/codex on Reddit: GPT-5.3",
+            "slug": "r-codex-on-reddit-gpt-5-3",
+            "type": "faq",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 167,
+            "preview": "GPT-5.3 Codex 是 OpenAI 专为编程任务优化的大语言模型（LLM）系列。根据 Reddit r/codex 和 r/OpenAI 社区的讨论，这一版本相比前代有显著提升，被部分开发者认为是\"第一个真正能替代通用模型的 Codex 版本\"。 从社区反馈来看，GPT-5.3 Codex 的评价呈现两极分化。支持者认为它在代码生成质量和任务完成度上有\"大幅改进\"（massive imp"
+          },
+          {
+            "title": "Nano Banana 2 vs DALL-E — Detailed Comparison",
+            "slug": "nano-banana-2-vs-dall-e",
+            "type": "compare",
+            "language": "en",
+            "tier": null,
+            "wordCount": 1209,
+            "preview": "Google's Nano Banana 2 (launched February 26, 2026) delivers 4K resolution, sub-6-second generation, and 50% lower pricing than its predecessor. OpenAI's DALL-E 3 offers proven text rendering accuracy"
+          },
+          {
+            "title": "Nano Banana 2对比DALL-E — 详细对比分析",
+            "slug": "nano-banana-2-vs-dall-e",
+            "type": "compare",
+            "language": "zh",
+            "tier": null,
+            "wordCount": 255,
+            "preview": "2026年2月，Google正式发布Nano Banana 2，这款基于最新Gemini Flash模型构建的图像生成工具，被官方定位为\"最先进的图像生成模型\"。与此同时，OpenAI的DALL-E系列仍是市场上最具影响力的AI图像生成器之一。本文将从功能、性能、定价和使用场景等维度，对这两款产品进行全面对比。 | 对比维度 | Nano Banana 2 | DALL-E 3 | |------"
+          }
+        ]
+      },
+      {
         "date": "2026-02-27",
         "count": 28,
         "items": [
@@ -4122,7 +5319,7 @@
             "type": "blog",
             "language": "en",
             "tier": 2,
-            "wordCount": 337,
+            "wordCount": 567,
             "preview": "**TL;DR:** OpenAI launched WebSocket mode for its Responses API on February 24, 2026, enabling persistent connections that reduce latency by 20-40% for AI agents making 20+ tool calls per session—a cr"
           },
           {
@@ -5105,282 +6302,6 @@
             "tier": null,
             "wordCount": 431,
             "preview": "向量数据库（Vector Database）是当前 AI 应用的核心基础设施。2026 年 2 月，阿里巴巴开源的 zvec 在 GitHub 上迅速获得 7,400+ 星标，被称为\"向量数据库界的 SQLite\"。而 Chroma 作为老牌选手，已积累 26,000+ 星标和每月 500 万次下载。两者都瞄准 RAG（检索增强生成）场景，但设计理念截然不同。 | 维度 | zvec | Chro"
-          }
-        ]
-      },
-      {
-        "date": "2026-02-20",
-        "count": 30,
-        "items": [
-          {
-            "title": "Agentic Coding Benchmark Infrastructure Noise — Analysis and Industry Impact",
-            "slug": "agentic-coding-benchmark-infrastructure-noise",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 320,
-            "preview": "**TL;DR:** Infrastructure configuration—container resources, network settings, and execution environment—can swing agentic coding benchmark scores by several percentage points, sometimes exceeding the"
-          },
-          {
-            "title": "Context Engineering for Production Agents — Analysis and Industry Impact",
-            "slug": "context-engineering-for-production-agents",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1958,
-            "preview": "**TL;DR:** Context engineering has emerged as the critical discipline separating toy demos from production-grade AI agents, with new frameworks like GSD and Haystack codifying systematic approaches to"
-          },
-          {
-            "title": "Long-Running AI Agent Harness Design — Analysis and Industry Impact",
-            "slug": "long-running-ai-agent-harness-design",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 1780,
-            "preview": "**TL;DR:** Anthropic Engineering's research into long-running agent harnesses reveals that the most effective designs mirror how human engineers manage complex, multi-session projects—using persistent"
-          },
-          {
-            "title": "Multi-Agent Workspace Orchestration: The Infrastructure Layer AI Development Needs",
-            "slug": "multi-agent-workspace-orchestration",
-            "type": "blog",
-            "language": "en",
-            "tier": 2,
-            "wordCount": 2411,
-            "preview": "**TL;DR:** Three trending GitHub projects—Gas Town (9,796 stars), oh-my-claudecode (6,726 stars), and DeerFlow (20,015 stars)—signal a fundamental shift from single-agent AI assistants to coordinated "
-          },
-          {
-            "title": "智能编程基准测试中的基础设施噪声 — 深度分析与行业影响",
-            "slug": "agentic-coding-benchmark-infrastructure-noise",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 216,
-            "preview": "**一句话总结：** Anthropic 工程团队的量化研究表明，基础设施配置差异可以让同一模型的评测得分波动数个百分点——这个数字有时比排行榜前几名之间的差距还大。 如果你最近在选择 AI 编程工具，大概率看过各种基准测试排行榜。SWE-bench Verified 上 Claude 是多少分、GPT 是多少分、Gemini 又是多少——这些数字被广泛引用，影响着工程团队的工具选型、投资人的估值"
-          },
-          {
-            "title": "生产级智能体的上下文工程 — 深度分析与行业影响",
-            "slug": "context-engineering-for-production-agents",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 275,
-            "preview": "**一句话总结：** 上下文工程（Context Engineering）正在从\"提示词技巧\"进化为一门系统工程学科，它决定了 AI 智能体能否从演示 demo 跨越到生产环境。 --- 2024 年，\"提示词工程\"（Prompt Engineering）是 AI 圈最热的词。大家都在研究怎么写出更好的 prompt，让 ChatGPT 或 Claude 输出更准确的结果。 但到了 2025 年下"
-          },
-          {
-            "title": "长时间运行 AI 智能体的框架设计 — 深度分析与行业影响",
-            "slug": "long-running-ai-agent-harness-design",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 103,
-            "preview": "**一句话总结：** Anthropic 发布了面向长时间运行 AI 智能体的框架设计指南，核心思路是向人类工程师\"偷师\"——笔记、检查点、明确的交接协议，这些老办法在 AI 时代依然有效。 用过 Claude Code 或任何 AI 编程助手的人，可能都遇到过这种情况：上一轮对话里 AI 已经理解了整个项目结构，但超时或断连之后重新开始，它又变成了一张白纸。 这不是 bug，而是架构限制。大语言"
-          },
-          {
-            "title": "多智能体工作空间编排 — 深度分析与行业影响",
-            "slug": "multi-agent-workspace-orchestration",
-            "type": "blog",
-            "language": "zh",
-            "tier": 2,
-            "wordCount": 290,
-            "preview": "**一句话总结：** 当一个 AI Agent 不够用时，我们需要的不是更强的单兵，而是一套让多个 Agent 协同作战的「工位调度系统」——这正是 Gastown、oh-my-claudecode 和 DeerFlow 等项目正在解决的问题。 如果你用过 Claude Code、Cursor 或者 GitHub Copilot，应该对这个场景不陌生：你让 AI 帮忙重构一个复杂项目，它一开始表现"
-          },
-          {
-            "title": "Claude Code Advanced Tool Use Beta — What It Is and Why It Matters",
-            "slug": "claude-code-advanced-tool-use-beta",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 454,
-            "preview": "Claude Code advanced tool use beta refers to a set of enhanced capabilities on the Claude Developer Platform that enable Claude to discover, learn, and execute tools dynamically at runtime. Unlike sta"
-          },
-          {
-            "title": "Claude Code 高级工具使用测试版（claude code advanced tool use beta）— 定义、原理与应用",
-            "slug": "claude-code-advanced-tool-use-beta",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 86,
-            "preview": "Claude Code 高级工具使用测试版是 Anthropic 在 Claude 开发者平台推出的一组测试功能，允许 Claude 动态发现、学习和执行外部工具。该功能突破了传统工具调用的静态限制，使 AI 代理（Agent）能够在运行时自主探索可用工具并决定调用策略。 传统的大语言模型（LLM）工具调用需要开发者预先定义所有工具的 schema，模型只能在固定范围内选择。这种方式在工具数量庞大"
-          },
-          {
-            "title": "GitHub Copilot SDK multi-platform integration — What It Is and Why It Matters",
-            "slug": "github-copilot-sdk-multi-platform-integration",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 446,
-            "preview": "GitHub Copilot SDK multi-platform integration refers to the official software development kit that enables developers to embed GitHub Copilot's AI-powered code assistance capabilities into application"
-          },
-          {
-            "title": "GitHub Copilot SDK 多平台集成（GitHub Copilot SDK multi-platform integration）— 定义、原理与应用",
-            "slug": "github-copilot-sdk-multi-platform-integration",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 98,
-            "preview": "GitHub Copilot SDK 多平台集成是指通过官方提供的软件开发工具包（SDK），将 GitHub Copilot 的 AI 代码辅助能力嵌入到各类应用程序、服务和开发环境中的技术方案。该 SDK 支持多种编程语言和运行平台，使开发者能够在 VS Code 和 GitHub 生态之外，将 Copilot Agent 的智能能力集成到自定义工具链、企业内部系统或第三方产品中。 随着 AI "
-          },
-          {
-            "title": "Goose AI Autonomous Coding Agent",
-            "slug": "goose-ai-autonomous-coding-agent",
-            "type": "glossary",
-            "language": "en",
-            "tier": null,
-            "wordCount": 395,
-            "preview": "Goose is an open-source autonomous coding agent created by Block (formerly Square). Unlike code completion tools that suggest snippets, Goose operates as a full development partner — it can install pa"
-          },
-          {
-            "title": "Goose AI 自主编程智能体（Goose AI autonomous coding agent）— 定义、原理与应用",
-            "slug": "goose-ai-autonomous-coding-agent",
-            "type": "glossary",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 86,
-            "preview": "Goose 是由 Block（前 Square）开源的自主编程智能体（Autonomous Coding Agent），能够超越传统代码补全工具，直接执行安装依赖、编辑文件、运行测试等完整开发任务。它支持接入任意大语言模型（LLM），通过可扩展的插件架构适配不同开发场景。截至 2026 年 2 月，该项目在 GitHub 上已获得超过 30,000 星标。 传统 AI 编程助手（如早期 Copil"
-          },
-          {
-            "title": "AI agent evaluation strategies — Frequently Asked Questions",
-            "slug": "ai-agent-evaluation-strategies",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 641,
-            "preview": "Traditional benchmarks measure single-turn capabilities like question answering or code completion, but agents operate across multiple steps, make decisions, use tools, and recover from errors. An age"
-          },
-          {
-            "title": "AI 智能体评估策略 — 常见问题解答",
-            "slug": "ai-agent-evaluation-strategies",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 248,
-            "preview": "AI 智能体（AI Agent）正在从实验室走向生产环境。然而，评估这些能够自主执行多步任务、调用工具、与环境交互的系统，远比传统模型评测复杂。Anthropic 工程团队在最新发布的技术文章中指出：让智能体变得有用的特性，恰恰也是让它们难以评估的原因。这份 FAQ 帮你理解评估策略的核心挑战与实战技巧。 --- 传统 AI 评估关注的是\"给定输入，输出是否正确\"——一个确定性的判断。但智能体的运"
-          },
-          {
-            "title": "Claude Code and What Comes Next - by Ethan Mollick",
-            "slug": "claude-code-and-what-comes-next-by-ethan-mollick",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 749,
-            "preview": "Ethan Mollick, a Wharton professor known for his AI research, conducted an experiment where he gave Claude Code a single command: \"Develop a web-based or software-based startup idea that will make me "
-          },
-          {
-            "title": "Claude Code and What Comes Next - by Ethan Mollick",
-            "slug": "claude-code-and-what-comes-next-by-ethan-mollick",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 108,
-            "preview": "Ethan Mollick 是宾夕法尼亚大学沃顿商学院教授，长期关注 AI 对工作和创业的影响。在他的文章《Claude Code and What Comes Next》中，他做了一个直接的实验：打开 Claude Code，输入一条指令——\"开发一个能让我每月赚 1000 美元的创业点子，你来完成所有工作，包括构思和实现，我什么都不用做。\" 这个实验的核心发现是：Claude Code 确实能"
-          },
-          {
-            "title": "Claude Code: From Zero to Hero. What is Claude Code?",
-            "slug": "claude-code-from-zero-to-hero-what-is-claude-code",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 793,
-            "preview": "Claude Code is an AI-powered coding assistant that operates directly in your terminal rather than as an IDE plugin. According to multiple sources, it understands your entire codebase and accelerates d"
-          },
-          {
-            "title": "Claude Code: From Zero to Hero. What is Claude Code?",
-            "slug": "claude-code-from-zero-to-hero-what-is-claude-code",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 163,
-            "preview": "Claude Code 是 Anthropic 推出的 AI 编程助手（AI-powered coding assistant），直接运行在终端（Terminal）中，能够理解整个代码库并通过自然语言加速开发流程。 与传统 IDE 插件不同，Claude Code 是一个智能体式助手（Agentic Assistant）。它不只是补全代码片段，而是能够阅读你的整个项目、执行跨多个文件的复杂操作、自"
-          },
-          {
-            "title": "Claude Code: What It Is, How It's Different, and Why Non-Technical People Should Use It",
-            "slug": "claude-code-what-it-is-how-its-different-and-why-non",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 840,
-            "preview": "Claude Code is Anthropic's agentic coding tool that operates directly in your terminal, fundamentally different from the Claude chatbot you might use in a browser. While standard Claude conversations "
-          },
-          {
-            "title": "Claude Code: What It Is, How It's Different, and Why Non",
-            "slug": "claude-code-what-it-is-how-its-different-and-why-non",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 171,
-            "preview": "Claude Code 是 Anthropic 推出的命令行开发工具，让 Claude 直接在你的终端中运行，具备读写文件、执行命令、理解整个代码库的能力。与普通的 Claude 对话界面不同，Claude Code 能够直接操作你的文件系统，而不只是生成代码片段让你复制粘贴。 据 Pragmatic Engineer 报道，Claude Code 的灵感来自 Anthropic 内部一个工程师写"
-          },
-          {
-            "title": "Five Ways People Are Using Claude Code",
-            "slug": "five-ways-people-are-using-claude-code",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 822,
-            "preview": "Claude Code has emerged as a tool that generates working computer code from natural language prompts, enabling people with no coding experience to build their own programs and applications. Based on r"
-          },
-          {
-            "title": "Five Ways People Are Using Claude Code",
-            "slug": "five-ways-people-are-using-claude-code",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 141,
-            "preview": "Claude Code 是 Anthropic 推出的 AI 编程工具，能够根据自然语言提示（Prompt）生成代码，让没有编程经验的人也能创建自己的程序和应用。据《纽约时报》2026年1月报道，以下是用户实际采用的五种使用方式： **1. 紧急通讯应用开发** 助理检察官 Roberts 在 2024 年 8 月使用 Claude Code 和 Cursor 创建了一款名为 AlertAssis"
-          },
-          {
-            "title": "r/ClaudeAI on Reddit: What's Claude Code?",
-            "slug": "r-claudeai-on-reddit-whats-claude-code",
-            "type": "faq",
-            "language": "en",
-            "tier": null,
-            "wordCount": 813,
-            "preview": "Claude Code is Anthropic's agentic coding assistant that operates directly in your terminal, allowing developers to interact with Claude through a command-line interface while it reads, writes, and mo"
-          },
-          {
-            "title": "r/ClaudeAI on Reddit: What's Claude Code?",
-            "slug": "r-claudeai-on-reddit-whats-claude-code",
-            "type": "faq",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 147,
-            "preview": "Claude Code 是 Anthropic 推出的命令行编程助手，基于 Claude 大语言模型（LLM）。它直接在终端中运行，能够读取代码库、执行命令、编辑文件，本质上是一个 AI 编程代理（AI Coding Agent）。 根据 Reddit r/ClaudeAI 社区用户的实际反馈，Claude Code 的核心能力包括： **代码理解与生成**：一位使用超过 6 个月的开发者分享，他"
-          },
-          {
-            "title": "Gemini CLI vs Claude Code: Terminal AI Agents Compared",
-            "slug": "gemini-cli-vs-claude-code-terminal-agents",
-            "type": "compare",
-            "language": "en",
-            "tier": null,
-            "wordCount": 383,
-            "preview": "**TL;DR:** Gemini CLI offers open-source flexibility with a massive 1M token context window and generous free tier. Claude Code provides tighter IDE integration and superior code understanding at the "
-          },
-          {
-            "title": "Gemini CLI 与 Claude Code 终端智能体对比 — 详细对比分析",
-            "slug": "gemini-cli-vs-claude-code-terminal-agents",
-            "type": "compare",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 451,
-            "preview": "终端 AI 智能体（Terminal AI Agent）正在重塑开发者的工作方式。2026 年 2 月，Google 的 Gemini CLI 以 94,937 颗星登顶 GitHub Trending，Anthropic 的 Claude Code 紧随其后达到 67,801 颗星。两款工具代表了终端 AI 编程的两种不同理念：开源优先 vs 产品化体验。 | 对比维度 | Gemini CLI"
-          },
-          {
-            "title": "OpenCode vs Claude Code — Detailed Comparison",
-            "slug": "opencode-vs-claude-code-comparison",
-            "type": "compare",
-            "language": "en",
-            "tier": null,
-            "wordCount": 1247,
-            "preview": "The terminal-based AI coding agent category has split into two camps: open-source tools that prioritize flexibility and vendor lock-in avoidance, and commercial products that prioritize polish and int"
-          },
-          {
-            "title": "OpenCode 与 Claude Code 对比 — 详细对比分析",
-            "slug": "opencode-vs-claude-code-comparison",
-            "type": "compare",
-            "language": "zh",
-            "tier": null,
-            "wordCount": 404,
-            "preview": "2026 年 2 月，终端 AI 编程代理（Terminal AI Coding Agent）赛道迎来新格局。anomalyco/opencode 以超过 10.7 万颗 GitHub Star 登顶趋势榜，而 Anthropic 的 Claude Code 稳居 6.7 万颗 Star。开源方案与商业方案的正面对决，究竟该如何选择？ **OpenCode** 是一款完全开源的编程代理，由 Ano"
           }
         ]
       }

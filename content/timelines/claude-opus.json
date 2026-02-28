@@ -4,6 +4,116 @@
   "name_zh": "Claude Opus 4.6",
   "entries": [
     {
+      "id": "twitter-2027423426785268044",
+      "title": "Continuing the series highlighting standout projects from the Built with Opus 4.6 Claude Code Hackat",
+      "url": "https://x.com/adocomplete/status/2027423426785268044",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Continuing the series highlighting standout projects from the Built with Opus 4.6 Claude Code Hackathon.\n\nToday I want to highlight Biological Twin by Barbara Pascetta. Your genome is the longest text ever written about you and now you can actually read it. https://t.co/dz8MOWCEQ",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-2027157533346218485",
+      "title": "I feel incredibly proud of Anthropic's willingness to walk away from a lot of revenue to not build a",
+      "url": "https://x.com/ErikSchluntz/status/2027157533346218485",
+      "source": "@ErikSchluntz",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "I feel incredibly proud of Anthropic's willingness to walk away from a lot of revenue to not build autonomous weapons and mass surveillance!",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "anthropic-news-statement-department-of-war",
+      "title": "Statement from Dario Amodei on our discussions with the Department of War",
+      "url": "https://www.anthropic.com/news/statement-department-of-war",
+      "source": "Anthropic Blog",
+      "category": "official_blog",
+      "score": 90,
+      "summary": "Anthropic announcement (Feb 26, 2026)",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgjecj",
+      "title": "Trump just ordered ALL federal agencies to drop Anthropic. As a Claude power user, here's why I'm doubling down.",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgjecj/trump_just_ordered_all_federal_agencies_to_drop/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "In case you missed it:\n\n- Pentagon gave Anthropic a deadline to remove safety guardrails from Claude for military use (autonomous weapons, mass surveillance of Americans)\n- Anthropic refused. Dario Amodei said they \"cannot in good conscience accede\" to the demands\n- Pentagon threatened to pull their $200M contract and invoke the Defense Production Act\n- Trump posted on Truth Social today ordering EVERY federal agency to immediately stop using Anthropic\n\nSay what you will about the politics, but ",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgivx2",
+      "title": "Looks like Anthropic's NO to the DOW has made it to Tumps twitter feed",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgivx2/looks_like_anthropics_no_to_the_dow_has_made_it/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "Looks like Anthropic's NO to the DOW has made it to Tumps twitter feed",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgi8im",
+      "title": "Outside Anthropic Office in SF \"Thank You\"",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgi8im/outside_anthropic_office_in_sf_thank_you/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 55,
+      "summary": "Bloomberg VC [Tweet](https://x.com/i/status/2027455052655534440)",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgevmo",
+      "title": "Anthropic vs Pentagon",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgevmo/anthropic_vs_pentagon/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "Not sure people realize how important Anthropic’s refusal is here.\n\nhttps://apnews.com/article/anthropic-pentagon-ai-hegseth-dario-amodei-b72d1894bc842d9acf026df3867bee8a#",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgdolq",
+      "title": "OpenAI CEO Sam: For all the differences I have with Anthropic, I mostly trust them as a company and I think they really do care about safety",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgdolq/openai_ceo_sam_for_all_the_differences_i_have/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 53,
+      "summary": "OpenAI CEO Sam: For all the differences I have with Anthropic, I mostly trust them as a company and I think they really do care about safety",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg9ym2",
+      "title": "Sam Altman says OpenAI shares Anthropic's red lines in Pentagon fight",
+      "url": "https://www.axios.com/2026/02/27/altman-openai-anthropic-pentagon",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 53,
+      "summary": "",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg86um",
+      "title": "Real Vibe Design is here",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rg86um/real_vibe_design_is_here/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "I'm building a platform bridging creators and technology. I wanted full control over how my UI looks, but I'm a developer, not a designer.\n\nSo I spent 3 days vibe coding with Claude Opus 4.6 and built an MCP that lets Claude design directly in Figma. It creates actual Figma files you can touch on and adjust.\n\nThis is Vibe Design. The video shows Claude generating a complete design system from a single prompt, zero edits needed.\n\nGPT-5.3-Codex gets close but makes mistakes. Only Opus 4.6 pulls th",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rfsjv7",
+      "title": "Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’",
+      "url": "https://www.cnn.com/2026/02/26/tech/anthropic-rejects-pentagon-offer",
+      "source": "Reddit r/artificial",
+      "category": "product_ecosystem",
+      "score": 56,
+      "summary": "Anthropic is rejecting the Pentagon’s latest offer to change their contract, saying the changes do not satisfy the company’s concerns that AI could be used for mass surveillance or in fully autonomous weapons.",
+      "date": "2026-02-27"
+    },
+    {
       "id": "gh-mgechev-skills-best-practices",
       "title": "mgechev/skills-best-practices (⭐574)",
       "url": "https://github.com/mgechev/skills-best-practices",
@@ -954,5 +1064,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

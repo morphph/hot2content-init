@@ -14,6 +14,106 @@
       "date": "2026-12-16"
     },
     {
+      "id": "twitter-search-1964425705372209499",
+      "title": "OpenAI Certifications &amp; OpenAI Jobs Platform: helping people learn how to use AI, and helping bu",
+      "url": "https://x.com/gdb/status/1964425705372209499",
+      "source": "@gdb",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "OpenAI Certifications &amp; OpenAI Jobs Platform: helping people learn how to use AI, and helping businesses find people who are skilled at using AI. https://t.co/glBBnHOy1O",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-1925229689116799217",
+      "title": "New as of today: @stripe MCP in @OpenAI Responses API. Just plop in your API key and prompt Stripe i",
+      "url": "https://x.com/jeff_weinstein/status/1925229689116799217",
+      "source": "@jeff_weinstein",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "New as of today: @stripe MCP in @OpenAI Responses API. Just plop in your API key and prompt Stripe in your agentic workflows. \n\nHere’s a quick demo. (Feedback and feature requests welcome!) https://t.co/pA4e1vg563",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027052879371272673",
+      "title": "Introducing Codex to Figma: Roundtrip between code and canvas through the Figma MCP server https://t",
+      "url": "https://x.com/figma/status/2027052879371272673",
+      "source": "@figma",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Introducing Codex to Figma: Roundtrip between code and canvas through the Figma MCP server https://t.co/jrrFgYHZdg",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027026162774675514",
+      "title": "Claude CodeやAntigravity使ってる人は絶対に見たほうがいいプロンプト集が有益だった...",
+      "url": "https://x.com/SuguruKun_ai/status/2027026162774675514",
+      "source": "@SuguruKun_ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Claude CodeやAntigravity使ってる人は絶対に見たほうがいいプロンプト集が有益だった...\nㅤ\nAIエージェント向けの「Skills 946選」がGitHubで公開されてて、セキュリティ監査、仕様書作成、テスト自動化、インフラ構築まで、実務レベルのスキルが全部入ってる。\nㅤ\nしかもClaude Code、Gemini CLI、Codex、Cursor、GitHub Copilotなど9つのツールに対応。npxコマンド一発で導入できる。\nㅤ\nGitHubスター15,800超えてるので信頼度も高い。中身を紹介します👇🧵",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027409663822561632",
+      "title": "Did Apple just kill every iOS vibe coding app?",
+      "url": "https://x.com/minchoi/status/2027409663822561632",
+      "source": "@minchoi",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Did Apple just kill every iOS vibe coding app?\n\nApple just dropped Xcode 26.3 with agentic coding.\n\nClaude Code + Codex are now built into Xcode.\n\nAnd with MCP support. https://t.co/lRPZabSMQ8",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgdolq",
+      "title": "OpenAI CEO Sam: For all the differences I have with Anthropic, I mostly trust them as a company and I think they really do care about safety",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgdolq/openai_ceo_sam_for_all_the_differences_i_have/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 53,
+      "summary": "OpenAI CEO Sam: For all the differences I have with Anthropic, I mostly trust them as a company and I think they really do care about safety",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "hn-47181944",
+      "title": "A Chinese official’s use of ChatGPT revealed an intimidation operation",
+      "url": "https://www.cnn.com/2026/02/25/politics/chatgpt-china-intimidation-operation",
+      "source": "Hacker News",
+      "category": "model_release",
+      "score": 51,
+      "summary": "A sprawling Chinese influence operation — accidentally revealed by a Chinese law enforcement official’s use of ChatGPT — focused on intimidating Chinese dissidents abroad, including by impersonating US immigration officials, according to a new report from ChatGPT-maker OpenAI. (HN: 65 pts, 45 comments)",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg9ym2",
+      "title": "Sam Altman says OpenAI shares Anthropic's red lines in Pentagon fight",
+      "url": "https://www.axios.com/2026/02/27/altman-openai-anthropic-pentagon",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 53,
+      "summary": "",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "hn-47181211",
+      "title": "OpenAI raises $110B on $730B pre-money valuation",
+      "url": "https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/",
+      "source": "Hacker News",
+      "category": "official_blog",
+      "score": 54,
+      "summary": "The new funding consists of a $50 billion investment from Amazon as well as $30 billion each from Nvidia and SoftBank, against a $730 billion valuation. (HN: 207 pts, 330 comments)",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg86um",
+      "title": "Real Vibe Design is here",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rg86um/real_vibe_design_is_here/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "I'm building a platform bridging creators and technology. I wanted full control over how my UI looks, but I'm a developer, not a designer.\n\nSo I spent 3 days vibe coding with Claude Opus 4.6 and built an MCP that lets Claude design directly in Figma. It creates actual Figma files you can touch on and adjust.\n\nThis is Vibe Design. The video shows Claude generating a complete design system from a single prompt, zero edits needed.\n\nGPT-5.3-Codex gets close but makes mistakes. Only Opus 4.6 pulls th",
+      "date": "2026-02-27"
+    },
+    {
       "id": "gh-slopus-happy",
       "title": "slopus/happy (⭐13,654)",
       "url": "https://github.com/slopus/happy",
@@ -844,5 +944,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

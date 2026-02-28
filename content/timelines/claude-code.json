@@ -4,6 +4,86 @@
   "name_zh": "Claude Code",
   "entries": [
     {
+      "id": "twitter-search-2027443723362042308",
+      "title": "4% of GitHub public commits are being authored by Claude Code right now. At the current trajectory,",
+      "url": "https://x.com/SemiAnalysis_/status/2027443723362042308",
+      "source": "@SemiAnalysis_",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "4% of GitHub public commits are being authored by Claude Code right now. At the current trajectory, we believe that Claude Code will be 20%+ of all daily commits by the end of 2026. While you blinked, AI consumed all of software development. https://t.co/pFti4r6uR9",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027026162774675514",
+      "title": "Claude CodeやAntigravity使ってる人は絶対に見たほうがいいプロンプト集が有益だった...",
+      "url": "https://x.com/SuguruKun_ai/status/2027026162774675514",
+      "source": "@SuguruKun_ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Claude CodeやAntigravity使ってる人は絶対に見たほうがいいプロンプト集が有益だった...\nㅤ\nAIエージェント向けの「Skills 946選」がGitHubで公開されてて、セキュリティ監査、仕様書作成、テスト自動化、インフラ構築まで、実務レベルのスキルが全部入ってる。\nㅤ\nしかもClaude Code、Gemini CLI、Codex、Cursor、GitHub Copilotなど9つのツールに対応。npxコマンド一発で導入できる。\nㅤ\nGitHubスター15,800超えてるので信頼度も高い。中身を紹介します👇🧵",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027409663822561632",
+      "title": "Did Apple just kill every iOS vibe coding app?",
+      "url": "https://x.com/minchoi/status/2027409663822561632",
+      "source": "@minchoi",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Did Apple just kill every iOS vibe coding app?\n\nApple just dropped Xcode 26.3 with agentic coding.\n\nClaude Code + Codex are now built into Xcode.\n\nAnd with MCP support. https://t.co/lRPZabSMQ8",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027398663375376631",
+      "title": "Claude Code when it has 3% context left and you ask it to refactor the codebase https://t.co/4fxHvly",
+      "url": "https://x.com/vasuman/status/2027398663375376631",
+      "source": "@vasuman",
+      "category": "developer_platform",
+      "score": 71,
+      "summary": "Claude Code when it has 3% context left and you ask it to refactor the codebase https://t.co/4fxHvlyRh0",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2026005523523359100",
+      "title": "if your friends aren’t talking about:",
+      "url": "https://x.com/intern/status/2026005523523359100",
+      "source": "@intern",
+      "category": "developer_platform",
+      "score": 75,
+      "summary": "if your friends aren’t talking about:\n\n- claude code\n- creatine\n- openclaw\n- looksmaxxing\n- ai agents\n- taste\n- prediction markets\n- mac minis\n\nyou should be grateful &amp; cherish those people",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-2027423426785268044",
+      "title": "Continuing the series highlighting standout projects from the Built with Opus 4.6 Claude Code Hackat",
+      "url": "https://x.com/adocomplete/status/2027423426785268044",
+      "source": "@adocomplete",
+      "category": "model_release",
+      "score": 80,
+      "summary": "Continuing the series highlighting standout projects from the Built with Opus 4.6 Claude Code Hackathon.\n\nToday I want to highlight Biological Twin by Barbara Pascetta. Your genome is the longest text ever written about you and now you can actually read it. https://t.co/dz8MOWCEQ",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-2027232172810416493",
+      "title": "We've reset rate limits for all Claude Code users.",
+      "url": "https://x.com/trq212/status/2027232172810416493",
+      "source": "@trq212",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "We've reset rate limits for all Claude Code users.\n\nYesterday we rolled out a bug with prompt caching that caused usage limits to be consumed faster than normal. This is hotfixed in 2.1.62.\n\nMake sure you upgrade to the latest and hope you enjoy using Claude Code this weekend!",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-2027462787358949679",
+      "title": "Claude Code Remote is rolling out now for Pro users",
+      "url": "https://x.com/bcherny/status/2027462787358949679",
+      "source": "@bcherny",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "Claude Code Remote is rolling out now for Pro users",
+      "date": "2026-02-27"
+    },
+    {
       "id": "gh-slopus-happy",
       "title": "slopus/happy (⭐13,654)",
       "url": "https://github.com/slopus/happy",
@@ -201,6 +281,16 @@
       "category": "model_release",
       "score": 80,
       "summary": "Beyond the winners of our \"Built with Opus 4.6 a Claude Code Hackathon\", there were so many amazing projects that deserve a shoutout.\n\nToday I want to highlight SimForge by Jake Kang (@jakekang). SimForge turns photos into physics simulations and it's wild! https://t.co/YfY5JuWsT",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "hn-47149829",
+      "title": "Implementing a Z80 / ZX Spectrum emulator with Claude Code",
+      "url": "https://antirez.com/news/160",
+      "source": "Hacker News",
+      "category": "developer_platform",
+      "score": 52,
+      "summary": "[No summary available] HN discussion: 103 points, 55 comments",
       "date": "2026-02-25"
     },
     {
@@ -1754,5 +1844,5 @@
       "date": "2026-02-17"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

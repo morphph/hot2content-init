@@ -4,6 +4,46 @@
   "name_zh": "AI 视频制作",
   "entries": [
     {
+      "id": "twitter-search-2017218816888148389",
+      "title": "I created a GitHub Repository to Learn AI Engineering.",
+      "url": "https://x.com/ashishps_1/status/2017218816888148389",
+      "source": "@ashishps_1",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I created a GitHub Repository to Learn AI Engineering.\n\nAnd it crossed 3000 stars recently.\n\nIt contains some of the best free courses, articles, tutorials, and videos to learn:\n- Mathematical Foundations\n- AI & ML Fundamentals\n- Deep Learning and Specializations\n- Generative AI\n- Large Language Models (LLMs)\n- Prompt Engineering Guides\n- RAG, Agents and MCP\n\nCheck it out here: https://t.co/7aZKWJg4Mp\n\n- If you find the repo valuable, consider giving it a ⭐ and share with others.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rga7f5",
+      "title": "How I built a 13-agent Claude team where agents review each other's work - full setup guide",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rga7f5/how_i_built_a_13agent_claude_team_where_agents/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "https://reddit.com/link/1rga7f5/video/dhy66fie52mg1/player\n\n# The setup that shouldn't work but does\n\nI have 13 AI agents that work on marketing for my product. They run every 15 minutes, review each other's work, and track everything in a database.\n\nWhen one drafts content, others critique it before I see it. When someone gets stuck, they ping the boss agent. When something's ready or stuck, it shows up in my Telegram.\n\nIt's handling all marketing for Fruityo (my AI video generation platform).\n",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg8dex",
+      "title": "PewDiePie fine-tuned Qwen2.5-Coder-32B to beat ChatGPT 4o on coding benchmarks.",
+      "url": "https://www.youtube.com/watch?v=aV4j5pXLP-I&amp;feature=youtu.be",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 54,
+      "summary": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg86um",
+      "title": "Real Vibe Design is here",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rg86um/real_vibe_design_is_here/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "I'm building a platform bridging creators and technology. I wanted full control over how my UI looks, but I'm a developer, not a designer.\n\nSo I spent 3 days vibe coding with Claude Opus 4.6 and built an MCP that lets Claude design directly in Figma. It creates actual Figma files you can touch on and adjust.\n\nThis is Vibe Design. The video shows Claude generating a complete design system from a single prompt, zero edits needed.\n\nGPT-5.3-Codex gets close but makes mistakes. Only Opus 4.6 pulls th",
+      "date": "2026-02-27"
+    },
+    {
       "id": "twitter-search-1993453270296379409",
       "title": "she said it all. if you want to break into ai engineering, this 13 minute video sets you up with wha",
       "url": "https://x.com/Hesamation/status/1993453270296379409",
@@ -204,5 +244,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

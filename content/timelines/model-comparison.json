@@ -4,6 +4,86 @@
   "name_zh": "AI 模型对比",
   "entries": [
     {
+      "id": "twitter-search-2026956268842451371",
+      "title": "🚨 Holy shit… Harvard and Stanford recently released the most unsettling AI agent paper I've read th",
+      "url": "https://x.com/hasantoxr/status/2026956268842451371",
+      "source": "@hasantoxr",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "🚨 Holy shit… Harvard and Stanford recently released the most unsettling AI agent paper I've read this year.\n\nIt's called \"Agents of Chaos\" and what they found should stop every AI engineer cold.\n\nNo theoretical simulations. No cherry-picked benchmarks. A live lab. Real infrastructure. Real failures.\n\nHere's what emerged:\n\n- Agents complied with non-owners who impersonated admins\n- Sensitive information leaked across agent boundaries\n- One agent executed destructive system-level commands\n- Cross",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgfm00",
+      "title": "I built a hybrid MoE runtime that does 3,324 tok/s prefill on a single 5080.  Here are the benchmarks.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rgfm00/i_built_a_hybrid_moe_runtime_that_does_3324_toks/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 50,
+      "summary": "I've been working on [Krasis](https://github.com/brontoguana/krasis), a hybrid CPU/GPU runtime for large MoE models. The core idea: GPU handles prefill (the expensive part), CPU handles decode, with the system RAM doing extra heavy lifting to maximise performance. This means you can run models way too large for your VRAM at speeds that are actually usable.\n\nI wanted to share some benchmark results and get feedback.\n\n## 5080 Results (Q4)\n\n**Hardware:** AMD 5900X, DDR4-3200, 1x RTX 5080 16GB, PCIe",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgevmo",
+      "title": "Anthropic vs Pentagon",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgevmo/anthropic_vs_pentagon/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 52,
+      "summary": "Not sure people realize how important Anthropic’s refusal is here.\n\nhttps://apnews.com/article/anthropic-pentagon-ai-hegseth-dario-amodei-b72d1894bc842d9acf026df3867bee8a#",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgel19",
+      "title": "New Qwen3.5-35B-A3B Unsloth Dynamic GGUFs + Benchmarks",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rgel19/new_qwen3535ba3b_unsloth_dynamic_ggufs_benchmarks/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 52,
+      "summary": "Hey r/LocalLlama! We just updated Qwen3.5-35B Unsloth Dynamic quants **being SOTA** on nearly all bits. We did over 150 KL Divergence benchmarks, totally **9TB of GGUFs**. We uploaded all research artifacts. We also fixed a **tool calling** chat template **bug** (affects all quant uploaders)\n\n* We tested Bartowski, Ubergram, AesSedai, Noctrex and our new Dynamic GGUFs\n* **99.9% KL Divergence shows SOTA** on Pareto Frontier for UD-Q4\\_K\\_XL, IQ3\\_XXS &amp; more.\n* **Retiring MXFP4** from all GGUF",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg9lli",
+      "title": "Little Qwen 3.5 27B and Qwen 35B-A3B models did very well in my logical reasoning benchmark",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg9lli/little_qwen_35_27b_and_qwen_35ba3b_models_did/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 50,
+      "summary": "Tested in [lineage-bench](https://github.com/fairydreaming/lineage-bench). Results are [here](https://github.com/fairydreaming/lineage-bench-results/tree/main/lineage-8_64_128_192#results). It's amazing that models this small can reliably reason from hundreds of premises.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg8dex",
+      "title": "PewDiePie fine-tuned Qwen2.5-Coder-32B to beat ChatGPT 4o on coding benchmarks.",
+      "url": "https://www.youtube.com/watch?v=aV4j5pXLP-I&amp;feature=youtu.be",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 54,
+      "summary": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg6ph3",
+      "title": "Qwen3.5 feels ready for production use - Never been this excited",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg6ph3/qwen35_feels_ready_for_production_use_never_been/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I ran a lot of tests playing with Qwen3.5-35B-A3B-UD-Q6\\_K\\_XL yesterday. Hitting around 1504pp2048 and 47.71 tg256 \n\nToken speed is solid spread across two GPUs.\n\nWhen I drop it down to one GPU that bumped up to 80tps.\n\nBut that's not what I'm hear to talk about. I did some basic benchmarking at first, then I had a thought. Let's take this for a ride in my real life client projects.\n\nSo basically I took a bunch of my projects and client projects, used Git Worktrees to role back to know spec cha",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg4zqv",
+      "title": "Follow-up: Qwen3.5-35B-A3B — 7 community-requested experiments on RTX 5080 16GB",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/followup_qwen3535ba3b_7_communityrequested/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "**TL;DR**: Community asked great questions on my original benchmarks post. I ran every experiment you requested. The headline: **KV q8\\_0 is confirmed free lunch, Q4\\_K\\_M remains king,** `--fit on` **without batch flags hits 74.7 tok/s (+7% over my original config), and KL divergence confirms UD-Q4\\_K\\_XL is even worse than PPL suggested.** Full results and updated launch command below.\n\n# Context\n\nAfter posting [Qwen3.5-35B-A3B quantization quality + speed benchmarks on RTX 5080 16GB](https://",
+      "date": "2026-02-27"
+    },
+    {
       "id": "twitter-search-2026752089473314975",
       "title": "🚨 Anthropic just open-sourced the exact Skills library their own engineers use internally.",
       "url": "https://x.com/ihtesham2005/status/2026752089473314975",
@@ -344,5 +424,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

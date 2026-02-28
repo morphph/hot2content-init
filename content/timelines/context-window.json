@@ -4,6 +4,36 @@
   "name_zh": "上下文窗口与记忆",
   "entries": [
     {
+      "id": "twitter-search-2017218816888148389",
+      "title": "I created a GitHub Repository to Learn AI Engineering.",
+      "url": "https://x.com/ashishps_1/status/2017218816888148389",
+      "source": "@ashishps_1",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I created a GitHub Repository to Learn AI Engineering.\n\nAnd it crossed 3000 stars recently.\n\nIt contains some of the best free courses, articles, tutorials, and videos to learn:\n- Mathematical Foundations\n- AI & ML Fundamentals\n- Deep Learning and Specializations\n- Generative AI\n- Large Language Models (LLMs)\n- Prompt Engineering Guides\n- RAG, Agents and MCP\n\nCheck it out here: https://t.co/7aZKWJg4Mp\n\n- If you find the repo valuable, consider giving it a ⭐ and share with others.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "gh-release-crewAIInc-crewAI-1.10.1a1",
+      "title": "📦 crewAIInc/crewAI 1.10.1a1",
+      "url": "https://github.com/crewAIInc/crewAI/releases/tag/1.10.1a1",
+      "source": "GitHub Release",
+      "category": "developer_platform",
+      "score": 82,
+      "summary": "## What's Changed  ### Features - Implement asynchronous invocation support in step callback methods - Implement lazy loading for heavy dependencies in Memory module  ### Documentation - Update changelog and version for v1.10.0  ### Refactoring - Refactor step callback methods to",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg6ph3",
+      "title": "Qwen3.5 feels ready for production use - Never been this excited",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg6ph3/qwen35_feels_ready_for_production_use_never_been/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I ran a lot of tests playing with Qwen3.5-35B-A3B-UD-Q6\\_K\\_XL yesterday. Hitting around 1504pp2048 and 47.71 tg256 \n\nToken speed is solid spread across two GPUs.\n\nWhen I drop it down to one GPU that bumped up to 80tps.\n\nBut that's not what I'm hear to talk about. I did some basic benchmarking at first, then I had a thought. Let's take this for a ride in my real life client projects.\n\nSo basically I took a bunch of my projects and client projects, used Git Worktrees to role back to know spec cha",
+      "date": "2026-02-27"
+    },
+    {
       "id": "gh-mgechev-skills-best-practices",
       "title": "mgechev/skills-best-practices (⭐574)",
       "url": "https://github.com/mgechev/skills-best-practices",
@@ -1134,5 +1164,5 @@
       "date": "2026-02-19"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }

@@ -4,6 +4,146 @@
   "name_zh": "AI 编程工具",
   "entries": [
     {
+      "id": "gh-whyzhow-PersonalStyleAI-Framework-",
+      "title": "whyzhow/PersonalStyleAI-Framework- (⭐377)",
+      "url": "https://github.com/whyzhow/PersonalStyleAI-Framework-",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 53,
+      "summary": "Let AI think and express like you. This framework provides a complete assembly line: from the noise processing of original chat records, to the seamless switching of multi-model adaptation layers, to ",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "gh-nextlevelbuilder-ui-ux-pro-max-skill",
+      "title": "nextlevelbuilder/ui-ux-pro-max-skill (⭐35,278)",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "source": "GitHub Trending",
+      "category": "developer_platform",
+      "score": 90,
+      "summary": "An AI SKILL that provide design intelligence for building professional UI/UX multiple platforms",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2017218816888148389",
+      "title": "I created a GitHub Repository to Learn AI Engineering.",
+      "url": "https://x.com/ashishps_1/status/2017218816888148389",
+      "source": "@ashishps_1",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "I created a GitHub Repository to Learn AI Engineering.\n\nAnd it crossed 3000 stars recently.\n\nIt contains some of the best free courses, articles, tutorials, and videos to learn:\n- Mathematical Foundations\n- AI & ML Fundamentals\n- Deep Learning and Specializations\n- Generative AI\n- Large Language Models (LLMs)\n- Prompt Engineering Guides\n- RAG, Agents and MCP\n\nCheck it out here: https://t.co/7aZKWJg4Mp\n\n- If you find the repo valuable, consider giving it a ⭐ and share with others.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-search-2027026162774675514",
+      "title": "Claude CodeやAntigravity使ってる人は絶対に見たほうがいいプロンプト集が有益だった...",
+      "url": "https://x.com/SuguruKun_ai/status/2027026162774675514",
+      "source": "@SuguruKun_ai",
+      "category": "developer_platform",
+      "score": 70,
+      "summary": "Claude CodeやAntigravity使ってる人は絶対に見たほうがいいプロンプト集が有益だった...\nㅤ\nAIエージェント向けの「Skills 946選」がGitHubで公開されてて、セキュリティ監査、仕様書作成、テスト自動化、インフラ構築まで、実務レベルのスキルが全部入ってる。\nㅤ\nしかもClaude Code、Gemini CLI、Codex、Cursor、GitHub Copilotなど9つのツールに対応。npxコマンド一発で導入できる。\nㅤ\nGitHubスター15,800超えてるので信頼度も高い。中身を紹介します👇🧵",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-2027493283447116211",
+      "title": "walked by @MeganGrant333's desk and saw she was using Cursor.",
+      "url": "https://x.com/adocomplete/status/2027493283447116211",
+      "source": "@adocomplete",
+      "category": "developer_platform",
+      "score": 80,
+      "summary": "walked by @MeganGrant333's desk and saw she was using Cursor. \n\ntop 10 anime betrayals of all time for sure",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "twitter-2027463725498720306",
+      "title": "This week we had a BUNCH of updates 🍌🍌 Here’s what we announced:",
+      "url": "https://x.com/GoogleAI/status/2027463725498720306",
+      "source": "@GoogleAI",
+      "category": "model_release",
+      "score": 80,
+      "summary": "This week we had a BUNCH of updates 🍌🍌 Here’s what we announced:\n\n— Nano Banana 2, our SoTA image generation model, which you can use to generate images with real-world knowledge, add text in many languages, and bring your most creative ideas to life\n\n— Nano Banana, Veo 3.1, an",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgi8im",
+      "title": "Outside Anthropic Office in SF \"Thank You\"",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rgi8im/outside_anthropic_office_in_sf_thank_you/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 55,
+      "summary": "Bloomberg VC [Tweet](https://x.com/i/status/2027455052655534440)",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rgfm00",
+      "title": "I built a hybrid MoE runtime that does 3,324 tok/s prefill on a single 5080.  Here are the benchmarks.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rgfm00/i_built_a_hybrid_moe_runtime_that_does_3324_toks/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 50,
+      "summary": "I've been working on [Krasis](https://github.com/brontoguana/krasis), a hybrid CPU/GPU runtime for large MoE models. The core idea: GPU handles prefill (the expensive part), CPU handles decode, with the system RAM doing extra heavy lifting to maximise performance. This means you can run models way too large for your VRAM at speeds that are actually usable.\n\nI wanted to share some benchmark results and get feedback.\n\n## 5080 Results (Q4)\n\n**Hardware:** AMD 5900X, DDR4-3200, 1x RTX 5080 16GB, PCIe",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "hn-47181944",
+      "title": "A Chinese official’s use of ChatGPT revealed an intimidation operation",
+      "url": "https://www.cnn.com/2026/02/25/politics/chatgpt-china-intimidation-operation",
+      "source": "Hacker News",
+      "category": "model_release",
+      "score": 51,
+      "summary": "A sprawling Chinese influence operation — accidentally revealed by a Chinese law enforcement official’s use of ChatGPT — focused on intimidating Chinese dissidents abroad, including by impersonating US immigration officials, according to a new report from ChatGPT-maker OpenAI. (HN: 65 pts, 45 comments)",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rga7f5",
+      "title": "How I built a 13-agent Claude team where agents review each other's work - full setup guide",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rga7f5/how_i_built_a_13agent_claude_team_where_agents/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "https://reddit.com/link/1rga7f5/video/dhy66fie52mg1/player\n\n# The setup that shouldn't work but does\n\nI have 13 AI agents that work on marketing for my product. They run every 15 minutes, review each other's work, and track everything in a database.\n\nWhen one drafts content, others critique it before I see it. When someone gets stuck, they ping the boss agent. When something's ready or stuck, it shows up in my Telegram.\n\nIt's handling all marketing for Fruityo (my AI video generation platform).\n",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg94wu",
+      "title": "LLmFit - One command to find what model runs on your hardware",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg94wu/llmfit_one_command_to_find_what_model_runs_on/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 51,
+      "summary": "Haven't seen this posted here:\n\nhttps://github.com/AlexsJones/llmfit\n\n497 models. 133 providers. One command to find what runs on your hardware.\n\nA terminal tool that right-sizes LLM models to your system's RAM, CPU, and GPU. Detects your hardware, scores each model across quality, speed, fit, and context dimensions, and tells you which ones will actually run well on your machine.\n\nShips with an interactive TUI (default) and a classic CLI mode. Supports multi-GPU setups, MoE architectures, dynam",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg8dex",
+      "title": "PewDiePie fine-tuned Qwen2.5-Coder-32B to beat ChatGPT 4o on coding benchmarks.",
+      "url": "https://www.youtube.com/watch?v=aV4j5pXLP-I&amp;feature=youtu.be",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "model_release",
+      "score": 54,
+      "summary": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg86um",
+      "title": "Real Vibe Design is here",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1rg86um/real_vibe_design_is_here/",
+      "source": "Reddit r/ClaudeAI",
+      "category": "product_ecosystem",
+      "score": 54,
+      "summary": "I'm building a platform bridging creators and technology. I wanted full control over how my UI looks, but I'm a developer, not a designer.\n\nSo I spent 3 days vibe coding with Claude Opus 4.6 and built an MCP that lets Claude design directly in Figma. It creates actual Figma files you can touch on and adjust.\n\nThis is Vibe Design. The video shows Claude generating a complete design system from a single prompt, zero edits needed.\n\nGPT-5.3-Codex gets close but makes mistakes. Only Opus 4.6 pulls th",
+      "date": "2026-02-27"
+    },
+    {
+      "id": "reddit-1rg6ph3",
+      "title": "Qwen3.5 feels ready for production use - Never been this excited",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg6ph3/qwen35_feels_ready_for_production_use_never_been/",
+      "source": "Reddit r/LocalLLaMA",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "I ran a lot of tests playing with Qwen3.5-35B-A3B-UD-Q6\\_K\\_XL yesterday. Hitting around 1504pp2048 and 47.71 tg256 \n\nToken speed is solid spread across two GPUs.\n\nWhen I drop it down to one GPU that bumped up to 80tps.\n\nBut that's not what I'm hear to talk about. I did some basic benchmarking at first, then I had a thought. Let's take this for a ride in my real life client projects.\n\nSo basically I took a bunch of my projects and client projects, used Git Worktrees to role back to know spec cha",
+      "date": "2026-02-27"
+    },
+    {
       "id": "gh-GreatScott-enject",
       "title": "GreatScott/enject (⭐374)",
       "url": "https://github.com/GreatScott/enject",
@@ -101,6 +241,16 @@
       "category": "developer_platform",
       "score": 82,
       "summary": "<details open>  server: fix load-on-startup not respected in ini file (#19897)  Co-authored-by: Roman Marchenko <r.marchenko@ideco.ru>  </details>  **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b8162/llama-b8162-bin-macos-a",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "reddit-1rffcup",
+      "title": "Burger King will use AI to check if employees say ‘please’ and ‘thank you’.  AI chatbot ‘Patty’ is going to live inside employees’ headsets.",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/884911/burger-king-ai-assistant-patty",
+      "source": "Reddit r/artificial",
+      "category": "product_ecosystem",
+      "score": 51,
+      "summary": "Burger King is launching a new AI assistant, called Patty, that will live inside employees’ headsets, allowing them to ask questions while they prepare food or clean machines.",
       "date": "2026-02-26"
     },
     {
@@ -1444,5 +1594,5 @@
       "date": "2025-12-29"
     }
   ],
-  "lastUpdated": "2026-02-27"
+  "lastUpdated": "2026-02-28"
 }
