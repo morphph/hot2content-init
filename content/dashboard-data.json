@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-01T22:15:44.963Z",
+  "generatedAt": "2026-03-02T22:14:59.787Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-03-02",
+      "lastRunDate": "2026-03-03",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-03-02",
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-03-03",
       "enPublished": true,
       "zhPublished": false
     },
@@ -13,11 +13,15 @@
       "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 181,
-      "last72h": 313,
-      "total": 1298
+      "last24h": 136,
+      "last72h": 306,
+      "total": 1356
     },
     "recentErrors": [
+      "error: Please commit or stash them.",
+      "error: Please commit or stash them.",
+      "❌ git pull failed",
+      "❌ git pull failed",
       "error: cannot pull with rebase: You have unstaged changes.",
       "error: cannot pull with rebase: You have unstaged changes.",
       "error: Please commit or stash them.",
@@ -305,7 +309,7 @@
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 9
+      "newsletter": 10
     },
     "byTier": {
       "0": 7,
@@ -314,13 +318,13 @@
       "3": 39
     },
     "publishedLast7d": 7,
-    "publishedLast30d": 9,
+    "publishedLast30d": 10,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 9
+      "noScore": 10
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -331,9 +335,9 @@
     },
     "freshnessBacklog": 5,
     "newsletterStreak": {
-      "en": 2,
+      "en": 3,
       "zh": 1,
-      "lastEnDate": "2026-03-02",
+      "lastEnDate": "2026-03-03",
       "lastZhDate": "2026-03-01"
     }
   },
@@ -4497,6 +4501,13 @@
   },
   "dailyTrend": [
     {
+      "date": "2026-03-02",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
+    {
       "date": "2026-03-01",
       "contentCount": 0,
       "qualityPassRate": 0,
@@ -4584,13 +4595,6 @@
       "date": "2026-02-17",
       "contentCount": 19,
       "qualityPassRate": 0,
-      "kwExtracted": 0,
-      "kwPublished": 0
-    },
-    {
-      "date": "2026-02-16",
-      "contentCount": 37,
-      "qualityPassRate": 3,
       "kwExtracted": 0,
       "kwPublished": 0
     }
