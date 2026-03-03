@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-02T22:14:59.787Z",
+  "generatedAt": "2026-03-03T22:12:55.061Z",
   "pipelineHealth": {
     "newsletter": {
-      "lastRunDate": "2026-03-03",
+      "lastRunDate": "2026-03-04",
       "lastRunStatus": "success",
-      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-03-03",
+      "lastRunMessage": "✅ Newsletter pipeline complete for 2026-03-04",
       "enPublished": true,
       "zhPublished": false
     },
@@ -13,9 +13,9 @@
       "lastRunStatus": "complete"
     },
     "newsItems": {
-      "last24h": 136,
+      "last24h": 124,
       "last72h": 306,
-      "total": 1356
+      "total": 1423
     },
     "recentErrors": [
       "error: Please commit or stash them.",
@@ -304,12 +304,12 @@
         "search_intent": "Meta announces multi-year AMD partnership with 6GW of data center capacity for Instinct GPUs - major shift in AI infrastructure landscape"
       }
     ],
-    "staleBacklogCount": 10,
+    "staleBacklogCount": 20,
     "total": 60
   },
   "contentOutput": {
     "byType": {
-      "newsletter": 10
+      "newsletter": 11
     },
     "byTier": {
       "0": 7,
@@ -318,13 +318,13 @@
       "3": 39
     },
     "publishedLast7d": 7,
-    "publishedLast30d": 10,
+    "publishedLast30d": 11,
     "seoScoreDistribution": {
       "poor": 0,
       "fair": 0,
       "good": 0,
       "excellent": 0,
-      "noScore": 10
+      "noScore": 11
     },
     "enArticles": 0,
     "zhArticles": 0,
@@ -333,11 +333,11 @@
       "enOnly": 4,
       "zhOnly": 5
     },
-    "freshnessBacklog": 5,
+    "freshnessBacklog": 7,
     "newsletterStreak": {
-      "en": 3,
+      "en": 4,
       "zh": 1,
-      "lastEnDate": "2026-03-03",
+      "lastEnDate": "2026-03-04",
       "lastZhDate": "2026-03-01"
     }
   },
@@ -369,11 +369,11 @@
         "published": 0
       },
       "news": {
-        "added": 50,
+        "added": 40,
         "published": 0
       },
       "paa": {
-        "added": 96,
+        "added": 67,
         "published": 0
       }
     }
@@ -3671,835 +3671,17 @@
             ]
           }
         ]
-      },
-      {
-        "date": "2026-02-24",
-        "qualitySummary": {
-          "total": 18,
-          "passed": 0,
-          "flagged": 18,
-          "flags": {
-            "Has TL;DR": 12,
-            "Title length": 8,
-            "Word count": 12,
-            "Description length": 14
-          }
-        },
-        "items": [
-          {
-            "keyword": "Anthropic distillation attack detection",
-            "type": "glossary",
-            "score": 90,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "Detecting and preventing distillation attacks",
-                "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks"
-              },
-              {
-                "title": "We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and M",
-                "url": "https://x.com/AnthropicAI/status/2025997928242811253"
-              }
-            ],
-            "content": [
-              {
-                "title": "Anthropic distillation attack detection — What It Is and Why It Matters",
-                "slug": "anthropic-distillation-attack-detection",
-                "language": "en",
-                "tier": null,
-                "wordCount": 430,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "71 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "Anthropic 蒸馏攻击检测（Anthropic distillation attack detection）— 定义、原理与应用",
-                "slug": "anthropic-distillation-attack-detection",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 93,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "93 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "67 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "40 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "OpenAI Responses API WebSockets",
-            "type": "tier3",
-            "score": 81,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "Introducing WebSockets in the Responses API.",
-                "url": "https://x.com/OpenAIDevs/status/2026025368650690932"
-              },
-              {
-                "title": "📦 openai/openai-python v2.22.0",
-                "url": "https://github.com/openai/openai-python/releases/tag/v2.22.0"
-              }
-            ],
-            "content": [
-              {
-                "title": "OpenAI Responses API WebSockets — Quick Guide",
-                "slug": "openai-responses-api-websockets",
-                "language": "en",
-                "tier": 3,
-                "wordCount": 194,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "194 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "87 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "OpenAI Responses API WebSocket 支持：Agent 开发者的低延迟利器",
-                "slug": "openai-responses-api-websockets",
-                "language": "zh",
-                "tier": 3,
-                "wordCount": 72,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "72 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "76 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "SWE-bench Pro vs SWE-bench Verified",
-            "type": "faq",
-            "score": 81,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "The standard for frontier coding evals is changing with model maturity.",
-                "url": "https://x.com/OpenAIDevs/status/2026002219909427270"
-              }
-            ],
-            "content": [
-              {
-                "title": "SWE-bench Pro vs SWE-bench Verified — Frequently Asked Questions",
-                "slug": "swe-bench-pro-vs-swe-bench-verified",
-                "language": "en",
-                "tier": null,
-                "wordCount": 1100,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "1100 words (target: 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "85 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "SWE-bench Pro 与 SWE-bench Verified 对比 — 常见问题解答",
-                "slug": "swe-bench-pro-vs-swe-bench-verified",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 327,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "50 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "gpt-realtime-1.5 voice API",
-            "type": "tier2",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "Voice workflows just got stronger with gpt-realtime-1.5 in the Realtime API.",
-                "url": "https://x.com/OpenAIDevs/status/2026014334787461508"
-              }
-            ],
-            "content": [
-              {
-                "title": "gpt-realtime-1.5 Voice API: OpenAI's Push for Production-Ready Voice Workflows",
-                "slug": "gpt-realtime-1-5-voice-api",
-                "language": "en",
-                "tier": 2,
-                "wordCount": 2209,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "2209 words (target: 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "78 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "174 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "gpt-realtime-1.5 语音 API — 深度分析与行业影响",
-                "slug": "gpt-realtime-1-5-voice-api",
-                "language": "zh",
-                "tier": 2,
-                "wordCount": 228,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "228 words (T2 needs 800-1500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "47 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "Google TranslateGemma open translation models",
-            "type": "glossary",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "We’re releasing TranslateGemma, a new family of open translation models with support for 55 language",
-                "url": "https://x.com/GoogleDeepMind/status/2011848249850630363"
-              }
-            ],
-            "content": [
-              {
-                "title": "Google TranslateGemma open translation models — What It Is and Why It Matters",
-                "slug": "google-translategemma-open-translation-models",
-                "language": "en",
-                "tier": null,
-                "wordCount": 439,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "77 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "Google TranslateGemma 开源翻译模型（Google TranslateGemma open translation models）— 定义、原理与应用",
-                "slug": "google-translategemma-open-translation-models",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 65,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "65 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "fail",
-                    "detail": "85 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "52 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "Claude Code subagents collection",
-            "type": "tier3",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "VoltAgent/awesome-claude-code-subagents (⭐11,007)",
-                "url": "https://github.com/VoltAgent/awesome-claude-code-subagents"
-              }
-            ],
-            "content": [
-              {
-                "title": "Claude Code Subagents Collection — Quick Guide",
-                "slug": "claude-code-subagents-collection",
-                "language": "en",
-                "tier": 3,
-                "wordCount": 172,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "172 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "warn",
-                    "detail": "88 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "Claude Code 子代理集合 — 快速指南",
-                "slug": "claude-code-subagents-collection",
-                "language": "zh",
-                "tier": 3,
-                "wordCount": 80,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "80 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "24 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "35 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "Playwright MCP server browser automation",
-            "type": "tier2",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "microsoft/playwright-mcp (⭐27,481)",
-                "url": "https://github.com/microsoft/playwright-mcp"
-              }
-            ],
-            "content": []
-          },
-          {
-            "keyword": "AI Fluency Index human-AI collaboration",
-            "type": "glossary",
-            "score": 72,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "New research: The AI Fluency Index.",
-                "url": "https://x.com/AnthropicAI/status/2025950279099961854"
-              }
-            ],
-            "content": [
-              {
-                "title": "AI Fluency Index human-AI collaboration — What It Is and Why It Matters",
-                "slug": "ai-fluency-index-human-ai-collaboration",
-                "language": "en",
-                "tier": null,
-                "wordCount": 402,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "warn",
-                    "detail": "71 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "AI 流畅度指数人机协作（AI Fluency Index human-AI collaboration）— 定义、原理与应用",
-                "slug": "ai-fluency-index-human-ai-collaboration",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 78,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "78 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "36 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "Alibaba zvec vector database",
-            "type": "glossary",
-            "score": 64,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "alibaba/zvec (⭐7,452)",
-                "url": "https://github.com/alibaba/zvec"
-              }
-            ],
-            "content": [
-              {
-                "title": "alibaba-zvec-vector-database-en",
-                "slug": "alibaba-zvec-vector-database",
-                "language": "en",
-                "tier": null,
-                "wordCount": 357,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "fail",
-                    "detail": "0 chars (target: 30-65)"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "0 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "阿里巴巴 zvec 向量数据库（Alibaba zvec vector database）— 定义、原理与应用",
-                "slug": "alibaba-zvec-vector-database",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 74,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "fail",
-                    "detail": "74 words (T3 needs 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "39 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "keyword": "zvec vs Chroma vector database",
-            "type": "compare",
-            "score": 64,
-            "source": "news",
-            "sourceNews": [
-              {
-                "title": "alibaba/zvec (⭐7,452)",
-                "url": "https://github.com/alibaba/zvec"
-              },
-              {
-                "title": "chroma-core/chroma (⭐26,243)",
-                "url": "https://github.com/chroma-core/chroma"
-              }
-            ],
-            "content": [
-              {
-                "title": "zvec vs Chroma vector database — Detailed Comparison",
-                "slug": "zvec-vs-chroma-vector-database",
-                "language": "en",
-                "tier": null,
-                "wordCount": 897,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "warn",
-                    "detail": "897 words (target: 300-500)"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              },
-              {
-                "title": "zvec 与 Chroma 向量数据库对比 — 详细对比分析",
-                "slug": "zvec-vs-chroma-vector-database",
-                "language": "zh",
-                "tier": null,
-                "wordCount": 431,
-                "seoScore": null,
-                "flags": [
-                  {
-                    "name": "Word count",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Has TL;DR",
-                    "status": "warn",
-                    "detail": "Missing TL;DR / 一句话总结"
-                  },
-                  {
-                    "name": "Title length",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Description length",
-                    "status": "fail",
-                    "detail": "39 chars (target: 100-160)"
-                  },
-                  {
-                    "name": "Has keywords",
-                    "status": "pass"
-                  },
-                  {
-                    "name": "Hreflang pair",
-                    "status": "pass"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
       }
     ]
   },
   "dailyTrend": [
+    {
+      "date": "2026-03-03",
+      "contentCount": 0,
+      "qualityPassRate": 0,
+      "kwExtracted": 0,
+      "kwPublished": 0
+    },
     {
       "date": "2026-03-02",
       "contentCount": 0,
@@ -4587,13 +3769,6 @@
     {
       "date": "2026-02-18",
       "contentCount": 20,
-      "qualityPassRate": 0,
-      "kwExtracted": 0,
-      "kwPublished": 0
-    },
-    {
-      "date": "2026-02-17",
-      "contentCount": 19,
       "qualityPassRate": 0,
       "kwExtracted": 0,
       "kwPublished": 0
@@ -4941,92 +4116,6 @@
             "type": "tier3",
             "search_intent": "HuggingFace guide on deploying open source Vision Language Models on NVIDIA Jetson for edge AI applications",
             "score": 56,
-            "sourceNews": []
-          }
-        ]
-      },
-      {
-        "date": "2026-02-24",
-        "count": 10,
-        "items": [
-          {
-            "keyword": "Anthropic distillation attack detection",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Anthropic identified industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax using 24,000+ fraudulent accounts. This is a new AI security concept that developers need to understand.",
-            "score": 90,
-            "sourceNews": []
-          },
-          {
-            "keyword": "OpenAI Responses API WebSockets",
-            "language": "en",
-            "type": "tier3",
-            "search_intent": "OpenAI just released WebSocket support for the Responses API, specifically designed for low-latency, long-running agents with heavy tool calls. Critical for real-time agent development.",
-            "score": 81,
-            "sourceNews": []
-          },
-          {
-            "keyword": "SWE-bench Pro vs SWE-bench Verified",
-            "language": "en",
-            "type": "faq",
-            "search_intent": "OpenAI announced they now recommend SWE-bench Pro over SWE-bench Verified as the coding eval standard. Important shift for understanding AI coding benchmarks.",
-            "score": 81,
-            "sourceNews": []
-          },
-          {
-            "keyword": "gpt-realtime-1.5 voice API",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "OpenAI released gpt-realtime-1.5 with improved instruction following, tool calling, and multilingual accuracy for voice workflows. Important for voice agent builders.",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Google TranslateGemma open translation models",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Google DeepMind released TranslateGemma, open translation models in 4B/12B/27B sizes supporting 55 languages. Significant for multilingual AI applications.",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Claude Code subagents collection",
-            "language": "en",
-            "type": "tier3",
-            "search_intent": "VoltAgent's awesome-claude-code-subagents has 11,007 stars with 100+ specialized agents. Essential resource for Claude Code power users.",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Playwright MCP server browser automation",
-            "language": "en",
-            "type": "tier2",
-            "search_intent": "Microsoft's Playwright MCP server has 27,481 stars, becoming the standard for AI agent browser automation via Model Context Protocol.",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "AI Fluency Index human-AI collaboration",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Anthropic's new AI Fluency Index measures how well people collaborate with AI across 11 behaviors. New metric for evaluating human-AI interaction quality.",
-            "score": 72,
-            "sourceNews": []
-          },
-          {
-            "keyword": "Alibaba zvec vector database",
-            "language": "en",
-            "type": "glossary",
-            "search_intent": "Alibaba's zvec is a lightweight, in-process vector database gaining traction (7,452 stars). Alternative to Chroma for embedded vector search use cases.",
-            "score": 64,
-            "sourceNews": []
-          },
-          {
-            "keyword": "zvec vs Chroma vector database",
-            "language": "en",
-            "type": "compare",
-            "search_intent": "Both Alibaba zvec and Chroma are trending for AI applications. Developers need guidance on choosing between in-process vs standalone vector databases.",
-            "score": 64,
             "sourceNews": []
           }
         ]
